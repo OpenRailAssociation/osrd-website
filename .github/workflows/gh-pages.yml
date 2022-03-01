@@ -34,8 +34,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - run: npm install -D --save autoprefixer
+      - run: npm install -D --save postcss-cli
+
       - name: Build
-        run: npm ci && hugo --minify
+        run: hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
