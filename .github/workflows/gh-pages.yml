@@ -35,6 +35,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm install autoprefixer
+      - run: npm install postcss
       - run: npm install postcss-cli
 
       - name: Build
