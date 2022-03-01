@@ -3,4 +3,15 @@
 Add styles or override variables from the theme here.
 
 */
+$pink-bright: #aa026d;
+$pink-dark: #71196f;
+$primary: $pink-bright;
+$secondary: $pink-dark;
 
+.td-navbar {
+  background: $pink-dark !important;
+}
+.td-sidebar-nav .td-sidebar-link.tree-root {
+  color: $pink-dark !important;
+  border-color: $pink-dark !important;
+}
