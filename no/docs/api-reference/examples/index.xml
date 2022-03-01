@@ -1,0 +1,1316 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Goldydocs – Praktiske eksempler</title><link>/no/docs/api-reference/examples/</link><description>Recent content in Praktiske eksempler on Goldydocs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 03 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="/no/docs/api-reference/examples/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Matten til monografer: Hvordan virker det?</title><link>/no/docs/api-reference/examples/the-math-of-monographs-how-does-it-work/</link><pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate><guid>/no/docs/api-reference/examples/the-math-of-monographs-how-does-it-work/</guid><description>
+&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://gohugo.io">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
+&lt;p>There should be whitespace between paragraphs. Lorem markdownum tempus auras formasque ore vir crescere est! Malo quod, hunc, est dura; aut haec simillima nec per conantemque iusserat audax moriensque confessasque. Haec vulneret quam libratum homo pede arbore tu manus membrisque iuveni Clymeneia se cepi unda, iustae? Et genitor humanaeve undis &lt;strong>Dicta limina&lt;/strong> vinoque vestigia decorum nulla ars. Pectora sede: quoque magnum Persidaque in suos, adiciunt tenebor.&lt;/p>
+&lt;p>Formidine humo velle vulnera remotis admonitu suo mora vivo ubi. Libidine et mittor Orphei nulla. Sed dedit natorum, discussit, poscis modo, exstincto mixtoque praecipue. Aestu fundae pampineis cupiens Achillis, qua inclusa multis, &lt;em>colorque&lt;/em>, Ereboque tibi habetis quoque.&lt;/p>
+&lt;blockquote>
+&lt;p>There should be no margin above this first sentence.&lt;/p>
+&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
+&lt;p>There should be no margin below this final sentence.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="first-header-2">First Header 2&lt;/h2>
+&lt;p>This is a normal paragraph following a header. Victrix tridentigero corripuere messibus, una rector, me se Iovis. &lt;em>Dixit nocte tetigit&lt;/em> circumtulit visa alto limina, letique Erigoneque dumque. Verba qua acre castique cycno talia fuga exul ora pars Neritius Ioles; &lt;strong>modo&lt;/strong>. Solacia fores servat querno tamen! Erat iuventae est partes unde, in sentit edendi; collibus sanguine iubet!&lt;/p>
+&lt;p>Deae legum paulatimque terra, non vos mutata tacet: dic. Vocant docuique me plumas fila quin afuerunt copia haec o neque.&lt;/p>
+&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
+&lt;p>Erat vera cur scelus mundo quam? Mille nec, nam interea fortuna umerumque solent rettulit videtque e arces: velut enim sit moderatior quasque &lt;strong>carituraque ait&lt;/strong>.&lt;/p>
+&lt;h2 id="second-header-2">Second Header 2&lt;/h2>
+&lt;blockquote>
+&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="header-3">Header 3&lt;/h3>
+&lt;pre tabindex="0">&lt;code>This is a code block following a header.
+&lt;/code>&lt;/pre>&lt;p>Omne tamen vultus et caelum habitabilis inter est: despondet somnus Olympi Iove foribus: habet data, suos. Suis illi auro verba sibi os Turno. Oris avis mariti callida deficis tangor.&lt;/p>
+&lt;h4 id="header-4">Header 4&lt;/h4>
+&lt;ul>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;/ul>
+&lt;h5 id="header-5">Header 5&lt;/h5>
+&lt;ol>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;/ol>
+&lt;h6 id="header-6">Header 6&lt;/h6>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Follows&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
+&lt;hr>
+&lt;p>Here is an unordered list:&lt;/p>
+&lt;ul>
+&lt;li>Liverpool F.C.&lt;/li>
+&lt;li>Chelsea F.C.&lt;/li>
+&lt;li>Manchester United F.C.&lt;/li>
+&lt;/ul>
+&lt;p>And an ordered list:&lt;/p>
+&lt;ol>
+&lt;li>Michael Brecker&lt;/li>
+&lt;li>Seamus Blake&lt;/li>
+&lt;li>Branford Marsalis&lt;/li>
+&lt;/ol>
+&lt;p>And an unordered task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a Hugo theme&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
+&lt;/ul>
+&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Pack bags&lt;/li>
+&lt;li>?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Travel!&lt;/li>
+&lt;/ul>
+&lt;p>And a nested list:&lt;/p>
+&lt;ul>
+&lt;li>Jackson 5
+&lt;ul>
+&lt;li>Michael&lt;/li>
+&lt;li>Tito&lt;/li>
+&lt;li>Jackie&lt;/li>
+&lt;li>Marlon&lt;/li>
+&lt;li>Jermaine&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>TMNT
+&lt;ul>
+&lt;li>Leonardo&lt;/li>
+&lt;li>Michelangelo&lt;/li>
+&lt;li>Donatello&lt;/li>
+&lt;li>Raphael&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Definition lists can be used with Markdown syntax. Definition headers are bold.&lt;/p>
+&lt;dl>
+&lt;dt>Name&lt;/dt>
+&lt;dd>Godzilla&lt;/dd>
+&lt;dt>Born&lt;/dt>
+&lt;dd>1952&lt;/dd>
+&lt;dt>Birthplace&lt;/dt>
+&lt;dd>Japan&lt;/dd>
+&lt;dt>Color&lt;/dt>
+&lt;dd>Green&lt;/dd>
+&lt;/dl>
+&lt;hr>
+&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;th>Label&lt;/th>
+&lt;th>Awards&lt;/th>
+&lt;th>Songs&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;td>Epic Records&lt;/td>
+&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;td>Warner Brothers Records&lt;/td>
+&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
+&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;td>Mercury Records&lt;/td>
+&lt;td>noawardsbutthistablecelliswide&lt;/td>
+&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
+&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
+&lt;p>Code can also be shown in a block element.&lt;/p>
+&lt;pre tabindex="0">&lt;code>foo := &amp;#34;bar&amp;#34;;
+bar := &amp;#34;foo&amp;#34;;
+&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Language&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Javascript&lt;/td>
+&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ruby&lt;/td>
+&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Small images should be shown at their actual size.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>&lt;em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.&lt;/em>&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;h3 id="alerts">Alerts&lt;/h3>
+&lt;p>
+&lt;div class="alert alert-primary" role="alert">
+This is an alert.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title and &lt;strong>Markdown&lt;/strong>.
+&lt;/div>
+&lt;div class="alert alert-success" role="alert">
+This is a successful alert.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+This is a warning.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+This is a warning with a title.
+&lt;/div>
+&lt;/p>
+&lt;h2 id="another-heading">Another Heading&lt;/h2>
+&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="this-document">This Document&lt;/h3>
+&lt;p>Inguina genus: Anaphen post: lingua violente voce suae meus aetate diversi. Orbis unam nec flammaeque status deam Silenum erat et a ferrea. Excitus rigidum ait: vestro et Herculis convicia: nitidae deseruit coniuge Proteaque adiciam &lt;em>eripitur&lt;/em>? Sitim noceat signa &lt;em>probat quidem&lt;/em>. Sua longis &lt;em>fugatis&lt;/em> quidem genae.&lt;/p>
+&lt;h3 id="pixel-count">Pixel Count&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;h3 id="contact-info">Contact Info&lt;/h3>
+&lt;p>Factum Perseus est brevis abdita Odrysius, quod contendere urbes misceat accessit nudum oris non. Cumque dentibus nullam nec mille potentia regnumque supplex!&lt;/p>
+&lt;h3 id="external-links">External Links&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;pre tabindex="0">&lt;code>This is the final element on the page and there should be no margin below this.
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Detaljert om monolitter: Detaljert spesifikasjon</title><link>/no/docs/api-reference/examples/in-depth-monoliths-detailed-spec/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/no/docs/api-reference/examples/in-depth-monoliths-detailed-spec/</guid><description>
+&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://gohugo.io">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
+&lt;p>There should be whitespace between paragraphs. Lorem markdownum tempus auras formasque ore vir crescere est! Malo quod, hunc, est dura; aut haec simillima nec per conantemque iusserat audax moriensque confessasque. Haec vulneret quam libratum homo pede arbore tu manus membrisque iuveni Clymeneia se cepi unda, iustae? Et genitor humanaeve undis &lt;strong>Dicta limina&lt;/strong> vinoque vestigia decorum nulla ars. Pectora sede: quoque magnum Persidaque in suos, adiciunt tenebor.&lt;/p>
+&lt;p>Formidine humo velle vulnera remotis admonitu suo mora vivo ubi. Libidine et mittor Orphei nulla. Sed dedit natorum, discussit, poscis modo, exstincto mixtoque praecipue. Aestu fundae pampineis cupiens Achillis, qua inclusa multis, &lt;em>colorque&lt;/em>, Ereboque tibi habetis quoque.&lt;/p>
+&lt;blockquote>
+&lt;p>There should be no margin above this first sentence.&lt;/p>
+&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
+&lt;p>There should be no margin below this final sentence.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="first-header-2">First Header 2&lt;/h2>
+&lt;p>This is a normal paragraph following a header. Victrix tridentigero corripuere messibus, una rector, me se Iovis. &lt;em>Dixit nocte tetigit&lt;/em> circumtulit visa alto limina, letique Erigoneque dumque. Verba qua acre castique cycno talia fuga exul ora pars Neritius Ioles; &lt;strong>modo&lt;/strong>. Solacia fores servat querno tamen! Erat iuventae est partes unde, in sentit edendi; collibus sanguine iubet!&lt;/p>
+&lt;p>Deae legum paulatimque terra, non vos mutata tacet: dic. Vocant docuique me plumas fila quin afuerunt copia haec o neque.&lt;/p>
+&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
+&lt;p>Erat vera cur scelus mundo quam? Mille nec, nam interea fortuna umerumque solent rettulit videtque e arces: velut enim sit moderatior quasque &lt;strong>carituraque ait&lt;/strong>.&lt;/p>
+&lt;h2 id="second-header-2">Second Header 2&lt;/h2>
+&lt;blockquote>
+&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="header-3">Header 3&lt;/h3>
+&lt;pre tabindex="0">&lt;code>This is a code block following a header.
+&lt;/code>&lt;/pre>&lt;p>Omne tamen vultus et caelum habitabilis inter est: despondet somnus Olympi Iove foribus: habet data, suos. Suis illi auro verba sibi os Turno. Oris avis mariti callida deficis tangor.&lt;/p>
+&lt;h4 id="header-4">Header 4&lt;/h4>
+&lt;ul>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;/ul>
+&lt;h5 id="header-5">Header 5&lt;/h5>
+&lt;ol>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;/ol>
+&lt;h6 id="header-6">Header 6&lt;/h6>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Follows&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
+&lt;hr>
+&lt;p>Here is an unordered list:&lt;/p>
+&lt;ul>
+&lt;li>Liverpool F.C.&lt;/li>
+&lt;li>Chelsea F.C.&lt;/li>
+&lt;li>Manchester United F.C.&lt;/li>
+&lt;/ul>
+&lt;p>And an ordered list:&lt;/p>
+&lt;ol>
+&lt;li>Michael Brecker&lt;/li>
+&lt;li>Seamus Blake&lt;/li>
+&lt;li>Branford Marsalis&lt;/li>
+&lt;/ol>
+&lt;p>And an unordered task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a Hugo theme&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
+&lt;/ul>
+&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Pack bags&lt;/li>
+&lt;li>?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Travel!&lt;/li>
+&lt;/ul>
+&lt;p>And a nested list:&lt;/p>
+&lt;ul>
+&lt;li>Jackson 5
+&lt;ul>
+&lt;li>Michael&lt;/li>
+&lt;li>Tito&lt;/li>
+&lt;li>Jackie&lt;/li>
+&lt;li>Marlon&lt;/li>
+&lt;li>Jermaine&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>TMNT
+&lt;ul>
+&lt;li>Leonardo&lt;/li>
+&lt;li>Michelangelo&lt;/li>
+&lt;li>Donatello&lt;/li>
+&lt;li>Raphael&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Definition lists can be used with Markdown syntax. Definition headers are bold.&lt;/p>
+&lt;dl>
+&lt;dt>Name&lt;/dt>
+&lt;dd>Godzilla&lt;/dd>
+&lt;dt>Born&lt;/dt>
+&lt;dd>1952&lt;/dd>
+&lt;dt>Birthplace&lt;/dt>
+&lt;dd>Japan&lt;/dd>
+&lt;dt>Color&lt;/dt>
+&lt;dd>Green&lt;/dd>
+&lt;/dl>
+&lt;hr>
+&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;th>Label&lt;/th>
+&lt;th>Awards&lt;/th>
+&lt;th>Songs&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;td>Epic Records&lt;/td>
+&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;td>Warner Brothers Records&lt;/td>
+&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
+&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;td>Mercury Records&lt;/td>
+&lt;td>noawardsbutthistablecelliswide&lt;/td>
+&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
+&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
+&lt;p>Code can also be shown in a block element.&lt;/p>
+&lt;pre tabindex="0">&lt;code>foo := &amp;#34;bar&amp;#34;;
+bar := &amp;#34;foo&amp;#34;;
+&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Language&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Javascript&lt;/td>
+&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ruby&lt;/td>
+&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Small images should be shown at their actual size.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>&lt;em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.&lt;/em>&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;h3 id="alerts">Alerts&lt;/h3>
+&lt;p>
+&lt;div class="alert alert-primary" role="alert">
+This is an alert.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title and &lt;strong>Markdown&lt;/strong>.
+&lt;/div>
+&lt;div class="alert alert-success" role="alert">
+This is a successful alert.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+This is a warning.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+This is a warning with a title.
+&lt;/div>
+&lt;/p>
+&lt;h2 id="another-heading">Another Heading&lt;/h2>
+&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="this-document">This Document&lt;/h3>
+&lt;p>Inguina genus: Anaphen post: lingua violente voce suae meus aetate diversi. Orbis unam nec flammaeque status deam Silenum erat et a ferrea. Excitus rigidum ait: vestro et Herculis convicia: nitidae deseruit coniuge Proteaque adiciam &lt;em>eripitur&lt;/em>? Sitim noceat signa &lt;em>probat quidem&lt;/em>. Sua longis &lt;em>fugatis&lt;/em> quidem genae.&lt;/p>
+&lt;h3 id="pixel-count">Pixel Count&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;h3 id="contact-info">Contact Info&lt;/h3>
+&lt;p>Factum Perseus est brevis abdita Odrysius, quod contendere urbes misceat accessit nudum oris non. Cumque dentibus nullam nec mille potentia regnumque supplex!&lt;/p>
+&lt;h3 id="external-links">External Links&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;pre tabindex="0">&lt;code>This is the final element on the page and there should be no margin below this.
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Innsiden av kryptografi: Detaljert spesifikasjon</title><link>/no/docs/api-reference/examples/the-inside-of-cryptography-detailed-spec/</link><pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate><guid>/no/docs/api-reference/examples/the-inside-of-cryptography-detailed-spec/</guid><description>
+&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://gohugo.io">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
+&lt;p>There should be whitespace between paragraphs. Lorem markdownum tempus auras formasque ore vir crescere est! Malo quod, hunc, est dura; aut haec simillima nec per conantemque iusserat audax moriensque confessasque. Haec vulneret quam libratum homo pede arbore tu manus membrisque iuveni Clymeneia se cepi unda, iustae? Et genitor humanaeve undis &lt;strong>Dicta limina&lt;/strong> vinoque vestigia decorum nulla ars. Pectora sede: quoque magnum Persidaque in suos, adiciunt tenebor.&lt;/p>
+&lt;p>Formidine humo velle vulnera remotis admonitu suo mora vivo ubi. Libidine et mittor Orphei nulla. Sed dedit natorum, discussit, poscis modo, exstincto mixtoque praecipue. Aestu fundae pampineis cupiens Achillis, qua inclusa multis, &lt;em>colorque&lt;/em>, Ereboque tibi habetis quoque.&lt;/p>
+&lt;blockquote>
+&lt;p>There should be no margin above this first sentence.&lt;/p>
+&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
+&lt;p>There should be no margin below this final sentence.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="first-header-2">First Header 2&lt;/h2>
+&lt;p>This is a normal paragraph following a header. Victrix tridentigero corripuere messibus, una rector, me se Iovis. &lt;em>Dixit nocte tetigit&lt;/em> circumtulit visa alto limina, letique Erigoneque dumque. Verba qua acre castique cycno talia fuga exul ora pars Neritius Ioles; &lt;strong>modo&lt;/strong>. Solacia fores servat querno tamen! Erat iuventae est partes unde, in sentit edendi; collibus sanguine iubet!&lt;/p>
+&lt;p>Deae legum paulatimque terra, non vos mutata tacet: dic. Vocant docuique me plumas fila quin afuerunt copia haec o neque.&lt;/p>
+&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
+&lt;p>Erat vera cur scelus mundo quam? Mille nec, nam interea fortuna umerumque solent rettulit videtque e arces: velut enim sit moderatior quasque &lt;strong>carituraque ait&lt;/strong>.&lt;/p>
+&lt;h2 id="second-header-2">Second Header 2&lt;/h2>
+&lt;blockquote>
+&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="header-3">Header 3&lt;/h3>
+&lt;pre tabindex="0">&lt;code>This is a code block following a header.
+&lt;/code>&lt;/pre>&lt;p>Omne tamen vultus et caelum habitabilis inter est: despondet somnus Olympi Iove foribus: habet data, suos. Suis illi auro verba sibi os Turno. Oris avis mariti callida deficis tangor.&lt;/p>
+&lt;h4 id="header-4">Header 4&lt;/h4>
+&lt;ul>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;/ul>
+&lt;h5 id="header-5">Header 5&lt;/h5>
+&lt;ol>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;/ol>
+&lt;h6 id="header-6">Header 6&lt;/h6>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Follows&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
+&lt;hr>
+&lt;p>Here is an unordered list:&lt;/p>
+&lt;ul>
+&lt;li>Liverpool F.C.&lt;/li>
+&lt;li>Chelsea F.C.&lt;/li>
+&lt;li>Manchester United F.C.&lt;/li>
+&lt;/ul>
+&lt;p>And an ordered list:&lt;/p>
+&lt;ol>
+&lt;li>Michael Brecker&lt;/li>
+&lt;li>Seamus Blake&lt;/li>
+&lt;li>Branford Marsalis&lt;/li>
+&lt;/ol>
+&lt;p>And an unordered task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a Hugo theme&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
+&lt;/ul>
+&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Pack bags&lt;/li>
+&lt;li>?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Travel!&lt;/li>
+&lt;/ul>
+&lt;p>And a nested list:&lt;/p>
+&lt;ul>
+&lt;li>Jackson 5
+&lt;ul>
+&lt;li>Michael&lt;/li>
+&lt;li>Tito&lt;/li>
+&lt;li>Jackie&lt;/li>
+&lt;li>Marlon&lt;/li>
+&lt;li>Jermaine&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>TMNT
+&lt;ul>
+&lt;li>Leonardo&lt;/li>
+&lt;li>Michelangelo&lt;/li>
+&lt;li>Donatello&lt;/li>
+&lt;li>Raphael&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Definition lists can be used with Markdown syntax. Definition headers are bold.&lt;/p>
+&lt;dl>
+&lt;dt>Name&lt;/dt>
+&lt;dd>Godzilla&lt;/dd>
+&lt;dt>Born&lt;/dt>
+&lt;dd>1952&lt;/dd>
+&lt;dt>Birthplace&lt;/dt>
+&lt;dd>Japan&lt;/dd>
+&lt;dt>Color&lt;/dt>
+&lt;dd>Green&lt;/dd>
+&lt;/dl>
+&lt;hr>
+&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;th>Label&lt;/th>
+&lt;th>Awards&lt;/th>
+&lt;th>Songs&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;td>Epic Records&lt;/td>
+&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;td>Warner Brothers Records&lt;/td>
+&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
+&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;td>Mercury Records&lt;/td>
+&lt;td>noawardsbutthistablecelliswide&lt;/td>
+&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
+&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
+&lt;p>Code can also be shown in a block element.&lt;/p>
+&lt;pre tabindex="0">&lt;code>foo := &amp;#34;bar&amp;#34;;
+bar := &amp;#34;foo&amp;#34;;
+&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Language&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Javascript&lt;/td>
+&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ruby&lt;/td>
+&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Small images should be shown at their actual size.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>&lt;em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.&lt;/em>&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;h3 id="alerts">Alerts&lt;/h3>
+&lt;p>
+&lt;div class="alert alert-primary" role="alert">
+This is an alert.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title and &lt;strong>Markdown&lt;/strong>.
+&lt;/div>
+&lt;div class="alert alert-success" role="alert">
+This is a successful alert.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+This is a warning.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+This is a warning with a title.
+&lt;/div>
+&lt;/p>
+&lt;h2 id="another-heading">Another Heading&lt;/h2>
+&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="this-document">This Document&lt;/h3>
+&lt;p>Inguina genus: Anaphen post: lingua violente voce suae meus aetate diversi. Orbis unam nec flammaeque status deam Silenum erat et a ferrea. Excitus rigidum ait: vestro et Herculis convicia: nitidae deseruit coniuge Proteaque adiciam &lt;em>eripitur&lt;/em>? Sitim noceat signa &lt;em>probat quidem&lt;/em>. Sua longis &lt;em>fugatis&lt;/em> quidem genae.&lt;/p>
+&lt;h3 id="pixel-count">Pixel Count&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;h3 id="contact-info">Contact Info&lt;/h3>
+&lt;p>Factum Perseus est brevis abdita Odrysius, quod contendere urbes misceat accessit nudum oris non. Cumque dentibus nullam nec mille potentia regnumque supplex!&lt;/p>
+&lt;h3 id="external-links">External Links&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;pre tabindex="0">&lt;code>This is the final element on the page and there should be no margin below this.
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Matten til Java: Hvordan virker det?</title><link>/no/docs/api-reference/examples/the-math-of-java-how-does-it-work/</link><pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate><guid>/no/docs/api-reference/examples/the-math-of-java-how-does-it-work/</guid><description>
+&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://gohugo.io">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
+&lt;p>There should be whitespace between paragraphs. Lorem markdownum tempus auras formasque ore vir crescere est! Malo quod, hunc, est dura; aut haec simillima nec per conantemque iusserat audax moriensque confessasque. Haec vulneret quam libratum homo pede arbore tu manus membrisque iuveni Clymeneia se cepi unda, iustae? Et genitor humanaeve undis &lt;strong>Dicta limina&lt;/strong> vinoque vestigia decorum nulla ars. Pectora sede: quoque magnum Persidaque in suos, adiciunt tenebor.&lt;/p>
+&lt;p>Formidine humo velle vulnera remotis admonitu suo mora vivo ubi. Libidine et mittor Orphei nulla. Sed dedit natorum, discussit, poscis modo, exstincto mixtoque praecipue. Aestu fundae pampineis cupiens Achillis, qua inclusa multis, &lt;em>colorque&lt;/em>, Ereboque tibi habetis quoque.&lt;/p>
+&lt;blockquote>
+&lt;p>There should be no margin above this first sentence.&lt;/p>
+&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
+&lt;p>There should be no margin below this final sentence.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="first-header-2">First Header 2&lt;/h2>
+&lt;p>This is a normal paragraph following a header. Victrix tridentigero corripuere messibus, una rector, me se Iovis. &lt;em>Dixit nocte tetigit&lt;/em> circumtulit visa alto limina, letique Erigoneque dumque. Verba qua acre castique cycno talia fuga exul ora pars Neritius Ioles; &lt;strong>modo&lt;/strong>. Solacia fores servat querno tamen! Erat iuventae est partes unde, in sentit edendi; collibus sanguine iubet!&lt;/p>
+&lt;p>Deae legum paulatimque terra, non vos mutata tacet: dic. Vocant docuique me plumas fila quin afuerunt copia haec o neque.&lt;/p>
+&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
+&lt;p>Erat vera cur scelus mundo quam? Mille nec, nam interea fortuna umerumque solent rettulit videtque e arces: velut enim sit moderatior quasque &lt;strong>carituraque ait&lt;/strong>.&lt;/p>
+&lt;h2 id="second-header-2">Second Header 2&lt;/h2>
+&lt;blockquote>
+&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="header-3">Header 3&lt;/h3>
+&lt;pre tabindex="0">&lt;code>This is a code block following a header.
+&lt;/code>&lt;/pre>&lt;p>Omne tamen vultus et caelum habitabilis inter est: despondet somnus Olympi Iove foribus: habet data, suos. Suis illi auro verba sibi os Turno. Oris avis mariti callida deficis tangor.&lt;/p>
+&lt;h4 id="header-4">Header 4&lt;/h4>
+&lt;ul>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;/ul>
+&lt;h5 id="header-5">Header 5&lt;/h5>
+&lt;ol>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;/ol>
+&lt;h6 id="header-6">Header 6&lt;/h6>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Follows&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
+&lt;hr>
+&lt;p>Here is an unordered list:&lt;/p>
+&lt;ul>
+&lt;li>Liverpool F.C.&lt;/li>
+&lt;li>Chelsea F.C.&lt;/li>
+&lt;li>Manchester United F.C.&lt;/li>
+&lt;/ul>
+&lt;p>And an ordered list:&lt;/p>
+&lt;ol>
+&lt;li>Michael Brecker&lt;/li>
+&lt;li>Seamus Blake&lt;/li>
+&lt;li>Branford Marsalis&lt;/li>
+&lt;/ol>
+&lt;p>And an unordered task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a Hugo theme&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
+&lt;/ul>
+&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Pack bags&lt;/li>
+&lt;li>?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Travel!&lt;/li>
+&lt;/ul>
+&lt;p>And a nested list:&lt;/p>
+&lt;ul>
+&lt;li>Jackson 5
+&lt;ul>
+&lt;li>Michael&lt;/li>
+&lt;li>Tito&lt;/li>
+&lt;li>Jackie&lt;/li>
+&lt;li>Marlon&lt;/li>
+&lt;li>Jermaine&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>TMNT
+&lt;ul>
+&lt;li>Leonardo&lt;/li>
+&lt;li>Michelangelo&lt;/li>
+&lt;li>Donatello&lt;/li>
+&lt;li>Raphael&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Definition lists can be used with Markdown syntax. Definition headers are bold.&lt;/p>
+&lt;dl>
+&lt;dt>Name&lt;/dt>
+&lt;dd>Godzilla&lt;/dd>
+&lt;dt>Born&lt;/dt>
+&lt;dd>1952&lt;/dd>
+&lt;dt>Birthplace&lt;/dt>
+&lt;dd>Japan&lt;/dd>
+&lt;dt>Color&lt;/dt>
+&lt;dd>Green&lt;/dd>
+&lt;/dl>
+&lt;hr>
+&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;th>Label&lt;/th>
+&lt;th>Awards&lt;/th>
+&lt;th>Songs&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;td>Epic Records&lt;/td>
+&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;td>Warner Brothers Records&lt;/td>
+&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
+&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;td>Mercury Records&lt;/td>
+&lt;td>noawardsbutthistablecelliswide&lt;/td>
+&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
+&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
+&lt;p>Code can also be shown in a block element.&lt;/p>
+&lt;pre tabindex="0">&lt;code>foo := &amp;#34;bar&amp;#34;;
+bar := &amp;#34;foo&amp;#34;;
+&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Language&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Javascript&lt;/td>
+&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ruby&lt;/td>
+&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Small images should be shown at their actual size.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>&lt;em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.&lt;/em>&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;h3 id="alerts">Alerts&lt;/h3>
+&lt;p>
+&lt;div class="alert alert-primary" role="alert">
+This is an alert.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title and &lt;strong>Markdown&lt;/strong>.
+&lt;/div>
+&lt;div class="alert alert-success" role="alert">
+This is a successful alert.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+This is a warning.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+This is a warning with a title.
+&lt;/div>
+&lt;/p>
+&lt;h2 id="another-heading">Another Heading&lt;/h2>
+&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="this-document">This Document&lt;/h3>
+&lt;p>Inguina genus: Anaphen post: lingua violente voce suae meus aetate diversi. Orbis unam nec flammaeque status deam Silenum erat et a ferrea. Excitus rigidum ait: vestro et Herculis convicia: nitidae deseruit coniuge Proteaque adiciam &lt;em>eripitur&lt;/em>? Sitim noceat signa &lt;em>probat quidem&lt;/em>. Sua longis &lt;em>fugatis&lt;/em> quidem genae.&lt;/p>
+&lt;h3 id="pixel-count">Pixel Count&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;h3 id="contact-info">Contact Info&lt;/h3>
+&lt;p>Factum Perseus est brevis abdita Odrysius, quod contendere urbes misceat accessit nudum oris non. Cumque dentibus nullam nec mille potentia regnumque supplex!&lt;/p>
+&lt;h3 id="external-links">External Links&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;pre tabindex="0">&lt;code>This is the final element on the page and there should be no margin below this.
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Innsiden av mikroservicer: Hvordan virker det?</title><link>/no/docs/api-reference/examples/the-inside-of-microservices-how-does-it-work/</link><pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate><guid>/no/docs/api-reference/examples/the-inside-of-microservices-how-does-it-work/</guid><description>
+&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://gohugo.io">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
+&lt;p>There should be whitespace between paragraphs. Lorem markdownum tempus auras formasque ore vir crescere est! Malo quod, hunc, est dura; aut haec simillima nec per conantemque iusserat audax moriensque confessasque. Haec vulneret quam libratum homo pede arbore tu manus membrisque iuveni Clymeneia se cepi unda, iustae? Et genitor humanaeve undis &lt;strong>Dicta limina&lt;/strong> vinoque vestigia decorum nulla ars. Pectora sede: quoque magnum Persidaque in suos, adiciunt tenebor.&lt;/p>
+&lt;p>Formidine humo velle vulnera remotis admonitu suo mora vivo ubi. Libidine et mittor Orphei nulla. Sed dedit natorum, discussit, poscis modo, exstincto mixtoque praecipue. Aestu fundae pampineis cupiens Achillis, qua inclusa multis, &lt;em>colorque&lt;/em>, Ereboque tibi habetis quoque.&lt;/p>
+&lt;blockquote>
+&lt;p>There should be no margin above this first sentence.&lt;/p>
+&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
+&lt;p>There should be no margin below this final sentence.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="first-header-2">First Header 2&lt;/h2>
+&lt;p>This is a normal paragraph following a header. Victrix tridentigero corripuere messibus, una rector, me se Iovis. &lt;em>Dixit nocte tetigit&lt;/em> circumtulit visa alto limina, letique Erigoneque dumque. Verba qua acre castique cycno talia fuga exul ora pars Neritius Ioles; &lt;strong>modo&lt;/strong>. Solacia fores servat querno tamen! Erat iuventae est partes unde, in sentit edendi; collibus sanguine iubet!&lt;/p>
+&lt;p>Deae legum paulatimque terra, non vos mutata tacet: dic. Vocant docuique me plumas fila quin afuerunt copia haec o neque.&lt;/p>
+&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
+&lt;p>Erat vera cur scelus mundo quam? Mille nec, nam interea fortuna umerumque solent rettulit videtque e arces: velut enim sit moderatior quasque &lt;strong>carituraque ait&lt;/strong>.&lt;/p>
+&lt;h2 id="second-header-2">Second Header 2&lt;/h2>
+&lt;blockquote>
+&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="header-3">Header 3&lt;/h3>
+&lt;pre tabindex="0">&lt;code>This is a code block following a header.
+&lt;/code>&lt;/pre>&lt;p>Omne tamen vultus et caelum habitabilis inter est: despondet somnus Olympi Iove foribus: habet data, suos. Suis illi auro verba sibi os Turno. Oris avis mariti callida deficis tangor.&lt;/p>
+&lt;h4 id="header-4">Header 4&lt;/h4>
+&lt;ul>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;/ul>
+&lt;h5 id="header-5">Header 5&lt;/h5>
+&lt;ol>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;/ol>
+&lt;h6 id="header-6">Header 6&lt;/h6>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Follows&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
+&lt;hr>
+&lt;p>Here is an unordered list:&lt;/p>
+&lt;ul>
+&lt;li>Liverpool F.C.&lt;/li>
+&lt;li>Chelsea F.C.&lt;/li>
+&lt;li>Manchester United F.C.&lt;/li>
+&lt;/ul>
+&lt;p>And an ordered list:&lt;/p>
+&lt;ol>
+&lt;li>Michael Brecker&lt;/li>
+&lt;li>Seamus Blake&lt;/li>
+&lt;li>Branford Marsalis&lt;/li>
+&lt;/ol>
+&lt;p>And an unordered task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a Hugo theme&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
+&lt;/ul>
+&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Pack bags&lt;/li>
+&lt;li>?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Travel!&lt;/li>
+&lt;/ul>
+&lt;p>And a nested list:&lt;/p>
+&lt;ul>
+&lt;li>Jackson 5
+&lt;ul>
+&lt;li>Michael&lt;/li>
+&lt;li>Tito&lt;/li>
+&lt;li>Jackie&lt;/li>
+&lt;li>Marlon&lt;/li>
+&lt;li>Jermaine&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>TMNT
+&lt;ul>
+&lt;li>Leonardo&lt;/li>
+&lt;li>Michelangelo&lt;/li>
+&lt;li>Donatello&lt;/li>
+&lt;li>Raphael&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Definition lists can be used with Markdown syntax. Definition headers are bold.&lt;/p>
+&lt;dl>
+&lt;dt>Name&lt;/dt>
+&lt;dd>Godzilla&lt;/dd>
+&lt;dt>Born&lt;/dt>
+&lt;dd>1952&lt;/dd>
+&lt;dt>Birthplace&lt;/dt>
+&lt;dd>Japan&lt;/dd>
+&lt;dt>Color&lt;/dt>
+&lt;dd>Green&lt;/dd>
+&lt;/dl>
+&lt;hr>
+&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;th>Label&lt;/th>
+&lt;th>Awards&lt;/th>
+&lt;th>Songs&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;td>Epic Records&lt;/td>
+&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;td>Warner Brothers Records&lt;/td>
+&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
+&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;td>Mercury Records&lt;/td>
+&lt;td>noawardsbutthistablecelliswide&lt;/td>
+&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
+&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
+&lt;p>Code can also be shown in a block element.&lt;/p>
+&lt;pre tabindex="0">&lt;code>foo := &amp;#34;bar&amp;#34;;
+bar := &amp;#34;foo&amp;#34;;
+&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Language&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Javascript&lt;/td>
+&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ruby&lt;/td>
+&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Small images should be shown at their actual size.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>&lt;em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.&lt;/em>&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;h3 id="alerts">Alerts&lt;/h3>
+&lt;p>
+&lt;div class="alert alert-primary" role="alert">
+This is an alert.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title.
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is an alert with a title and &lt;strong>Markdown&lt;/strong>.
+&lt;/div>
+&lt;div class="alert alert-success" role="alert">
+This is a successful alert.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+This is a warning.
+&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+This is a warning with a title.
+&lt;/div>
+&lt;/p>
+&lt;h2 id="another-heading">Another Heading&lt;/h2>
+&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="this-document">This Document&lt;/h3>
+&lt;p>Inguina genus: Anaphen post: lingua violente voce suae meus aetate diversi. Orbis unam nec flammaeque status deam Silenum erat et a ferrea. Excitus rigidum ait: vestro et Herculis convicia: nitidae deseruit coniuge Proteaque adiciam &lt;em>eripitur&lt;/em>? Sitim noceat signa &lt;em>probat quidem&lt;/em>. Sua longis &lt;em>fugatis&lt;/em> quidem genae.&lt;/p>
+&lt;h3 id="pixel-count">Pixel Count&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;h3 id="contact-info">Contact Info&lt;/h3>
+&lt;p>Factum Perseus est brevis abdita Odrysius, quod contendere urbes misceat accessit nudum oris non. Cumque dentibus nullam nec mille potentia regnumque supplex!&lt;/p>
+&lt;h3 id="external-links">External Links&lt;/h3>
+&lt;p>Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata &lt;em>cum&lt;/em> Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.&lt;/p>
+&lt;pre tabindex="0">&lt;code>This is the final element on the page and there should be no margin below this.
+&lt;/code>&lt;/pre></description></item></channel></rss>

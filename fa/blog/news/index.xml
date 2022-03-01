@@ -1,0 +1,31 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>اسناد گلدی – اخبار داکسی</title><link>/fa/blog/news/</link><description>Recent content in اخبار داکسی on اسناد گلدی</description><generator>Hugo -- gohugo.io</generator><atom:link href="/fa/blog/news/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: مستدات راحت با داکسی</title><link>/fa/blog/2018/10/06/%D9%85%D8%B3%D8%AA%D8%AF%D8%A7%D8%AA-%D8%B1%D8%A7%D8%AD%D8%AA-%D8%A8%D8%A7-%D8%AF%D8%A7%DA%A9%D8%B3%DB%8C/</link><pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate><guid>/fa/blog/2018/10/06/%D9%85%D8%B3%D8%AA%D8%AF%D8%A7%D8%AA-%D8%B1%D8%A7%D8%AD%D8%AA-%D8%A8%D8%A7-%D8%AF%D8%A7%DA%A9%D8%B3%DB%8C/</guid><description>
+&lt;img src="/fa/blog/2018/10/06/%D9%85%D8%B3%D8%AA%D8%AF%D8%A7%D8%AA-%D8%B1%D8%A7%D8%AD%D8%AA-%D8%A8%D8%A7-%D8%AF%D8%A7%DA%A9%D8%B3%DB%8C/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_3.png" width="640" height="253"/>
+&lt;p>&lt;strong>این یک نوشته معمولی شامل تصویر می باشد.&lt;/strong>&lt;/p>
+&lt;p>در مشخصات ابتدایی هر مطلب، عنوان، تاریخ و یک خلاصه که در لیست نوشته های نمایش داده می‌شود قرار دارد.&lt;/p>
+&lt;h2 id="شامل-تصویر">شامل تصویر&lt;/h2>
+&lt;p>اینجا یک تصویر (&lt;code>featured-sunset-get.png&lt;/code>) که شامل بالاین و کپشن است می‌باشد.&lt;/p>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/fa/blog/2018/10/06/%D9%85%D8%B3%D8%AA%D8%AF%D8%A7%D8%AA-%D8%B1%D8%A7%D8%AD%D8%AA-%D8%A8%D8%A7-%D8%AF%D8%A7%DA%A9%D8%B3%DB%8C/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_3.png" width="600" height="300">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+دریافت و تغییر سایز یک تصویر در نسخه هوگو ۰.۴۳
+&lt;small class="text-muted">&lt;br/>Photo: Riona MacNamara / CC-BY-CA&lt;/small>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;p>مشخصات زیر که در اطلاعات پست آمده است روی تمامی تصاویر این پست اعمال می‌شوند:&lt;/p>
+&lt;pre tabindex="0">&lt;code>resources:
+- src: &amp;#34;**.{png,jpg}&amp;#34;
+title: &amp;#34;Image #:counter&amp;#34;
+params:
+byline: &amp;#34;Photo: Riona MacNamara / CC-BY-CA&amp;#34;
+&lt;/code>&lt;/pre>&lt;p>برای افزودن تصویر در یک صفحه، مشخصات آن را به صورت زیر مشخص کنید:&lt;/p>
+&lt;pre tabindex="0">&lt;code>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/fa/blog/2018/10/06/%D9%85%D8%B3%D8%AA%D8%AF%D8%A7%D8%AA-%D8%B1%D8%A7%D8%AD%D8%AA-%D8%A8%D8%A7-%D8%AF%D8%A7%DA%A9%D8%B3%DB%8C/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_3.png" width="600" height="300">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+دریافت و تغییر سایز یک تصویر در نسخه هوگو ۰.۴۳
+&lt;small class="text-muted">&lt;br/>Photo: Riona MacNamara / CC-BY-CA&lt;/small>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/code>&lt;/pre>&lt;p>تصاویر در اندازه و با بایلاین مشخص شده نمایش داده می‌شوند.&lt;/p></description></item></channel></rss>
