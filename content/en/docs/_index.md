@@ -8,7 +8,7 @@ menu:
 ---
 
 {{% pageinfo %}}
-Ceci est un commentaire d'exemple.
+This is an example comment.
 {{% /pageinfo %}}
 
 
