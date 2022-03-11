@@ -8,7 +8,7 @@ menu:
 ---
 
 {{% pageinfo %}}
-Ceci est un commentaire d'exemple.
+Ceci est un commentaire **super** d'exemple.
 {{% /pageinfo %}}
 
 

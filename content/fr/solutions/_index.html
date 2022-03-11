@@ -8,31 +8,48 @@ menu:
 ---
 
 
-{{< blocks/cover title="About Goldydocs" image_anchor="bottom" height="min" >}}
+{{< blocks/cover title="Projets / Solutions" image_anchor="bottom" height="min" >}}
 
-<p class="lead mt-5">A sample site using the Docsy Hugo theme.
-</p>
+<div class="mx-auto mt-5">
+	<a class="btn btn-lg btn-success mr-3 mb-4" href="#horaires-strategiques">
+		Horaires stratégiques
+	</a>
+	<a class="btn btn-lg btn-warning mr-3 mb-4" href="#etudes-exploitation">
+		Études d'exploitation
+	</a>
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="#gestion-infrastructure">
+		Gestion d'infrastructure
+	</a>
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#sdm">
+		Sillon de dernière minute
+	</a>
+</div>
 
 {{< /blocks/cover >}}
 
-{{% blocks/lead %}}
-Goldydocs is a sample site using the <a href="https://github.com/google/docsy">Docsy</a> Hugo theme that shows what it can do and provides you with a template site structure. It’s designed for you to clone and edit as much as you like. See the different sections of the documentation and site for more ideas.
-{{% /blocks/lead %}}
-
-
-{{< blocks/section >}}
-<div class="col-12">
-<h1 class="text-center">This is another section</h1>
+{{% blocks/section color="success" %}}
+<div id="horaires-strategiques" class="col-12">
+  <h1 class="text-center">Horaires Stratégiques</h1>
 </div>
-
-{{< /blocks/section >}}
-
+{{% /blocks/section %}}
 
 
-{{< blocks/section >}}
-
-<div class="col-12">
-<h1 class="text-center">This is another section</h1>
+{{% blocks/section color="warning" %}}
+<div id="etudes-exploitation" class="col-12">
+  <h1 class="text-center">Études d'exploitation</h1>
 </div>
+{{% /blocks/section %}}
 
-{{< /blocks/section >}}
+
+{{% blocks/section color="primary" %}}
+<div id="gestion-infrastructure" class="col-12">
+  <h1 class="text-center">Gestion d'infrastructure</h1>
+</div>
+{{% /blocks/section %}}
+
+
+{{% blocks/section color="secondary" %}}
+<div id="sdm" class="col-12">
+  <h1 class="text-center">Sillon de dernière minute</h1>
+</div>
+{{% /blocks/section %}}
