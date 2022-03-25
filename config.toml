@@ -2,9 +2,9 @@ baseURL = "https://dgexsolutions.github.io/osrd-website/"
 title = "OSRD"
 
 # Language settings
-contentDir = "content/fr"
+contentDir = "content"
 defaultContentLanguage = "fr"
-defaultContentLanguageInSubdir = false
+#defaultContentLanguageInSubdir = true
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
@@ -69,19 +69,19 @@ anchor = "smart"
 # Language configuration
 
 [languages]
+[languages.fr]
+title = "OSRD"
+description = "Open Source Railway Designer"
+languageName ="Français"
+time_format_default = "02.01.2006"
+time_format_blog = "02.01.2006"
+weight = 1
 [languages.en]
 title = "OSRD"
 description = "Open Source Railway Designer"
 languageName ="English"
 # Weight used for sorting.
-weight = 1
-[languages.fr]
-title = "OSRD"
-description = "Open Source Railway Designer"
-languageName ="Français"
-contentDir = "content/fr"
-time_format_default = "02.01.2006"
-time_format_blog = "02.01.2006"
+weight = 2
 
 [markup]
   [markup.goldmark]
