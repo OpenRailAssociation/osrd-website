@@ -1,6 +1,6 @@
 ---
-title: "Développeurs"
-linkTitle: "Développeurs"
+title: "Developers"
+linkTitle: "Developers"
 weight: 30
 menu:
   main:

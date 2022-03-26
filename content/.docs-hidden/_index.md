@@ -2,6 +2,8 @@
 title: "DOC REF"
 linkTitle: "DOC REF"
 weight: 30
+toc_hide: true
+hide_summary: true
 menu:
   main:
     weight: 30
