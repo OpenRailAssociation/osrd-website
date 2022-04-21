@@ -5,7 +5,7 @@ weight: 10
 ---
 
 *<font color=#aa026d>« The OSRD application is open source. The simulations are transparent, explicit and universal. Any actor willing to improve the competitiveness of the railway system can contribute to it »</font>*
->*Loïc Hamelin, OSRD Project Manager at DGEX Solutions (Direction Générale Exploitation de SNCF Réseau)*
+>*Loïc Hamelin, OSRD Project Manager at DGEX Solutions (SNCF Réseau's Operations Division)*
 
 #### <font color=#aa026d>OSRD : when railway simulation becomes open source</font>
 
