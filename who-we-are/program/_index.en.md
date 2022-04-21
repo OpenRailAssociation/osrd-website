@@ -1,4 +1,0 @@
----
-title: Program
-linkTitle: Program
----
