@@ -10,7 +10,9 @@ menu:
 
 <div class="mx-auto mt-5">
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#fundation">
-		Fondation OpenRail <i class="fab fa-train ml-2"></i>
+		<img src="openrail_foundation_cropped.png" alt="OpenRail Foundation" display: block;
+		width="30"; 
+		height="30";>  Fondation OpenRail <i class="fab fa-train ml-2"></i>
 	</a>
 	<a class="btn btn-lg btn-success mr-3 mb-4" href="#supportus">
 		Nous supporter <i class="fab fa-money-bill ml-2"></i>
@@ -20,7 +22,12 @@ menu:
 
 {{< blocks/section >}}
 <div id="fundation" class="col-12">
-	<h1 class="text-center"><a href="https://openrailfoundation.org"><font color=white>Fondation OpenRail</font></a></h1>
+	<p>L'initiative de la Fondation OpenRail vise à créer un espace d'innovation ouvert, autonome et collaboratif.
+		Sa mission est de promouvoir le développement de projets de logiciels libres dans le secteur ferroviaire, comme cela existe déjà dans de nombreux autres secteurs industriels comme les télécommunications, l'automobile, l'énergie, ...
+		Résolvons les problèmes ensemble !</p>
+	<a href="https://openrailfoundation.gitlab.io/"> 
+			<img class="marginauto" src="openrail_foundation_vector.png" alt="OpenRail Foundation">
+	</a>
 </div>
 {{< /blocks/section >}}
 
@@ -29,3 +36,16 @@ menu:
   <h1 class="text-center">Nous supporter</h1>
 </div>
 {{% /blocks/section %}}
+
+<style>
+.marginauto {
+	margin: 10px auto 20px;
+	display: block;
+	width:220px; 
+	height:200px;
+}
+.marginauto:hover {
+	filter: brightness(70%);
+	transition: all 0.50s;
+}
+</style>
