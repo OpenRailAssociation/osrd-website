@@ -4,7 +4,7 @@ title = "OSRD"
 # Language settings
 contentDir = "content"
 defaultContentLanguage = "fr"
-#defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = true
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
@@ -90,8 +90,7 @@ weight = 2
   [markup.highlight]
     # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
     style = "tango"
-    # Uncomment if you want your chosen highlight style used for code blocks without a specified language
-    # guessSyntax = "true"
+    guessSyntax = "false"
 
 # Everything below this are Site Params
 
@@ -148,6 +147,12 @@ offlineSearch = true
 # Enable syntax highlighting and copy buttons on code blocks with Prism
 prism_syntax_highlighting = false
 
+[params.markmap]
+enable = true
+
+[params.mermaid]
+enable = true
+
 # User interface configuration
 [params.ui]
 #  Set to true to disable breadcrumb navigation.
@@ -160,6 +165,8 @@ navbar_logo = true
 navbar_translucent_over_cover_disable = false
 # Enable to show the side bar menu in its compact state.
 sidebar_menu_compact = false
+# Adds a foldable tree view
+sidebar_menu_foldable = true
 # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
 sidebar_search_disable = false
 
