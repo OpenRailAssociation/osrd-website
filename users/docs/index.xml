@@ -1,2 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://dgexsolutions.github.io/osrd-website/users/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/users/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Guide utilisateur</title><link>https://dgexsolutions.github.io/osrd-website/users/docs/userguide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/users/docs/userguide/</guid><description/></item><item><title>Users: Tutoriels</title><link>https://dgexsolutions.github.io/osrd-website/users/docs/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/users/docs/tutorials/</guid><description/></item><item><title>Users: Choix techniques</title><link>https://dgexsolutions.github.io/osrd-website/users/docs/technical-and-physical-choices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/users/docs/technical-and-physical-choices/</guid><description>
-&lt;p>Ici les choix techniques&lt;/p></description></item></channel></rss>
+&lt;h2 id="font-coloraa026dque-sont-les-enveloppes-font">&lt;font color=#aa026d>Que sont les &amp;ldquo;enveloppes&amp;rdquo; ?&lt;/font>&lt;/h2>
+&lt;p>L&amp;rsquo;outil OSRD peut être utilisé pour effectuer deux types de calcul :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Simulation de train isolé&lt;/strong> où le calcul du temps de circulation est effectué sans interaction entre le train et le système de signalisation.&lt;/li>
+&lt;li>&lt;strong>Simulation de plusieurs trains&lt;/strong> où une simulation dynamique réelle est exécutée.&lt;/li>
+&lt;/ul>
+&lt;p>Dans les deux cas, pendant la simulation, le train est censé suivre certaines instructions de vitesse. Celles-ci sont modélisées dans OSRD par des courbes espace/vitesse appelées enveloppes. Il existe deux types d&amp;rsquo;enveloppes :&lt;/p>
+&lt;ul>
+&lt;li>Les enveloppes provenant &lt;strong>des données d&amp;rsquo;infrastructure et de matériel roulant&lt;/strong>, comme la vitesse maximale de la ligne et la vitesse maximale du train ; ce sont des entrées de notre calcul et ne sont pas physiquement exactes car elles ne sont pas les résultats d&amp;rsquo;une intégration réelle des équations physiques du mouvement.&lt;/li>
+&lt;li>Enveloppes résultant &lt;strong>d&amp;rsquo;une intégration réelle&lt;/strong> des équations du mouvement physique.&lt;/li>
+&lt;/ul>
+&lt;p>Elles contiennent également des informations sur le temps.&lt;/p></description></item></channel></rss>
