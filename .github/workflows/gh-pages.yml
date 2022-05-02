@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: recursive  # Fetch the theme and its submodules
+          fetch-depth: 1  # the dependency of the themes have very long histories
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
