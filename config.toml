@@ -184,7 +184,7 @@ enable = false
 [[params.links.user]]
   name = "LinkedIn"
   url = "https://www.linkedin.com/company/dgex-solutions/"
-  icon = "fa fa-linkedin"
+  icon = "fab fa-linkedin"
   desc = ""
 [[params.links.user]]
   name ="Twitter"
