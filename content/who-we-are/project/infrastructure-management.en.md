@@ -4,7 +4,7 @@ linkTitle: Infrastructure management
 weight: 30
 ---
 
-## <font color=#aa026d>Presentation</font>
+### <font color=#aa026d>Presentation</font>
 
 Several applications used within the SNCF group and outside need a **mapping representation of the railway network**. The OSRD base map uses geographic data from **OpenStreetMap (OSM)**, a "Wikipedia of maps" that allows collaborative consultation and editing of geographic data. This base map is regularly updated to reflect the evolution of non-rail infrastructure. 
 

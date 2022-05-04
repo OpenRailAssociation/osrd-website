@@ -7,7 +7,7 @@ weight: 10
 *<font color=#aa026d>« L’application OSRD est open source. Les simulations sont transparentes, explicites et universelles. Tout acteur désireux d'améliorer la compétitivité du système ferroviaire peut y apporter sa contribution »</font>*
 >*Loïc Hamelin, Chef de projet OSRD chez DGEX Solutions (Direction Générale Exploitation de SNCF Réseau)*
 
-## <font color=#aa026d>OSRD : quand la simulation ferroviaire devient open source</font>
+### <font color=#aa026d>OSRD : quand la simulation ferroviaire devient open source</font>
 
 Le choix de l’open source est particulièrement stratégique dans le secteur public. En plus d’une baisse significative des coûts de développement, il offre à chaque citoyen **la transparence nécessaire** pour comprendre et évaluer les choix d’investissement public.
 
@@ -22,7 +22,7 @@ Enfin, L’open source permet de fédérer une communauté de personnes qui trav
 
 
 
-## <font color=#aa026d>Définition :</font>
+### <font color=#aa026d>Définition :</font>
 L’open source consiste à laisser le code source d’un logiciel développé en libre accès, afin que tout le monde puisse **le lire, l’utiliser et proposer des modifications ou développements**. La conception et le développement des logiciels open source sont alors placés entre les mains de **communautés** d’utilisateurs et/ou de développeurs.
 Chacun a la capacité d’adapter le logiciel à ses exigences et à ses besoins propres, tout en faisant profiter une large communauté de ses innovations. Les objectifs de développement sont donc partagés : les bugs, l’état de leur résolution et les efforts mis en œuvre pour les résoudre sont publics, tout comme l’avancement des nouvelles fonctionnalités.
 Dans l’absolu, **toute personne volontaire peut contribuer au projet, mais cela ne signifie pas pour autant que tout changement proposé sera intégré :** à l’instar des revues par les pairs de la communauté scientifique, les communautés open source ont leurs standards, leurs exigences, et leurs revues de code. L’objectif est clair : s’assurer que le projet reste de bonne qualité.

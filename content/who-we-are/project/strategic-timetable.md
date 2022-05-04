@@ -4,7 +4,7 @@ linkTitle: Horaires stratégiques
 weight: 10
 ---
 
-## <font color=#aa026d>Présentation</font>
+### <font color=#aa026d>Présentation</font>
 
 Une première phase du processus de conception des plans de transport commence très en amont : A-10 du jour de circulation du train et a pour objectif **la proposition de plusieurs scenarios de circulation** sur des infrastructures ferroviaires existantes ou prospectives. Dans cette phase,  SNCF Réseau, gestionnaire de l’infrastructure ferroviaire française et responsable de l’affectation et de la vente des sillons, collectionne les demandes des **AO** et des **EF** en termes de mobilité. Les demandes vont être transmises sous la forme de **schémas de dessertes**. Un schéma de dessert est une façon de représenter les trains demandés, leur itinéraire et les arrêts à desservir. 
 
