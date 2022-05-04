@@ -4,7 +4,7 @@ linkTitle: "Technical & physical choices"
 weight: 30
 ---
 
-## <font color=#aa026d>What envelopes are ?</font>
+### <font color=#aa026d>What envelopes are?</font>
 
 OSRD can be used to perform two kinds of calculation:
 - **Standalone train simulation** where the running time calculation is performed without interaction between the train and the signaling system.
@@ -16,7 +16,7 @@ In both cases, during the simulation the train is supposed to follow some speed 
 
 These contain also information about time.
 
-## <font color=#aa026d>How the envelope system is used into OSRD ?</font>
+### <font color=#aa026d>How the envelope system is used into OSRD?</font>
 
 #### Standalone train simulation
 #### Fastest running time calculation
@@ -31,3 +31,11 @@ The first goal of a standalone train simulation is to perform the **fastest runn
 #### Running time calculation with allowances
 
 After having performed the fastest running time calculation, some allowances can be introduced into it. In the OSRD running time calculation, we decide to distribute allowances in an economical way, by minimizing the energy consumption during the train run. A new **Eco envelope**, resulting from a dichotomy algorithm, is therefore computed to distribute a certain allowance value into the previously calculated Max Effort envelope.
+
+#### Many trains simulation
+
+In the case of many trains simulation, the signaling system must assure **the safety**. The effect of signalization on to a train running time calculation is reproduced by overlapping dynamic envelopes onto the static one. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economical envelope overlapped with the dynamic envelopes, if there are some. In this simulation mode, a check in time is done with respect to a theoretical time coming from the time information of the static economical envelope. If the train is late with respect to the scheduled time, it will stop following the economical envelope and try to go faster. Its space/speed curve will be therefore limited by the max effort envelope.
+
+### <font color=#aa026d>Which integration method should OSRD use?</font>
+
+Our [Integration Method](https://github.com/DGEXSolutions/osrd/wiki/Which-integration-method-should-OSRD-use) is available on the project's Github repositorie.
