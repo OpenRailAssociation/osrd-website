@@ -1,0 +1,11 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Conventions de style</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/conventions/</link><description>Recent content in Conventions de style on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/conventions/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Style des commits</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/conventions/commit-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/conventions/commit-style/</guid><description>
+&lt;p>Le format général des commits est le suivant :&lt;/p>
+&lt;pre tabindex="0">&lt;code>composant: description du changement à l&amp;#39;impératif
+Description détaillée du contenu et de la motivation du changement,
+si le titre n&amp;#39;est pas complètement évident.
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong>&lt;/li>
+&lt;li>tout en minuscule&lt;/li>
+&lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>: &lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
+&lt;li>dans l&amp;rsquo;idéal, le corps du commit contient une description du changement.&lt;/li>
+&lt;/ul></description></item></channel></rss>

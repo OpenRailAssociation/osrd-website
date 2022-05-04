@@ -1,0 +1,11 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Style conventions</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/conventions/</link><description>Recent content in Style conventions on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/developers/contribute/conventions/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Commit style</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/conventions/commit-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/conventions/commit-style/</guid><description>
+&lt;p>The overall format for git commits is as follows:&lt;/p>
+&lt;pre tabindex="0">&lt;code>component: imperative description of the change
+Detailed description of the change and what motivates it,
+if it is not entirely obvious from the title.
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong>&lt;/li>
+&lt;li>all lowercase&lt;/li>
+&lt;li>there can be multiple components separated by &lt;code>: &lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
+&lt;li>the body of the commit should probably contain a detailed description of the change&lt;/li>
+&lt;/ul></description></item></channel></rss>
