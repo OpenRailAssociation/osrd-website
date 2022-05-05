@@ -1,2 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Architecture and internals</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/internals/</link><description>Recent content in Architecture and internals on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/developers/internals/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Architecture overview</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/internals/architecture-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/internals/architecture-overview/</guid><description>
-&lt;p>architecture overview&lt;/p></description></item><item><title>Developers: Internals</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/internals/internals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/internals/internals/</guid><description/></item></channel></rss>
+&lt;p>&lt;img src="architecture.en.svg" alt="Architecture du projet">&lt;/p>
+&lt;h1 id="front">Frontend (&lt;code>front&lt;/code>)&lt;/h1>
+&lt;p>TODO&lt;/p>
+&lt;h1 id="api">Django API service (&lt;code>api&lt;/code>)&lt;/h1>
+&lt;p>TODO&lt;/p>
+&lt;h1 id="editoast">Edition service (&lt;code>editoast&lt;/code>)&lt;/h1>
+&lt;p>TODO&lt;/p>
+&lt;h1 id="chartos">Cartography service (&lt;code>chartos&lt;/code>)&lt;/h1>
+&lt;p>TODO&lt;/p>
+&lt;h1 id="core">Simulation and pathfinding service (&lt;code>core&lt;/code>)&lt;/h1>
+&lt;p>TODO&lt;/p></description></item><item><title>Developers: Internals</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/internals/internals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/internals/internals/</guid><description/></item></channel></rss>
