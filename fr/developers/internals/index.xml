@@ -1,6 +1,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Architecture et fonctionnement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/</link><description>Recent content in Architecture et fonctionnement on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Vue d'ensemble de l'architecture</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/architecture-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/architecture-overview/</guid><description>
-&lt;p>&lt;img src="architecture.svg" alt="Architecture du projet">&lt;/p>
-&lt;h1 id="front">Le front-end (&lt;code>front&lt;/code>)&lt;/h1>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
+front[front end]
+django-api[django api]
+editoast[editoast]
+chartos[chartos]
+core[core]
+pg[(postgres)]
+redis[(redis)]
+front -- various apis--&amp;gt; django-api
+front -- infrastructure edition --&amp;gt; editoast
+front -- mapbox layers --&amp;gt; chartos
+django-api --&amp;gt; core
+django-api --&amp;gt; pg
+chartos -- read only --&amp;gt; pg
+chartos -- stores cached tiles --&amp;gt; redis
+editoast -- writes --&amp;gt; pg
+editoast -- invalidates tiles --&amp;gt; chartos
+click front href &amp;#34;./#front&amp;#34; _self
+click django-api href &amp;#34;./#django-api&amp;#34; _self
+click editoast href &amp;#34;./#editoast&amp;#34; _self
+click chartos href &amp;#34;./#chartos&amp;#34; _self
+click core href &amp;#34;./#core&amp;#34; _self
+&lt;/code>&lt;/pre>&lt;h1 id="front">Le front-end (&lt;code>front&lt;/code>)&lt;/h1>
 &lt;p>TODO&lt;/p>
 &lt;h1 id="api">Le service d&amp;rsquo;API django (&lt;code>api&lt;/code>)&lt;/h1>
 &lt;p>TODO&lt;/p>
