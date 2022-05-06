@@ -3,8 +3,7 @@ title: Projet/solutions
 linkTitle: Projet/solutions
 ---
 
-Le processus de planification de la circulation d’un train demande **10 ans d’anticipation** et implique la collaboration de différents services et acteurs pour transformer les besoins de mobilité des clients : **autorités organisatrices (AO)** et **entreprises ferroviaires (EF)** en **service annuel (SA)**. 
-
+Le processus de planification de la circulation d’un train demande **10 ans d’anticipation** et implique la collaboration de différents services et acteurs pour transformer les besoins de mobilité des clients : **autorités organisatrices (AO)** et **entreprises ferroviaires (EF)** en **service annuel (SA)**.
 
 Le projet OSRD à l’ambition de répondre aux besoins de simulations qui couvrent la totalité du processus, de la conception du plan de transport jusqu’à sa mise en exploitation.
 

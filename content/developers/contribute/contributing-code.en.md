@@ -27,4 +27,3 @@ Once your pull request is open, [other contributors can review your changes](htt
    - Once all discussions are resolved, a maintainer integrates the change.
 
 6) **If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.**
-

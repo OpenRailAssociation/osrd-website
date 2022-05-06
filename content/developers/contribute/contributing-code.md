@@ -27,4 +27,3 @@ Une fois que votre pull request est ouverte, [d'autres contributeurs doivent don
    - Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.
 
 6) **N'hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin.**
-

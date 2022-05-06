@@ -13,14 +13,12 @@ Le choix de l’open source est particulièrement stratégique dans le secteur p
 
 Nous croyons que l’open source répond à des enjeux d’ordre politique, économique, technique et même énergétique :
 
-- **Politique**, par la transparence et l’uniformisation, parce qu’il est nécessaire de retrouver la confiance de nos commanditaires  et parce que les standards peinent à s’imposer dans le secteur 
-- **Économique**, parce qu’une meilleure utilisation du réseau réduira les couts d’exploitation et de possession du réseau, et parce que l’objectif est de rendre le mode ferré encore plus attractif
-- **Technique**, parce que le partage permet l’évolution
+- **Politique**, par la transparence et l’uniformisation, parce qu’il est nécessaire de retrouver la confiance de nos commanditaires  et parce que les standards peinent à s’imposer dans le secteur;
+- **Économique**, parce qu’une meilleure utilisation du réseau réduira les couts d’exploitation et de possession du réseau, et parce que l’objectif est de rendre le mode ferré encore plus attractif;
+- **Technique**, parce que le partage permet l’évolution;
 - **Energétique**, enfin, car nous pouvons accélérer la transition énergétique en valorisant le transport ferroviaire. Mais nous devons le faire en conservant ou améliorant la performance industrielle.
 
 Enfin, L’open source permet de fédérer une communauté de personnes qui travaillaient jusqu’alors dans leur coin. Tout tient dans la célèbre loi de (Bill) Joy : *<font color=#aa026d>« Qui que vous soyez, les meilleurs travaillent pour quelqu’un d’autre »</font>* !
-
-
 
 ### <font color=#aa026d>Définition :</font>
 L’open source consiste à laisser le code source d’un logiciel développé en libre accès, afin que tout le monde puisse **le lire, l’utiliser et proposer des modifications ou développements**. La conception et le développement des logiciels open source sont alors placés entre les mains de **communautés** d’utilisateurs et/ou de développeurs.

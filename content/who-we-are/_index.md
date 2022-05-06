@@ -12,8 +12,9 @@ Le programme OSRD est composé d’un ensemble de projets, chacun concourant au 
 
 Les différents projets du programme se complémentent les uns les autres pour aider le programme à réaliser son ambition : <font color=#aa026d>Développer la nouvelle génération d’outils de conception et de simulation ferroviaire</font>.
 
-Vous êtes au bon endroit si vous voulez en savoir plus sur la façon dont nous sommes organisés (Programme), ainsi que sur les solutions que nous développons (Projet/solutions)
+Vous êtes au bon endroit si vous voulez en savoir plus sur la façon dont nous sommes organisés : [Programme](./program), ainsi que sur les solutions que nous développons : [Projet/solutions](./project/).
 
+![Gare](./station.jpg?style=centerme)
 
 <font color=#aa026d>
 <center>OSRD
@@ -22,4 +23,9 @@ Design your jouney
 </center>
 </font>
 
-
+<style>
+img[src$="centerme"] {
+  display:block;
+  margin-left: 75px;
+}
+</style>

@@ -1,9 +1,9 @@
 ---
-title: Project/Solutions
-linkTitle: Project/Solutions
+title: Project/solutions
+linkTitle: Project/solutions
 ---
 
-The process of planning the circulation of a train requires **10 years of anticipation** and involves the collaboration of different services and actors to transform the mobility needs of customers: The process of planning a train requires **10 years of anticipation** and involves the collaboration of different departments and actors to transform the mobility needs of customers: **organizing authorities (OA)** and **railway companies (RC)** into **annual service (AS)**. 
+The process of planning the circulation of a train requires **10 years of anticipation** and involves the collaboration of different services and actors to transform the mobility needs of customers: The process of planning a train requires **10 years of anticipation** and involves the collaboration of different departments and actors to transform the mobility needs of customers: **organizing authorities (OA)** and **railway companies (RC)** into **annual service (AS)**.
 
 The OSRD project aims to meet the needs of simulations that cover the entire process, from the design of the transportation plan to its operation.
 

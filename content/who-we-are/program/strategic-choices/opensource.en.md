@@ -13,14 +13,12 @@ The choice of open source is particularly strategic in the public sector. In add
 
 We believe that Open Source addresses political, economic, technical and even energy issues:
 
-- **Political**, through transparency and uniformity, because it is necessary to regain the confidence of our sponsors and because standards are struggling to be established in the sector  
-- **Economic**, because a better use of the network will reduce the costs of operating and owning the network, and because the objective is to make the rail mode even more attractive
-- **Technical**, because sharing allows evolution
+- **Political**, through transparency and uniformity, because it is necessary to regain the confidence of our sponsors and because standards are struggling to be established in the sector;  
+- **Economic**, because a better use of the network will reduce the costs of operating and owning the network, and because the objective is to make the rail mode even more attractive;
+- **Technical**, because sharing allows evolution;
 - **Energy**, finally, because we can accelerate the energy transition by enhancing the value of rail transport. But we must do so while maintaining or improving industrial performance.
 
 Finally, open source allows to federate a community of people who worked until then in their corner. Everything is based on (Bill) Joy's famous law : *<font color=#aa026d>« No matter who you are, most of the smartest people work for someone else »</font>* !
-
-
 
 ### <font color=#aa026d>Definition :</font>
 Open source consists in leaving the source code of a developed software freely available, so that anyone can **read it, use it and propose modifications or developments**. The design and development of open source software is then placed in the hands of **communities** of users and/or developers.

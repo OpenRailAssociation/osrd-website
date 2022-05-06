@@ -6,9 +6,9 @@ weight: 20
 
 ### <font color=#aa026d>L'open data est l'un des principaux enjeux numériques</font>
 
-The opening of data promotes transparency and information, removes barriers to accessibility and use, and is a tremendous gas pedal of innovation.
+L'ouverture des données favorise la transparence et l'information, lève les obstacles à l'accessibilité et à l'utilisation, et constitue un formidable accélérateur d'innovation.
 
-On the rail system side, the SNCF has been committed for a few years to making data available for its passenger transport activities. The company produces a very large amount of data: timetables, equipment and services in stations, regularity, lines and connections, accessibility, etc.
+Du côté du système ferroviaire, la SNCF s'est engagée depuis quelques années dans la mise à disposition des données de ses activités de transport de voyageurs. L'entreprise produit un très grand nombre de données : horaires, équipements et services en gare, régularité, lignes et correspondances, accessibilité, etc.
 
 ### <font color=#aa026d>Plus il y aura de données libérées, plus le simulateur OSRD sera puissant !</font>
 

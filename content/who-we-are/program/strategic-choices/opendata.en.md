@@ -13,5 +13,3 @@ On the rail system side, the SNCF has been committed for a few years to making d
 ### <font color=#aa026d>The more data released, the more powerful the OSRD simulator will be!</font>
 
 We are working every day to continue this opening up! Indeed, some data that are still classified as confidential are no longer classified as industrial secrets (e.g., data useful for calculating the speed and spacing of trains). The declassification of this non-sensitive data is essential for the operation of certain open source tools, whose performance depends heavily on shared data.
-
-

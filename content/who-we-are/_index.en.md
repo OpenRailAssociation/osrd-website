@@ -12,8 +12,9 @@ The OSRD program is composed of a set of projects, each contributing to the deve
 
 The different projects of the program complement each other to help the program achieve its ambition: <font color=#aa026d>To develop the next generation of railway design and simulation tools</font>.
 
-You are at the right place if you want to know more about how we are organized (Program), as well as about the solutions we develop (Project/Solutions)
+You are at the right place if you want to know more about how we are organized : [Program](./program), as well as about the solutions we develop : [Project/solutions](./project/).
 
+![Station](./station.jpg?style=centerme)
 
 <font color=#aa026d>
 <center>OSRD
@@ -21,3 +22,10 @@ You are at the right place if you want to know more about how we are organized (
 Design your jouney
 </center>
 </font>
+
+<style>
+img[src$="centerme"] {
+  display:block;
+  margin-left: 75px;
+}
+</style>

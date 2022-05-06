@@ -13,14 +13,14 @@ Si les sections suivantes forment un guide du contributeur, ce n'est pas pour au
 
 Vous pouvez gagner du temps en discutant de votre projet de contribution avec les autres contributeurs:
 
- - [**créez une issue**](https://github.com/DGEXSolutions/osrd/issues/new/choose) pour avoir un endroit un discuter de votre contribution
- - rejoinez le salon de messagerie instantanée matrix ! **(très bientôt en place)**
+- [**créez une issue**](https://github.com/DGEXSolutions/osrd/issues/new/choose) pour avoir un endroit un discuter de votre contribution
+- rejoinez le salon de messagerie instantanée matrix ! **(très bientôt en place)**
 
 ### Se renseigner
 
 Comme dans tout projet, chaque changement se repose sur ce qui a été fait par le passé.
 Avant d'apporter un changement, renseignez-vous sur l'existant:
 
- - vous pouvez [lire la documentation technique]({{< ref "/developers/internals" >}})
- - il est préférable de lire le code source de l'application en rapport avec votre projet
- - vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet
+- vous pouvez [lire la documentation technique]({{< ref "/developers/internals" >}})
+- il est préférable de lire le code source de l'application en rapport avec votre projet
+- vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet
