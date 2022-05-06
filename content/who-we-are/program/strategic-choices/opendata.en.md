@@ -4,7 +4,7 @@ linkTitle: Open-Data
 weight: 20
 ---
 
-### ### <font color=#aa026d>Open data is one of the main digital challenges</font>
+### <font color=#aa026d>Open data is one of the main digital challenges</font>
 
 The opening of data promotes transparency and information, removes barriers to accessibility and use, and is a tremendous gas pedal of innovation.
 
