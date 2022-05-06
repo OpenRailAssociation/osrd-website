@@ -10,5 +10,5 @@ Several applications used within the SNCF group and outside need a **mapping rep
 
 ![OSRD management](../osrd_management.png)
 
-"OSRD Infrastructure Management**" proposes a mapping service accessible to all and shared, based on the same model: everyone will be able to contribute and put in quality the railway data.
+"**OSRD Infrastructure Management**" proposes a mapping service accessible to all and shared, based on the same model: everyone will be able to contribute and put in quality the railway data.
 We provide on the one hand a **complete editor of the rail network infrastructure and the objects that compose it**, and on the other hand, **the provision of data layers for their exploitation and representation in the standards of online mapping**. Finally, we are studying the possibility of **being able to automate the updating of OpenStreetMap's railway data** with the data thus made available. 
