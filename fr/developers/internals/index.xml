@@ -1,33 +1,41 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Architecture et fonctionnement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/</link><description>Recent content in Architecture et fonctionnement on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Vue d'ensemble de l'architecture</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/architecture-overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/architecture-overview/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Architecture et fonctionnement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/</link><description>Recent content in Architecture et fonctionnement on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Modèle de données</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/data-model/</guid><description/></item><item><title>Developers: Modèle de simulation de la signalisation et des aiguillages</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/</guid><description>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>Ce modèle n&amp;rsquo;est pas finalisé, et en attente d&amp;rsquo;implémentation&lt;/p>
+&lt;/div>
+&lt;h1 id="architecture">Architecture&lt;/h1>
 &lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
-front[front end]
-django-api[django api]
-editoast[editoast]
-chartos[chartos]
-core[core]
-pg[(postgres)]
-redis[(redis)]
-front -- various apis--&amp;gt; django-api
-front -- infrastructure edition --&amp;gt; editoast
-front -- mapbox layers --&amp;gt; chartos
-django-api --&amp;gt; core
-django-api --&amp;gt; pg
-chartos -- read only --&amp;gt; pg
-chartos -- stores cached tiles --&amp;gt; redis
-editoast -- writes --&amp;gt; pg
-editoast -- invalidates tiles --&amp;gt; chartos
-click front href &amp;#34;./#front&amp;#34; _self
-click django-api href &amp;#34;./#django-api&amp;#34; _self
-click editoast href &amp;#34;./#editoast&amp;#34; _self
-click chartos href &amp;#34;./#chartos&amp;#34; _self
-click core href &amp;#34;./#core&amp;#34; _self
-&lt;/code>&lt;/pre>&lt;h1 id="front">Le front-end (&lt;code>front&lt;/code>)&lt;/h1>
-&lt;p>TODO&lt;/p>
-&lt;h1 id="api">Le service d&amp;rsquo;API django (&lt;code>api&lt;/code>)&lt;/h1>
-&lt;p>TODO&lt;/p>
-&lt;h1 id="editoast">Le service d&amp;rsquo;édition (&lt;code>editoast&lt;/code>)&lt;/h1>
-&lt;p>TODO&lt;/p>
-&lt;h1 id="chartos">Le service de cartographie (&lt;code>chartos&lt;/code>)&lt;/h1>
-&lt;p>TODO&lt;/p>
-&lt;h1 id="core">Le service de simulation et de pathfinding (&lt;code>core&lt;/code>)&lt;/h1>
-&lt;p>TODO&lt;/p></description></item><item><title>Developers: Fonctionnement interne</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/internals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/internals/</guid><description/></item></channel></rss>
+%%%% NODES
+train[Train]
+style train opacity:50%,stroke-dasharray: 5 5
+%% ↓
+signaling[Signalisation]
+%% ↓
+routing[Routage]
+spacing[&amp;#34;Cantonnement&amp;#34;]
+%% ↓
+reservation[Réservation]
+%% ↓
+location[Localisation]
+movable-elements[&amp;#34;Éléments mobiles&amp;#34;]
+%%%% EDGES
+train -- réagit à --&amp;gt; signaling
+signaling -- observe --&amp;gt; routing
+signaling -- observe --&amp;gt; spacing
+spacing -- observe --&amp;gt; reservation
+spacing -- observe --&amp;gt; movable-elements
+routing -- observe et réserve --&amp;gt; reservation
+reservation -- observe --&amp;gt; location
+reservation -- réserve et actionne --&amp;gt; movable-elements
+train -- informe --&amp;gt; location
+%%%% CLICKABLE LINKS
+click signaling href &amp;#34;./signaling/&amp;#34; _self
+click routing href &amp;#34;./routing/&amp;#34; _self
+click spacing href &amp;#34;./spacing/&amp;#34; _self
+click reservation href &amp;#34;./reservation/&amp;#34; _self
+click location href &amp;#34;./location/&amp;#34; _self
+click movable-elements href &amp;#34;./movable-elements/&amp;#34; _self
+&lt;/code>&lt;/pre>&lt;h1 id="todo">TODO&lt;/h1>
+&lt;ul>
+&lt;li>overlaps&lt;/li>
+&lt;li>opposing movement protection&lt;/li>
+&lt;/ul></description></item><item><title>Developers: Gestion des versions</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/versionning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/versionning/</guid><description/></item></channel></rss>
