@@ -7,14 +7,14 @@
 &lt;/ul>
 &lt;p>In both cases, during the simulation, the train is supposed to follow some speed instructions. These are modeled in OSRD with space/speed curves called envelopes. There are two kinds of envelopes:&lt;/p>
 &lt;ul>
-&lt;li>Envelopes coming &lt;strong>from infrastructure and rolling stock data&lt;/strong>, such as the max speed of the line and the max speed of the train; these are inputs to our calculation and they are not physically accurate because they are not the results of a real integration of the physical movement equations.&lt;/li>
+&lt;li>Envelopes coming &lt;strong>from infrastructure and rolling stock data&lt;/strong>, such as the max speed of the line and the max speed of the train ; these are inputs to our calculation and they are not physically accurate because they are not the results of a real integration of the physical movement equations.&lt;/li>
 &lt;li>Envelopes resulting &lt;strong>from a real integration&lt;/strong> of the physical movement equations.&lt;/li>
 &lt;/ul>
 &lt;p>These contain also information about time.&lt;/p>
 &lt;h3 id="font-coloraa026dhow-the-envelope-system-is-used-into-osrdfont">&lt;font color=#aa026d>How the envelope system is used into OSRD?&lt;/font>&lt;/h3>
 &lt;h4 id="standalone-train-simulation">Standalone train simulation&lt;/h4>
 &lt;h4 id="fastest-running-time-calculation">Fastest running time calculation&lt;/h4>
-&lt;p>The first goal of a standalone train simulation is to perform the &lt;strong>fastest running time calculation&lt;/strong>, where the train runs at the max permitted speed. To obtain this, a procedure composed by different stages is used. At each stage, some new envelopes are calculated and added to the previous ones. The final resulting envelope is what we call &lt;strong>Max Effort envelope&lt;/strong>.&lt;/p>
+&lt;p>The first goal of a standalone train simulation is to perform the &lt;strong>fastest running time calculation&lt;/strong>, where the train runs at the max permitted speed. To obtain this, a procedure composed by different stages is used. At each stage, some new envelopes are calculated and added to the previous ones. The final resulting envelope is what we call &lt;strong>Max Effort envelope&lt;/strong>:&lt;/p>
 &lt;ul>
 &lt;li>A first envelope is calculated at the beginning of the simulation putting together all the envelopes related to some static speed limits (max speed of the line, max speed of the rolling stock, temporary speed restrictions, train category speed restrictions, axle load speed restrictions). The resulting envelope is called &lt;strong>Most Restricted Speed Profile (MRSP)&lt;/strong>.&lt;/li>
 &lt;li>All the braking curves are computed by starting from their target point, i.e. the point in space where a certain speed limits is imposed (finite target speed) or stop point (target speed = 0 m/s). The braking curves are calculated by considering all the active forces (braking force constant or not, frictions, gradient gravity force) and for this reason are physically accurate. The resulting envelope is called &lt;strong>Max Speed Profile&lt;/strong>.&lt;/li>

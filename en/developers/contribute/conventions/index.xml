@@ -6,6 +6,6 @@ if it is not entirely obvious from the title.
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong>&lt;/li>
 &lt;li>all lowercase&lt;/li>
-&lt;li>there can be multiple components separated by &lt;code>: &lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
+&lt;li>there can be multiple components separated by &lt;code>:&lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
 &lt;li>the body of the commit should probably contain a detailed description of the change&lt;/li>
 &lt;/ul></description></item></channel></rss>

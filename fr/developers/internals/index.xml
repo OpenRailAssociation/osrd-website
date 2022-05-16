@@ -2,7 +2,7 @@
 &lt;div class="pageinfo pageinfo-warning">
 &lt;p>Ce modèle n&amp;rsquo;est pas finalisé, et en attente d&amp;rsquo;implémentation&lt;/p>
 &lt;/div>
-&lt;h1 id="architecture">Architecture&lt;/h1>
+&lt;h2 id="architecture">Architecture&lt;/h2>
 &lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
 %%%% NODES
 train[Train]
@@ -34,7 +34,7 @@ click spacing href &amp;#34;./spacing/&amp;#34; _self
 click reservation href &amp;#34;./reservation/&amp;#34; _self
 click location href &amp;#34;./location/&amp;#34; _self
 click movable-elements href &amp;#34;./movable-elements/&amp;#34; _self
-&lt;/code>&lt;/pre>&lt;h1 id="todo">TODO&lt;/h1>
+&lt;/code>&lt;/pre>&lt;h2 id="todo">TODO&lt;/h2>
 &lt;ul>
 &lt;li>overlaps&lt;/li>
 &lt;li>opposing movement protection&lt;/li>

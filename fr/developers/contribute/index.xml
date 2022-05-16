@@ -2,18 +2,18 @@
 &lt;div class="alert alert-info" role="alert">
 La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
 &lt;/div>
-&lt;h1 id="obtenir-le-code-source">Obtenir le code source&lt;/h1>
+&lt;h2 id="obtenir-le-code-source">Obtenir le code source&lt;/h2>
 &lt;ul>
-&lt;li>installez &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>ouvrez un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
+&lt;li>Installer &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
 &lt;li>&lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h1 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h1>
+&lt;h2 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h2>
 &lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
 &lt;p>Aujourd&amp;rsquo;hui, vous pouvez déléguer ce travail à &lt;code>docker-compose&lt;/code>, qui lancera tout où partie des composants d&amp;rsquo;OSRD.&lt;/p>
 &lt;ul>
-&lt;li>installez &lt;code>docker&lt;/code> et &lt;code>docker-compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>lancez &lt;code>docker-compose up --build&lt;/code>&lt;/li>
+&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker-compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Lancer &lt;code>docker-compose up --build&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>

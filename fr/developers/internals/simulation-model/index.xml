@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Modèle de simulation de la signalisation et des aiguillages</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/</link><description>Recent content in Modèle de simulation de la signalisation et des aiguillages on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Éléments mobiles</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/movable-elements/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Chaque élément mobile, aiguille ou passage à niveau, a une liste d&amp;rsquo;états possibles.
-Ces états sont mutuellement exclusif.&lt;/p>
+Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
 &lt;li>une liste d&amp;rsquo;élements mobiles&lt;/li>
-&lt;li>liste des états possible de chaque élément mobile&lt;/li>
+&lt;li>liste des états possibles de chaque élément mobile&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations-possibles">Opérations possibles&lt;/h2>
 &lt;ul>
@@ -26,18 +26,18 @@ Ces états sont mutuellement exclusif.&lt;/p>
 &lt;/ul></description></item><item><title>Developers: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/reservation/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Ce sous-système a la responsabilité de&lt;/p>
-&lt;p>Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies:&lt;/p>
+&lt;p>Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies :&lt;/p>
 &lt;ul>
 &lt;li>capables de détecter la présence d&amp;rsquo;un train&lt;/li>
 &lt;li>qui fournissent un service de réservation à l&amp;rsquo;usage des routes&lt;/li>
 &lt;/ul>
 &lt;p>Chaque zone a un certain nombre de configurations différentes.
-Par exemple, une zone sans aiguille aura deux configurations:&lt;/p>
+Par exemple, une zone sans aiguille aura deux configurations :&lt;/p>
 &lt;ul>
 &lt;li>sens pair&lt;/li>
 &lt;li>sens impair&lt;/li>
 &lt;/ul>
-&lt;p>Une zone avec une aiguille aura 4 configurations:&lt;/p>
+&lt;p>Une zone avec une aiguille aura 4 configurations :&lt;/p>
 &lt;ul>
 &lt;li>sens pair voie principale&lt;/li>
 &lt;li>sens impair voie principale&lt;/li>
@@ -116,13 +116,13 @@ c&amp;rsquo;est important pour qu&amp;rsquo;on puisse re-réserver l&amp;rsquo;i
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
 &lt;li>une liste d&amp;rsquo;élements mobiles&lt;/li>
-&lt;li>liste des états possible de chaque élément mobile&lt;/li>
+&lt;li>liste des états possibles de chaque élément mobile&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>activer une route&lt;/strong>: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été réservée, puis qu&amp;rsquo;un train l&amp;rsquo;aura parcourue&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Espacement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/spacing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/spacing/</guid><description>
-&lt;h1 id="couche-de-cantonnement">Couche de cantonnement&lt;/h1>
+&lt;h2 id="couche-de-cantonnement">Couche de cantonnement&lt;/h2>
 &lt;p>La couche de cantonnement gère des routes de signal à signal (canton).
 Elle permet à la signalisation d&amp;rsquo;observer l&amp;rsquo;état d&amp;rsquo;un groupe
 de zones protégées par chaque signal, et de trouver le signal
@@ -157,7 +157,7 @@ Les signaux peuvent être de différent types, et sont chargés de manière modu
 vis-à-vis de l&amp;rsquo;état de l&amp;rsquo;infrastructure, et la réaction des trains à la signalisation.&lt;/p>
 &lt;h2 id="état">État&lt;/h2>
 &lt;p>Chaque système de signalisation a son type d&amp;rsquo;état de signal.&lt;/p>
-&lt;p>Étant donné un type de signal, il doit être possible de:&lt;/p>
+&lt;p>Étant donné un type de signal, il doit être possible de :&lt;/p>
 &lt;ul>
 &lt;li>savoir s&amp;rsquo;il est contraignant&lt;/li>
 &lt;li>déterminer une représentation graphique de ce signal&lt;/li>

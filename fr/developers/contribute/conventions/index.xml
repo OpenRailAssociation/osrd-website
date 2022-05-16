@@ -6,6 +6,6 @@ si le titre n&amp;#39;est pas complètement évident.
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong>&lt;/li>
 &lt;li>tout en minuscule&lt;/li>
-&lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>: &lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
+&lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>:&lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
 &lt;li>dans l&amp;rsquo;idéal, le corps du commit contient une description du changement.&lt;/li>
 &lt;/ul></description></item></channel></rss>
