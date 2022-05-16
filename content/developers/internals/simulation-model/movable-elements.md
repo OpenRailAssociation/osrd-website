@@ -8,15 +8,15 @@ description: "Gère l'état des organes de commande des aiguilles, passages à n
 ## Description
 
 Chaque élément mobile, aiguille ou passage à niveau, a une liste d'états possibles.
-Ces états sont mutuellement exclusif.
+Ces états sont mutuellement exclusifs.
 
 ## Dépendances
 
- - une liste d'élements mobiles
- - liste des états possible de chaque élément mobile
+- une liste d'élements mobiles
+- liste des états possibles de chaque élément mobile
 
 ## Opérations possibles
 
- - observer un élément mobile
- - vérouiller / dévérouiller un élément mobile
- - bouger un élément mobile
+- observer un élément mobile
+- vérouiller / dévérouiller un élément mobile
+- bouger un élément mobile

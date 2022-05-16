@@ -7,9 +7,9 @@ description: "Gère le cycle de vie des itinéraires"
 
 ## Description
 
- - les routes sont formées à la demande
- - une route peut être re-formée alors qu'un train est déjà en train de la parcourir
- - chaque route ne peut être en cours de formation qu'une seule fois, les autres processus de formation attendent
+- les routes sont formées à la demande
+- une route peut être re-formée alors qu'un train est déjà en train de la parcourir
+- chaque route ne peut être en cours de formation qu'une seule fois, les autres processus de formation attendent
 
 ```python
 async def activate(self):
@@ -49,17 +49,17 @@ flowchart LR
 
 ```
 
- - **commandée**: dès que la route est en attente de formation
- - **formé**: quand le transit est lancé au travers de chacune des zones, et les appareils de voie sont dans la position attendue
- - **en cours d'utilisation**: dès que la tête du train rentre dans la première zone
- - **détruit**, l'état par défaut: dès que la queue du train a libéré la première zone.
+- **commandée**: dès que la route est en attente de formation
+- **formé**: quand le transit est lancé au travers de chacune des zones, et les appareils de voie sont dans la position attendue
+- **en cours d'utilisation**: dès que la tête du train rentre dans la première zone
+- **détruit**, l'état par défaut: dès que la queue du train a libéré la première zone.
    c'est important pour qu'on puisse re-réserver l'itinéraire sans attendre qu'ils soit entièrement parcouru par un premier train
 
 ## Dépendances
 
- - une liste d'élements mobiles
- - liste des états possible de chaque élément mobile
+- une liste d'élements mobiles
+- liste des états possibles de chaque élément mobile
 
 ## Opérations
 
- - **activer une route**: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été réservée, puis qu'un train l'aura parcourue
+- **activer une route**: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été réservée, puis qu'un train l'aura parcourue

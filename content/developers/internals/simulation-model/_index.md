@@ -9,7 +9,7 @@ description: Décrit le fonctionnement du poste d'aiguillage virtuel et de la si
 Ce modèle n'est pas finalisé, et en attente d'implémentation
 {{% /pageinfo %}}
 
-# Architecture
+## Architecture
 
 ```mermaid
 flowchart TD
@@ -50,10 +50,7 @@ flowchart TD
     click movable-elements href "./movable-elements/" _self
 ```
 
-# TODO
+## TODO
 
- - overlaps
- - opposing movement protection
-
-
-
+- overlaps
+- opposing movement protection

@@ -11,9 +11,9 @@ La couche de localisation suit le déplacement des trains dans l'infrastructure
 
 ## Dépendances
 
- - une liste de zones
+- une liste de zones
 
 ## Opérations
 
- - Occuper la zone
- - Libérer la zone
+- Occuper la zone
+- Libérer la zone

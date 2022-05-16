@@ -13,7 +13,7 @@ Description détaillée du contenu et de la motivation du changement,
 si le titre n'est pas complètement évident.
 ```
 
- - **le message comme le code doit être en anglais**
- - tout en minuscule
- - il peut y avoir plusieurs composants, séparés par des `: ` quand il y a une relation hiérarchique, ou des `,` sinon
- - dans l'idéal, le corps du commit contient une description du changement.
+- **le message comme le code doit être en anglais**
+- tout en minuscule
+- il peut y avoir plusieurs composants, séparés par des `:` quand il y a une relation hiérarchique, ou des `,` sinon
+- dans l'idéal, le corps du commit contient une description du changement.

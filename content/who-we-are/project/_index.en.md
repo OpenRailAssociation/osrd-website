@@ -9,7 +9,7 @@ The OSRD project aims to meet the needs of simulations that cover the entire pro
 
 ![OSRD presentation](osrd_presentation.png)
 
-Our mission is to provide a simulation tool that can be used in **all stages of the design phase** (timetable planning and operational studies), on a **national geographic scale** (including the whole French network) and with a **variable detail size**. Moreover, in the operational phase, the OSRD project proposes a service to draw **last minute paths** (a time-slot during which the infrastructure is allocated to the circulation of a specific train) in the theoretical or real residual capacity of the railway network, once the other circulations have already been planned.
+Our mission is to provide a simulation tool that can be used in **all stages of the design phase** (timetable planning and operational studies), on a **national geographic scale** (including the whole French network) and with a **variable detail size**. Moreover, in the operational phase, the OSRD project proposes a service to draw **last minute paths** (time-slot during which the infrastructure is allocated to the circulation of a specific train) in the theoretical or real residual capacity of the railway network, once the other circulations have already been planned.
 
 ### <font color=#aa026d>Le projet OSRD</font>
 

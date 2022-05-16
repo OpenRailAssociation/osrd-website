@@ -1,6 +1,6 @@
 ---
 title: "Contribuer du code"
-linkTitle: "Contribuer du code"
+linkTitle: "Contribuer au code"
 weight: 40
 description: "Apporter des modifications au code d'OSRD"
 ---

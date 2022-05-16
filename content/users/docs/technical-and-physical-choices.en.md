@@ -11,7 +11,7 @@ OSRD can be used to perform two kinds of calculation:
 - **Many trains simulation** where a real dynamic simulation is run.
 
 In both cases, during the simulation, the train is supposed to follow some speed instructions. These are modeled in OSRD with space/speed curves called envelopes. There are two kinds of envelopes:
-- Envelopes coming **from infrastructure and rolling stock data**, such as the max speed of the line and the max speed of the train; these are inputs to our calculation and they are not physically accurate because they are not the results of a real integration of the physical movement equations.
+- Envelopes coming **from infrastructure and rolling stock data**, such as the max speed of the line and the max speed of the train ; these are inputs to our calculation and they are not physically accurate because they are not the results of a real integration of the physical movement equations.
 - Envelopes resulting **from a real integration** of the physical movement equations.
 
 These contain also information about time.
@@ -21,7 +21,7 @@ These contain also information about time.
 #### Standalone train simulation
 #### Fastest running time calculation
 
-The first goal of a standalone train simulation is to perform the **fastest running time calculation**, where the train runs at the max permitted speed. To obtain this, a procedure composed by different stages is used. At each stage, some new envelopes are calculated and added to the previous ones. The final resulting envelope is what we call **Max Effort envelope**.
+The first goal of a standalone train simulation is to perform the **fastest running time calculation**, where the train runs at the max permitted speed. To obtain this, a procedure composed by different stages is used. At each stage, some new envelopes are calculated and added to the previous ones. The final resulting envelope is what we call **Max Effort envelope**:
 
 - A first envelope is calculated at the beginning of the simulation putting together all the envelopes related to some static speed limits (max speed of the line, max speed of the rolling stock, temporary speed restrictions, train category speed restrictions, axle load speed restrictions). The resulting envelope is called **Most Restricted Speed Profile (MRSP)**.
 - All the braking curves are computed by starting from their target point, i.e. the point in space where a certain speed limits is imposed (finite target speed) or stop point (target speed = 0 m/s). The braking curves are calculated by considering all the active forces (braking force constant or not, frictions, gradient gravity force) and for this reason are physically accurate. The resulting envelope is called **Max Speed Profile**.
