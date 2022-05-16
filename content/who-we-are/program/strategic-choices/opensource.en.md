@@ -9,7 +9,7 @@ weight: 10
 
 ### <font color=#aa026d>OSRD : when railway simulation becomes open source</font>
 
-The choice of open source is particularly strategic in the public sector. In addition to significantly lowering development costs, it offers every citizen **the transparency needed** to understand and evaluate public investment choices.
+The choice of Open Source is particularly strategic in the public sector. In addition to significantly lowering development costs, it offers every citizen **the transparency needed** to understand and evaluate public investment choices.
 
 We believe that Open Source addresses political, economic, technical and even energy issues:
 
@@ -18,7 +18,7 @@ We believe that Open Source addresses political, economic, technical and even en
 - **Technical**, because sharing allows evolution;
 - **Energy**, finally, because we can accelerate the energy transition by enhancing the value of rail transport. But we must do so while maintaining or improving industrial performance.
 
-Finally, open source allows to federate a community of people who worked until then in their corner. Everything is based on (Bill) Joy's famous law : *<font color=#aa026d>« No matter who you are, most of the smartest people work for someone else »</font>* !
+Finally, Open Source allows federating a community of people who worked until then in their corner. Everything is based on (Bill) Joy's infamous law : *<font color=#aa026d>« No matter who you are, most of the smartest people work for someone else »</font>* !
 
 ### <font color=#aa026d>Definition :</font>
 Open source consists in leaving the source code of a developed software freely available, so that anyone can **read it, use it and propose modifications or developments**. The design and development of open source software is then placed in the hands of **communities** of users and/or developers.
