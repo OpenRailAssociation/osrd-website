@@ -7,8 +7,6 @@ description: "Gère l'état de réservation des zones"
 
 ## Description
 
-Ce sous-système a la responsabilité de
-
 Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies :
 
 - capables de détecter la présence d'un train
@@ -34,18 +32,51 @@ L'enclanchement de transit est un enclanchement qui vise à empêcher le mouveme
 Il concerne les organes de commandes des aiguilles.
 un enclanchement est un système qui permet d'imposer des ordres de manoeuvre sur un système, soit imposer des interdictions
 
+## Exigences de conception
+
+- Les zones doivent pouvoir être **vérouillées** dans une configuration particulière.
+- Il doit être possible pour plusieurs routes de **partager une réservation** de configuration.
+- Il doit être possible d'observer l'**évolution de statut d'une réservation**.
+
 ## État
 
-```rust
-struct ZoneState {
-  reservation: ZoneReservationState,
-  occupation: usize,
-}
+```python
+class ZoneReservationStatus(IntEnum):
+    # the head of the train didn't yet enter the zone
+    AWAITING_USE = auto()
+    # the train is inside the zone
+    IN_USE = auto() 
+    # the train went and left
+    AWAITING_RELEASE = auto()
 
-enum ZoneReservationState {
-  Free,
-  Reserved(config: ZoneConfig, count: usize),
-}
+
+class ZoneReservation:
+    train: TrainHandle
+    status: ZoneReservationStatus
+
+    async def wait_for_status(self, status):
+        raise NotImplemented
+
+    async def release(self):
+        raise NotImplemented
+    
+
+class ZoneState:
+    # the current layout of the zone
+    configuration: ZoneConfiguration
+    # the list of trains which hold a right to use the zone in its current configuration
+    reservations: Set[TrainHandle]
+    # the list of trains currently inside the zone
+    occupation: Set[TrainHandle]
+
+    @property
+    def is_locked(self):
+        """When any train holds a reservation for a route, the zone cannot change configuration"""
+        return len(self.reservations) != 0
+
+    @abstractmethod
+    async def reserve(self, configuration) -> ZoneReservation:
+        raise NotImplemented
 ```
 
 ## Dépendances
@@ -56,6 +87,8 @@ enum ZoneReservationState {
 
 ## Opérations
 
-- Observer les changements d'état d'une zone
-- Réserver une configuration de zone
-- Relacher une réservation de zone
+- **cantonnement**: Observer l'occupation de la zone
+- **cantonnement**: Observer la configuration de la zone (?)
+- **routage**: Réserver une configuration de zone
+- **routage**: Attendre que la réservation de la zone soit utilisée par son train
+- **routage**: Relacher une réservation de zone
