@@ -16,12 +16,12 @@ flowchart TD
     %%%% NODES
 
     train[Train]
-    style train opacity:50%,stroke-dasharray: 5 5
     %% ↓
     signaling[Signalisation]
     %% ↓
     routing[Routage]
-    spacing["Cantonnement"]
+    ordering[Ordonnancement]
+    spacing["Espacement"]
     %% ↓
     reservation[Réservation]
     %% ↓
@@ -31,7 +31,9 @@ flowchart TD
     %%%% EDGES
 
     train -- réagit à --> signaling
+    train -- réclame les itinéraires --> ordering
     signaling -- observe --> routing
+    ordering -- réserve --> routing
     signaling -- observe --> spacing
     spacing -- observe --> reservation
     spacing -- observe --> movable-elements
@@ -42,6 +44,8 @@ flowchart TD
 
     %%%% CLICKABLE LINKS
 
+    click train href "./train/" _self
+    click ordering href "./ordering/" _self
     click signaling href "./signaling/" _self
     click routing href "./routing/" _self
     click spacing href "./spacing/" _self
