@@ -21,11 +21,17 @@ Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
-&lt;li>Occuper la zone&lt;/li>
-&lt;li>Libérer la zone&lt;/li>
+&lt;li>Occuper une zone&lt;/li>
+&lt;li>Libérer une zone&lt;/li>
+&lt;li>Observer les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
+&lt;/ul>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>il doit être possible de suivre les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
+&lt;li>il &lt;em>devra&lt;/em> être possible de suivre les déplacements d&amp;rsquo;un train&lt;/li>
+&lt;li>il &lt;em>devra&lt;/em> être possible d&amp;rsquo;implémenter un système de bloc mobile&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/reservation/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
-&lt;p>Ce sous-système a la responsabilité de&lt;/p>
 &lt;p>Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies :&lt;/p>
 &lt;ul>
 &lt;li>capables de détecter la présence d&amp;rsquo;un train&lt;/li>
@@ -49,17 +55,50 @@ Une zone ne peut changer de configuration que lorsqu&amp;rsquo;elle n&amp;rsquo;
 &lt;p>L&amp;rsquo;enclanchement de transit est un enclanchement qui vise à empêcher le mouvement d&amp;rsquo;un appareil de voie lorsqu&amp;rsquo;un train est en approche.
 Il concerne les organes de commandes des aiguilles.
 un enclanchement est un système qui permet d&amp;rsquo;imposer des ordres de manoeuvre sur un système, soit imposer des interdictions&lt;/p>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>Les zones doivent pouvoir être &lt;strong>vérouillées&lt;/strong> dans une configuration particulière.&lt;/li>
+&lt;li>Il doit être possible pour plusieurs routes de &lt;strong>partager une réservation&lt;/strong> de configuration.&lt;/li>
+&lt;li>Il doit être possible d&amp;rsquo;observer l&amp;rsquo;&lt;strong>évolution de statut d&amp;rsquo;une réservation&lt;/strong>.&lt;/li>
+&lt;/ul>
 &lt;h2 id="état">État&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">ZoneState&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">reservation&lt;/span>: &lt;span style="color:#000">ZoneReservationState&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">occupation&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">usize&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">enum&lt;/span> &lt;span style="color:#000">ZoneReservationState&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Free&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Reserved&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">config&lt;/span>: &lt;span style="color:#000">ZoneConfig&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">count&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">usize&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dépendances">Dépendances&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">ZoneReservationStatus&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">IntEnum&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># the head of the train didn&amp;#39;t yet enter the zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">AWAITING_USE&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">auto&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># the train is inside the zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">IN_USE&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">auto&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># the train went and left&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">AWAITING_RELEASE&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">auto&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">ZoneReservation&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">train&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">TrainHandle&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">status&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">ZoneReservationStatus&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">async&lt;/span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">wait_for_status&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">status&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">raise&lt;/span> &lt;span style="color:#3465a4">NotImplemented&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">async&lt;/span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">release&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">raise&lt;/span> &lt;span style="color:#3465a4">NotImplemented&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">ZoneState&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># the current layout of the zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">configuration&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">ZoneConfiguration&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># the list of trains which hold a right to use the zone in its current configuration&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">reservations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">Set&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">TrainHandle&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># the list of trains currently inside the zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">occupation&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">Set&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">TrainHandle&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#5c35cc;font-weight:bold">@property&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">is_locked&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;When any train holds a reservation for a route, the zone cannot change configuration&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">reservations&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#5c35cc;font-weight:bold">@abstractmethod&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">async&lt;/span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">reserve&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">configuration&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000">ZoneReservation&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">raise&lt;/span> &lt;span style="color:#3465a4">NotImplemented&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
 &lt;li>une liste de zones&lt;/li>
 &lt;li>capacité d&amp;rsquo;observer l&amp;rsquo;occupation des zones&lt;/li>
@@ -67,52 +106,36 @@ un enclanchement est un système qui permet d&amp;rsquo;imposer des ordres de ma
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
-&lt;li>Observer les changements d&amp;rsquo;état d&amp;rsquo;une zone&lt;/li>
-&lt;li>Réserver une configuration de zone&lt;/li>
-&lt;li>Relacher une réservation de zone&lt;/li>
+&lt;li>&lt;strong>cantonnement&lt;/strong>: Observer l&amp;rsquo;occupation de la zone&lt;/li>
+&lt;li>&lt;strong>cantonnement&lt;/strong>: Observer la configuration de la zone (?)&lt;/li>
+&lt;li>&lt;strong>routage&lt;/strong>: Réserver une configuration de zone&lt;/li>
+&lt;li>&lt;strong>routage&lt;/strong>: Attendre que la réservation de la zone soit utilisée par son train&lt;/li>
+&lt;li>&lt;strong>routage&lt;/strong>: Relacher une réservation de zone&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/routing/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;ul>
-&lt;li>les routes sont formées à la demande&lt;/li>
-&lt;li>une route peut être re-formée alors qu&amp;rsquo;un train est déjà en train de la parcourir&lt;/li>
-&lt;li>chaque route ne peut être en cours de formation qu&amp;rsquo;une seule fois, les autres processus de formation attendent&lt;/li>
+&lt;li>Les routes sont formées à la demande. Plusieurs demandes peuvent avoir cours en simultané. Il est de la responsabilité du composant qui active les routes de s&amp;rsquo;assurer que les demandes sont faites dans le bon ordre.&lt;/li>
+&lt;li>Une route est dite commandée lorsqu&amp;rsquo;un processus d&amp;rsquo;activation est en cours, et elle devient formée lorsque le processus se termine&lt;/li>
+&lt;li>Une route peut être activée alors qu&amp;rsquo;un train est déjà en train de la parcourir. Il faut seulement qu&amp;rsquo;il soit possible de réserver les zones dans la bonne configuration.&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">async&lt;/span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">activate&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">async&lt;/span> &lt;span style="color:#204a87;font-weight:bold">with&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">lock&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">switch_state&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">REQUESTED&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># zone_sequence is a list of the zones of the route,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># sorted by any absolute order to avoid deadlocks&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">zone&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">config&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">zone_sequence&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">await&lt;/span> &lt;span style="color:#000">zone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">reserve&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">config&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">switch_state&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">READY&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">first_zone&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">zones&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">await&lt;/span> &lt;span style="color:#000">first_zone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">wait_occupation_state&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">OCCUPIED&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">switch_state&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">USED&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">await&lt;/span> &lt;span style="color:#000">first_zone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">wait_occupation_state&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">FREE&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">switch_state&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">DESTROYED&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-info" role="alert">
 certains postes d&amp;rsquo;aiguillages ont un enclanchement entre itinéraires de sens contraire (affrontement) qui empêche l&amp;rsquo;activation d&amp;rsquo;une route en menant à une zone avec un transit en sens contraire.
 &lt;/div>
-&lt;h2 id="état">État&lt;/h2>
-&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
-subgraph &amp;#34;exclusivement réservé&amp;#34;
-commandé
-formé
-utilisé
-end
-détruit
-détruit --&amp;gt; commandé
-commandé --&amp;gt; formé
-formé --&amp;gt; utilisé
-utilisé --&amp;gt; détruit
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>commandée&lt;/strong>: dès que la route est en attente de formation&lt;/li>
-&lt;li>&lt;strong>formé&lt;/strong>: quand le transit est lancé au travers de chacune des zones, et les appareils de voie sont dans la position attendue&lt;/li>
-&lt;li>&lt;strong>en cours d&amp;rsquo;utilisation&lt;/strong>: dès que la tête du train rentre dans la première zone&lt;/li>
-&lt;li>&lt;strong>détruit&lt;/strong>, l&amp;rsquo;état par défaut: dès que la queue du train a libéré la première zone.
-c&amp;rsquo;est important pour qu&amp;rsquo;on puisse re-réserver l&amp;rsquo;itinéraire sans attendre qu&amp;rsquo;ils soit entièrement parcouru par un premier train&lt;/li>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>Le système doit permettre à la &lt;strong>signalisation&lt;/strong> de déterminer si la route est &lt;strong>prête à être empruntée&lt;/strong>.&lt;/li>
+&lt;li>Le système doit permettre l&amp;rsquo;&lt;strong>ordonnancement&lt;/strong> des trains selon des critères configurables.&lt;/li>
+&lt;li>Le système doit optionnellement permettre la destruction progressive (&lt;strong>transit souple&lt;/strong>) de l&amp;rsquo;itinéraire après le passage du train.&lt;/li>
+&lt;li>Commande simultanée de l&amp;rsquo;itinéraire&lt;/li>
 &lt;/ul>
+&lt;h2 id="possibilités-de-design">Possibilités de design&lt;/h2>
+&lt;p>La contrainte la plus importante est la réaction des signaux aux itinéraires devant eux. Traditionnellement, les signaux réagissent à la complète formation d&amp;rsquo;une des routes devant eux. Cette formulation, si elle est sûre, impose plusieurs contraintes:&lt;/p>
+&lt;ul>
+&lt;li>Il est nécessaire d&amp;rsquo;associer un état à chaque itinéraire.&lt;/li>
+&lt;li>Les signaux doivent aggréger l&amp;rsquo;état de tous les itinéraires devant eux. Il peut y en avoir beaucoup.&lt;/li>
+&lt;/ul>
+&lt;p>Une autre possibilité est d&amp;rsquo;insérer un objet intermédiaire entre le signal et les routes devant lui, qui serait explicitement notifié par le processus d&amp;rsquo;activation de l&amp;rsquo;itinéraire de son état. Il existerait un objet de ce genre par couple &lt;code>(détecteur, direction)&lt;/code> d&amp;rsquo;où une route part.&lt;/p>
+&lt;p>La seconde option nous semble préférable, car elle permet d&amp;rsquo;avoir un couplage moins fort entre la signalisation et les itinéraires.&lt;/p>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
 &lt;li>une liste d&amp;rsquo;élements mobiles&lt;/li>
@@ -120,8 +143,37 @@ c&amp;rsquo;est important pour qu&amp;rsquo;on puisse re-réserver l&amp;rsquo;i
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>activer une route&lt;/strong>: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été réservée, puis qu&amp;rsquo;un train l&amp;rsquo;aura parcourue&lt;/li>
-&lt;/ul></description></item><item><title>Developers: Espacement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/spacing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/spacing/</guid><description>
+&lt;li>&lt;strong>activer une route&lt;/strong>: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été réservée. Un objet permettant d&amp;rsquo;attendre que la route soit détruite après le passage du train est retourné&lt;/li>
+&lt;li>&lt;strong>observer un point d&amp;rsquo;entrée d&amp;rsquo;itinéraire&lt;/strong> permet à la signalisation de protéger les appareils de voie&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5c35cc;font-weight:bold">@dataclass&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">RouteHandle&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">route&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">Route&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">zone_handles&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">List&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">ZoneReservationHandle&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">async&lt;/span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">release&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;This method must be awaited on for the route to release reservations behind the train&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">release_group&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">route&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">release_groups&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">last_zone_index&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">release_group&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">last_zone_index&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">zone_handle&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">zone_handles&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">last_zone_index&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">await&lt;/span> &lt;span style="color:#000">zone_handle&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">wait_for_status&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">train&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">await&lt;/span> &lt;span style="color:#000">last_zone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">release&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">train&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">Route&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">async&lt;/span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">activate&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">route&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">train&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000">RouteHandle&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># zone_sequence is a list of the zones of the route,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># sorted by any absolute order to avoid deadlocks&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">handles&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">zone&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">config&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">route&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">zone_reservation_sequence&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">handles&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">await&lt;/span> &lt;span style="color:#000">zone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">reserve&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">config&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">train&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># open and close the entrance signals&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">route&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">entry_trigger&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">open&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">await&lt;/span> &lt;span style="color:#000">route&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">zones&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">wait_until_train_leaves&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">route&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">entry_trigger&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">RouteHandle&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">route&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">handles&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Developers: Espacement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/spacing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/spacing/</guid><description>
 &lt;h2 id="couche-de-cantonnement">Couche de cantonnement&lt;/h2>
 &lt;p>La couche de cantonnement gère des routes de signal à signal (canton).
 Elle permet à la signalisation d&amp;rsquo;observer l&amp;rsquo;état d&amp;rsquo;un groupe
@@ -129,10 +181,14 @@ de zones protégées par chaque signal, et de trouver le signal
 suivant dans la chaîne.&lt;/p>
 &lt;p>Chaque canton porte les informations statiques suivantes:&lt;/p>
 &lt;ul>
-&lt;li>les zones protégées par le canton, et leur état attendu&lt;/li>
-&lt;li>les éléments mobiles et leur état attendu&lt;/li>
+&lt;li>les zones protégées par le canton, et leur configuration attendue (ce qui inclus l&amp;rsquo;état des éléments mobiles)&lt;/li>
 &lt;li>les signaux de début et de fin (optionnels)&lt;/li>
 &lt;/ul>
+&lt;p>Un canton est &lt;strong>actif&lt;/strong> si tous ses éléments mobiles sont dans la position requise.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">TODO&lt;/h4>
+Un canton devrait-il être actif quand toutes ses zones sont dans la configuration requise ? Dans ce cas, les cantons de sens contraire seront inactifs.
+&lt;/div>
 &lt;h2 id="état">État&lt;/h2>
 &lt;p>L&amp;rsquo;état du canton est une combinaison de:&lt;/p>
 &lt;ul>
@@ -144,12 +200,29 @@ suivant dans la chaîne.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">occupied&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Les cantons n&amp;rsquo;ont pas d&amp;rsquo;état persistant. Ils sont à tout instant capables de recalculer leur état.&lt;/p>
+&lt;h2 id="opérations">Opérations&lt;/h2>
+&lt;ul>
+&lt;li>On peut demander, étant une liste de signaling routes partant du même point, laquelle est &lt;strong>active&lt;/strong> (si il y en a une), et son état. Cette opération est commune à la couche d&amp;rsquo;API, et non à une signaling route en particulier.&lt;/li>
+&lt;/ul>
 &lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
 &lt;ul>
 &lt;li>chaque signal doit connaître le &lt;strong>prochain signal compatible&lt;/strong>&lt;/li>
 &lt;li>chaque signal doit connaître les &lt;strong>zones qu&amp;rsquo;il protège&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>compatibilité modules signalisation&lt;/strong>: les modules doivent créer les cantons entre chaque signaux. chaque canton a un système de signalisation associé&lt;/li>
-&lt;li>&lt;strong>compatibilité pathfinding&lt;/strong>: Le pathfinding se fait dans le graphe des routes de mouvement, mais les déplacements sont contraints aux chemins qui sont permis par la couche de cantonnement&lt;/li>
+&lt;li>&lt;strong>compatibilité modules signalisation&lt;/strong> : les modules doivent créer les cantons entre chaque signaux. Chaque canton a un système de signalisation associé.&lt;/li>
+&lt;li>&lt;strong>compatibilité pathfinding&lt;/strong> : Le pathfinding se fait dans le produit du graphe de routage et du graphe de cantons.&lt;/li>
+&lt;/ul></description></item><item><title>Developers: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/ordering/</guid><description>
+&lt;h2 id="définition">Définition&lt;/h2>
+&lt;p>La couche d&amp;rsquo;ordonnancement a pour a responsabilité d&amp;rsquo;établir l&amp;rsquo;ordre de commande des itinéraires, et par conséquent, l&amp;rsquo;ordre de passage des trains.
+La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pas, du moment qu&amp;rsquo;elle garanti que la simulation se termine (elle ne doit pas amener de trains en nez-à-nez, ou créer d&amp;rsquo;autre cas de figure de blocage).&lt;/p>
+&lt;p>Il est possible d&amp;rsquo;implémenter un module d&amp;rsquo;ordonnancement via des tableaux d&amp;rsquo;ordre de succession des trains aux aiguilles.&lt;/p>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>Il doit être possible de connecter n&amp;rsquo;importe quel algorithme d&amp;rsquo;ordonnancement&lt;/li>
+&lt;li>Le module d&amp;rsquo;ordonnancement doit blocker puis redémarrer des demandes d&amp;rsquo;itinéraire.&lt;/li>
+&lt;/ul>
+&lt;h2 id="opérations">Opérations&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>train&lt;/strong>: Le train &lt;strong>demande les itinéraires&lt;/strong> devant lui, aussi loin qu&amp;rsquo;il peut. Sa demande peut être mise en attente du passage d&amp;rsquo;un autre train.&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/signaling/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de signalisation comprend l&amp;rsquo;ensemble des signaux, qui réagissent au cantonnement et à la réservation.
@@ -171,4 +244,13 @@ vis-à-vis de l&amp;rsquo;état de l&amp;rsquo;infrastructure, et la réaction d
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>observer le signal&lt;/strong>&lt;/li>
+&lt;/ul></description></item><item><title>Developers: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/train/</guid><description>
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
+Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>Les trains &lt;strong>occupent les zones&lt;/strong>.&lt;/li>
+&lt;li>Les trains doivent être &lt;strong>suivis&lt;/strong> pour préserver leur &lt;strong>ordre de passage&lt;/strong>.&lt;/li>
+&lt;li>Les trains ont pour responsabilité de &lt;strong>demander les itinéraires&lt;/strong> devant eux.&lt;/li>
 &lt;/ul></description></item></channel></rss>

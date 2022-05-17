@@ -6,12 +6,12 @@
 &lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
 %%%% NODES
 train[Train]
-style train opacity:50%,stroke-dasharray: 5 5
 %% ↓
 signaling[Signalisation]
 %% ↓
 routing[Routage]
-spacing[&amp;#34;Cantonnement&amp;#34;]
+ordering[Ordonnancement]
+spacing[&amp;#34;Espacement&amp;#34;]
 %% ↓
 reservation[Réservation]
 %% ↓
@@ -19,7 +19,9 @@ location[Localisation]
 movable-elements[&amp;#34;Éléments mobiles&amp;#34;]
 %%%% EDGES
 train -- réagit à --&amp;gt; signaling
+train -- réclame les itinéraires --&amp;gt; ordering
 signaling -- observe --&amp;gt; routing
+ordering -- réserve --&amp;gt; routing
 signaling -- observe --&amp;gt; spacing
 spacing -- observe --&amp;gt; reservation
 spacing -- observe --&amp;gt; movable-elements
@@ -28,6 +30,8 @@ reservation -- observe --&amp;gt; location
 reservation -- réserve et actionne --&amp;gt; movable-elements
 train -- informe --&amp;gt; location
 %%%% CLICKABLE LINKS
+click train href &amp;#34;./train/&amp;#34; _self
+click ordering href &amp;#34;./ordering/&amp;#34; _self
 click signaling href &amp;#34;./signaling/&amp;#34; _self
 click routing href &amp;#34;./routing/&amp;#34; _self
 click spacing href &amp;#34;./spacing/&amp;#34; _self
