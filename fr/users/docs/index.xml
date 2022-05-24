@@ -26,4 +26,52 @@
 &lt;h4 id="simulation-de-plusieurs-trains">Simulation de plusieurs trains&lt;/h4>
 &lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p>
 &lt;h3 id="font-coloraa026dquelle-méthode-dintégration-osrd-doit-il-utiliser-font">&lt;font color=#aa026d>Quelle méthode d&amp;rsquo;intégration OSRD doit-il utiliser ?&lt;/font>&lt;/h3>
-&lt;p>Notre &lt;a href="https://github.com/DGEXSolutions/osrd/wiki/Which-integration-method-should-OSRD-use">Méthode d&amp;rsquo;Intégration&lt;/a> est disponible (en anglais) sur le répertoire GitHub du projet.&lt;/p></description></item></channel></rss>
+&lt;p>Notre &lt;a href="https://github.com/DGEXSolutions/osrd/wiki/Which-integration-method-should-OSRD-use">Méthode d&amp;rsquo;Intégration&lt;/a> est disponible (en anglais) sur le répertoire GitHub du projet.&lt;/p></description></item><item><title>Users: Choix techniques et phyiques</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/</guid><description>
+&lt;p>L&amp;rsquo;outil OSRD peut être utilisé pour effectuer deux types de calcul :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Calcul de marche&lt;/strong> (Standalone train simulation) où le calcul du temps de parcours est effectué sans interaction entre le train et le système de signalisation.&lt;/li>
+&lt;li>&lt;strong>Simulation&lt;/strong> de plusieurs trains où une simulation dynamique réelle est exécutée et les trains intéragissent entre eux et avec le système de signalisation.&lt;/li>
+&lt;/ul>
+&lt;h4 id="1---les-données-dentrée">1 - Les données d&amp;rsquo;entrée&lt;/h4>
+&lt;p>Les données d&amp;rsquo;entrée se présentent en 4 étapes.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>L&amp;rsquo;infrastructure :&lt;/strong> Topologie des lignes et des voies, position des gares et battements voyageurs, position et type des aiguilles, signaux, vitesses maximales liées à l’infrastructure, profil de ligne corrigée (pentes, rampes et virages).&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="infrastructure.png" alt="Infrastructure">&lt;/p>
+&lt;blockquote>
+&lt;p>L’histogramme est une représentation des déclivités en [‰] par position en [m], les déclivités sont positives pour les rampes et négatives pour les pentes; la ligne bleue est une représentation des virages en termes de rayons des courbures en [m]; la ligne orange représente le profil cumulé.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>Le matériel roulant :&lt;/strong> Sélection d’un train avec toutes les caractéristiques nécessaires pour effectuer la simulation.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="materiel_roulant.png" alt="Matériel roulant">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Les marges :&lt;/strong> Temps ajouté à la totalité du trajet en [s], en pourcentage du temps parcours ou en [s/100 m]. Il est également possible d&amp;rsquo;ajouter du temps en [s] par intervalle.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="marges.png" alt="Marge">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Les horaires :&lt;/strong> Temps de départ du train pour le mode «calcul de marche», tableau des horaires de passage pour le mode «simulation».&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="timetables.png?style=time" alt="Horaire de départ">&lt;/p>
+&lt;h4 id="2---les-résultats">2 - Les résultats&lt;/h4>
+&lt;p>Les résultats sont affichés sur forme de deux graphiques.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Le graphique espace/temps (GET) :&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="graph_espace_temps.jpg" alt="Graphique Espace/Temps">&lt;/p>
+&lt;blockquote>
+&lt;p>L’axe &lt;strong>x&lt;/strong> est l’horaire de passage du train, l’axe &lt;strong>y&lt;/strong> est la position du train en [m] ; la ligne bleue représente le calcul de marche le plus tendu pour le train, la ligne verte représente le calcul de marche « économique » du train avec l’ajout d’une marge, les carrés pleins représentent la portion de la voie reservée au passage du train.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>Le graphique espace/vitesse (GEV) :&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="graph_espace_vitesse.png" alt="Graphique Espace/Vitesse">&lt;/p>
+&lt;blockquote>
+&lt;p>L’axe &lt;strong>x&lt;/strong> est la position du train en [m], l’axe &lt;strong>y&lt;/strong> est la vitesse du train en [km/m] ; la ligne violette représente la vitesse maximale autorisée, la ligne bleue représente la vitesse dans le cas du calcul de marche le plus tendu pour le train, la ligne verte représente la vitesse dans le cas du calcul de marche « économique » du train avec l’ajout d’une marge.&lt;/p>
+&lt;/blockquote>
+&lt;style>
+img[src$="time"] {
+height: 70%;
+width: 70%;
+}
+&lt;/style></description></item></channel></rss>
