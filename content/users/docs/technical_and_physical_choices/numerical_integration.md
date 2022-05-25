@@ -1,6 +1,6 @@
 ---
-title: "Quelle méthode d'intégration l'outil OSRD doit-il utiliser ?"
-linkTitle: "Quelle méthode d'intégration l'outil OSRD doit-il utiliser ?"
+title: "Intégration numérique"
+linkTitle: "Intégration numérique"
 weight: 30
 ---
 
