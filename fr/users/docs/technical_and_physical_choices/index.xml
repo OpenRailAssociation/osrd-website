@@ -1,40 +1,70 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Choix techniques et phyiques</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/</link><description>Recent content in Choix techniques et phyiques on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Architecture de l'outil OSRD</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/</guid><description>
 &lt;h4 id="schéma-de-larchitecture-du-logiciel-osrd">Schéma de l&amp;rsquo;architecture du logiciel OSRD&lt;/h4>
 &lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
-&lt;p>&lt;img src="architecture.svg" alt="Architecture">&lt;/p></description></item><item><title>Users: Modélisation physique</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physic_modelisation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physic_modelisation/</guid><description>
+&lt;p>&lt;img src="architecture.svg" alt="Architecture">&lt;/p></description></item><item><title>Users: Modélisation physique</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physical_modeling/</guid><description>
 &lt;!-- script to auto-render KaTeX extension -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
 onload="renderMathInElement(document.body);">&lt;/script>
-&lt;h4 id="le-principe-fondamental-de-la-dynamique">Le principe fondamental de la dynamique&lt;/h4>
-&lt;p>Pour calculer l’accélération du train il faut considérer toutes les forces appliquées : $$ \sum \vec{F}=m\vec{a} $$&lt;/p>
+&lt;p>La modélisation physique joue un rôle important dans le coeur de calcul d&amp;rsquo;OSRD. C&amp;rsquo;est elle qui nous permet de simuler la
+circulation des trains, et elle doit être aussi réaliste que possible.&lt;/p>
+&lt;h4 id="bilan-des-forces">Bilan des forces&lt;/h4>
+&lt;p>Pour calculer le déplacement du train au cours du temps, il faut d&amp;rsquo;abord calculer sa vitesse à chaque instant.
+Une manière simple d&amp;rsquo;obtenir cette vitesse est de passer par le calcul de l&amp;rsquo;accélération.
+Grâce au principe fondamental de la dynamique, l&amp;rsquo;accélération du train à chaque instant est directement dépendant
+des différentes forces qu&amp;rsquo;il lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$&lt;/p>
 &lt;p>&lt;img src="../forces.png?style=train" alt="Marche">&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Traction&lt;/strong> : Les valeurs de la force de traction $F_{mot}$ pour chaque position sont dépendantes du type de matériel roulant et de la vitesse $v^{\prime}_x$. La dépendance de la vitesse est exprimée par la courbe effort/vitesse à la jante.&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Traction&lt;/strong> : La valeur de la force de traction $F_{mot}$ dépend de plusieurs facteurs :&lt;/p>
+&lt;ul>
+&lt;li>du matériel roulant&lt;/li>
+&lt;li>de la vitesse du train $v^{\prime}_x$, selon la courbe effort-vitesse ci-dessous :&lt;/li>
 &lt;/ul>
-&lt;p>$$ F_{mot}(\vec{v^{\prime}}&lt;em>x,x^{\prime})=F&lt;/em>{mot}(v^{\prime}_x,x^{\prime}){\vec{e_x}^{\prime}} $$&lt;/p>
-&lt;p>&lt;img src="../effort-vitesse.png" alt="Marche">&lt;/p>
+&lt;p>$$ {\vec{F_{mot}}(v_{x^{\prime}}, x^{\prime})=F_{mot}(v_{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$&lt;/p>
+&lt;p>&lt;img src="../effort-vitesse.png" alt="Marche" title="Exemple de courbe effort-vitesse d'un train">&lt;/p>
 &lt;blockquote>
 &lt;p>L&amp;rsquo;axe &lt;strong>x&lt;/strong> représente la vitesse du train en [km/h], l&amp;rsquo;axe &lt;strong>y&lt;/strong>, la valeur de la force de traction en [kN].&lt;/p>
 &lt;/blockquote>
 &lt;ul>
-&lt;li>&lt;strong>Freinage&lt;/strong> : Les valeurs de la force de freinage $F_{brk}$ dépendent du type de matériel roulant et peuvent être dépendantes de la vitesse ou avoir une valeur constante.&lt;/li>
+&lt;li>de l&amp;rsquo;action du conducteur, qui accélère plus ou moins fort en fonction de l&amp;rsquo;endroit où il se trouve sur son trajet&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{F_{brk}}(x^{\prime})=-F_{brk}(x^{\prime}){\vec{e_x}^{\prime}} $$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Freinage&lt;/strong> : La valeur de la force de freinage $F_{brk}$ dépend elle aussi du matériel roulant et de l&amp;rsquo;action du
+conducteur mais possède une valeur constante pour un matériel donné. Dans l&amp;rsquo;état actuel de la modélisation, le freinage
+est soit nul, soit à sa valeur maximale.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>$$ \vec{F_{brk}}(x^{\prime})=-F_{brk}(x^{\prime}){\vec{e_{x^{\prime}}}} $$&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Résistance à l&amp;rsquo;avancement&lt;/strong> : Pour modéliser la résistance à l’ avancement du train on utilise la formule de Davis qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à l&amp;rsquo;avancement dépend de la vitesse $v^{\prime}_x$. Les coefficient $A$, $B$, $C$ dépendent du type de matériel roulant.&lt;/li>
+&lt;li>&lt;strong>Résistance à l&amp;rsquo;avancement&lt;/strong> : Pour modéliser la résistance à l’ avancement du train on utilise la formule de Davis
+qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à
+l&amp;rsquo;avancement dépend de la vitesse $v^{\prime}_x$. Les coefficient $A$, $B$, et $C$ dépendent du matériel roulant.&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{R(v^{\prime}_x)}=-(A+Bv^{\prime}_x+{Cv^{\prime}_x}^2){\vec{e_x}^{\prime}} $$&lt;/p>
+&lt;p>$$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Poids (pentes + virages)&lt;/strong> : La force du poids donnée par le produit entre la masse $m$ du train et la constante gravitationnelle $g$ est projectée sur les axes $\vec{e_x}^{\prime}$ et $\vec{e_y}^{\prime}$. Pour la projection, on utilise l&amp;rsquo;angle $i(x^{\prime})$, qui est calculé à partir de l&amp;rsquo;angle de déclivité $s(x^{\prime})$ corrigé par un facteur qui prend en compte l&amp;rsquo;effet du rayon de virage $r(x^{\prime})$.&lt;/li>
+&lt;li>&lt;strong>Poids (pentes + virages)&lt;/strong> : La force du poids donnée par le produit entre la masse $m$ du train et la constante
+gravitationnelle $g$ est projectée sur les axes $\vec{e_x}^{\prime}$ et $\vec{e_y}^{\prime}$. Pour la projection, on utilise l&amp;rsquo;angle $i(x^{\prime})$, qui est calculé à partir de l&amp;rsquo;angle de déclivité $s(x^{\prime})$ corrigé par un facteur qui prend en compte l&amp;rsquo;effet du rayon de virage $r(x^{\prime})$.&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{P(x^{\prime})}=-mge_y(\vec{x^{\prime}})=-mg\Big[sin\big(i(x^{\prime})\big){\vec{e_x}^{\prime}}+cos\big(i(x^{\prime})\big){\vec{e_y}^{\prime}}\Big] $$
+&lt;p>$$ \vec{P(x^{\prime})}=-mg\vec{e_y}(x^{\prime})=
+-mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{y^{\prime}}}(x^{\prime})}\Big] $$
 $$ i(x^{\prime})= s(x^{\prime})+\frac{800m}{r(x^{\prime})} $$&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Réaction du sol&lt;/strong> :&lt;/li>
+&lt;li>&lt;strong>Réaction du sol&lt;/strong> : La force de réaction du sol compense simplement la composante verticale du poids, mais n&amp;rsquo;a
+pas d&amp;rsquo;impact sur la dynamique du train car n&amp;rsquo;a aucune composante selon l&amp;rsquo;axe ${\vec{e_x}^{\prime}}$.&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{R_{gnd}}=R_{gnd}{\vec{e_y}^{\prime}} $$&lt;/p></description></item><item><title>Users: Quelle méthode d'intégration l'outil OSRD doit-il utiliser ?</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/which_method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/which_method/</guid><description>
+&lt;p>$$ \vec{R_{gnd}}=R_{gnd}{\vec{e_{y^{\prime}}}} $$&lt;/p>
+&lt;h4 id="equilibre-des-forces">Equilibre des forces&lt;/h4>
+&lt;p>L&amp;rsquo;équation du principe fondamental de la dynamique projetée sur l&amp;rsquo;axe ${\vec{e_x}^{\prime}}$ (dans le référentiel du
+train) donne l&amp;rsquo;équation scalaire suivante :&lt;/p>
+&lt;p>$$ a_{x^{\prime}}(t) = \frac{1}{m}\Big
+[F_{mot}(v_{x^{\prime}}, x^{\prime})-F_{brk}(x^{\prime})-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2)-mgsin(i(x^{\prime}))\Big] $$&lt;/p>
+&lt;p>Celle-ci est ensuite simplifiée en considérant que malgré la pente le train se déplace sur un plan et en amalgamant
+$\vec{e_x}$ et $\vec{e_x}^{\prime}$. La pente a toujours un impact sur le bilan des forces mais on considère que le
+train ne se déplace qu&amp;rsquo;horizontalement, ce qui donne l&amp;rsquo;équation simplifiée suivante :&lt;/p>
+&lt;p>$$ a_{x}(t) = \frac{1}{m}\Big[F_{mot}(v_{x}, x)-F_{brk}(x)-(A+Bv_{x}+{Cv_{x}}^2)-mgsin(i(x))\Big] $$&lt;/p></description></item><item><title>Users: Intégration numérique</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/numerical_integration/</guid><description>
 &lt;!-- script to auto-render KaTeX extension -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
