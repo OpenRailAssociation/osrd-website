@@ -16,7 +16,7 @@
 &lt;ul>
 &lt;li>&lt;strong>Le matériel roulant :&lt;/strong> Sélection d’un train avec toutes les caractéristiques nécessaires pour effectuer la simulation.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="materiel_roulant.png" alt="Matériel roulant">&lt;/p>
+&lt;p>&lt;img src="mat_roulant.png" alt="Matériel roulant">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Les marges :&lt;/strong> Temps ajouté à la totalité du trajet en [s], en pourcentage du temps parcours ou en [s/100 m]. Il est également possible d&amp;rsquo;ajouter du temps en [s] par intervalle.&lt;/li>
 &lt;/ul>

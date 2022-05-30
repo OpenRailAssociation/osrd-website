@@ -1,26 +1,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Choix techniques et phyiques</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/</link><description>Recent content in Choix techniques et phyiques on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Architecture de l'outil OSRD</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/</guid><description>
 &lt;h4 id="schéma-de-larchitecture-du-logiciel-osrd">Schéma de l&amp;rsquo;architecture du logiciel OSRD&lt;/h4>
 &lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
-&lt;p>&lt;img src="architecture.svg" alt="Architecture">&lt;/p></description></item><item><title>Users: Modélisation physique</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physical_modeling/</guid><description>
+&lt;p>&lt;img src="../architecture.svg" alt="Architecture">&lt;/p></description></item><item><title>Users: Modélisation physique</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/physical_modeling/</guid><description>
 &lt;!-- script to auto-render KaTeX extension -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
 onload="renderMathInElement(document.body);">&lt;/script>
+&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script>
+&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">&lt;/script>
 &lt;p>La modélisation physique joue un rôle important dans le coeur de calcul d&amp;rsquo;OSRD. C&amp;rsquo;est elle qui nous permet de simuler la
 circulation des trains, et elle doit être aussi réaliste que possible.&lt;/p>
 &lt;h4 id="bilan-des-forces">Bilan des forces&lt;/h4>
 &lt;p>Pour calculer le déplacement du train au cours du temps, il faut d&amp;rsquo;abord calculer sa vitesse à chaque instant.
 Une manière simple d&amp;rsquo;obtenir cette vitesse est de passer par le calcul de l&amp;rsquo;accélération.
 Grâce au principe fondamental de la dynamique, l&amp;rsquo;accélération du train à chaque instant est directement dépendant
-des différentes forces qu&amp;rsquo;il lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$&lt;/p>
-&lt;p>&lt;img src="../forces.png?style=train" alt="Marche">&lt;/p>
+des différentes forces qu&amp;rsquo;il lui sont appliquées :&lt;/p>
+&lt;p>$$ \sum \vec{F}=m\vec{a} $$&lt;/p>
+&lt;p>&lt;img src="../forces.png?style=force" alt="Marche">&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;strong>Traction&lt;/strong> : La valeur de la force de traction $F_{mot}$ dépend de plusieurs facteurs :&lt;/p>
+&lt;p>&lt;strong>Traction&lt;/strong> : La valeur de la force de traction \(F_{mot}\) dépend de plusieurs facteurs :&lt;/p>
 &lt;ul>
 &lt;li>du matériel roulant&lt;/li>
-&lt;li>de la vitesse du train $v^{\prime}_x$, selon la courbe effort-vitesse ci-dessous :&lt;/li>
+&lt;li>de la vitesse du train \(v^{\prime}_x\), selon la courbe effort-vitesse ci-dessous :&lt;/li>
 &lt;/ul>
 &lt;p>$$ {\vec{F_{mot}}(v_{x^{\prime}}, x^{\prime})=F_{mot}(v_{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$&lt;/p>
 &lt;p>&lt;img src="../effort-vitesse.png" alt="Marche" title="Exemple de courbe effort-vitesse d'un train">&lt;/p>
@@ -32,7 +35,7 @@ des différentes forces qu&amp;rsquo;il lui sont appliquées : $$ \sum \vec{F}=m
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Freinage&lt;/strong> : La valeur de la force de freinage $F_{brk}$ dépend elle aussi du matériel roulant et de l&amp;rsquo;action du
+&lt;p>&lt;strong>Freinage&lt;/strong> : La valeur de la force de freinage \(F_{brk}\) dépend elle aussi du matériel roulant et de l&amp;rsquo;action du
 conducteur mais possède une valeur constante pour un matériel donné. Dans l&amp;rsquo;état actuel de la modélisation, le freinage
 est soit nul, soit à sa valeur maximale.&lt;/p>
 &lt;/li>
@@ -41,30 +44,35 @@ est soit nul, soit à sa valeur maximale.&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Résistance à l&amp;rsquo;avancement&lt;/strong> : Pour modéliser la résistance à l’ avancement du train on utilise la formule de Davis
 qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à
-l&amp;rsquo;avancement dépend de la vitesse $v^{\prime}_x$. Les coefficient $A$, $B$, et $C$ dépendent du matériel roulant.&lt;/li>
+l&amp;rsquo;avancement dépend de la vitesse \(v^{\prime}_x\). Les coefficient \(A\), \(B\), et \(C\) dépendent du matériel roulant.&lt;/li>
 &lt;/ul>
 &lt;p>$$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Poids (pentes + virages)&lt;/strong> : La force du poids donnée par le produit entre la masse $m$ du train et la constante
-gravitationnelle $g$ est projectée sur les axes $\vec{e_x}^{\prime}$ et $\vec{e_y}^{\prime}$. Pour la projection, on utilise l&amp;rsquo;angle $i(x^{\prime})$, qui est calculé à partir de l&amp;rsquo;angle de déclivité $s(x^{\prime})$ corrigé par un facteur qui prend en compte l&amp;rsquo;effet du rayon de virage $r(x^{\prime})$.&lt;/li>
+&lt;li>&lt;strong>Poids (pentes + virages)&lt;/strong> : La force du poids donnée par le produit entre la masse \(m\) du train et la constante
+gravitationnelle \(g\) est projectée sur les axes \(\vec{e_x}^{\prime}\) et \(\vec{e_y}^{\prime}\). Pour la projection, on utilise l&amp;rsquo;angle \(i(x^{\prime})\), qui est calculé à partir de l&amp;rsquo;angle de déclivité \(s(x^{\prime})\) corrigé par un facteur qui prend en compte l&amp;rsquo;effet du rayon de virage \(r(x^{\prime})\).&lt;/li>
 &lt;/ul>
 &lt;p>$$ \vec{P(x^{\prime})}=-mg\vec{e_y}(x^{\prime})=
 -mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{y^{\prime}}}(x^{\prime})}\Big] $$
 $$ i(x^{\prime})= s(x^{\prime})+\frac{800m}{r(x^{\prime})} $$&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Réaction du sol&lt;/strong> : La force de réaction du sol compense simplement la composante verticale du poids, mais n&amp;rsquo;a
-pas d&amp;rsquo;impact sur la dynamique du train car n&amp;rsquo;a aucune composante selon l&amp;rsquo;axe ${\vec{e_x}^{\prime}}$.&lt;/li>
+pas d&amp;rsquo;impact sur la dynamique du train car n&amp;rsquo;a aucune composante selon l&amp;rsquo;axe \({\vec{e_x}^{\prime}}\).&lt;/li>
 &lt;/ul>
 &lt;p>$$ \vec{R_{gnd}}=R_{gnd}{\vec{e_{y^{\prime}}}} $$&lt;/p>
 &lt;h4 id="equilibre-des-forces">Equilibre des forces&lt;/h4>
-&lt;p>L&amp;rsquo;équation du principe fondamental de la dynamique projetée sur l&amp;rsquo;axe ${\vec{e_x}^{\prime}}$ (dans le référentiel du
+&lt;p>L&amp;rsquo;équation du principe fondamental de la dynamique projetée sur l&amp;rsquo;axe \({\vec{e_x}^{\prime}}\) (dans le référentiel du
 train) donne l&amp;rsquo;équation scalaire suivante :&lt;/p>
 &lt;p>$$ a_{x^{\prime}}(t) = \frac{1}{m}\Big
 [F_{mot}(v_{x^{\prime}}, x^{\prime})-F_{brk}(x^{\prime})-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2)-mgsin(i(x^{\prime}))\Big] $$&lt;/p>
 &lt;p>Celle-ci est ensuite simplifiée en considérant que malgré la pente le train se déplace sur un plan et en amalgamant
-$\vec{e_x}$ et $\vec{e_x}^{\prime}$. La pente a toujours un impact sur le bilan des forces mais on considère que le
+\(\vec{e_x}\) et \(\vec{e_x}^{\prime}\). La pente a toujours un impact sur le bilan des forces mais on considère que le
 train ne se déplace qu&amp;rsquo;horizontalement, ce qui donne l&amp;rsquo;équation simplifiée suivante :&lt;/p>
-&lt;p>$$ a_{x}(t) = \frac{1}{m}\Big[F_{mot}(v_{x}, x)-F_{brk}(x)-(A+Bv_{x}+{Cv_{x}}^2)-mgsin(i(x))\Big] $$&lt;/p></description></item><item><title>Users: Intégration numérique</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/numerical_integration/</guid><description>
+&lt;p>$$ a_{x}(t) = \frac{1}{m}\Big[F_{mot}(v_{x}, x)-F_{brk}(x)-(A+Bv_{x}+{Cv_{x}}^2)-mgsin(i(x))\Big] $$&lt;/p>
+&lt;style>
+img[src$="force"] {
+width: 80%;
+}
+&lt;/style></description></item><item><title>Users: Intégration numérique</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/numerical_integration/</guid><description>
 &lt;!-- script to auto-render KaTeX extension -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -163,7 +171,7 @@ $$x_{n+1}=x_n+h$$ &lt;div style="text-align: center"> &lt;strong>(5)&lt;/strong>
 &lt;tbody>
 &lt;tr>
 &lt;td style="text-align:center">&lt;img src="../euler.png" alt="Méthode d&amp;amp;rsquo;Euler">&lt;/td>
-&lt;td style="text-align:center">&lt;img src="../rk4.png?style=reduce" alt="Méthode de Runge-Kutta 4">&lt;/td>
+&lt;td style="text-align:center">&lt;img src="../rk4.png?style=rk4" alt="Méthode de Runge-Kutta 4">&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -176,15 +184,12 @@ $$x_{n+1}=x_n+h$$ &lt;div style="text-align: center"> &lt;strong>(5)&lt;/strong>
 &lt;li>Elle est plus précise pour le même temps de calcul, permettant des étapes d&amp;rsquo;intégration plus grandes, donc moins de points de données et un temps de calcul plus rapide.&lt;/li>
 &lt;/ul>
 &lt;style>
-img[src$="train"] {
-height: 50%;
-width: 50%;
-}
-img[src$="reduce"] {
+img[src$="rk4"] {
 margin-top: 15.5%;
 }
 &lt;/style></description></item><item><title>Users: Le système d'enveloppes</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/envelop_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/envelop_system/</guid><description>
-&lt;h4 id="une-interface-spécifique-dans-le-service-osrd-core--architecture">Une interface spécifique dans le service OSRD Core -&amp;gt;architecture&lt;/h4>
+&lt;h4 id="une-interface-spécifique-dans-le-service-osrd-core">Une interface spécifique dans le service OSRD Core&lt;/h4>
+&lt;p>&lt;a href="https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/">Architecture&lt;/a>&lt;/p>
 &lt;p>&lt;strong>1 - EnvelopePart :&lt;/strong> Courbe espace-vitesse, définie comme une séquence des points&lt;/p>
 &lt;p>&lt;strong>2 - Envelope :&lt;/strong> Liste des EnvelopePart sur laquelle certaines opérations sont faisables :&lt;/p>
 &lt;ul>
