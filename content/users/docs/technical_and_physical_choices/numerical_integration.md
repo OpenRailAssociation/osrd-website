@@ -112,9 +112,16 @@ s'explique par le fait que toutes les courbes commencent légèrement au-dessus 
 en un point et finissent légèrement en dessous, ou vice-versa.
 
 Mais comme la précision n'est pas le seul indicateur important, le temps de calcul de chaque méthode a été mesuré,
-et voici ce que nous obtenons pour les mêmes paramètres d'entrée (les valeurs sont en secondes) :
+et voici ce que nous obtenons pour les mêmes paramètres d'entrée :
 
-![time_h_equivalent](../time_h_equivalent.png)
+| Méthode d'intégration                    | Temps de calcul (s) |
+|:-----------------------------------------|--------------------:|
+| Euler                                    |                1.86 |
+| Euler-Cauchy                             |                3.80 |
+| Runge-Kutta 4                            |                7.01 |
+| Adams 2                                  |                3.43 |
+| Adams 3                                  |                5.27 |
+
 
 Ainsi, Euler-Cauchy et Adams 2 sont environ deux fois plus lents que Euler, Adams 3 est environ trois fois plus lent,
 et RK4 est environ quatre fois plus lent. Ces résultats ont été vérifiés sur des simulations beaucoup plus longues,
@@ -129,9 +136,15 @@ résultantes :
 
 ![precisions_time_equivalent](../precisions_time_equivalent.png)
 
-Et voici les temps de calcul, en secondes :
+Et voici les temps de calcul :
 
-![time_time_equivalent](../time_time_equivalent.png)
+| Méthode d'intégration                    | Temps de calcul (s) |
+|:-----------------------------------------|--------------------:|
+| Euler                                    |                1.75 |
+| Euler-Cauchy                             |                2.10 |
+| Runge-Kutta 4                            |                1.95 |
+| Adams 2                                  |                1.91 |
+| Adams 3                                  |                1.99 |
 
 Après un certain temps, RK4 tend à être la méthode la plus précise, légèrement plus précise que Euler-Cauchy,
 et toujours bien plus précise que la méthode d'Euler.
