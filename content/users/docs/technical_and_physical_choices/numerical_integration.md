@@ -157,7 +157,7 @@ L'étude de la précision et de la vitesse de calcul présentée ci-dessus montr
 
 Méthode d'Euler             |  Méthode de Runge-Kutta 4
 :-------------------------:|:-------------------------:
-![Méthode d'Euler](../euler.png)  |  ![Méthode de Runge-Kutta 4](../rk4.png?style=reduce)
+![Méthode d'Euler](../euler.png)  |  ![Méthode de Runge-Kutta 4](../rk4.png?style=rk4)
 > Comparaison entre la méthode d’Euler et la méthode RK4; l’axe **x** est le temps, l’axe **y** est la vitesse résultante de l’intégration, k1, k2, k3, k4 sont les accélérations correspondent aux points indiqués (dérivatives de la courbe **v(t))**.
 
 La méthode Runge-Kutta 4, par opposition à une simple méthode d'Euler, est une bonne solution à nos besoins :
@@ -166,11 +166,7 @@ La méthode Runge-Kutta 4, par opposition à une simple méthode d'Euler, est un
 - Elle est plus précise pour le même temps de calcul, permettant des étapes d'intégration plus grandes, donc moins de points de données et un temps de calcul plus rapide.
 
 <style>
-img[src$="train"] {
-  height: 50%;
-  width: 50%;
-}
-img[src$="reduce"] {
+img[src$="rk4"] {
   margin-top: 15.5%;
 }
 </style>

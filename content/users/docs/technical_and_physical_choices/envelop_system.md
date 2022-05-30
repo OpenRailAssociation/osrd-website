@@ -4,7 +4,9 @@ linkTitle: "Le système d'enveloppes"
 weight: 40
 ---
 
-#### Une interface spécifique dans le service OSRD Core ->architecture
+#### Une interface spécifique dans le service OSRD Core
+
+[Architecture](https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/)
 
 **1 - EnvelopePart :** Courbe espace-vitesse, définie comme une séquence des points
 

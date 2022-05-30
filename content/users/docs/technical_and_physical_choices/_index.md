@@ -21,7 +21,7 @@ Les données d'entrée se présentent en 4 étapes.
 
 - **Le matériel roulant :** Sélection d’un train avec toutes les caractéristiques nécessaires pour effectuer la simulation.
 
-![Matériel roulant](materiel_roulant.png)
+![Matériel roulant](mat_roulant.png)
 
 - **Les marges :** Temps ajouté à la totalité du trajet en [s], en pourcentage du temps parcours ou en [s/100 m]. Il est également possible d'ajouter du temps en [s] par intervalle.
 
