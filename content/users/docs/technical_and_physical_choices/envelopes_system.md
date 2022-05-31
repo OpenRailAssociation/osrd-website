@@ -48,9 +48,3 @@ Mais cette enveloppe ne correspond pas à une réalité physique car il se peut 
 trop raide pour que le train arrive effectivement à maintenir cette vitesse max de 160km/h. L'enveloppe calculée
 présentera donc dans cet exemple un décrochage de vitesse dans les zones de fortes rampes, là où l'enveloppe donnée
 était parfaitement plate.
-
-### <font color=#aa026d>Comment le système d'enveloppe est-il utilisé dans OSRD ?</font>
-
-#### Calcul de marche
-
-
