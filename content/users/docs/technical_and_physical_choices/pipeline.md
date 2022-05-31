@@ -77,7 +77,7 @@ pour le matériel roulant donné sur le parcours donné.
 Après avoir effectué le calcul de la marche de base (correspondant au Max Effort Profile dans OSRD), il est possible d'y
 appliquer des marges (allowances). Les marges sont des ajouts de temps supplémentaire au parcours du train. Elles servent
 notamment à lui permettre de rattraper son retard si besoin ou à d'autres besoins opérationnels (plus de détails sur
-les marges ici).
+les marges [ici](../allowances)).
 
 Une nouvelle enveloppe **Allowances** est donc calculée grâce à des overlays pour distribuer la marge demandée par
 l'utilisateur sur l'enveloppe d'effort maximal calculée précédemment.
