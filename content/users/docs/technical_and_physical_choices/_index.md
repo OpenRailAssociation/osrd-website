@@ -1,6 +1,6 @@
 ---
-title: "Choix techniques et phyiques"
-linkTitle: "Choix techniques et phyiques"
+title: "Choix techniques et physiques"
+linkTitle: "Choix techniques et physiques"
 weight: 30
 ---
 

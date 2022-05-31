@@ -1,35 +1,12 @@
 ---
-title: "Le système d'enveloppes"
-linkTitle: "Le système d'enveloppes"
+title: "Processus de calcul de marche"
+linkTitle: "Processus de calcul de marche"
 weight: 40
 ---
 
-#### Une interface spécifique dans le service OSRD Core
+Le calcul de marche dans OSRD est un processus à 4 étapes, utilisant chacune [le système d'enveloppes].
 
-[Architecture](https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/)
-
-**1 - EnvelopePart :** Courbe espace-vitesse, définie comme une séquence des points
-
-**2 - Envelope :** Liste des EnvelopePart sur laquelle certaines opérations sont faisables :
-
-- Vérifier la continuité dans l’espace (obligatoire) et dans la vitesse
-- Chercher la vitesse min et/ou max
-- Couper l’enveloppe
-- Effectuer une interpolation de vitesse à une certaine position
-- Calculer le temps écoulé entre deux positions de l’enveloppe
-
-**3 - Overlays :** Système qui permet d’ajouter des EnvelopePart plus contraignantes à une enveloppe existante
-
-Pendant la simulation, le train est censé suivre certaines instructions de vitesse. Celles-ci sont modélisées dans OSRD par des courbes espace/vitesse appelées enveloppes. Il existe deux types d'enveloppes :
-
-- Les enveloppes provenant **des données d'infrastructure et de matériel roulant**, comme la vitesse maximale de la ligne et la vitesse maximale du train; étant des données d'entrée de notre calcul, elles ne sont pas exactes au sens physique du terme, car elles ne sont pas issues des résultats d'une intégration réelle des équations physiques du mouvement.
-- Enveloppes résultant **d'une intégration réelle** des équations du mouvement physique. Elles contiennent également des informations sur le temps.
-
-### <font color=#aa026d>Comment le système d'enveloppe est-il utilisé dans OSRD ?</font>
-
-#### Calcul de marche
-
-##### Calcul du temps de parcours le plus rapide
+#### Calcul de la marche de base
 
 Le premier objectif d'une simulation de train isolé est d'effectuer le calcul du **temps de parcours le plus rapide**, où le train roule à la vitesse maximale autorisée. Pour y parvenir, une procédure composée de différentes étapes est utilisée. À chaque étape, de nouvelles enveloppes sont calculées et ajoutées aux précédentes. Nous appelons l'enveloppe finale résultante **Max Effort Envelope** (Enveloppe de l'effort maximal).
 

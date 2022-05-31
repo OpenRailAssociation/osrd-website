@@ -149,9 +149,7 @@ Et voici les temps de calcul :
 Après un certain temps, RK4 tend à être la méthode la plus précise, légèrement plus précise que Euler-Cauchy,
 et toujours bien plus précise que la méthode d'Euler.
 
-#### Pourquoi conserver la méthode Runge-Kutta 4 ?
-
-##### Conclusions de l'étude précédente
+#### Conclusions de l'étude
 
 L'étude de la précision et de la vitesse de calcul présentée ci-dessus montre que RK4 et Euler-Cauchy seraient de bons
 candidats pour remplacer l'algorithme d'Euler dans OSRD : les deux sont rapides, précis, et pourraient remplacer la
