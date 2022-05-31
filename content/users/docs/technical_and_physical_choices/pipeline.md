@@ -1,6 +1,6 @@
 ---
-title: "Processus de calcul de marche"
-linkTitle: "Processus de calcul de marche"
+title: "Le processus de calcul de marche"
+linkTitle: "Le processus de calcul de marche"
 weight: 40
 ---
 
@@ -8,7 +8,7 @@ Le calcul de marche dans OSRD est un processus à 4 étapes, utilisant chacune [
 1. [Construction du profil de vitesse le plus restrictif](#calcul-du-most-restricted-speed-profile-mrsp)
 2. [Ajout des différentes courbes de freinage](#calcul-du-max-speed-profile)
 3. [Ajout des différentes courbes d'accélération et vérification des courbes de vitesse constante](#calcul-du-max-effort-profile)
-4. Application de marge(s).
+4. [Application de marge(s)](#application-de-marges)
 
 #### Calcul du Most Restricted Speed Profile (MRSP)
 
@@ -91,5 +91,3 @@ vitesses d'un certain facteur, ou économique, c'est-à-dire en minimisant la co
 
 Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer **la sécurité**.
 L'effet de la signalisation sur le calcul de marche d'un train est reproduit en superposant des enveloppes dynamiques à l'enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu'un signal se ferme. Le train suit l'enveloppe économique statique superposée aux enveloppes dynamiques, s'il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l'information temporelle de l'enveloppe économique statique. Si le train est en retard par rapport à l'heure prévue, il cesse de suivre l'enveloppe économique et essaie d'aller plus vite. Sa courbe espace/vitesse sera donc limitée par l'enveloppe d'effort maximum.
-
-Rajouter une partie Marge économique
