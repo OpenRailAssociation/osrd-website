@@ -15,3 +15,8 @@ $secondary: $pink-dark;
   color: $pink-dark !important;
   border-color: $pink-dark !important;
 }
+
+/* SWAGGER OVERRIDE */
+.swagger-ui .info .title small pre {
+  background-color: inherit;
+}

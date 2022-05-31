@@ -1,6 +1,6 @@
 ---
 title: "Gestion des versions"
 linkTitle: "Gestion des versions"
-weight: 20
+weight: 30
 description: Gestion des versions de l'infrastructure
 ---
