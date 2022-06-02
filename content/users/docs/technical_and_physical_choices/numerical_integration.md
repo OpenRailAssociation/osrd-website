@@ -1,7 +1,7 @@
 ---
-title: "Intégration numérique"
+title: "3 - Intégration numérique"
 linkTitle: "Intégration numérique"
-weight: 40
+weight: 30
 ---
 
 <!-- script to auto-render KaTeX extension -->

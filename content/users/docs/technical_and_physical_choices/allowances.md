@@ -1,7 +1,7 @@
 ---
-title: "Les Marges"
+title: "6 - Les Marges"
 linkTitle: "Les Marges"
-weight: 40
+weight: 60
 ---
 
 #### La raison d'être des marges

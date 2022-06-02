@@ -1,5 +1,5 @@
 ---
-title: "Architecture de l'outil OSRD"
+title: "1 - Architecture de l'outil OSRD"
 linkTitle: "Architecture de l'outil OSRD"
 weight: 10
 ---
