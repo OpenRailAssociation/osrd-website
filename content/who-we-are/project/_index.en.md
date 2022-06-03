@@ -13,10 +13,10 @@ Our mission is to provide a simulation tool that can be used in **all stages of 
 
 ### <font color=#aa026d>Le projet OSRD</font>
 
-#### Different OSRD products
+#### **Different OSRD products**
 
 ![OSRD projet](osrd_product.en.png)
 
-#### Our ambitions for  2022
+#### **Our ambitions for  2022**
 
 ![OSRD ambitions](osrd_ambitions.en.png)

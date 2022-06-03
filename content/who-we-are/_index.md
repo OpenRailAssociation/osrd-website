@@ -14,7 +14,7 @@ Les différents projets du programme se complémentent les uns les autres pour a
 
 Vous êtes au bon endroit si vous voulez en savoir plus sur la façon dont nous sommes organisés : [Programme](./program), ainsi que sur les solutions que nous développons : [Projet/solutions](./project/).
 
-![Gare](./station.jpg?style=centerme)
+![Gare](station.jpg)
 
 <font color=#aa026d>
 <center>OSRD
@@ -22,10 +22,3 @@ Vous êtes au bon endroit si vous voulez en savoir plus sur la façon dont nous 
 Design your jouney
 </center>
 </font>
-
-<style>
-img[src$="centerme"] {
-  display:block;
-  margin-left: 75px;
-}
-</style>

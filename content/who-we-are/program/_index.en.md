@@ -7,7 +7,7 @@ The OSRD Program consists of several projects that are managed and delivered as 
 
 The program's teams are organized according to the **SAFe Framework**[^SAFe] (framework for organizing agility at scale).
 The organization of the program is therefore based on a Program Increment (PI), an iteration composed of 4 sprints of two weeks, followed by a consolidation and planning sprint for the next PI.
-The SAFe organization involves :
+The SAFe organization involves:
 
 - teams working in a synchronized and interdependent way
 - a sustained rhythm of deliveries
