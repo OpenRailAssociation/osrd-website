@@ -1,7 +1,7 @@
 ---
-title: "3 - Intégration numérique"
-linkTitle: "Intégration numérique"
-weight: 30
+title: "2 - Intégration numérique"
+linkTitle: "2 - Intégration numérique"
+weight: 20
 ---
 
 <!-- script to auto-render KaTeX extension : $$..$$ for outline formula, //(...//) for inline formula -->
@@ -29,14 +29,14 @@ $$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ <div style="text-alig
 
 #### **Les avantages de la méthode d'Euler**
 
-La méthode d'Euler a pour avantages d'être très simple à implémenter et d'avoir un calcul plutôt rapide pour un pas de temps donné, en comparaison avec d'autres méthodes d'intégration numériques (voir [annexe](#le-choix-de-la-m%C3%A9thode-dint%C3%A9gration-pour-osrd))
+La méthode d'Euler a pour avantages d'être très simple à implémenter et d'avoir un calcul plutôt rapide pour un pas de temps donné, en comparaison avec d'autres méthodes d'intégration numérique (voir [annexe](#le-choix-de-la-m%C3%A9thode-dint%C3%A9gration-pour-osrd))
 
 #### **Les inconvénients de la méthode d'Euler**
 
 La méthode d'intégration d'Euler présente un certain nombre de problèmes pour OSRD :
 
 - Elle est relativement imprécise, et donc nécessite un faible pas de temps, ce qui génère beaucoup de données.
-- En intégrant dans le temps, on ne connaît que les conditions du point de départ du pas d'intégration (pente, paramètres d'infrastructure, etc.) car on ne peut pas prédire précisément l'endroit où il se termine
+- En intégrant dans le temps, on ne connaît que les conditions du point de départ du pas d'intégration (pente, paramètres d'infrastructure, etc.) car on ne peut pas prédire précisément l'endroit où il se termine.
 - On ne peut pas anticiper les futurs changements de directive : le train ne réagit qu'en comparant son état actuel à sa consigne au même instant. Pour illustrer c'est un peu comme si le conducteur était incapable de voir devant lui, alors que dans la réalité il anticipe en fonction des signaux, pentes, virages qu'il voit devant lui.
 
 ### <font color=#aa026d>La méthode Runge-Kutta 4</font>
@@ -62,7 +62,7 @@ $$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$
 
 La méthode d'intégration de Runge Kutta 4 permet de répondre aux différents problèmes soulevés par celle d'Euler :
 
-- Elle permet d'anticiper les changements de directive au sein d'un pas de calcul, représentant ainsi d'avantage la réalité de conduite d'un train
+- Elle permet d'anticiper les changements de directive au sein d'un pas de calcul, représentant ainsi davantage la réalité de conduite d'un train.
 - Elle est plus précise pour le même temps de calcul (voir [annexe](#le-choix-de-la-m%C3%A9thode-dint%C3%A9gration-pour-osrd)), permettant des étapes d'intégration plus grandes, donc moins de points de données.
 
 #### **Les inconvénients de la méthode de Runge Kutta 4**
@@ -95,9 +95,9 @@ Une courbe de référence a été simulée en utilisant la méthode d'Euler avec
 
 ![precisions_h_equivalent](../precisions_h_equivalent.png)
 
-Il apparaît immédiatement que la méthode d'Euler est d'environ d'un ordre de grandeur moins précise que les quatre autres. Chaque courbe présente un pic où la précision est extrêmement élevée (erreur extrêmement faible), ce qui  s'explique par le fait que toutes les courbes commencent légèrement au-dessus de la courbe de référence, la croisent en un point et finissent légèrement en dessous, ou vice-versa.
+Il apparaît immédiatement que la méthode d'Euler est moins précise que les quatre autres d'environ un ordre de grandeur. Chaque courbe présente un pic où la précision est extrêmement élevée (erreur extrêmement faible), ce qui  s'explique par le fait que toutes les courbes commencent légèrement au-dessus de la courbe de référence, la croisent en un point et finissent légèrement en dessous, ou _vice versa_.
 
-Mais comme la précision n'est pas le seul indicateur important, le temps de calcul de chaque méthode a été mesuré, et voici ce que nous obtenons pour les mêmes paramètres d'entrée :
+Comme la précision n’est pas le seul indicateur important, le temps de calcul de chaque méthode a été mesuré. Voici ce que nous obtenons pour les mêmes paramètres d’entrée :
 
 | Méthode d'intégration                    | Temps de calcul (s) |
 |:-----------------------------------------|--------------------:|

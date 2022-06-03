@@ -1,7 +1,7 @@
 ---
-title: "Modélisation physique"
-linkTitle: "Modélisation physique"
-weight: 20
+title: "1 - Modélisation physique"
+linkTitle: "1 - Modélisation physique"
+weight: 10
 ---
 
 <!-- script to auto-render KaTeX extension -->
@@ -19,7 +19,7 @@ circulation des trains, et elle doit être aussi réaliste que possible.
 Pour calculer le déplacement du train au cours du temps, il faut d'abord calculer sa vitesse à chaque instant.
 Une manière simple d'obtenir cette vitesse est de passer par le calcul de l'accélération.
 Grâce au principe fondamental de la dynamique, l'accélération du train à chaque instant est directement dépendant
-des différentes forces qu'il lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$
+des différentes forces qui lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$
 
 ![Marche](../forces.png?style=train)
 
@@ -42,21 +42,23 @@ est soit nul, soit à sa valeur maximale.
 
 $$ \vec{F_{brk}}(x^{\prime})=-F_{brk}(x^{\prime}){\vec{e_{x^{\prime}}}} $$
 
-- **Résistance à l'avancement** : Pour modéliser la résistance à l’ avancement du train on utilise la formule de Davis
+- **Résistance à l'avancement** : Pour modéliser la résistance à l’avancement du train on utilise la formule de Davis
 qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à
-l'avancement dépend de la vitesse $v^{\prime}_x$. Les coefficient $A$, $B$, et $C$ dépendent du matériel roulant.
+l'avancement dépend de la vitesse $v^{\prime}_x$. Les coefficients $A$, $B$, et $C$ dépendent du matériel roulant.
 
 $$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$
 
 - **Poids (pentes + virages)** : La force du poids donnée par le produit entre la masse $m$ du train et la constante
-gravitationnelle $g$ est projectée sur les axes $\vec{e_x}^{\prime}$ et $\vec{e_y}^{\prime}$. Pour la projection, on utilise l'angle $i(x^{\prime})$, qui est calculé à partir de l'angle de déclivité $s(x^{\prime})$ corrigé par un facteur qui prend en compte l'effet du rayon de virage $r(x^{\prime})$.
+gravitationnelle $g$ est projetée sur les axes $\vec{e_x}^{\prime}$ et $\vec{e_y}^{\prime}$.
+Pour la projection, on utilise l'angle $i(x^{\prime})$, qui est calculé à partir de l'angle de déclivité
+$s(x^{\prime})$ corrigé par un facteur qui prend en compte l'effet du rayon de virage $r(x^{\prime})$.
 
 $$ \vec{P(x^{\prime})}=-mg\vec{e_y}(x^{\prime})=
 -mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{y^{\prime}}}(x^{\prime})}\Big] $$
 $$ i(x^{\prime})= s(x^{\prime})+\frac{800m}{r(x^{\prime})} $$
 
 - **Réaction du sol** : La force de réaction du sol compense simplement la composante verticale du poids, mais n'a
-pas d'impact sur la dynamique du train car n'a aucune composante selon l'axe ${\vec{e_x}^{\prime}}$.
+pas d'impact sur la dynamique du train car elle n'a aucune composante selon l'axe ${\vec{e_x}^{\prime}}$.
 
 $$ \vec{R_{gnd}}=R_{gnd}{\vec{e_{y^{\prime}}}} $$
 
