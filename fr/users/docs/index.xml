@@ -4,42 +4,71 @@
 &lt;li>&lt;strong>Calcul de marche&lt;/strong> (Standalone train simulation) où le calcul du temps de parcours est effectué sans interaction entre le train et le système de signalisation.&lt;/li>
 &lt;li>&lt;strong>Simulation&lt;/strong> de plusieurs trains où une simulation dynamique réelle est exécutée et les trains intéragissent entre eux et avec le système de signalisation.&lt;/li>
 &lt;/ul>
-&lt;h4 id="1---les-données-dentrée">1 - Les données d&amp;rsquo;entrée&lt;/h4>
+&lt;h3 id="font-coloraa026dles-données-dentréefont">&lt;font color=#aa026d>Les données d&amp;rsquo;entrée&lt;/font>&lt;/h3>
 &lt;p>Les données d&amp;rsquo;entrée se présentent en 4 étapes.&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>L&amp;rsquo;infrastructure :&lt;/strong> Topologie des lignes et des voies, position des gares et battements voyageurs, position et type des aiguilles, signaux, vitesses maximales liées à l’infrastructure, profil de ligne corrigée (pentes, rampes et virages).&lt;/li>
+&lt;li>&lt;strong>L&amp;rsquo;infrastructure :&lt;/strong> Topologie des lignes et des voies, position des gares et bâtiments voyageurs, position et type des aiguilles, signaux, vitesses maximales liées à l’infrastructure, profil de ligne corrigée (pentes, rampes et virages).&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="infrastructure.png" alt="Infrastructure">&lt;/p>
 &lt;blockquote>
-&lt;p>L’histogramme est une représentation des déclivités en [‰] par position en [m], les déclivités sont positives pour les rampes et négatives pour les pentes; la ligne bleue est une représentation des virages en termes de rayons des courbures en [m]; la ligne orange représente le profil cumulé.&lt;/p>
+&lt;p>L’histogramme est une représentation des déclivités en [‰] par position en [m] (mètres). Les déclivités sont positives pour les rampes et négatives pour les pentes :&lt;/p>
+&lt;ul>
+&lt;li>la ligne bleue représente les virages (de rayons de courbures en [m]) ;&lt;/li>
+&lt;li>la ligne orange représente le profil cumulé.&lt;/li>
+&lt;/ul>
 &lt;/blockquote>
+&lt;p>&amp;nbsp;&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Le matériel roulant :&lt;/strong> Sélection d’un train avec toutes les caractéristiques nécessaires pour effectuer la simulation.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="mat_roulant.png" alt="Matériel roulant">&lt;/p>
+&lt;p>&amp;nbsp;&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Les marges :&lt;/strong> Temps ajouté à la totalité du trajet en [s], en pourcentage du temps parcours ou en [s/100 m]. Il est également possible d&amp;rsquo;ajouter du temps en [s] par intervalle.&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Les marges :&lt;/strong> Temps ajouté à la totalité du trajet :&lt;/p>
+&lt;ul>
+&lt;li>en [s] (secondes),&lt;/li>
+&lt;li>en pourcentage du temps parcours,&lt;/li>
+&lt;li>en [s/100 m].
+Il est également possible d&amp;rsquo;ajouter du temps en [s] par intervalle.&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="marges.png" alt="Marge">&lt;/p>
+&lt;p>&amp;nbsp;&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Les horaires :&lt;/strong> Temps de départ du train pour le mode «calcul de marche», tableau des horaires de passage pour le mode «simulation».&lt;/li>
+&lt;li>&lt;strong>Les horaires :&lt;/strong> Heures de départ du train pour le mode « calcul de marche », tableau des horaires de passage pour le mode « simulation ».&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="timetables.png?style=time" alt="Horaire de départ">&lt;/p>
-&lt;h4 id="2---les-résultats">2 - Les résultats&lt;/h4>
-&lt;p>Les résultats sont affichés sur forme de deux graphiques.&lt;/p>
+&lt;p>&amp;nbsp;&lt;/p>
+&lt;h3 id="font-coloraa026dles-résultatsfont">&lt;font color=#aa026d>Les résultats&lt;/font>&lt;/h3>
+&lt;p>Les résultats sont affichés sous la forme de deux graphiques.&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Le graphique espace/temps (GET) :&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="graph_espace_temps.jpg" alt="Graphique Espace/Temps">&lt;/p>
 &lt;blockquote>
-&lt;p>L’axe &lt;strong>x&lt;/strong> est l’horaire de passage du train, l’axe &lt;strong>y&lt;/strong> est la position du train en [m] ; la ligne bleue représente le calcul de marche le plus tendu pour le train, la ligne verte représente le calcul de marche « économique » du train avec l’ajout d’une marge, les carrés pleins représentent la portion de la voie reservée au passage du train.&lt;/p>
+&lt;p>L’axe &lt;strong>x&lt;/strong> est l’horaire de passage du train, l’axe &lt;strong>y&lt;/strong> est la position du train en [m].
+Lorqu&amp;rsquo;un train est sélectionné :&lt;/p>
+&lt;ul>
+&lt;li>la ligne bleue représente le calcul de marche le plus tendu pour le train&lt;/li>
+&lt;li>la ligne verte représente le calcul de marche « économique » du train, avec ajout d’une marge&lt;/li>
+&lt;li>les carrés pleins représentent la portion de la voie reservée au passage du train&lt;/li>
+&lt;li>les lignes jaunes et rouges représentent l&amp;rsquo;occupation du canton par le train. C&amp;rsquo;est l&amp;rsquo;écart minimal autorisé entre 2 trains présents sur une même voie.&lt;/li>
+&lt;/ul>
 &lt;/blockquote>
+&lt;p>&amp;nbsp;&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Le graphique espace/vitesse (GEV) :&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="graph_espace_vitesse.png" alt="Graphique Espace/Vitesse">&lt;/p>
 &lt;blockquote>
-&lt;p>L’axe &lt;strong>x&lt;/strong> est la position du train en [m], l’axe &lt;strong>y&lt;/strong> est la vitesse du train en [km/m] ; la ligne violette représente la vitesse maximale autorisée, la ligne bleue représente la vitesse dans le cas du calcul de marche le plus tendu pour le train, la ligne verte représente la vitesse dans le cas du calcul de marche « économique » du train avec l’ajout d’une marge.&lt;/p>
+&lt;p>L’axe &lt;strong>x&lt;/strong> est la position du train en [m], l’axe &lt;strong>y&lt;/strong> est la vitesse du train en [km/m] :&lt;/p>
+&lt;ul>
+&lt;li>la ligne violette représente la vitesse maximale autorisée&lt;/li>
+&lt;li>la ligne bleue est construite à partir du calcul de marche le plus tendu pour le train&lt;/li>
+&lt;li>la ligne verte représente le calcul de marche « économique » du train, avec ajout d’une marge&lt;/li>
+&lt;/ul>
 &lt;/blockquote>
 &lt;style>
 img[src$="time"] {
