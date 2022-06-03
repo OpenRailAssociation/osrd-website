@@ -26,7 +26,7 @@ Une première enveloppe est calculée au début de la simulation en regroupant t
 - limitations de vitesse selon la charge du train
 - limitations de vitesse correspondant à des panneaux de signalisation
 
-La longueur du train est également prise en compte pour s'assurer que le train n'accélère qu'une fois que sa queue a quitté la zone de plus faible vitesse. Un décalage est alors appliqué à la courbe pointillée rouge. L'enveloppe résultante (courbe noire) est appelée **Most Restricted Speed Profile (MRSP)** correspondant donc au profil de vitesse le plus restrictif. C'est sur cette enveloppe que seront calculées les étapes suivantes.
+La longueur du train est également prise en compte pour s'assurer que le train n'accélère qu'une fois sa queue ayant quitté la zone de plus faible vitesse. Un décalage est alors appliqué à la courbe en pointillée rouge. L'enveloppe résultante (courbe noire) est appelée **Most Restricted Speed Profile (MRSP)** correspondant donc au profil de vitesse le plus restrictif. C'est sur cette enveloppe que seront calculées les étapes suivantes.
 
 ![Most Restricted Speed Profile](../mrsp.png)
 > La ligne pointillée rouge représente la vitesse maximale autorisée en fonction de la position.
@@ -40,13 +40,13 @@ Il est à noter que les différentes envelopeParts composant le MRSP sont des do
 
 </font>
 
-En partant du MRSP, toutes les courbes de freinage sont calculées grâce au système d'overlay (voir [ici](../envelopes_system/#une-interface-spécifique-dans-le-service-osrd-core) pour plus de détails sur les overlays), c'est-à-dire en créant des envelopeParts qui seront plus restrictives que le MRSP. La courbe ainsi obetnue est appelée **Max Speed Profile** (profil de vitesse maximale). Il s'agit de l'enveloppe de vitesse maximale du train, tenant compte de ses capacités de freinage.
+En partant du MRSP, toutes les courbes de freinage sont calculées grâce au système d'overlay (voir [ici](../envelopes_system/#une-interface-spécifique-dans-le-service-osrd-core) pour plus de détails sur les overlays), c'est-à-dire en créant des envelopeParts qui seront plus restrictives que le MRSP. La courbe ainsi obtenue est appelée **Max Speed Profile** (profil de vitesse maximale). Il s'agit de l'enveloppe de vitesse maximale du train, tenant compte de ses capacités de freinage.
 
 Etant donné que les courbes de freinage ont un point de fin imposé et que l'équation de freinage n'a pas de solution analytique, il est impossible de prédire leur point de départ. Les courbes de freinage sont donc calculées à rebours en partant de leur point cible, c'est-à-dire le point dans l'espace où une certaine limite de vitesse est imposée (vitesse cible finie) ou le point d'arrêt (vitesse cible nulle).
 
 ![Max Speed Profile](../msp.png)
 
-Pour des raisons historiques en production horaire les courbes de freinages sont calculées à la SNCF avec une décélération forfaitaire, dite décélération horaire (typiquement ~0,5m/s²) sans prendre en compte les autres forces. Cette méthode a donc également été implémentée dans OSRD, permettant ainsi de calculer les freinages de deux manière différente : avec ce taux horaire ou avec une force de freinage qui vient simplement s'ajouter aux autres forces.
+Pour des raisons historiques en production horaire, les courbes de freinages sont calculées à la SNCF avec une décélération forfaitaire, dite décélération horaire (typiquement ~0,5m/s²) sans prendre en compte les autres forces. Cette méthode a donc également été implémentée dans OSRD, permettant ainsi de calculer les freinages de deux manières différentes : avec ce taux horaire ou avec une force de freinage qui vient simplement s'ajouter aux autres forces.
 
 <font color=#aa026d>
 
@@ -56,13 +56,13 @@ Pour des raisons historiques en production horaire les courbes de freinages sont
 
 Pour chaque point correspondant à une augmentation de vitesse dans le MRSP ou à la fin d'une courbe de freinage d'arrêt, une courbe d'accélération est calculée. Les courbes d'accélération sont calculées en tenant compte de toutes les forces actives (force de traction, résistance à l'avancement, poids) et ont donc un sens physique.
 
-Pour les envelopeParts dont le sens physique n'a pas encore été vérifié (à ce stade les phases de circulation à vitesse constante, provenant toujours du MRSP), une nouvelle intégration des équations de mouvement est effectuée. Ce dernier calcul est nécessaire pour prendre en compte d'éventuels décrochages de vitesse dans le cas où le train serait physiquement incapable de tenir sa vitesse, typiquement en présence de fortes rampes (voir [cet exemple](../envelopes_system/#enveloppes-données-vs-enveloppes-calculées)).
+Pour les envelopeParts dont le sens physique n'a pas encore été vérifié (qui à ce stade sont les phases de circulation à vitesse constante, provenant toujours du MRSP), une nouvelle intégration des équations de mouvement est effectuée. Ce dernier calcul est nécessaire pour prendre en compte d'éventuels décrochages de vitesse dans le cas où le train serait physiquement incapable de tenir sa vitesse, typiquement en présence de fortes rampes (voir [cet exemple](../envelopes_system/#enveloppes-données-vs-enveloppes-calculées)).
 
 L'enveloppe qui résulte de ces ajouts de courbes d'accélérations et de la vérification des plateaux de vitesse est appelée **Max Effort Profile** (profil d'effort maximal).
 
 ![Max Effort Profile](../mep.png)
 
-A ce stade, l'envelope obtenue est continue et a un sens physique du début à fin. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum. Le calcul de marche obtenu s'appelle la **marche de base**. Elle correspond au trajet le plus rapide possible pour le matériel roulant donné sur le parcours donné.
+A ce stade, l'enveloppe obtenue est continue et a un sens physique du début à fin. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum. Le calcul de marche obtenu s'appelle la **marche de base**. Elle correspond au trajet le plus rapide possible pour le matériel roulant donné sur le parcours donné.
 
 <font color=#aa026d>
 
