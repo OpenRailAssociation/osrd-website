@@ -1,7 +1,7 @@
 ---
-title: "4 - Le système d'enveloppes"
-linkTitle: "Le système d'enveloppes"
-weight: 40
+title: "3 - Le système d'enveloppes"
+linkTitle: "3 - Le système d'enveloppes"
+weight: 30
 ---
 
 Le système d'enveloppes est une interface créée spécifiquement pour le calcul de marche d'OSRD. Il permet de manipuler différentes courbes espace-vitesse, de les découper, de les mettre bout à bout, d'interpoler des points spécifiques, et beaucoup d'autres besoins nécessaires au calcul de marche.

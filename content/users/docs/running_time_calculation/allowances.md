@@ -1,7 +1,7 @@
 ---
-title: "6 - Les marges"
-linkTitle: "Les marges"
-weight: 60
+title: "5 - Les marges"
+linkTitle: "5 - Les marges"
+weight: 50
 ---
 
 ### <font color=#aa026d>La raison d'être des marges</font>

@@ -1,7 +1,7 @@
 ---
-title: "3 - Intégration numérique"
-linkTitle: "Intégration numérique"
-weight: 30
+title: "2 - Intégration numérique"
+linkTitle: "2 - Intégration numérique"
+weight: 20
 ---
 
 <!-- script to auto-render KaTeX extension : $$..$$ for outline formula, //(...//) for inline formula -->
