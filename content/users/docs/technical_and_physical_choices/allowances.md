@@ -1,6 +1,6 @@
 ---
-title: "6 - Les Marges"
-linkTitle: "Les Marges"
+title: "6 - Les marges"
+linkTitle: "Les marges"
 weight: 60
 ---
 
