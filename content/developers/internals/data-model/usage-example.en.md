@@ -43,14 +43,18 @@ Here are the track sections that we then need:
 
 ![Track sections schema](../svg_schemas/small_infra_rails.en.svg)
 
-There are different attributes to set:
+They are represented as arrows in our schema to stress the fact that they have a **start** and an **end**. This is important because the objects related to the track section are positioned using an offset, and the offset is a distance from the **start** of the track section.
 
-* `length`: the length of the track section in meters
-* `geo`: the coordinates in real life (geo is for geographic)
-* `sch`: the coordinates in the schematic view (sch for schematic)
+For the objects to be complete, there are different attributes to set:
+
+* `length`: the length of the track section in meters.
+* `geo`: the coordinates in real life (geo is for geographic), in the [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
+* `sch`: the coordinates in the schematic view (sch for schematic), also in [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
 * cosmetic attributes: `line_name`, `track_name`, `track_number` which are used to indicate the name and labels that were given to the tracks / lines in real life.
 
-They are represented as arrows in our schema to stress the fact that they have a start and an end. This is important because the objects related to the track section are positioned using an offset, and the offset is a distance from the start of the track section.
+For all track sections, the `geo` and `sch` attributes are identical, and very much resemble the given schema.
+
+For most track sections, their `length` is proportional to what can be seen in the schema, but for readability, we made *TA6*, *TA7*, *TD0* and *TD1* not correspond to their length (which are 10km and 25km).
 
 ### Curves and slopes
 
@@ -117,9 +121,58 @@ In most places we use the classical point switch. To go from North to South stat
 
 ## The signaling
 
+We have now completely represented our railways. Trains could now run on our infrastructure, however, it would be highly unsecure as no object ensuring the safety of the trains has been declared for the moment. Let's fix that.
+
 ### Detectors
 
+These objects allow to know where the trains are and must be placed regularly on the tracks. Most particularly, we need to add detectors at the entrance of switches, as to not block too many track sections at once. <span style="color: red">No idea what to say, am i supposed to explained this ?</span>.
+
+Here you can see all the spots where we placed detectors in our infrastructure, represented by green squares. We need not include their `id` for readability.
+
+![Infra schema with all detectors](../svg_schemas/small_infra_detectors.en.svg)
+
+The clumped up squares represent many detectors at once. Indeed, because some track sections are not represented with their full length, we could not represent all the detectors on the corresponding track section.
+
+**NB:**
+
+* Between some points, we added only one detector (and not two), because they were really close by, and it would have made no sense to protect (<span style="color: red">should explain ?</span>) the tiny portion of rail between the two. This situation happened on track sections (*TA3*, *TA4*, *TA5*, *TF0* and *TG3*)
+
+* On some track sections, we added more detectors than what was strictly necessary to protect (<span style="color: red">same</span>) the switches. Namely, *TA6*, *TA7*, *TDO*, *TD1*, *TF1*, *TG1* and *TH1*. If we did not add those detectors, the whole track sections would be reserved as soon as one train would be present on it, which is inefficient for those long track sections. For example  *TD0*, which measures 25km, has in fact 17 detectors in total.
+
 ### Signals
+
+Now, thanks to the detectors we can know where our trains are in our infrastructure. However, this is useless if we cannot tell the trains not to go into a track section where there already is a train. This where the signals come into play.
+
+A signal is used to tell a train wether to stop or to go. <span style="color: red">not all signal do that, do they ?</span>
+
+There are different type of signals <span style="color: red">no idea what to say there</span>.
+
+Here are the most important attributes for the signals:
+
+* `linked_detector`: The detector it is linked to (<span style="color: red">Is it a necessary attribute ?</span>)
+* `type_code`: The type of signal (redundant)
+* `direction`: The direction it protects, which can simply be interpreted as the way in which it can be seen by an incoming train (since there are lights only on one side...).
+* Cosmetic attributes like `angle_geo` or `side` which control the way in which the signals are displayed in the *OSRD*
+ front.
+
+We add two signals for each detector that are simply cutting the train sections into smaller TIV (<span style="color: red">is it ?</span>), one in each direction.
+
+For detectors protecting the entry of switches, we only need to add one signal, visible in the direction from which you enter the switch. Indeed, you do not need to be able to stop trains coming out of switches: if you prevent a train from coming out of a switch, it becomes unusable.
+
+For the detectors that are in between two switches, we do not add signals, because stopping a train between the two switches would mean stopping the train inside one of the switches.
+
+Here is a visualization of how one can represent a signal, and which direction it protects.
+
+<img alt="Signal direction example" src="../svg_schemas/signal_dir.en.svg" width=400>
+
+<br />
+<br />
+<br />
+
+And there we have all the signals placed. Please note that we do not represent detectors that are linked to at least one signal.
+To get the `id` of a detector linked to a signal, take the signal's `id` and replace *S* by *D* (e.g. SA0 -> DA0).
+
+![Infra schema with all signals](../svg_schemas/small_infra_signals.en.svg)
 
 ## Last objects
 
@@ -132,4 +185,3 @@ In most places we use the classical point switch. To go from North to South stat
 ## Trains ?
 
 <span style="color: red"> No idea what to say</span>
-
