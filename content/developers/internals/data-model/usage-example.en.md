@@ -56,6 +56,14 @@ For all track sections, the `geo` and `sch` attributes are identical, and very m
 
 For most track sections, their `length` is proportional to what can be seen in the schema, but for readability, we made *TA6*, *TA7*, *TD0* and *TD1* not correspond to their length (which are 10km and 25km).
 
+### Buffer stops
+
+The buffer stops are physical objects that prevent trains from leaving the rails.
+
+In our infrastructure, there is a buffer stop on each track section which has a loose end. There are therefore 8 buffer stops in total.
+
+<span style="color: red">Do I have anything more to say ?</span>
+
 ### Curves and slopes
 
 <span style="color: red">Do I need to represent them on a schema ? Or to plot the slopes ?</span>
@@ -176,12 +184,24 @@ To get the `id` of a detector linked to a signal, take the signal's `id` and rep
 
 ## Last objects
 
+Now we have represented all the material parts of our infrastructure <span style="color: red">really ?</span>. But there are still concepts that we may want to represent.
+
 ### Speed sections
+
+The Speed sections represent speed limitations (in meters per second) that are applied on some parts of the tracks. One speed section can span on several track sections, and do not necessarily cover the whole track sections. Speed sections can overlap.
+
+In our example infrastructure, we have a speed section covering the whole infrastructure, limiting the speed to 300 km/h. On a smaller part of the infrastructure, we applied more restrictive speed sections. They are represented on the next image.
+
+![Speed section examples](../svg_schemas/speed_sections.en.svg)
 
 ### Operational points
 
-## Routes
+Operational points represent anything that we find of interest and want to represent in our simulation. An operational point is mostly constituted of the list of its parts, which are simply positions on track sections.
 
-## Trains ?
+For example, we might find convenient to have the position of the platforms actually integrated in our system. For that purpose, we can represent them as operational points. In our example infrastructure, they are the only operational points used. The operational point parts are represented by purple diamonds in the following schema, the operational points they are related to are simply the names they are close by.
 
-<span style="color: red"> No idea what to say</span>
+![Operational points examples](../svg_schemas/operational_points.en.svg)
+
+## Paths ?
+
+## Train Schedules ?
