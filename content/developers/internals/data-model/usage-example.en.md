@@ -72,11 +72,11 @@ For the moment we only created track sections, they have length and coordinates 
 
 Since we chose to have long track sections, we only have to link them at switches. Happily, in our generation scripts, like in [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py), when creating switches, the corresponding `TrackSectionLink`s are automatically created.
 
-If two track sections are not connected by a `TrackSectionLink`, a train in an *OSRD* simulation cannot go from the former to the latter.
+If two track sections are not connected by a `TrackSectionLink`, a train in an *OSRD* simulation cannot go from the one to the other.
 
 ### Switches
 
-For the time being, OSRD only supports three types of switches <span style="color: red">is that true ?</span> (which we will all use in our example). Let us first define the three types of switches.
+For the time being, OSRD implements three types of switches (which we will all use in our example). Let us first define these three types of switches.
 
 #### Point Switch
 
@@ -84,21 +84,36 @@ This is the most standard kind of switch and can be conceived as two tracks merg
 
 ![Point switch schema](../svg_schemas/point_switch.en.svg)
 
-At any given moment, a train can be able from *TA1* to *TA3* or from *TA1* to *TA4* but never to both at the same time. A Point Switch only has two positions:
+At any given moment, a train can be able to go from *TA1* to *TA3* or from *TA1* to *TA4* but never to both at the same time. A Point Switch only has two positions:
 
-![Point switch schema](../svg_schemas/point_switch_positions.en.svg)
+![Point switch positions schema](../svg_schemas/point_switch_positions.en.svg)
 
 #### Cross Switch
 
-This is simply two tracks crossing each other.
+This is simply two tracks crossing each other. For example, the following switch *PD1* links *TD1* to *TD3* and *TF0* to *TF1*.
+
+![Cross switch schema](../svg_schemas/cross_switch.en.svg)
+
+This is a switch in the sense that there are only two situations: the train can go from *TD1* to *TD3* or it can go from *TF0* to *TF1* but not both at the same time.
+Illustrated here:
+
+![Cross switch positions schema](../svg_schemas/cross_switch_positions.en.svg)
 
 #### Double Cross Switch
 
-This is more like two tracks merging and then diverging immediately.
+This one is more like two point switches back to back. Therefore it has four positions. For example the following switch *PH0* links *TG0*, *TG1*, *TD3* and *TH0*.
+
+![Double cross switch schema](../svg_schemas/double_cross_switch.en.svg)
+
+And here are its four possible positions:
+
+![Double cross switch positions schema](../svg_schemas/double_cross_switch_positions.en.svg)
 
 #### Back to the example
 
-In most places we use the classical point switch. Between the TD and TF lines, there are two cross switches. Between the TD0, TG0, TG1 and TH0 track sections there is a double cross switch.
+In most places we use the classical point switch. To go from North to South station we added two cross switches, and we added one double cross switch right before the main line splits to go to the north-East and South-East stations. Here is the schema of the infrastructure, with all switches:
+
+![Track sections and points schema](../svg_schemas/small_infra_rails_n_points.en.svg)
 
 ## The signaling
 
@@ -113,3 +128,8 @@ In most places we use the classical point switch. Between the TD and TF lines, t
 ### Operational points
 
 ## Routes
+
+## Trains ?
+
+<span style="color: red"> No idea what to say</span>
+
