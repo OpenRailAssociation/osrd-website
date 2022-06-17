@@ -7,7 +7,7 @@ description: "OSRD data format usage example"
 
 ## Introduction
 
-This page gives an example of how the data formats are used to describe an infrastructure (and rolling stocks and schedules) in *OSRD*.
+This page gives an example of how the data formats are used to describe an infrastructure in *OSRD*.
 
 For this purpose, let's take as an example the following toy infrastructure:
 
@@ -33,7 +33,7 @@ The infrastructure we talk about in this page can be generated through the [smal
 
 ### Track sections
 
-The first objects that we need to define are the `TrackSection`s. Most other objects are defined in relation to the track sections we have set up.
+The first objects that we need to define are the `TrackSections`. Most other objects are defined in relation to the track sections we have set up.
 
 A track section is simply a portion of rail (switches not included). One can chose to divide the tracks of their infrastructure in as many track sections as they like. Here we chose to use the longest track sections possible, which means that between two switches there is always a single track section.
 
@@ -72,21 +72,17 @@ For the moment we only created track sections, they have length and coordinates 
 
 If two track sections are not connected by a `TrackSectionLink`, a train in an *OSRD* simulation cannot go from the one to the other.
 
-In our example, creating the links is straight-forward: since we chose to have long track sections, we only have to link them at switches. Happily, in our generation scripts, like in [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py), when creating switches, the corresponding `TrackSectionLink`s are automatically created.
+In our example, creating the links is straight-forward: since we chose to have long track sections, we only have to link them at switches. Happily, in our generation scripts, like in [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py), when creating switches, the corresponding `TrackSectionLinks` are automatically created.
 
 Let's delve a bit on the switches.
 
 ### Switches
 
-<!-- TODO: what it is -->
-The switches are the parts needed to link more than two different track sections together.
+The `Switches` are the parts needed to link more than two different track sections together.
 
 A switch manages the different links that are associated to it (always at least two). In general, it translates into the following rule: when one link is used, the others cannot be used at the same time. This is because if two links were used by trains at the same time, it would be an accident.
 
 Since the kinds of links that we need to create at a switch often happen to be redundant, we have `SwitchType` objects, which gather what links should be created, when creating this particular type of switch. We will describe this object in the next subsection.
-
-<!-- TODO: how it's implemented -->
-<!-- TODO: how we use it -->
 
 #### Switch Types
 
@@ -154,7 +150,7 @@ We have now completely represented our railways. Trains could now run on our inf
 
 ### Detectors
 
-These objects are used to create TVDS (Track Vacancy Detection Section): the portion of rails between two detectors (or between a detector and a buffer stop) is a TVDS. When a train activates a detector, the detectors declares its TVDS occupied, and no other train is allowed to enter this TVDS. This also allows to locate trains, since you know in which TVDS there are trains.
+These objects are used to create TVDS (Track Vacancy Detection Section): the portion of rails between two `Detectors` (or between a detector and a buffer stop) is a TVDS. When a train activates a detector, the `Detectors` declares its TVDS occupied, and no other train is allowed to enter this TVDS. This also allows to locate trains, since you know in which TVDS there are trains.
 
 In real life, detectors can be [axle counters](https://en.wikipedia.org/wiki/Axle_counter) or [track circuits](https://en.wikipedia.org/wiki/Track_circuit) for example.
 
@@ -181,7 +177,7 @@ The clumped up squares represent many detectors at once. Indeed, because some tr
 
 ### Signals
 
-Now, thanks to the detectors we can know where our trains are in our infrastructure. However, this is useless if we cannot tell the trains not to go into a track section where there already is a train. This is where the signals come into play: a signal is used to tell a train wether it has to stop or to keep going.
+Now, thanks to the detectors we can know where our trains are in our infrastructure. However, this is useless if we cannot tell the trains not to go into a track section where there already is a train. This is where the `Signals` come into play: a `Signal` is used to tell a train wether it has to stop or to keep going.
 
 Here are the most important attributes for the signals:
 
@@ -214,7 +210,7 @@ To get the `id` of a detector linked to a signal, take the signal's `id` and rep
 
 ### Buffer stops
 
-The buffer stops are physical objects that prevent trains from leaving the rails.
+The `BufferStops` are physical objects that prevent trains from leaving the rails.
 
 In our infrastructure, there is a buffer stop on each track section which has a loose end. There are therefore 8 buffer stops in total.
 
@@ -222,7 +218,7 @@ Together with detectors, they form the [TVD](https://ressources.data.sncf.com/ex
 
 ### Curves and slopes
 
-Curves and slopes are necessary in order to represent the real world conditions in our simulation. These objects are defined as a range between a `begin` and `end` offsets of one track section. If you want to have a curve / slope value that spans over more than one track section, you need to have one objects for each track section it covers.
+`Curves` and `Slopes` are necessary in order to represent the real world conditions in our simulation. These objects are defined as a range between a `begin` and `end` offsets of one track section. If you want to have a curve / slope value that spans over more than one track section, you need to have one objects for each track section it covers.
 
 The slope / curve value that one wants to set is constant on the whole range. For varying curves / slopes, one needs to create several objects.
 
@@ -236,7 +232,7 @@ There are curves as well, on the track sections *TE0*, *TE1*, *TE3* and *TF1*.
 
 ### Operational points
 
-Operational points represent anything that we find of interest and want to represent in our simulation. An operational point is mostly constituted of the list of its parts, which are simply positions on track sections.
+`OperationalPoints` represent anything that we find of interest and want to represent in our simulation. An operational point is mostly constituted of the list of its parts, which are simply positions on track sections.
 
 For example, we might find convenient to have the position of the platforms actually integrated in our system. For that purpose, we can represent them as operational points.
 
@@ -250,13 +246,13 @@ Now we have represented all the material parts of our infrastructure <span style
 
 ### Loading Gauge Limits
 
-These objects are akin to Slopes and Curves: it covers a range of track section, with a `begin` and an `end` offset. It represents a restriction on the trains that can travel on the given range, by weight or by train type (freight or passenger).
+These objects are akin to `Slopes` and `Curves`: it covers a range of track section, with a `begin` and an `end` offset. It represents a restriction on the trains that can travel on the given range, by weight or by train type (freight or passenger).
 
 We did not put any in our examples.
 
-### Speed sections
+### Speed Sections
 
-The Speed sections represent speed limitations (in meters per second) that are applied on some parts of the tracks. One speed section can span on several track sections, and do not necessarily cover the whole track sections. Speed sections can overlap.
+The `SpeedSections` represent speed limitations (in meters per second) that are applied on some parts of the tracks. One `SpeedSection` can span on several track sections, and do not necessarily cover the whole track sections. Speed sections can overlap.
 
 In our example infrastructure, we have a speed section covering the whole infrastructure, limiting the speed to 300 km/h. On a smaller part of the infrastructure, we applied more restrictive speed sections. They are represented on the next image.
 
