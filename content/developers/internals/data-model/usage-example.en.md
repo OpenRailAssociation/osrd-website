@@ -68,32 +68,35 @@ For most track sections, their `length` is proportional to what can be seen in t
 
 ### Track Section Links
 
-For the moment we only created track sections, they have length and coordinates but they are not linked to each other (we do not check which coordinates overlap, thank you very much). We simply indicate the link between two track sections by creating an object, linking one extremity to the other.
+For the moment we only created track sections, they have length and coordinates but they are not connected to each other (we do not check which coordinates overlap, thank you very much).
 
-If two track sections are not connected by a `TrackSectionLink`, a train in an *OSRD* simulation cannot go from the one to the other.
+If you only need to connect two `TackSections` together, this is where `TrackSectionLinks` come into play. A train can go from one track section to the other only if they are connected by a `TrackSectionLink` (or by a `Switch`).
 
-In our example, creating the links is straight-forward: since we chose to have long track sections, we only have to link them at switches. Happily, in our generation scripts, like in [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py), when creating switches, the corresponding `TrackSectionLinks` are automatically created.
+If you want need to connect more `TackSections` together, you will need the [`Switches`](#switches) objects.
 
-Let's delve a bit on the switches.
+In our infrastructure, since we chose to have our track sections as long as possible, we do not actually need to use `TrackSectionLinks`.
 
 ### Switches
 
-The `Switches` are the parts needed to link more than two different track sections together.
+A `Switch` object can be understood as a manageable superposition of `TrackSectionLinks`: when instantiating the `Switch`, you define all the connections that you want, and in the *OSRD* core, all these connections will be taken into account, however only one can be active at the same time. Indeed, since we are talking about some sort of overlap of rail, if two connections are activated at once, then two trains could want to use them at the same time, and that would result in a collision (not head on, but side to side, in french called *en écharpe*).
 
-A switch manages the different links that are associated to it (always at least two). In general, it translates into the following rule: when one link is used, the others cannot be used at the same time. This is because if two links were used by trains at the same time, it would be an accident.
-
-Since the kinds of links that we need to create at a switch often happen to be redundant, we have `SwitchType` objects, which gather what links should be created, when creating this particular type of switch. We will describe this object in the next subsection.
+In general, in an infrastructure, switches more or less use the same connection layouts, so in accordance with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), we have `SwitchType` objects, which gather what connections should be created, when creating this particular type of switch. We describe this object in the next subsection.
 
 #### Switch Types
 
-A switch type contains two attributes:
+A `SwitchType` contains two attributes:
 
 * `ports`: A list of names, that will be used to reference the ports. It is best described by example (see next paragraph).
-* `groups`: A mapping from group names to lists of connections between two ports. When one group is active, only the connections in its list are active.
+* `groups`: A mapping from group names to lists of connections between two ports.
 
-In *OSRD*, we currently use three switch types.
+At any time, only one group can ever be active, and among the connections of this group, only one can be active. During a simulation, it is instantaneous to change the activated connection inside a group, however, it can take some time to change the activate group.  
+This is because a switch is a physical object, and changing connections can imply moving parts of the objects. `Groups` are designed to represent the different positions that a switch can have. Inside one `group` are all the connections that can be accessed in the associated position of the switch.
 
-**1) Point Switch**
+The duration needed to change from one group to the other is stored inside the `Switch`, since this duration can vary depending on the physical implementation of the switch.
+
+In *OSRD*, we currently use three `SwitchTypes`.
+
+**1) The Point Switch**
 
 This is the most standard kind of switch and can be conceived as two tracks merging into one, or one track splitting into two.
 
@@ -101,7 +104,7 @@ This switch type has three ports: *base*, *left* and *right*.
 
 ![Point switch schema](../svg_schemas/point_switch.en.svg)
 
-There are two groups, each with one connection in their list: `LEFT`, which links *base* to *left*, and `RIGHT` which links *base* to *right*.
+There are two groups, each with one connection in their list: `LEFT`, which connects *base* to *left*, and `RIGHT` which connects *base* to *right*.
 
 Thus, at any given moment, a train can be able to go from *base* to *left* or from *base* to *right* but never to both at the same time. A train cannot go from *left* to *right*.
 
@@ -109,7 +112,7 @@ A Point Switch only has two positions:
 
 ![Point switch positions schema](../svg_schemas/point_switch_positions.en.svg)
 
-**2) Cross Switch**
+**2) The Cross Switch**
 
 This is simply two tracks crossing each other.
 
@@ -117,11 +120,13 @@ This type has four ports: *north*, *south*, *east* and *west*.
 
 ![Cross switch schema](../svg_schemas/cross_switch.en.svg)
 
-It has two groups containing each one connection: *north* to *south* and *west* to *east*. Thus the cross switch has two positions, as shown here:
+It has only one group containing two connections: *north* to *south* and *west* to *east*. Indeed this kind of switch is *passive*: it has no moving parts. However it is a useful object because when one train is scheduled to cross this switch, it is important to invalidate the unused connection in order to prevent collisions.
+
+Here are the two different connections that this switch type has:
 
 ![Cross switch positions schema](../svg_schemas/cross_switch_positions.en.svg)
 
-**3) Double cross switch**
+**3) The Double cross switch**
 
 This one is more like two point switches back to back. It has four ports: *south1*, *south2*, *north1* and *north2*.
 
@@ -133,12 +138,13 @@ However, it has four groups, each with one connection. The four groups are repre
 
 #### Back to switches
 
-A switch has two main attributes:
+A `Switch` has three attributes:
 
-* `switch_type`: the switch type we have chosen for this switch
+* `switch_type`: the [`SwitchType`](#switch-types) we have chosen for this switch.
 * `ports`: a mapping from port names to track sections extremities.
+* `group_change_delay`: the time it takes to change which group of the switch is activated.
 
-The port names must correspond to the ports of the switch type chosen. The track section extremities can be start or end, it doesn't matter.
+The port names must correspond to the ports of the switch type chosen. The track section extremities can be start or end, be careful to chose the appropriate ones.
 
 Concerning our example: in most places we use the classical point switch. To go from North to South station we added two cross switches, and we added one double cross switch right before the main line splits to go to the north-East and South-East stations. Here is the schema of the infrastructure, with all switches:
 
