@@ -1,7 +1,16 @@
 {
   "name": "osrd-website",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "OSRD documentation website.",
+  "homepage": "https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DGEXSolutions/osrd-website.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DGEXSolutions/osrd-website/issues"
+  },
   "scripts": {
     "build": "hugo --gc --cleanDestinationDir --minify",
     "build:preview": "hugo --buildDrafts --buildFuture",
@@ -10,16 +19,6 @@
     "npm-check": "npm-check -u",
     "clean": "clean-install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/google/docsy-example.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/google/docsy-example/issues"
-  },
-  "homepage": "https://github.com/google/docsy-example#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "hugo-bin-extended": "^0.101.0",
