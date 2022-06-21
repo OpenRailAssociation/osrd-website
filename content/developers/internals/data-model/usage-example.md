@@ -7,4 +7,4 @@ description: "Exemple d'utilisation des formats de données d'OSRD"
 
 ## Introduction
 
-![Toy infrastructure schema](../svg_schemas/small_infra_schema.svg)
+![Toy infrastructure diagram](../svg_diagrams/small_infra_diagram.svg)
