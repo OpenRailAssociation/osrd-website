@@ -1,10 +1,14 @@
 {
-  "name": "tech-doc-hugo",
-  "version": "0.0.1",
-  "description": "Hugo theme for technical documentation.",
-  "main": "none.js",
+  "name": "osrd-website",
+  "version": "1.0.0",
+  "description": "OSRD documentation website.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "hugo --gc --cleanDestinationDir --minify",
+    "build:preview": "hugo --buildDrafts --buildFuture",
+    "dev": "hugo server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "npm-check": "npm-check -u",
+    "clean": "clean-install"
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,9 @@
   "homepage": "https://github.com/google/docsy-example#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "hugo-bin-extended": "^0.101.0",
     "postcss": "^8.3.7",
-    "postcss-cli": "^9.0.2"
+    "postcss-cli": "^10.0.0",
+    "npm-check": "^5.9.2"
   }
 }
