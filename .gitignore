@@ -6,3 +6,4 @@ package-lock.json
 hugo.exe
 /default.nix
 /node-*.nix
+_gen/
