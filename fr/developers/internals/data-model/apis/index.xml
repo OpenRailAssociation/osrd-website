@@ -3,7 +3,7 @@
 &lt;script>
 window.onload = function () {
 const ui = SwaggerUIBundle({
-url: "/osrd-website/openapi/api.yaml",
+url: "/openapi/api.yaml",
 dom_id: '#ohpen_swagger_ui',
 presets: [
 SwaggerUIBundle.presets.apis,
@@ -17,7 +17,7 @@ window.ui = ui;
 &lt;script>
 window.onload = function () {
 const ui = SwaggerUIBundle({
-url: "/osrd-website/openapi/chartos.yaml",
+url: "/openapi/chartos.yaml",
 dom_id: '#ohpen_swagger_ui',
 presets: [
 SwaggerUIBundle.presets.apis,
@@ -31,7 +31,7 @@ window.ui = ui;
 &lt;script>
 window.onload = function () {
 const ui = SwaggerUIBundle({
-url: "/osrd-website/openapi/core.yaml",
+url: "/openapi/core.yaml",
 dom_id: '#ohpen_swagger_ui',
 presets: [
 SwaggerUIBundle.presets.apis,
@@ -45,7 +45,7 @@ window.ui = ui;
 &lt;script>
 window.onload = function () {
 const ui = SwaggerUIBundle({
-url: "/osrd-website/openapi/editoast.yaml",
+url: "/openapi/editoast.yaml",
 dom_id: '#ohpen_swagger_ui',
 presets: [
 SwaggerUIBundle.presets.apis,
