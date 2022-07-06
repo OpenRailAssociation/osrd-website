@@ -1,0 +1,9 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Technical documentation</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/documentation/</link><description>Recent content in Technical documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Core</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/documentation/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/documentation/core/</guid><description>
+&lt;script type="text/javascript">
+function resizeIframe(iframe) {
+iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+}
+&lt;/script>
+&lt;iframe id="iframe-id" src="https://dgexsolutions.github.io/osrd-website/osrd-website/javadoc/index.html" width="100%" name="iframe-name" style="min-height:98vh; border:none;" onload="resizeIframe(this)" referrerpolicy="no-referrer">
+&lt;p>Your browser can not display embedded frames. You can access the embedded page via the following link: &lt;a href="https://dgexsolutions.github.io/osrd-website/osrd-website/javadoc/index.html">/osrd-website/javadoc/index.html&lt;/a>&lt;/p>
+&lt;/iframe></description></item></channel></rss>
