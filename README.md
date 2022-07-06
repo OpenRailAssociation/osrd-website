@@ -38,10 +38,11 @@ Otherwise, the submodule folder will not be updated.
 
 ### Local
 
-- Install [hugo](https://gohugo.io/) extended version and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- `npm install`
-- `npm build` to make a production build
-- `npm start` to get a development server
+- Install [Node Version Manager](https://github.com/nvm-sh/nvm)
+- `nvm install` to set the right node and npm version using nvm
+- `npm install` to install all the project dependencies
+- `npm run start` to get a development server
+- `npm run build` to make a production build
 
 
 #### Installing dependencies on NixOS

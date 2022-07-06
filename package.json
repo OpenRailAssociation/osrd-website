@@ -14,16 +14,14 @@
   "scripts": {
     "build": "hugo --gc --cleanDestinationDir --minify",
     "build:preview": "hugo --buildDrafts --buildFuture",
-    "dev": "hugo server",
+    "start": "hugo server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "npm-check": "npm-check -u",
     "clean": "clean-install"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "hugo-bin-extended": "^0.101.0",
     "postcss": "^8.3.7",
-    "postcss-cli": "^10.0.0",
-    "npm-check": "^5.9.2"
+    "postcss-cli": "^10.0.0"
   }
 }
