@@ -1,29 +1,72 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/users/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Userguide</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/userguide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/userguide/</guid><description/></item><item><title>Users: Tutorials</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/tutorials/</guid><description/></item><item><title>Users: Technical &amp; physical choices</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/technical-and-physical-choices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/technical-and-physical-choices/</guid><description>
-&lt;h3 id="font-coloraa026dwhat-envelopes-arefont">&lt;font color=#aa026d>What envelopes are?&lt;/font>&lt;/h3>
-&lt;p>OSRD can be used to perform two kinds of calculation:&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/users/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Userguide</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/userguide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/userguide/</guid><description/></item><item><title>Users: Tutorials</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/tutorials/</guid><description/></item><item><title>Users: Running time calculation</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/</guid><description>
+&lt;p>OSRD can be used to perform two types of calculations:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Standalone train simulation&lt;/strong> where the running time calculation is performed without interaction between the train and the signaling system.&lt;/li>
-&lt;li>&lt;strong>Many trains simulation&lt;/strong> where a real dynamic simulation is run.&lt;/li>
+&lt;li>&lt;strong>Standalone train simulation:&lt;/strong> calculation of the travel time of a train on a given route without interaction between the train and the signalling system.&lt;/li>
+&lt;li>&lt;strong>Simulation:&lt;/strong> &amp;ldquo;dynamic&amp;rdquo; calculation of several trains interacting with each other via the signalling system.&lt;/li>
 &lt;/ul>
-&lt;p>In both cases, during the simulation, the train is supposed to follow some speed instructions. These are modeled in OSRD with space/speed curves called envelopes. There are two kinds of envelopes:&lt;/p>
+&lt;h4 id="1---the-input-data">1 - The input data&lt;/h4>
+&lt;p>A running time calculation is based on 5 inputs:&lt;/p>
 &lt;ul>
-&lt;li>Envelopes coming &lt;strong>from infrastructure and rolling stock data&lt;/strong>, such as the max speed of the line and the max speed of the train; these are inputs to our calculation and they are not physically accurate because they are not the results of a real integration of the physical movement equations.&lt;/li>
-&lt;li>Envelopes resulting &lt;strong>from a real integration&lt;/strong> of the physical movement equations.&lt;/li>
+&lt;li>&lt;strong>Infrastructure:&lt;/strong> Line and track topology, position of stations and passenger buildings, position and type of points, signals, maximum line speeds, corrected line profile (gradients, ramps and curves).&lt;/li>
 &lt;/ul>
-&lt;p>These contain also information about time.&lt;/p>
-&lt;h3 id="font-coloraa026dhow-the-envelope-system-is-used-into-osrdfont">&lt;font color=#aa026d>How the envelope system is used into OSRD?&lt;/font>&lt;/h3>
-&lt;h4 id="standalone-train-simulation">Standalone train simulation&lt;/h4>
-&lt;h4 id="fastest-running-time-calculation">Fastest running time calculation&lt;/h4>
-&lt;p>The first goal of a standalone train simulation is to perform the &lt;strong>fastest running time calculation&lt;/strong>, where the train runs at the max permitted speed. To obtain this, a procedure composed by different stages is used. At each stage, some new envelopes are calculated and added to the previous ones. The final resulting envelope is what we call &lt;strong>Max Effort envelope&lt;/strong>:&lt;/p>
+&lt;p>&lt;img src="infrastructure.png" alt="Infrastructure">&lt;/p>
+&lt;blockquote>
+&lt;p>The blue histogram is a representation of the gradients in [‰] per position in [m]. The gradients are positive for ramps and negative for slopes.&lt;/p>
+&lt;p>The orange line represents the cumulative profile, i.e. the relative altitude to the starting point.&lt;/p>
+&lt;p>The blue line is a representation of turns in terms of radii of curves in [m].&lt;/p>
+&lt;/blockquote>
 &lt;ul>
-&lt;li>A first envelope is calculated at the beginning of the simulation putting together all the envelopes related to some static speed limits (max speed of the line, max speed of the rolling stock, temporary speed restrictions, train category speed restrictions, axle load speed restrictions). The resulting envelope is called &lt;strong>Most Restricted Speed Profile (MRSP)&lt;/strong>.&lt;/li>
-&lt;li>All the braking curves are computed by starting from their target point, i.e. the point in space where a certain speed limits is imposed (finite target speed) or stop point (target speed = 0 m/s). The braking curves are calculated by considering all the active forces (braking force constant or not, frictions, gradient gravity force) and for this reason are physically accurate. The resulting envelope is called &lt;strong>Max Speed Profile&lt;/strong>.&lt;/li>
-&lt;li>For each point corresponding to a speed increase in the MRSP or at the end of a stop braking curve, an accelerating curve is computed. The accelerating curves are calculated by considering all the active forces (traction force, frictions, gradient gravity force) and for this reason are physically accurate.&lt;/li>
-&lt;li>For all the envelope parts that are not physically accurate, a proper integration of movement equations is performed. This last calculation is necessary for reproducing the correct behavior of envelope parts where the speed should be maintained at a constant value, by including the effect of all the forces. The resulting envelope is called &lt;strong>Max Effort Profile&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>The rolling stock:&lt;/strong> The characteristics of which needed to perform the simulation are shown below.&lt;/li>
 &lt;/ul>
-&lt;h4 id="running-time-calculation-with-allowances">Running time calculation with allowances&lt;/h4>
-&lt;p>After having performed the fastest running time calculation, some allowances can be introduced into it. In the OSRD running time calculation, we decide to distribute allowances in an economical way, by minimizing the energy consumption during the train run. A new &lt;strong>Eco envelope&lt;/strong>, resulting from a dichotomy algorithm, is therefore computed to distribute a certain allowance value into the previously calculated Max Effort envelope.&lt;/p>
-&lt;h4 id="many-trains-simulation">Many trains simulation&lt;/h4>
-&lt;p>In the case of many trains simulation, the signaling system must assure &lt;strong>the safety&lt;/strong>. The effect of signalization on to a train running time calculation is reproduced by overlapping dynamic envelopes onto the static one. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economical envelope overlapped with the dynamic envelopes, if there are some. In this simulation mode, a check in time is completed with respect to a theoretical time coming from the time information of the static economical envelope. If the train is delayed with respect to the scheduled time, it will stop following the economical envelope and try to go faster. Its space/speed curve will be therefore limited by the max effort envelope.&lt;/p>
-&lt;h3 id="font-coloraa026dwhich-integration-method-should-osrd-usefont">&lt;font color=#aa026d>Which integration method should OSRD use?&lt;/font>&lt;/h3>
-&lt;p>Our &lt;a href="https://github.com/DGEXSolutions/osrd/wiki/Which-integration-method-should-OSRD-use">Integration Method&lt;/a> is available on the project&amp;rsquo;s Github repositorie.&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="mat_roulant.png" alt="Rolling Stock Material">&lt;/p>
+&lt;blockquote>
+&lt;p>The orange curve, called the effort-speed curve, represents the maximum motor effort as a function of the speed of travel.&lt;/p>
+&lt;p>The length, mass, and maximum speed of the train are shown at the bottom of the box.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>The departure time&lt;/strong> is then used to calculate the times of passage at the various points of interest (including stations).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Allowances:&lt;/strong> Time added to the train&amp;rsquo;s journey to relax its running (see &lt;a href="./allowances">page on allowances&lt;/a>).&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="marges.png" alt="Allowances">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>The time step&lt;/strong> for the calculation of &lt;a href="./numerical_integration">numerical integration&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h4 id="2---the-results">2 - The results&lt;/h4>
+&lt;p>The results of a running time calculation can be represented in different forms:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>The space/time graph (GET):&lt;/strong> represents the path of trains in space and time, in the form of generally diagonal lines whose slope is the speed. Stops are shown as horizontal plates.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="graph_espace_temps.jpg" alt="Space/Time Graph">&lt;/p>
+&lt;blockquote>
+&lt;p>Example of a GET with several trains spaced about 30 minutes apart.&lt;/p>
+&lt;p>The &lt;strong>x&lt;/strong> axis is the time of the train, the &lt;strong>y&lt;/strong> axis is the position of the train in [m].&lt;/p>
+&lt;p>The blue line represents the most tense running calculation for the train, the green line represents a relaxed, so-called &amp;ldquo;economic&amp;rdquo; running calculation.&lt;/p>
+&lt;p>The solid rectangles surrounding the paths represent the portions of the track successively reserved for the train to pass (called blocks).&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>The space/speed graph (SSG):&lt;/strong> represents the journey of a single train, this time in terms of speed. Stops are therefore shown as a drop in the curve to zero, followed by a re-acceleration.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="graph_espace_vitesse.png" alt="Space/Speed Graph">&lt;/p>
+&lt;blockquote>
+&lt;p>The &lt;strong>x&lt;/strong> axis is the train position in [m], the &lt;strong>y&lt;/strong> axis is the train speed in [km/h].&lt;/p>
+&lt;p>The purple line represents the maximum permitted speed.&lt;/p>
+&lt;p>The blue line represents the speed in the case of the most stretched running calculation.&lt;/p>
+&lt;p>The green line represents the speed in the case of the &amp;ldquo;economic&amp;rdquo; travel calculation.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>The timetable for the passage of the train at the various points of interest&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="timetables.png?style=time" alt="Departure timetables">&lt;/p>
+&lt;style>
+img[src$="time"] {
+height: 70%;
+width: 70%;
+}
+&lt;/style></description></item><item><title>Users: Architecture of the OSRD tool</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/architecture/</guid><description>
+&lt;h4 id="diagram-of-the-osrd-software-architecture">Diagram of the OSRD software architecture&lt;/h4>
+&lt;p>It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.&lt;/p>
+&lt;p>&lt;img src="architecture.en.svg" alt="Architecture">&lt;/p></description></item></channel></rss>

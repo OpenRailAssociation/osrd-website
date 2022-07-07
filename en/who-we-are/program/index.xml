@@ -1,2 +1,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Program</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/</link><description>Recent content in Program on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/index.xml" rel="self" type="application/rss+xml"/><item><title>Who-We-Are: Roadmap</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/roadmap/</guid><description>
-&lt;p>The roadmap&lt;/p></description></item><item><title>Who-We-Are: Strategic choices</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/</guid><description/></item></channel></rss>
+&lt;h3 id="font-coloraa026dprogramfont">&lt;font color=#aa026d>Program&lt;/font>&lt;/h3>
+&lt;p>&lt;img src="../roadmap_prog_en.png" alt="Roadmap">&lt;/p>
+&lt;h3 id="font-coloraa026dstrategic-timetablesfont">&lt;font color=#aa026d>Strategic Timetables&lt;/font>&lt;/h3>
+&lt;p>&lt;strong>2022 Objective:&lt;/strong> Designing a POC for building and representing strategic schedules
+Stage 1: Scoping stage (2-6 months):&lt;/p>
+&lt;ul>
+&lt;li>Analysis of the existing tool (Viriato) and process&lt;/li>
+&lt;li>Collection of needs/confrontation with users&lt;/li>
+&lt;li>Deliverable: scoping note (objectives, expected functionalities, risks, planning, etc.)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../roadmap_hs_en.png" alt="Roadmap">&lt;/p>
+&lt;h3 id="font-coloraa026dexploitation-studyfont">&lt;font color=#aa026d>Exploitation Study&lt;/font>&lt;/h3>
+&lt;p>&lt;strong>2022 Objective:&lt;/strong> Delivering V1 of the tool
+Operation of the signalling system
+Edition of the infra
+1st version of the Studies module
+End of the stabilisation of the running calculation&lt;/p>
+&lt;p>&lt;img src="../roadmap_eex_en.png" alt="Roadmap">&lt;/p>
+&lt;h3 id="font-coloraa026dinfrastructure-managementfont">&lt;font color=#aa026d>Infrastructure management&lt;/font>&lt;/h3>
+&lt;p>&lt;strong>2022 Objective:&lt;/strong> To offer an open access infrastructure management service (layers and data) and their editing:&lt;/p>
+&lt;ul>
+&lt;li>Provision of layers&lt;/li>
+&lt;li>Search in layer data&lt;/li>
+&lt;li>Layers editing
+(Link with OSM)&lt;/li>
+&lt;/ul>
+&lt;h3 id="font-coloraa026dshort-term-dcmfont">&lt;font color=#aa026d>Short Term DCM&lt;/font>&lt;/h3>
+&lt;p>&lt;strong>Objective 1 -&lt;/strong> Integrating the residual capacity search algorithm into OSRD&lt;/p>
+&lt;p>Run the algorithm in OSRD:&lt;/p>
+&lt;ul>
+&lt;li>Integrate the algorithm&lt;/li>
+&lt;li>Blocks occupation ?&lt;/li>
+&lt;li>Integrate the algorithm into the SIPH data (infra and hourly data)
+&lt;ul>
+&lt;li>Import of SIPH data into OSRD&lt;/li>
+&lt;li>Projection of SIPH schedules to track&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Projection on the most likely route&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Objective 2 -&lt;/strong> Design the POC of the mobile application&lt;/p>
+&lt;p>&lt;img src="../roadmap_sdm_en.png" alt="Roadmap">&lt;/p></description></item><item><title>Who-We-Are: Strategic choices</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/</guid><description/></item></channel></rss>

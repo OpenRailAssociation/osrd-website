@@ -1,20 +1,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/users/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Guide utilisateur</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/userguide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/userguide/</guid><description/></item><item><title>Users: Tutoriels</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/tutorials/</guid><description/></item><item><title>Users: Calcul de marche</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/</guid><description>
 &lt;p>OSRD peut être utilisé pour effectuer deux types de calculs :&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Calcul de marche&lt;/strong> (standalone train simulation) : calcul du temps de parcours d&amp;rsquo;un train sur un trajet donné,
-effectué sans interaction entre le train et le système de signalisation.&lt;/li>
+&lt;li>&lt;strong>Calcul de marche&lt;/strong> (standalone train simulation) : calcul du temps de parcours d&amp;rsquo;un train sur un trajet donné,effectué sans interaction entre le train et le système de signalisation.&lt;/li>
 &lt;li>&lt;strong>Simulation&lt;/strong> : calcul &amp;ldquo;dynamique&amp;rdquo; de plusieurs trains interagissant entre eux via le système de signalisation.&lt;/li>
 &lt;/ul>
 &lt;h4 id="1---les-données-dentrée">1 - Les données d&amp;rsquo;entrée&lt;/h4>
 &lt;p>Un calcul de marche est basé sur 5 entrées :&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>L&amp;rsquo;infrastructure :&lt;/strong> Topologie des lignes et des voies, position des gares et bâtiments voyageurs, position et type
-des aiguilles, signaux, vitesses maximales de ligne, profil de ligne corrigée (pentes, rampes et virages).&lt;/li>
+&lt;li>&lt;strong>L&amp;rsquo;infrastructure :&lt;/strong> Topologie des lignes et des voies, position des gares et bâtiments voyageurs, position et type des aiguilles, signaux, vitesses maximales de ligne, profil de ligne corrigée (pentes, rampes et virages).&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="infrastructure.png" alt="Infrastructure">&lt;/p>
 &lt;blockquote>
-&lt;p>L’histogramme bleu est une représentation des déclivités en [‰] par position en [m]. Les déclivités sont positives
-pour les rampes et négatives pour les pentes.&lt;/p>
+&lt;p>L’histogramme bleu est une représentation des déclivités en [‰] par position en [m]. Les déclivités sont positives pour les rampes et négatives pour les pentes.&lt;/p>
 &lt;p>La ligne orange représente le profil cumulé, c&amp;rsquo;est-à-dire l&amp;rsquo;altitude relative par rapport au point de départ.&lt;/p>
 &lt;p>La ligne bleue est une représentation des virages en termes de rayons des courbures en [m].&lt;/p>
 &lt;/blockquote>
@@ -42,27 +39,23 @@ vitesse de circulation.&lt;/p>
 &lt;h4 id="2---les-résultats">2 - Les résultats&lt;/h4>
 &lt;p>Les résultats d&amp;rsquo;un calcul de marche peuvent se représenter sous différentes formes :&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Le graphique espace/temps (GET) :&lt;/strong> représente le parcours des trains dans l&amp;rsquo;espace et dans le temps, sous la forme de
-traits globalement diagonaux dont la pente est la vitesse. Les arrêts apparaissent sous la forme de plateaux horizontaux.&lt;/li>
+&lt;li>&lt;strong>Le graphique espace/temps (GET) :&lt;/strong> représente le parcours des trains dans l&amp;rsquo;espace et dans le temps, sous la forme de traits globalement diagonaux dont la pente est la vitesse. Les arrêts apparaissent sous la forme de plateaux horizontaux.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="graph_espace_temps.jpg" alt="Graphique Espace/Temps">&lt;/p>
 &lt;blockquote>
 &lt;p>Exemple de GET avec plusieurs trains espacés d&amp;rsquo;environ 30mn.&lt;/p>
-&lt;p>L’axe &lt;strong>x&lt;/strong> est l’horaire de passage du train, l’axe &lt;strong>y&lt;/strong> est la position du train en [m] .&lt;/p>
-&lt;p>La ligne bleue représente le calcul de marche le plus tendu pour le train, la ligne verte représente un calcul de
-marche détendu, dit « économique ».&lt;/p>
-&lt;p>Les rectangles pleins entourant les trajets représentent les portions de la voie successivement reservées au passage
-du train (appelées cantons).&lt;/p>
+&lt;p>L’axe &lt;strong>x&lt;/strong> est l’horaire de passage du train, l’axe &lt;strong>y&lt;/strong> est la position du train en [m].&lt;/p>
+&lt;p>La ligne bleue représente le calcul de marche le plus tendu pour le train, la ligne verte représente un calcul de marche détendu, dit « économique ».&lt;/p>
+&lt;p>Les rectangles pleins entourant les trajets représentent les portions de la voie successivement reservées au passage du train (appelées cantons).&lt;/p>
 &lt;/blockquote>
 &lt;ul>
-&lt;li>&lt;strong>Le graphique espace/vitesse (GEV) :&lt;/strong> représente le parcours d&amp;rsquo;un seul train, cette fois-ci en terme de vitesse. Les
-arrêts apparaissent donc sous forme de décrochages de la courbe jusqu&amp;rsquo;à zéro, suivis d&amp;rsquo;un réaccélération.&lt;/li>
+&lt;li>&lt;strong>Le graphique espace/vitesse (GEV) :&lt;/strong> représente le parcours d&amp;rsquo;un seul train, cette fois-ci en terme de vitesse. Les arrêts apparaissent donc sous forme de décrochages de la courbe jusqu&amp;rsquo;à zéro, suivis d&amp;rsquo;un réaccélération.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="graph_espace_vitesse.png" alt="Graphique Espace/Vitesse">&lt;/p>
 &lt;blockquote>
 &lt;p>L’axe &lt;strong>x&lt;/strong> est la position du train en [m], l’axe &lt;strong>y&lt;/strong> est la vitesse du train en [km/h] .&lt;/p>
-&lt;p>La ligne violette représente la vitesse maximale autorisée&lt;/p>
-&lt;p>La ligne bleue représente la vitesse dans le cas du calcul de marche le plus tendu&lt;/p>
+&lt;p>La ligne violette représente la vitesse maximale autorisée.&lt;/p>
+&lt;p>La ligne bleue représente la vitesse dans le cas du calcul de marche le plus tendu.&lt;/p>
 &lt;p>La ligne verte représente la vitesse dans le cas du calcul de marche « économique ».&lt;/p>
 &lt;/blockquote>
 &lt;ul>
@@ -76,7 +69,5 @@ width: 70%;
 }
 &lt;/style></description></item><item><title>Users: Architecture de l'outil OSRD</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/architecture/</guid><description>
 &lt;h4 id="schéma-de-larchitecture-du-logiciel-osrd">Schéma de l&amp;rsquo;architecture du logiciel OSRD&lt;/h4>
-&lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été
-fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des
-applications extérieures.&lt;/p>
-&lt;p>&lt;img src="../architecture.svg" alt="Architecture">&lt;/p></description></item></channel></rss>
+&lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
+&lt;p>&lt;img src="architecture.svg" alt="Architecture">&lt;/p></description></item></channel></rss>

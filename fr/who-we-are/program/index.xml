@@ -9,10 +9,6 @@
 &lt;li>Recueil des besoins / confrontation aux utilisateurs&lt;/li>
 &lt;li>Livrable : note de cadrage (objectifs, fonctionnalités attendues, risques, planning…)&lt;/li>
 &lt;/ul>
-&lt;p>Conception d’une maquette : pas avant octobre
-A partir du prochain sprint : Giuliana est libérée à 50% pour son projet
-Demander à Yvan Thomsen (Pôle EEx) une formation à Viriato
-Vigilance : que ce soit cohérent avec les autres fonctionnalités d’OSRD&lt;/p>
 &lt;p>&lt;img src="../roadmap_hs.png" alt="Roadmap">&lt;/p>
 &lt;h3 id="font-coloraa026detudes-dexploitationfont">&lt;font color=#aa026d>Etudes d&amp;rsquo;exploitation&lt;/font>&lt;/h3>
 &lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Livrer la V1 de l’outil
@@ -20,38 +16,28 @@ Fonctionnement de la signalisation
 Edition de l’infra
 1ère version du module Etudes
 Fin de la stabilisation du calcul de marche&lt;/p>
-&lt;p>Prévoir une montée en compétence d’Alex sur la signalisation
-Prévoir une étape de cadrage (1 ou 2 semaines) auprès des chargés d’études et des développeurs :
-Quel type de signalisation : ERTMS ?
-Contenu de la première version du module études ?
-Animation des OSR2D par Alex Jusqu’au recrutement du Tech Lead&lt;/p>
 &lt;p>&lt;img src="../roadmap_eex.png" alt="Roadmap">&lt;/p>
 &lt;h3 id="font-coloraa026dgestion-dinfrastructurefont">&lt;font color=#aa026d>Gestion d&amp;rsquo;infrastructure&lt;/font>&lt;/h3>
-&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition&lt;/p>
-&lt;p>Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition :&lt;/p>
+&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition :&lt;/p>
 &lt;ul>
 &lt;li>Mise à disposition des couches&lt;/li>
 &lt;li>Recherche dans les données de couches&lt;/li>
 &lt;li>Edition des couches
 (Lien avec OSM)&lt;/li>
 &lt;/ul>
-&lt;p>Besoin d’un dev back carto : quelqu’un qui connaisse les données géo-spatiales&lt;/p>
-&lt;p>Prévoir un cadrage, un planning et une priorisation des tâches&lt;/p>
 &lt;h3 id="font-coloraa026dsillon-de-dernière-minutefont">&lt;font color=#aa026d>Sillon de dernière minute&lt;/font>&lt;/h3>
 &lt;p>&lt;strong>Objectif 1 -&lt;/strong> Intégrer dans OSRD l’algorithme de recherche dans la capacité résiduelle&lt;/p>
-&lt;p>Faire fonctionner l’algo dans OSRD :&lt;/p>
+&lt;p>Faire fonctionner l’algorithme dans OSRD :&lt;/p>
 &lt;ul>
-&lt;li>Intégrer l’algo&lt;/li>
+&lt;li>Intégrer l’algorithme&lt;/li>
 &lt;li>Occupation des blocks ?&lt;/li>
-&lt;li>Intégrer l’algo dans les données SIPH (données infra et horaires) :&lt;/li>
+&lt;li>Intégrer l’algorithme dans les données SIPH (données infra et horaires) :
+&lt;ul>
 &lt;li>Import des données SIPH dans OSRD&lt;/li>
 &lt;li>Projection des horaires SIPH à la voie&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;li>Projection sur le trajet le plus probable&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Objectif 2 -&lt;/strong> Concevoir le POC de l’appli mobile&lt;/p>
-&lt;p>Ressources :&lt;/p>
-&lt;ul>
-&lt;li>Intégration de Youssef dès qu’il est prêt&lt;/li>
-&lt;li>Faire appel à TNP, la boite qui a déjà bossé sur SIPH&lt;/li>
-&lt;/ul>
+&lt;p>&lt;strong>Objectif 2 -&lt;/strong> Concevoir le POC de l’application mobile&lt;/p>
 &lt;p>&lt;img src="../roadmap_sdm.png" alt="Roadmap">&lt;/p></description></item><item><title>Who-We-Are: Choix stratégiques</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/strategic-choices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/strategic-choices/</guid><description/></item></channel></rss>
