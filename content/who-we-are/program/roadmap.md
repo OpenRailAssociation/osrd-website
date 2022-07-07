@@ -17,11 +17,6 @@ weight: 10
 - Recueil des besoins / confrontation aux utilisateurs
 - Livrable : note de cadrage (objectifs, fonctionnalités attendues, risques, planning…)
 
-Conception d’une maquette : pas avant octobre
-A partir du prochain sprint : Giuliana est libérée à 50% pour son projet
-Demander à Yvan Thomsen (Pôle EEx) une formation à Viriato
-Vigilance : que ce soit cohérent avec les autres fonctionnalités d’OSRD
-
 ![Roadmap](../roadmap_hs.png)
 
 ### <font color=#aa026d>Etudes d'exploitation</font>
@@ -32,47 +27,30 @@ Edition de l’infra
 1ère version du module Etudes
 Fin de la stabilisation du calcul de marche
 
-Prévoir une montée en compétence d’Alex sur la signalisation
-Prévoir une étape de cadrage (1 ou 2 semaines) auprès des chargés d’études et des développeurs :
-Quel type de signalisation : ERTMS ?
-Contenu de la première version du module études ?
-Animation des OSR2D par Alex Jusqu’au recrutement du Tech Lead
-
 ![Roadmap](../roadmap_eex.png)
 
 ### <font color=#aa026d>Gestion d'infrastructure</font>
 
-**Objectif 2022 :** Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition
-
-Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition :
+**Objectif 2022 :** Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition :
 
 - Mise à disposition des couches
 - Recherche dans les données de couches
 - Edition des couches
-(Lien avec OSM)
-
-Besoin d’un dev back carto : quelqu’un qui connaisse les données géo-spatiales
-
-Prévoir un cadrage, un planning et une priorisation des tâches
+  (Lien avec OSM)
 
 ### <font color=#aa026d>Sillon de dernière minute</font>
 
 **Objectif 1 -** Intégrer dans OSRD l’algorithme de recherche dans la capacité résiduelle
 
-Faire fonctionner l’algo dans OSRD :
+Faire fonctionner l’algorithme dans OSRD :
 
-- Intégrer l’algo
+- Intégrer l’algorithme
 - Occupation des blocks ?
-- Intégrer l’algo dans les données SIPH (données infra et horaires) :
-- Import des données SIPH dans OSRD
-- Projection des horaires SIPH à la voie
+- Intégrer l’algorithme dans les données SIPH (données infra et horaires) :
+  - Import des données SIPH dans OSRD
+  - Projection des horaires SIPH à la voie
 - Projection sur le trajet le plus probable
 
-**Objectif 2 -** Concevoir le POC de l’appli mobile
-
-Ressources :
-
-- Intégration de Youssef dès qu’il est prêt
-- Faire appel à TNP, la boite qui a déjà bossé sur SIPH
+**Objectif 2 -** Concevoir le POC de l’application mobile
 
 ![Roadmap](../roadmap_sdm.png)

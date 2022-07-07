@@ -1,5 +1,5 @@
 ---
-title: "3 - Le système d'enveloppes"
+title: "Le système d'enveloppes"
 linkTitle: "3 - Le système d'enveloppes"
 weight: 30
 ---
@@ -8,7 +8,7 @@ Le système d'enveloppes est une interface créée spécifiquement pour le calcu
 
 ### <font color=#aa026d>Une interface spécifique dans le service OSRD Core</font>
 
-Le système d'enveloppes fait partie du service core d'OSRD (voir [l'architecture du logiciel](https://dgexsolutions.github.io/osrd-website/fr/users/docs/technical_and_physical_choices/architecture/)).
+Le système d'enveloppes fait partie du service core d'OSRD (voir [l'architecture du logiciel](../architecture/_index)).
 
 Ses principaux composants sont :
 

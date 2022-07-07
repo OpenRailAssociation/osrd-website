@@ -1,5 +1,5 @@
 ---
-title: "5 - Les marges"
+title: "Les marges"
 linkTitle: "5 - Les marges"
 weight: 50
 ---
@@ -42,9 +42,8 @@ Cette distribution a pour avantage de répartir la marge de la même manière su
 La distribution économique de la marge, présentée en détail dans [ce document](../MARECO.pdf), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :
 
 1. une vitesse plafond, évitant les vitesses les plus consommatrices en énergie
-2. des zones de marche sur l'erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé
-grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps
+2. des zones de marche sur l'erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps
 
 ![Python plot eco with slopes](../python_plot_eco_w_slopes.png)
 
-> Un exemple de marche économique. En haut, les pentes/rampes recontrées par le train. Les zones de marche sur l'erre sont représentées en bleu.
+> Un exemple de marche économique. En haut, les pentes/rampes rencontrées par le train. Les zones de marche sur l'erre sont représentées en bleu.

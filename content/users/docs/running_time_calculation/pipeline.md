@@ -1,5 +1,5 @@
 ---
-title: "4 - Le processus de calcul de marche"
+title: "Le processus de calcul de marche"
 linkTitle: "4 - Le processus de calcul de marche"
 weight: 40
 ---
@@ -29,6 +29,7 @@ Une première enveloppe est calculée au début de la simulation en regroupant t
 La longueur du train est également prise en compte pour s'assurer que le train n'accélère qu'une fois sa queue ayant quitté la zone de plus faible vitesse. Un décalage est alors appliqué à la courbe en pointillée rouge. L'enveloppe résultante (courbe noire) est appelée **Most Restricted Speed Profile (MRSP)** correspondant donc au profil de vitesse le plus restrictif. C'est sur cette enveloppe que seront calculées les étapes suivantes.
 
 ![Most Restricted Speed Profile](../mrsp.png)
+
 > La ligne pointillée rouge représente la vitesse maximale autorisée en fonction de la position.
 > La ligne noire représente le MRSP où la longueur du train a été prise en compte.
 

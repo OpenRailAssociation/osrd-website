@@ -1,14 +1,16 @@
 ---
-title: "2 - Intégration numérique"
+title: "Intégration numérique"
 linkTitle: "2 - Intégration numérique"
 weight: 20
 ---
 
-<!-- script to auto-render KaTeX extension : $$..$$ for outline formula, //(...//) for inline formula -->
+<!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 ### <font color=#aa026d>Introduction</font>
 
@@ -25,6 +27,7 @@ $$v(t+dt) = a(v(t), x(t))dt + v(t)$$ <div style="text-align: right"> **(1)** </d
 $$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ <div style="text-align: right"> **(2)** </div>
 
 ![Méthode d'Euler](../euler.png)
+
 <p>&nbsp;</p>
 
 #### **Les avantages de la méthode d'Euler**
@@ -56,6 +59,7 @@ $$k_3 = a\Big(v(t+k_2\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_2\frac{dt^2}{8}\
 $$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$
 
 ![Méthode de Runge-Kutta 4](../rk4.png)
+
 <p>&nbsp;</p>
 
 #### **Les avantages de la méthode de Runge Kutta 4**
@@ -95,17 +99,17 @@ Une courbe de référence a été simulée en utilisant la méthode d'Euler avec
 
 ![precisions_h_equivalent](../precisions_h_equivalent.png)
 
-Il apparaît immédiatement que la méthode d'Euler est moins précise que les quatre autres d'environ un ordre de grandeur. Chaque courbe présente un pic où la précision est extrêmement élevée (erreur extrêmement faible), ce qui  s'explique par le fait que toutes les courbes commencent légèrement au-dessus de la courbe de référence, la croisent en un point et finissent légèrement en dessous, ou _vice versa_.
+Il apparaît immédiatement que la méthode d'Euler est moins précise que les quatre autres d'environ un ordre de grandeur. Chaque courbe présente un pic où la précision est extrêmement élevée (erreur extrêmement faible), ce qui s'explique par le fait que toutes les courbes commencent légèrement au-dessus de la courbe de référence, la croisent en un point et finissent légèrement en dessous, ou _vice versa_.
 
 Comme la précision n’est pas le seul indicateur important, le temps de calcul de chaque méthode a été mesuré. Voici ce que nous obtenons pour les mêmes paramètres d’entrée :
 
-| Méthode d'intégration                    | Temps de calcul (s) |
-|:-----------------------------------------|--------------------:|
-| Euler                                    |                1.86 |
-| Euler-Cauchy                             |                3.80 |
-| Runge-Kutta 4                            |                7.01 |
-| Adams 2                                  |                3.43 |
-| Adams 3                                  |                5.27 |
+| Méthode d'intégration | Temps de calcul (s) |
+| :-------------------- | ------------------: |
+| Euler                 |                1.86 |
+| Euler-Cauchy          |                3.80 |
+| Runge-Kutta 4         |                7.01 |
+| Adams 2               |                3.43 |
+| Adams 3               |                5.27 |
 
 Ainsi, Euler-Cauchy et Adams 2 sont environ deux fois plus lents que Euler, Adams 3 est environ trois fois plus lent, et RK4 est environ quatre fois plus lent. Ces résultats ont été vérifiés sur des simulations beaucoup plus longues, et les différents ratios sont maintenus.
 
@@ -117,13 +121,13 @@ Comme les temps de calcul de toutes les méthodes dépendent linéairement du pa
 
 Et voici les temps de calcul :
 
-| Méthode d'intégration                    | Temps de calcul (s) |
-|:-----------------------------------------|--------------------:|
-| Euler                                    |                1.75 |
-| Euler-Cauchy                             |                2.10 |
-| Runge-Kutta 4                            |                1.95 |
-| Adams 2                                  |                1.91 |
-| Adams 3                                  |                1.99 |
+| Méthode d'intégration | Temps de calcul (s) |
+| :-------------------- | ------------------: |
+| Euler                 |                1.75 |
+| Euler-Cauchy          |                2.10 |
+| Runge-Kutta 4         |                1.95 |
+| Adams 2               |                1.91 |
+| Adams 3               |                1.99 |
 
 Après un certain temps, RK4 tend à être la méthode la plus précise, légèrement plus précise que Euler-Cauchy, et toujours bien plus précise que la méthode d'Euler.
 
