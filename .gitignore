@@ -4,6 +4,4 @@ node_modules/
 package-lock.json
 .hugo_build.lock
 hugo.exe
-/default.nix
-/node-*.nix
 _gen/

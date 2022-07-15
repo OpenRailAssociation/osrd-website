@@ -10,6 +10,7 @@ It's free and open-source forever!
 
 
 ## Clone
+
 `git clone --recurse-submodules --shallow-submodules git@github.com:DGEXSolutions/osrd-website.git`
 
 **This repository uses submodules. Please read the following carefuly**
@@ -44,14 +45,27 @@ Otherwise, the submodule folder will not be updated.
 - `npm run start` to get a development server
 - `npm run build` to make a production build
 
+### With docker
 
-#### Installing dependencies on NixOS
+#### Development server
 
- - `nix-shell -p nodePackages.node2nix --command 'node2nix -i package.json --development'`
- - `nix-shell`
+```
+docker run --rm -it \
+  -v $(pwd):/src \
+  -p 1313:1313 \
+  klakegg/hugo:ext-alpine \
+  server
+```
 
+#### Build
 
-### Gipod
+```
+docker run --rm -it \
+  -v $(pwd):/src \
+  klakegg/hugo:ext-alpine
+```
+
+### Gitpod
 
 Click the button below to start a new development environment using Gitpod :
 
@@ -62,8 +76,8 @@ Click the button below to start a new development environment using Gitpod :
 You can use devcontainer to run this website.
 Please read [documentation](https://code.visualstudio.com/docs/remote/create-dev-container) before.
 
-
 ### Codespace
+
 You can use [Codespace](https://fr.github.com/features/codespaces) based on devcontainer to set up a remote development environment and run this website.
 For french developers Codespace is still in [beta](https://fr.github.com/features/codespaces).
 
