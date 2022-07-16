@@ -28,8 +28,12 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Install      
+
+      - name: Install
         run: npm install
+
+      - name: Install docsy dependencies
+        run: cd themes/docsy && npm install
 
       - name: Build
         run: npm run build
@@ -49,7 +53,7 @@ jobs:
 
       - name: Clone OSRD repository
         run: git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd_repo
-       
+
       - name: Load cached venv
         uses: actions/cache@v3
         id: cached-poetry-dependencies
@@ -63,8 +67,8 @@ jobs:
           cd /tmp/osrd_repo/api
           poetry install --no-interaction --no-root -E production
       - name: Add JSON schemas
-        env: 
-          OSRD_DEV: "True" 
+        env:
+          OSRD_DEV: "True"
         run: |
           source /tmp/osrd_repo/api/.venv/bin/activate
           mkdir -p public/schemas

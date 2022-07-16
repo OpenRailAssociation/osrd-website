@@ -11,19 +11,19 @@ It's free and open-source forever!
 
 ## Clone
 
-`git clone --recurse-submodules --shallow-submodules git@github.com:DGEXSolutions/osrd-website.git`
+`git clone --recurse-submodules git@github.com:DGEXSolutions/osrd-website.git`
 
 **This repository uses submodules. Please read the following carefuly**
 
-If you forgot `--recurse-submodules --shallow-submodules` at clone time, run:
+If you forgot `--recurse-submodules` at clone time, run:
 
-`git submodule update --init --recursive --depth=1`
+`git submodule update --init --recursive`
 
 ## Using submodules
 
 If you made some changes in the theme repository, you have to update the submodule:
 
-`git submodule update --remote --depth=1`
+`git submodule update --remote`
 
 If somebody already commited the submodule update, either pull with the proper submodule update flag:
 
@@ -42,27 +42,33 @@ Otherwise, the submodule folder will not be updated.
 - Install [Node Version Manager](https://github.com/nvm-sh/nvm)
 - `nvm install` to set the right node and npm version using nvm
 - `npm install` to install all the project dependencies
+- `(cd themes/docsy && npm install)` to install theme dependencies
 - `npm run start` to get a development server
 - `npm run build` to make a production build
 
 ### With docker
 
-#### Development server
+**First, install theme dependencies:**
 
 ```
 docker run --rm -it \
-  -v $(pwd):/src \
-  -p 1313:1313 \
-  klakegg/hugo:ext-alpine \
-  server
+    -v $(pwd):/src \
+    -w /src/themes/docsy \
+    --entrypoint npm \
+    klakegg/hugo:ext-alpine \
+    install
+```
+
+#### Development server
+
+```
+docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:ext-alpine server
 ```
 
 #### Build
 
 ```
-docker run --rm -it \
-  -v $(pwd):/src \
-  klakegg/hugo:ext-alpine
+docker run --rm -it -v $(pwd):/src klakegg/hugo:ext-alpine
 ```
 
 ### Gitpod
