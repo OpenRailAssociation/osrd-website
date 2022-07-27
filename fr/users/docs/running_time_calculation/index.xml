@@ -20,7 +20,7 @@ des différentes forces qui lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$&l
 &lt;li>du matériel roulant&lt;/li>
 &lt;li>de la vitesse du train \(v^{\prime}x\), selon la courbe effort-vitesse ci-dessous :&lt;/li>
 &lt;/ul>
-&lt;p>$$ {\vec{F*{mot}}(v*{x^{\prime}}, x^{\prime})=F*{mot}(v*{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$&lt;/p>
+&lt;p>$$ {\vec{F_{mot}}(v_{x^{\prime}}, x^{\prime})=F_{mot}(v_{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$&lt;/p>
 &lt;p>&lt;img src="../effort-vitesse.png" alt="Marche" title="Exemple de courbe effort-vitesse d'un train">&lt;/p>
 &lt;blockquote>
 &lt;p>L&amp;rsquo;axe &lt;strong>x&lt;/strong> représente la vitesse du train en [km/h], l&amp;rsquo;axe &lt;strong>y&lt;/strong>, la valeur de la force de traction en [kN].&lt;/p>
@@ -32,28 +32,37 @@ des différentes forces qui lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$&l
 &lt;/ul>
 &lt;br>
 &lt;ul>
-&lt;li>&lt;strong>Freinage&lt;/strong> : La valeur de la force de freinage \(F_{brk}\) dépend elle aussi du matériel roulant et de l&amp;rsquo;action du conducteur mais possède une valeur constante pour un matériel donné. Dans l&amp;rsquo;état actuel de la modélisation, le freinage est soit nul, soit à sa valeur maximale.&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Freinage&lt;/strong> : La valeur de la force de freinage \(F_{brk}\) dépend elle aussi du matériel roulant et de l&amp;rsquo;action du conducteur mais possède une valeur constante pour un matériel donné. Dans l&amp;rsquo;état actuel de la modélisation, le freinage est soit nul, soit à sa valeur maximale.&lt;/p>
+&lt;p>$$ \vec{F_{brk}}(x^{\prime})=-F_{brk}(x^{\prime}){\vec{e_{x^{\prime}}}} $$&lt;/p>
+&lt;p>Une seconde approche de la modélisation du freinage est l&amp;rsquo;approche dite horaire, car utilisée pour la production horaire à la SNCF. Dans ce cas, la décélération est fixe et le freinage ne dépend plus des différentes forces appliquées au train. Les valeurs de décélération typiques vont de 0.4 à 0.7m/s².&lt;/p>
+&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{F*{brk}}(x^{\prime})=-F*{brk}(x^{\prime}){\vec{e_{x^{\prime}}}} $$&lt;/p>
 &lt;br>
 &lt;ul>
-&lt;li>&lt;strong>Résistance à l&amp;rsquo;avancement&lt;/strong> : Pour modéliser la résistance à l’avancement du train on utilise la formule de Davis qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à l&amp;rsquo;avancement dépend de la vitesse \(v^{\prime}_x\). Les coefficients \(A\), \(B\), et \(C\) dépendent du matériel roulant.&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Résistance à l&amp;rsquo;avancement&lt;/strong> : Pour modéliser la résistance à l’avancement du train on utilise la formule de Davis qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à l&amp;rsquo;avancement dépend de la vitesse \(v^{\prime}_x\). Les coefficients \(A\), \(B\), et \(C\) dépendent du matériel roulant.&lt;/p>
+&lt;p>$$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$&lt;/p>
+&lt;/li>
 &lt;/ul>
-&lt;p>$$ {\vec{R}(v*{x^{\prime}})}=-(A+Bv*{x^{\prime}}+{Cv*{x^{\prime}}}^2){\vec{e*{x^{\prime}}}} $$&lt;/p>
 &lt;br>
 &lt;ul>
-&lt;li>&lt;strong>Poids (pentes + virages)&lt;/strong> : La force du poids donnée par le produit entre la masse \(m\) du train et la constante gravitationnelle \(g\) est projetée sur les axes \(\vec{e_x}^{\prime}\) et \(\vec{e_y}^{\prime}\).Pour la projection, on utilise l&amp;rsquo;angle \(i(x^{\prime})\), qui est calculé à partir de l&amp;rsquo;angle de déclivité \(s(x^{\prime})\) corrigé par un facteur qui prend en compte l&amp;rsquo;effet du rayon de virage \(r(x^{\prime})\).&lt;/li>
-&lt;/ul>
+&lt;li>
+&lt;p>&lt;strong>Poids (pentes + virages)&lt;/strong> : La force du poids donnée par le produit entre la masse \(m\) du train et la constante gravitationnelle \(g\) est projetée sur les axes \(\vec{e_x}^{\prime}\) et \(\vec{e_y}^{\prime}\).Pour la projection, on utilise l&amp;rsquo;angle \(i(x^{\prime})\), qui est calculé à partir de l&amp;rsquo;angle de déclivité \(s(x^{\prime})\) corrigé par un facteur qui prend en compte l&amp;rsquo;effet du rayon de virage \(r(x^{\prime})\).&lt;/p>
 &lt;p>$$
 \vec{P(x^{\prime})}=-mg\vec{e_y}(x^{\prime})=
 -mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{y^{\prime}}}(x^{\prime})}\Big]
 $$&lt;/p>
 &lt;p>$$ i(x^{\prime})= s(x^{\prime})+\frac{800m}{r(x^{\prime})} $$&lt;/p>
+&lt;/li>
+&lt;/ul>
 &lt;br>
 &lt;ul>
-&lt;li>&lt;strong>Réaction du sol&lt;/strong> : La force de réaction du sol compense simplement la composante verticale du poids, mais n&amp;rsquo;a pas d&amp;rsquo;impact sur la dynamique du train car elle n&amp;rsquo;a aucune composante selon l&amp;rsquo;axe \({\vec{e_x}^{\prime}}\).&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Réaction du sol&lt;/strong> : La force de réaction du sol compense simplement la composante verticale du poids, mais n&amp;rsquo;a pas d&amp;rsquo;impact sur la dynamique du train car elle n&amp;rsquo;a aucune composante selon l&amp;rsquo;axe \({\vec{e_x}^{\prime}}\).&lt;/p>
+&lt;p>$$ \vec{R_{gnd}}=R_{gnd}{\vec{e_{y^{\prime}}}} $$&lt;/p>
+&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{R*{gnd}}=R*{gnd}{\vec{e_{y^{\prime}}}} $$&lt;/p>
 &lt;h3 id="font-coloraa026dequilibre-des-forces-font">&lt;font color=#aa026d>Equilibre des forces &lt;/font>&lt;/h3>
 &lt;p>L&amp;rsquo;équation du principe fondamental de la dynamique projetée sur l&amp;rsquo;axe \({\vec{e_x}^{\prime}}\) (dans le référentiel du train) donne l&amp;rsquo;équation scalaire suivante :&lt;/p>
 &lt;p>$$
@@ -62,7 +71,7 @@ a_{x^{\prime}}(t) = \frac{1}{m}\Big
 $$&lt;/p>
 &lt;p>Celle-ci est ensuite simplifiée en considérant que malgré la pente le train se déplace sur un plan et en amalgamant
 \(\vec{e_x}\) et \(\vec{e_x}^{\prime}\). La pente a toujours un impact sur le bilan des forces mais on considère que le train ne se déplace qu&amp;rsquo;horizontalement, ce qui donne l&amp;rsquo;équation simplifiée suivante :&lt;/p>
-&lt;p>$$ a*{x}(t) = \frac{1}{m}\Big[F*{mot}(v*{x}, x)-F*{brk}(x)-(A+Bv*{x}+{Cv*{x}}^2)-mgsin(i(x))\Big] $$&lt;/p>
+&lt;p>$$ a_{x}(t) = \frac{1}{m}\Big[F_{mot}(v_{x}, x)-F_{brk}(x)-(A+Bv_{x}+{Cv_{x}}^2)-mgsin(i(x))\Big] $$&lt;/p>
 &lt;h3 id="font-coloraa026drésolution-font">&lt;font color=#aa026d>Résolution &lt;/font>&lt;/h3>
 &lt;p>La force motrice et la force de freinage dépendent de l&amp;rsquo;action du conducteur (il décide d&amp;rsquo;accélérer ou de freiner plus ou moins fort en fonction de la situation). Cette dépendance se traduit donc par une dépendance de ces deux forces à la position du train. La composante du poids dépend elle aussi de la position du train, car provenant directement des pentes et des virages situées sous ce dernier.&lt;/p>
 &lt;p>De plus, la force motrice dépend de la vitesse du train (selon la courbe effort vitesse) tout comme la résistance à
