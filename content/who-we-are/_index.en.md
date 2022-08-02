@@ -5,7 +5,7 @@ menu:
   main:
     weight: 10
 cascade:
-- type: docs
+  - type: docs
 ---
 
 The OSRD program is composed of a set of projects, each contributing to the development of one or more solutions.
@@ -20,5 +20,6 @@ You are at the right place if you want to know more about how we are organized: 
 <center>OSRD
 
 Design your jouney
+
 </center>
 </font>

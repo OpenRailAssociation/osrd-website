@@ -14,7 +14,11 @@ weight: 10
 
 Physical modelling plays an important role in the OSRD core calculation. It allows us to simulate train traffic, and it must be as realistic as possible train traffic, and it must be as realistic as possible.
 
-### <font color=#aa026d>Force review </font>
+<font color=#aa026d>
+
+### Force review
+
+</font>
 
 To calculate the displacement of the train over time, we must first calculate its speed at each instant.
 A simple way to obtain this speed is to calculate the acceleration.
@@ -27,7 +31,7 @@ Thanks to the fundamental principle of dynamics, the acceleration of the train a
   - the rolling stock
   - the speed of the train, \\(v^{\prime}x\\) according to the effort-speed curve below:
 
-  $$ {\vec{F*{mot}}(v*{x^{\prime}}, x^{\prime})=F*{mot}(v*{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$
+  $$ {\vec{F_{mot}}(v_{x^{\prime}}, x^{\prime})=F_{mot}(v_{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$
 
   ![Running time](../effort-vitesse.png "Example of a train effort-speed curve")
 
@@ -39,21 +43,23 @@ Thanks to the fundamental principle of dynamics, the acceleration of the train a
 
 - **Braking** : The value of the braking force \\(F\_{brk}\\) also depends on the rolling stock and the driver's action but has a constant value for a given rolling stock. In the current state of modelling, braking is either zero or at its maximum value.
 
-$$ \vec{F*{brk}}(x^{\prime})=-F*{brk}(x^{\prime}){\vec{e\_{x^{\prime}}}} $$
+$$ \vec{F_{brk}}(x^{\prime})=-F_{brk}(x^{\prime}){\vec{e\_{x^{\prime}}}} $$
+
+A second approach to modelling braking is the so-called hourly approach, as it is used for hourly production at SNCF. In this case, the deceleration is fixed and the braking no longer depends on the different forces applied to the train. Typical deceleration values range from 0.4 to 0.7m/s².
 
 <br>
 
 - **Forward resistance**: To model the forward resistance of the train, the Davis formula is used, which takes into account all the friction and aerodynamic resistance of the air. The value of the drag depends on the speed \\(v^{\prime}\_x\\). The coefficients \\(A\\), \\(B\\), et \\(C\\) depend on the rolling stock.
 
-$$ {\vec{R}(v*{x^{\prime}})}=-(A+Bv*{x^{\prime}}+{Cv*{x^{\prime}}}^2){\vec{e*{x^{\prime}}}} $$
+$$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$
 
 <br>
 
 - **Weight (slopes + turns)** : The weight force given by the product between the mass \\(m\\) of the train and the gravitational constant \\(g\\) is projected on the axes \\(\vec{e_x}^{\prime}\\) and \\(\vec{e_y}^{\prime}\\).For projection, we use the angle \\(i(x^{\prime})\\), which is calculated from the slope angle \\(s(x^{\prime})\\) corrected by a factor that takes into account the effect of the turning radius \\(r(x^{\prime})\\).
 
 $$
-\vec{P(x^{\prime})}=-mg\vec{e_y}(x^{\prime})=
--mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{y^{\prime}}}(x^{\prime})}\Big]
+  \vec{P(x^{\prime})}=-mg\vec{e_y}(x^{\prime})= 
+  -mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{{\prime}}}(x^{\prime})}\Big]
 $$
 
 $$ i(x^{\prime})= s(x^{\prime})+\frac{800m}{r(x^{\prime})} $$
@@ -62,9 +68,13 @@ $$ i(x^{\prime})= s(x^{\prime})+\frac{800m}{r(x^{\prime})} $$
 
 - **Ground Reaction** : The ground reaction force simply compensates for the vertical component of the weight, but has no impact on the dynamics of the train as it has no component along the axis \\({\vec{e_x}^{\prime}}\\).
 
-$$ \vec{R*{gnd}}=R*{gnd}{\vec{e\_{y^{\prime}}}} $$
+$$ \vec{R_{gnd}}=R_{gnd}{\vec{e\_{y^{\prime}}}} $$
 
-### <font color=#aa026d>Forces balance </font>
+<font color=#aa026d>
+
+### Forces balance
+
+</font>
 
 The equation of the fundamental principle of dynamics projected onto the axis \\({\vec{e_x}^{\prime}}\\) (in the train frame of reference) gives the following scalar equation:
 
@@ -76,9 +86,13 @@ $$
 This is then simplified by considering that despite the gradient the train moves on a plane and by amalgamating
 \\(\vec{e_x}\\) and \\(\vec{e_x}^{\prime}\\). The gradient still has an impact on the force balance, but it is assumed that the train is only moving horizontally, which gives the following simplified equation:
 
-$$ a*{x}(t) = \frac{1}{m}\Big[F*{mot}(v*{x}, x)-F*{brk}(x)-(A+Bv*{x}+{Cv*{x}}^2)-mgsin(i(x))\Big] $$
+$$ a_{x}(t) = \frac{1}{m}\Big[F_{mot}(v_{x}, x)-F_{brk}(x)-(A+Bv_{x}+{Cv_{x}}^2)-mgsin(i(x))\Big] $$
 
-### <font color=#aa026d>Resolution </font>
+<font color=#aa026d>
+
+### Resolution
+
+</font>
 
 The driving force and the braking force depend on the driver's action (he decides to accelerate or brake more or less strongly depending on the situation). This dependence is reflected in the dependence of these two forces on the position of the train. The weight component is also dependent on the position of the train, as it comes directly from the slopes and bends below the train.
 

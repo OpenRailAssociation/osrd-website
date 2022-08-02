@@ -12,13 +12,21 @@ weight: 20
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-### <font color=#aa026d>Introduction</font>
+<font color=#aa026d>
+
+### Introduction
+
+</font>
 
 La modélisation physique ayant montré que l'accélération du train était influencée par différents facteurs variant le long du trajet (pente, courbure, force de traction du moteur...), le calcul doit passer par une méthode d'intégration numérique. Le trajet est alors séparé en étapes suffisamment courtes pour considérer tous ces facteurs comme constants, ce qui permet cette fois ci d'utiliser l'équation du mouvement pour calculer le déplacement et la vitesse du train.
 
 La méthode d'intégration numérique d'Euler est la plus simple pour effectuer ce genre de calcul, mais elle présente un certain nombre d'inconvénients. Cet article explique la méthode d'Euler, pourquoi elle ne convient pas aux besoins d'OSRD et quelle méthode d'intégration doit être utilisée à la place.
 
-### <font color=#aa026d>La méthode d'Euler</font>
+<font color=#aa026d>
+
+### La méthode d'Euler
+
+</font>
 
 La méthode d'Euler appliquée à l'intégration de l'équation du mouvement d'un train est :
 
@@ -42,7 +50,11 @@ La méthode d'intégration d'Euler présente un certain nombre de problèmes pou
 - En intégrant dans le temps, on ne connaît que les conditions du point de départ du pas d'intégration (pente, paramètres d'infrastructure, etc.) car on ne peut pas prédire précisément l'endroit où il se termine.
 - On ne peut pas anticiper les futurs changements de directive : le train ne réagit qu'en comparant son état actuel à sa consigne au même instant. Pour illustrer c'est un peu comme si le conducteur était incapable de voir devant lui, alors que dans la réalité il anticipe en fonction des signaux, pentes, virages qu'il voit devant lui.
 
-### <font color=#aa026d>La méthode Runge-Kutta 4</font>
+<font color=#aa026d>
+
+### La méthode Runge-Kutta 4
+
+</font>
 
 La méthode Runge-Kutta 4 appliquée à l'intégration de l'équation du mouvement d'un train est :
 
@@ -131,7 +143,11 @@ Et voici les temps de calcul :
 
 Après un certain temps, RK4 tend à être la méthode la plus précise, légèrement plus précise que Euler-Cauchy, et toujours bien plus précise que la méthode d'Euler.
 
-### <font color=#aa026d>Conclusions de l'étude</font>
+<font color=#aa026d>
+
+### Conclusions de l'étude
+
+</font>
 
 L'étude de la précision et de la vitesse de calcul présentée ci-dessus montre que RK4 et Euler-Cauchy seraient de bons candidats pour remplacer l'algorithme d'Euler dans OSRD : les deux sont rapides, précis, et pourraient remplacer la méthode d'Euler sans nécessiter de gros changements d'implémentation car ils ne font que des calculs au sein du pas de temps en cours de calcul.
 **Il a été décidé qu'OSRD utiliserait la méthode Runge-Kutta 4 parce qu'elle est légèrement plus précise que Euler-Cauchy et que c'est une méthode bien connue pour ce type de calcul, donc très adaptée à un simulateur open-source.**

@@ -6,7 +6,11 @@ weight: 30
 
 Le système d'enveloppes est une interface créée spécifiquement pour le calcul de marche d'OSRD. Il permet de manipuler différentes courbes espace/vitesse, de les découper, de les mettre bout à bout, d'interpoler des points spécifiques, et d'adresser beaucoup d'autres besoins nécessaires au calcul de marche.
 
-### <font color=#aa026d>Une interface spécifique dans le service OSRD Core</font>
+<font color=#aa026d>
+
+### Une interface spécifique dans le service OSRD Core
+
+</font>
 
 Le système d'enveloppes fait partie du service core d'OSRD (voir [l'architecture du logiciel](../architecture/_index)).
 
@@ -26,7 +30,11 @@ Ses principaux composants sont :
 
 **3 - Overlays :** système permettant d’ajouter des EnvelopePart plus contraignantes (c'est-à-dire dont la vitesse est plus faible) à une enveloppe existante.
 
-### <font color=#aa026d>Enveloppes données vs enveloppes calculées</font>
+<font color=#aa026d>
+
+### Enveloppes données vs enveloppes calculées
+
+</font>
 
 Pendant la simulation, le train est censé suivre certaines instructions de vitesse. Celles-ci sont modélisées dans OSRD par des enveloppes sous forme de courbes espace/vitesse. On en distingue deux types :
 

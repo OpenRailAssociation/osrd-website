@@ -4,7 +4,11 @@ linkTitle: "5 - Les marges"
 weight: 50
 ---
 
-### <font color=#aa026d>La raison d'être des marges</font>
+<font color=#aa026d>
+
+### La raison d'être des marges
+
+</font>
 
 Comme expliqué dans le [calcul du Max Effort Profile](../pipeline/#calcul-du-max-effort-profile), la **marche de base** représente la marche la plus tendue normalement réalisable, c'est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.
 
@@ -12,7 +16,11 @@ Cette marche de base présente un inconvénient majeur : si un train part avec 1
 
 > Un train circulant en marche de base est incapable de rattraper son retard !
 
-### <font color=#aa026d>Le type de marge</font>
+<font color=#aa026d>
+
+### Le type de marge
+
+</font>
 
 On distingue deux types de marges :
 
@@ -21,7 +29,11 @@ On distingue deux types de marges :
 
 Une marche de base à laquelle on vient ajouter une marge de régularité donne ce que l'on appelle une **marche type**.
 
-### <font color=#aa026d>La distribution de la marge</font>
+<font color=#aa026d>
+
+### La distribution de la marge
+
+</font>
 
 L'ajout de marge se traduisant par un abaissement des vitesses le long du trajet, plusieurs marches types sont possibles. En effet, il existe une infinité de solutions aboutissant au même temps de parcours.
 
@@ -29,7 +41,11 @@ En guise d'exemple simple, pour détendre la marche d'un train de 10% de son tem
 
 Il y a pour l'instant deux algorithmes de distribution de la marge dans OSRD : linéaire et économique.
 
-### <font color=#aa026d>La distribution linéaire</font>
+<font color=#aa026d>
+
+### La distribution linéaire
+
+</font>
 
 La distribution de marge linéaire consiste simplement à abaisser les vitesses d'un même facteur sur la zone où l'utilisateur applique la marge. En voici un exemple d'application :
 
@@ -37,7 +53,11 @@ La distribution de marge linéaire consiste simplement à abaisser les vitesses 
 
 Cette distribution a pour avantage de répartir la marge de la même manière sur tout le trajet. Un train prenant du retard à 30% de son trajet disposera de 70% de sa marge pour les 70% de trajets restants.
 
-### <font color=#aa026d>La distribution économique</font>
+<font color=#aa026d>
+
+### La distribution économique
+
+</font>
 
 La distribution économique de la marge, présentée en détail dans [ce document](../MARECO.pdf), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :
 

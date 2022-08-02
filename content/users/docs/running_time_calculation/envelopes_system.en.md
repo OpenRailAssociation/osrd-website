@@ -6,7 +6,11 @@ weight: 30
 
 The envelope system is an interface created specifically for the OSRD gait calculation. It allows you to manipulate different space/velocity curves, to slice them, to end them, to interpolate specific points, and to address many other needs necessary for the gait calculation.
 
-### <font color=#aa026d>A specific interface in the OSRD Core service</font>
+<font color=#aa026d>
+
+### A specific interface in the OSRD Core service
+
+</font>
 
 The envelope system is part of the core service of OSRD (see [software architecture](../architecture/_index.md)).
 
@@ -26,7 +30,11 @@ Its main components are :
 
 **3 - Overlays :** system for adding more constrained (i.e. lower speed) EnvelopeParts to an existing envelope.
 
-### <font color=#aa026d>Given envelopes vs. calculated envelopes</font>
+<font color=#aa026d>
+
+### Given envelopes vs. calculated envelopes
+
+</font>
 
 During the simulation, the train is supposed to follow certain speed instructions. These are modelled in OSRD by envelopes in the form of space/speed curves. Two types can be distinguished:
 

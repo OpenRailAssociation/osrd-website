@@ -4,7 +4,11 @@ linkTitle: Strategic timetable
 weight: 10
 ---
 
-### <font color=#aa026d>Presentation</font>
+<font color=#aa026d>
+
+### Presentation
+
+</font>
 
 A first phase of the transportation plan design process starts very early: Y-10 of the day the train is to run and aims to **propose several traffic scenarios** on existing or prospective rail infrastructure. In this phase, SNCF Réseau, the French railway infrastructure manager and responsible for the allocation and sale of train paths, collects requests from **OA** and **RC** in terms of mobility. The requests will be transmitted in the form of **service plans**. A service plan is a way of representing the requested trains, their route and the stops to be served.
 

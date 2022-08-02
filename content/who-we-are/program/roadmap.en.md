@@ -4,11 +4,19 @@ linkTitle: Roadmap
 weight: 10
 ---
 
-### <font color=#aa026d>Program</font>
+<font color=#aa026d>
+
+### Program
+
+</font>
 
 ![Roadmap](../roadmap_prog_en.png)
 
-### <font color=#aa026d>Strategic Timetables</font>
+<font color=#aa026d>
+
+### Strategic Timetables
+
+</font>
 
 **2022 Objective:** Designing a POC for building and representing strategic schedules
 Stage 1: Scoping stage (2-6 months):
@@ -19,7 +27,11 @@ Stage 1: Scoping stage (2-6 months):
 
 ![Roadmap](../roadmap_hs_en.png)
 
-### <font color=#aa026d>Exploitation Study</font>
+<font color=#aa026d>
+
+### Exploitation Study
+
+</font>
 
 **2022 Objective:** Delivering V1 of the tool
 Operation of the signalling system
@@ -29,7 +41,11 @@ End of the stabilisation of the running calculation
 
 ![Roadmap](../roadmap_eex_en.png)
 
-### <font color=#aa026d>Infrastructure management</font>
+<font color=#aa026d>
+
+### Infrastructure management
+
+</font>
 
 **2022 Objective:** To offer an open access infrastructure management service (layers and data) and their editing:
 
@@ -38,7 +54,11 @@ End of the stabilisation of the running calculation
 - Layers editing
   (Link with OSM)
 
-### <font color=#aa026d>Short Term DCM</font>
+<font color=#aa026d>
+
+### Short Term DCM
+
+</font>
 
 **Objective 1 -** Integrating the residual capacity search algorithm into OSRD
 

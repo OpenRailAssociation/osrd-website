@@ -11,7 +11,11 @@ Le projet OSRD à l’ambition de répondre aux besoins de simulation qui couvre
 
 Notre mission est de fournir un outil de simulation qui peut être utilisé dans **toutes les étapes de la phase de conception** (planification des horaires et études d’exploitation), sur une **échelle géographique nationale** (comprenant le réseau français) et avec une **granulométrie variable des détails**. De plus, dans la phase opérationnelle, le projet OSRD propose un service pour tracer des **sillons de dernières minutes** (tranche d’espace-temps durant laquelle l’infrastructure est affectée à la circulation d’un train spécifique) dans la capacité résiduelle théorique ou réelle du réseau ferroviaire, une fois les autres circulations ont été déjà planifiées.
 
-### <font color=#aa026d>Le projet OSRD</font>
+<font color=#aa026d>
+
+### Le projet OSRD
+
+</font>
 
 #### **Les différents produits OSRD**
 

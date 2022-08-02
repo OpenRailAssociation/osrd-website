@@ -4,7 +4,11 @@ linkTitle: Gestion d'infrastructure
 weight: 30
 ---
 
-### <font color=#aa026d>Présentation</font>
+ <font color=#aa026d>
+
+### Présentation
+
+</font>
 
 Plusieurs applications utilisées au sein du groupe SNCF et à l’extérieur ont besoin d’une **représentation cartographique du réseau ferroviaire**. Le fond de carte d’OSRD utilise les données géographiques d’**OpenStreetMap (OSM)**, un « Wikipedia des cartes » qui permet de consulter et éditer des données géographiques de manière collaborative. Ce fond de carte est régulièrement mis à jour pour refléter les évolutions des infrastructures autres que ferroviaires.
 

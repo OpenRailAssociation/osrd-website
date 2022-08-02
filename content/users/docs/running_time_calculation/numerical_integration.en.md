@@ -12,13 +12,21 @@ weight: 20
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-### <font color=#aa026d>Introduction</font>
+<font color=#aa026d>
+
+### Introduction
+
+</font>
 
 Since physical modelling has shown that the acceleration of the train is influenced by various factors that vary along the route (gradient, curvature, engine traction force, etc.), the calculation must be carried out using a numerical integration method. The path is then separated into sufficiently short steps to consider all these factors as constant, which allows this time to use the equation of motion to calculate the displacement and speed of the train.
 
 Euler's method of numerical integration is the simplest way of doing this, but it has a number of drawbacks. This article explains the Euler method, why it is not suitable for OSRD purposes and which integration method should be used instead.
 
-### <font color=#aa026d>Euler's method</font>
+<font color=#aa026d>
+
+### Euler's method
+
+</font>
 
 The Euler method applied to the integration of the equation of motion of a train is:
 
@@ -42,7 +50,11 @@ The Euler integration method presents a number of problems for OSRD:
 - With time integration, only the conditions at the starting point of the integration step (gradient, infrastructure parameters, etc.) are known, as one cannot predict precisely where it will end.
 - We cannot anticipate future changes in the directive: the train only reacts by comparing its current state with its set point at the same time. To illustrate, it is as if the driver is unable to see ahead, whereas in reality he anticipates according to the signals, slopes and bends he sees ahead.
 
-### <font color=#aa026d>Runge-Kutta's 4 method</font>
+<font color=#aa026d>
+
+### Runge-Kutta's 4 method
+
+</font>
 
 The Runge-Kutta 4 method applied to the integration of the equation of motion of a train is:
 
@@ -131,7 +143,11 @@ And here are the calculation times:
 
 After some time, RK4 tends to be the most accurate method, slightly more accurate than Euler-Cauchy, and still much more accurate than the Euler method.
 
-### <font color=#aa026d>Conclusions of the study</font>
+<font color=#aa026d>
+
+### Conclusions of the study
+
+</font>
 
 The study of accuracy and computational speed presented above shows that RK4 and Euler-Cauchy would be good candidates to replace the Euler algorithm in OSRD: both are fast, accurate, and could replace the Euler method without requiring large implementation changes because they only compute within the current time step.
 **It was decided that OSRD would use the Runge-Kutta 4 method because it is slightly more accurate than Euler-Cauchy and it is a well-known method for this type of calculation, so it is very suitable for an open-source simulator.**

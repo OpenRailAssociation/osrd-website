@@ -5,7 +5,7 @@ menu:
   main:
     weight: 10
 cascade:
-- type: docs
+  - type: docs
 ---
 
 Le programme OSRD est composé d’un ensemble de projets, chacun concourant au développement d’une ou plusieurs solutions.
@@ -20,5 +20,6 @@ Vous êtes au bon endroit si vous voulez en savoir plus sur la façon dont nous 
 <center>OSRD
 
 Design your jouney
+
 </center>
 </font>
