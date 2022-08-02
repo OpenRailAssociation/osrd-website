@@ -7,7 +7,9 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script>
 &lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">&lt;/script>
 &lt;p>Physical modelling plays an important role in the OSRD core calculation. It allows us to simulate train traffic, and it must be as realistic as possible train traffic, and it must be as realistic as possible.&lt;/p>
-&lt;h3 id="font-coloraa026dforce-review-font">&lt;font color=#aa026d>Force review &lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="force-review">Force review&lt;/h3>
+&lt;/font>
 &lt;p>To calculate the displacement of the train over time, we must first calculate its speed at each instant.
 A simple way to obtain this speed is to calculate the acceleration.
 Thanks to the fundamental principle of dynamics, the acceleration of the train at each instant is directly dependent on the different forces applied to it: $$ \sum \vec{F}=m\vec{a} $$&lt;/p>
@@ -19,7 +21,7 @@ Thanks to the fundamental principle of dynamics, the acceleration of the train a
 &lt;li>the rolling stock&lt;/li>
 &lt;li>the speed of the train, \(v^{\prime}x\) according to the effort-speed curve below:&lt;/li>
 &lt;/ul>
-&lt;p>$$ {\vec{F*{mot}}(v*{x^{\prime}}, x^{\prime})=F*{mot}(v*{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$&lt;/p>
+&lt;p>$$ {\vec{F_{mot}}(v_{x^{\prime}}, x^{\prime})=F_{mot}(v_{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$&lt;/p>
 &lt;p>&lt;img src="../effort-vitesse.png" alt="Running time" title="Example of a train effort-speed curve">&lt;/p>
 &lt;blockquote>
 &lt;p>The &lt;strong>x&lt;/strong> axis represents the speed of the train in [km/h], the &lt;strong>y&lt;/strong> axis the value of the traction force in [kN].&lt;/p>
@@ -33,27 +35,30 @@ Thanks to the fundamental principle of dynamics, the acceleration of the train a
 &lt;ul>
 &lt;li>&lt;strong>Braking&lt;/strong> : The value of the braking force \(F_{brk}\) also depends on the rolling stock and the driver&amp;rsquo;s action but has a constant value for a given rolling stock. In the current state of modelling, braking is either zero or at its maximum value.&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{F*{brk}}(x^{\prime})=-F*{brk}(x^{\prime}){\vec{e_{x^{\prime}}}} $$&lt;/p>
+&lt;p>$$ \vec{F_{brk}}(x^{\prime})=-F_{brk}(x^{\prime}){\vec{e_{x^{\prime}}}} $$&lt;/p>
+&lt;p>A second approach to modelling braking is the so-called hourly approach, as it is used for hourly production at SNCF. In this case, the deceleration is fixed and the braking no longer depends on the different forces applied to the train. Typical deceleration values range from 0.4 to 0.7m/s².&lt;/p>
 &lt;br>
 &lt;ul>
 &lt;li>&lt;strong>Forward resistance&lt;/strong>: To model the forward resistance of the train, the Davis formula is used, which takes into account all the friction and aerodynamic resistance of the air. The value of the drag depends on the speed \(v^{\prime}_x\). The coefficients \(A\), \(B\), et \(C\) depend on the rolling stock.&lt;/li>
 &lt;/ul>
-&lt;p>$$ {\vec{R}(v*{x^{\prime}})}=-(A+Bv*{x^{\prime}}+{Cv*{x^{\prime}}}^2){\vec{e*{x^{\prime}}}} $$&lt;/p>
+&lt;p>$$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$&lt;/p>
 &lt;br>
 &lt;ul>
 &lt;li>&lt;strong>Weight (slopes + turns)&lt;/strong> : The weight force given by the product between the mass \(m\) of the train and the gravitational constant \(g\) is projected on the axes \(\vec{e_x}^{\prime}\) and \(\vec{e_y}^{\prime}\).For projection, we use the angle \(i(x^{\prime})\), which is calculated from the slope angle \(s(x^{\prime})\) corrected by a factor that takes into account the effect of the turning radius \(r(x^{\prime})\).&lt;/li>
 &lt;/ul>
 &lt;p>$$
 \vec{P(x^{\prime})}=-mg\vec{e_y}(x^{\prime})=
--mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{y^{\prime}}}(x^{\prime})}\Big]
+-mg\Big[sin\big(i(x^{\prime})\big){\vec{e_{x^{\prime}}}(x^{\prime})}+cos\big(i(x^{\prime})\big){\vec{e_{{\prime}}}(x^{\prime})}\Big]
 $$&lt;/p>
 &lt;p>$$ i(x^{\prime})= s(x^{\prime})+\frac{800m}{r(x^{\prime})} $$&lt;/p>
 &lt;br>
 &lt;ul>
 &lt;li>&lt;strong>Ground Reaction&lt;/strong> : The ground reaction force simply compensates for the vertical component of the weight, but has no impact on the dynamics of the train as it has no component along the axis \({\vec{e_x}^{\prime}}\).&lt;/li>
 &lt;/ul>
-&lt;p>$$ \vec{R*{gnd}}=R*{gnd}{\vec{e_{y^{\prime}}}} $$&lt;/p>
-&lt;h3 id="font-coloraa026dforces-balance-font">&lt;font color=#aa026d>Forces balance &lt;/font>&lt;/h3>
+&lt;p>$$ \vec{R_{gnd}}=R_{gnd}{\vec{e_{y^{\prime}}}} $$&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="forces-balance">Forces balance&lt;/h3>
+&lt;/font>
 &lt;p>The equation of the fundamental principle of dynamics projected onto the axis \({\vec{e_x}^{\prime}}\) (in the train frame of reference) gives the following scalar equation:&lt;/p>
 &lt;p>$$
 a_{x^{\prime}}(t) = \frac{1}{m}\Big
@@ -61,8 +66,10 @@ a_{x^{\prime}}(t) = \frac{1}{m}\Big
 $$&lt;/p>
 &lt;p>This is then simplified by considering that despite the gradient the train moves on a plane and by amalgamating
 \(\vec{e_x}\) and \(\vec{e_x}^{\prime}\). The gradient still has an impact on the force balance, but it is assumed that the train is only moving horizontally, which gives the following simplified equation:&lt;/p>
-&lt;p>$$ a*{x}(t) = \frac{1}{m}\Big[F*{mot}(v*{x}, x)-F*{brk}(x)-(A+Bv*{x}+{Cv*{x}}^2)-mgsin(i(x))\Big] $$&lt;/p>
-&lt;h3 id="font-coloraa026dresolution-font">&lt;font color=#aa026d>Resolution &lt;/font>&lt;/h3>
+&lt;p>$$ a_{x}(t) = \frac{1}{m}\Big[F_{mot}(v_{x}, x)-F_{brk}(x)-(A+Bv_{x}+{Cv_{x}}^2)-mgsin(i(x))\Big] $$&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="resolution">Resolution&lt;/h3>
+&lt;/font>
 &lt;p>The driving force and the braking force depend on the driver&amp;rsquo;s action (he decides to accelerate or brake more or less strongly depending on the situation). This dependence is reflected in the dependence of these two forces on the position of the train. The weight component is also dependent on the position of the train, as it comes directly from the slopes and bends below the train.&lt;/p>
 &lt;p>In addition, the driving force depends on the speed of the train (according to the speed effort curve) as does the resistance to forward motion.
 resistance.&lt;/p>
@@ -74,10 +81,14 @@ resistance.&lt;/p>
 onload="renderMathInElement(document.body);">&lt;/script>
 &lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script>
 &lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">&lt;/script>
-&lt;h3 id="font-coloraa026dintroductionfont">&lt;font color=#aa026d>Introduction&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;/font>
 &lt;p>Since physical modelling has shown that the acceleration of the train is influenced by various factors that vary along the route (gradient, curvature, engine traction force, etc.), the calculation must be carried out using a numerical integration method. The path is then separated into sufficiently short steps to consider all these factors as constant, which allows this time to use the equation of motion to calculate the displacement and speed of the train.&lt;/p>
 &lt;p>Euler&amp;rsquo;s method of numerical integration is the simplest way of doing this, but it has a number of drawbacks. This article explains the Euler method, why it is not suitable for OSRD purposes and which integration method should be used instead.&lt;/p>
-&lt;h3 id="font-coloraa026deulers-methodfont">&lt;font color=#aa026d>Euler&amp;rsquo;s method&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="eulers-method">Euler&amp;rsquo;s method&lt;/h3>
+&lt;/font>
 &lt;p>The Euler method applied to the integration of the equation of motion of a train is:&lt;/p>
 &lt;p>$$v(t+dt) = a(v(t), x(t))dt + v(t)$$ &lt;div style="text-align: right"> &lt;strong>(1)&lt;/strong> &lt;/div>&lt;/p>
 &lt;p>$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ &lt;div style="text-align: right"> &lt;strong>(2)&lt;/strong> &lt;/div>&lt;/p>
@@ -92,7 +103,9 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>With time integration, only the conditions at the starting point of the integration step (gradient, infrastructure parameters, etc.) are known, as one cannot predict precisely where it will end.&lt;/li>
 &lt;li>We cannot anticipate future changes in the directive: the train only reacts by comparing its current state with its set point at the same time. To illustrate, it is as if the driver is unable to see ahead, whereas in reality he anticipates according to the signals, slopes and bends he sees ahead.&lt;/li>
 &lt;/ul>
-&lt;h3 id="font-coloraa026drunge-kuttas-4-methodfont">&lt;font color=#aa026d>Runge-Kutta&amp;rsquo;s 4 method&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="runge-kuttas-4-method">Runge-Kutta&amp;rsquo;s 4 method&lt;/h3>
+&lt;/font>
 &lt;p>The Runge-Kutta 4 method applied to the integration of the equation of motion of a train is:&lt;/p>
 &lt;p>$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$ &lt;div style="text-align: right"> &lt;strong>(??)&lt;/strong> &lt;/div>&lt;/p>
 &lt;p>With:&lt;/p>
@@ -195,11 +208,15 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;/tbody>
 &lt;/table>
 &lt;p>After some time, RK4 tends to be the most accurate method, slightly more accurate than Euler-Cauchy, and still much more accurate than the Euler method.&lt;/p>
-&lt;h3 id="font-coloraa026dconclusions-of-the-studyfont">&lt;font color=#aa026d>Conclusions of the study&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="conclusions-of-the-study">Conclusions of the study&lt;/h3>
+&lt;/font>
 &lt;p>The study of accuracy and computational speed presented above shows that RK4 and Euler-Cauchy would be good candidates to replace the Euler algorithm in OSRD: both are fast, accurate, and could replace the Euler method without requiring large implementation changes because they only compute within the current time step.
 &lt;strong>It was decided that OSRD would use the Runge-Kutta 4 method because it is slightly more accurate than Euler-Cauchy and it is a well-known method for this type of calculation, so it is very suitable for an open-source simulator.&lt;/strong>&lt;/p></description></item><item><title>Users: Envelopes system</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/envelopes_system/</guid><description>
 &lt;p>The envelope system is an interface created specifically for the OSRD gait calculation. It allows you to manipulate different space/velocity curves, to slice them, to end them, to interpolate specific points, and to address many other needs necessary for the gait calculation.&lt;/p>
-&lt;h3 id="font-coloraa026da-specific-interface-in-the-osrd-core-servicefont">&lt;font color=#aa026d>A specific interface in the OSRD Core service&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="a-specific-interface-in-the-osrd-core-service">A specific interface in the OSRD Core service&lt;/h3>
+&lt;/font>
 &lt;p>The envelope system is part of the core service of OSRD (see &lt;a href="../architecture/_index.md">software architecture&lt;/a>).&lt;/p>
 &lt;p>Its main components are :&lt;/p>
 &lt;p>&lt;strong>1 - EnvelopePart:&lt;/strong> space/speed curve, defined as a sequence of points and having metadata indicating for example if it is an acceleration curve, a braking curve, a speed hold curve, etc.&lt;/p>
@@ -213,7 +230,9 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;/ul>
 &lt;p>&lt;img src="../envelopes_scheme.png" alt="envelope_scheme">&lt;/p>
 &lt;p>&lt;strong>3 - Overlays :&lt;/strong> system for adding more constrained (i.e. lower speed) EnvelopeParts to an existing envelope.&lt;/p>
-&lt;h3 id="font-coloraa026dgiven-envelopes-vs-calculated-envelopesfont">&lt;font color=#aa026d>Given envelopes vs. calculated envelopes&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="given-envelopes-vs-calculated-envelopes">Given envelopes vs. calculated envelopes&lt;/h3>
+&lt;/font>
 &lt;p>During the simulation, the train is supposed to follow certain speed instructions. These are modelled in OSRD by envelopes in the form of space/speed curves. Two types can be distinguished:&lt;/p>
 &lt;ul>
 &lt;li>Envelopes from &lt;strong>infrastructure and rolling stock data&lt;/strong>, such as maximum line speed and maximum train speed. Being input data for our calculation, they do not correspond to curves with a physical meaning, as they are not derived from the results of a real integration of the physical equations of motion.&lt;/li>
@@ -300,28 +319,38 @@ The black line represents the MRSP where the train length has been taken into ac
 &lt;h3 id="simulation-of-several-trains">Simulation of several trains&lt;/h3>
 &lt;/font>
 &lt;p>In the case of the simulation of many trains, the signalling system must ensure &lt;strong>safety&lt;/strong>. The effect of signalling on the running calculation of a train is reproduced by superimposing dynamic envelopes on the static envelope. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economic envelope superimposed on the dynamic envelopes, if any. In this simulation mode, a time check is performed against a theoretical time from the time information of the static economic envelope. If the train is late with respect to the scheduled time, it stops following the economic envelope and tries to go faster. Its space/speed curve will therefore be limited by the maximum effort envelope.&lt;/p></description></item><item><title>Users: Allowances</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/allowances/</guid><description>
-&lt;h3 id="font-coloraa026dthe-purpose-of-allowancesfont">&lt;font color=#aa026d>The purpose of allowances&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
+&lt;/font>
 &lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calcul du Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
 &lt;p>This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train&amp;rsquo;s route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.&lt;/p>
 &lt;blockquote>
 &lt;p>A train running in basic gear is unable to catch up!&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="font-coloraa026dallowances-typesfont">&lt;font color=#aa026d>Allowances types&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="allowances-types">Allowances types&lt;/h3>
+&lt;/font>
 &lt;p>There are two types of allowances:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>The regularity allowance&lt;/strong>: this is the additional time added to the basic running time to take account of the inaccuracy of speed measurement, to compensate for the consequences of external incidents that disrupt the theoretical run of trains, and to maintain the regularity of the traffic. The regularity allowance applies to the whole route, although its value may change at certain intervals.&lt;/li>
 &lt;li>&lt;strong>The construction allowance&lt;/strong>: this is the time added/removed on a specific interval, in addition to the regularity allowance, but this time for operational reasons (dodging another train, clearing a track more quickly, etc.)&lt;/li>
 &lt;/ul>
 &lt;p>A basic running time with an added allowance of regularity gives what is known as a &lt;strong>standard walk&lt;/strong>.&lt;/p>
-&lt;h3 id="font-coloraa026dallowance-distributionfont">&lt;font color=#aa026d>Allowance distribution&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="allowance-distribution">Allowance distribution&lt;/h3>
+&lt;/font>
 &lt;p>Since the addition of allowance results in lower speeds along the route, there are a number of possible routes. Indeed, there are an infinite number of solutions that result in the same journey time.&lt;/p>
 &lt;p>As a simple example, in order to reduce the running time of a train by 10% of its journey time, it is possible to extend any stop by the time equivalent to this 10%, just as it is possible to run at 1/1.1 = 90.9% of the train&amp;rsquo;s capacity over the entire route, or to run slower, but only at high speeds&amp;hellip;&lt;/p>
 &lt;p>There are currently two algorithms for margin distribution in OSRD: linear and economic.&lt;/p>
-&lt;h3 id="font-coloraa026dlinear-distributionfont">&lt;font color=#aa026d>Linear distribution&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="linear-distribution">Linear distribution&lt;/h3>
+&lt;/font>
 &lt;p>Linear allowance distribution is simply lowering the speeds by the same factor over the area where the user applies the allowance. Here is an example of its application:&lt;/p>
 &lt;p>&lt;img src="../python_plot_linear.png" alt="Python plot linear">&lt;/p>
 &lt;p>The advantage of this distribution is that the allowance is spread evenly over the entire journey. A train that is late on 30% of its journey will have 70% of its allowance for the remaining 70% of its journey.&lt;/p>
-&lt;h3 id="font-coloraa026deconomic-distributionfont">&lt;font color=#aa026d>Economic distribution&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="economic-distribution">Economic distribution&lt;/h3>
+&lt;/font>
 &lt;p>The economic distribution of the allowance, presented in detail in &lt;a href="../MARECO.pdf">this document&lt;/a>, consists of distributing the allowance in the most energy-efficient way possible. It is based on two principles:&lt;/p>
 &lt;ol>
 &lt;li>a maximum speed, avoiding the most energy-intensive speeds&lt;/li>

@@ -3,22 +3,30 @@
 &lt;blockquote>
 &lt;p>&lt;em>Loïc Hamelin, OSRD Project Manager at DGEX Solutions (Direction Générale Exploitation de SNCF Réseau)&lt;/em>&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="font-coloraa026dosrd-when-railway-simulation-becomes-open-sourcefont">&lt;font color=#aa026d>OSRD: when railway simulation becomes open source&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="osrd-when-railway-simulation-becomes-open-source">OSRD: when railway simulation becomes open source&lt;/h3>
+&lt;/font>
 &lt;p>The choice of Open Source is particularly strategic in the public sector. In addition to significantly lowering development costs, it offers every citizen &lt;strong>the transparency needed&lt;/strong> to understand and evaluate public investment choices.&lt;/p>
 &lt;p>We believe that Open Source addresses political, economic, technical and even energy issues:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Political&lt;/strong>, through transparency and uniformity, because it is necessary to regain the confidence of our sponsors and because standards are struggling to be established in the sector;  &lt;/li>
+&lt;li>&lt;strong>Political&lt;/strong>, through transparency and uniformity, because it is necessary to regain the confidence of our sponsors and because standards are struggling to be established in the sector;&lt;/li>
 &lt;li>&lt;strong>Economic&lt;/strong>, because a better use of the network will reduce the costs of operating and owning the network, and because the objective is to make the rail mode even more attractive;&lt;/li>
 &lt;li>&lt;strong>Technical&lt;/strong>, because sharing allows evolution;&lt;/li>
 &lt;li>&lt;strong>Energy&lt;/strong>, finally, because we can accelerate the energy transition by enhancing the value of rail transport. But we must do so while maintaining or improving industrial performance.&lt;/li>
 &lt;/ul>
 &lt;p>Finally, Open Source allows federating a community of people who worked until then in their corner. Everything is based on (Bill) Joy&amp;rsquo;s infamous law: &lt;em>&lt;font color=#aa026d>«No matter who you are, most of the smartest people work for someone else»&lt;/font>&lt;/em>!&lt;/p>
-&lt;h3 id="font-coloraa026ddefinitionfont">&lt;font color=#aa026d>Definition:&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="definition">Definition&lt;/h3>
+&lt;/font>
 &lt;p>Open source consists in leaving the source code of a developed software freely available, so that anyone can &lt;strong>read it, use it and propose modifications or developments&lt;/strong>. The design and development of open source software is then placed in the hands of &lt;strong>communities&lt;/strong> of users and/or developers.
 Everyone has the ability to adapt the software to their own requirements and needs, while sharing their innovations with a large community. Development goals are therefore shared: bugs, the status of their resolution and the efforts made to solve them are public, as is the progress of new features.
 In absolute terms, &lt;strong>anyone who wants to can contribute to the project, but this does not mean that any proposed change will be integrated:&lt;/strong> just like peer reviews in the scientific community, open source communities have their own standards, requirements, and code reviews. The goal is clear: to ensure that the project remains of good quality.&lt;/p></description></item><item><title>Who-We-Are: Open-Data</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/opendata/</guid><description>
-&lt;h3 id="font-coloraa026dopen-data-is-one-of-the-main-digital-challengesfont">&lt;font color=#aa026d>Open data is one of the main digital challenges&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="open-data-is-one-of-the-main-digital-challenges">Open data is one of the main digital challenges&lt;/h3>
+&lt;/font>
 &lt;p>The opening of data promotes transparency and information, removes barriers to accessibility and use, and is a tremendous gas pedal of innovation.&lt;/p>
 &lt;p>On the rail system side, the SNCF has been committed for a few years to making data available for its passenger transport activities. The company produces a very large amount of data: timetables, equipment and services in stations, regularity, lines and connections, accessibility, etc.&lt;/p>
-&lt;h3 id="font-coloraa026dthe-more-data-released-the-more-powerful-the-osrd-simulator-will-befont">&lt;font color=#aa026d>The more data released, the more powerful the OSRD simulator will be!&lt;/font>&lt;/h3>
+&lt;font color=#aa026d>
+&lt;h3 id="the-more-data-released-the-more-powerful-the-osrd-simulator-will-be">The more data released, the more powerful the OSRD simulator will be!&lt;/h3>
+&lt;/font>
 &lt;p>We are working every day to continue this opening up! Indeed, some data still classified as confidential are no longer classified as industrial secrets (e.g., data useful for calculating the speed and spacing of trains). The declassification of this non-sensitive data is essential for the operation of certain open source tools, whose performance depends heavily on shared data.&lt;/p></description></item></channel></rss>
