@@ -2,7 +2,7 @@
 title: "Les systèmes d'espacement des trains"
 linkTitle: "L'espacement des trains"
 weight: 2000
-description: Les signaux, régimes d'exploitation des trains, et les systèmes d'espacement des trains
+description:
 ---
 
 ### Définition
