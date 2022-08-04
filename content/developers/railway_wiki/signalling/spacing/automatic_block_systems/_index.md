@@ -23,5 +23,15 @@ Lorsqu’aucun véhicule n’est présent sur la zone délimitant le circuit de 
 
 Lorsqu’un véhicule est présent, son premier essieu agit comme une faible résistance, appelée shunt, qui court-circuite la transmission. Dans ce cas, le niveau du signal parvenant au récepteur n’est plus suffisant et le relais de voie se désexcite, ce qui entraine la fermeture du signal d’entrée du canton (cas 2 ci-dessous).
 
+![](../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-079.png)
 
+### Fonctionnement des compteurs d'essieux
+
+Un compteur d’essieux est un dispositif technique servant à détecter la présence d’une circulation sur une section, par
+comptage des essieux qui franchissent les détecteurs encadrant cette section.
+
+Un point de détection est installé à chaque extrémité de la section, et chaque fois qu’un essieu passe sur ce point au
+début de la section, un compteur s’incrémente. Quand le train passe sur le point de détection en fin de la section, le
+compteur décrémente. Si le nombre final est zéro, la section est présumée libre pour un deuxième train et le signal
+d’entrée du canton présentera l’indication « voie libre ».
 
