@@ -23,11 +23,11 @@ ou circulant à plus faible vitesse devant lui risquerait de le heurter.
 
 Pour prévenir le risque de rattrapage : un dispositif d’espacement des trains appelé « cantonnement » est mis en place
 selon les principes suivants :
-- la ligne est divisée en portions de voie appelées « cantons » ;
-- l’entrée de chaque canton est normalement commandée par un signal ;
-- un seul train est normalement admis dans chaque canton.
+- la ligne est divisée en portions de voie appelées « cantons »
+- l’entrée de chaque canton est normalement commandée par un signal
+- un seul train est normalement admis dans chaque canton
 - aucun train ne peut normalement pénétrer dans un canton occupé, du fait du maintien à la fermeture du signal d’entrée
-du canton durant tout le temps de son occupation.
+du canton durant tout le temps de son occupation
 
 Dans certains cas particuliers, la pénétration d’un train dans un canton occupé ainsi que les modalités de
 franchissement du signal d’entrée du canton sont prévues dans une procédure propre à chaque mode de cantonnement.
@@ -35,11 +35,11 @@ franchissement du signal d’entrée du canton sont prévues dans une procédure
 #### Les différents modes de cantonnement
 
 On distingue :
-- le cantonnement téléphonique ;
-- le block manuel par appareils (BM) ;
-- [le block automatique](./automatic_block_systems/) : lumineux (BAL) ou à permissivité restreinte (BAPR) ;
-- l’ETCS 1 généralement superposé à la signalisation au sol ;
-- l’espacement sur lignes à grande vitesse (TVM, [ETCS 2](./ertms/)).
+- le cantonnement téléphonique
+- le block manuel par appareils (BM)
+- [le block automatique](./automatic_block_systems/) : lumineux (BAL) ou à permissivité restreinte (BAPR)
+- l’ETCS 1 généralement superposé à la signalisation au sol
+- l’espacement sur lignes à grande vitesse (TVM, [ETCS 2](./ertms/))
 
 Sur les sections de lignes équipées en cantonnement téléphonique ou en block manuel par appareils, les signaux de
 cantonnement sont manoeuvrés au sol ou depuis des postes par des agents du service du gestionnaire d’infrastructure (GI)
