@@ -12,22 +12,22 @@ ou circulant à plus faible vitesse devant lui risquerait de le heurter.&lt;/p>
 &lt;p>Pour prévenir le risque de rattrapage : un dispositif d’espacement des trains appelé « cantonnement » est mis en place
 selon les principes suivants :&lt;/p>
 &lt;ul>
-&lt;li>la ligne est divisée en portions de voie appelées « cantons » ;&lt;/li>
-&lt;li>l’entrée de chaque canton est normalement commandée par un signal ;&lt;/li>
-&lt;li>un seul train est normalement admis dans chaque canton.&lt;/li>
+&lt;li>la ligne est divisée en portions de voie appelées « cantons »&lt;/li>
+&lt;li>l’entrée de chaque canton est normalement commandée par un signal&lt;/li>
+&lt;li>un seul train est normalement admis dans chaque canton&lt;/li>
 &lt;li>aucun train ne peut normalement pénétrer dans un canton occupé, du fait du maintien à la fermeture du signal d’entrée
-du canton durant tout le temps de son occupation.&lt;/li>
+du canton durant tout le temps de son occupation&lt;/li>
 &lt;/ul>
 &lt;p>Dans certains cas particuliers, la pénétration d’un train dans un canton occupé ainsi que les modalités de
 franchissement du signal d’entrée du canton sont prévues dans une procédure propre à chaque mode de cantonnement.&lt;/p>
 &lt;h4 id="les-différents-modes-de-cantonnement">Les différents modes de cantonnement&lt;/h4>
 &lt;p>On distingue :&lt;/p>
 &lt;ul>
-&lt;li>le cantonnement téléphonique ;&lt;/li>
-&lt;li>le block manuel par appareils (BM) ;&lt;/li>
-&lt;li>&lt;a href="./automatic_block_systems/">le block automatique&lt;/a> : lumineux (BAL) ou à permissivité restreinte (BAPR) ;&lt;/li>
-&lt;li>l’ETCS 1 généralement superposé à la signalisation au sol ;&lt;/li>
-&lt;li>l’espacement sur lignes à grande vitesse (TVM, &lt;a href="./ertms/">ETCS 2&lt;/a>).&lt;/li>
+&lt;li>le cantonnement téléphonique&lt;/li>
+&lt;li>le block manuel par appareils (BM)&lt;/li>
+&lt;li>&lt;a href="./automatic_block_systems/">le block automatique&lt;/a> : lumineux (BAL) ou à permissivité restreinte (BAPR)&lt;/li>
+&lt;li>l’ETCS 1 généralement superposé à la signalisation au sol&lt;/li>
+&lt;li>l’espacement sur lignes à grande vitesse (TVM, &lt;a href="./ertms/">ETCS 2&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;p>Sur les sections de lignes équipées en cantonnement téléphonique ou en block manuel par appareils, les signaux de
 cantonnement sont manoeuvrés au sol ou depuis des postes par des agents du service du gestionnaire d’infrastructure (GI)
