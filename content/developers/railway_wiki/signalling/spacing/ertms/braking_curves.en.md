@@ -1,7 +1,7 @@
 ---
 title: "ERTMS Braking Curves"
 linkTitle: "ERTMS Braking Curves"
-weight: 10
+weight: 10 000
 ---
 
 ## Context
