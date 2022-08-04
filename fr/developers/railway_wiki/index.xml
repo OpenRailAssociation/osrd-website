@@ -1,2 +1,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Wiki Ferroviaire</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/</link><description>Recent content in Wiki Ferroviaire on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Glossaire</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/glossary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/glossary/</guid><description>
-&lt;p>À compléter : ouvrez une issue en cas de mot manquant&lt;/p></description></item><item><title>Developers: ETCS (ERTMS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/ertms/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/ertms/</guid><description/></item></channel></rss>
+&lt;p>À compléter : ouvrez une issue en cas de mot manquant&lt;/p>
+&lt;h3 id="a">A&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>ADV&lt;/strong> : Appareil de voie&lt;/li>
+&lt;/ul>
+&lt;h3 id="b">B&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>BA&lt;/strong> : Block automatique&lt;/li>
+&lt;li>&lt;strong>BAL&lt;/strong> : Block automatique lumineux&lt;/li>
+&lt;li>&lt;strong>BAPR&lt;/strong> : Block automatique à permissivité restreinte&lt;/li>
+&lt;li>&lt;strong>BM&lt;/strong> : Block manuel&lt;/li>
+&lt;li>&lt;strong>BMCV&lt;/strong> : BM par circuit de voie&lt;/li>
+&lt;li>&lt;strong>BMVU&lt;/strong> : BM de voie unique&lt;/li>
+&lt;/ul>
+&lt;h3 id="c">C&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>CAPI&lt;/strong> : Cantonnement assisté par informatique&lt;/li>
+&lt;li>&lt;strong>CC&lt;/strong> : Commande et contrôle&lt;/li>
+&lt;li>&lt;strong>COVIT&lt;/strong> : Contrôle de vitesse&lt;/li>
+&lt;li>&lt;strong>CT&lt;/strong> : Cantonnement téléphonique&lt;/li>
+&lt;/ul>
+&lt;h3 id="d">D&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>DAAT&lt;/strong> : Dispositif d’arrêt automatique des trains&lt;/li>
+&lt;li>&lt;strong>DMI&lt;/strong> : Driver machine interface : dispositif qui permet la communication entre le système bord et le conducteur&lt;/li>
+&lt;li>&lt;strong>DV&lt;/strong> : Double voie&lt;/li>
+&lt;/ul>
+&lt;h3 id="e">E&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>EOA&lt;/strong> : End of authority (fin d’autorisation de mouvement)&lt;/li>
+&lt;li>&lt;strong>EPSF&lt;/strong> : Établissement public de sécurité ferroviaire&lt;/li>
+&lt;li>&lt;strong>ETCS&lt;/strong> : European train control system (système européen de contrôle commande des trains)&lt;/li>
+&lt;li>&lt;strong>ERTMS&lt;/strong> : European rail traffic management system (système européen de gestion du trafic ferroviaire)&lt;/li>
+&lt;li>&lt;strong>EVC&lt;/strong> : European vital computer. (ordinateur européen de sécurité) : calculateur de bord qui supervise la marche du train en fonction des données sol et bord&lt;/li>
+&lt;/ul>
+&lt;h3 id="f">F&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>FA&lt;/strong> : Fermeture automatique&lt;/li>
+&lt;li>&lt;strong>FS&lt;/strong> : Full supervision (supervision complète) : mode technique dans lequel le train est supervisé en vitesse et déplacement = marche normale attribuée au train&lt;/li>
+&lt;/ul>
+&lt;h3 id="g">G&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>GI&lt;/strong> : Gestionnaire d’infrastructure&lt;/li>
+&lt;li>&lt;strong>GSM/GFU&lt;/strong> : Global system for mobile communication/Groupe fermé d’utilisateurs&lt;/li>
+&lt;li>&lt;strong>GSM-R&lt;/strong> : Global system for mobile communication railways (Système de communication téléphonique pour mobile dédié aux chemins de fer)&lt;/li>
+&lt;li>&lt;strong>GSM-R Data&lt;/strong> : Système de transmission de données entre les installations « sol » et les installations « bord » via le réseau GSM-R&lt;/li>
+&lt;/ul>
+&lt;h3 id="i">I&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>ICS&lt;/strong> : Installations de circulation à contre-sens&lt;/li>
+&lt;li>&lt;strong>IPCS&lt;/strong> : Installations permanentes de contre-sens&lt;/li>
+&lt;li>&lt;strong>IS&lt;/strong> : Installation de sécurité&lt;/li>
+&lt;li>&lt;strong>ITCS&lt;/strong> : Installations temporaires de contre-sens&lt;/li>
+&lt;/ul>
+&lt;h3 id="j">J&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>JRU&lt;/strong> : Juridical recording unit (Enregistreur des paramètres d’exploitation)&lt;/li>
+&lt;/ul>
+&lt;h3 id="k">K&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>KVB&lt;/strong> : Contrôle de vitesse par balises&lt;/li>
+&lt;/ul>
+&lt;h3 id="l">L&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>LEU&lt;/strong> : Line side electronic unit (codeur ERTMS)&lt;/li>
+&lt;li>&lt;strong>LGV&lt;/strong> : Ligne à grande vitesse&lt;/li>
+&lt;/ul>
+&lt;h3 id="m">M&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>MA&lt;/strong> : Movement authority : autorisation donnée à un train de circuler vers un point donné en tant que mouvement supervisé&lt;/li>
+&lt;/ul>
+&lt;h3 id="n">N&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Nf&lt;/strong> : Non franchissable&lt;/li>
+&lt;li>&lt;strong>NL&lt;/strong> : Non leading (non en tête) : Mode technique de circulation utilisé pour la double traction ou la pousse&lt;/li>
+&lt;/ul>
+&lt;h3 id="o">O&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>OS&lt;/strong> : On sight (conduite à vue) : mode technique de circulation qui autorise le conducteur à s’avancer en marche à vue. En ETCS1, le mode OS accompagné du message textuel national « Voie de service » impose la marche en manoeuvre pour la réception sur voie de service&lt;/li>
+&lt;/ul>
+&lt;h3 id="p">P&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>PI ETCS&lt;/strong> : Point d’information ETCS : constitué d’une ou plusieurs balises transmettant des informations vers le bord (par exemple PI avancé ou PI signal)&lt;/li>
+&lt;li>&lt;strong>PL&lt;/strong> : Pleine ligne&lt;/li>
+&lt;li>&lt;strong>PLD&lt;/strong> : Point limite de domaine : point où une transition entre ETCS et un autre système de signalisation a lieu&lt;/li>
+&lt;li>&lt;strong>PN&lt;/strong> : Passage à niveau&lt;/li>
+&lt;/ul>
+&lt;h3 id="r">R&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>RBC&lt;/strong> : Radio block center : système centralisé fonctionnant avec les enclenchements afin d’établir et de contrôler l’espacement et le mouvement des trains en envoyant et recevant des informations par radio en ETCS2 ou 3&lt;/li>
+&lt;li>&lt;strong>RST&lt;/strong> : Radio sol-train&lt;/li>
+&lt;li>&lt;strong>RT&lt;/strong> : Renseignement technique&lt;/li>
+&lt;li>&lt;strong>RV&lt;/strong> : Reversing (refoulement) : mode technique de circulation utilisé pour permettre au train de reculer d&amp;rsquo;urgence sans signaux ni ordre dans une zone prédéfinie. Ce mode n&amp;rsquo;est pas utilisé sur le RFN&lt;/li>
+&lt;/ul>
+&lt;h3 id="s">S&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>SGS&lt;/strong> : Système de gestion de la sécurité&lt;/li>
+&lt;li>&lt;strong>SH&lt;/strong> : Shunting (manoeuvre) : mode technique de circulation manoeuvre&lt;/li>
+&lt;li>&lt;strong>SN&lt;/strong> : System national : mode technique de circulation de niveau STM&lt;/li>
+&lt;li>&lt;strong>SR&lt;/strong> : Staff responsible (responsabilité agent) : mode technique de circulation utilisé dans les situations dégradées. Il est utilisable sous la responsabilité respective de l’agent-circulation et du conducteur&lt;/li>
+&lt;li>&lt;strong>STM&lt;/strong> : Specific transmission module (Module spécifique de transmission) : ce dispositif permet à l’ETCS d’utiliser un système de signalisation national&lt;/li>
+&lt;/ul>
+&lt;h3 id="t">T&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>TECS&lt;/strong> : Tableau lumineux d’entrée à contre sens&lt;/li>
+&lt;li>&lt;strong>TIV&lt;/strong> : Tableau indicateur de vitesse&lt;/li>
+&lt;li>&lt;strong>TR&lt;/strong> : Trip : mode technique de circulation entraînant une application irréversible du freinage d’urgence par le système ETCS jusqu’à l’arrêt du train&lt;/li>
+&lt;li>&lt;strong>TSCS&lt;/strong> : Tableau lumineux de sortie à contre sens&lt;/li>
+&lt;li>&lt;strong>TVM&lt;/strong> : Transmission voie machine&lt;/li>
+&lt;/ul>
+&lt;h3 id="v">V&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>VB&lt;/strong> : Voie banalisée&lt;/li>
+&lt;li>&lt;strong>VP&lt;/strong> : Voie principale&lt;/li>
+&lt;li>&lt;strong>VS&lt;/strong> : Voie de service&lt;/li>
+&lt;li>&lt;strong>VU&lt;/strong> : Voie unique&lt;/li>
+&lt;li>&lt;strong>VUT&lt;/strong> : Voie unique temporaire&lt;/li>
+&lt;li>&lt;strong>VUTP&lt;/strong> : Voie unique temporaire à caractère permanent&lt;/li>
+&lt;/ul></description></item><item><title>Developers: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/</guid><description>
+&lt;p>Cette section est destinée à exposer les principes généraux relatifs :&lt;/p>
+&lt;ul>
+&lt;li>aux signaux&lt;/li>
+&lt;li>aux régimes d’exploitation des lignes (à venir)&lt;/li>
+&lt;li>aux différents systèmes d’espacement des trains&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="images/document-pedagogique-signaux-regimes-exploitation-v1/image-001.png" alt="">&lt;/p>
+&lt;p>La grande majorité des informations de cette section sont extraites du &lt;strong>&lt;em>document pédagogique de l&amp;rsquo;Établissement Public de
+Sécurité Ferroviaire (EPSF)&lt;/em>&lt;/strong> édité le 05 juillet 2017.&lt;/p></description></item></channel></rss>
