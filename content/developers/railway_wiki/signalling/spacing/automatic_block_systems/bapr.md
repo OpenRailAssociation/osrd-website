@@ -11,9 +11,9 @@ voie mais par un système de comptage d’essieux entrants et sortants.
 
 Les cantons sont beaucoup plus longs que le BAL (jusqu’à 15 km et plus) et par conséquent le débit est moins important.
 
-![](../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-081.png)
+![](../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-081.png)
 
-![](../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-082.png)
+![](../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-082.png)
 
 ### Avantages du BAPR
 

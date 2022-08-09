@@ -5,7 +5,7 @@ weight: 0
 description: Wiki ferroviaire international
 ---
 
-Malheureusement, développer des logiciels ferroviaires est difficile. Une des principales raison
+Malheureusement, développer des logiciels ferroviaires est difficile. Une des principales raisons
 est que les systèmes ferroviaires sont à la fois complexes et faciles à simplifier.
 Le coût de transformer un développeur logiciel en expert ferroviaire étant énorme, cette
 formation est progressive.
