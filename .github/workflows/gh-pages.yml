@@ -35,6 +35,20 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Geojson-Pydantic
+        run: pip install geojson-pydantic==0.4.3
+
+      - name: Add JSON schemas
+        run: |
+          git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd_repo
+          mkdir public/schemas
+          python /tmp/osrd_repo/api/osrd_infra/schemas/infra.py > public/schemas/infra_schema.json
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
