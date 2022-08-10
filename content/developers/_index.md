@@ -1,7 +1,7 @@
 ---
 title: "Développeurs"
 linkTitle: "Développeurs"
-weight: 30
+weight: 40
 menu: {main: {weight: 30}}
 cascade:
 - type: docs
