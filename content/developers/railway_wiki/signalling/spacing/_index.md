@@ -1,6 +1,6 @@
 ---
 title: "Les systèmes d'espacement des trains"
-linkTitle: "L'espacement des trains"
+linkTitle: "Espacement des trains"
 weight: 2000
 description:
 ---
