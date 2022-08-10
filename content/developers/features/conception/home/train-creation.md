@@ -1,6 +1,6 @@
 ---
-title: "Ajout de(s) train(s)"
-linkTitle: "Ajout de(s) train(s)"
+title: "Création de(s) train(s)"
+linkTitle: "Création de(s) train(s)"
 weight: 1007
 description: ""
 ---

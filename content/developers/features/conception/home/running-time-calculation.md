@@ -1,0 +1,28 @@
+---
+title: "Calcul de marche"
+linkTitle: "Calcul de marche"
+weight: 1008
+description: ""
+---
+
+### Modélisation physique et implémentation
+
+Tous les détails concernant la modélisation physique du calcul de marche ainsi qu'une présentation de son implémentation
+sont accessibles [ici](../../../../../users/docs/running_time_calculation/).
+
+### Fonctionnalités développées
+
+| Fonctionnalité                                                                                                                                            | Hypothèse de bénéfice                                                                                                                 | Critères d'acceptance                                                                                                                                                                                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Calcul de la marche de base](../../../../../users/docs/running_time_calculation/pipeline/)                                                               | Démontrer le potentiel d'OSRD à faire du calcul de marche fonctionnel                                                                 | <ul><li>L’utilisateur doit saisir sa catégorie de train comme un paramètre de calcul de marche</li><li>Les vitesses par catégorie sont issues de Gaïa pour l’infra Gaïa</li><li>Les vitesses par catégorie sont issues de SIPH pour l’infra SIPH</li></ul> |
+| [Calcul d'une marche type avec distribution linéaire](../../../../../users/docs/running_time_calculation/allowances/#la-distribution-lin%C3%A9aire)       | Programmer un grille horaire avec des horaires plus réaliste                                                                          | <ul><li>Les LPV sont des données de l’infrastructure Gaïa ou SIPH                                                                                                                                                                                          |
+| [Calcul d'une marche économique avec l'algorithme MARECO](../../../../../users/docs/running_time_calculation/allowances/#la-distribution-%C3%A9conomique) | Diminuer la consommation d'énergie des trains en démontrant le bon fonctionnement d'une grille horaire circulant en marche économique | <ul><li>L'algorithme décrit dans [ce document](../../../../../users/docs/running_time_calculation/MARECO.pdf) a été reproduit</li></ul>                                                                                                                    |
+
+### Backlog
+
+| Fonctionnalité                        | Hypothèse de bénéfice                                                                               | Critères d'acceptance                                                                                                                                                                                                                                      |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Vitesses limites par catégorie        | Réaliser un calcul de marche en tenant compte des catégories des trains                             | <ul><li>L’utilisateur doit saisir sa catégorie de train comme un paramètre de calcul de marche</li><li>Les vitesses par catégorie sont issues de Gaïa pour l’infra Gaïa</li><li>Les vitesses par catégorie sont issues de SIPH pour l’infra SIPH</li></ul> |
+| Limites permanentes de vitesse (LPV)  | Réaliser un calcul de marche en tenant compte de limitations permanentes de vitesse                 | <ul><li>Les LPV sont des données de l’infrastructure Gaïa ou SIPH</li></ul>                                                                                                                                                                                |
+| Passages dans les tunnels             | Améliorer le réalisme du calcul de marche en prenant en compte les ralentissements liés aux tunnels |                                                                                                                                                                                                                                                            |
+| Limites temporaires de vitesses (LTV) | Réaliser un calcul de marche en tenant compte de limitations temporaires de vitesse                 |                                                                                                                                                                                                                                                            |
