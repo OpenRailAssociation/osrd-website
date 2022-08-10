@@ -95,4 +95,75 @@ particuliers (aiguille, traversée de gare, etc.).
 
 ##### Les limitations temporaires de vitesse
 
+Cette signalisation s’applique sur des parties de voie (chantiers de travaux, etc.) sur lesquelles une limitation
+temporaire de vitesse doit être observée.
 
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-045.png)
+
+#### Signaux indicateurs de direction
+
+Ils renseignent les conducteurs sur la direction géographique qui leur est donnée.
+
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-049.png)
+
+#### Signaux caractéristiques de prescriptions particulières
+
+Ils renseignent les conducteurs sur des particularités.
+
+On trouve :
+- des tableaux
+- des pancartes
+- la bande lumineuse jaune
+- la croix de Saint-André (annulation des signaux)
+
+##### Exemples de tableaux
+
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-018.png)
+
+##### Exemples de pancartes
+
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-019.png)
+
+##### Bande lumineuse jaune horizontale
+
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-021.png)
+
+La bande lumineuse jaune horizontale est utilisée en complément de l'avertissement. Elle indique au conducteur que son
+train est dirigé vers une voie à quai de courte longueur ou bien que sa longueur se trouve réduite.
+
+##### Croix de Saint-André (annulation des signaux)
+
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-022.png)
+
+#### Signalisation de sortie de certains faisceaux ou groupes de voies convergentes
+
+Elle peut être constituée de :
+
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-020.png)
+
+### La signalisation de cabine
+
+Sur les lignes à signalisation de cabine, le système transmet de manière continue (ou discontinue) en cabine de conduite
+des ordres et une consigne de vitesse associée éventuellement à une distance but.
+La signalisation de cabine peut être complétée par une signalisation au sol dans certains cas pour :
+
+- **repérer** les points à ne pas dépasser, par exemple :
+
+![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-072.png)
+
+- **donner** des ordres de traction électrique, des informations aux points d'entrée et de sortie du domaine de
+signalisation de cabine, etc.
+
+Des pancartes ou tableaux indiquent ces ordres et informations.
+
+Ces repères, pancartes ou tableaux sont implantés :
+- à gauche de la voie sur les plateformes à une seule voie ;
+- côté piste, à l'extérieur sur les plateformes à deux voies ;
+- dans le cas de plan de voie plus complexe, les pancartes ou tableaux sont fléchés.
+
+Nota : les repères ETCS et de la TVM ne sont pas fléchés du fait de leur graphisme indiquant la voie à laquelle ils s'adressent.
+
+### Point de transition de signalisation (entrée sur LGV, armement de la signalisation de cabine)
+
+Le point de transition de signalisation (tableau CAB), ainsi que l'armement de la signalisation de cabine, se situent à
+hauteur ou immédiatement en aval du dernier signal au sol (signal carré).
