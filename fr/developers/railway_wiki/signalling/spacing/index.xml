@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Les systèmes d'espacement des trains</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/</link><description>Recent content in Les systèmes d'espacement des trains on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Block Automatique (BA)</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/automatic_block_systems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/automatic_block_systems/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Les systèmes d'espacement des trains</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/</link><description>Recent content in Les systèmes d'espacement des trains on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: BA</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/automatic_block_systems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/automatic_block_systems/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Le block automatique se caractérise en block automatique lumineux (BAL) et en block automatique à permissivité restreinte (BAPR) par :&lt;/p>
 &lt;ul>
@@ -22,4 +22,13 @@ comptage des essieux qui franchissent les détecteurs encadrant cette section.&l
 &lt;p>Un point de détection est installé à chaque extrémité de la section, et chaque fois qu’un essieu passe sur ce point au
 début de la section, un compteur s’incrémente. Quand le train passe sur le point de détection en fin de la section, le
 compteur décrémente. Si le nombre final est zéro, la section est présumée libre pour un deuxième train et le signal
-d’entrée du canton présentera l’indication « voie libre ».&lt;/p></description></item><item><title>Developers: ETCS (ERTMS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/</guid><description/></item></channel></rss>
+d’entrée du canton présentera l’indication « voie libre ».&lt;/p></description></item><item><title>Developers: ERTMS</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/</guid><description>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>L&amp;rsquo;ERTMS, pour &lt;em>European Rail Traffic Management System&lt;/em>, est un système qui vise à harmoniser la signalisation
+ferroviaire en Europe.&lt;/p>
+&lt;p>Il est composé de trois sous-systèmes :&lt;/p>
+&lt;ul>
+&lt;li>un système de signalisation : l&amp;rsquo;&lt;a href="etcs/">ETCS&lt;/a>&lt;/li>
+&lt;li>un système de communication : &lt;a href="gsm-r/">GSM-R&lt;/a> / &lt;a href="gprs/">GPRS&lt;/a> / &lt;a href="frmcs/">FRMCS&lt;/a>&lt;/li>
+&lt;li>un système de gestion du traffic : l&amp;rsquo;&lt;a href="etml/">ETML&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

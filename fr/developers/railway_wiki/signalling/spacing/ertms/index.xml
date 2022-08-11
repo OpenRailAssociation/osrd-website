@@ -1,1 +1,141 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – ETCS (ERTMS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/</link><description>Recent content in ETCS (ERTMS) on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – ERTMS</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/</link><description>Recent content in ERTMS on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: ETCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/etcs/</guid><description>
+&lt;h3 id="généralités">Généralités&lt;/h3>
+&lt;p>ETCS est le système européen de contrôle commande des trains. La partie bord est interopérable. La partie sol peut être
+différente selon les pays tout en répondant aux mêmes objectifs de fonctionnalité.&lt;/p>
+&lt;p>Il existe quatre niveaux différents dont deux sont en service : L’&lt;a href="#etcs-niveau-1">ETCS 1&lt;/a> et L’&lt;a href="#etcs-niveau-2">ETCS 2&lt;/a>. L’ETCS 0 est interdit en France.
+L’ETCS 3 est encore à l’état de développement dans la plupart des pays de l’Union européenne.&lt;/p>
+&lt;p>Il s’agit d’un système de signalisation de cabine et de contrôle de vitesse faisant appel aux trois composantes
+suivantes :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>sol&lt;/strong> : pour la gestion des circulations comprenant notamment l’espacement, la protection des points à protéger et des
+circulations&lt;/li>
+&lt;li>&lt;strong>bord&lt;/strong> : pour l’affichage des ordres et informations à destination du conducteur et le contrôle de la bonne exécution de
+ceux-ci, dénommé EUROCAB&lt;/li>
+&lt;li>&lt;strong>liaison&lt;/strong> : pour les échanges de données entre le sol et le bord :
+&lt;ul>
+&lt;li>liaison ponctuelle unidirectionnelle du sol vers le bord par EURO BALISES,&lt;/li>
+&lt;li>liaison radiotéléphonique continue et bidirectionnelle par &lt;a href="../gsm-r/">GSM-R&lt;/a> DATA pour &lt;a href="#etcs-niveau-2">ETCS2&lt;/a> dénommé EURORADIO.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Sur le &lt;a href="../../../../glossary/#r">RFN&lt;/a>, sont mis en oeuvre les niveaux d&amp;rsquo;exploitations suivants :&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>L’&lt;a href="#etcs-niveau-1">ETCS1&lt;/a> sur certaines lignes parcourables jusqu’à 220 km/h. Il correspond à un système de signalisation de cabine,
+généralement superposé à la signalisation au sol existante, dont les informations entre le sol et le bord sont
+transmises ponctuellement par eurobalise.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>L’&lt;a href="#etcs-niveau-2">ETCS2&lt;/a> sur certaines lignes à grande vitesse. Il correspond à un système de signalisation de cabine dont les
+informations entre le sol et le bord sont transmises en temps utile ou cycliquement par liaison permanente &lt;a href="../gsm-r/">GSM-R&lt;/a> DATA.&lt;/p>
+&lt;p>L’&lt;a href="#etcs-niveau-2">ETCS2&lt;/a> est un système qui ne nécessite pas la matérialisation des cantons sur le terrain.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Préalablement à tout déplacement, les données relatives au train doivent être saisies ou paramétrées à bord. Ainsi, le
+système peut, à partir des données bord et sol, superviser le train, c&amp;rsquo;est-à-dire contrôler sa vitesse et ses
+déplacements et intervenir en cas de nécessité.&lt;/p>
+&lt;p>La détection d&amp;rsquo;une circulation sur une partie de voie est réalisée au moyen de circuits de voie ou de compteurs
+d’essieux.
+En &lt;a href="#etcs-niveau-2">ETCS2&lt;/a>, la combinaison des équipements sol et bord est telle qu’elle ne nécessite, normalement, pas de signalisation
+complémentaire au sol.&lt;/p>
+&lt;h3 id="équipement-bord">Équipement bord&lt;/h3>
+&lt;p>Le bord est constitué d&amp;rsquo;un DMI, d’un EVC, de capteurs odométriques (de vitesse), d’antennes pour la lecture des PI ETCS,
+un modem &lt;a href="../gsm-r/">GSM-R&lt;/a> (Euroradio) pour ETCS2, d’une unité juridique d’enregistrement des paramètres d’exploitation,
+d’interfaces avec le train.&lt;/p>
+&lt;p>&lt;img src="../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-106.png" alt="">&lt;/p>
+&lt;h3 id="le-dmi">Le DMI&lt;/h3>
+&lt;p>Le DMI est l’interface entre le conducteur et la machine. Il permet d’afficher les ordres et instructions en fonction
+des données sol et/ou bord. Le conducteur renseigne également le système par saisie de données.&lt;/p>
+&lt;p>L’espacement des circulations et la protection des points dangereux se traduisent par l’affichage en temps utile d’une
+vitesse but et d’une distance but. La vitesse but doit être respectée par le conducteur au point défini par la distance but.&lt;/p>
+&lt;p>En « marche normale », le DMI indique au conducteur la vitesse autorisée qui ne doit pas être dépassée. Dans ce cas, il
+n’y a pas d’affichage de la distance but et de la vitesse but.&lt;/p>
+&lt;p>Un secteur pouvant présenter différentes couleurs est utilisé pour indiquer les ordres de vitesse ou d&amp;rsquo;arrêt.&lt;/p>
+&lt;p>Enfin, d’autres indications sont affichées telles que la signalisation de traction électrique, le niveau d&amp;rsquo;exploitation,
+le mode technique. Les changements d’indication au DMI peuvent être accompagnés d’indications sonores. Une zone en
+partie basse du DMI est également réservée pour l’affichage de messages textuels. Certaines informations complémentaires
+peuvent également être affichées par l&amp;rsquo;entreprise ferroviaire.&lt;/p>
+&lt;p>&lt;img src="../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-107.png" alt="">&lt;/p>
+&lt;blockquote>
+&lt;p>Dans cet exemple, le conducteur autorisé à circuler à 140 km/h maximum, circule à 125 km/h, il va devoir observer une
+phase de ralentissement afin de respecter la vitesse maxi de 100 km/h (vitesse But) à une distance de 2850 mètres (distance But).&lt;/p>
+&lt;/blockquote>
+&lt;p>Le DMI utilise un code couleur, avec la signification suivante :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>blanc/gris clair/gris foncé&lt;/strong> : aucune action immédiate n’est exigée du conducteur&lt;/li>
+&lt;li>&lt;strong>jaune&lt;/strong> : le conducteur doit intervenir si la vitesse réelle est proche de la vitesse autorisée (risque de passer à
+la couleur orange en l’absence de réaction)&lt;/li>
+&lt;li>&lt;strong>orange&lt;/strong> : l’intervention est insuffisante (risque de passer à la couleur rouge en l’absence de réaction du conducteur)&lt;/li>
+&lt;li>&lt;strong>rouge&lt;/strong> : réaction trop tardive du conducteur, prise en charge par le système (peut revenir au jaune, au gris ou au
+blanc après une action appropriée)&lt;/li>
+&lt;/ul>
+&lt;h3 id="etcs-niveau-1">ETCS niveau 1&lt;/h3>
+&lt;h4 id="transmission-sol-bord">Transmission sol-bord&lt;/h4>
+&lt;p>Ce niveau utilise une transmission ponctuelle à l&amp;rsquo;aide de balises placées au pied des signaux et en amont. Ces balises
+(eurobalises) communiquent les données de signalisation au train.&lt;/p>
+&lt;h4 id="détection-des-trains">Détection des trains&lt;/h4>
+&lt;p>Le niveau 1 nécessite l&amp;rsquo;utilisation d&amp;rsquo;un système de détection des trains au sol (tel que des circuits de voie, compteurs
+d&amp;rsquo;essieux et autres). Toutes ces informations sont donc transmises ponctuellement au train. La cadence de l’information
+donnée pouvant être augmentée en jouant sur le nombre de balises, ou en installant une boucle (euroloop), équivalent
+d&amp;rsquo;une balise, mais longeant la ligne sur une certaine distance.&lt;/p>
+&lt;h3 id="etcs-niveau-2">ETCS niveau 2&lt;/h3>
+&lt;h4 id="transmission-sol-bord-1">Transmission sol-bord&lt;/h4>
+&lt;p>Les données de signalisation sont transmises de manière permanente, via le réseau &lt;a href="../gsm-r/">GSM-R&lt;/a>. Le train communique constamment
+sa position (qu&amp;rsquo;il détermine avec un odomètre) au centre de contrôle qui lui communique en retour les actions à
+effectuer (vitesse, arrêt, etc.).&lt;/p>
+&lt;p>Des eurobalises sont toujours présentes sur la voie pour recaler éventuellement l&amp;rsquo;odométrie embarquée.&lt;/p>
+&lt;h4 id="détection-des-trains-1">Détection des trains&lt;/h4>
+&lt;p>Un système de détection des trains au sol s’appuie sur l’existence des circuits de voie pour localiser un train aval sur
+un canton. Cette information est transmise au radio block center (RBC) qui gère ensuite l’espacement entre deux circulations.
+Le train suiveur reçoit une nouvelle autorisation de circulation par l’intermédiaire de la liaison radio &lt;a href="../gsm-r/">GSM-R&lt;/a>.
+Dès que le train aval libère un canton le poste central de commande reçoit l’information correspondante du sol qui est
+transmise par liaison radio au train suiveur.&lt;/p>
+&lt;h4 id="avantage">Avantage&lt;/h4>
+&lt;p>Le niveau 2 rend disponible quasi immédiatement une information « libératoire » pour le train suiveur et contribue ainsi
+à augmenter la fluidité. Cette immédiateté est la différence par rapport à la signalisation conventionnelle, où une
+demi-minute est parfois nécessaire pour libérer un aiguillage alors que le train est déjà bien loin.&lt;/p>
+&lt;h3 id="les-modes-techniques">Les modes techniques&lt;/h3>
+&lt;p>Les modes techniques utilisés sur le RFN sont :&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Mode FS&lt;/strong> : Conduite en supervision complète.&lt;/p>
+&lt;p>Toutes les données train et voie sont disponibles à bord.&lt;/p>
+&lt;p>Le &lt;a href="#le-dmi">DMI&lt;/a> affiche :&lt;/p>
+&lt;ul>
+&lt;li>la vitesse réelle du train et la vitesse autorisée&lt;/li>
+&lt;li>lors de l&amp;rsquo;approche d&amp;rsquo;un &lt;a href="../../../../glossary/#e">EOA&lt;/a>, d&amp;rsquo;un repère d&amp;rsquo;arrêt ETCS ou un heurtoir, la vitesse but et la distance but&lt;/li>
+&lt;/ul>
+&lt;p>Le système « bord » supervise la vitesse, le déplacement du train, le respect de l’&lt;a href="../../../../glossary/#e">EOA&lt;/a> matérialisé par un repère
+d’arrêt ETCS, un signal d’arrêt ou un heurtoir en ETCS1.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Mode &lt;a href="../../../../glossary/#o">OS&lt;/a>&lt;/strong> : Conduite en marche à vue.&lt;/p>
+&lt;p>Toutes les données train et voie sont disponibles à bord sauf l’assurance de la libération de toute ou partie de la
+voie allouée au train.&lt;/p>
+&lt;p>Le DMI affiche les mêmes indications qu’en mode FS.&lt;/p>
+&lt;p>Le système « bord » assure également la supervision comme en mode FS.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Mode &lt;a href="../../../../glossary/#s">SR&lt;/a>&lt;/strong> : Conduite sous la responsabilité des agents.&lt;/p>
+&lt;p>Ce mode technique est utilisé pour les situations dégradées et la procédure « Mise en service » lorsque le bord n’a
+pas reçu d’allocation de voie. Le système « bord » ne supervise que la vitesse du mode SR et le franchissement des
+repères d&amp;rsquo;arrêt ETCS et des signaux d’arrêt.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Mode &lt;a href="../../../../glossary/#s">SH&lt;/a>&lt;/strong> : Circulation en manœuvre.&lt;/p>
+&lt;p>Ce mode technique est sélectionné par le conducteur pour les mouvements de manœuvre. Le système « bord » ne supervise
+que la vitesse du train.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Mode &lt;a href="../../../../glossary/#n">NL&lt;/a>&lt;/strong> : Conduite d&amp;rsquo;un engin moteur non en tête du mouvement&lt;/p>
+&lt;p>Ce mode technique est utilisé en cas de pousse ou de double traction.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="protection-contre-le-rattrapage">Protection contre le rattrapage&lt;/h3>
+&lt;p>En mode FS, une vitesse autorisée affichée sans la présentation de l&amp;rsquo;&lt;a href="../../../../glossary/#e">EOA&lt;/a> signifie « marche normale ».&lt;/p>
+&lt;p>La &lt;a href="../../../../glossary/#m">MA&lt;/a> constituée d’un ou plusieurs cantons est allouée canton par canton, par ajout successif d’un canton.
+Si le canton en aval du dernier canton alloué est occupé le train doit être en mesure de s’arrêter avant l’entrée de ce
+canton. Le conducteur est alors avisé par une indication sonore au DMI.&lt;/p>
+&lt;p>Dès lors, les indications de conduite (vitesse but égale à 0 et une distance but) permettant de respecter la courbe de
+freinage sont affichées.&lt;/p>
+&lt;p>Le conducteur doit ralentir de façon à être en mesure de s’arrêter avant l’&lt;a href="../../../../glossary/#e">EOA&lt;/a>, tout en respectant la vitesse autorisée.&lt;/p></description></item><item><title>Developers: GSM-R</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>Developers: GPRS</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Developers: FRMCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Developers: ETML</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/railway_wiki/signalling/spacing/ertms/etml/</guid><description/></item></channel></rss>

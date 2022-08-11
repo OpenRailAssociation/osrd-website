@@ -89,6 +89,7 @@
 &lt;h3 id="r">R&lt;/h3>
 &lt;ul>
 &lt;li>&lt;strong>RBC&lt;/strong> : Radio block center : système centralisé fonctionnant avec les enclenchements afin d’établir et de contrôler l’espacement et le mouvement des trains en envoyant et recevant des informations par radio en ETCS2 ou 3&lt;/li>
+&lt;li>&lt;strong>RFN&lt;/strong> : Réseau Ferré National&lt;/li>
 &lt;li>&lt;strong>RST&lt;/strong> : Radio sol-train&lt;/li>
 &lt;li>&lt;strong>RT&lt;/strong> : Renseignement technique&lt;/li>
 &lt;li>&lt;strong>RV&lt;/strong> : Reversing (refoulement) : mode technique de circulation utilisé pour permettre au train de reculer d&amp;rsquo;urgence sans signaux ni ordre dans une zone prédéfinie. Ce mode n&amp;rsquo;est pas utilisé sur le RFN&lt;/li>
