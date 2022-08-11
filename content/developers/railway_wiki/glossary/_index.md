@@ -96,6 +96,7 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 ### R
 
 - **RBC** : Radio block center : système centralisé fonctionnant avec les enclenchements afin d’établir et de contrôler l’espacement et le mouvement des trains en envoyant et recevant des informations par radio en ETCS2 ou 3
+- **RFN** : Réseau Ferré National
 - **RST** : Radio sol-train
 - **RT** : Renseignement technique
 - **RV** : Reversing (refoulement) : mode technique de circulation utilisé pour permettre au train de reculer d'urgence sans signaux ni ordre dans une zone prédéfinie. Ce mode n'est pas utilisé sur le RFN

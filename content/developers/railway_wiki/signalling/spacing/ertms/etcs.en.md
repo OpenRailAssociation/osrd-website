@@ -1,7 +1,8 @@
 ---
-title: "ERTMS Braking Curves"
-linkTitle: "ERTMS Braking Curves"
-weight: 20 002
+title: "ETCS"
+linkTitle: "ETCS"
+weight: 100000
+description: European Train Control System
 ---
 
 ## Context
@@ -32,8 +33,8 @@ In order to compute any of these curves, a number of things are needed:
 - rotating mass
 - `T_traction_cutoff`: the time it take to cut off traction
 - braking model, either lambda or gamma:
-  - lambda (braking weight/mass)
-  - gamma (contant deceleration at a given speed)
+    - lambda (braking weight/mass)
+    - gamma (contant deceleration at a given speed)
 - correction factors (k\_dry and k\_wet for gamma braking) for braking curves
 
 ### Infrastructure
