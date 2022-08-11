@@ -1,8 +1,8 @@
 ---
-title: "Block Automatique (BA)"
-linkTitle: "Block Automatique (BA)"
+title: "BA"
+linkTitle: "BA"
 weight: 10 000
-description: 
+description: Block Automatique
 ---
 
 ### Principe
