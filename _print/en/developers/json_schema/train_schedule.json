@@ -1,0 +1,275 @@
+{
+  "title": "Allowances",
+  "description": "List of all well-defined allowances of the path",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Allowance"
+  },
+  "definitions": {
+    "AllowanceTimeValue": {
+      "title": "AllowanceTimeValue",
+      "description": "This class defines the value (in seconds) of an allowance.",
+      "type": "object",
+      "properties": {
+        "value_type": {
+          "title": "Value Type",
+          "default": "time",
+          "enum": [
+            "time"
+          ],
+          "type": "string"
+        },
+        "seconds": {
+          "title": "Seconds",
+          "description": "s",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "seconds"
+      ]
+    },
+    "AllowancePercentValue": {
+      "title": "AllowancePercentValue",
+      "description": "This class defines the value (but in percentage) of an allowance.",
+      "type": "object",
+      "properties": {
+        "value_type": {
+          "title": "Value Type",
+          "default": "percentage",
+          "enum": [
+            "percentage"
+          ],
+          "type": "string"
+        },
+        "percentage": {
+          "title": "Percentage",
+          "description": "%",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "percentage"
+      ]
+    },
+    "AllowanceTimePerDistanceValue": {
+      "title": "AllowanceTimePerDistanceValue",
+      "description": "This class defines the value (in minutes per 100 kilometers) of an allowance.",
+      "type": "object",
+      "properties": {
+        "value_type": {
+          "title": "Value Type",
+          "default": "time_per_distance",
+          "enum": [
+            "time_per_distance"
+          ],
+          "type": "string"
+        },
+        "minutes": {
+          "title": "Minutes",
+          "description": "min/100km",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "minutes"
+      ]
+    },
+    "AllowanceValue": {
+      "title": "AllowanceValue",
+      "description": "This class allows to choose the different present types of values used to apply an allowance.",
+      "discriminator": {
+        "propertyName": "value_type",
+        "mapping": {
+          "time": "#/definitions/AllowanceTimeValue",
+          "percentage": "#/definitions/AllowancePercentValue",
+          "time_per_distance": "#/definitions/AllowanceTimePerDistanceValue"
+        }
+      },
+      "anyOf": [
+        {
+          "$ref": "#/definitions/AllowanceTimeValue"
+        },
+        {
+          "$ref": "#/definitions/AllowancePercentValue"
+        },
+        {
+          "$ref": "#/definitions/AllowanceTimePerDistanceValue"
+        }
+      ]
+    },
+    "AllowanceDistribution": {
+      "title": "AllowanceDistribution",
+      "description": "This class defines the two distributions of allowances that can be applied to the standalone simulation.\nThe first one is LINEAR, which means that an allowance is applied that will be the same for the whole simulation.\nThe second one is based on the MARECO algorithm, which consists in distributing the allowance as economically\nas possible in terms of energy consumption.",
+      "enum": [
+        "MARECO",
+        "LINEAR"
+      ],
+      "type": "string"
+    },
+    "EngineeringAllowance": {
+      "title": "EngineeringAllowance",
+      "description": "This class determines the engineering allowance.\nThis corresponds to time added on a specific interval, in addition to the standard allowance,\nbut this time for operational reasons.",
+      "type": "object",
+      "properties": {
+        "begin_position": {
+          "title": "Begin Position",
+          "description": "Offset in meters corresponding to the beginning of the addition of the allowance",
+          "minimum": 0,
+          "type": "number"
+        },
+        "end_position": {
+          "title": "End Position",
+          "description": "Offset in meters corresponding to the end of the allowance",
+          "minimum": 0,
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The type of value of the allowance",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowanceValue"
+            }
+          ]
+        },
+        "allowance_type": {
+          "title": "Allowance Type",
+          "default": "engineering",
+          "enum": [
+            "engineering"
+          ],
+          "type": "string"
+        },
+        "distribution": {
+          "description": "The considered distribution of an allowance",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowanceDistribution"
+            }
+          ]
+        },
+        "capacity_speed_limit": {
+          "title": "Capacity Speed Limit",
+          "description": "Maximum speed measured in meters per second that cannot be exceeded",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "begin_position",
+        "end_position",
+        "value",
+        "distribution",
+        "capacity_speed_limit"
+      ]
+    },
+    "RangeAllowance": {
+      "title": "RangeAllowance",
+      "description": "This class defines the addition of an allowance between two specific points and not on the complete path.",
+      "type": "object",
+      "properties": {
+        "begin_position": {
+          "title": "Begin Position",
+          "description": "Offset in meters corresponding to the beginning of the addition of the allowance",
+          "minimum": 0,
+          "type": "number"
+        },
+        "end_position": {
+          "title": "End Position",
+          "description": "Offset in meters corresponding to the end of the allowance",
+          "minimum": 0,
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "description": "The type of value of the allowance",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowanceValue"
+            }
+          ]
+        }
+      },
+      "required": [
+        "begin_position",
+        "end_position",
+        "value"
+      ]
+    },
+    "StandardAllowance": {
+      "title": "StandardAllowance",
+      "description": "This class determines the standard allowance.\nThis corresponds to additional time added to the basic standalone simulation to take into account\nthe inaccuracy of the speed measurement,\nto compensate for the consequences of external incidents disrupting the theoretical run of the trains,\nand to maintain the regularity of the traffic.",
+      "type": "object",
+      "properties": {
+        "allowance_type": {
+          "title": "Allowance Type",
+          "default": "standard",
+          "enum": [
+            "standard"
+          ],
+          "type": "string"
+        },
+        "default_value": {
+          "title": "Default Value",
+          "description": "Type of value of the allowance",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowanceValue"
+            }
+          ]
+        },
+        "ranges": {
+          "title": "Ranges",
+          "description": "List of the different application ranges of the allowances",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RangeAllowance"
+          }
+        },
+        "distribution": {
+          "description": "The considered distribution of an allowance",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AllowanceDistribution"
+            }
+          ]
+        },
+        "capacity_speed_limit": {
+          "title": "Capacity Speed Limit",
+          "description": "Maximum speed measured in meters per second that cannot be exceeded",
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "default_value",
+        "ranges",
+        "distribution",
+        "capacity_speed_limit"
+      ]
+    },
+    "Allowance": {
+      "title": "Allowance",
+      "description": "This class allows to choose the two different types of allowance.",
+      "discriminator": {
+        "propertyName": "allowance_type",
+        "mapping": {
+          "engineering": "#/definitions/EngineeringAllowance",
+          "standard": "#/definitions/StandardAllowance"
+        }
+      },
+      "anyOf": [
+        {
+          "$ref": "#/definitions/EngineeringAllowance"
+        },
+        {
+          "$ref": "#/definitions/StandardAllowance"
+        }
+      ]
+    }
+  }
+}
