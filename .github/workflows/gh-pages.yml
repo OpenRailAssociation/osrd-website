@@ -47,7 +47,7 @@ jobs:
         run: |
           git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd_repo
           mkdir public/schemas
-          python /tmp/osrd_repo/api/osrd_infra/schemas/infra.py > content/developers/json_schema/infra_schema.json
+          python /tmp/osrd_repo/api/osrd_infra/schemas/infra.py > public/schemas/infra_schema.json
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -9,21 +9,3 @@ weight: 40
 ### Présentation
 
 </font>
-
-
-
-<font color=#aa026d>
-
-### Défis
-
-</font>
-
-
-
-<font color=#aa026d>
-
-### Ambition
-
-</font>
-
-L'un des objectifs d'OSRD est de proposer un outil 
