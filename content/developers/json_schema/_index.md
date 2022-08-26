@@ -28,13 +28,13 @@ var infra = {};
 </script>
 
 <!-- Element where the list will be created -->
-<div id="container2"><h1>Train Schedule</h1></div>
+<div id="container2"><h1>Rolling Stock</h1></div>
 
 <script>
     // The JSObject that you want to render
 var train_schedule = {};
     tmp = $.ajax({
-        url: "train_schedule.json",
+        url: "/schemas/rolling_stock_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {
