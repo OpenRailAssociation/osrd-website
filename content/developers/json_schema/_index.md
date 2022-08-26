@@ -14,7 +14,7 @@ weight: 40
     // The JSObject that you want to render
 var infra = {};
     tmp = $.ajax({
-        url: "infra.json",
+        url: "/schemas/infra_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {
