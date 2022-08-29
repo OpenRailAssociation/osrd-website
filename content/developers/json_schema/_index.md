@@ -8,7 +8,7 @@ weight: 40
 <script src="https://cdn.rawgit.com/caldwell/renderjson/master/renderjson.js"></script>
 
 <!-- Element where the list will be created -->
-<div id="container"><h1>Infra</h1></div>
+<div id="container"><h1>Infrastructure</h1></div>
 
 <script>
     // The JSObject that you want to render

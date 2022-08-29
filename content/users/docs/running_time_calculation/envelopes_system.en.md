@@ -42,3 +42,11 @@ During the simulation, the train is supposed to follow certain speed instruction
 - The envelopes result from **real integration** of the physical equations of motion. They correspond to a curve that is physically tenable by the train and also contain time information.
 
 A simple example to illustrate this difference: if we simulate a TER journey on a mountain line, one of the input data will be a maximum speed envelope of 160km/h, corresponding to the maximum speed of our TER. However, this envelope does not correspond to a physical reality, as it is possible that on certain sections the gradient is too steep for the train to be able to maintain this maximum speed of 160km/h. The calculated envelope will therefore show in this example a speed drop in the steepest areas, where the envelope given was perfectly flat.
+
+<font color=#aa026d>
+
+### Simulation of several trains
+
+</font>
+
+In the case of the simulation of many trains, the signalling system must ensure **safety**. The effect of signalling on the running calculation of a train is reproduced by superimposing dynamic envelopes on the static envelope. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economic envelope superimposed on the dynamic envelopes, if any. In this simulation mode, a time check is performed against a theoretical time from the time information of the static economic envelope. If the train is late with respect to the scheduled time, it stops following the economic envelope and tries to go faster. Its space/speed curve will therefore be limited by the maximum effort envelope.

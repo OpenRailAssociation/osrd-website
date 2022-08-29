@@ -21,7 +21,7 @@ weight: 10
 **Objectif 2022 :** Concevoir un POC de construction et de représentation des horaires stratégiques
 1ère étape : Etape cadrage (2 à 6 mois) :
 
-- Analyse de l’existant : outil (Viriato) et processus
+- Analyse de l’existant : outil et processus
 - Recueil des besoins / confrontation aux utilisateurs
 - Livrable : note de cadrage (objectifs, fonctionnalités attendues, risques, planning…)
 
@@ -65,7 +65,6 @@ Fin de la stabilisation du calcul de marche
 Faire fonctionner l’algorithme dans OSRD :
 
 - Intégrer l’algorithme
-- Occupation des blocks ?
 - Intégrer l’algorithme dans les données SIPH (données infra et horaires) :
   - Import des données SIPH dans OSRD
   - Projection des horaires SIPH à la voie

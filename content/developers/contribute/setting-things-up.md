@@ -1,7 +1,7 @@
 ---
 title: "Mise en place"
 linkTitle: "Mise en place"
-weight: 10
+weight: 15
 description: Apprendre à mettre en place un environnement de développement
 ---
 
@@ -19,7 +19,7 @@ La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows 
 
 Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l'application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l'application.
 
-Aujourd'hui, vous pouvez déléguer ce travail à `docker-compose`, qui lancera tout où partie des composants d'OSRD.
+L'outil `docker-compose`, sert à lancer les composants d'OSRD.
 
 - Installer `docker` et `docker-compose`[^package-manager]
 - Lancer `docker-compose up --build`

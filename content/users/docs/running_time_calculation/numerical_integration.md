@@ -30,11 +30,15 @@ La méthode d'intégration numérique d'Euler est la plus simple pour effectuer 
 
 La méthode d'Euler appliquée à l'intégration de l'équation du mouvement d'un train est :
 
-$$v(t+dt) = a(v(t), x(t))dt + v(t)$$ <div style="text-align: right"> **(1)** </div>
+$$v(t+dt) = a(v(t), x(t))dt + v(t)$$
 
-$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ <div style="text-align: right"> **(2)** </div>
+$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ 
 
-![Méthode d'Euler](../euler.png)
+<center>
+
+![Méthode d'Euler](../euler.png?style=method)
+
+</center>
 
 <p>&nbsp;</p>
 
@@ -58,7 +62,7 @@ La méthode d'intégration d'Euler présente un certain nombre de problèmes pou
 
 La méthode Runge-Kutta 4 appliquée à l'intégration de l'équation du mouvement d'un train est :
 
-$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$ <div style="text-align: right"> **(??)** </div>
+$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$
 
 Avec :
 
@@ -70,7 +74,11 @@ $$k_3 = a\Big(v(t+k_2\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_2\frac{dt^2}{8}\
 
 $$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$
 
-![Méthode de Runge-Kutta 4](../rk4.png)
+<center>
+
+![Méthode de Runge-Kutta 4](../rk4.png?style=method)
+
+</center>
 
 <p>&nbsp;</p>
 
@@ -93,7 +101,7 @@ Le seul inconvénient notable de la méthode de Runge Kutta 4 rencontré pour l'
 
 #### **Étude de la précision et de la vitesse de calcul**
 
-Différentes méthodes d'intégration auraient pu remplacer l'intégration d'Euler de base dans l'algorithme d'OSRD. Afin de décider quelle méthode conviendrait le mieux, une étude sur la précision et la vitesse de calcul de différentes méthodes a été menée. Cette étude a comparé les méthodes suivantes :
+Différentes méthodes d'intégration auraient pu remplacer l'intégration d'Euler de base dans l'algorithme d'OSRD. Afin de décider quelle méthode conviendrait le mieux, une étude sur la précision et la vitesse de calcul de différentes méthodes a été menée. Cette étude sert à comparé les méthodes suivantes :
 
 - Euler
 - Euler-Cauchy
@@ -151,3 +159,10 @@ Après un certain temps, RK4 tend à être la méthode la plus précise, légèr
 
 L'étude de la précision et de la vitesse de calcul présentée ci-dessus montre que RK4 et Euler-Cauchy seraient de bons candidats pour remplacer l'algorithme d'Euler dans OSRD : les deux sont rapides, précis, et pourraient remplacer la méthode d'Euler sans nécessiter de gros changements d'implémentation car ils ne font que des calculs au sein du pas de temps en cours de calcul.
 **Il a été décidé qu'OSRD utiliserait la méthode Runge-Kutta 4 parce qu'elle est légèrement plus précise que Euler-Cauchy et que c'est une méthode bien connue pour ce type de calcul, donc très adaptée à un simulateur open-source.**
+
+<style>
+img[src$="method"] {
+  height: 50%;
+  width: 50%;
+}
+</style>
