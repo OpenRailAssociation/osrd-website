@@ -212,7 +212,7 @@ Un canton devrait-il être actif quand toutes ses zones sont dans la configurati
 &lt;li>&lt;strong>compatibilité pathfinding&lt;/strong> : Le pathfinding se fait dans le produit du graphe de routage et du graphe de cantons.&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/ordering/</guid><description>
 &lt;h2 id="définition">Définition&lt;/h2>
-&lt;p>La couche d&amp;rsquo;ordonnancement a pour a responsabilité d&amp;rsquo;établir l&amp;rsquo;ordre de commande des itinéraires, et par conséquent, l&amp;rsquo;ordre de passage des trains.
+&lt;p>La couche d&amp;rsquo;ordonnancement a pour responsabilité d&amp;rsquo;établir l&amp;rsquo;ordre de commande des itinéraires, et par conséquent, l&amp;rsquo;ordre de passage des trains.
 La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pas, du moment qu&amp;rsquo;elle garanti que la simulation se termine (elle ne doit pas amener de trains en nez-à-nez, ou créer d&amp;rsquo;autre cas de figure de blocage).&lt;/p>
 &lt;p>Il est possible d&amp;rsquo;implémenter un module d&amp;rsquo;ordonnancement via des tableaux d&amp;rsquo;ordre de succession des trains aux aiguilles.&lt;/p>
 &lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>

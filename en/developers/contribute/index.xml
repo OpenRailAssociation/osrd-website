@@ -1,4 +1,10 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/</link><description>Recent content in Contribute on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/developers/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Setting things up</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/setting-things-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/setting-things-up/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/</link><description>Recent content in Contribute on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/developers/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: License</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/license/</guid><description>
+&lt;p>The source code of OSRD is available under &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">the LGPLv3 license&lt;/a>.&lt;/p>
+&lt;p>Just like with any other open source project, by contributing source code, you imply the owner of the source code allows its distribution under the project&amp;rsquo;s license.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;p>LGPLv3 forbids modifying source code without sharing the changes under the same license: use other people&amp;rsquo;s work, and share yours!&lt;/p>
+&lt;p>This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.&lt;/p>
+&lt;/div></description></item><item><title>Developers: Setting things up</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/setting-things-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/setting-things-up/</guid><description>
 &lt;div class="alert alert-info" role="alert">
 Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
 &lt;/div>
@@ -65,10 +71,4 @@ Once your pull request is open, &lt;a href="https://docs.github.com/en/pull-requ
 &lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/en/developers/contribute/reviewing-code/images/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure></description></item><item><title>Developers: Style conventions</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/conventions/</guid><description>
 &lt;p>Style conventions are writting rules means to standardize various aspects of the project.&lt;/p>
-&lt;p>These matter quite a bit: They enable better communication and programming efficiently.&lt;/p></description></item><item><title>Developers: License</title><link>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/developers/contribute/license/</guid><description>
-&lt;p>The source code of OSRD is available under &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">the LGPLv3 license&lt;/a>.&lt;/p>
-&lt;p>Just like with any other open source project, by contributing source code, you imply the owner of the source code allows its distribution under the project&amp;rsquo;s license.&lt;/p>
-&lt;div class="alert alert-warning" role="alert">
-&lt;p>LGPLv3 forbids modifying source code without sharing the changes under the same license: use other people&amp;rsquo;s work, and share yours!&lt;/p>
-&lt;p>This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.&lt;/p>
-&lt;/div></description></item></channel></rss>
+&lt;p>These matter quite a bit: They enable better communication and programming efficiently.&lt;/p></description></item></channel></rss>

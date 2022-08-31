@@ -1,4 +1,10 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/</link><description>Recent content in Contribuer on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Mise en place</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/setting-things-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/setting-things-up/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/</link><description>Recent content in Contribuer on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Licence</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/license/</guid><description>
+&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.&lt;/p>
+&lt;p>Comme pour tout autre projet open source, contribuer du code implique que son propriétaire consent à sa distribution sous la licence du projet.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée: profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
+&lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API: Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
+&lt;/div></description></item><item><title>Developers: Mise en place</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/setting-things-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/setting-things-up/</guid><description>
 &lt;div class="alert alert-info" role="alert">
 La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
 &lt;/div>
@@ -10,7 +16,7 @@ La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows 
 &lt;/ul>
 &lt;h2 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h2>
 &lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
-&lt;p>Aujourd&amp;rsquo;hui, vous pouvez déléguer ce travail à &lt;code>docker-compose&lt;/code>, qui lancera tout où partie des composants d&amp;rsquo;OSRD.&lt;/p>
+&lt;p>L&amp;rsquo;outil &lt;code>docker-compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
 &lt;ul>
 &lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker-compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Lancer &lt;code>docker-compose up --build&lt;/code>&lt;/li>
@@ -65,10 +71,4 @@ Une fois que votre pull request est ouverte, &lt;a href="https://docs.github.com
 &lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/fr/developers/contribute/reviewing-code/images/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure></description></item><item><title>Developers: Conventions de style</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/conventions/</guid><description>
 &lt;p>Les conventions de style sont des règles d&amp;rsquo;écriture qui permettent d&amp;rsquo;uniformiser divers aspects du projet.&lt;/p>
-&lt;p>Elles sont relativement importantes, car elles permettent une meilleure compréhension entre développeurs, et donc une productivité accrue.&lt;/p></description></item><item><title>Developers: Licence</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/license/</guid><description>
-&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.&lt;/p>
-&lt;p>Comme pour tout autre projet open source, contribuer du code implique que son propriétaire consent à sa distribution sous la licence du projet.&lt;/p>
-&lt;div class="alert alert-warning" role="alert">
-&lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée: profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
-&lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API: Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
-&lt;/div></description></item></channel></rss>
+&lt;p>Elles sont relativement importantes, car elles permettent une meilleure compréhension entre développeurs, et donc une productivité accrue.&lt;/p></description></item></channel></rss>

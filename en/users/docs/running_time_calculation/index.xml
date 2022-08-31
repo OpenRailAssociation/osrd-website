@@ -90,9 +90,11 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;h3 id="eulers-method">Euler&amp;rsquo;s method&lt;/h3>
 &lt;/font>
 &lt;p>The Euler method applied to the integration of the equation of motion of a train is:&lt;/p>
-&lt;p>$$v(t+dt) = a(v(t), x(t))dt + v(t)$$ &lt;div style="text-align: right"> &lt;strong>(1)&lt;/strong> &lt;/div>&lt;/p>
-&lt;p>$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ &lt;div style="text-align: right"> &lt;strong>(2)&lt;/strong> &lt;/div>&lt;/p>
-&lt;p>&lt;img src="../euler.png" alt="Euler&amp;amp;rsquo;s method">&lt;/p>
+&lt;p>$$v(t+dt) = a(v(t), x(t))dt + v(t)$$&lt;/p>
+&lt;p>$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../euler.png?style=method" alt="Euler&amp;amp;rsquo;s method">&lt;/p>
+&lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="advantages-of-eulers-method">&lt;strong>Advantages of Euler&amp;rsquo;s method&lt;/strong>&lt;/h4>
 &lt;p>The advantages of the Euler method are that it is very simple to implement and has a rather fast calculation for a given time step, compared to other numerical integration methods (see &lt;a href="#the-choice-of-integration-method-for-osrd">appendix&lt;/a>)&lt;/p>
@@ -107,13 +109,15 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;h3 id="runge-kuttas-4-method">Runge-Kutta&amp;rsquo;s 4 method&lt;/h3>
 &lt;/font>
 &lt;p>The Runge-Kutta 4 method applied to the integration of the equation of motion of a train is:&lt;/p>
-&lt;p>$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$ &lt;div style="text-align: right"> &lt;strong>(??)&lt;/strong> &lt;/div>&lt;/p>
+&lt;p>$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$&lt;/p>
 &lt;p>With:&lt;/p>
 &lt;p>$$k_1 = a(v(t), x(t))$$&lt;/p>
 &lt;p>$$k_2 = a\Big(v(t+k_1\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_1\frac{dt^2}{8}\Big)$$&lt;/p>
 &lt;p>$$k_3 = a\Big(v(t+k_2\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_2\frac{dt^2}{8}\Big)$$&lt;/p>
 &lt;p>$$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$&lt;/p>
-&lt;p>&lt;img src="../rk4.png" alt="Runge-Kutta 4&amp;amp;rsquo;s method">&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../rk4.png?style=method" alt="Runge-Kutta 4&amp;amp;rsquo;s method">&lt;/p>
+&lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="advantages-of-runge-kuttas-4-method">&lt;strong>Advantages of Runge Kutta&amp;rsquo;s 4 method&lt;/strong>&lt;/h4>
 &lt;p>Runge Kutta&amp;rsquo;s method of integration 4 addresses the various problems raised by Euler&amp;rsquo;s method:&lt;/p>
@@ -212,7 +216,13 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;h3 id="conclusions-of-the-study">Conclusions of the study&lt;/h3>
 &lt;/font>
 &lt;p>The study of accuracy and computational speed presented above shows that RK4 and Euler-Cauchy would be good candidates to replace the Euler algorithm in OSRD: both are fast, accurate, and could replace the Euler method without requiring large implementation changes because they only compute within the current time step.
-&lt;strong>It was decided that OSRD would use the Runge-Kutta 4 method because it is slightly more accurate than Euler-Cauchy and it is a well-known method for this type of calculation, so it is very suitable for an open-source simulator.&lt;/strong>&lt;/p></description></item><item><title>Users: Envelopes system</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/envelopes_system/</guid><description>
+&lt;strong>It was decided that OSRD would use the Runge-Kutta 4 method because it is slightly more accurate than Euler-Cauchy and it is a well-known method for this type of calculation, so it is very suitable for an open-source simulator.&lt;/strong>&lt;/p>
+&lt;style>
+img[src$="method"] {
+height: 70%;
+width: 70%;
+}
+&lt;/style></description></item><item><title>Users: Envelopes system</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/envelopes_system/</guid><description>
 &lt;p>The envelope system is an interface created specifically for the OSRD gait calculation. It allows you to manipulate different space/velocity curves, to slice them, to end them, to interpolate specific points, and to address many other needs necessary for the gait calculation.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="a-specific-interface-in-the-osrd-core-service">A specific interface in the OSRD Core service&lt;/h3>
@@ -238,35 +248,11 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>Envelopes from &lt;strong>infrastructure and rolling stock data&lt;/strong>, such as maximum line speed and maximum train speed. Being input data for our calculation, they do not correspond to curves with a physical meaning, as they are not derived from the results of a real integration of the physical equations of motion.&lt;/li>
 &lt;li>The envelopes result from &lt;strong>real integration&lt;/strong> of the physical equations of motion. They correspond to a curve that is physically tenable by the train and also contain time information.&lt;/li>
 &lt;/ul>
-&lt;p>A simple example to illustrate this difference: if we simulate a TER journey on a mountain line, one of the input data will be a maximum speed envelope of 160km/h, corresponding to the maximum speed of our TER. However, this envelope does not correspond to a physical reality, as it is possible that on certain sections the gradient is too steep for the train to be able to maintain this maximum speed of 160km/h. The calculated envelope will therefore show in this example a speed drop in the steepest areas, where the envelope given was perfectly flat.&lt;/p></description></item><item><title>Users: Technical &amp; physical choices</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/technical-and-physical-choices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/technical-and-physical-choices/</guid><description>
-&lt;h3 id="font-coloraa026dwhat-envelopes-arefont">&lt;font color=#aa026d>What envelopes are?&lt;/font>&lt;/h3>
-&lt;p>OSRD can be used to perform two kinds of calculation:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Standalone train simulation&lt;/strong> where the running time calculation is performed without interaction between the train and the signaling system.&lt;/li>
-&lt;li>&lt;strong>Many trains simulation&lt;/strong> where a real dynamic simulation is run.&lt;/li>
-&lt;/ul>
-&lt;p>In both cases, during the simulation, the train is supposed to follow some speed instructions. These are modeled in OSRD with space/speed curves called envelopes. There are two kinds of envelopes:&lt;/p>
-&lt;ul>
-&lt;li>Envelopes coming &lt;strong>from infrastructure and rolling stock data&lt;/strong>, such as the max speed of the line and the max speed of the train; these are inputs to our calculation and they are not physically accurate because they are not the results of a real integration of the physical movement equations.&lt;/li>
-&lt;li>Envelopes resulting &lt;strong>from a real integration&lt;/strong> of the physical movement equations.&lt;/li>
-&lt;/ul>
-&lt;p>These contain also information about time.&lt;/p>
-&lt;h3 id="font-coloraa026dhow-the-envelope-system-is-used-into-osrdfont">&lt;font color=#aa026d>How the envelope system is used into OSRD?&lt;/font>&lt;/h3>
-&lt;h4 id="standalone-train-simulation">Standalone train simulation&lt;/h4>
-&lt;h4 id="fastest-running-time-calculation">Fastest running time calculation&lt;/h4>
-&lt;p>The first goal of a standalone train simulation is to perform the &lt;strong>fastest running time calculation&lt;/strong>, where the train runs at the max permitted speed. To obtain this, a procedure composed by different stages is used. At each stage, some new envelopes are calculated and added to the previous ones. The final resulting envelope is what we call &lt;strong>Max Effort envelope&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>A first envelope is calculated at the beginning of the simulation putting together all the envelopes related to some static speed limits (max speed of the line, max speed of the rolling stock, temporary speed restrictions, train category speed restrictions, axle load speed restrictions). The resulting envelope is called &lt;strong>Most Restricted Speed Profile (MRSP)&lt;/strong>.&lt;/li>
-&lt;li>All the braking curves are computed by starting from their target point, i.e. the point in space where a certain speed limits is imposed (finite target speed) or stop point (target speed = 0 m/s). The braking curves are calculated by considering all the active forces (braking force constant or not, frictions, gradient gravity force) and for this reason are physically accurate. The resulting envelope is called &lt;strong>Max Speed Profile&lt;/strong>.&lt;/li>
-&lt;li>For each point corresponding to a speed increase in the MRSP or at the end of a stop braking curve, an accelerating curve is computed. The accelerating curves are calculated by considering all the active forces (traction force, frictions, gradient gravity force) and for this reason are physically accurate.&lt;/li>
-&lt;li>For all the envelope parts that are not physically accurate, a proper integration of movement equations is performed. This last calculation is necessary for reproducing the correct behavior of envelope parts where the speed should be maintained at a constant value, by including the effect of all the forces. The resulting envelope is called &lt;strong>Max Effort Profile&lt;/strong>.&lt;/li>
-&lt;/ul>
-&lt;h4 id="running-time-calculation-with-allowances">Running time calculation with allowances&lt;/h4>
-&lt;p>After having performed the fastest running time calculation, some allowances can be introduced into it. In the OSRD running time calculation, we decide to distribute allowances in an economical way, by minimizing the energy consumption during the train run. A new &lt;strong>Eco envelope&lt;/strong>, resulting from a dichotomy algorithm, is therefore computed to distribute a certain allowance value into the previously calculated Max Effort envelope.&lt;/p>
-&lt;h4 id="many-trains-simulation">Many trains simulation&lt;/h4>
-&lt;p>In the case of many trains simulation, the signaling system must assure &lt;strong>the safety&lt;/strong>. The effect of signalization on to a train running time calculation is reproduced by overlapping dynamic envelopes onto the static one. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economical envelope overlapped with the dynamic envelopes, if there are some. In this simulation mode, a check in time is completed with respect to a theoretical time coming from the time information of the static economical envelope. If the train is delayed with respect to the scheduled time, it will stop following the economical envelope and try to go faster. Its space/speed curve will be therefore limited by the max effort envelope.&lt;/p>
-&lt;h3 id="font-coloraa026dwhich-integration-method-should-osrd-usefont">&lt;font color=#aa026d>Which integration method should OSRD use?&lt;/font>&lt;/h3>
-&lt;p>Our &lt;a href="https://github.com/DGEXSolutions/osrd/wiki/Which-integration-method-should-OSRD-use">Integration Method&lt;/a> is available on the project&amp;rsquo;s Github repositorie.&lt;/p></description></item><item><title>Users: Pipeline</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/pipeline/</guid><description>
+&lt;p>A simple example to illustrate this difference: if we simulate a TER journey on a mountain line, one of the input data will be a maximum speed envelope of 160km/h, corresponding to the maximum speed of our TER. However, this envelope does not correspond to a physical reality, as it is possible that on certain sections the gradient is too steep for the train to be able to maintain this maximum speed of 160km/h. The calculated envelope will therefore show in this example a speed drop in the steepest areas, where the envelope given was perfectly flat.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="simulation-of-several-trains">Simulation of several trains&lt;/h3>
+&lt;/font>
+&lt;p>In the case of the simulation of many trains, the signalling system must ensure &lt;strong>safety&lt;/strong>. The effect of signalling on the running calculation of a train is reproduced by superimposing dynamic envelopes on the static envelope. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economic envelope superimposed on the dynamic envelopes, if any. In this simulation mode, a time check is performed against a theoretical time from the time information of the static economic envelope. If the train is late with respect to the scheduled time, it stops following the economic envelope and tries to go faster. Its space/speed curve will therefore be limited by the maximum effort envelope.&lt;/p></description></item><item><title>Users: Pipeline</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/pipeline/</guid><description>
 &lt;p>The walk calculation in OSRD is a 4-step process, each using &lt;a href="../envelopes_system">the envelopes system&lt;/a>:&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="#calculation-of-the-most-restricted-speed-profile-mrsp">Construction of the most restrictive speed profile&lt;/a>&lt;/li>
@@ -274,6 +260,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>&lt;a href="#calculation-of-the-max-effort-profile">Adding the different acceleration curves and checking the constant speed curves&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#application-of-allowances">Application of allowance(s)&lt;/a>&lt;/li>
 &lt;/ol>
+&lt;p>&amp;nbsp;&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="calculation-of-the-most-restricted-speed-profile-mrsp">Calculation of the Most Restricted Speed Profile (MRSP)&lt;/h3>
 &lt;/font>
@@ -314,11 +301,7 @@ The black line represents the MRSP where the train length has been taken into ac
 &lt;p>After the calculation of the basic run (corresponding to the Max Effort Profile in OSRD), it is possible to apply allowances. Allowances are additions of extra time to the train&amp;rsquo;s journey. They are used to allow the train to catch up if necessary or for other operational purposes (more details on allowances &lt;a href="../allowances">here&lt;/a>).&lt;/p>
 &lt;p>A new &lt;strong>Allowances&lt;/strong> envelope is therefore calculated using overlays to distribute the allowance requested by the user over the maximum effort envelope calculated previously.&lt;/p>
 &lt;p>&lt;img src="../allowances.png" alt="Allowances">&lt;/p>
-&lt;p>In the OSRD running calculation it is possible to distribute the allowances in a linear way, by lowering all speeds by a certain factor, or in an economic way, i.e. by minimising the energy consumption during the train run.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="simulation-of-several-trains">Simulation of several trains&lt;/h3>
-&lt;/font>
-&lt;p>In the case of the simulation of many trains, the signalling system must ensure &lt;strong>safety&lt;/strong>. The effect of signalling on the running calculation of a train is reproduced by superimposing dynamic envelopes on the static envelope. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economic envelope superimposed on the dynamic envelopes, if any. In this simulation mode, a time check is performed against a theoretical time from the time information of the static economic envelope. If the train is late with respect to the scheduled time, it stops following the economic envelope and tries to go faster. Its space/speed curve will therefore be limited by the maximum effort envelope.&lt;/p></description></item><item><title>Users: Allowances</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/allowances/</guid><description>
+&lt;p>In the OSRD running calculation it is possible to distribute the allowances in a linear way, by lowering all speeds by a certain factor, or in an economic way, i.e. by minimising the energy consumption during the train run.&lt;/p></description></item><item><title>Users: Allowances</title><link>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/users/docs/running_time_calculation/allowances/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
 &lt;/font>
@@ -351,7 +334,7 @@ The black line represents the MRSP where the train length has been taken into ac
 &lt;font color=#aa026d>
 &lt;h3 id="economic-distribution">Economic distribution&lt;/h3>
 &lt;/font>
-&lt;p>The economic distribution of the allowance, presented in detail in &lt;a href="../MARECO.pdf">this document&lt;/a>, consists of distributing the allowance in the most energy-efficient way possible. It is based on two principles:&lt;/p>
+&lt;p>The economic distribution of the allowance, presented in detail in &lt;a href="../Mareco.pdf">this document&lt;/a> (&lt;strong>MARECO&lt;/strong> is an algorithm designed by the SNCF research department), consists of distributing the allowance in the most energy-efficient way possible. It is based on two principles:&lt;/p>
 &lt;ol>
 &lt;li>a maximum speed, avoiding the most energy-intensive speeds&lt;/li>
 &lt;li>run-on zones, located before braking and steep gradients, where the train runs with the engine off thanks to its inertia, allowing it to consume no energy during this period&lt;/li>

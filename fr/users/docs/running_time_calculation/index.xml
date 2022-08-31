@@ -91,9 +91,11 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;h3 id="la-méthode-deuler">La méthode d&amp;rsquo;Euler&lt;/h3>
 &lt;/font>
 &lt;p>La méthode d&amp;rsquo;Euler appliquée à l&amp;rsquo;intégration de l&amp;rsquo;équation du mouvement d&amp;rsquo;un train est :&lt;/p>
-&lt;p>$$v(t+dt) = a(v(t), x(t))dt + v(t)$$ &lt;div style="text-align: right"> &lt;strong>(1)&lt;/strong> &lt;/div>&lt;/p>
-&lt;p>$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ &lt;div style="text-align: right"> &lt;strong>(2)&lt;/strong> &lt;/div>&lt;/p>
-&lt;p>&lt;img src="../euler.png" alt="Méthode d&amp;amp;rsquo;Euler">&lt;/p>
+&lt;p>$$v(t+dt) = a(v(t), x(t))dt + v(t)$$&lt;/p>
+&lt;p>$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../euler.png?style=method" alt="Méthode d&amp;amp;rsquo;Euler">&lt;/p>
+&lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="les-avantages-de-la-méthode-deuler">&lt;strong>Les avantages de la méthode d&amp;rsquo;Euler&lt;/strong>&lt;/h4>
 &lt;p>La méthode d&amp;rsquo;Euler a pour avantages d&amp;rsquo;être très simple à implémenter et d&amp;rsquo;avoir un calcul plutôt rapide pour un pas de temps donné, en comparaison avec d&amp;rsquo;autres méthodes d&amp;rsquo;intégration numérique (voir &lt;a href="#le-choix-de-la-m%C3%A9thode-dint%C3%A9gration-pour-osrd">annexe&lt;/a>)&lt;/p>
@@ -108,13 +110,15 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;h3 id="la-méthode-runge-kutta-4">La méthode Runge-Kutta 4&lt;/h3>
 &lt;/font>
 &lt;p>La méthode Runge-Kutta 4 appliquée à l&amp;rsquo;intégration de l&amp;rsquo;équation du mouvement d&amp;rsquo;un train est :&lt;/p>
-&lt;p>$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$ &lt;div style="text-align: right"> &lt;strong>(??)&lt;/strong> &lt;/div>&lt;/p>
+&lt;p>$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$&lt;/p>
 &lt;p>Avec :&lt;/p>
 &lt;p>$$k_1 = a(v(t), x(t))$$&lt;/p>
 &lt;p>$$k_2 = a\Big(v(t+k_1\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_1\frac{dt^2}{8}\Big)$$&lt;/p>
 &lt;p>$$k_3 = a\Big(v(t+k_2\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_2\frac{dt^2}{8}\Big)$$&lt;/p>
 &lt;p>$$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$&lt;/p>
-&lt;p>&lt;img src="../rk4.png" alt="Méthode de Runge-Kutta 4">&lt;/p>
+&lt;center>
+&lt;p>&lt;img src="../rk4.png?style=method" alt="Méthode de Runge-Kutta 4">&lt;/p>
+&lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="les-avantages-de-la-méthode-de-runge-kutta-4">&lt;strong>Les avantages de la méthode de Runge Kutta 4&lt;/strong>&lt;/h4>
 &lt;p>La méthode d&amp;rsquo;intégration de Runge Kutta 4 permet de répondre aux différents problèmes soulevés par celle d&amp;rsquo;Euler :&lt;/p>
@@ -128,7 +132,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;h3 id="le-choix-de-la-méthode-dintégration-pour-osrd">Le choix de la méthode d&amp;rsquo;intégration pour OSRD&lt;/h3>
 &lt;/font>
 &lt;h4 id="étude-de-la-précision-et-de-la-vitesse-de-calcul">&lt;strong>Étude de la précision et de la vitesse de calcul&lt;/strong>&lt;/h4>
-&lt;p>Différentes méthodes d&amp;rsquo;intégration auraient pu remplacer l&amp;rsquo;intégration d&amp;rsquo;Euler de base dans l&amp;rsquo;algorithme d&amp;rsquo;OSRD. Afin de décider quelle méthode conviendrait le mieux, une étude sur la précision et la vitesse de calcul de différentes méthodes a été menée. Cette étude a comparé les méthodes suivantes :&lt;/p>
+&lt;p>Différentes méthodes d&amp;rsquo;intégration auraient pu remplacer l&amp;rsquo;intégration d&amp;rsquo;Euler de base dans l&amp;rsquo;algorithme d&amp;rsquo;OSRD. Afin de décider quelle méthode conviendrait le mieux, une étude sur la précision et la vitesse de calcul de différentes méthodes a été menée. Cette étude sert à comparé les méthodes suivantes :&lt;/p>
 &lt;ul>
 &lt;li>Euler&lt;/li>
 &lt;li>Euler-Cauchy&lt;/li>
@@ -213,7 +217,14 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;h3 id="conclusions-de-létude">Conclusions de l&amp;rsquo;étude&lt;/h3>
 &lt;/font>
 &lt;p>L&amp;rsquo;étude de la précision et de la vitesse de calcul présentée ci-dessus montre que RK4 et Euler-Cauchy seraient de bons candidats pour remplacer l&amp;rsquo;algorithme d&amp;rsquo;Euler dans OSRD : les deux sont rapides, précis, et pourraient remplacer la méthode d&amp;rsquo;Euler sans nécessiter de gros changements d&amp;rsquo;implémentation car ils ne font que des calculs au sein du pas de temps en cours de calcul.
-&lt;strong>Il a été décidé qu&amp;rsquo;OSRD utiliserait la méthode Runge-Kutta 4 parce qu&amp;rsquo;elle est légèrement plus précise que Euler-Cauchy et que c&amp;rsquo;est une méthode bien connue pour ce type de calcul, donc très adaptée à un simulateur open-source.&lt;/strong>&lt;/p></description></item><item><title>Users: Le système d'enveloppes</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/envelopes_system/</guid><description>
+&lt;strong>Il a été décidé qu&amp;rsquo;OSRD utiliserait la méthode Runge-Kutta 4 parce qu&amp;rsquo;elle est légèrement plus précise que Euler-Cauchy et que c&amp;rsquo;est une méthode bien connue pour ce type de calcul, donc très adaptée à un simulateur open-source.&lt;/strong>&lt;/p>
+&lt;style>
+img[src$="method"] {
+height: 50%;
+width: 50%;
+}
+&lt;/style>&lt;blockquote>
+&lt;/blockquote></description></item><item><title>Users: Le système d'enveloppes</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/envelopes_system/</guid><description>
 &lt;p>Le système d&amp;rsquo;enveloppes est une interface créée spécifiquement pour le calcul de marche d&amp;rsquo;OSRD. Il permet de manipuler différentes courbes espace/vitesse, de les découper, de les mettre bout à bout, d&amp;rsquo;interpoler des points spécifiques, et d&amp;rsquo;adresser beaucoup d&amp;rsquo;autres besoins nécessaires au calcul de marche.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="une-interface-spécifique-dans-le-service-osrd-core">Une interface spécifique dans le service OSRD Core&lt;/h3>
@@ -239,16 +250,21 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>Les enveloppes provenant &lt;strong>des données d&amp;rsquo;infrastructure et de matériel roulant&lt;/strong>, comme la vitesse maximale de la ligne et la vitesse maximale du train. Etant des données d&amp;rsquo;entrée de notre calcul, elles ne correspondent pas à des courbes ayant un sens physique, car elles ne sont pas issues des résultats d&amp;rsquo;une intégration réelle des équations physiques du mouvement.&lt;/li>
 &lt;li>Les enveloppes résultant &lt;strong>d&amp;rsquo;une intégration réelle&lt;/strong> des équations du mouvement physique. Elles correspondent à une courbe physiquement tenable par le train et contiennent également des informations sur le temps.&lt;/li>
 &lt;/ul>
-&lt;p>Un exemple simple pour illustrer cette différence : si l&amp;rsquo;on simule un trajet de TER sur une ligne de montagne, une des données d&amp;rsquo;entrée va être une enveloppe de vitesse maximale à 160km/h, correspondant à la vitesse maximale de notre TER. Mais cette enveloppe ne correspond pas à une réalité physique, car il se peut que sur certaines portions la rampe soit trop raide pour que le train arrive effectivement à maintenir cette vitesse maximale de 160km/h. L&amp;rsquo;enveloppe calculée présentera donc dans cet exemple un décrochage de vitesse dans les zones de fortes rampes, là où l&amp;rsquo;enveloppe donnée était parfaitement plate.&lt;/p></description></item><item><title>Users: Le processus de calcul de marche</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/pipeline/</guid><description>
+&lt;p>Un exemple simple pour illustrer cette différence : si l&amp;rsquo;on simule un trajet de TER sur une ligne de montagne, une des données d&amp;rsquo;entrée va être une enveloppe de vitesse maximale à 160km/h, correspondant à la vitesse maximale de notre TER. Mais cette enveloppe ne correspond pas à une réalité physique, car il se peut que sur certaines portions la rampe soit trop raide pour que le train arrive effectivement à maintenir cette vitesse maximale de 160km/h. L&amp;rsquo;enveloppe calculée présentera donc dans cet exemple un décrochage de vitesse dans les zones de fortes rampes, là où l&amp;rsquo;enveloppe donnée était parfaitement plate.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="simulation-de-plusieurs-trains">Simulation de plusieurs trains&lt;/h3>
+&lt;/font>
+&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>Users: Le processus de calcul de marche</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/pipeline/</guid><description>
 &lt;p>Le calcul de marche dans OSRD est un processus à 4 étapes, utilisant chacune &lt;a href="../envelopes_system">le système d&amp;rsquo;enveloppes&lt;/a> :&lt;/p>
 &lt;ol>
-&lt;li>&lt;a href="#calcul-du-most-restricted-speed-profile-mrsp">Construction du profil de vitesse le plus restrictif&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#calcul-du-max-speed-profile">Ajout des différentes courbes de freinage&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#calcul-du-max-effort-profile">Ajout des différentes courbes d&amp;rsquo;accélération et vérification des courbes de vitesse constante&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#calcul-du-profil-de-vitesse-le-plus-restrictif">Construction du profil de vitesse le plus restrictif&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#calcul-du-profil-de-vitesse-maximale">Ajout des différentes courbes de freinage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#calcul-du-profil-deffort-maximal">Ajout des différentes courbes d&amp;rsquo;accélération et vérification des courbes de vitesse constante&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#application-de-marges">Application de marge(s)&lt;/a>&lt;/li>
 &lt;/ol>
+&lt;p>&amp;nbsp;&lt;/p>
 &lt;font color=#aa026d>
-&lt;h3 id="calcul-du-most-restricted-speed-profile-mrsp">Calcul du Most Restricted Speed Profile (MRSP)&lt;/h3>
+&lt;h3 id="calcul-du-profil-de-vitesse-le-plus-restrictif">Calcul du profil de vitesse le plus restrictif&lt;/h3>
 &lt;/font>
 &lt;p>Une première enveloppe est calculée au début de la simulation en regroupant toutes les limites de vitesse statiques :&lt;/p>
 &lt;ul>
@@ -259,7 +275,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>limitations de vitesse selon la charge du train&lt;/li>
 &lt;li>limitations de vitesse correspondant à des panneaux de signalisation&lt;/li>
 &lt;/ul>
-&lt;p>La longueur du train est également prise en compte pour s&amp;rsquo;assurer que le train n&amp;rsquo;accélère qu&amp;rsquo;une fois sa queue ayant quitté la zone de plus faible vitesse. Un décalage est alors appliqué à la courbe en pointillée rouge. L&amp;rsquo;enveloppe résultante (courbe noire) est appelée &lt;strong>Most Restricted Speed Profile (MRSP)&lt;/strong> correspondant donc au profil de vitesse le plus restrictif. C&amp;rsquo;est sur cette enveloppe que seront calculées les étapes suivantes.&lt;/p>
+&lt;p>La longueur du train est également prise en compte pour s&amp;rsquo;assurer que le train n&amp;rsquo;accélère qu&amp;rsquo;une fois sa queue ayant quitté la zone de plus faible vitesse. Un décalage est alors appliqué à la courbe en pointillée rouge. L&amp;rsquo;enveloppe résultante (courbe noire) est appelée &lt;strong>MRSP (Most Restricted Speed Profile)&lt;/strong> correspondant donc au profil de vitesse le plus restrictif. C&amp;rsquo;est sur cette enveloppe que seront calculées les étapes suivantes.&lt;/p>
 &lt;p>&lt;img src="../mrsp.png" alt="Most Restricted Speed Profile">&lt;/p>
 &lt;blockquote>
 &lt;p>La ligne pointillée rouge représente la vitesse maximale autorisée en fonction de la position.
@@ -267,16 +283,16 @@ La ligne noire représente le MRSP où la longueur du train a été prise en com
 &lt;/blockquote>
 &lt;p>Il est à noter que les différentes envelopeParts composant le MRSP sont des données d&amp;rsquo;entrée, elles ne correspondent donc pas à des courbes avec une réalité physique.&lt;/p>
 &lt;font color=#aa026d>
-&lt;h3 id="calcul-du-max-speed-profile">Calcul du Max Speed Profile&lt;/h3>
+&lt;h3 id="calcul-du-profil-de-vitesse-maximale">Calcul du profil de vitesse maximale&lt;/h3>
 &lt;/font>
 &lt;p>En partant du MRSP, toutes les courbes de freinage sont calculées grâce au système d&amp;rsquo;overlay (voir &lt;a href="../envelopes_system/#une-interface-sp%C3%A9cifique-dans-le-service-osrd-core">ici&lt;/a> pour plus de détails sur les overlays), c&amp;rsquo;est-à-dire en créant des envelopeParts qui seront plus restrictives que le MRSP. La courbe ainsi obtenue est appelée &lt;strong>Max Speed Profile&lt;/strong> (profil de vitesse maximale). Il s&amp;rsquo;agit de l&amp;rsquo;enveloppe de vitesse maximale du train, tenant compte de ses capacités de freinage.&lt;/p>
 &lt;p>Etant donné que les courbes de freinage ont un point de fin imposé et que l&amp;rsquo;équation de freinage n&amp;rsquo;a pas de solution analytique, il est impossible de prédire leur point de départ. Les courbes de freinage sont donc calculées à rebours en partant de leur point cible, c&amp;rsquo;est-à-dire le point dans l&amp;rsquo;espace où une certaine limite de vitesse est imposée (vitesse cible finie) ou le point d&amp;rsquo;arrêt (vitesse cible nulle).&lt;/p>
 &lt;p>&lt;img src="../msp.png" alt="Max Speed Profile">&lt;/p>
-&lt;p>Pour des raisons historiques en production horaire, les courbes de freinages sont calculées à la SNCF avec une décélération forfaitaire, dite décélération horaire (typiquement ~0,5m/s²) sans prendre en compte les autres forces. Cette méthode a donc également été implémentée dans OSRD, permettant ainsi de calculer les freinages de deux manières différentes : avec ce taux horaire ou avec une force de freinage qui vient simplement s&amp;rsquo;ajouter aux autres forces.&lt;/p>
+&lt;p>Pour des raisons historiques en production horaire, les courbes de freinages sont calculées avec une décélération forfaitaire, dite décélération horaire (typiquement ~0,5m/s²) sans prendre en compte les autres forces. Cette méthode a donc également été implémentée dans OSRD, permettant ainsi de calculer les freinages de deux manières différentes : avec ce taux horaire ou avec une force de freinage qui vient simplement s&amp;rsquo;ajouter aux autres forces.&lt;/p>
 &lt;font color=#aa026d>
-&lt;h3 id="calcul-du-max-effort-profile">Calcul du Max Effort Profile&lt;/h3>
+&lt;h3 id="calcul-du-profil-deffort-maximal">Calcul du profil d&amp;rsquo;effort maximal&lt;/h3>
 &lt;/font>
-&lt;p>Pour chaque point correspondant à une augmentation de vitesse dans le MRSP ou à la fin d&amp;rsquo;une courbe de freinage d&amp;rsquo;arrêt, une courbe d&amp;rsquo;accélération est calculée. Les courbes d&amp;rsquo;accélération sont calculées en tenant compte de toutes les forces actives (force de traction, résistance à l&amp;rsquo;avancement, poids) et ont donc un sens physique.&lt;/p>
+&lt;p>Pour chaque point correspondant à une augmentation de vitesse dans le &lt;strong>MRSP&lt;/strong> ou à la fin d&amp;rsquo;une courbe de freinage d&amp;rsquo;arrêt, une courbe d&amp;rsquo;accélération est calculée. Les courbes d&amp;rsquo;accélération sont calculées en tenant compte de toutes les forces actives (force de traction, résistance à l&amp;rsquo;avancement, poids) et ont donc un sens physique.&lt;/p>
 &lt;p>Pour les envelopeParts dont le sens physique n&amp;rsquo;a pas encore été vérifié (qui à ce stade sont les phases de circulation à vitesse constante, provenant toujours du MRSP), une nouvelle intégration des équations de mouvement est effectuée. Ce dernier calcul est nécessaire pour prendre en compte d&amp;rsquo;éventuels décrochages de vitesse dans le cas où le train serait physiquement incapable de tenir sa vitesse, typiquement en présence de fortes rampes (voir &lt;a href="../envelopes_system/#enveloppes-donn%C3%A9es-vs-enveloppes-calcul%C3%A9es">cet exemple&lt;/a>).&lt;/p>
 &lt;p>L&amp;rsquo;enveloppe qui résulte de ces ajouts de courbes d&amp;rsquo;accélérations et de la vérification des plateaux de vitesse est appelée &lt;strong>Max Effort Profile&lt;/strong> (profil d&amp;rsquo;effort maximal).&lt;/p>
 &lt;p>&lt;img src="../mep.png" alt="Max Effort Profile">&lt;/p>
@@ -287,15 +303,11 @@ La ligne noire représente le MRSP où la longueur du train a été prise en com
 &lt;p>Après avoir effectué le calcul de la marche de base (correspondant au Max Effort Profile dans OSRD), il est possible d&amp;rsquo;y appliquer des marges (allowances). Les marges sont des ajouts de temps supplémentaire au parcours du train. Elles servent notamment à lui permettre de rattraper son retard si besoin ou à d&amp;rsquo;autres besoins opérationnels (plus de détails sur les marges &lt;a href="../allowances">ici&lt;/a>).&lt;/p>
 &lt;p>Une nouvelle enveloppe &lt;strong>Allowances&lt;/strong> est donc calculée grâce à des overlays pour distribuer la marge demandée par l&amp;rsquo;utilisateur sur l&amp;rsquo;enveloppe d&amp;rsquo;effort maximal calculée précédemment.&lt;/p>
 &lt;p>&lt;img src="../allowances.png" alt="Marges">&lt;/p>
-&lt;p>Dans le calcul de marche d&amp;rsquo;OSRD, il est possible de distribuer les marges d&amp;rsquo;une manière linéaire, en abaissant toutes les vitesses d&amp;rsquo;un certain facteur, ou économique, c&amp;rsquo;est-à-dire en minimisant la consommation d&amp;rsquo;énergie pendant le parcours du train.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="simulation-de-plusieurs-trains">Simulation de plusieurs trains&lt;/h3>
-&lt;/font>
-&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>Users: Les marges</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/allowances/</guid><description>
+&lt;p>Dans le calcul de marche d&amp;rsquo;OSRD, il est possible de distribuer les marges d&amp;rsquo;une manière linéaire, en abaissant toutes les vitesses d&amp;rsquo;un certain facteur, ou économique, c&amp;rsquo;est-à-dire en minimisant la consommation d&amp;rsquo;énergie pendant le parcours du train.&lt;/p></description></item><item><title>Users: Les marges</title><link>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/users/docs/running_time_calculation/allowances/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="la-raison-dêtre-des-marges">La raison d&amp;rsquo;être des marges&lt;/h3>
 &lt;/font>
-&lt;p>Comme expliqué dans le &lt;a href="../pipeline/#calcul-du-max-effort-profile">calcul du Max Effort Profile&lt;/a>, la &lt;strong>marche de base&lt;/strong> représente la marche la plus tendue normalement réalisable, c&amp;rsquo;est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.&lt;/p>
+&lt;p>Comme expliqué dans le &lt;a href="../pipeline/#calcul-du-profil-deffort-maximal">calcul du Max Effort Profile&lt;/a>, la &lt;strong>marche de base&lt;/strong> représente la marche la plus tendue normalement réalisable, c&amp;rsquo;est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.&lt;/p>
 &lt;p>Cette marche de base présente un inconvénient majeur : si un train part avec 10min de retard, il arrivera au mieux avec 10min de retard, car par définition il lui est impossible de rouler plus vite que la marche de base. Par conséquent, les trains sont programmés avec un ajout d&amp;rsquo;une ou de plusieurs marges. Les marges sont une détente du trajet du train, un ajout de temps à l&amp;rsquo;horaire prévu, qui se traduit inévitablement par un abaissement des vitesses de circulation.&lt;/p>
 &lt;blockquote>
 &lt;p>Un train circulant en marche de base est incapable de rattraper son retard !&lt;/p>
@@ -324,7 +336,7 @@ La ligne noire représente le MRSP où la longueur du train a été prise en com
 &lt;font color=#aa026d>
 &lt;h3 id="la-distribution-économique">La distribution économique&lt;/h3>
 &lt;/font>
-&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="../MARECO.pdf">ce document&lt;/a>, consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
+&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="../Mareco.pdf">ce document&lt;/a> (&lt;strong>MARECO&lt;/strong> est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
 &lt;ol>
 &lt;li>une vitesse plafond, évitant les vitesses les plus consommatrices en énergie&lt;/li>
 &lt;li>des zones de marche sur l&amp;rsquo;erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps&lt;/li>
