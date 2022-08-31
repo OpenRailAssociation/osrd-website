@@ -28,7 +28,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Install      
         run: npm install
 
@@ -40,15 +39,37 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install Geojson-Pydantic
-        run: pip install geojson-pydantic==0.4.3
+      - name: Install GDAL
+        run: sudo apt-get install -y gdal-bin
 
-      - name: Add JSON schemas
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-in-project: true
+
+      - name: Clone OSRD repository
+        run: git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd_repo
+       
+      - name: Load cached venv
+        uses: actions/cache@v3
+        id: cached-poetry-dependencies
+        with:
+          path: /tmp/osrd_repo/api/.venv
+          key: osrd-api-venv-${{ hashFiles('/tmp/osrd_repo/api/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: |
-          git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd_repo
-          mkdir public/schemas
-          python /tmp/osrd_repo/api/osrd_infra/schemas/infra.py > content/developers/json_schema/infra_schema.json
-
+          cd /tmp/osrd_repo/api
+          poetry install --no-interaction --no-root -E production
+      - name: Add JSON schemas
+        env: 
+          OSRD_DEV: "True" 
+        run: |
+          source /tmp/osrd_repo/api/.venv/bin/activate
+          mkdir -p public/schemas
+          python /tmp/osrd_repo/api/manage.py json_schema infra > public/schemas/infra_schema.json
+          python /tmp/osrd_repo/api/manage.py json_schema rolling_stock > public/schemas/rolling_stock_schema.json
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
