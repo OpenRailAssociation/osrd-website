@@ -28,6 +28,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: Install      
         run: npm install
 
@@ -63,11 +64,6 @@ jobs:
           cd /tmp/osrd_repo/api
           poetry install --no-interaction --no-root -E production
 
-      - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: |
-          cd /tmp/osrd_repo/api
-          poetry install --no-interaction --no-root -E production
       - name: Add JSON schemas
         env: 
           OSRD_DEV: "True" 
