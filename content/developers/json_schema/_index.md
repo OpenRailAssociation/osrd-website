@@ -14,7 +14,7 @@ weight: 40
     // The JSObject that you want to render
 var infra = {};
     tmp = $.ajax({
-        url: "infra.json",
+        url: "/osrd-website/schemas/infra_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -28,22 +28,22 @@ var infra = {};
 </script>
 
 <!-- Element where the list will be created -->
-<div id="container2"><h1>Train Schedule</h1></div>
+<div id="container2"><h1>Rolling Stock</h1></div>
 
 <script>
     // The JSObject that you want to render
-var train_schedule = {};
+var rolling_stock = {};
     tmp = $.ajax({
-        url: "train_schedule.json",
+        url: "/osrd-website/schemas/rolling_stock_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {
-            train_schedule = data;
+            rolling_stock = data;
         }
     });
     // Render toggable list in the container element
     document.getElementById("container2").appendChild(
-        renderjson(train_schedule)
+        renderjson(rolling_stock)
     );
 </script>
 
