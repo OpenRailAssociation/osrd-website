@@ -21,7 +21,7 @@ weight: 10
 **2022 Objective:** Designing a POC for building and representing strategic schedules
 Stage 1: Scoping stage (2-6 months):
 
-- Analysis of the existing tool (Viriato) and process
+- Analysis of the existing tool and process
 - Collection of needs/confrontation with users
 - Deliverable: scoping note (objectives, expected functionalities, risks, planning, etc.)
 
@@ -65,7 +65,6 @@ End of the stabilisation of the running calculation
 Run the algorithm in OSRD:
 
 - Integrate the algorithm
-- Blocks occupation ?
 - Integrate the algorithm into the SIPH data (infra and hourly data)
   - Import of SIPH data into OSRD
   - Projection of SIPH schedules to track

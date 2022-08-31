@@ -11,6 +11,8 @@ The walk calculation in OSRD is a 4-step process, each using [the envelopes syst
 3. [Adding the different acceleration curves and checking the constant speed curves](#calculation-of-the-max-effort-profile)
 4. [Application of allowance(s)](#application-of-allowances)
 
+<p>&nbsp;</p>
+
 <font color=#aa026d>
 
 ### Calculation of the Most Restricted Speed Profile (MRSP)
@@ -78,11 +80,3 @@ A new **Allowances** envelope is therefore calculated using overlays to distribu
 ![Allowances](../allowances.png)
 
 In the OSRD running calculation it is possible to distribute the allowances in a linear way, by lowering all speeds by a certain factor, or in an economic way, i.e. by minimising the energy consumption during the train run.
-
-<font color=#aa026d>
-
-### Simulation of several trains
-
-</font>
-
-In the case of the simulation of many trains, the signalling system must ensure **safety**. The effect of signalling on the running calculation of a train is reproduced by superimposing dynamic envelopes on the static envelope. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economic envelope superimposed on the dynamic envelopes, if any. In this simulation mode, a time check is performed against a theoretical time from the time information of the static economic envelope. If the train is late with respect to the scheduled time, it stops following the economic envelope and tries to go faster. Its space/speed curve will therefore be limited by the maximum effort envelope.

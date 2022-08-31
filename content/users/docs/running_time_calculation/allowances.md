@@ -10,7 +10,7 @@ weight: 50
 
 </font>
 
-Comme expliqué dans le [calcul du Max Effort Profile](../pipeline/#calcul-du-max-effort-profile), la **marche de base** représente la marche la plus tendue normalement réalisable, c'est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.
+Comme expliqué dans le [calcul du Max Effort Profile](../pipeline/#calcul-du-profil-deffort-maximal), la **marche de base** représente la marche la plus tendue normalement réalisable, c'est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.
 
 Cette marche de base présente un inconvénient majeur : si un train part avec 10min de retard, il arrivera au mieux avec 10min de retard, car par définition il lui est impossible de rouler plus vite que la marche de base. Par conséquent, les trains sont programmés avec un ajout d'une ou de plusieurs marges. Les marges sont une détente du trajet du train, un ajout de temps à l'horaire prévu, qui se traduit inévitablement par un abaissement des vitesses de circulation.
 
@@ -59,7 +59,7 @@ Cette distribution a pour avantage de répartir la marge de la même manière su
 
 </font>
 
-La distribution économique de la marge, présentée en détail dans [ce document](../MARECO.pdf), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :
+La distribution économique de la marge, présentée en détail dans [ce document](../Mareco.pdf) (**MARECO** est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :
 
 1. une vitesse plafond, évitant les vitesses les plus consommatrices en énergie
 2. des zones de marche sur l'erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps

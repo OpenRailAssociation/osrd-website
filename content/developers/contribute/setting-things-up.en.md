@@ -1,7 +1,7 @@
 ---
 title: "Setting things up"
 linkTitle: "Setting things up"
-weight: 10
+weight: 15
 description: Learn to set up a development environment
 ---
 

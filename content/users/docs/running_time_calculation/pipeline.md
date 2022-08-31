@@ -6,14 +6,16 @@ weight: 40
 
 Le calcul de marche dans OSRD est un processus à 4 étapes, utilisant chacune [le système d'enveloppes](../envelopes_system) :
 
-1. [Construction du profil de vitesse le plus restrictif](#calcul-du-most-restricted-speed-profile-mrsp)
-2. [Ajout des différentes courbes de freinage](#calcul-du-max-speed-profile)
-3. [Ajout des différentes courbes d'accélération et vérification des courbes de vitesse constante](#calcul-du-max-effort-profile)
+1. [Construction du profil de vitesse le plus restrictif](#calcul-du-profil-de-vitesse-le-plus-restrictif)
+2. [Ajout des différentes courbes de freinage](#calcul-du-profil-de-vitesse-maximale)
+3. [Ajout des différentes courbes d'accélération et vérification des courbes de vitesse constante](#calcul-du-profil-deffort-maximal)
 4. [Application de marge(s)](#application-de-marges)
+
+<p>&nbsp;</p>
 
 <font color=#aa026d>
 
-### Calcul du Most Restricted Speed Profile (MRSP)
+### Calcul du profil de vitesse le plus restrictif
 
 </font>
 
@@ -26,7 +28,7 @@ Une première enveloppe est calculée au début de la simulation en regroupant t
 - limitations de vitesse selon la charge du train
 - limitations de vitesse correspondant à des panneaux de signalisation
 
-La longueur du train est également prise en compte pour s'assurer que le train n'accélère qu'une fois sa queue ayant quitté la zone de plus faible vitesse. Un décalage est alors appliqué à la courbe en pointillée rouge. L'enveloppe résultante (courbe noire) est appelée **Most Restricted Speed Profile (MRSP)** correspondant donc au profil de vitesse le plus restrictif. C'est sur cette enveloppe que seront calculées les étapes suivantes.
+La longueur du train est également prise en compte pour s'assurer que le train n'accélère qu'une fois sa queue ayant quitté la zone de plus faible vitesse. Un décalage est alors appliqué à la courbe en pointillée rouge. L'enveloppe résultante (courbe noire) est appelée **MRSP (Most Restricted Speed Profile)** correspondant donc au profil de vitesse le plus restrictif. C'est sur cette enveloppe que seront calculées les étapes suivantes.
 
 ![Most Restricted Speed Profile](../mrsp.png)
 
@@ -37,7 +39,7 @@ Il est à noter que les différentes envelopeParts composant le MRSP sont des do
 
 <font color=#aa026d>
 
-### Calcul du Max Speed Profile
+### Calcul du profil de vitesse maximale
 
 </font>
 
@@ -47,15 +49,15 @@ Etant donné que les courbes de freinage ont un point de fin imposé et que l'é
 
 ![Max Speed Profile](../msp.png)
 
-Pour des raisons historiques en production horaire, les courbes de freinages sont calculées à la SNCF avec une décélération forfaitaire, dite décélération horaire (typiquement ~0,5m/s²) sans prendre en compte les autres forces. Cette méthode a donc également été implémentée dans OSRD, permettant ainsi de calculer les freinages de deux manières différentes : avec ce taux horaire ou avec une force de freinage qui vient simplement s'ajouter aux autres forces.
+Pour des raisons historiques en production horaire, les courbes de freinages sont calculées avec une décélération forfaitaire, dite décélération horaire (typiquement ~0,5m/s²) sans prendre en compte les autres forces. Cette méthode a donc également été implémentée dans OSRD, permettant ainsi de calculer les freinages de deux manières différentes : avec ce taux horaire ou avec une force de freinage qui vient simplement s'ajouter aux autres forces.
 
 <font color=#aa026d>
 
-### Calcul du Max Effort Profile
+### Calcul du profil d'effort maximal
 
 </font>
 
-Pour chaque point correspondant à une augmentation de vitesse dans le MRSP ou à la fin d'une courbe de freinage d'arrêt, une courbe d'accélération est calculée. Les courbes d'accélération sont calculées en tenant compte de toutes les forces actives (force de traction, résistance à l'avancement, poids) et ont donc un sens physique.
+Pour chaque point correspondant à une augmentation de vitesse dans le **MRSP** ou à la fin d'une courbe de freinage d'arrêt, une courbe d'accélération est calculée. Les courbes d'accélération sont calculées en tenant compte de toutes les forces actives (force de traction, résistance à l'avancement, poids) et ont donc un sens physique.
 
 Pour les envelopeParts dont le sens physique n'a pas encore été vérifié (qui à ce stade sont les phases de circulation à vitesse constante, provenant toujours du MRSP), une nouvelle intégration des équations de mouvement est effectuée. Ce dernier calcul est nécessaire pour prendre en compte d'éventuels décrochages de vitesse dans le cas où le train serait physiquement incapable de tenir sa vitesse, typiquement en présence de fortes rampes (voir [cet exemple](../envelopes_system/#enveloppes-données-vs-enveloppes-calculées)).
 
@@ -79,10 +81,3 @@ Une nouvelle enveloppe **Allowances** est donc calculée grâce à des overlays 
 
 Dans le calcul de marche d'OSRD, il est possible de distribuer les marges d'une manière linéaire, en abaissant toutes les vitesses d'un certain facteur, ou économique, c'est-à-dire en minimisant la consommation d'énergie pendant le parcours du train.
 
-<font color=#aa026d>
-
-### Simulation de plusieurs trains
-
-</font>
-
-Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer **la sécurité**. L'effet de la signalisation sur le calcul de marche d'un train est reproduit en superposant des enveloppes dynamiques à l'enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu'un signal se ferme. Le train suit l'enveloppe économique statique superposée aux enveloppes dynamiques, s'il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l'information temporelle de l'enveloppe économique statique. Si le train est en retard par rapport à l'heure prévue, il cesse de suivre l'enveloppe économique et essaie d'aller plus vite. Sa courbe espace/vitesse sera donc limitée par l'enveloppe d'effort maximum.

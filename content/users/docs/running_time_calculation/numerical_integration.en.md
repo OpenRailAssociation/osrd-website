@@ -30,11 +30,15 @@ Euler's method of numerical integration is the simplest way of doing this, but i
 
 The Euler method applied to the integration of the equation of motion of a train is:
 
-$$v(t+dt) = a(v(t), x(t))dt + v(t)$$ <div style="text-align: right"> **(1)** </div>
+$$v(t+dt) = a(v(t), x(t))dt + v(t)$$
 
-$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$ <div style="text-align: right"> **(2)** </div>
+$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$
 
-![Euler's method](../euler.png)
+<center>
+
+![Euler's method](../euler.png?style=method)
+
+</center>
 
 <p>&nbsp;</p>
 
@@ -58,7 +62,7 @@ The Euler integration method presents a number of problems for OSRD:
 
 The Runge-Kutta 4 method applied to the integration of the equation of motion of a train is:
 
-$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$ <div style="text-align: right"> **(??)** </div>
+$$v(t+dt) = v(t) + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)dt$$
 
 With:
 
@@ -70,7 +74,11 @@ $$k_3 = a\Big(v(t+k_2\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_2\frac{dt^2}{8}\
 
 $$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$
 
-![Runge-Kutta 4's method](../rk4.png)
+<center>
+
+![Runge-Kutta 4's method](../rk4.png?style=method)
+
+</center>
 
 <p>&nbsp;</p>
 
@@ -151,3 +159,10 @@ After some time, RK4 tends to be the most accurate method, slightly more accurat
 
 The study of accuracy and computational speed presented above shows that RK4 and Euler-Cauchy would be good candidates to replace the Euler algorithm in OSRD: both are fast, accurate, and could replace the Euler method without requiring large implementation changes because they only compute within the current time step.
 **It was decided that OSRD would use the Runge-Kutta 4 method because it is slightly more accurate than Euler-Cauchy and it is a well-known method for this type of calculation, so it is very suitable for an open-source simulator.**
+
+<style>
+img[src$="method"] {
+  height: 70%;
+  width: 70%;
+}
+</style>

@@ -6,8 +6,6 @@ weight: 10
 
 _<font color=#aa026d>« L’application OSRD est open source. Les simulations sont transparentes, explicites et universelles. Tout acteur désireux d'améliorer la compétitivité du système ferroviaire peut y apporter sa contribution »</font>_
 
-> _Loïc Hamelin, Chef de projet OSRD chez DGEX Solutions (Direction Générale Exploitation de SNCF Réseau)_
-
 <font color=#aa026d>
 
 ### OSRD : quand la simulation ferroviaire devient open source

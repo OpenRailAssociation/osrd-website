@@ -8,13 +8,13 @@ weight: 40
 <script src="https://cdn.rawgit.com/caldwell/renderjson/master/renderjson.js"></script>
 
 <!-- Element where the list will be created -->
-<div id="container"><h1>Infra</h1></div>
+<div id="container"><h1>Infrastructure</h1></div>
 
 <script>
     // The JSObject that you want to render
 var infra = {};
     tmp = $.ajax({
-        url: "/schemas/infra_schema.json",
+        url: "/osrd-website/schemas/infra_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -32,18 +32,18 @@ var infra = {};
 
 <script>
     // The JSObject that you want to render
-var train_schedule = {};
+var rolling_stock = {};
     tmp = $.ajax({
-        url: "/schemas/rolling_stock_schema.json",
+        url: "/osrd-website/schemas/rolling_stock_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {
-            train_schedule = data;
+            rolling_stock = data;
         }
     });
     // Render toggable list in the container element
     document.getElementById("container2").appendChild(
-        renderjson(train_schedule)
+        renderjson(rolling_stock)
     );
 </script>
 

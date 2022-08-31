@@ -1,7 +1,7 @@
 ---
 title: "Licence"
 linkTitle: "Licence"
-weight: 100
+weight: 10
 description: "Droits et obligations"
 ---
 

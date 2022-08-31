@@ -1,13 +1,17 @@
 ---
 title: "Usage Example"
-linkTitle: "Example"
+linkTitle: "Usage Example"
 weight: 20
 description: "OSRD data format usage example"
 ---
 
-## Introduction
+<font color=#aa026d>
 
-This page gives an example of how the data formats are used to describe an infrastructure in *OSRD*.
+### Introduction
+
+</font>
+
+This page gives an example of how the data formats are used to describe an infrastructure in **OSRD**.
 
 For this purpose, let's take as an example the following toy infrastructure:
 
@@ -22,22 +26,25 @@ This diagram is an overview of the infrastructure with lines and stations only.
 This infrastructure is not meant to be realistic, but rather meant to help illustrate OSRD's data model.
 This example will be created step by step and explained along the way.
 
-### The infrastructure generator
+#### The infrastructure generator
 
 In the [*OSRD* repository](https://github.com/DGEXSolutions/osrd) is a [python library](https://github.com/DGEXSolutions/osrd/tree/dev/core/examples/generated) designed to help generate infrastructures in a format understood by *OSRD*.
 
 The infrastructure discussed in this section can be generated thanks to [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py) file. To learn more about the generation scripts, you can check out the related [README](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/README.md).
 
-## Tracks
+<font color=#aa026d>
 
-### Track sections
+### Tracks
+
+</font>
+
+#### Track sections
 
 The first objects we need to define are `TrackSections`. Most other objects are positioned relative to track sections.
 
 A track section is a section of rail (switches not included). One can chose to divide the tracks of their infrastructure in as many track sections as they like. Here we chose to use the longest track sections possible, which means that between two switches there is always a single track section.
 
 Track sections is what simulated trains roll onto. They are the abstract equivalent to physical rail sections. Track sections are bidirectional.
-
 
 In this example, we define two tracks for the line between the West and North-East stations. We also have overpassing tracks at the North and Mid-West stations for added realism. Finally, we have three separate tracks in the West station, since it's a major hub in our imaginary infrastructure.
 
@@ -60,7 +67,7 @@ For all track sections in our infrastructure, the `geo` and `sch` attributes are
 
 For most track sections, their `length` is proportional to what can be seen in the diagram. To preserve readability, exceptions were made for *TA6*, *TA7*, *TD0* and *TD1* (which are 10km and 25km).
 
-### Track Section Links
+#### Track Section Links
 
 At the moment we only created track sections, which are not connected to each other (geospacial data is not used to deduce which tracks connect).
 
@@ -71,7 +78,7 @@ To connect more than two `TrackSections` together, use the [`Switches`](#switche
 In our infrastructure, since we chose to have our track sections as long as possible, we do not actually need to use `TrackSectionLinks`.
 `TrackSectionLinks` are always optional: two track sections connected by a link behave just like a single track section.
 
-### Switches
+#### Switches
 
 A `Switch` represents just what you would expect: railway switches.
 
@@ -80,7 +87,7 @@ Switches can be thought of as a collections of track section links, partitioned 
 In the real world, switches are not unique, but rather instances of existing models.
 Thus, links and groups are not part of the switch itself, but in a `SwitchType` object, which is shared by switches of the same model.
 
-#### Switch Types
+##### Switch Types
 
 `SwitchTypes` have two mandatory attributes:
 
@@ -134,7 +141,7 @@ However, it has four groups, each with one connection. The four groups are repre
 
 ![Double cross switch positions diagram](../svg_diagrams/double_cross_switch_positions.en.svg)
 
-#### Back to switches
+##### Back to switches
 
 A `Switch` has three attributes:
 
@@ -148,7 +155,7 @@ Most of our example's switches are regular point switches. The path from North s
 
 ![Track sections and points diagram](../svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
 
-### Curves and slopes
+#### Curves and slopes
 
 `Curves` and `Slopes` are instrumental to realistic simulations. These objects are defined as a range between a `begin` and `end` offsets of one track section. If a curve / slope spans more than one track section, it has to be added to all of them.
 
@@ -164,14 +171,18 @@ In the [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/exam
 
 There are curves as well, on the track sections *TE0*, *TE1*, *TE3* and *TF1*.
 
-## Interlocking
+<font color=#aa026d>
+
+### Interlocking
+
+</font>
 
 All objects so far contributed to track topology (shape). Topology would be enough for trains to navigate the network, but not enough to do so safely. to ensure safety, two systems collaborate:
 
-* interlocking ensures trains are allowed to move forward
-* signaling is the mean by which interlocking communicates with the train
+* Interlocking ensures trains are allowed to move forward
+* Signaling is the mean by which interlocking communicates with the train
 
-### Detectors
+#### Detectors
 
 These objects are used to create TVD sections (Track Vacancy Detection section): the track area in between detectors is a TVD section. When a train runs into a detector, the section it is entering becomes occupied. The only function of TVD sections is to locate trains.
 
@@ -199,7 +210,7 @@ Some notes:
 * Between some points, we added only one detector (and not two), because they were really close together, and it would have made no sense to create a tiny TVDS between the two. This situation happened on track sections (*TA3*, *TA4*, *TA5*, *TF0* and *TG3*).
 * In our infrastructure, there is relatively few track sections which are long enough to require more detectors than just those related to switches. Namely, *TA6*, *TA7*, *TDO*, *TD1*, *TF1*, *TG1* and *TH1*. For example  *TD0*, which measures 25km, has in fact 17 detectors in total.
 
-### Buffer stops
+#### Buffer stops
 
 `BufferStops` are obstacles designed to prevent trains from sliding off dead ends.
 
@@ -207,7 +218,7 @@ In our infrastructure, there is a buffer stop on each track section which has a 
 
 Together with detectors, they set the boundaries of [TVD](https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&q=TVD) sections (see [Detectors](#detectors))
 
-### Routes
+#### Routes
 
 A `Route` is an itinerary in the infrastructure. A train path is a sequence of routes. Routes are used to reserve section of path with the interlocking. See the [dedicated documentation](/fr/developers/internals/simulation-model/).
 
@@ -217,8 +228,11 @@ It is represented with the following attributes:
 * `path`: The list of track section ranges a train can pass on to go from entry to exit. There can be two Routes with the same entry and exit points and two different paths.
 * `release_detectors`: When a train clears a release detector, resources reserved from the beginning of the route until this detector are released.
 
+<font color=#aa026d>
 
-## Signaling
+### Signaling
+
+</font>
 
 Thanks to interlocking, trains are located and allowed to move. It's a good start, but meaningless until trains are made aware of it. This is where `Signal`s come into play: signals react to interlocking, and can be seen by trains.
 
@@ -235,7 +249,7 @@ Here is a visualization of how one can represent a signal, and which direction i
 
 ![Signal direction example](../svg_diagrams/signal_dir.en.svg)
 
-<br />
+<br/>
 
 The way the signals are arranged is highly dependent on both signaling system and infrastructure manager.
 
@@ -253,9 +267,13 @@ To get the `id` of a detector linked to a signal, take the signal's `id` and rep
 On *TA6*, *TA7*, *TD0* and *TD1* we could not represent all signals because these track sections are very long and have many detectors, hence many signals.
 {{% /alert %}}
 
+<font color=#aa026d>
+
 ## Miscellaneous
 
-### Operational points
+</font>
+
+#### Operational points
 
 `OperationalPoints` are collections of points (`OperationalPointParts`) of interest.
 
@@ -265,13 +283,13 @@ In the example infrastructure, we only used operational points to represent stat
 
 ![Operational points examples](../svg_diagrams/small_infra_op_points.drawio.en.svg)
 
-### Loading Gauge Limits
+#### Loading Gauge Limits
 
 These objects are akin to `Slopes` and `Curves`: it covers a range of track section, with a `begin` and an `end` offset. It represents a restriction on the trains that can travel on the given range, by weight or by train type (freight or passenger).
 
 We did not put any in our examples.
 
-### Speed Sections
+#### Speed Sections
 
 The `SpeedSections` represent speed limits (in meters per second) that are applied on some parts of the tracks. One `SpeedSection` can span on several track sections, and do not necessarily cover the whole track sections. Speed sections can overlap.
 

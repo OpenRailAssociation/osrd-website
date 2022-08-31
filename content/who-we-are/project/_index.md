@@ -1,6 +1,6 @@
 ---
-title: Projet/solutions
-linkTitle: Projet/solutions
+title: Projets/solutions
+linkTitle: Projets/solutions
 ---
 
 Le processus de planification de la circulation d’un train demande **10 ans d’anticipation** et implique la collaboration de différents services et acteurs pour transformer les besoins de mobilité des clients : **autorités organisatrices (AO)** et **entreprises ferroviaires (EF)** en **service annuel (SA)**.

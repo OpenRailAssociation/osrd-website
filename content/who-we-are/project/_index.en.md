@@ -1,6 +1,6 @@
 ---
-title: Project/solutions
-linkTitle: Project/solutions
+title: Projects/solutions
+linkTitle: Projects/solutions
 ---
 
 The process of planning the circulation of a train requires **10 years of anticipation** and involves the collaboration of different services and actors to transform the mobility needs of customers: The process of planning a train requires **10 years of anticipation** and involves the collaboration of different departments and actors to transform the mobility needs of customers: **organizing authorities (OA)** and **railway companies (RC)** into **annual service (AS)**.
