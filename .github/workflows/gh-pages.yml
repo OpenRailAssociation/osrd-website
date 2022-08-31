@@ -62,6 +62,12 @@ jobs:
         run: |
           cd /tmp/osrd_repo/api
           poetry install --no-interaction --no-root -E production
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: |
+          cd /tmp/osrd_repo/api
+          poetry install --no-interaction --no-root -E production
       - name: Add JSON schemas
         env: 
           OSRD_DEV: "True" 
@@ -70,6 +76,7 @@ jobs:
           mkdir -p public/schemas
           python /tmp/osrd_repo/api/manage.py json_schema infra > public/schemas/infra_schema.json
           python /tmp/osrd_repo/api/manage.py json_schema rolling_stock > public/schemas/rolling_stock_schema.json
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
