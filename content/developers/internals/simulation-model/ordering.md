@@ -5,6 +5,11 @@ weight: 55
 description: "Décide de l'ordre de formation des itinéraires"
 ---
 
+{{% alert color="warning" %}}
+Cette page est une ébauche, contribuez-y!
+{{% /alert %}}
+
+
 ## Définition
 
 La couche d'ordonnancement a pour responsabilité d'établir l'ordre de commande des itinéraires, et par conséquent, l'ordre de passage des trains.

@@ -5,8 +5,14 @@ weight: 20
 description: Décrit le fonctionnement du poste d'aiguillage virtuel et de la signalisation
 ---
 
+{{% pageinfo color="info" %}}
+Ce document est une description du modèle de fonctionnement cible d'OSRD.
+Il a pour objectif de renseigner développeurs et experts métiers sur le fonctionnement du simulateur.
+Des changements y sont apportés au fil de l'évolution du projet.
+{{% /pageinfo %}}
+
 {{% pageinfo color="warning" %}}
-Ce modèle n'est pas finalisé, et en attente d'implémentation
+Ce modèle est en cours d'implémentation
 {{% /pageinfo %}}
 
 ## Architecture
@@ -54,7 +60,13 @@ flowchart TD
     click movable-elements href "./movable-elements/" _self
 ```
 
-## TODO
+{{% alert title="Pistes d'évolution" color="info" %}}
+- Gestion des overlaps
+{{% /alert %}}
 
-- overlaps
-- opposing movement protection
+## Remerciements
+
+Par ordre alphabétique:
+
+- Christophe Mémin
+- Nathanaël Dias

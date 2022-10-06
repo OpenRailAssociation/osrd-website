@@ -12,8 +12,8 @@ Ces états sont mutuellement exclusifs.
 
 ## Dépendances
 
-- une liste d'élements mobiles
-- liste des états possibles de chaque élément mobile
+- `statique` une liste d'élements mobiles
+- `statique` liste des états possibles de chaque élément mobile
 
 ## Opérations possibles
 

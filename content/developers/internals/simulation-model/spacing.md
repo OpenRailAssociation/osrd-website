@@ -7,41 +7,20 @@ description: "Gère l'état des cantons"
 
 ## Couche de cantonnement
 
-La couche de cantonnement gère des routes de signal à signal (canton).
-Elle permet à la signalisation d'observer l'état d'un groupe
-de zones protégées par chaque signal, et de trouver le signal
-suivant dans la chaîne.
+Les cantons sont l'équivalent des routes, mais pour la signalisation: les routes autorisent le déplacement du train, et les cantons, qui se superposent aux routes, permettent au train d'être mis au courant de ses mouvements autorisés.
 
-Chaque canton porte les informations statiques suivantes:
+Les cantons ont plusieurs attributs:
+ - un **chemin**, qui représente les zones protégées par le canton, et leur état attendu (au même format que le chemin des routes)
+ - un **signal d'entrée**, optionnel (quand le canton pars d'un butoir)
+ - des **signaux intermédiaires** éventuels (c'est utilisé avec des systèmes du style BAPR)
+ - un **signal de sortie**, optionnel (quand le canton se termine à un butoir)
 
-- les zones protégées par le canton, et leur configuration attendue (ce qui inclus l'état des éléments mobiles)
-- les signaux de début et de fin (optionnels)
+Le chemin est exprimé de détecteur en détecteur afin de pouvoir faire un rapprochement avec le graphe des routes.
 
-Un canton est **actif** si tous ses éléments mobiles sont dans la position requise.
-
-{{% alert title="TODO" color="warning" %}}
-Un canton devrait-il être actif quand toutes ses zones sont dans la configuration requise ? Dans ce cas, les cantons de sens contraire seront inactifs.
-{{% /alert %}}
-
-## État
-
-L'état du canton est une combinaison de:
-
-- si toutes les zones sont correctement réservées
-- si une des zones est occupée
-
-```rust
-struct SignalingRouteState {
-    reserved: bool,
-    occupied: bool,
-}
-```
-
-Les cantons n'ont pas d'état persistant. Ils sont à tout instant capables de recalculer leur état.
-
-## Opérations
-
-- On peut demander, étant une liste de signaling routes partant du même point, laquelle est **active** (si il y en a une), et son état. Cette opération est commune à la couche d'API, et non à une signaling route en particulier.
+Quelques remarques:
+- il peut y avoir plusieurs systèmes de signalisation superposés sur la même infrastructure. le modèle pars du principe qu'un seul système à la fois est actif
+- un canton n'a pas d'état: on peut se reposer sur l'état dynamique des zones qui le compose
+- les signaux utilisent les cantons pour savoir quelles zones sont à protéger à un instant donné
 
 ## Exigences de conception
 
@@ -49,3 +28,14 @@ Les cantons n'ont pas d'état persistant. Ils sont à tout instant capables de r
 - chaque signal doit connaître les **zones qu'il protège**
 - **compatibilité modules signalisation** : les modules doivent créer les cantons entre chaque signaux. Chaque canton a un système de signalisation associé.
 - **compatibilité pathfinding** : Le pathfinding se fait dans le produit du graphe de routage et du graphe de cantons.
+
+## Dépendances
+
+- `statique` les zones protégées par le canton, et leur configuration attendue (ce qui inclus l'état des éléments mobiles)
+- `statique` les signaux de début et de fin (optionnels)
+
+## Opérations
+
+- **signalisation**: étant donné une direction sur un détecteur, quel est le canton actif, s'il y en a un
+- **signalisation**: quel est le signal suivant dans la chaîne
+- **signalisation**: quelles sont les zones protégées par le signal
