@@ -5,6 +5,10 @@ weight: 60
 description: "Gère l'état des signaux"
 ---
 
+{{% alert color="warning" %}}
+Cette page est une ébauche, contribuez-y!
+{{% /alert %}}
+
 
 ## Description
 

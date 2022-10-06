@@ -2,36 +2,39 @@
 title: "Routage"
 linkTitle: "Routage"
 weight: 40
-description: "Gère le cycle de vie des itinéraires"
+description: "Gère le cycle des routes"
 ---
 
 ## Description
 
-- Les routes sont formées à la demande. Plusieurs demandes peuvent avoir cours en simultané. Il est de la responsabilité du composant qui active les routes de s'assurer que les demandes sont faites dans le bon ordre.
-- Une route est dite commandée lorsqu'un processus d'activation est en cours, et elle devient formée lorsque le processus se termine
-- Une route peut être activée alors qu'un train est déjà en train de la parcourir. Il faut seulement qu'il soit possible de réserver les zones dans la bonne configuration.
+- Les routes ont pour responsabilité d'autoriser le déplacement des trains dans l'infrastructure. Elles doivent se terminer à un point où l'arrêt du train est prévu (en terme de signalisation, pas voyageur).
+- Les routes sont assimilables à des itinéraires, ou à des suites d'itinéraires et d'installations de pleine voie.
+- Les routes n'ont pas de lien direct avec le cantonnement et la signalisation. Elles nourissent des informations sur la disponibilité des voies qui sont utilisées par le cantonnement et la signalisation.
+- Une route est un chemin de détecteur en détecteur. Elle représente une portion de chemin qu'il est sûr pour un train d'emprunter.
+- Une route est dite **commandée** lorsqu'un processus d'activation est en cours, et elle devient **formée** lorsque le processus se termine. Une fois formée, la route passe à l'état **établi**.
+- Quand le processus de formation de la route se termine, un processus de destruction démarre. Celui-ci attend l'arrivée du train puis libère les zones après son passage.
+- Une route peut être à nouveau formée alors qu'un train est déjà en train de la parcourir, du moment qu'il est possible de réserver les zones dans la bonne configuration. Cela permet à plusieurs trains de se suivre sur la même route.
 
-{{% alert color="info" %}}
-certains postes d'aiguillages ont un enclanchement entre itinéraires de sens contraire (affrontement) qui empêche l'activation d'une route en menant à une zone avec un transit en sens contraire.
+{{% alert title="Piste d'évolution" color="info" %}}
+Certains postes d'aiguillages ont un enclanchement entre itinéraires de sens contraire (affrontement) qui empêche l'activation d'une route en menant à une zone avec un transit en sens contraire. Il serait envisageable de réserver une zone supplémentaire à la fin du chemin protégé par la route, par sécurité.
+{{% /alert %}}
+
+{{% alert title="Piste d'évolution" color="info" %}}
+Certains itinéraires en gare ne permettent pas le partage du chemin par plusieurs trains, afin d'éviter
+{{% /alert %}}
+
+{{% alert title="Piste d'évolution" color="info" %}}
+En pratique, il pourrait être intéressant d'introduire une notion de route partielle afin de réduire le nombre de routes nécessaires: une route partielle est une portion de route qu'il n'est pas sûr d'activer indépendament.
 {{% /alert %}}
 
 ## Exigences de conception
 
-- Le système doit permettre à la **signalisation** de déterminer si la route est **prête à être empruntée**.
-- Le système doit permettre l'**ordonnancement** des trains selon des critères configurables.
-- Le système doit optionnellement permettre la destruction progressive (**transit souple**) de l'itinéraire après le passage du train. 
-- Commande simultanée de l'itinéraire
+Le système doit, indirectement ou directement:
 
-## Possibilités de design
-
-La contrainte la plus importante est la réaction des signaux aux itinéraires devant eux. Traditionnellement, les signaux réagissent à la complète formation d'une des routes devant eux. Cette formulation, si elle est sûre, impose plusieurs contraintes:
-- Il est nécessaire d'associer un état à chaque itinéraire.
-- Les signaux doivent aggréger l'état de tous les itinéraires devant eux. Il peut y en avoir beaucoup.
-
-Une autre possibilité est d'insérer un objet intermédiaire entre le signal et les routes devant lui, qui serait explicitement notifié par le processus d'activation de l'itinéraire de son état. Il existerait un objet de ce genre par couple `(détecteur, direction)` d'où une route part.
-
-La seconde option nous semble préférable, car elle permet d'avoir un couplage moins fort entre la signalisation et les itinéraires.
-
+- permettre à la **signalisation** de déterminer si une section de voie est **prête à être empruntée**.
+- permettre l'**ordonnancement** des trains selon des critères configurables.
+- permettre la destruction progressive (**transit souple**) de l'itinéraire après le passage du train.
+- il doit être possible d'avoir plusieurs processus de commande actifs au même moment pour la même route, afin de supporter des trains qui se suivent
 
 ## Dépendances
 
@@ -40,8 +43,31 @@ La seconde option nous semble préférable, car elle permet d'avoir un couplage 
 
 ## Opérations
 
-- **activer une route**: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été réservée. Un objet permettant d'attendre que la route soit détruite après le passage du train est retourné
-- **observer un point d'entrée d'itinéraire** permet à la signalisation de protéger les appareils de voie
+- **commander une route**: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été formée. **Un processus de destruction doit démarrer dès que la route est formée**.
+
+## Notes de conception
+
+Ces notes permettent d'expliquer les décisions qui ont été prises, afin de pouvoir plus aisément les comprendre et évoluer.
+
+### Informer la signalisation
+
+Sachant que:
+- il peut y avoir beaucoup de zones partant d'un même point, il est préférable d'éviter de contraindre les signaux à observer une liste de routes
+- il est potentiellement difficile d'associer un état clair à chaque route
+
+Il en ressort plusieurs manières d'informer la signalisation de la navigabilité des voies:
+- soit **directement**, en faisant observer à la signalisation les points d'entrée des routes. Si plusieurs routes partent du même endroit, elles partageraient un objet entrée:
+  - moins de complexité dans la couche de réservation, plus de complexité dans la couche de routage
+- soit **indirectement**, via la couche de réservation des zones, qui auraient un état supplémentaire pour marquer leur navigabilité:
+  - moins de complexité dans la couche de routage, plus de complexité dans la couche de réservation
+  - `avantage` le processus d'activation des routes n'aurait pas besoin d'attendre l'arrivée du train, la couche de réservation s'en occuperait.
+  - `avantage` découplage entre routage et cantonnement / signalisation.
+
+La seconde option a été choisie, car:
+ - elle permet d'avoir un couplage moins fort entre la signalisation et les routes.
+ - elle évite aussi au processus d'activation des routes d'attendre le passage du train alors que la couche de réservation le fait déjà.
+
+## Pseudocode
 
 ```python
 @dataclass
@@ -66,9 +92,7 @@ class Route:
             handles.append(await zone.reserve(config, train))
 
         # open and close the entrance signals
-        route.entry_trigger.open()
-        await route.zones[0].wait_until_train_leaves()
-        route.entry_trigger.close()
-    
+        for zone, _ in route.zones:
+            await zone.expect_train(train)
         return RouteHandle(route, handles)
 ```
