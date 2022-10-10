@@ -1,7 +1,7 @@
 ---
 title: "JSON Schemas"
 linkTitle: "JSON Schemas"
-weight: 40
+weight: 70
 ---
 
 <!-- Include from a free CDN -->

@@ -1,7 +1,7 @@
 ---
 title: "Data model"
 linkTitle: "Data model"
-weight: 10
+weight: 30
 description: Describes the organisation and format of data in OSRD
 ---
 

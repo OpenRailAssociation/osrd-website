@@ -1,7 +1,7 @@
 ---
 title: "Modèle de simulation de la signalisation et des aiguillages"
 linkTitle: "Modèle de simulation"
-weight: 20
+weight: 40
 description: Décrit le fonctionnement du poste d'aiguillage virtuel et de la signalisation
 ---
 
