@@ -5,6 +5,17 @@ weight: 40
 description: Décrit le fonctionnement du poste d'aiguillage virtuel et de la signalisation
 ---
 
+Le modèle de simulation définit le rôle et comportement des différents objets simulés au sein d'OSRD.
+
+Cette modélisation est un compromis entre de multiples enjeux:
+ - fidélité de la simulation
+ - interprétabilité des résultats
+ - adaptabilité du modèle à différentes technologies et usages, que cela soit en terme de signalisation, de poste d'aiguillage, ou d'usage des données
+
+En particulier, certaines subtilités propres aux systèmes pratiques ont été sacrifiées sur l'autel de la compatibilité et de l'interprétabilité:
+ - un signal doit forcément s'addresser à un train en particulier: les signaux n'ont pas d'aspect par défaut; ils n'existent que pour être vus
+ - les itinéraires / routes sont formées à destination d'un train en particulier
+
 {{% pageinfo color="info" %}}
 Ce document est une description du modèle de fonctionnement cible d'OSRD.
 Il a pour objectif de renseigner développeurs et experts métiers sur le fonctionnement du simulateur.
