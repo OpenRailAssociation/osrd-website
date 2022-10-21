@@ -12,74 +12,103 @@ Ce document n'est pas finalisé
 <object onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="../space-time-diagram.svg">
 </object>
 
-## Définitions
+## Introduction
 
-### Acteur
+Le système de détection de conflit doit permettre :
+ - de représenter l'utilisation des ressources d'un train simulé indépendament sur un graphique espace temps
+ - étant donné un ensemble de trains et leur utilisation de ressources, de détecter leurs conflits
+ - de rechercher un nouveau chemin parmis des ressources déjà utilisées
+ - de modéliser les conflits d'espacements transmits par des systèmes de signalisation à bloc fixe
 
-#### Formelle
+Un certain nombre de contraintes guident et ont guidé la conception du système de détection de conflit :
+ - **il ne doit pas pouvoir aboutir à la génération de faux-négatifs**: s'il ne détecte pas de conflits, une simulation multi-train de la même grille horaire ne doit pas présenter de ralentissements
+ - le modèle ne doit pas se reposer sur des informations difficiles à obtenir étant donné l'état actuel du projet
+ - il ne doit pas exclure l'inclusion ultérieure de bloc mobile
+ - il doit être possible de détecter les conflits en simulant la signalisation tel que prévu dans le modèle de simulation
+ - il doit être possible de détecter les conflits dans des zones à signalisation hétérogène, voire superposée
+
+## Modèle de détection de conflit
+
+Ce modèle définit les règles de fonctionnnement du système de détection de conflit.
+
+Il repose sur un système de réservation de ressources abstraites.
+Ces ressources ont des configurations possibles, et peuvent être réservées pour un laps de temps donné.
+Si des réservations requièrent une ressource au même moment, elle peuvent où non cohabiter selon leur type et paramètres.
+Si deux réservations simultanées ne peux pas cohabiter, c'est un conflit.
+
+### Définitions
+
+#### Acteur
+
 Un acteur est une entité susceptible de réserver des ressources
 
-#### Ferroviaire
+#### Ressource
+
+Une ressource est un objet susceptible d'être réservé et utilisé par différents acteurs.
+Chaque ressource a des configurations, et ne peut être que dans une configuration à un instant donné.
+
+#### Réservation
+
+Une réservation est l'expression par un acteur du besoin d'utilisation d'une ressource pour une période de temps donnée.
+
+Ces réservations peuvent prendre plusieurs formes :
+ - **partagée** : la ressource est réservée dans une configuration donnée, pendant le laps de temps donné. Ce type de réservation peut seulement cohabiter avec d'autres réservations partagée de la même configuration.
+ - **exclusive** : la ressource est réversée dans une configuration donnée, pour un acteur particulier, pendant le laps de temps donné. Ce type de réservation peut seulement cohabiter avec d'autres du même acteur et de la même configuration.
+
+#### Conflit
+
+Un conflit se produit lorsque qu'il existe deux réservations dont les contraintes sont incompatibles.
+
+Par exemple, il y a un conflit lorsque:
+ - une réservation exclusive chevauche n'importe quelle autre réservation d'un autre acteur
+ - une réservation partagée chevauche une réservation d'une autre configuration
+
+Il n'y a toutefois pas de conflit lorsque:
+ - une ressource est réservée de manière exclusive sur des périodes qui n'ont pas de moment commun
+ - une ressource est partagée par des réservations qui ne requièrent pas la même configuration
+
+Un conflit de ressource perturbe l'acteur à l'origine des réservations.
+
+## Application au modèle de détection de conflit
+
+Le système de détection de conflit peut être appliqué de différentes manières
+
+### Définitions
+
+#### Acteur
+
 On distingue les types d'acteurs suivants:
- - les trains (ou un poste d'aiguillage / régulateur agissant au nom d'un train)
- - les zones de travaux
+ - les **trains** (ou un poste d'aiguillage / régulateur agissant au nom d'un train)
+ - les **zones de travaux**
 
-### Ressource
+#### Ressource
 
-#### Formelle
-Ici, une ressource est un objet susceptible d'être réservé et utilisé par différents acteurs.
-Les ressource peuvent avoir des configurations, qui restraignent la capacité des acteurs à réserver ces ressources au même moment.
-
-#### Ferroviaire
-Pour le moment, il n'y a qu'un type de ressource : les zones.
+Pour le moment, il n'y a qu'un type de ressource : les **zones**.
 Les zones ont autant de configurations qu'il existe de manières de les traverser.
 
 {{% pageinfo color="info" %}}
 À l'avenir, les quais pourraient également être modélisés comme ressources, ce qui permettrait de générer des conflits en cas d'embarquement ou débarquement simultané
 {{% /pageinfo %}}
 
-### Réservation
+#### Réservation
 
-#### Formelle
-Une réservation est l'expression par un acteur du besoin d'utilisation d'une ressource pour une période de temps donnée.
-
-Dans le cas général, ces réservations peuvent prendre plusieurs formes:
- - **exclusive**: la ressource ne **peut pas être partagée** pendant le laps de temps donné
- - **partagée**: la ressource peut satisfaire plusieurs réservations partagées en même temps
- - **partagée sous condition**: la ressource peut satisfaire plusieurs réservations partagées en même temps, du moment que ces réservations répondent à un critère commun
-
-#### Ferroviaire
 Une réservation, c'est quelque chose qui enlève de la capacité.
 
-### Conflit
+#### Conflit
 
-#### Formelle
-Un conflit se produit lorsque qu'il existe deux réservations dont les contraintes sont incompatibles.
-
-Par exemple, il y a un conflit lorsque:
- - une réservation exclusive chevauche n'importe quelle autre réservation
- - une réservation partagée sous condition chevauche une réservation incompatible
-
-Il n'y a pas de conflit lorsque:
- - une ressource est réservée de manière exclusive sur des périodes qui n'ont pas de moment commun
- - une ressource est partagée sous condition par des réservations qui respectent leur critère commun
-
-Un conflit de ressource perturbe l'acteur à l'origine des réservations.
-
-#### Ferroviaire
 En pratique, un conflit de ressource gêne l'acteur à l'origine des réservations est un événement qui peut forcer un train à ralentir :
  - un délai de formation d'itinéraire dû à l'indisponibilité de ressources
  - un conflit d'espacement dû à un rattrapage
 
 Pour détecter les conflits, il est nécessaire de calculer l'impact qu'a un train sur la disponibilité des ressources: son empreinte.
 
-### Capacité
+#### Capacité
 
-Le terme capacité désigne ici la capacité de réservation d'une ressource, ou plus largement la capacité de réservation d'un ensemble de ressources nécessaires au passage d'un train.
+Le terme capacité désigne la capacité à réserver une ressource, ou plus largement la capacité de réservation d'un ensemble de ressources nécessaires au passage d'un train.
 
 ## Génération des réservations
 
-**L'enjeu principal est de générer des réservations qui, si elles sont satisfaites, garantissent au train simulé, suivant la signalisation simulée, un trajet sans encombre.**
+**L'enjeu principal est de générer des réservations qui, si elles sont satisfaites, garantissent au train simulé, suivant la signalisation simulée, un trajet sans ralentissement.**
 
 ### Conflits d'itinéraire
 
