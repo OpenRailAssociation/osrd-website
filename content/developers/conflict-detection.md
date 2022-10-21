@@ -15,9 +15,11 @@ Ce document n'est pas finalisé
 ## Introduction
 
 Le système de détection de conflit doit permettre :
- - de représenter l'utilisation des ressources d'un train simulé indépendament sur un graphique espace temps
- - étant donné un ensemble de trains et leur utilisation de ressources, de détecter leurs conflits
- - de rechercher un nouveau chemin parmis des ressources déjà utilisées
+ - étant donné deux simulations indépendantes, déterminer si elles peuvent être rejouées en même temps sans conflit
+ - avoir des résultats interprétables, c'est à dire que les conflits produits doivent pouvoir être reliés à un processus métier
+ - avoir un fonctionnement interprétable, c'est à dire qu'il doit être possible de visualiser et interprêter le fonctionnement du système
+ - passer à l'échelle : étant donné un grand ensemble de trains et leur utilisation de ressources, il doit toujours être possible de détecter leurs conflits en un temps raisonnable
+ - de permettre la recherche de chemin à travers les ressources utilisées par un grand nombre de trains
  - de modéliser les conflits d'espacements transmits par des systèmes de signalisation à bloc fixe
 
 Un certain nombre de contraintes guident et ont guidé la conception du système de détection de conflit :
