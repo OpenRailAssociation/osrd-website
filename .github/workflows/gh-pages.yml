@@ -62,10 +62,10 @@ jobs:
           key: osrd-api-venv-${{ hashFiles('/tmp/osrd_repo/api/poetry.lock') }}
 
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: |
           cd /tmp/osrd_repo/api
           poetry install --no-interaction --no-root -E production
+
       - name: Add JSON schemas
         env:
           OSRD_DEV: "True"
