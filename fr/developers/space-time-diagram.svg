@@ -42,9 +42,9 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="false"
-     inkscape:zoom="2.8881386"
-     inkscape:cx="441.80705"
-     inkscape:cy="303.48267"
+     inkscape:zoom="1.0211112"
+     inkscape:cx="243.85199"
+     inkscape:cy="371.65394"
      inkscape:window-width="1920"
      inkscape:window-height="1050"
      inkscape:window-x="0"
@@ -3401,7 +3401,7 @@
              inkscape:groupmode="layer"
              id="layer13"
              inkscape:label="beta"
-             style="display:inline;opacity:0.75"
+             style="display:none;opacity:0.75"
              transform="translate(7.9375003)"
              mkt:show-when="show_train_B &amp; show_routing_reservations">
             <rect
@@ -3676,7 +3676,7 @@
              inkscape:groupmode="layer"
              id="layer21"
              inkscape:label="alpha"
-             style="display:none;opacity:1;fill:#800080"
+             style="display:inline;opacity:1;fill:#800080"
              mkt:show-when="show_train_A">
             <rect
                style="display:inline;opacity:1;fill:#d440d4;fill-opacity:0.419608;stroke:none;stroke-width:0.349999;stroke-dasharray:none;stroke-opacity:1"
@@ -3788,7 +3788,7 @@
            id="layer18"
            inkscape:label="alpha.spacing_reservation"
            mkt:show-when="show_train_A &amp; show_spacing_reservations"
-           style="display:none">
+           style="display:inline">
           <path
              style="display:inline;opacity:1;fill:#ffb61f;fill-opacity:0.58;stroke:#e18e00;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
              d="M 63.26707,86.819174 V 107.96002 H 52.391809 l 0.0796,16.15287 -22.334574,-3e-5 v 43.07043 l 15.625892,1.1e-4 9.8e-5,-10.65552 7.189632,-1e-5 -3e-6,-16.27154 10.412925,-2e-5 -1.1e-5,-16.14342 10.33646,-0.009 v -16.13953 l 10.331438,-0.005 -0.04891,-10.546118 6.797968,-2e-6 V 86.818654 Z"
@@ -3804,7 +3804,7 @@
            id="layer23"
            inkscape:label="config change times"
            mkt:show-when="show_train_A &amp; show_train_B &amp; show_routing_reservations"
-           style="display:inline;opacity:0.42;fill:#000000">
+           style="display:none;opacity:0.42;fill:#000000">
           <g
              inkscape:groupmode="layer"
              id="layer24"
@@ -4539,7 +4539,7 @@
          inkscape:groupmode="layer"
          id="layer2"
          inkscape:label="alpha.train"
-         style="display:none"
+         style="display:inline"
          mkt:show-when="show_train_A">
         <path
            id="path12741-6"
