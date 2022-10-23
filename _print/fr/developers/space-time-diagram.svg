@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg12122"
-   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="space-time-diagram.svg"
    inkscape:export-filename="../../../../Downloads/space-time-diagram.png"
    inkscape:export-xdpi="130.62857"
@@ -42,15 +42,15 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="false"
-     inkscape:zoom="0.72203465"
-     inkscape:cx="294.99969"
-     inkscape:cy="434.18969"
-     inkscape:window-width="1366"
-     inkscape:window-height="768"
+     inkscape:zoom="2.8881386"
+     inkscape:cx="441.80705"
+     inkscape:cy="303.48267"
+     inkscape:window-width="1920"
+     inkscape:window-height="1050"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer8">
+     inkscape:current-layer="layer25">
     <sodipodi:guide
        position="186.25532,274.69732"
        orientation="1,0"
@@ -3599,7 +3599,7 @@
              inkscape:groupmode="layer"
              id="layer22"
              inkscape:label="beta"
-             style="display:inline;opacity:1"
+             style="display:none;opacity:1"
              mkt:show-when="show_train_B">
             <rect
                style="opacity:1;fill:#d440d4;fill-opacity:0.419608;stroke:none;stroke-width:0.349999;stroke-dasharray:none;stroke-opacity:1"
@@ -3676,7 +3676,7 @@
              inkscape:groupmode="layer"
              id="layer21"
              inkscape:label="alpha"
-             style="display:inline;opacity:1;fill:#800080"
+             style="display:none;opacity:1;fill:#800080"
              mkt:show-when="show_train_A">
             <rect
                style="display:inline;opacity:1;fill:#d440d4;fill-opacity:0.419608;stroke:none;stroke-width:0.349999;stroke-dasharray:none;stroke-opacity:1"
@@ -3768,17 +3768,17 @@
            inkscape:groupmode="layer"
            id="layer19"
            inkscape:label="beta.spacing_reservation"
-           style="display:inline"
+           style="display:none"
            mkt:show-when="show_train_B &amp; show_spacing_reservations">
           <path
-             style="display:inline;fill:#ffb61f;stroke:#e18e00;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.57999998"
+             style="display:inline;fill:#ffb61f;fill-opacity:0.58;stroke:#e18e00;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
              d="m 127.35019,20.705 v 10.937154 l -5.69375,5.29e-4 v 14.801301 l -9.7303,0.01064 v 14.817831 l -8.01849,-0.0019 -3e-5,25.548558 17.3506,-7e-6 V 76.240601 l 4.63076,-7e-6 V 61.270603 l 5.69803,-4e-6 v -14.81583 h 5.63934 l 1e-5,-14.811956 h 5.63786 l 1e-5,-10.937522 z"
              id="path110739"
              inkscape:label="line end"
              sodipodi:nodetypes="ccccccccccccccccccc" />
           <path
              id="path1465"
-             style="display:inline;fill:#ffb61f;stroke:#e18e00;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.57999998"
+             style="display:inline;fill:#ffb61f;fill-opacity:0.58;stroke:#e18e00;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
              d="m 67.793056,124.11289 15.844679,0.0326 -2e-6,-16.18551 h 6.239573 l -3e-6,-10.546078 H 105.87813 V 107.96 h -6.148273 l 8e-6,16.15288 -6.144683,10e-6 v 16.14344 h -6.193438 v 16.27155 l -4.745125,1e-5 -5e-6,10.6554 H 67.793051 Z"
              sodipodi:nodetypes="ccccccccccccccccc"
              transform="translate(7.9375003)" />
@@ -3788,7 +3788,7 @@
            id="layer18"
            inkscape:label="alpha.spacing_reservation"
            mkt:show-when="show_train_A &amp; show_spacing_reservations"
-           style="display:inline">
+           style="display:none">
           <path
              style="display:inline;opacity:1;fill:#ffb61f;fill-opacity:0.58;stroke:#e18e00;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
              d="M 63.26707,86.819174 V 107.96002 H 52.391809 l 0.0796,16.15287 -22.334574,-3e-5 v 43.07043 l 15.625892,1.1e-4 9.8e-5,-10.65552 7.189632,-1e-5 -3e-6,-16.27154 10.412925,-2e-5 -1.1e-5,-16.14342 10.33646,-0.009 v -16.13953 l 10.331438,-0.005 -0.04891,-10.546118 6.797968,-2e-6 V 86.818654 Z"
@@ -3801,9 +3801,52 @@
         </g>
         <g
            inkscape:groupmode="layer"
+           id="layer23"
+           inkscape:label="config change times"
+           mkt:show-when="show_train_A &amp; show_train_B &amp; show_routing_reservations"
+           style="display:inline;opacity:0.42;fill:#000000">
+          <g
+             inkscape:groupmode="layer"
+             id="layer24"
+             inkscape:label="beta"
+             style="display:inline;fill:#000000">
+            <rect
+               style="display:inline;opacity:0.75;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.709402;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.322951"
+               id="rect296853-6"
+               width="1.7124852"
+               height="10.546126"
+               x="88.164818"
+               y="-107.96003"
+               transform="matrix(1,0,0,-1,7.9375003,0)" />
+            <rect
+               style="display:inline;opacity:0.75;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.709402;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.322951"
+               id="rect296853-6-6"
+               width="1.7124852"
+               height="10.655406"
+               x="74.018066"
+               y="-167.18329"
+               transform="scale(1,-1)" />
+          </g>
+          <g
+             inkscape:groupmode="layer"
+             id="layer25"
+             inkscape:label="alpha"
+             style="fill:#000000">
+            <rect
+               style="display:inline;opacity:0.75;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.709402;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.322951"
+               id="rect296853-6-5"
+               width="1.7124865"
+               height="10.578572"
+               x="120.45228"
+               y="-86.819168"
+               transform="scale(1,-1)" />
+          </g>
+        </g>
+        <g
+           inkscape:groupmode="layer"
            id="layer10"
            inkscape:label="conflicts"
-           style="display:inline;fill:#ff0202;fill-opacity:1"
+           style="display:none;fill:#ff0202;fill-opacity:1"
            mkt:show-when="show_train_A &amp; show_train_B">
           <path
              id="rect67870"
@@ -3813,11 +3856,11 @@
              sodipodi:nodetypes="ccccccccc"
              mkt:show-when="show_train_A &amp; show_train_B &amp; show_spacing_conflicts &amp; show_spacing_reservations" />
           <rect
-             style="display:inline;opacity:1;fill:#dc38dc;fill-opacity:1;stroke:#f30000;stroke-width:0.349999;stroke-dasharray:none;stroke-opacity:1"
+             style="display:inline;opacity:1;mix-blend-mode:normal;fill:#dc38dc;fill-opacity:1;stroke:#f30000;stroke-width:0.349999;stroke-dasharray:none;stroke-opacity:1"
              id="rect64904"
-             width="4.2648835"
+             width="5.9773731"
              height="10.57856"
-             x="122.16476"
+             x="120.45227"
              y="76.240601"
              inkscape:label="reservation conflict"
              mkt:show-when="show_train_A &amp; show_train_B &amp; show_routing_conflicts &amp; show_routing_reservations" />
@@ -4464,7 +4507,7 @@
          inkscape:groupmode="layer"
          id="layer11"
          inkscape:label="beta.train"
-         style="display:inline"
+         style="display:none"
          transform="translate(7.9375003)"
          mkt:show-when="show_train_B">
         <g
@@ -4496,7 +4539,7 @@
          inkscape:groupmode="layer"
          id="layer2"
          inkscape:label="alpha.train"
-         style="display:inline"
+         style="display:none"
          mkt:show-when="show_train_A">
         <path
            id="path12741-6"
