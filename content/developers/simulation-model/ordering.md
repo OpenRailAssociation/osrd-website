@@ -20,8 +20,8 @@ Il est possible d'implémenter un module d'ordonnancement via des tableaux d'ord
 ## Exigences de conception
 
 - Il doit être possible de connecter n'importe quel algorithme d'ordonnancement
-- Le module d'ordonnancement doit blocker puis redémarrer des demandes d'itinéraire.
+- Le module d'ordonnancement doit approuver les commandes de routes.
 
 ## Opérations
 
-- **train**: Le train **demande les itinéraires** devant lui, aussi loin qu'il peut. Sa demande peut être mise en attente du passage d'un autre train.
+- **train**: Des itinéraires sont **commandés** pour chaque trains, aussi loin et aussi tôt que possible. L'approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.

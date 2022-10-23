@@ -29,7 +29,7 @@ Un certain nombre de contraintes guident et ont guidé la conception du système
  - il doit être possible de détecter les conflits en simulant la signalisation tel que prévu dans le modèle de simulation
  - il doit être possible de détecter les conflits dans des zones à signalisation hétérogène, voire superposée
 
-## Modèle de détection de conflit
+## Théorie des conflits
 
 Ce modèle définit les règles de fonctionnnement du système de détection de conflit.
 
@@ -59,7 +59,9 @@ Ces réservations peuvent prendre plusieurs formes :
 
 #### Conflit
 
-Un conflit se produit lorsque qu'il existe deux réservations dont les contraintes sont incompatibles.
+##### Conflits de réservation
+
+Un conflit de réservation se produit lorsque qu'il existe deux réservations simultanées dont les contraintes sont incompatibles.
 
 Par exemple, il y a un conflit lorsque:
  - une réservation exclusive chevauche n'importe quelle autre réservation d'un autre acteur
@@ -71,6 +73,11 @@ Il n'y a toutefois pas de conflit lorsque:
 
 Un conflit de ressource perturbe l'acteur à l'origine des réservations.
 
+##### Conflits de changement de configuration
+
+Certains conflits se produisent par manque de temps entre deux réservations consécutives.
+Le temps requis entre deux réservations est spécifique à chaque ressource.
+
 ## Application au modèle de détection de conflit
 
 Le système de détection de conflit peut être appliqué de différentes manières
@@ -79,14 +86,15 @@ Le système de détection de conflit peut être appliqué de différentes maniè
 
 #### Acteur
 
-On distingue les types d'acteurs suivants:
+On distingue les types d'acteurs suivants :
  - les **trains** (ou un poste d'aiguillage / régulateur agissant au nom d'un train)
  - les **zones de travaux**
 
 #### Ressource
 
-Pour le moment, il n'y a qu'un type de ressource : les **zones**.
-Les zones ont autant de configurations qu'il existe de manières de les traverser.
+On distingue les ressources suivantes :
+ - les **zones**, qui ont autant de configurations qu'il y a de manières de les traverser
+ - les **aiguilles**, qui ont autant de configurations qu'elles ont de position
 
 {{% pageinfo color="info" %}}
 À l'avenir, les quais pourraient également être modélisés comme ressources, ce qui permettrait de générer des conflits en cas d'embarquement ou débarquement simultané
@@ -120,7 +128,7 @@ Concrètement, ces ressources correspondent à des réservations de zones dans l
 
 Ces temps de réservation de ressources sont obtenus selon l'algorithme suivant:
  - un planning d'établissement des ressources est établi de telle sorte à ce que le train n'est jamais forcé de ralentir par une commande trop tardive des routes. Ce planning d'établissement est déterminé en calculant les moments à partir duquel le conducteur verrait une signalisation contraignante, puis en soustrayant marge de temps (Khi, en jargon SNCF).
- - le planning d'établissement des routes de tous les trains est utilisé pour déterminer la chronologie combinée de fin d'utilisation des zones, et donc des aiguilles
+ - le planning d'établissement des routes de tous les trains est utilisé pour déterminer la chronologie combinée de fin d'utilisation des zones et des aiguilles
  - la chronologie combinée de fin d'utilisation des zones est utilisée pour calculer les temps de formation des routes, puis un planning de commande des routes
  - le planning de commande des routes permet de connaître la chronologie de début d'utilisation des zones, et donc connaître les réservations de zones pour chaque train
 

@@ -11,16 +11,36 @@ description: "Gère le cycle des routes"
 - Les routes sont assimilables à des itinéraires, ou à des suites d'itinéraires et d'installations de pleine voie.
 - Les routes n'ont pas de lien direct avec le cantonnement et la signalisation. Elles nourissent des informations sur la disponibilité des voies qui sont utilisées par le cantonnement et la signalisation.
 - Une route est un chemin de détecteur en détecteur. Elle représente une portion de chemin qu'il est sûr pour un train d'emprunter.
-- Une route est dite **commandée** lorsqu'un processus d'activation est en cours, et elle devient **formée** lorsque le processus se termine. Une fois formée, la route passe à l'état **établi**.
-- Quand le processus de formation de la route se termine, un processus de destruction démarre. Celui-ci attend l'arrivée du train puis libère les zones après son passage.
-- Une route peut être à nouveau formée alors qu'un train est déjà en train de la parcourir, du moment qu'il est possible de réserver les zones dans la bonne configuration. Cela permet à plusieurs trains de se suivre sur la même route.
+- Les routes ont des points de libération, qui sont des détecteurs qui délimitent quand détruire l'itinéraire, ce qui permet d'implémenter transit souple, rigide, et entre-deux.
+- Une route peut être à nouveau formée alors qu'un train est déjà en train de la parcourir. Cela permet à plusieurs trains de se suivre sur la même route.
+
+### Cycle de vie d'une route
+
+Les routes n'ont pas d'état, mais leur commande donne lieu à une suite d'événements systématique :
+
+- le système commande toutes les routes sur le trajet du train dans l'ordre, sans attendre
+  - la commande doit être acceptée par le **régulateur**
+- lorsque le régulateur accepte la commande, la **formation** commence
+  - le droit d'action de chaque zone de la route est acquis, selon un ordre global
+  - en parallèle pour toutes les zones:
+    - si la zone n’est pas dans la configuration souhaitée:
+      - si elle est déjà réservée, attendre que les réservations expirent
+      - sinon, la mettre dans la configuration souhaitée en déplaçant les aiguilles
+    - pré-réserver la zone pour le passage du train
+    - le droit d'action de la zone est cédé
+- une fois que la formation est terminée, la route est **établie**
+  - pour chaque zone, transformer la pré-réservation du train en réservation
+- dès que la route est établie, un processus de **destruction de la route** commence
+  - pour chaque zone de la route donnant lieu à une libération
+    - attendre que le train quitte la zone (que la réservation passe de l'état `OCCUPIED` à l'état `PENDING_RELEASE`)
+    - libérer la réservation des zones du début de la route jusqu'à la zone actuelle
 
 {{% alert title="Piste d'évolution" color="info" %}}
-Certains postes d'aiguillages ont un enclanchement entre itinéraires de sens contraire (affrontement) qui empêche l'activation d'une route en menant à une zone avec un transit en sens contraire. Il serait envisageable de réserver une zone supplémentaire à la fin du chemin protégé par la route, par sécurité.
+Certains postes d'aiguillages ont un enclenchement entre itinéraires de sens contraire (affrontement) qui empêche l'activation d'une route en menant à une zone avec un transit en sens contraire. Il serait envisageable de réserver une zone supplémentaire à la fin du chemin protégé par la route, par sécurité.
 {{% /alert %}}
 
 {{% alert title="Piste d'évolution" color="info" %}}
-Certains itinéraires en gare ne permettent pas le partage du chemin par plusieurs trains, afin d'éviter
+Certains itinéraires en gare ne permettent pas le partage du chemin par plusieurs trains
 {{% /alert %}}
 
 {{% alert title="Piste d'évolution" color="info" %}}
@@ -43,7 +63,7 @@ Le système doit, indirectement ou directement:
 
 ## Opérations
 
-- **commander une route**: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été formée. **Un processus de destruction doit démarrer dès que la route est formée**.
+- **commander une route**: démarre un processus asynchrone qui ne se terminera que lorsque la route aura été établie. **Un processus de destruction doit démarrer dès que la route est établie**.
 
 ## Notes de conception
 
@@ -67,32 +87,8 @@ La seconde option a été choisie, car:
  - elle permet d'avoir un couplage moins fort entre la signalisation et les routes.
  - elle évite aussi au processus d'activation des routes d'attendre le passage du train alors que la couche de réservation le fait déjà.
 
-## Pseudocode
+### Cycle de vie des routes et état des zones
 
-```python
-@dataclass
-class RouteHandle:
-    route: Route
-    zone_handles: List[ZoneReservationHandle]
-
-    async def release():
-        """This method must be awaited on for the route to release reservations behind the train"""
-        for release_group in route.release_groups:
-            last_zone_index = release_group.last_zone_index
-            zone_handle = self.zone_handles[last_zone_index]
-            await zone_handle.wait_for_status(train)
-            await last_zone.release(train)
-
-class Route:
-    async def activate(route, train) -> RouteHandle:
-        # zone_sequence is a list of the zones of the route,
-        # sorted by any absolute order to avoid deadlocks
-        handles = []
-        for zone, config in route.zone_reservation_sequence:
-            handles.append(await zone.reserve(config, train))
-
-        # open and close the entrance signals
-        for zone, _ in route.zones:
-            await zone.expect_train(train)
-        return RouteHandle(route, handles)
-```
+Plusieurs enjeux motivent le cycle de vie des routes et l'état des zones :
+ - d'une part, l'état des zones est au coeur de la détection de conflit : il doit être possible d'extraire d'une simulation d'un train seul ses besoins en ressources
+ - d'autre part, il faut qu'une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important

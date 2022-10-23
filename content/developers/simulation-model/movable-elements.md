@@ -18,5 +18,5 @@ Ces états sont mutuellement exclusifs.
 ## Opérations possibles
 
 - observer un élément mobile
-- vérouiller / dévérouiller un élément mobile
+- verrouiller / déverrouiller un élément mobile
 - bouger un élément mobile
