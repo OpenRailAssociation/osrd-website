@@ -27,11 +27,11 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:snap-global="true"
-     inkscape:zoom="3.6203867"
-     inkscape:cx="377.9983"
-     inkscape:cy="434.62208"
+     inkscape:zoom="14.481547"
+     inkscape:cx="243.65491"
+     inkscape:cy="245.38125"
      inkscape:window-width="1920"
-     inkscape:window-height="1080"
+     inkscape:window-height="1050"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -932,126 +932,6 @@
       </svg:g>
       <svg:title
          id="title34905">LR BAL3 NF Warning</svg:title>
-    </svg:symbol>
-    <svg:symbol
-       id="lr_bal3_nf_closed">
-      <svg:title
-         id="title134500">LR BAL3 NF Closed</svg:title>
-      <svg:path
-         style="display:inline;fill:none;stroke:#676767;stroke-width:0.365;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="m 70.788778,28.325866 h -1.916351 v 3.748156"
-         id="path17229-7-17"
-         sodipodi:nodetypes="ccc"
-         inkscape:label="bal3_pole" />
-      <svg:g
-         id="g122729-5"
-         transform="translate(6.8093261)"
-         inkscape:label="bal3_non_passable"
-         style="display:inline">
-        <svg:title
-           id="title122859-96">BAL3 non-passable warning</svg:title>
-        <svg:title
-           id="title123514-2">BAL3 non-passable warning</svg:title>
-        <svg:g
-           transform="matrix(0.01534161,0,0,0.01534161,59.108098,28.568166)"
-           id="g17257-2-0-1"
-           style="display:inline">
-          <svg:rect
-             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.07622"
-             id="rect17249-5-4-7"
-             width="92.659302"
-             height="94"
-             x="150.67035"
-             y="51.362183"
-             rx="0"
-             ry="0" />
-          <svg:path
-             sodipodi:nodetypes="ccccccccccc"
-             inkscape:connector-curvature="0"
-             id="path17251-4-8-8"
-             d="m 159.93367,62.907434 h 10.74386 l 21.48773,44.049836 V 62.907434 h 10.74387 V 133.81693 H 192.16526 L 170.67753,89.767093 v 44.049837 h -10.74386 z"
-             style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.07439" />
-          <svg:path
-             sodipodi:nodetypes="ccsssccsssc"
-             inkscape:connector-curvature="0"
-             id="path17253-7-7-5"
-             d="m 212.5786,133.81693 h 8.59509 c 0,0 0,-32.95397 0,-49.421769 0,-1.519412 0.84041,-3.223159 3.22316,-3.223159 2.09498,0 3.22316,1.703747 3.22316,3.223159 0,1.623269 0,2.148773 0,2.148773 h 6.44632 c 0,0 0,-1.112046 0,-2.148773 0,-5.089966 -4.00111,-11.81825 -9.66948,-11.81825 -7.19991,0 -11.81825,6.247074 -11.81825,11.81825 0,16.869399 0,49.421769 0,49.421769 z"
-             style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.07439" />
-          <svg:rect
-             y="96.213409"
-             x="207.20667"
-             height="5.371932"
-             width="19.338955"
-             id="rect17255-4-1-7"
-             style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.07439" />
-        </svg:g>
-      </svg:g>
-      <svg:title
-         id="title134744">BAL3 non-passable closed</svg:title>
-      <svg:g
-         id="g8417"
-         inkscape:label="signal"
-         style="display:inline;opacity:1">
-        <svg:g
-           id="g17237-6-4"
-           inkscape:label="bg"
-           transform="translate(129.90145,8.7689205)"
-           style="display:inline">
-          <svg:path
-             id="path17231-5-1"
-             style="opacity:1;fill:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-             d="m -219.92578,65.007812 c -1.92857,2.78e-4 -3.49191,1.563621 -3.49219,3.492188 v 10.832031 c 2.8e-4,1.928567 1.56362,3.49191 3.49219,3.492188 1.92933,7.99e-4 3.49386,-1.562859 3.49414,-3.492188 V 68.5 c -2.8e-4,-1.929329 -1.56481,-3.492987 -3.49414,-3.492188 z"
-             transform="scale(0.26458333)"
-             sodipodi:nodetypes="ccccccc"
-             inkscape:label="outer" />
-          <svg:path
-             id="path17233-6-8"
-             style="opacity:1;fill:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-             d="m -219.92578,65.34375 c -1.74282,7.93e-4 -3.15546,1.41343 -3.15625,3.15625 v 10.832031 c -2.8e-4,1.743583 1.41267,3.157409 3.15625,3.158203 1.74434,2.83e-4 3.15848,-1.413859 3.1582,-3.158203 V 68.5 c -7.9e-4,-1.743581 -1.41462,-3.156533 -3.1582,-3.15625 z"
-             transform="scale(0.26458333)"
-             sodipodi:nodetypes="ccccccc"
-             inkscape:label="white" />
-          <svg:path
-             id="path17235-9-5"
-             style="opacity:1;fill:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-             d="m -219.92578,65.59375 c -1.60508,-1.4e-5 -2.90626,1.301166 -2.90625,2.90625 v 10.832031 c -1e-5,1.605084 1.30117,2.906264 2.90625,2.90625 1.60508,1.4e-5 2.90626,-1.301166 2.90625,-2.90625 V 68.5 c 1e-5,-1.605084 -1.30117,-2.906264 -2.90625,-2.90625 z"
-             transform="scale(0.26458333)"
-             sodipodi:nodetypes="sccsccs"
-             inkscape:label="inner" />
-        </svg:g>
-        <svg:circle
-           style="display:inline;fill:#808080;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-           id="circle2439-7-0"
-           cx="71.937485"
-           cy="29.192585"
-           r="0.26865205"
-           inkscape:label="warning"
-           transform="rotate(0.455553)" />
-        <svg:circle
-           style="display:inline;fill:#808080;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-           id="circle2441-2-0"
-           cx="71.937485"
-           cy="27.240009"
-           r="0.26865205"
-           inkscape:label="green"
-           transform="rotate(0.455553)" />
-        <svg:circle
-           style="display:inline;fill:#ff0000;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-           id="circle17239-3-9"
-           cx="71.713005"
-           cy="26.834801"
-           r="0.26865205"
-           inkscape:label="closed" />
-        <svg:circle
-           style="display:inline;fill:#ff0000;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-           id="circle17245-5-8"
-           cx="71.713005"
-           cy="28.787376"
-           r="0.26865205"
-           inkscape:label="semaphore" />
-      </svg:g>
-      <svg:title
-         id="title35212">LR BAL3 NF Closed</svg:title>
     </svg:symbol>
     <svg:symbol
        id="rl_bal3_nf_none"
@@ -4932,6 +4812,130 @@
       <svg:title
          id="title42817">TB BAL3 F Semaphore</svg:title>
     </svg:symbol>
+    <svg:symbol
+       id="lr_bal3_nf_closed"
+       style="display:inline">
+      <svg:title
+         id="title134500">LR BAL3 NF Closed</svg:title>
+      <svg:path
+         style="display:inline;fill:none;stroke:#676767;stroke-width:0.365;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 70.833896,28.32583 h -1.916351 v 3.748156"
+         id="path17229-7-17"
+         sodipodi:nodetypes="ccc"
+         inkscape:label="bal3_pole" />
+      <svg:g
+         id="g122729-5"
+         transform="translate(6.8544441,-3.6e-5)"
+         inkscape:label="bal3_non_passable"
+         style="display:inline">
+        <svg:title
+           id="title122859-96">BAL3 non-passable warning</svg:title>
+        <svg:title
+           id="title123514-2">BAL3 non-passable warning</svg:title>
+        <svg:g
+           transform="matrix(0.01534161,0,0,0.01534161,59.108098,28.568166)"
+           id="g17257-2-0-1"
+           style="display:inline">
+          <svg:rect
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.07622"
+             id="rect17249-5-4-7"
+             width="92.659302"
+             height="94"
+             x="150.67035"
+             y="51.362183"
+             rx="0"
+             ry="0" />
+          <svg:path
+             sodipodi:nodetypes="ccccccccccc"
+             inkscape:connector-curvature="0"
+             id="path17251-4-8-8"
+             d="m 159.93367,62.907434 h 10.74386 l 21.48773,44.049836 V 62.907434 h 10.74387 V 133.81693 H 192.16526 L 170.67753,89.767093 v 44.049837 h -10.74386 z"
+             style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.07439" />
+          <svg:path
+             sodipodi:nodetypes="ccsssccsssc"
+             inkscape:connector-curvature="0"
+             id="path17253-7-7-5"
+             d="m 212.5786,133.81693 h 8.59509 c 0,0 0,-32.95397 0,-49.421769 0,-1.519412 0.84041,-3.223159 3.22316,-3.223159 2.09498,0 3.22316,1.703747 3.22316,3.223159 0,1.623269 0,2.148773 0,2.148773 h 6.44632 c 0,0 0,-1.112046 0,-2.148773 0,-5.089966 -4.00111,-11.81825 -9.66948,-11.81825 -7.19991,0 -11.81825,6.247074 -11.81825,11.81825 0,16.869399 0,49.421769 0,49.421769 z"
+             style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.07439" />
+          <svg:rect
+             y="96.213409"
+             x="207.20667"
+             height="5.371932"
+             width="19.338955"
+             id="rect17255-4-1-7"
+             style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.07439" />
+        </svg:g>
+      </svg:g>
+      <svg:title
+         id="title134744">BAL3 non-passable closed</svg:title>
+      <svg:g
+         id="g8417"
+         inkscape:label="signal"
+         style="display:inline;opacity:1"
+         transform="translate(-0.007775,-3.6e-5)">
+        <svg:g
+           id="g17237-6-4"
+           inkscape:label="bg"
+           transform="translate(129.90145,8.7689205)"
+           style="display:inline">
+          <svg:path
+             id="path17231-5-1"
+             style="opacity:1;fill:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+             d="m -219.92578,65.007812 c -1.92857,2.78e-4 -3.49191,1.563621 -3.49219,3.492188 v 10.832031 c 2.8e-4,1.928567 1.56362,3.49191 3.49219,3.492188 1.92933,7.99e-4 3.49386,-1.562859 3.49414,-3.492188 V 68.5 c -2.8e-4,-1.929329 -1.56481,-3.492987 -3.49414,-3.492188 z"
+             transform="scale(0.26458333)"
+             sodipodi:nodetypes="ccccccc"
+             inkscape:label="outer" />
+          <svg:path
+             id="path17233-6-8"
+             style="opacity:1;fill:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+             d="m -219.92578,65.34375 c -1.74282,7.93e-4 -3.15546,1.41343 -3.15625,3.15625 v 10.832031 c -2.8e-4,1.743583 1.41267,3.157409 3.15625,3.158203 1.74434,2.83e-4 3.15848,-1.413859 3.1582,-3.158203 V 68.5 c -7.9e-4,-1.743581 -1.41462,-3.156533 -3.1582,-3.15625 z"
+             transform="scale(0.26458333)"
+             sodipodi:nodetypes="ccccccc"
+             inkscape:label="white" />
+          <svg:path
+             id="path17235-9-5"
+             style="opacity:1;fill:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+             d="m -219.92578,65.59375 c -1.60508,-1.4e-5 -2.90626,1.301166 -2.90625,2.90625 v 10.832031 c -1e-5,1.605084 1.30117,2.906264 2.90625,2.90625 1.60508,1.4e-5 2.90626,-1.301166 2.90625,-2.90625 V 68.5 c 1e-5,-1.605084 -1.30117,-2.906264 -2.90625,-2.90625 z"
+             transform="scale(0.26458333)"
+             sodipodi:nodetypes="sccsccs"
+             inkscape:label="inner" />
+        </svg:g>
+        <svg:circle
+           style="display:inline;fill:#808080;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+           id="circle2439-7-0"
+           cx="71.937485"
+           cy="29.192585"
+           r="0.26865205"
+           inkscape:label="warning"
+           transform="rotate(0.455553)" />
+        <svg:circle
+           style="display:inline;fill:#808080;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+           id="circle2441-2-0"
+           cx="71.937485"
+           cy="27.240009"
+           r="0.26865205"
+           inkscape:label="green"
+           transform="rotate(0.455553)" />
+        <svg:circle
+           style="display:inline;fill:#ff0000;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+           id="circle17239-3-9"
+           cx="71.713005"
+           cy="26.834801"
+           r="0.26865205"
+           inkscape:label="closed" />
+        <svg:circle
+           style="display:inline;fill:#ff0000;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+           id="circle17245-5-8"
+           cx="71.713005"
+           cy="28.787376"
+           r="0.26865205"
+           inkscape:label="semaphore" />
+      </svg:g>
+      <svg:title
+         id="title35212">LR BAL3 NF Closed</svg:title>
+      <svg:title
+         id="title78254">LR BAL3 NF Closed</svg:title>
+    </svg:symbol>
   </svg:defs>
   <svg:g
      inkscape:groupmode="layer"
@@ -5003,10 +5007,6 @@
     <svg:use
        xlink:href="#lr_bal3_nf_warning"
        id="use34927"
-       transform="translate(-0.05926,35.331029)" />
-    <svg:use
-       xlink:href="#lr_bal3_nf_closed"
-       id="use35234"
        transform="translate(-0.05926,35.331029)" />
     <svg:use
        xlink:href="#rl_bal3_nf_none"
@@ -5153,6 +5153,10 @@
     <svg:use
        xlink:href="#tb_bal3_f_semaphore"
        id="use42835" />
+    <svg:use
+       xlink:href="#lr_bal3_nf_closed"
+       id="use78277"
+       transform="translate(-0.05926,35.331029)" />
   </svg:g>
   <svg:metadata
      id="metadata162843">
