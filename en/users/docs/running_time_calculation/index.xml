@@ -334,7 +334,7 @@ The black line represents the MRSP where the train length has been taken into ac
 &lt;font color=#aa026d>
 &lt;h3 id="economic-distribution">Economic distribution&lt;/h3>
 &lt;/font>
-&lt;p>The economic distribution of the allowance, presented in detail in &lt;a href="../Mareco.pdf">this document&lt;/a> (&lt;strong>MARECO&lt;/strong> is an algorithm designed by the SNCF research department), consists of distributing the allowance in the most energy-efficient way possible. It is based on two principles:&lt;/p>
+&lt;p>The economic distribution of the allowance, presented in detail in &lt;a href="../MARECO.pdf">this document&lt;/a> (&lt;strong>MARECO&lt;/strong> is an algorithm designed by the SNCF research department), consists of distributing the allowance in the most energy-efficient way possible. It is based on two principles:&lt;/p>
 &lt;ol>
 &lt;li>a maximum speed, avoiding the most energy-intensive speeds&lt;/li>
 &lt;li>run-on zones, located before braking and steep gradients, where the train runs with the engine off thanks to its inertia, allowing it to consume no energy during this period&lt;/li>

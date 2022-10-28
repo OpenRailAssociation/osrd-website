@@ -336,7 +336,7 @@ La ligne noire représente le MRSP où la longueur du train a été prise en com
 &lt;font color=#aa026d>
 &lt;h3 id="la-distribution-économique">La distribution économique&lt;/h3>
 &lt;/font>
-&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="../Mareco.pdf">ce document&lt;/a> (&lt;strong>MARECO&lt;/strong> est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
+&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="../MARECO.pdf">ce document&lt;/a> (&lt;strong>MARECO&lt;/strong> est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
 &lt;ol>
 &lt;li>une vitesse plafond, évitant les vitesses les plus consommatrices en énergie&lt;/li>
 &lt;li>des zones de marche sur l&amp;rsquo;erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps&lt;/li>
