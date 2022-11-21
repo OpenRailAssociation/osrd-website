@@ -58,8 +58,19 @@ Le système doit, indirectement ou directement:
 
 ## Dépendances
 
-- une liste d'élements mobiles
-- liste des états possibles de chaque élément mobile
+- `statique` le chemin des routes de détecteur à détecteur
+- `statique` la position requise des aiguilles, par zone
+- `statique` les points de libération des zones (qui implémentent le transit souple / rigide)
+
+- `dynamique` `régulateur` soumettre des commandes
+- `dynamique` `réservation` acquérir et relacher un droit d'action par zone
+- `dynamique` `réservation` attendre que les réservations d'une zone expirent
+- `dynamique` `éléments mobiles` déplacer des aiguilles
+- `dynamique` `réservation` pré-réserver une zone
+- `dynamique` `réservation` promouvoir une pré-réservation en réservation
+- `dynamique` `réservation` lors de la destruction de la route, attendre qu'une réservation passe en `PENDING_RELEASE`
+- `dynamique` `réservation` libérer une réservation
+
 
 ## Opérations
 
@@ -83,7 +94,7 @@ Il en ressort plusieurs manières d'informer la signalisation de la navigabilit�
   - `avantage` le processus d'activation des routes n'aurait pas besoin d'attendre l'arrivée du train, la couche de réservation s'en occuperait.
   - `avantage` découplage entre routage et cantonnement / signalisation.
 
-La seconde option a été choisie, car:
+La seconde option a été choisie, car :
  - elle permet d'avoir un couplage moins fort entre la signalisation et les routes.
  - elle évite aussi au processus d'activation des routes d'attendre le passage du train alors que la couche de réservation le fait déjà.
 

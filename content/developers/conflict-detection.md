@@ -14,6 +14,8 @@ Ce document n'est pas finalisé
 
 ## Introduction
 
+Le système de détection de conflit se repose sur le poste d'aiguillage et la simulation de la signalisation pour synthétiser les besoins en ressources des acteurs, et détecter les incompatibilités.
+
 Le système de détection de conflit doit permettre :
  - étant donné deux simulations indépendantes, déterminer si elles peuvent être rejouées en même temps sans conflit
  - avoir des résultats interprétables, c'est à dire que les conflits produits doivent pouvoir être reliés à un processus métier
@@ -42,34 +44,34 @@ Si deux réservations simultanées ne peux pas cohabiter, c'est un conflit.
 
 #### Acteur
 
-Un acteur est une entité susceptible de réserver des ressources
+Un acteur est une entité susceptible de requérir des ressources
 
 #### Ressource
 
-Une ressource est un objet susceptible d'être réservé et utilisé par différents acteurs.
+Une ressource est un objet susceptible d'être requis et utilisé par différents acteurs.
 Chaque ressource a des configurations, et ne peut être que dans une configuration à un instant donné.
 
-#### Réservation
+#### Besoin
 
-Une réservation est l'expression par un acteur du besoin d'utilisation d'une ressource pour une période de temps donnée.
+Un besoin est l'expression par un acteur de son besoin d'utilisation d'une ressource pour une période de temps donnée.
 
-Ces réservations peuvent prendre plusieurs formes :
- - **partagée** : la ressource est réservée dans une configuration donnée, pendant le laps de temps donné. Ce type de réservation peut seulement cohabiter avec d'autres réservations partagée de la même configuration.
- - **exclusive** : la ressource est réversée dans une configuration donnée, pour un acteur particulier, pendant le laps de temps donné. Ce type de réservation peut seulement cohabiter avec d'autres du même acteur et de la même configuration.
+Ces besoins peuvent prendre plusieurs formes :
+ - **partageables** : la ressource est requise dans une configuration donnée, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d'autres besions partageables de la même configuration.
+ - **exclusifs** : la ressource est requise dans une configuration donnée, pour un acteur particulier, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d'autres du même acteur et de la même configuration.
 
 #### Conflit
 
-##### Conflits de réservation
+##### Conflits de besoin
 
-Un conflit de réservation se produit lorsque qu'il existe deux réservations simultanées dont les contraintes sont incompatibles.
+Un conflit de besoin se produit lorsque qu'il existe deux besoins simultanées dont les contraintes sont incompatibles.
 
 Par exemple, il y a un conflit lorsque:
- - une réservation exclusive chevauche n'importe quelle autre réservation d'un autre acteur
- - une réservation partagée chevauche une réservation d'une autre configuration
+ - un besoin exclusif chevauche n'importe quelle autre réservation d'un autre acteur
+ - un besoin partageable chevauche un besoin d'une autre configuration
 
 Il n'y a toutefois pas de conflit lorsque:
- - une ressource est réservée de manière exclusive sur des périodes qui n'ont pas de moment commun
- - une ressource est partagée par des réservations qui ne requièrent pas la même configuration
+ - une ressource est requise de manière exclusive sur des périodes qui n'ont pas de moment commun
+ - une ressource est partagée par des besoins qui ne requièrent pas la même configuration
 
 Un conflit de ressource perturbe l'acteur à l'origine des réservations.
 
@@ -123,11 +125,12 @@ Le terme capacité désigne la capacité à réserver une ressource, ou plus lar
 ### Conflits d'itinéraire
 
 L'aiguillage d'un train à travers l'infrastructure a un impact susceptible de générer des conflits.
+Un conflit se produit lorsqu'un conducteur perçoit les conséquences du fait qu'un itinéraire a été établi trop tardivement.
 L'empreinte d'aiguillage, c'est les réservations de ressources requises pour qu'un train puisse être aiguillé sans gêne jusqu'à sa destination.
 Concrètement, ces ressources correspondent à des réservations de zones dans le temps.
 
 Ces temps de réservation de ressources sont obtenus selon l'algorithme suivant:
- - un planning d'établissement des ressources est établi de telle sorte à ce que le train n'est jamais forcé de ralentir par une commande trop tardive des routes. Ce planning d'établissement est déterminé en calculant les moments à partir duquel le conducteur verrait une signalisation contraignante, puis en soustrayant marge de temps (Khi, en jargon SNCF).
+ - un planning d'établissement des ressources est établi de telle sorte à ce que le train n'est jamais forcé de ralentir par une commande trop tardive des routes. Ce planning d'établissement est déterminé en calculant les moments à partir duquel le conducteur verrait une signalisation contraignante, puis en soustrayant marge de temps
  - le planning d'établissement des routes de tous les trains est utilisé pour déterminer la chronologie combinée de fin d'utilisation des zones et des aiguilles
  - la chronologie combinée de fin d'utilisation des zones est utilisée pour calculer les temps de formation des routes, puis un planning de commande des routes
  - le planning de commande des routes permet de connaître la chronologie de début d'utilisation des zones, et donc connaître les réservations de zones pour chaque train

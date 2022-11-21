@@ -38,7 +38,6 @@ flowchart TD
     %% ↓
     routing[Routage]
     ordering[Ordonnancement]
-    spacing["Espacement"]
     %% ↓
     reservation[Réservation]
     %% ↓
@@ -49,14 +48,11 @@ flowchart TD
 
     train -- réagit à --> signaling
     train -- réclame les itinéraires --> ordering
-    signaling -- observe --> routing
-    ordering -- réserve --> routing
-    signaling -- observe --> spacing
-    spacing -- observe --> reservation
-    spacing -- observe --> movable-elements
+    ordering -- commande --> routing
+    signaling -- observe --> reservation
     routing -- observe et réserve --> reservation
     reservation -- observe --> location
-    reservation -- réserve et actionne --> movable-elements
+    reservation -- actionne --> movable-elements
     train -- informe --> location
 
     %%%% CLICKABLE LINKS
@@ -65,7 +61,6 @@ flowchart TD
     click ordering href "./ordering/" _self
     click signaling href "./signaling/" _self
     click routing href "./routing/" _self
-    click spacing href "./spacing/" _self
     click reservation href "./reservation/" _self
     click location href "./location/" _self
     click movable-elements href "./movable-elements/" _self
@@ -80,4 +75,6 @@ flowchart TD
 Par ordre alphabétique:
 
 - Christophe Mémin
+- Djamal Bellebia
+- Gilles Dessagne
 - Nathanaël Dias

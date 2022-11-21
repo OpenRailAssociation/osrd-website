@@ -95,15 +95,17 @@ impl ZoneState {
 
 ## Dépendances
 
-- `statique` une liste de zones
+- `statique` les détecteurs qui délimitent chaque zone
+- `statique` les aiguilles dans chaque zone
 - `dynamique` capacité d'observer l'occupation des zones
 - `dynamique` capacité d'actionner les éléments mobiles
 
 ## Opérations
 
 - **espacement**: Observer l'état d'une zone
-- **routage**: Verrouiller et déverrouiller la zone. Toutes les opérations en écriture nécessitent d'avoir acquis le verrou.
+- **routage**: Verrouiller et déverrouiller la zone : permet d'obtenir un droit d'action. Toutes les opérations en écriture nécessitent d'avoir acquis le verrou.
+- **routage**: Attendre que toutes les réservations d'une zone expirent
 - **routage**: Pré-réserver une configuration de zone
 - **routage**: Confirmer la réservation d'une zone
-- **routage**: Attendre que la réservation de la zone soit utilisée par son train
+- **routage**: Attendre que la réservation de la zone soit occupée par son train
 - **routage**: Relacher une réservation de zone
