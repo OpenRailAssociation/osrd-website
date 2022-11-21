@@ -42,15 +42,15 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="false"
-     inkscape:zoom="1.0211112"
-     inkscape:cx="243.85199"
-     inkscape:cy="371.65394"
+     inkscape:zoom="8.1688895"
+     inkscape:cx="67.940691"
+     inkscape:cy="601.61176"
      inkscape:window-width="1920"
      inkscape:window-height="1050"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer25">
+     inkscape:current-layer="g30682">
     <sodipodi:guide
        position="186.25532,274.69732"
        orientation="1,0"
@@ -2577,24 +2577,25 @@
             <text
                xml:space="preserve"
                style="font-style:normal;font-weight:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;display:inline;fill:#bbbbbb;fill-opacity:1;stroke:none;stroke-width:0.264583"
-               x="35.754955"
-               y="211.18938"
-               id="text30592"><tspan
+               x="210.31458"
+               y="-34.87413"
+               id="text30592"
+               transform="rotate(90)"><tspan
                  sodipodi:role="line"
                  id="tspan30586"
                  style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';text-align:center;text-anchor:middle;fill:#bbbbbb;fill-opacity:1;stroke-width:0.264583"
-                 x="35.754955"
-                 y="211.18938">C</tspan><tspan
+                 x="210.31458"
+                 y="-34.87413">C</tspan><tspan
                  sodipodi:role="line"
                  style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';text-align:center;text-anchor:middle;fill:#bbbbbb;fill-opacity:1;stroke-width:0.264583"
-                 x="35.754955"
-                 y="214.30029"
+                 x="210.31458"
+                 y="-31.763216"
                  dy="-1"
                  id="tspan30588" /><tspan
                  sodipodi:role="line"
                  style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';text-align:center;text-anchor:middle;fill:#bbbbbb;fill-opacity:1;stroke-width:0.264583"
-                 x="35.754955"
-                 y="217.41121"
+                 x="210.31458"
+                 y="-28.6523"
                  dy="-1"
                  id="tspan30590" /></text>
             <text

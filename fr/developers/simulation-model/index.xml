@@ -117,17 +117,19 @@ Un enclenchement, c&amp;rsquo;est une garantie qu&amp;rsquo;une situation partic
 &lt;/ul>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
-&lt;li>&lt;code>statique&lt;/code> une liste de zones&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> les détecteurs qui délimitent chaque zone&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> les aiguilles dans chaque zone&lt;/li>
 &lt;li>&lt;code>dynamique&lt;/code> capacité d&amp;rsquo;observer l&amp;rsquo;occupation des zones&lt;/li>
 &lt;li>&lt;code>dynamique&lt;/code> capacité d&amp;rsquo;actionner les éléments mobiles&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>espacement&lt;/strong>: Observer l&amp;rsquo;état d&amp;rsquo;une zone&lt;/li>
-&lt;li>&lt;strong>routage&lt;/strong>: Verrouiller et déverrouiller la zone. Toutes les opérations en écriture nécessitent d&amp;rsquo;avoir acquis le verrou.&lt;/li>
+&lt;li>&lt;strong>routage&lt;/strong>: Verrouiller et déverrouiller la zone : permet d&amp;rsquo;obtenir un droit d&amp;rsquo;action. Toutes les opérations en écriture nécessitent d&amp;rsquo;avoir acquis le verrou.&lt;/li>
+&lt;li>&lt;strong>routage&lt;/strong>: Attendre que toutes les réservations d&amp;rsquo;une zone expirent&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Pré-réserver une configuration de zone&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Confirmer la réservation d&amp;rsquo;une zone&lt;/li>
-&lt;li>&lt;strong>routage&lt;/strong>: Attendre que la réservation de la zone soit utilisée par son train&lt;/li>
+&lt;li>&lt;strong>routage&lt;/strong>: Attendre que la réservation de la zone soit occupée par son train&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Relacher une réservation de zone&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/routing/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
@@ -202,8 +204,39 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;/ul>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
-&lt;li>une liste d&amp;rsquo;élements mobiles&lt;/li>
-&lt;li>liste des états possibles de chaque élément mobile&lt;/li>
+&lt;li>
+&lt;p>&lt;code>statique&lt;/code> le chemin des routes de détecteur à détecteur&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>statique&lt;/code> la position requise des aiguilles, par zone&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>statique&lt;/code> les points de libération des zones (qui implémentent le transit souple / rigide)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>régulateur&lt;/code> soumettre des commandes&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>réservation&lt;/code> acquérir et relacher un droit d&amp;rsquo;action par zone&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>réservation&lt;/code> attendre que les réservations d&amp;rsquo;une zone expirent&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>éléments mobiles&lt;/code> déplacer des aiguilles&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>réservation&lt;/code> pré-réserver une zone&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>réservation&lt;/code> promouvoir une pré-réservation en réservation&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>réservation&lt;/code> lors de la destruction de la route, attendre qu&amp;rsquo;une réservation passe en &lt;code>PENDING_RELEASE&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dynamique&lt;/code> &lt;code>réservation&lt;/code> libérer une réservation&lt;/p>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
@@ -232,7 +265,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>La seconde option a été choisie, car:&lt;/p>
+&lt;p>La seconde option a été choisie, car :&lt;/p>
 &lt;ul>
 &lt;li>elle permet d&amp;rsquo;avoir un couplage moins fort entre la signalisation et les routes.&lt;/li>
 &lt;li>elle évite aussi au processus d&amp;rsquo;activation des routes d&amp;rsquo;attendre le passage du train alors que la couche de réservation le fait déjà.&lt;/li>
@@ -242,40 +275,6 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;ul>
 &lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
-&lt;/ul></description></item><item><title>Developers: Espacement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/spacing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/spacing/</guid><description>
-&lt;h2 id="couche-de-cantonnement">Couche de cantonnement&lt;/h2>
-&lt;p>Les cantons sont l&amp;rsquo;équivalent des routes, mais pour la signalisation: les routes autorisent le déplacement du train, et les cantons, qui se superposent aux routes, permettent au train d&amp;rsquo;être mis au courant de ses mouvements autorisés.&lt;/p>
-&lt;p>Les cantons ont plusieurs attributs:&lt;/p>
-&lt;ul>
-&lt;li>un &lt;strong>chemin&lt;/strong>, qui représente les zones protégées par le canton, et leur état attendu (au même format que le chemin des routes)&lt;/li>
-&lt;li>un &lt;strong>signal d&amp;rsquo;entrée&lt;/strong>, optionnel (quand le canton pars d&amp;rsquo;un butoir)&lt;/li>
-&lt;li>des &lt;strong>signaux intermédiaires&lt;/strong> éventuels (c&amp;rsquo;est utilisé avec des systèmes du style BAPR)&lt;/li>
-&lt;li>un &lt;strong>signal de sortie&lt;/strong>, optionnel (quand le canton se termine à un butoir)&lt;/li>
-&lt;/ul>
-&lt;p>Le chemin est exprimé de détecteur en détecteur afin de pouvoir faire un rapprochement avec le graphe des routes.&lt;/p>
-&lt;p>Quelques remarques:&lt;/p>
-&lt;ul>
-&lt;li>il peut y avoir plusieurs systèmes de signalisation superposés sur la même infrastructure. le modèle pars du principe qu&amp;rsquo;un seul système à la fois est actif&lt;/li>
-&lt;li>un canton n&amp;rsquo;a pas d&amp;rsquo;état: on peut se reposer sur l&amp;rsquo;état dynamique des zones qui le compose&lt;/li>
-&lt;li>les signaux utilisent les cantons pour savoir quelles zones sont à protéger à un instant donné&lt;/li>
-&lt;/ul>
-&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
-&lt;ul>
-&lt;li>chaque signal doit connaître le &lt;strong>prochain signal compatible&lt;/strong>&lt;/li>
-&lt;li>chaque signal doit connaître les &lt;strong>zones qu&amp;rsquo;il protège&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>compatibilité modules signalisation&lt;/strong> : les modules doivent créer les cantons entre chaque signaux. Chaque canton a un système de signalisation associé.&lt;/li>
-&lt;li>&lt;strong>compatibilité pathfinding&lt;/strong> : Le pathfinding se fait dans le produit du graphe de routage et du graphe de cantons.&lt;/li>
-&lt;/ul>
-&lt;h2 id="dépendances">Dépendances&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>statique&lt;/code> les zones protégées par le canton, et leur configuration attendue (ce qui inclus l&amp;rsquo;état des éléments mobiles)&lt;/li>
-&lt;li>&lt;code>statique&lt;/code> les signaux de début et de fin (optionnels)&lt;/li>
-&lt;/ul>
-&lt;h2 id="opérations">Opérations&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>signalisation&lt;/strong>: étant donné une direction sur un détecteur, quel est le canton actif, s&amp;rsquo;il y en a un&lt;/li>
-&lt;li>&lt;strong>signalisation&lt;/strong>: quel est le signal suivant dans la chaîne&lt;/li>
-&lt;li>&lt;strong>signalisation&lt;/strong>: quelles sont les zones protégées par le signal&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/ordering/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Cette page est une ébauche, contribuez-y!
@@ -293,29 +292,173 @@ La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pa
 &lt;ul>
 &lt;li>&lt;strong>train&lt;/strong>: Des itinéraires sont &lt;strong>commandés&lt;/strong> pour chaque trains, aussi loin et aussi tôt que possible. L&amp;rsquo;approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/signaling/</guid><description>
-&lt;div class="alert alert-warning" role="alert">
-Cette page est une ébauche, contribuez-y!
-&lt;/div>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de signalisation comprend l&amp;rsquo;ensemble des signaux, qui réagissent au cantonnement et à la réservation.
 Les signaux peuvent être de différent types, et sont chargés de manière modulaire. Seul importe leur comportement
 vis-à-vis de l&amp;rsquo;état de l&amp;rsquo;infrastructure, et la réaction des trains à la signalisation.&lt;/p>
-&lt;h2 id="état">État&lt;/h2>
+&lt;p>Les signaux sont reliés entre eux par des cantons. Les cantons définissent les mouvements autorisés par la signalisation.&lt;/p>
+&lt;h2 id="conception">Conception&lt;/h2>
+&lt;h3 id="exigences-de-conception">Exigences de conception&lt;/h3>
+&lt;ul>
+&lt;li>chaque signal doit connaître le &lt;strong>prochain signal compatible&lt;/strong>&lt;/li>
+&lt;li>chaque signal doit connaître les &lt;strong>zones qu&amp;rsquo;il protège&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>compatibilité pathfinding&lt;/strong> : Le pathfinding se fait dans le produit du graphe de routage et du graphe de cantons.&lt;/li>
+&lt;li>fournir aux modules de signalisation le &lt;strong>minimum d&amp;rsquo;information nécessaire&lt;/strong> à leur fonctionnement&lt;/li>
+&lt;li>pouvoir utiliser un module de signalisation sans avoir à instancier une simulation complète&lt;/li>
+&lt;li>pouvoir avoir des modules qu&amp;rsquo;on puisse charger dans un ordre indépendant&lt;/li>
+&lt;/ul>
+&lt;h3 id="questions-de-recherche">Questions de recherche&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>est-ce qu&amp;rsquo;il existe des cantons qui chevauchent une fin de route ? non (loic)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>est-ce qu&amp;rsquo;il existe des existe des signaux LL(2) ? non en france&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>est-ce qu&amp;rsquo;il existe des signaux qui changent de comportement en fonction du canton actif devant eux ? oui, pour les ralentissements&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>est-ce qu&amp;rsquo;il existe des signaux qui sont le départ de cantons de types différents (bal3 et bapr par exemple) ? OUI LOL, tvm meme&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>est-ce que le comportement d&amp;rsquo;un signal peut déprendre de quel canton est actif après le signal de fin du canton actuel ? oui, avec les ralentissements ou jaune cli&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>est-ce que certains de signalisation ont besoin d&amp;rsquo;avoir des informations supplémentaires dans les cantons ? mouais, y&amp;rsquo;a des ralentissements, mais c&amp;rsquo;est pas spécialement porté par le canton&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>est-il nominal qu&amp;rsquo;un train aie plusieurs systèmes de signalisation actifs simultanément ? non&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>quand et par qui les cantons sont-ils générés ?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>quelles sont les données nécessaires à la génération des cantons ?&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="présupposés">Présupposés&lt;/h3>
+&lt;ul>
+&lt;li>les signaux ont une liste de types&lt;/li>
+&lt;li>les cantons ont un type&lt;/li>
+&lt;li>il est possible de déterminer étant donné le seul signal, ses propriétés de cantonnement&lt;/li>
+&lt;li>il n&amp;rsquo;existe pas de cantons qui chevauchent une fin ou un début de route&lt;/li>
+&lt;li>les cantons qui ne sont pas couverts par des routes n&amp;rsquo;existent pas ou peuvent être ignorés&lt;/li>
+&lt;li>un train n&amp;rsquo;utilise qu&amp;rsquo;un seul système de signalisation à la fois&lt;/li>
+&lt;/ul>
+&lt;h2 id="design-des-cantons">Design des cantons&lt;/h2>
+&lt;p>Les cantons ont plusieurs attributs:&lt;/p>
+&lt;ul>
+&lt;li>un &lt;strong>chemin&lt;/strong>, qui représente les zones protégées par le canton, et leur état attendu (au même format que le chemin des routes)&lt;/li>
+&lt;li>un &lt;strong>signal d&amp;rsquo;entrée&lt;/strong>, optionnel (quand le canton pars d&amp;rsquo;un butoir)&lt;/li>
+&lt;li>des &lt;strong>signaux intermédiaires&lt;/strong> éventuels (c&amp;rsquo;est utilisé avec des systèmes du style BAPR)&lt;/li>
+&lt;li>un &lt;strong>signal de sortie&lt;/strong>, optionnel (quand le canton se termine à un butoir)&lt;/li>
+&lt;/ul>
+&lt;p>Le chemin est exprimé de détecteur en détecteur afin de pouvoir faire un rapprochement avec le graphe des routes.&lt;/p>
+&lt;p>Quelques remarques:&lt;/p>
+&lt;ul>
+&lt;li>il peut y avoir plusieurs systèmes de signalisation superposés sur la même infrastructure. le modèle pars du principe qu&amp;rsquo;un seul système à la fois est actif&lt;/li>
+&lt;li>un canton n&amp;rsquo;a pas d&amp;rsquo;état: on peut se reposer sur l&amp;rsquo;état dynamique des zones qui le compose&lt;/li>
+&lt;li>les signaux utilisent les cantons pour savoir quelles zones sont à protéger à un instant donné&lt;/li>
+&lt;/ul>
+&lt;h2 id="design-des-signaux">Design des signaux&lt;/h2>
+&lt;p>Chaque signal physique peut porter plusieurs signaux logiques.&lt;/p>
+&lt;p>Chaque signal logique a pour information statique :&lt;/p>
+&lt;ul>
+&lt;li>un type (&lt;code>bal3toTVM&lt;/code>)&lt;/li>
+&lt;li>des paramètres spécifiques au type (&lt;code>Nf&lt;/code>, &lt;code>ralen30&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;p>Le chargement se fait en deux partie : les signaux sont d&amp;rsquo;abord chargés, puis initialisés.&lt;/p>
+&lt;p>Une fois chargés, les signaux logiques exposent :&lt;/p>
+&lt;ul>
+&lt;li>un système de signalisation (&lt;code>bal3&lt;/code>)&lt;/li>
+&lt;li>des propriétés spécifiques au système de signalisation&lt;/li>
+&lt;li>des propriétés de cantonnement : 1) est-il délimiteurs de canton ? si oui, quel type de canton et aval et en amont. 2) est-il contenu dans un canton&lt;/li>
+&lt;/ul>
+&lt;p>L&amp;rsquo;initialisation permet aux signaux de :&lt;/p>
+&lt;ul>
+&lt;li>découvrir les autres cantons et signaux adjacents&lt;/li>
+&lt;li>signaler des configurations invalides&lt;/li>
+&lt;/ul>
+&lt;h3 id="cycle-de-vie-des-signaux">Cycle de vie des signaux&lt;/h3>
+&lt;p>Au chargement de l&amp;rsquo;infrastructure :&lt;/p>
+&lt;ul>
+&lt;li>les signaux sont chargés par les modules&lt;/li>
+&lt;li>le framework crée des cantons entre les signaux en suivant les routes présentes dans l&amp;rsquo;infrastructure, et les propriétés de cantonnement des signaux&lt;/li>
+&lt;li>des vérifications sont faites sur le graphe de cantons créé : il doit toujours pouvoir être possible de choisir un canton pour chaque signal et chaque état de l&amp;rsquo;infrastructure&lt;/li>
+&lt;li>le module de signalisation initialise les signaux, et a accès aux cantons créés au préalable&lt;/li>
+&lt;/ul>
+&lt;p>Avant le départ d&amp;rsquo;un train:&lt;/p>
+&lt;ul>
+&lt;li>le chemin d&amp;rsquo;un train peut être exprimé soit en routes soit en cantons. Ces deux chemins doivent être superposés&lt;/li>
+&lt;li>la file de signaux que le train va rencontrer est établie&lt;/li>
+&lt;/ul>
+&lt;p>Lors de la simulation :&lt;/p>
+&lt;ul>
+&lt;li>au fil du déplacement du train, les informations d&amp;rsquo;occupation des voies devant lui sont synthétisées&lt;/li>
+&lt;li>lorsqu&amp;rsquo;un train observe un signal, son état est évalué : en fonction du canton actif&lt;/li>
+&lt;/ul>
+&lt;h3 id="état">État&lt;/h3>
 &lt;p>Chaque système de signalisation a son type d&amp;rsquo;état de signal.&lt;/p>
 &lt;p>Étant donné un type de signal, il doit être possible de :&lt;/p>
 &lt;ul>
-&lt;li>savoir s&amp;rsquo;il est contraignant&lt;/li>
+&lt;li>savoir s&amp;rsquo;il est contraignant à cause d&amp;rsquo;une MA réduite&lt;/li>
 &lt;li>déterminer une représentation graphique de ce signal&lt;/li>
 &lt;li>&lt;strong>TODO&lt;/strong>: il devra être possible de faire réagit un train à ce signal&lt;/li>
 &lt;/ul>
+&lt;h3 id="évalution-de-létat-des-signaux">Évalution de l&amp;rsquo;état des signaux&lt;/h3>
+&lt;p>Les signaux sont modélisés comme une fonction d&amp;rsquo;évaluation, qui consomme les paramètres pouvant influencer son comportement, et retourne l&amp;rsquo;état actuel du signal.
+é
+Il est nécessaire de choisir quelle forme prennent les paramètres :&lt;/p>
+&lt;ul>
+&lt;li>une liste de paramètres, annotés de manière à pouvoir être injectés
+&lt;ul>
+&lt;li>&lt;code>avantage&lt;/code> permet d&amp;rsquo;obtenir une description complète des paramètres de chaque signal&lt;/li>
+&lt;li>&lt;code>désavantage&lt;/code> permet difficilement de faire varier le comportement du signal en fonction du canton actif&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>un seul paramètre, qui fournit une vue permettant à la fonction d&amp;rsquo;évaluation de requêter les paramètres nécessaires
+&lt;ul>
+&lt;li>&lt;code>avantage&lt;/code> plus simple d&amp;rsquo;implémentation que la première méthode&lt;/li>
+&lt;li>&lt;code>désavantage&lt;/code> les signaux ont accès à une plus large surface d&amp;rsquo;API, ce qui peut rendre plus difficile les changements ultérieurs&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>La vue est choisie pour le moment, car plus flexible.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">signal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">world&lt;/span>: &lt;span style="color:#000">SignalWorldView&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Bal3Aspect&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>La vue doit permettre d&amp;rsquo;accéder aux données suivantes :&lt;/p>
+&lt;ul>
+&lt;li>une synthèse de l&amp;rsquo;état des zones en aval jusqu&amp;rsquo;à la MA du train&lt;/li>
+&lt;li>la chaine de cantons&lt;/li>
+&lt;li>l&amp;rsquo;état des signaux en aval présents dans la chaine de cantons du train&lt;/li>
+&lt;/ul>
+&lt;h4 id="chemin-de-la-vue-signalisation">Chemin de la vue signalisation&lt;/h4>
+&lt;p>Le chemin de la vue signalisation est exprimé en cantons :&lt;/p>
+&lt;ul>
+&lt;li>des cantons peuvent être rajouter pour étendre la vue&lt;/li>
+&lt;li>la vue peut être réduite en supprimant des cantons&lt;/li>
+&lt;/ul>
+&lt;h4 id="simulation-hors-chemin-du-train">Simulation hors chemin du train&lt;/h4>
+&lt;p>Il est possible de simuler la signalisation hors du chemin du train :&lt;/p>
+&lt;ul>
+&lt;li>si un signal donne sur des cantons empruntant des chemins différents, il est simulé comme s&amp;rsquo;il était en bout d&amp;rsquo;itinéraire, et sera donc au carré&lt;/li>
+&lt;li>si un signal donne sur des cantons empruntant le même chemin, il est simulé avec les autres signaux de la suite, dans une vue construite à cet effet&lt;/li>
+&lt;/ul>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
-&lt;li>capacité d&amp;rsquo;observer l&amp;rsquo;état des routes, pour les signaux qui débutent une route&lt;/li>
-&lt;li>possibilité d&amp;rsquo;observer l&amp;rsquo;état des cantons devant le signal, de sélectionner le canton actif, et de réagir en fonction de l&amp;rsquo;occupation du canton et du signal de fin de canton&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> graphe des routes, pour pouvoir créer des cantons&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> les signaux, leur type et détecteur + direction associé&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> les propriétés de cantonnement pour chaque signal&lt;/li>
+&lt;li>&lt;code>dynamique&lt;/code> observer l&amp;rsquo;&lt;strong>état des zones&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>observer le signal&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>instancier une vue&lt;/strong> crée un cadre dans lequel observer des signaux&lt;/li>
+&lt;li>&lt;strong>prévoir le chemin&lt;/strong> signaler à la vue les cantons qui seront empruntés par le train&lt;/li>
+&lt;li>&lt;strong>observer un signal&lt;/strong> s&amp;rsquo;abonner à l&amp;rsquo;état d&amp;rsquo;un signal (via la vue)&lt;/li>
+&lt;li>&lt;strong>dépasser un signal&lt;/strong> signaler qu&amp;rsquo;un signal a été dépassé par le train (via la vue)&lt;/li>
 &lt;/ul></description></item><item><title>Developers: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/developers/simulation-model/train/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
