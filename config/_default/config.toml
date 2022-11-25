@@ -72,14 +72,14 @@ anchor = "smart"
 [languages.fr]
 title = "OSRD"
 description = "Open Source Railway Designer"
-languageName ="Français"
+languageName = "Français"
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
 weight = 1
 [languages.en]
 title = "OSRD"
 description = "Open Source Railway Designer"
-languageName ="English"
+languageName = "English"
 # Weight used for sorting.
 weight = 2
 
@@ -99,15 +99,10 @@ weight = 2
 section = ["HTML", "print", "RSS"]
 
 [params]
-copyright = "DGEX Solutions"
 # privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
-
-# Menu title if your navbar has a versions selector to access old versions of your site.
-# This menu appears only if you have at least one [params.versions] set.
-version_menu = "Releases"
 
 # Flag used in the "version-banner" partial to decide whether to display a
 # banner on every page indicating that this is an archived version of the docs.
@@ -133,7 +128,7 @@ github_project_repo = "https://github.com/DGEXSolutions/osrd"
 
 # Uncomment this if you have a newer GitHub repo with "main" as the default branch,
 # or specify a new value if you want to reference another branch in your GitHub links
-github_branch = "master"
+github_branch = "dev"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
 # gcs_engine_id = "d72aa9b2712488cc3"
@@ -175,10 +170,10 @@ sidebar_search_disable = false
 # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
 # add "hide_feedback: true" to the page's front matter.
 [params.ui.feedback]
-enable = true
-# The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
+# enable = true
+# # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
+# yes = 'Glad to hear it! Please <a href="https://github.com/DGEXSolutions/osrd/issues/new">tell us how we can improve</a>.'
+# no = 'Sorry to hear that. Please <a href="https://github.com/DGEXSolutions/osrd/issues/new">tell us how we can improve</a>.'
 
 # Adds a reading time to the top of each doc.
 # If you want this feature, but occasionally need to remove the Reading time from a single page,
@@ -203,7 +198,6 @@ enable = false
   name = "GitHub"
   url = "https://github.com/DGEXSolutions/osrd"
   icon = "fab fa-github"
-  desc = "Development takes place here!"
 [[params.links.developer]]
   name = "Slack"
   url = "https://example.org/slack"
