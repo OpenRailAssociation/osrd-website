@@ -1,4 +1,0 @@
----
-title: "Blog"
-linkTitle: "Blog"
----
