@@ -153,7 +153,7 @@ enable = true
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
 # Set to true to disable the About link in the site footer
-footer_about_disable = false
+footer_about_disable = true
 # Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar
 navbar_logo = true
 # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
@@ -183,28 +183,28 @@ enable = false
 
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
-[[params.links.user]]
-  name = "LinkedIn"
-  url = "https://www.linkedin.com/company/dgex-solutions/"
-  icon = "fab fa-linkedin"
-  desc = ""
-[[params.links.user]]
-  name ="Twitter"
-  url = "https://twitter.com/dgexsolutions"
-  icon = "fab fa-twitter"
-  desc = "Follow us on Twitter to get the latest news!"
+# [[params.links.user]]
+#   name = "LinkedIn"
+#   url = "https://www.linkedin.com/company/dgex-solutions/"
+#   icon = "fab fa-linkedin"
+#   desc = ""
+# [[params.links.user]]
+#   name ="Twitter"
+#   url = "https://twitter.com/dgexsolutions"
+#   icon = "fab fa-twitter"
+#   desc = "Follow us on Twitter to get the latest news!"
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
   name = "GitHub"
   url = "https://github.com/DGEXSolutions/osrd"
   icon = "fab fa-github"
-[[params.links.developer]]
-  name = "Slack"
-  url = "https://example.org/slack"
-  icon = "fab fa-slack"
-  desc = "Chat with other project developers"
-[[params.links.developer]]
-  name = "Developer mailing list"
-  url = "https://example.org/mail"
-  icon = "fa fa-envelope"
-  desc = "Discuss development issues around the project"
+# [[params.links.developer]]
+#   name = "Slack"
+#   url = "https://example.org/slack"
+#   icon = "fab fa-slack"
+#   desc = "Chat with other project developers"
+# [[params.links.developer]]
+#   name = "Developer mailing list"
+#   url = "https://example.org/mail"
+#   icon = "fa fa-envelope"
+#   desc = "Discuss development issues around the project"
