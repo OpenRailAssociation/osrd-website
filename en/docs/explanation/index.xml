@@ -1,0 +1,69 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Explanations</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/</link><description>Recent content in Explanations on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/docs/explanation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Running time calculation</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/</guid><description>
+&lt;p>OSRD can be used to perform two types of calculations:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Standalone train simulation:&lt;/strong> calculation of the travel time of a train on a given route without interaction between the train and the signalling system.&lt;/li>
+&lt;li>&lt;strong>Simulation:&lt;/strong> &amp;ldquo;dynamic&amp;rdquo; calculation of several trains interacting with each other via the signalling system.&lt;/li>
+&lt;/ul>
+&lt;h4 id="1---the-input-data">1 - The input data&lt;/h4>
+&lt;p>A running time calculation is based on 5 inputs:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Infrastructure:&lt;/strong> Line and track topology, position of stations and passenger buildings, position and type of points, signals, maximum line speeds, corrected line profile (gradients, ramps and curves).&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="infrastructure.png" alt="Infrastructure">&lt;/p>
+&lt;blockquote>
+&lt;p>The blue histogram is a representation of the gradients in [‰] per position in [m]. The gradients are positive for ramps and negative for slopes.&lt;/p>
+&lt;p>The orange line represents the cumulative profile, i.e. the relative altitude to the starting point.&lt;/p>
+&lt;p>The blue line is a representation of turns in terms of radii of curves in [m].&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>The rolling stock:&lt;/strong> The characteristics of which needed to perform the simulation are shown below.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="mat_roulant.png" alt="Rolling Stock Material">&lt;/p>
+&lt;blockquote>
+&lt;p>The orange curve, called the effort-speed curve, represents the maximum motor effort as a function of the speed of travel.&lt;/p>
+&lt;p>The length, mass, and maximum speed of the train are shown at the bottom of the box.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>The departure time&lt;/strong> is then used to calculate the times of passage at the various points of interest (including stations).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Allowances:&lt;/strong> Time added to the train&amp;rsquo;s journey to relax its running (see &lt;a href="./allowances">page on allowances&lt;/a>).&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="marges.png" alt="Allowances">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>The time step&lt;/strong> for the calculation of &lt;a href="./numerical_integration">numerical integration&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h4 id="2---the-results">2 - The results&lt;/h4>
+&lt;p>The results of a running time calculation can be represented in different forms:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>The space/time graph (GET):&lt;/strong> represents the path of trains in space and time, in the form of generally diagonal lines whose slope is the speed. Stops are shown as horizontal plates.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="graph_espace_temps.jpg" alt="Space/Time Graph">&lt;/p>
+&lt;blockquote>
+&lt;p>Example of a GET with several trains spaced about 30 minutes apart.&lt;/p>
+&lt;p>The &lt;strong>x&lt;/strong> axis is the time of the train, the &lt;strong>y&lt;/strong> axis is the position of the train in [m].&lt;/p>
+&lt;p>The blue line represents the most tense running calculation for the train, the green line represents a relaxed, so-called &amp;ldquo;economic&amp;rdquo; running calculation.&lt;/p>
+&lt;p>The solid rectangles surrounding the paths represent the portions of the track successively reserved for the train to pass (called blocks).&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>The space/speed graph (SSG):&lt;/strong> represents the journey of a single train, this time in terms of speed. Stops are therefore shown as a drop in the curve to zero, followed by a re-acceleration.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="graph_espace_vitesse.png" alt="Space/Speed Graph">&lt;/p>
+&lt;blockquote>
+&lt;p>The &lt;strong>x&lt;/strong> axis is the train position in [m], the &lt;strong>y&lt;/strong> axis is the train speed in [km/h].&lt;/p>
+&lt;p>The purple line represents the maximum permitted speed.&lt;/p>
+&lt;p>The blue line represents the speed in the case of the most stretched running calculation.&lt;/p>
+&lt;p>The green line represents the speed in the case of the &amp;ldquo;economic&amp;rdquo; travel calculation.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>The timetable for the passage of the train at the various points of interest&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="timetables.png?style=time" alt="Departure timetables">&lt;/p>
+&lt;style>
+img[src$="time"] {
+height: 70%;
+width: 70%;
+}
+&lt;/style></description></item></channel></rss>

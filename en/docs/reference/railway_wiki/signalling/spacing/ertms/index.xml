@@ -1,0 +1,66 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – ETCS (ERTMS)</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/reference/railway_wiki/signalling/spacing/ertms/</link><description>Recent content in ETCS (ERTMS) on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/docs/reference/railway_wiki/signalling/spacing/ertms/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: ETCS</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/reference/railway_wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/reference/railway_wiki/signalling/spacing/ertms/etcs/</guid><description>
+&lt;h2 id="context">Context&lt;/h2>
+&lt;p>The onboard computer of ETCS-enabled trains has to compute a number of position / speed curves.
+Here is how it works:&lt;/p>
+&lt;ul>
+&lt;li>below all the curves, the speed indicator is white&lt;/li>
+&lt;li>above the indication curve, the speed indicator is yellow&lt;/li>
+&lt;li>above the permitted curve, the speed indicator is orange&lt;/li>
+&lt;li>above the warning curve, an alarm rings&lt;/li>
+&lt;li>above the intervention curves, an emergency break intervention is triggered&lt;/li>
+&lt;/ul>
+&lt;h2 id="inputs">Inputs&lt;/h2>
+&lt;p>In order to compute any of these curves, a number of things are needed:&lt;/p>
+&lt;ul>
+&lt;li>target data (the destination of the braking curve, which can be EOA and SvL or LOA and MRSP)&lt;/li>
+&lt;li>train data&lt;/li>
+&lt;li>infrastructure data&lt;/li>
+&lt;li>infrastructure manager constants&lt;/li>
+&lt;li>standardized constants&lt;/li>
+&lt;/ul>
+&lt;h3 id="train">Train&lt;/h3>
+&lt;ul>
+&lt;li>max speed&lt;/li>
+&lt;li>length&lt;/li>
+&lt;li>rotating mass&lt;/li>
+&lt;li>&lt;code>T_traction_cutoff&lt;/code>: the time it take to cut off traction&lt;/li>
+&lt;li>braking model, either lambda or gamma:
+&lt;ul>
+&lt;li>lambda (braking weight/mass)&lt;/li>
+&lt;li>gamma (contant deceleration at a given speed)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>correction factors (k_dry and k_wet for gamma braking) for braking curves&lt;/li>
+&lt;/ul>
+&lt;h3 id="infrastructure">Infrastructure&lt;/h3>
+&lt;ul>
+&lt;li>corrected gradients (it incorporates curvature)&lt;/li>
+&lt;li>odometry balises location&lt;/li>
+&lt;/ul>
+&lt;h2 id="processes">Processes&lt;/h2>
+&lt;h3 id="braking-coefficients">Braking coefficients:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>A_brake_emergency&lt;/code> is the expected emergency braking capability, without safety margins&lt;/li>
+&lt;li>&lt;code>A_brake_safe&lt;/code> is the emergency braking coefficient, &lt;strong>with&lt;/strong> safety margins&lt;/li>
+&lt;li>&lt;code>A_brake_service&lt;/code> is the expected service braking capability, without safety margins&lt;/li>
+&lt;/ul>
+&lt;h3 id="speed--distance-targets">Speed / distance targets&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>EOA&lt;/code> end of movement authority: the location until which the train is allowed to move&lt;/li>
+&lt;li>&lt;code>SvL&lt;/code> supervized location: the protected location&lt;/li>
+&lt;/ul>
+&lt;h3 id="curves">Curves&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>SBD&lt;/code> supervised braking deceleration: intermediary result computed from &lt;code>EOA&lt;/code> and &lt;code>A_brake_service&lt;/code>&lt;/li>
+&lt;li>&lt;code>EBD&lt;/code> emergency braking deceleration: intermediary result computed from &lt;code>SvL&lt;/code> and &lt;code>A_brake_safe&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>All the curves below are cut below a given release speed:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>EBI&lt;/code> (emergency break intervention) computed from &lt;code>EBD&lt;/code>, shifted in position and space given rolling stock metadata&lt;/li>
+&lt;li>&lt;code>SBI1&lt;/code> computed from &lt;code>SBD&lt;/code>, shifted in &lt;strong>time&lt;/strong> with &lt;code>Tbs1&lt;/code>&lt;/li>
+&lt;li>&lt;code>SBI2&lt;/code> computed from &lt;code>SBD&lt;/code>, shifted in &lt;strong>time&lt;/strong> with &lt;code>Tbs2&lt;/code>&lt;/li>
+&lt;li>&lt;code>FLOI&lt;/code> (also called &lt;code>SBI&lt;/code>, the intervention curve) the minimum of &lt;code>SBI1&lt;/code> and &lt;code>SBI2&lt;/code>&lt;/li>
+&lt;li>&lt;code>WARNING&lt;/code> (warning curve) computed as a shift of &lt;code>FLOI&lt;/code> by &lt;code>Twarning&lt;/code>&lt;/li>
+&lt;li>&lt;code>PS&lt;/code> (permitted speed curve): shift of &lt;code>WARNING&lt;/code> by time &lt;code>Tdriver&lt;/code>&lt;/li>
+&lt;li>&lt;code>INDICATION&lt;/code> is a shift of &lt;code>PS&lt;/code> by time &lt;code>Tindication&lt;/code>&lt;/li>
+&lt;/ul></description></item></channel></rss>

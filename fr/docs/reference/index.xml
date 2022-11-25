@@ -1,0 +1,273 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Référence technique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/</link><description>Recent content in Référence technique on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/reference/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Architecture</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/architecture/</guid><description>
+&lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
+&lt;p>&lt;img src="../architecture.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Docs: Modèle de données</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/data-model/</guid><description>
+&lt;p>Décrit l&amp;rsquo;organisation et le format des données dans OSRD.&lt;/p></description></item><item><title>Docs: Modèle de simulation de la signalisation et des aiguillages</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/</guid><description>
+&lt;p>Le modèle de simulation définit le rôle et comportement des différents objets simulés au sein d&amp;rsquo;OSRD.&lt;/p>
+&lt;p>Cette modélisation est un compromis entre de multiples enjeux:&lt;/p>
+&lt;ul>
+&lt;li>fidélité de la simulation&lt;/li>
+&lt;li>interprétabilité des résultats&lt;/li>
+&lt;li>adaptabilité du modèle à différentes technologies et usages, que cela soit en terme de signalisation, de poste d&amp;rsquo;aiguillage, ou d&amp;rsquo;usage des données&lt;/li>
+&lt;/ul>
+&lt;p>En particulier, certaines subtilités propres aux systèmes pratiques ont été sacrifiées sur l&amp;rsquo;autel de la compatibilité et de l&amp;rsquo;interprétabilité:&lt;/p>
+&lt;ul>
+&lt;li>un signal doit forcément s&amp;rsquo;addresser à un train en particulier: les signaux n&amp;rsquo;ont pas d&amp;rsquo;aspect par défaut; ils n&amp;rsquo;existent que pour être vus&lt;/li>
+&lt;li>les itinéraires / routes sont formées à destination d&amp;rsquo;un train en particulier&lt;/li>
+&lt;/ul>
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>Ce document est une description du modèle de fonctionnement cible d&amp;rsquo;OSRD.
+Il a pour objectif de renseigner développeurs et experts métiers sur le fonctionnement du simulateur.
+Des changements y sont apportés au fil de l&amp;rsquo;évolution du projet.&lt;/p>
+&lt;/div>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>Ce modèle est en cours d&amp;rsquo;implémentation&lt;/p>
+&lt;/div>
+&lt;h2 id="architecture">Architecture&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
+%%%% NODES
+train[Train]
+%% ↓
+signaling[Signalisation]
+%% ↓
+routing[Routage]
+ordering[Ordonnancement]
+%% ↓
+reservation[Réservation]
+%% ↓
+location[Localisation]
+movable-elements[&amp;#34;Éléments mobiles&amp;#34;]
+%%%% EDGES
+train -- réagit à --&amp;gt; signaling
+train -- réclame les itinéraires --&amp;gt; ordering
+ordering -- commande --&amp;gt; routing
+signaling -- observe --&amp;gt; reservation
+routing -- observe et réserve --&amp;gt; reservation
+reservation -- observe --&amp;gt; location
+reservation -- actionne --&amp;gt; movable-elements
+train -- informe --&amp;gt; location
+%%%% CLICKABLE LINKS
+click train href &amp;#34;./train/&amp;#34; _self
+click ordering href &amp;#34;./ordering/&amp;#34; _self
+click signaling href &amp;#34;./signaling/&amp;#34; _self
+click routing href &amp;#34;./routing/&amp;#34; _self
+click reservation href &amp;#34;./reservation/&amp;#34; _self
+click location href &amp;#34;./location/&amp;#34; _self
+click movable-elements href &amp;#34;./movable-elements/&amp;#34; _self
+&lt;/code>&lt;/pre>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Pistes d'évolution&lt;/h4>
+&lt;ul>
+&lt;li>Gestion des overlaps&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h2 id="remerciements">Remerciements&lt;/h2>
+&lt;p>Par ordre alphabétique:&lt;/p>
+&lt;ul>
+&lt;li>Christophe Mémin&lt;/li>
+&lt;li>Djamal Bellebia&lt;/li>
+&lt;li>Gilles Dessagne&lt;/li>
+&lt;li>Nathanaël Dias&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Détection de conflit</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</guid><description>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>Ce document n&amp;rsquo;est pas finalisé&lt;/p>
+&lt;/div>
+&lt;script type="application/javascript" src="../mkt.js">&lt;/script>
+&lt;object onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="../space-time-diagram.svg">
+&lt;/object>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Le système de détection de conflit se repose sur le poste d&amp;rsquo;aiguillage et la simulation de la signalisation pour synthétiser les besoins en ressources des acteurs, et détecter les incompatibilités.&lt;/p>
+&lt;p>Le système de détection de conflit doit permettre :&lt;/p>
+&lt;ul>
+&lt;li>étant donné deux simulations indépendantes, déterminer si elles peuvent être rejouées en même temps sans conflit&lt;/li>
+&lt;li>avoir des résultats interprétables, c&amp;rsquo;est à dire que les conflits produits doivent pouvoir être reliés à un processus métier&lt;/li>
+&lt;li>avoir un fonctionnement interprétable, c&amp;rsquo;est à dire qu&amp;rsquo;il doit être possible de visualiser et interprêter le fonctionnement du système&lt;/li>
+&lt;li>passer à l&amp;rsquo;échelle : étant donné un grand ensemble de trains et leur utilisation de ressources, il doit toujours être possible de détecter leurs conflits en un temps raisonnable&lt;/li>
+&lt;li>de permettre la recherche de chemin à travers les ressources utilisées par un grand nombre de trains&lt;/li>
+&lt;li>de modéliser les conflits d&amp;rsquo;espacements transmits par des systèmes de signalisation à bloc fixe&lt;/li>
+&lt;/ul>
+&lt;p>Un certain nombre de contraintes guident et ont guidé la conception du système de détection de conflit :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>il ne doit pas pouvoir aboutir à la génération de faux-négatifs&lt;/strong>: s&amp;rsquo;il ne détecte pas de conflits, une simulation multi-train de la même grille horaire ne doit pas présenter de ralentissements&lt;/li>
+&lt;li>le modèle ne doit pas se reposer sur des informations difficiles à obtenir étant donné l&amp;rsquo;état actuel du projet&lt;/li>
+&lt;li>il ne doit pas exclure l&amp;rsquo;inclusion ultérieure de bloc mobile&lt;/li>
+&lt;li>il doit être possible de détecter les conflits en simulant la signalisation tel que prévu dans le modèle de simulation&lt;/li>
+&lt;li>il doit être possible de détecter les conflits dans des zones à signalisation hétérogène, voire superposée&lt;/li>
+&lt;/ul>
+&lt;h2 id="théorie-des-conflits">Théorie des conflits&lt;/h2>
+&lt;p>Ce modèle définit les règles de fonctionnnement du système de détection de conflit.&lt;/p>
+&lt;p>Il repose sur un système de réservation de ressources abstraites.
+Ces ressources ont des configurations possibles, et peuvent être réservées pour un laps de temps donné.
+Si des réservations requièrent une ressource au même moment, elle peuvent où non cohabiter selon leur type et paramètres.
+Si deux réservations simultanées ne peux pas cohabiter, c&amp;rsquo;est un conflit.&lt;/p>
+&lt;h3 id="définitions">Définitions&lt;/h3>
+&lt;h4 id="acteur">Acteur&lt;/h4>
+&lt;p>Un acteur est une entité susceptible de requérir des ressources&lt;/p>
+&lt;h4 id="ressource">Ressource&lt;/h4>
+&lt;p>Une ressource est un objet susceptible d&amp;rsquo;être requis et utilisé par différents acteurs.
+Chaque ressource a des configurations, et ne peut être que dans une configuration à un instant donné.&lt;/p>
+&lt;h4 id="besoin">Besoin&lt;/h4>
+&lt;p>Un besoin est l&amp;rsquo;expression par un acteur de son besoin d&amp;rsquo;utilisation d&amp;rsquo;une ressource pour une période de temps donnée.&lt;/p>
+&lt;p>Ces besoins peuvent prendre plusieurs formes :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>partageables&lt;/strong> : la ressource est requise dans une configuration donnée, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d&amp;rsquo;autres besions partageables de la même configuration.&lt;/li>
+&lt;li>&lt;strong>exclusifs&lt;/strong> : la ressource est requise dans une configuration donnée, pour un acteur particulier, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d&amp;rsquo;autres du même acteur et de la même configuration.&lt;/li>
+&lt;/ul>
+&lt;h4 id="conflit">Conflit&lt;/h4>
+&lt;h5 id="conflits-de-besoin">Conflits de besoin&lt;/h5>
+&lt;p>Un conflit de besoin se produit lorsque qu&amp;rsquo;il existe deux besoins simultanées dont les contraintes sont incompatibles.&lt;/p>
+&lt;p>Par exemple, il y a un conflit lorsque:&lt;/p>
+&lt;ul>
+&lt;li>un besoin exclusif chevauche n&amp;rsquo;importe quelle autre réservation d&amp;rsquo;un autre acteur&lt;/li>
+&lt;li>un besoin partageable chevauche un besoin d&amp;rsquo;une autre configuration&lt;/li>
+&lt;/ul>
+&lt;p>Il n&amp;rsquo;y a toutefois pas de conflit lorsque:&lt;/p>
+&lt;ul>
+&lt;li>une ressource est requise de manière exclusive sur des périodes qui n&amp;rsquo;ont pas de moment commun&lt;/li>
+&lt;li>une ressource est partagée par des besoins qui ne requièrent pas la même configuration&lt;/li>
+&lt;/ul>
+&lt;p>Un conflit de ressource perturbe l&amp;rsquo;acteur à l&amp;rsquo;origine des réservations.&lt;/p>
+&lt;h5 id="conflits-de-changement-de-configuration">Conflits de changement de configuration&lt;/h5>
+&lt;p>Certains conflits se produisent par manque de temps entre deux réservations consécutives.
+Le temps requis entre deux réservations est spécifique à chaque ressource.&lt;/p>
+&lt;h2 id="application-au-modèle-de-détection-de-conflit">Application au modèle de détection de conflit&lt;/h2>
+&lt;p>Le système de détection de conflit peut être appliqué de différentes manières&lt;/p>
+&lt;h3 id="définitions-1">Définitions&lt;/h3>
+&lt;h4 id="acteur-1">Acteur&lt;/h4>
+&lt;p>On distingue les types d&amp;rsquo;acteurs suivants :&lt;/p>
+&lt;ul>
+&lt;li>les &lt;strong>trains&lt;/strong> (ou un poste d&amp;rsquo;aiguillage / régulateur agissant au nom d&amp;rsquo;un train)&lt;/li>
+&lt;li>les &lt;strong>zones de travaux&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ressource-1">Ressource&lt;/h4>
+&lt;p>On distingue les ressources suivantes :&lt;/p>
+&lt;ul>
+&lt;li>les &lt;strong>zones&lt;/strong>, qui ont autant de configurations qu&amp;rsquo;il y a de manières de les traverser&lt;/li>
+&lt;li>les &lt;strong>aiguilles&lt;/strong>, qui ont autant de configurations qu&amp;rsquo;elles ont de position&lt;/li>
+&lt;/ul>
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>À l&amp;rsquo;avenir, les quais pourraient également être modélisés comme ressources, ce qui permettrait de générer des conflits en cas d&amp;rsquo;embarquement ou débarquement simultané&lt;/p>
+&lt;/div>
+&lt;h4 id="réservation">Réservation&lt;/h4>
+&lt;p>Une réservation, c&amp;rsquo;est quelque chose qui enlève de la capacité.&lt;/p>
+&lt;h4 id="conflit-1">Conflit&lt;/h4>
+&lt;p>En pratique, un conflit de ressource gêne l&amp;rsquo;acteur à l&amp;rsquo;origine des réservations est un événement qui peut forcer un train à ralentir :&lt;/p>
+&lt;ul>
+&lt;li>un délai de formation d&amp;rsquo;itinéraire dû à l&amp;rsquo;indisponibilité de ressources&lt;/li>
+&lt;li>un conflit d&amp;rsquo;espacement dû à un rattrapage&lt;/li>
+&lt;/ul>
+&lt;p>Pour détecter les conflits, il est nécessaire de calculer l&amp;rsquo;impact qu&amp;rsquo;a un train sur la disponibilité des ressources: son empreinte.&lt;/p>
+&lt;h4 id="capacité">Capacité&lt;/h4>
+&lt;p>Le terme capacité désigne la capacité à réserver une ressource, ou plus largement la capacité de réservation d&amp;rsquo;un ensemble de ressources nécessaires au passage d&amp;rsquo;un train.&lt;/p>
+&lt;h2 id="génération-des-réservations">Génération des réservations&lt;/h2>
+&lt;p>&lt;strong>L&amp;rsquo;enjeu principal est de générer des réservations qui, si elles sont satisfaites, garantissent au train simulé, suivant la signalisation simulée, un trajet sans ralentissement.&lt;/strong>&lt;/p>
+&lt;h3 id="conflits-ditinéraire">Conflits d&amp;rsquo;itinéraire&lt;/h3>
+&lt;p>L&amp;rsquo;aiguillage d&amp;rsquo;un train à travers l&amp;rsquo;infrastructure a un impact susceptible de générer des conflits.
+Un conflit se produit lorsqu&amp;rsquo;un conducteur perçoit les conséquences du fait qu&amp;rsquo;un itinéraire a été établi trop tardivement.
+L&amp;rsquo;empreinte d&amp;rsquo;aiguillage, c&amp;rsquo;est les réservations de ressources requises pour qu&amp;rsquo;un train puisse être aiguillé sans gêne jusqu&amp;rsquo;à sa destination.
+Concrètement, ces ressources correspondent à des réservations de zones dans le temps.&lt;/p>
+&lt;p>Ces temps de réservation de ressources sont obtenus selon l&amp;rsquo;algorithme suivant:&lt;/p>
+&lt;ul>
+&lt;li>un planning d&amp;rsquo;établissement des ressources est établi de telle sorte à ce que le train n&amp;rsquo;est jamais forcé de ralentir par une commande trop tardive des routes. Ce planning d&amp;rsquo;établissement est déterminé en calculant les moments à partir duquel le conducteur verrait une signalisation contraignante, puis en soustrayant marge de temps&lt;/li>
+&lt;li>le planning d&amp;rsquo;établissement des routes de tous les trains est utilisé pour déterminer la chronologie combinée de fin d&amp;rsquo;utilisation des zones et des aiguilles&lt;/li>
+&lt;li>la chronologie combinée de fin d&amp;rsquo;utilisation des zones est utilisée pour calculer les temps de formation des routes, puis un planning de commande des routes&lt;/li>
+&lt;li>le planning de commande des routes permet de connaître la chronologie de début d&amp;rsquo;utilisation des zones, et donc connaître les réservations de zones pour chaque train&lt;/li>
+&lt;/ul>
+&lt;p>On peut ensuite superposer les réservations de zones, et traduire en conflit les réservations incompatibles.&lt;/p>
+&lt;h3 id="conflits-despacement">Conflits d&amp;rsquo;espacement&lt;/h3>
+&lt;p>En plus de pouvoir être ralentis par l&amp;rsquo;établissement trop tardif de leurs routes, les trains peuvent être également être ralentis par la présence d&amp;rsquo;un train plus loin sur leur chemin.
+Tout comme les conflits de routes sont détectés en recoupant la chronologie de réservation des zones par les routes, les conflits d&amp;rsquo;espacement sont détectés en recoupant les réservations implicites de zones pour l&amp;rsquo;espacement.
+Des zones sont réservées pour espacement lorsqu&amp;rsquo;elles ne peuvent être occupées sous peine de ralentissement.
+En fait, les zones réservées par un train peuvent être classifiées comme partageables, ou réservées pour espacement.&lt;/p>
+&lt;p>Les réservations implicites de zones sont calculées en simulant la signalisation comme suit:&lt;/p>
+&lt;ul>
+&lt;li>le planning de commande des routes est rejoué&lt;/li>
+&lt;li>on commence par partir du principe que toute les zones réservées pour l&amp;rsquo;aiguillage le sont également pour espacement&lt;/li>
+&lt;li>à chaque fois que le conducteur voit un signal non-contraignant, la dernière zone actuellement réservée pour le train est occupée: si la signalisation ne contraint toujours pas le train, alors cette zone est marquée comme partageable à cet instant, et la zone précédente est testée. Si la signalisation contraint le train, on passe au signal suivant.&lt;/li>
+&lt;li>la chronologie de réservation de zone pour espacement est recoupée pour tous les trains, et comparée avec l&amp;rsquo;occupation des zones. Chaque intersection génère un conflit.&lt;/li>
+&lt;/ul>
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>Le système de réservation pour espacement a plusieurs avantages majeurs :&lt;/p>
+&lt;ul>
+&lt;li>il permet de simuler le partage de l&amp;rsquo;infrastructure par des trains qui utilisent des systèmes de signalisation différents&lt;/li>
+&lt;li>il peut être étendu aux blocs mobiles: au lieu de réserver des zones devant le train, on réserve une distance&lt;/li>
+&lt;/ul>
+&lt;/div></description></item><item><title>Docs: Gestion des versions</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/versionning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/versionning/</guid><description/></item><item><title>Docs: Wiki Ferroviaire</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/</guid><description>
+&lt;p>Ce wiki a pour objectif de rendre accessible aux développeurs des informations sur le monde ferroviaire.&lt;/p>
+&lt;p>&lt;strong>Cela ne peut se produire que si le contenu est ajouté lorsque nécessaire. Si quelque chose manque, contribuez !&lt;/strong>&lt;/p></description></item><item><title>Docs: JSON Schemas</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/json_schema/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/json_schema/</guid><description>
+&lt;!-- Include from a free CDN -->
+&lt;script src="https://cdn.rawgit.com/caldwell/renderjson/master/renderjson.js">&lt;/script>
+&lt;!-- Element where the list will be created -->
+&lt;div id="container">&lt;h1>Infrastructure&lt;/h1>&lt;/div>
+&lt;script>
+// The JSObject that you want to render
+var infra = {};
+tmp = $.ajax({
+url: "/osrd-website/schemas/infra_schema.json",
+async: false,
+dataType: 'json',
+success: function(data) {
+infra = data;
+}
+});
+// Render toggable list in the container element
+document.getElementById("container").appendChild(
+renderjson(infra)
+);
+&lt;/script>
+&lt;!-- Element where the list will be created -->
+&lt;div id="container2">&lt;h1>Rolling Stock&lt;/h1>&lt;/div>
+&lt;script>
+// The JSObject that you want to render
+var rolling_stock = {};
+tmp = $.ajax({
+url: "/osrd-website/schemas/rolling_stock_schema.json",
+async: false,
+dataType: 'json',
+success: function(data) {
+rolling_stock = data;
+}
+});
+// Render toggable list in the container element
+document.getElementById("container2").appendChild(
+renderjson(rolling_stock)
+);
+&lt;/script>
+&lt;style>
+#container, #container2 {
+text-shadow: none;
+background:;
+padding: 1em;
+}
+.renderjson a {
+text-decoration: none;
+}
+.renderjson .disclosure {
+color: #aa026d;
+font-size: 150%;
+}
+.renderjson .syntax {
+color: grey;
+}
+.renderjson .string {
+color: black;
+}
+.renderjson .number {
+color: cyan;
+}
+.renderjson .boolean {
+color: plum;
+}
+.renderjson .key {
+color: #aa026d;
+}
+.renderjson .keyword {
+color: lightgoldenrodyellow;
+}
+.renderjson .object.syntax {
+color: lightseagreen;
+}
+.renderjson .array.syntax {
+color: lightsalmon;
+}
+&lt;/style></description></item><item><title>Docs: Documentation du code source</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/generated-reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/generated-reference/</guid><description>
+&lt;p>Documentation Javadoc du projet Core dans OSRD&lt;/p></description></item></channel></rss>
