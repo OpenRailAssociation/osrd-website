@@ -1,6 +1,6 @@
 ---
-title: Who we are?
-linkTitle: Who we are?
+title: About
+linkTitle: About
 menu:
   main:
     weight: 10
