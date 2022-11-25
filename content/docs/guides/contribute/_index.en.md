@@ -22,7 +22,7 @@ Chatting with other contributors is a great way to speed things up:
 Comme dans tout projet, chaque changement se repose sur ce qui a été fait par le passé.
 Avant d'apporter un changement, renseignez-vous sur l'existant:
 
-- Vous pouvez [lire la documentation technique]({{< ref "/developers" >}})
+- Vous pouvez [lire la documentation technique]({{< ref "/docs" >}})
 - Il est préférable de lire le code source de l'application en rapport avec votre projet
 - Vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet
 
