@@ -1,8 +1,14 @@
 ---
-title: "Commit style"
-linkTitle: "Commit style"
-weight: 10
+title: "Style conventions"
+linkTitle: "Style conventions"
+weight: 90
 ---
+
+Style conventions are writting rules means to standardize various aspects of the project.
+
+These matter quite a bit: They enable better communication and programming efficiently.
+
+## Commit style
 
 The overall format for git commits is as follows:
 

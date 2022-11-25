@@ -7,4 +7,4 @@ cascade:
 - type: docs
 ---
 
-Vous souhaitez contribuer à OSRD, ou simplement en comprendre le fonctionnement? Cette documentation est pour vous!
+Vous souhaitez utiliser OSRD, y contribuer, ou simplement en comprendre le fonctionnement ? Cette documentation est pour vous !
