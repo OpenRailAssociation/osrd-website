@@ -1,9 +1,19 @@
 ---
 title: "Contribuer du code"
-linkTitle: "Contribuer au code"
+linkTitle: "Contribuer du code"
 weight: 40
 description: "Apporter des modifications au code d'OSRD"
 ---
+
+{{% alert color="warning" %}}
+Tout le code du dépot OSRD est mis à disposition sous [la licence LGPLv3](https://choosealicense.com/licenses/lgpl-3.0/).
+En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.
+
+La licence LGPL interdit de modifier OSRD sans publier le code source de l'application modifiée: profitez du travail des autres, et laissez les autres profiter de votre travail !
+
+Cette contrainte n'est pas contagieuse à travers les API: Il est possible d'utiliser OSRD comme bibliothèque, framework ou serveur pour s'interfacer avec des composants propriétaires. N'hésitez pas à proposer des changements pour répondre à vos besoins.
+{{% /alert %}}
+
 
 Ce chapitre décrit le processus aboutissant à l'intégration de code au sein du projet. **Si vous avez besoin d'aide, ouvrez une issue ou envoyez un message instantané.**
 
