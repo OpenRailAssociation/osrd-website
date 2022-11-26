@@ -1,8 +1,8 @@
 ---
 title: "Signalisation"
 linkTitle: "Signalisation"
-weight: 60
-description: "Gère l'état des signaux"
+weight: 43
+description: "Décrit la modèle de signalisation"
 ---
 
 ## Description
