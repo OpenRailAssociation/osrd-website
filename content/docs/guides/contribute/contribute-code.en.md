@@ -5,6 +5,16 @@ weight: 40
 description: "Integrate changes into OSRD"
 ---
 
+{{% alert color="warning" %}}
+The source code of OSRD is available under [the LGPLv3 license](https://choosealicense.com/licenses/lgpl-3.0/).
+By contributing to the codebase, you consent to the distribution of your changes under the project's license.
+
+LGPLv3 forbids modifying source code without sharing the changes under the same license: use other people's work, and share yours!
+
+This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.
+{{% /alert %}}
+
+
 This chapter is about the process of integrating changes into the common code base. **If you need help at any stage, open an issue or message us.**
 
 1) If you are not used to Git, [follow this tutorial](https://learngitbranching.js.org/)
