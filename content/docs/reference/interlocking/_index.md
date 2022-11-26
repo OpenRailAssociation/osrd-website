@@ -1,8 +1,8 @@
 ---
-title: "Modèle de simulation de la signalisation et des aiguillages"
-linkTitle: "Modèle de simulation"
+title: "Poste d'aiguillage"
+linkTitle: "Poste d'aiguillage"
 weight: 40
-description: Décrit le fonctionnement du poste d'aiguillage virtuel et de la signalisation
+description: Décrit le fonctionnement du poste d'aiguillage virtuel
 ---
 
 Le modèle de simulation définit le rôle et comportement des différents objets simulés au sein d'OSRD.
