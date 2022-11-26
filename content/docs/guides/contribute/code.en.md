@@ -5,6 +5,33 @@ weight: 40
 description: "Integrate changes into OSRD"
 ---
 
+## Set things up
+
+{{% alert color="info" %}}
+Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
+{{% /alert %}}
+
+### Getting the source code
+
+- Install [`git`](https://git-scm.com/).[^package-manager]
+- Open a terminal[^git-bash] in the folder where the source code of OSRD will be located
+- Run `git clone git@github.com:DGEXSolutions/osrd`
+
+### Launch the application with docker-compose
+
+For a long time, making changes to a component of a multi-service application involved compiling, configuring and running all services manually.
+
+Nowadays, it can be done using `docker-compose`. You can even start only a subset of the services.
+
+- Install `docker` and `docker-compose`. [^package-manager]
+- Run `docker-compose up --build`
+
+[^package-manager]: Under Linux, use your distribution's package manager, such as `apt-get`
+[^git-bash]: Under Windows, open `Git Bash`
+
+
+## Share your changes
+
 {{% alert color="warning" %}}
 The source code of OSRD is available under [the LGPLv3 license](https://choosealicense.com/licenses/lgpl-3.0/).
 By contributing to the codebase, you consent to the distribution of your changes under the project's license.
@@ -37,3 +64,20 @@ Once your pull request is open, [other contributors can review your changes](htt
    - Once all discussions are resolved, a maintainer integrates the change.
 
 6) **If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.**
+
+
+## Git commit style
+
+The overall format for git commits is as follows:
+
+```
+component: imperative description of the change
+
+Detailed description of the change and what motivates it,
+if it is not entirely obvious from the title.
+```
+
+- **the commit message, just like the code, must be in english**
+- all lowercase
+- there can be multiple components separated by `:` in case of hierarchical relationships, with `,` otherwise
+- the body of the commit should probably contain a detailed description of the change

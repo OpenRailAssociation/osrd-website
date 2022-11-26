@@ -14,6 +14,32 @@ La licence LGPL interdit de modifier OSRD sans publier le code source de l'appli
 Cette contrainte n'est pas contagieuse à travers les API: Il est possible d'utiliser OSRD comme bibliothèque, framework ou serveur pour s'interfacer avec des composants propriétaires. N'hésitez pas à proposer des changements pour répondre à vos besoins.
 {{% /alert %}}
 
+## Mise en place
+
+{{% alert color="info" %}}
+La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
+{{% /alert %}}
+
+### Obtenir le code source
+
+- Installer [`git`](https://git-scm.com/)[^package-manager]
+- Ouvrir un terminal[^git-bash] dans le dossier qui contiendra le code source d'OSRD
+- `git clone git@github.com:DGEXSolutions/osrd`
+
+### Lancer l'application avec docker-compose
+
+Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l'application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l'application.
+
+L'outil `docker-compose`, sert à lancer les composants d'OSRD.
+
+- Installer `docker` et `docker-compose`[^package-manager]
+- Lancer `docker-compose up --build`
+
+[^package-manager]: Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple `apt-get`.
+[^git-bash]: Sous Windows, ouvrez `Git Bash`
+
+
+## Partager vos changements
 
 Ce chapitre décrit le processus aboutissant à l'intégration de code au sein du projet. **Si vous avez besoin d'aide, ouvrez une issue ou envoyez un message instantané.**
 
@@ -37,3 +63,20 @@ Une fois que votre pull request est ouverte, [d'autres contributeurs doivent don
    - Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.
 
 6) **N'hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin.**
+
+
+## Style des commits
+
+Le format général des commits est le suivant :
+
+```
+composant: description du changement à l'impératif
+
+Description détaillée du contenu et de la motivation du changement,
+si le titre n'est pas complètement évident.
+```
+
+- **le message comme le code doit être en anglais**
+- tout en minuscule
+- il peut y avoir plusieurs composants, séparés par des `:` quand il y a une relation hiérarchique, ou des `,` sinon
+- dans l'idéal, le corps du commit contient une description du changement.
