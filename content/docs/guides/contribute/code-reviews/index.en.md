@@ -1,6 +1,6 @@
 ---
-title: "Reviewing code"
-linkTitle: "Reviewing code"
+title: "Review code"
+linkTitle: "Review code"
 description: "How to give useful feedback"
 weight: 50
 resources:

@@ -1,6 +1,6 @@
 ---
-title: "Bug tracking"
-linkTitle: "Bug tracking"
+title: "Report issues"
+linkTitle: "Report issues"
 weight: 20
 description: "Report a bug or suggest an enhancement"
 ---

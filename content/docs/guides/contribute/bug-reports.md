@@ -1,6 +1,6 @@
 ---
-title: "Suivi des bugs"
-linkTitle: "Suivi des bugs"
+title: "Signaler des problèmes"
+linkTitle: "Signaler des problèmes"
 weight: 20
 description: "Comment signaler un bug ou suggérer une amélioration"
 ---
