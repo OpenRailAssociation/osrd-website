@@ -1,8 +1,8 @@
 ---
-title: "Usage Example"
-linkTitle: "Usage Example"
+title: "Infrastructure data"
+linkTitle: "Infrastructure data"
 weight: 20
-description: "OSRD data format usage example"
+description: "Explains using an example how infrastructure data is structured"
 ---
 
 <font color=#aa026d>
@@ -15,7 +15,7 @@ This page gives an example of how the data formats are used to describe an infra
 
 For this purpose, let's take as an example the following toy infrastructure:
 
-![Toy infrastructure diagram](../svg_diagrams/small_infra_diagram.drawio.en.svg)
+![Toy infrastructure diagram](svg_diagrams/small_infra_diagram.drawio.en.svg)
 
 {{% alert title="Tip" color="info"%}}
 To zoom in on diagrams, click on the edit button that appears when hovering over it.
@@ -48,7 +48,7 @@ Track sections is what simulated trains roll onto. They are the abstract equival
 
 In this example, we define two tracks for the line between the West and North-East stations. We also have overpassing tracks at the North and Mid-West stations for added realism. Finally, we have three separate tracks in the West station, since it's a major hub in our imaginary infrastructure.
 
-![Track sections diagram](../svg_diagrams/small_infra_rails.drawio.en.svg)
+![Track sections diagram](svg_diagrams/small_infra_rails.drawio.en.svg)
 
 {{% alert title="Important" color="warning"%}}
 `TrackSections` are represented as arrows in this diagram to stress the fact that they have a **start** and an **end**. It matters as objects positioned on track sections are located using their distance from the **start** of their track section.
@@ -107,7 +107,7 @@ The ubiquitous Y switch, which can be thought of as either two tracks merging, o
 
 This switch type has three ports: *base*, *left* and *right*.
 
-![Point switch diagram](../svg_diagrams/point_switch.en.svg)
+![Point switch diagram](svg_diagrams/point_switch.en.svg)
 
 There are two groups, each with one connection in their list: `LEFT`, which connects *base* to *left*, and `RIGHT` which connects *base* to *right*.
 
@@ -115,7 +115,7 @@ Thus, at any given moment, a train can go from *base* to *left* or from *base* t
 
 A Point Switch only has two positions:
 
-![Point switch positions diagram](../svg_diagrams/point_switch_positions.en.svg)
+![Point switch positions diagram](svg_diagrams/point_switch_positions.en.svg)
 
 **2) The Cross Switch**
 
@@ -123,23 +123,23 @@ This is simply two tracks crossing each other.
 
 This type has four ports: *north*, *south*, *east* and *west*.
 
-![Cross switch diagram](../svg_diagrams/cross_switch.en.svg)
+![Cross switch diagram](svg_diagrams/cross_switch.en.svg)
 
 It has only one group containing two connections: *north* to *south* and *west* to *east*. Indeed this kind of switch is *passive*: it has no moving parts. Despite having a single group, it is still used by the simulation to enforce route reservations.
 
 Here are the two different connections that this switch type has:
 
-![Cross switch positions diagram](../svg_diagrams/cross_switch_positions.en.svg)
+![Cross switch positions diagram](svg_diagrams/cross_switch_positions.en.svg)
 
 **3) The Double cross switch**
 
 This one is more like two point switches back to back. It has four ports: *south1*, *south2*, *north1* and *north2*.
 
-![Double cross switch diagram](../svg_diagrams/double_cross_switch.en.svg)
+![Double cross switch diagram](svg_diagrams/double_cross_switch.en.svg)
 
 However, it has four groups, each with one connection. The four groups are represented in the following diagram:
 
-![Double cross switch positions diagram](../svg_diagrams/double_cross_switch_positions.en.svg)
+![Double cross switch positions diagram](svg_diagrams/double_cross_switch_positions.en.svg)
 
 ##### Back to switches
 
@@ -153,7 +153,7 @@ The port names must match the ports of the switch type chosen. The track section
 
 Most of our example's switches are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.
 
-![Track sections and points diagram](../svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
+![Track sections and points diagram](svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
 
 #### Curves and slopes
 
@@ -199,7 +199,7 @@ Let's take a cross switch as an example: if train A is crossing it *north* to *s
 In *OSRD*, detectors are point objects, so all the attributes it needs are its `id`, and track location (`track` and `offset`).
 
 
-![Infra diagram with all detectors](../svg_diagrams/small_infra_detectors.drawio.en.svg)
+![Infra diagram with all detectors](svg_diagrams/small_infra_detectors.drawio.en.svg)
 
 {{% alert title="" color="info"%}}
 The clumped up squares represent many detectors at once. Indeed, because some track sections are not represented with their full length, we could not represent all the detectors on the corresponding track section.
@@ -247,7 +247,7 @@ Here are the most important attributes for signals:
 
 Here is a visualization of how one can represent a signal, and which direction it protects.
 
-![Signal direction example](../svg_diagrams/signal_dir.en.svg)
+![Signal direction example](svg_diagrams/signal_dir.en.svg)
 
 <br/>
 
@@ -261,7 +261,7 @@ Here are the basic rules used for this example infrastructure:
 Note that detectors linked to at least one signal are not represented, as there are not signals without associated detectors in this example.
 To get the `id` of a detector linked to a signal, take the signal's `id` and replace *S* by *D* (e.g. SA0 -> DA0).
 
-![Infra diagram with all signals](../svg_diagrams/small_infra_signals.drawio.en.svg)
+![Infra diagram with all signals](svg_diagrams/small_infra_signals.drawio.en.svg)
 
 {{% alert title="" color="info"%}}
 On *TA6*, *TA7*, *TD0* and *TD1* we could not represent all signals because these track sections are very long and have many detectors, hence many signals.
@@ -281,7 +281,7 @@ For example, it may be convenient to store the location of platforms as parts an
 
 In the example infrastructure, we only used operational points to represent stations. Operational point parts are displayed as purple diamonds. Keep in mind a single operational point may contain multiple parts.
 
-![Operational points examples](../svg_diagrams/small_infra_op_points.drawio.en.svg)
+![Operational points examples](svg_diagrams/small_infra_op_points.drawio.en.svg)
 
 #### Loading Gauge Limits
 
@@ -295,4 +295,4 @@ The `SpeedSections` represent speed limits (in meters per second) that are appli
 
 In our example infrastructure, we have a speed section covering the whole infrastructure, limiting the speed to 300 km/h. On a smaller part of the infrastructure, we applied more restrictive speed sections.
 
-![Speed section examples](../svg_diagrams/speed_sections.en.svg)
+![Speed section examples](svg_diagrams/speed_sections.en.svg)
