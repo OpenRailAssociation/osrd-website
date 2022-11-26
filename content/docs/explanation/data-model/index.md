@@ -1,8 +1,8 @@
 ---
-title: "Exemple d'utilisation"
-linkTitle: "Exemple d'utilisation"
+title: "Données d'infrastructure"
+linkTitle: "Données d'infrastructure"
 weight: 20
-description: "Exemple d'utilisation des formats de données d'OSRD"
+description: "Explique par l'exemple comment les données d'infrastructure sont structurées"
 ---
 
 <font color=#aa026d>
@@ -15,7 +15,7 @@ Cette page donne un exemple de la manière dont les formats de données sont uti
 
 À cette fin, prenons comme exemple l'infrastructure-jouet suivante :
 
-![Diagramme de l'Infrastructure](../svg_diagrams/small_infra_diagram.drawio.svg)
+![Diagramme de l'Infrastructure](svg_diagrams/small_infra_diagram.drawio.svg)
 
 {{% alert title="Conseil" color="info"%}}
 Pour zoomer sur un diagramme, cliquez sur le bouton d'édition qui apparaît au survol de celui-ci.
@@ -48,7 +48,7 @@ Les sections de voie sont ce sur quoi les trains simulés roulent. Ils sont l'é
 
 Dans cet exemple, nous définissons deux voies pour la ligne entre les stations Ouest et Nord-Est. Nous avons également des voies de contournement aux stations Nord et Centre-Ouest pour plus de réalisme. Enfin, nous avons trois voies distinctes dans la station Ouest, puisqu'il s'agit d'une plaque tournante majeure dans notre infrastructure imaginaire.
 
-![Diagramme des sections de voies](../svg_diagrams/small_infra_rails.drawio.en.svg)
+![Diagramme des sections de voies](svg_diagrams/small_infra_rails.drawio.en.svg)
 
 {{% alert title="Important" color="warning"%}}
 Les `TrackSections` sont représentées par des flèches dans ce diagramme pour souligner le fait qu'elles ont un **début** et une **fin**. C'est important car les objets positionnés sur les sections de voie sont localisés en fonction de leur distance par rapport au **début** de leur section de voie.
@@ -107,7 +107,7 @@ L'omniprésent aiguillage en Y, qui peut être considéré comme la fusion de de
 
 Ce type d'aiguillage possède trois ports : *base*, *gauche* et *droite*.
 
-![Diagramme d'aiguillage](../svg_diagrammes/point_switch.en.svg)
+![Diagramme d'aiguillage](svg_diagrams/point_switch.en.svg)
 
 Il y a deux groupes, chacun avec une connexion dans leur liste : `LEFT`, qui connecte *base* à *gauche*, et `RIGHT` qui connecte *base* à *droite*.
 
@@ -115,7 +115,7 @@ Ainsi, à tout moment, un train peut aller de la *base* à la *gauche* ou de la 
 
 Un aiguillage n'a que deux positions :
 
-![Diagramme des positions de l'aiguillage](../svg_diagrams/point_switch_positions.en.svg)
+![Diagramme des positions de l'aiguillage](svg_diagrams/point_switch_positions.en.svg)
 
 **2) L'aiguillage de croisement**
 
@@ -123,13 +123,13 @@ Il s'agit simplement de deux voies qui se croisent.
 
 Ce type a quatre ports : *nord*, *sud*, *est* et *ouest*.
 
-![Diagramme de l'aiguillage croisé](../svg_diagrams/cross_switch.en.svg)
+![Diagramme de l'aiguillage croisé](svg_diagrams/cross_switch.en.svg)
 
 Il ne comporte qu'un seul groupe contenant deux connexions : *nord* vers *sud* et *ouest* vers *est*. En effet, ce type d'interrupteur est *passif* : il n'a pas de pièces mobiles. Bien qu'il n'ait qu'un seul groupe, il est tout de même utilisé par la simulation pour faire respecter les réservations de route.
 
 Voici les deux connexions différentes que ce type d'interrupteur possède :
 
-![Diagramme des positions des aiguilles croisés](../svg_diagrams/cross_switch_positions.en.svg)
+![Diagramme des positions des aiguilles croisés](svg_diagrams/cross_switch_positions.en.svg)
 
 **3) L'interrupteur en croix double**
 
@@ -153,7 +153,7 @@ Les noms des ports doivent correspondre aux ports du type d'aiguillage choisi. L
 
 La plupart des aiguillages de notre exemple sont des aiguillages réguliers. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement, et il y a un double aiguillage de croisement juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.
 
-![Diagramme des sections de voie et des aiguillages](../svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
+![Diagramme des sections de voie et des aiguillages](svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
 
 #### Courbes et pentes
 
@@ -199,7 +199,7 @@ Prenons l'exemple d'un aiguillage de croisement : si le train A le franchit du *
 Dans *OSRD*, les détecteurs sont des objets ponctuels, donc tous les attributs dont ils ont besoin sont leur `id`, et la localisation de la voie (`track` et `offset`).
 
 
-![Diagramme infrarouge avec tous les détecteurs](../svg_diagrams/small_infra_detectors.drawio.en.svg)
+![Diagramme infrarouge avec tous les détecteurs](svg_diagrams/small_infra_detectors.drawio.en.svg)
 
 {{% alert title="" color="info"%}}
 Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet, certains tronçons de voie n'étant pas représentés sur toute leur longueur, nous n'avons pas pu représenter tous les détecteurs du tronçon de voie correspondant.
@@ -247,7 +247,7 @@ Voici les attributs les plus importants des signaux :
 
 Voici une visualisation de comment on peut représenter un signal, et quelle direction il protège.
 
-![Exemple de signal de direction](../svg_diagrams/signal_dir.en.svg)
+![Exemple de signal de direction](svg_diagrams/signal_dir.en.svg)
 
 <br/>
 
@@ -261,7 +261,7 @@ Voici les règles de base utilisées pour cet exemple d'infrastructure :
 Notez que les détecteurs liés à au moins un signal ne sont pas représentés, car il n'y a pas de signaux sans détecteurs associés dans cet exemple.
 Pour obtenir le `id` d'un détecteur lié à un signal, prenez le `id` du signal et remplacez *S* par *D* (par exemple SA0 -> DA0).
 
-![Diagramme infrarouge avec tous les signaux](../svg_diagrams/small_infra_signals.drawio.en.svg)
+![Diagramme infrarouge avec tous les signaux](svg_diagrams/small_infra_signals.drawio.en.svg)
 
 {{% alert title="" color="info"%}}
 Sur *TA6*, *TA7*, *TD0* et *TD1* nous n'avons pas pu représenter tous les signaux car ces sections de voie sont très longues et comportent de nombreux détecteurs, donc de nombreux signaux.
@@ -281,7 +281,7 @@ Par exemple, il peut être pratique de stocker l'emplacement des plateformes en 
 
 Dans l'exemple de l'infrastructure, nous n'avons utilisé que des points opérationnels pour représenter les stations. Les parties de points opérationnels sont représentées par des diamants violets. Gardez à l'esprit qu'un seul point opérationnel peut contenir plusieurs parties.
 
-![Exemples de points opérationnels](../svg_diagrams/small_infra_op_points.drawio.en.svg)
+![Exemples de points opérationnels](svg_diagrams/small_infra_op_points.drawio.en.svg)
 
 #### Limites de gabarit de chargement
 
@@ -295,4 +295,4 @@ Les `SpeedSections` représentent les limites de vitesse (en mètres par seconde
 
 Dans notre exemple d'infrastructure, nous avons une section de vitesse couvrant l'ensemble de l'infrastructure, limitant la vitesse à 300 km/h. Sur une plus petite partie de l'infrastructure, nous avons appliqué des sections de vitesse plus restrictives.
 
-![Exemples de sections de vitesse](../svg_diagrams/speed_sections.en.svg)
+![Exemples de sections de vitesse](svg_diagrams/speed_sections.en.svg)
