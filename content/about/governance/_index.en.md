@@ -4,9 +4,24 @@ linkTitle: Governance
 weight: 40
 ---
 
-Together with key rail actors, we have created an open source foundation for railways. OSRD will be the first project hosted by the OpenRail Foundation. The OpenRail Foundation initiative aims to create an open, autonomous and collaborative innovation space.
-Its mission is to promote the development of open source software projects in the railway sector, as it already exists in numerous other industrial sectors like telecommunication, automotive, energy, …
-Let's solve problems together!
+One of the primary goals of OSRD is **railway planning accross rail network boundaries**.
+
+For this goal to be reached, OSRD has to be compatible with all these networks, which isn't going to happen unless there's a way to consult and collaborate with railway companies and infrastructure managers.
+
+And for their trouble helping build OSRD, these companies get a lot in return:
+ - they profit from all the common development efforts
+ - they can freely build on the common effort to achieve their own goals[^license]
+ - they have a say in the design and direction of the project, which may otherwise be turn out to be incompatible with their own interests
+
+[^license]: As long as they don't modify the common tools without sharing their improvements
+
+To make sure no railway company is left behind, the Open Rail Foundation was born[^contrib].
+
+[^contrib]: Anyone can freely contribute to OSRD without joining the foundation
+
+## The Open Rail Foundation
+
+The [Open Rail Foundation](https://openrailfoundation.gitlab.io/) is a non-profit commited to organize cooperative work around railway software tools. 
 
 <a href="https://openrailfoundation.gitlab.io/"><img class="marginauto" src="openrail_foundation_vector.png" alt="OpenRail Foundation"></a>
 
