@@ -37,3 +37,21 @@ La [fondation Open Rail](https://openrailfoundation.gitlab.io/) est une associat
 	transition: all 0.50s;
 }
 </style>
+
+
+## Gestion de projet
+
+{{% alert color="warning" %}}
+Cette section décrit le fonctionnement des équipes travaillant actuellement sur OSRD au sein de SNCF Réseau.
+Cette structure, si elle pourrait accueillir des équipes d'autres entreprises, n'est pas contraignante : chaque acteur est libre d'organiser son travail tel souhaité.
+{{% /alert %}}
+
+Les équipes qui travaillent actuellement sur OSRD s'appuient sur le [framework agile SAFe](https://en.wikipedia.org/wiki/Scaled_agile_framework) :
+ - Le travail et les livraisons sont organisées en sprints de deux semaines
+ - Tous les 5 sprints, les équipes plannifient et négocient le travail à venir
+
+Cette organisation a été choisie pour :
+ - ses instances de pilotage, qui définissent besoins et priorités
+ - sa bonne transparence des travaux en cours, à venir, et de leur aboutissement
+ - ses processus de retour et de validation
+ - son rythme soutenu de livraisons
