@@ -1,7 +1,7 @@
 ---
 title: Open-Source
 linkTitle: Open-Source
-weight: 10
+weight: 200
 ---
 
 _<font color=#aa026d>«The OSRD application is open source. The simulations are transparent, explicit and universal. Any actor willing to improve the competitiveness of the railway system can contribute to it»</font>_
