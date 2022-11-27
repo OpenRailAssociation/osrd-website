@@ -37,3 +37,20 @@ The [Open Rail Foundation](https://openrailfoundation.gitlab.io/) is a non-profi
 	transition: all 0.5s;
 }
 </style>
+
+
+## Project management
+
+{{% alert color="warning" %}}
+This section describes how work is organized for the team which currently works on OSRD, at SNCF Réseau. Even if this structure could host workers from other companies, it is not a contraint : actors are free to organize their work as wanted.
+{{% /alert %}}
+
+Teams currently working on OSRD rely on the [SAFe framework](https://en.wikipedia.org/wiki/Scaled_agile_framework):
+ - Work and deliveries is divided into two week sprints
+ - Every five sprints, teams plan and negociate work to come
+
+This organisation was choosen for:
+ - its steering body, which defines needs and priorities
+ - its good transparency of ongoing, planned work, and its completion
+ - its good feedback and validation mechanisms
+ - its high rate of delivery
