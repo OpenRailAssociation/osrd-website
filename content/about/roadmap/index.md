@@ -10,7 +10,7 @@ weight: 80
 
 </font>
 
-![Roadmap](../roadmap_prog.png)
+![Roadmap](roadmap_prog.png)
 
 <font color=#aa026d>
 
@@ -25,7 +25,7 @@ weight: 80
 - Recueil des besoins / confrontation aux utilisateurs
 - Livrable : note de cadrage (objectifs, fonctionnalités attendues, risques, planning…)
 
-![Roadmap](../roadmap_hs.png)
+![Roadmap](roadmap_hs.png)
 
 <font color=#aa026d>
 
@@ -39,7 +39,7 @@ Edition de l’infra
 1ère version du module Etudes
 Fin de la stabilisation du calcul de marche
 
-![Roadmap](../roadmap_eex.png)
+![Roadmap](roadmap_eex.png)
 
 <font color=#aa026d>
 
@@ -72,4 +72,4 @@ Faire fonctionner l’algorithme dans OSRD :
 
 **Objectif 2 -** Concevoir le POC de l’application mobile
 
-![Roadmap](../roadmap_sdm.png)
+![Roadmap](roadmap_sdm.png)

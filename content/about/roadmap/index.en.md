@@ -10,7 +10,7 @@ weight: 80
 
 </font>
 
-![Roadmap](../roadmap_prog_en.png)
+![Roadmap](roadmap_prog_en.png)
 
 <font color=#aa026d>
 
@@ -25,7 +25,7 @@ Stage 1: Scoping stage (2-6 months):
 - Collection of needs/confrontation with users
 - Deliverable: scoping note (objectives, expected functionalities, risks, planning, etc.)
 
-![Roadmap](../roadmap_hs_en.png)
+![Roadmap](roadmap_hs_en.png)
 
 <font color=#aa026d>
 
@@ -39,7 +39,7 @@ Edition of the infra
 1st version of the Studies module
 End of the stabilisation of the running calculation
 
-![Roadmap](../roadmap_eex_en.png)
+![Roadmap](roadmap_eex_en.png)
 
 <font color=#aa026d>
 
@@ -72,4 +72,4 @@ Run the algorithm in OSRD:
 
 **Objective 2 -** Design the POC of the mobile application
 
-![Roadmap](../roadmap_sdm_en.png)
+![Roadmap](roadmap_sdm_en.png)
