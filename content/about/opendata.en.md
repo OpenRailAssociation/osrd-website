@@ -1,23 +1,27 @@
 ---
-title: Open-Data
-linkTitle: Open-Data
+title: Open Data
+linkTitle: Open Data
 weight: 220
 ---
 
-<font color=#aa026d>
+Open Data is the practice of making data public accessible under a permissive license.
+It is not the same as open source, which only applies to software.
 
-### Open data is one of the main digital challenges
+**Open data and open source have a symbiotic relationship : without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.**
 
-</font>
+Alone, **open data** already brings a number of key benefits:
+ - companies can use open data in their products, which also promotes railway services
+ - researchers can study the data immediately, and can find the data by themselves
 
-The opening of data promotes transparency and information, removes barriers to accessibility and use, and is a tremendous gas pedal of innovation.
+Yet, **open data** used by an **open source toolbox** open up new prospects:
+ - companies and researchers can use the open source tools to analyse the data, which greatly reduces the barrier to entry by alleviating the need for custom or paid-for tools
+ - customers can use the toolbox to improve how they use railway services
 
-On the rail system side, the SNCF has been committed for a few years to making data available for its passenger transport activities. The company produces a very large amount of data: timetables, equipment and services in stations, regularity, lines and connections, accessibility, etc.
+If **multiple actors** have open data exploitable by an open source tool, these datasets can be **combined** and used to **provide and plan for common services**.
 
-<font color=#aa026d>
+## OSRD and Open Data
 
-### The more data released, the more powerful the OSRD simulator will be!
+- having **rolling stock** and **infrastructure** open data[^full-data] enables anyone to **simulate trains**,  **study** and **evaluate** the railway network
+- having **timetable** open data[^full-data] enables anyone to **study** rail network usage
 
-</font>
-
-We are working every day to continue this opening up! Indeed, some data still classified as confidential are no longer classified as industrial secrets (e.g., data useful for calculating the speed and spacing of trains). The declassification of this non-sensitive data is essential for the operation of certain open source tools, whose performance depends heavily on shared data.
+[^full-data]: Data sets have to be complete to be useful. Organisations providing open data need to have feedback channels, and take the experience of open data users into account.

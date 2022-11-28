@@ -1,34 +1,58 @@
 ---
-title: Open-Source
-linkTitle: Open-Source
+title: Open Source
+linkTitle: Open Source
 weight: 200
 ---
 
-_<font color=#aa026d>« L’application OSRD est open source. Les simulations sont transparentes, explicites et universelles. Tout acteur désireux d'améliorer la compétitivité du système ferroviaire peut y apporter sa contribution »</font>_
+L’open source est une **pratique de développement logiciel**, où le code source[^code-source] du logiciel est :
+ - généralement développé de manière ouverte et collaborative, par des acteurs variés
+ - accessible et gratuitement utilisable par tous
+ - tout le monde est libre de proposer un changement, ou créer un logiciel dérivé
+ - redistribuable par tous
 
-<font color=#aa026d>
+En pratique, l'open source est à la fois un **cadre légal** pour le travail collaboratif, et un **ensemble de pratiques**.
 
-### OSRD : quand la simulation ferroviaire devient open source
+[^code-source]: Le code source est un ensemble de documents texte qui définit comment fonctionne une application. C'est le produit du travail de développeurs logiciels.
 
-</font>
+## Application à OSRD
 
-Le choix de l’open source est particulièrement stratégique dans le secteur public. En plus d’une baisse significative des coûts de développement, il offre à chaque citoyen **la transparence nécessaire** pour comprendre et évaluer les choix d’investissement public.
+Dans le contexte d'OSRD, ce modèle a de **multiples avantages** :
+ - les algorithmes et le savoir-faire développé est ouvert à tous
+ - les coûts de développement sont mutualisés entre les différents acteurs
+ - les résultats des efforts de développement sont mutualisés
+ - permet de faciliter l'interopérabilité entre systèmes d'information en facilitant la standardisation et l'uniformisation
+ - permet de catalyser la collaboration d'acteurs aux objectifs communs
+ - permet à chaque acteur d'adapter librement le logiciel à ses besoins
+ - il permet aux organismes de recherche publics de contribuer directement, et de profiter du projet
+ - il met tous les acteurs sur un pied d'égalité
+ - il permet aux acteurs publics de répondre à leurs impératifs de transparence
 
-Nous croyons que l’open source répond à des enjeux d’ordre politique, économique, technique et même énergétique :
+L'utilisation d'un projet open source comme catalyseur de collaboration industrielle a de nombreux antécédents :
+ - **Blender** est un outil de modélisation, rendu, et animation 3D très complet, qui est récemment devenu une [plateforme de collaboration industrielle](https://fund.blender.org/) majeure pour l'industrie audiovisuelle
+ - **Linux**, une alternative à Windows qui équipe Google, Microsoft, Amazon, Apple, la plupart des sites internet, plateformes cloud, téléphones, routeurs, et bien plus. Toutes ces entreprises contribuent et se reposent énormément sur Linux
+ - **Android** est une base commune pour la majorité des téléphones vendus. Les fabriquants contribuent régulièrement à Android
+ - **PostgreSQL**, **MySQL**, **SQLite** et d'autres bases de donnée open source dominent collectivement ce marché. Un acteur aux besoins inédits peut contribuer à un outil open source plutôt qu'en créer un nouveau.
+ - À la fois **Firefox** et **Chrome** sont Open Source
+ - **Wordpress** est le CMS au coeur de 43% des sites internet en activité. Une armée d'entreprises contribuent et produisent des extensions
+ - **Odoo** est un ERP modulaire très complet, à la communauté similaire à Wordpress
 
-- **Politique**, par la transparence et l’uniformisation, parce qu’il est nécessaire de retrouver la confiance de nos commanditaires  et parce que les standards peinent à s’imposer dans le secteur;
-- **Économique**, parce qu’une meilleure utilisation du réseau réduira les couts d’exploitation et de possession du réseau, et parce que l’objectif est de rendre le mode ferré encore plus attractif;
-- **Technique**, parce que le partage permet l’évolution;
-- **Energétique**, enfin, car nous pouvons accélérer la transition énergétique en valorisant le transport ferroviaire. Mais nous devons le faire en conservant ou améliorant la performance industrielle.
+**Toutes ces projets ont en commun d'être essentiel au business d'un grand nombre d'entreprises, sans pour autant être ce que l'entreprise commercialise**.
 
-Enfin, L’open source permet de fédérer une communauté de personnes qui travaillaient jusqu’alors dans leur coin. Tout tient dans la célèbre loi de (Bill) Joy : _<font color=#aa026d>« Qui que vous soyez, les meilleurs travaillent pour quelqu’un d’autre »</font>_ !
+Ainsi, ces entreprises décident de collaborer avec leurs pairs ou concurrents à des outils communs, afin de faciliter les échanges et d'améliorer la qualité de leur service.
 
-<font color=#aa026d>
+## Fonctionnement pratique
 
-### Définition
+{{% alert color="info" %}}
+Ce mode de fonctionnement n'est pas spécifique à l'open source : beaucoup d'entreprises adoptent un fonctionnement identique, à la différence près qu'il est maintenu privé.
+{{% /alert %}}
 
-</font>
 
-L’open source consiste à laisser le code source d’un logiciel développé en libre accès, afin que tout le monde puisse **le lire, l’utiliser et proposer des modifications ou développements**. La conception et le développement des logiciels open source sont alors placés entre les mains de **communautés** d’utilisateurs et/ou de développeurs.
-Chacun a la capacité d’adapter le logiciel à ses exigences et à ses besoins propres, tout en faisant profiter une large communauté de ses innovations. Les objectifs de développement sont donc partagés : les bugs, l’état de leur résolution et les efforts mis en œuvre pour les résoudre sont publics, tout comme l’avancement des nouvelles fonctionnalités.
-Dans l’absolu, **toute personne volontaire peut contribuer au projet, mais cela ne signifie pas pour autant que tout changement proposé sera intégré :** à l’instar des revues par les pairs de la communauté scientifique, les communautés open source ont leurs standards, leurs exigences, et leurs revues de code. L’objectif est clair : s’assurer que le projet reste de bonne qualité.
+En pratique, les logiciels libre sont développés via [une forge](https://github.com/DGEXSolutions/osrd). Cette forge donne accès au code source, un outil de gestion des bugs / tâches, et un outil servant à intégrer des changements dans le code.
+Tout le monde peut proposer un changement, signaler un bug ou proposer une tâche.
+
+Les propositions de changement sont soumis à une **revue par les pairs**, semblables à celles de la communauté scientifique.
+Les individus en charge de la revue (les reviewers) sont ceux qui sont les plus familliers avec les composants affectés par le changement.
+
+Les changements sont intégrés par des mainteneurs sur la base du **consensus** entre reviewers.
+Les mainteneurs sont responsables de la cohérence technique du projet, et obtiennent cette position par consensus.
+L'intégration des changement n'est motivée que par leur viabilité technique : l'objectif des mainteneurs et reviewers est de **s'assurer que le projet reste de bonne qualité**.
