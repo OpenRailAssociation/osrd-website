@@ -1,6 +1,7 @@
 ---
 title: Governance
 linkTitle: Governance
+description: Governance and organisation of OSRD
 weight: 40
 ---
 

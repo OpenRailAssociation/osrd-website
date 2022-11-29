@@ -1,6 +1,7 @@
 ---
 title: Open Data
 linkTitle: Open Data
+description: OSRD and Open Data
 weight: 220
 ---
 

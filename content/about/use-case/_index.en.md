@@ -1,6 +1,7 @@
 ---
 title: Use cases
 linkTitle: Use cases
+description: Use cases and strategic axes
 weight: 60
 ---
 

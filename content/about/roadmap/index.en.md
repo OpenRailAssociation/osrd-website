@@ -1,6 +1,7 @@
 ---
 title: Roadmap
 linkTitle: Roadmap
+description: Strategic planning
 weight: 80
 ---
 
