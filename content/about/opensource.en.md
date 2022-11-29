@@ -1,6 +1,7 @@
 ---
 title: Open Source
 linkTitle: Open Source
+description: OSRD and Open Source
 weight: 200
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Cas d'utilisation
 linkTitle: Cas d'utilisation
+description: Applications et axes directeurs
 weight: 60
 ---
 
