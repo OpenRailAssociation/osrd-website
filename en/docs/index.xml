@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Developers</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/</link><description>Recent content in Developers on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Physical modeling</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Physical modeling</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
 &lt;!-- script to auto-render KaTeX extension $$..$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -73,116 +73,7 @@ $$&lt;/p>
 &lt;p>The driving force and the braking force depend on the driver&amp;rsquo;s action (he decides to accelerate or brake more or less strongly depending on the situation). This dependence is reflected in the dependence of these two forces on the position of the train. The weight component is also dependent on the position of the train, as it comes directly from the slopes and bends below the train.&lt;/p>
 &lt;p>In addition, the driving force depends on the speed of the train (according to the speed effort curve) as does the resistance to forward motion.
 resistance.&lt;/p>
-&lt;p>These different dependencies make it impossible to solve this equation analytically, and the acceleration of the train at each moment must be calculated by numerical integration.&lt;/p></description></item><item><title>Docs: License</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/license/</guid><description>
-&lt;p>The source code of OSRD is available under &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">the LGPLv3 license&lt;/a>.&lt;/p>
-&lt;p>Just like with any other open source project, by contributing source code, you imply the owner of the source code allows its distribution under the project&amp;rsquo;s license.&lt;/p>
-&lt;div class="alert alert-warning" role="alert">
-&lt;p>LGPLv3 forbids modifying source code without sharing the changes under the same license: use other people&amp;rsquo;s work, and share yours!&lt;/p>
-&lt;p>This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.&lt;/p>
-&lt;/div></description></item><item><title>Who-We-Are: Open-Source</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/opensource/</guid><description>
-&lt;p>&lt;em>&lt;font color=#aa026d>«The OSRD application is open source. The simulations are transparent, explicit and universal. Any actor willing to improve the competitiveness of the railway system can contribute to it»&lt;/font>&lt;/em>&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="osrd-when-railway-simulation-becomes-open-source">OSRD: when railway simulation becomes open source&lt;/h3>
-&lt;/font>
-&lt;p>The choice of Open Source is particularly strategic in the public sector. In addition to significantly lowering development costs, it offers every citizen &lt;strong>the transparency needed&lt;/strong> to understand and evaluate public investment choices.&lt;/p>
-&lt;p>We believe that Open Source addresses political, economic, technical and even energy issues:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Political&lt;/strong>, through transparency and uniformity, because it is necessary to regain the confidence of our sponsors and because standards are struggling to be established in the sector;&lt;/li>
-&lt;li>&lt;strong>Economic&lt;/strong>, because a better use of the network will reduce the costs of operating and owning the network, and because the objective is to make the rail mode even more attractive;&lt;/li>
-&lt;li>&lt;strong>Technical&lt;/strong>, because sharing allows evolution;&lt;/li>
-&lt;li>&lt;strong>Energy&lt;/strong>, finally, because we can accelerate the energy transition by enhancing the value of rail transport. But we must do so while maintaining or improving industrial performance.&lt;/li>
-&lt;/ul>
-&lt;p>Finally, Open Source allows federating a community of people who worked until then in their corner. Everything is based on (Bill) Joy&amp;rsquo;s infamous law: &lt;em>&lt;font color=#aa026d>«No matter who you are, most of the smartest people work for someone else»&lt;/font>&lt;/em>!&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="definition">Definition&lt;/h3>
-&lt;/font>
-&lt;p>Open source consists in leaving the source code of a developed software freely available, so that anyone can &lt;strong>read it, use it and propose modifications or developments&lt;/strong>. The design and development of open source software is then placed in the hands of &lt;strong>communities&lt;/strong> of users and/or developers.
-Everyone has the ability to adapt the software to their own requirements and needs, while sharing their innovations with a large community. Development goals are therefore shared: bugs, the status of their resolution and the efforts made to solve them are public, as is the progress of new features.
-In absolute terms, &lt;strong>anyone who wants to can contribute to the project, but this does not mean that any proposed change will be integrated:&lt;/strong> just like peer reviews in the scientific community, open source communities have their own standards, requirements, and code reviews. The goal is clear: to ensure that the project remains of good quality.&lt;/p></description></item><item><title>Who-We-Are: Roadmap</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/roadmap/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="program">Program&lt;/h3>
-&lt;/font>
-&lt;p>&lt;img src="../roadmap_prog_en.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="strategic-timetables">Strategic Timetables&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>2022 Objective:&lt;/strong> Designing a POC for building and representing strategic schedules
-Stage 1: Scoping stage (2-6 months):&lt;/p>
-&lt;ul>
-&lt;li>Analysis of the existing tool and process&lt;/li>
-&lt;li>Collection of needs/confrontation with users&lt;/li>
-&lt;li>Deliverable: scoping note (objectives, expected functionalities, risks, planning, etc.)&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="../roadmap_hs_en.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="exploitation-study">Exploitation Study&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>2022 Objective:&lt;/strong> Delivering V1 of the tool
-Operation of the signalling system
-Edition of the infra
-1st version of the Studies module
-End of the stabilisation of the running calculation&lt;/p>
-&lt;p>&lt;img src="../roadmap_eex_en.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="infrastructure-management">Infrastructure management&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>2022 Objective:&lt;/strong> To offer an open access infrastructure management service (layers and data) and their editing:&lt;/p>
-&lt;ul>
-&lt;li>Provision of layers&lt;/li>
-&lt;li>Search in layer data&lt;/li>
-&lt;li>Layers editing
-(Link with OSM)&lt;/li>
-&lt;/ul>
-&lt;font color=#aa026d>
-&lt;h3 id="short-term-dcm">Short Term DCM&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objective 1 -&lt;/strong> Integrating the residual capacity search algorithm into OSRD&lt;/p>
-&lt;p>Run the algorithm in OSRD:&lt;/p>
-&lt;ul>
-&lt;li>Integrate the algorithm&lt;/li>
-&lt;li>Integrate the algorithm into the SIPH data (infra and hourly data)
-&lt;ul>
-&lt;li>Import of SIPH data into OSRD&lt;/li>
-&lt;li>Projection of SIPH schedules to track&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Projection on the most likely route&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Objective 2 -&lt;/strong> Design the POC of the mobile application&lt;/p>
-&lt;p>&lt;img src="../roadmap_sdm_en.png" alt="Roadmap">&lt;/p></description></item><item><title>Who-We-Are: Strategic timetable</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/strategic-timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/strategic-timetable/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="presentation">Presentation&lt;/h3>
-&lt;/font>
-&lt;p>A first phase of the transportation plan design process starts very early: Y-10 of the day the train is to run and aims to &lt;strong>propose several traffic scenarios&lt;/strong> on existing or prospective rail infrastructure. In this phase, SNCF Réseau, the French railway infrastructure manager and responsible for the allocation and sale of train paths, collects requests from &lt;strong>OA&lt;/strong> (Organizing Authorities) and &lt;strong>RC&lt;/strong> (Railway Companies) in terms of mobility. The requests will be transmitted in the form of &lt;strong>service plans&lt;/strong>. A service plan is a way of representing the requested trains, their route and the stops to be served.&lt;/p>
-&lt;p>The &lt;strong>OSRD Strategic Schedules&lt;/strong> product has been designed to build an operating plan from the service diagrams, based on &lt;strong>rail infrastructure modeling, running calculation and simulation&lt;/strong>. Building an operating plan means scheduling the trains presented on the service diagrams in a way that best meets the mobility needs. The OSRD tool provides a database with a &lt;strong>micro-model of the French railway infrastructure&lt;/strong> as well as the &lt;strong>rolling stock already in use in France&lt;/strong>. Moreover, an interface to modify the existing infrastructure or to design a new part of the infrastructure is proposed. The output products of the &amp;ldquo;&lt;strong>OSRD Strategic Schedules&lt;/strong>&amp;rdquo; process are timetables where the train schedules are displayed. A graphical representation of the timetables is thus proposed.&lt;/p>
-&lt;p>A comprehensive and strategic view of the timetable planning is crucial to improve rail performance. &lt;strong>The ultimate goal is to meet mobility needs by optimizing line capacity utilization, station track occupancy and material turnover&lt;/strong>. To meet this optimization requirement, we are working to implement mathematical modeling and resolution modules coupled with the simulator.&lt;/p></description></item><item><title>Docs: Setting things up</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/setting-things-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/setting-things-up/</guid><description>
-&lt;div class="alert alert-info" role="alert">
-Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
-&lt;/div>
-&lt;h2 id="getting-the-source-code">Getting the source code&lt;/h2>
-&lt;ul>
-&lt;li>Install &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Open a terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in the folder where the source code of OSRD will be located&lt;/li>
-&lt;li>Run &lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="launch-the-application-with-docker-compose">Launch the application with docker-compose&lt;/h2>
-&lt;p>For a long time, making changes to a component of a multi-service application involved compiling, configuring and running all services manually.&lt;/p>
-&lt;p>Nowadays, it can be done using &lt;code>docker-compose&lt;/code>. You can even start only a subset of the services.&lt;/p>
-&lt;ul>
-&lt;li>Install &lt;code>docker&lt;/code> and &lt;code>docker-compose&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Run &lt;code>docker-compose up --build&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;div class="footnotes" role="doc-endnotes">
-&lt;hr>
-&lt;ol>
-&lt;li id="fn:1">
-&lt;p>Under Linux, use your distribution&amp;rsquo;s package manager, such as &lt;code>apt-get&lt;/code>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:2">
-&lt;p>Under Windows, open &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;/div></description></item><item><title>Docs: Numerical integration</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
+&lt;p>These different dependencies make it impossible to solve this equation analytically, and the acceleration of the train at each moment must be calculated by numerical integration.&lt;/p></description></item><item><title>Docs: Numerical integration</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
 &lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -333,33 +224,13 @@ width: 70%;
 }
 &lt;/style></description></item><item><title>Docs: Architecture</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/reference/architecture/</guid><description>
 &lt;p>It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.&lt;/p>
-&lt;p>&lt;img src="../architecture.en.svg" alt="Projet Architecture">&lt;/p></description></item><item><title>Docs: Bug tracking</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/bug-tracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/bug-tracking/</guid><description>
-&lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
-&lt;p>Our bug tracking platform is github, so have to register to report bugs.&lt;/p>
-&lt;p>Follow &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p></description></item><item><title>Who-We-Are: Exploitation studies</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/exploitation-studies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/exploitation-studies/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="presentation">Presentation&lt;/h3>
-&lt;/font>
-&lt;p>Millions of Euros are invested each year in rail projects on the basis of operational studies. The objectives of these studies are &lt;strong>to match transport needs with the rail infrastructure and to assess the capacity of the network to meet these needs&lt;/strong>. Operational studies, which are strategic and crucial for informing public investment decisions concerning the future of the rail network and for the performance of the rail system, require rare and exclusive skills and &lt;strong>currently produce scattered and poorly capitalized data&lt;/strong>. For this reason, SNCF Réseau has chosen in 2019 to equip itself with an in-house tool to carry out these studies.&lt;/p>
-&lt;p>The &amp;ldquo;&lt;strong>OSRD Operational Studies&lt;/strong>&amp;rdquo; project was born in response to the shortcomings of the market: numerous and expensive tools, closed and with non-comparable results. On the contrary, we propose a reference tool accessible to all, whose results are transparent, explicit and universal. The OSRD tool provides a database with a microscopic modeling of the French railway infrastructure (gradients, radii of curvature, limiting speeds). An interface to modify the existing infrastructure or to design a new part of the infrastructure is proposed.
-Thanks to this modeling and to its running calculation engine, OSRD can calculate routes, draw paths, simulate trains and their interaction with the signaling system.
-OSRD meets the &lt;strong>stakes of sustainable mobility&lt;/strong> by optimizing energy consumption. The expected regularity margin on the running of a train is distributed according to an &lt;strong>algorithm that minimizes the energy consumed by the train during the journey&lt;/strong>.&lt;/p>
-&lt;p>An interesting element of verification of an exploitation scenario is &lt;strong>the evaluation of the robustness&lt;/strong> of what is projected. For this function, a &lt;strong>stochastic simulation module&lt;/strong> is proposed. Hazards can be modeled and injected into the simulator to evaluate the consequences and the ability of the system to return to balance.&lt;/p></description></item><item><title>Who-We-Are: Open-Data</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/program/strategic-choices/opendata/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="open-data-is-one-of-the-main-digital-challenges">Open data is one of the main digital challenges&lt;/h3>
-&lt;/font>
-&lt;p>The opening of data promotes transparency and information, removes barriers to accessibility and use, and is a tremendous gas pedal of innovation.&lt;/p>
-&lt;p>On the rail system side, the SNCF has been committed for a few years to making data available for its passenger transport activities. The company produces a very large amount of data: timetables, equipment and services in stations, regularity, lines and connections, accessibility, etc.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="the-more-data-released-the-more-powerful-the-osrd-simulator-will-be">The more data released, the more powerful the OSRD simulator will be!&lt;/h3>
-&lt;/font>
-&lt;p>We are working every day to continue this opening up! Indeed, some data still classified as confidential are no longer classified as industrial secrets (e.g., data useful for calculating the speed and spacing of trains). The declassification of this non-sensitive data is essential for the operation of certain open source tools, whose performance depends heavily on shared data.&lt;/p></description></item><item><title>Docs: Usage Example</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/reference/data-model/usage-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/reference/data-model/usage-example/</guid><description>
+&lt;p>&lt;img src="../architecture.en.svg" alt="Projet Architecture">&lt;/p></description></item><item><title>Docs: Infrastructure data</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/data-model/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="introduction">Introduction&lt;/h3>
 &lt;/font>
 &lt;p>This page gives an example of how the data formats are used to describe an infrastructure in &lt;strong>OSRD&lt;/strong>.&lt;/p>
 &lt;p>For this purpose, let&amp;rsquo;s take as an example the following toy infrastructure:&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_diagram.drawio.en.svg" alt="Toy infrastructure diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_diagram.drawio.en.svg" alt="Toy infrastructure diagram">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Tip&lt;/h4>
 To zoom in on diagrams, click on the edit button that appears when hovering over it.
@@ -378,7 +249,7 @@ This example will be created step by step and explained along the way.&lt;/p>
 &lt;p>A track section is a section of rail (switches not included). One can chose to divide the tracks of their infrastructure in as many track sections as they like. Here we chose to use the longest track sections possible, which means that between two switches there is always a single track section.&lt;/p>
 &lt;p>Track sections is what simulated trains roll onto. They are the abstract equivalent to physical rail sections. Track sections are bidirectional.&lt;/p>
 &lt;p>In this example, we define two tracks for the line between the West and North-East stations. We also have overpassing tracks at the North and Mid-West stations for added realism. Finally, we have three separate tracks in the West station, since it&amp;rsquo;s a major hub in our imaginary infrastructure.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_rails.drawio.en.svg" alt="Track sections diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails.drawio.en.svg" alt="Track sections diagram">&lt;/p>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Important&lt;/h4>
 &lt;p>&lt;code>TrackSections&lt;/code> are represented as arrows in this diagram to stress the fact that they have a &lt;strong>start&lt;/strong> and an &lt;strong>end&lt;/strong>. It matters as objects positioned on track sections are located using their distance from the &lt;strong>start&lt;/strong> of their track section.&lt;/p>
@@ -417,23 +288,23 @@ This is because a switch is a physical object, and changing active link can invo
 &lt;p>&lt;strong>1) The Point Switch&lt;/strong>&lt;/p>
 &lt;p>The ubiquitous Y switch, which can be thought of as either two tracks merging, or one track splitting.&lt;/p>
 &lt;p>This switch type has three ports: &lt;em>base&lt;/em>, &lt;em>left&lt;/em> and &lt;em>right&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/point_switch.en.svg" alt="Point switch diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch.en.svg" alt="Point switch diagram">&lt;/p>
 &lt;p>There are two groups, each with one connection in their list: &lt;code>LEFT&lt;/code>, which connects &lt;em>base&lt;/em> to &lt;em>left&lt;/em>, and &lt;code>RIGHT&lt;/code> which connects &lt;em>base&lt;/em> to &lt;em>right&lt;/em>.&lt;/p>
 &lt;p>Thus, at any given moment, a train can go from &lt;em>base&lt;/em> to &lt;em>left&lt;/em> or from &lt;em>base&lt;/em> to &lt;em>right&lt;/em> but never to both at the same time. A train cannot go from &lt;em>left&lt;/em> to &lt;em>right&lt;/em>.&lt;/p>
 &lt;p>A Point Switch only has two positions:&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/point_switch_positions.en.svg" alt="Point switch positions diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch_positions.en.svg" alt="Point switch positions diagram">&lt;/p>
 &lt;p>&lt;strong>2) The Cross Switch&lt;/strong>&lt;/p>
 &lt;p>This is simply two tracks crossing each other.&lt;/p>
 &lt;p>This type has four ports: &lt;em>north&lt;/em>, &lt;em>south&lt;/em>, &lt;em>east&lt;/em> and &lt;em>west&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/cross_switch.en.svg" alt="Cross switch diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch.en.svg" alt="Cross switch diagram">&lt;/p>
 &lt;p>It has only one group containing two connections: &lt;em>north&lt;/em> to &lt;em>south&lt;/em> and &lt;em>west&lt;/em> to &lt;em>east&lt;/em>. Indeed this kind of switch is &lt;em>passive&lt;/em>: it has no moving parts. Despite having a single group, it is still used by the simulation to enforce route reservations.&lt;/p>
 &lt;p>Here are the two different connections that this switch type has:&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/cross_switch_positions.en.svg" alt="Cross switch positions diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch_positions.en.svg" alt="Cross switch positions diagram">&lt;/p>
 &lt;p>&lt;strong>3) The Double cross switch&lt;/strong>&lt;/p>
 &lt;p>This one is more like two point switches back to back. It has four ports: &lt;em>south1&lt;/em>, &lt;em>south2&lt;/em>, &lt;em>north1&lt;/em> and &lt;em>north2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/double_cross_switch.en.svg" alt="Double cross switch diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/double_cross_switch.en.svg" alt="Double cross switch diagram">&lt;/p>
 &lt;p>However, it has four groups, each with one connection. The four groups are represented in the following diagram:&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/double_cross_switch_positions.en.svg" alt="Double cross switch positions diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/double_cross_switch_positions.en.svg" alt="Double cross switch positions diagram">&lt;/p>
 &lt;h5 id="back-to-switches">Back to switches&lt;/h5>
 &lt;p>A &lt;code>Switch&lt;/code> has three attributes:&lt;/p>
 &lt;ul>
@@ -443,7 +314,7 @@ This is because a switch is a physical object, and changing active link can invo
 &lt;/ul>
 &lt;p>The port names must match the ports of the switch type chosen. The track section endpoints can be start or end, be careful to chose the appropriate ones.&lt;/p>
 &lt;p>Most of our example&amp;rsquo;s switches are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Track sections and points diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Track sections and points diagram">&lt;/p>
 &lt;h4 id="curves-and-slopes">Curves and slopes&lt;/h4>
 &lt;p>&lt;code>Curves&lt;/code> and &lt;code>Slopes&lt;/code> are instrumental to realistic simulations. These objects are defined as a range between a &lt;code>begin&lt;/code> and &lt;code>end&lt;/code> offsets of one track section. If a curve / slope spans more than one track section, it has to be added to all of them.&lt;/p>
 &lt;p>The slope / curve values are constant on their entire range. For varying curves / slopes, one needs to create several objects.&lt;/p>
@@ -470,7 +341,7 @@ Mind that the &lt;code>begin&lt;/code> value should always be smaller than the &
 Let&amp;rsquo;s take a cross switch as an example: if train A is crossing it &lt;em>north&lt;/em> to &lt;em>south&lt;/em> and train B is coming to cross &lt;em>west&lt;/em> to &lt;em>east&lt;/em>, then as soon as train A&amp;rsquo;s last car has passed the crossing, B should be able to go, since A is now on a completely unrelated track section.
 &lt;/div>
 &lt;p>In &lt;em>OSRD&lt;/em>, detectors are point objects, so all the attributes it needs are its &lt;code>id&lt;/code>, and track location (&lt;code>track&lt;/code> and &lt;code>offset&lt;/code>).&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Infra diagram with all detectors">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Infra diagram with all detectors">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 The clumped up squares represent many detectors at once. Indeed, because some track sections are not represented with their full length, we could not represent all the detectors on the corresponding track section.
 &lt;/div>
@@ -504,7 +375,7 @@ The clumped up squares represent many detectors at once. Indeed, because some tr
 &lt;li>Cosmetic attributes like &lt;code>angle_geo&lt;/code> or &lt;code>side&lt;/code> which control the way in which the signals are displayed in the front-end.&lt;/li>
 &lt;/ul>
 &lt;p>Here is a visualization of how one can represent a signal, and which direction it protects.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/signal_dir.en.svg" alt="Signal direction example">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/signal_dir.en.svg" alt="Signal direction example">&lt;/p>
 &lt;br/>
 &lt;p>The way the signals are arranged is highly dependent on both signaling system and infrastructure manager.&lt;/p>
 &lt;p>Here are the basic rules used for this example infrastructure:&lt;/p>
@@ -514,7 +385,7 @@ The clumped up squares represent many detectors at once. Indeed, because some tr
 &lt;/ul>
 &lt;p>Note that detectors linked to at least one signal are not represented, as there are not signals without associated detectors in this example.
 To get the &lt;code>id&lt;/code> of a detector linked to a signal, take the signal&amp;rsquo;s &lt;code>id&lt;/code> and replace &lt;em>S&lt;/em> by &lt;em>D&lt;/em> (e.g. SA0 -&amp;gt; DA0).&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_signals.drawio.en.svg" alt="Infra diagram with all signals">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Infra diagram with all signals">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 On &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em> we could not represent all signals because these track sections are very long and have many detectors, hence many signals.
 &lt;/div>
@@ -525,14 +396,17 @@ On &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;
 &lt;p>&lt;code>OperationalPoints&lt;/code> are collections of points (&lt;code>OperationalPointParts&lt;/code>) of interest.&lt;/p>
 &lt;p>For example, it may be convenient to store the location of platforms as parts and group them by station in operational points.&lt;/p>
 &lt;p>In the example infrastructure, we only used operational points to represent stations. Operational point parts are displayed as purple diamonds. Keep in mind a single operational point may contain multiple parts.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Operational points examples">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Operational points examples">&lt;/p>
 &lt;h4 id="loading-gauge-limits">Loading Gauge Limits&lt;/h4>
 &lt;p>These objects are akin to &lt;code>Slopes&lt;/code> and &lt;code>Curves&lt;/code>: it covers a range of track section, with a &lt;code>begin&lt;/code> and an &lt;code>end&lt;/code> offset. It represents a restriction on the trains that can travel on the given range, by weight or by train type (freight or passenger).&lt;/p>
 &lt;p>We did not put any in our examples.&lt;/p>
 &lt;h4 id="speed-sections">Speed Sections&lt;/h4>
 &lt;p>The &lt;code>SpeedSections&lt;/code> represent speed limits (in meters per second) that are applied on some parts of the tracks. One &lt;code>SpeedSection&lt;/code> can span on several track sections, and do not necessarily cover the whole track sections. Speed sections can overlap.&lt;/p>
 &lt;p>In our example infrastructure, we have a speed section covering the whole infrastructure, limiting the speed to 300 km/h. On a smaller part of the infrastructure, we applied more restrictive speed sections.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/speed_sections.en.svg" alt="Speed section examples">&lt;/p></description></item><item><title>Docs: Envelopes system</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
+&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Speed section examples">&lt;/p></description></item><item><title>Docs: Report issues</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/bug-reports/</guid><description>
+&lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
+&lt;p>Our bug tracking platform is github, so have to register to report bugs.&lt;/p>
+&lt;p>Follow &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p></description></item><item><title>Docs: Envelopes system</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
 &lt;p>The envelope system is an interface created specifically for the OSRD gait calculation. It allows you to manipulate different space/velocity curves, to slice them, to end them, to interpolate specific points, and to address many other needs necessary for the gait calculation.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="a-specific-interface-in-the-osrd-core-service">A specific interface in the OSRD Core service&lt;/h3>
@@ -562,14 +436,7 @@ On &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;
 &lt;font color=#aa026d>
 &lt;h3 id="simulation-of-several-trains">Simulation of several trains&lt;/h3>
 &lt;/font>
-&lt;p>In the case of the simulation of many trains, the signalling system must ensure &lt;strong>safety&lt;/strong>. The effect of signalling on the running calculation of a train is reproduced by superimposing dynamic envelopes on the static envelope. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economic envelope superimposed on the dynamic envelopes, if any. In this simulation mode, a time check is performed against a theoretical time from the time information of the static economic envelope. If the train is late with respect to the scheduled time, it stops following the economic envelope and tries to go faster. Its space/speed curve will therefore be limited by the maximum effort envelope.&lt;/p></description></item><item><title>Who-We-Are: Infrastructure management</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/infrastructure-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/infrastructure-management/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="presentation">Presentation&lt;/h3>
-&lt;/font>
-&lt;p>Several applications used within the SNCF group and outside need a &lt;strong>mapping representation of the railway network&lt;/strong>. The OSRD base map uses geographic data from &lt;strong>OpenStreetMap (OSM)&lt;/strong>, a &amp;ldquo;Wikipedia of maps&amp;rdquo; that allows collaborative consultation and editing of geographic data. This base map is regularly updated to reflect the evolution of non-rail infrastructure.&lt;/p>
-&lt;p>&lt;img src="../osrd_management.png" alt="OSRD management">&lt;/p>
-&lt;p>&amp;ldquo;OSRD Infrastructure Management**&amp;rdquo; proposes a mapping service accessible to all and shared, based on the same model: everyone will be able to contribute and put in quality the railway data.
-We provide on the one hand a &lt;strong>complete editor of the rail network infrastructure and the objects that compose it&lt;/strong>, and on the other hand, &lt;strong>the provision of data layers for their exploitation and representation in the standards of online mapping&lt;/strong>. Finally, we are studying the possibility of **being able to automate the updating of OpenStreetMap&amp;rsquo;s railway data** with the data thus made available.&lt;/p></description></item><item><title>Docs: Pipeline</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/pipeline/</guid><description>
+&lt;p>In the case of the simulation of many trains, the signalling system must ensure &lt;strong>safety&lt;/strong>. The effect of signalling on the running calculation of a train is reproduced by superimposing dynamic envelopes on the static envelope. A new dynamic envelope is introduced for example when a signal closes. The train follows the static economic envelope superimposed on the dynamic envelopes, if any. In this simulation mode, a time check is performed against a theoretical time from the time information of the static economic envelope. If the train is late with respect to the scheduled time, it stops following the economic envelope and tries to go faster. Its space/speed curve will therefore be limited by the maximum effort envelope.&lt;/p></description></item><item><title>Docs: Pipeline</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/pipeline/</guid><description>
 &lt;p>The walk calculation in OSRD is a 4-step process, each using &lt;a href="../envelopes_system">the envelopes system&lt;/a>:&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="#calculation-of-the-most-restricted-speed-profile-mrsp">Construction of the most restrictive speed profile&lt;/a>&lt;/li>
@@ -618,7 +485,31 @@ The black line represents the MRSP where the train length has been taken into ac
 &lt;p>After the calculation of the basic run (corresponding to the Max Effort Profile in OSRD), it is possible to apply allowances. Allowances are additions of extra time to the train&amp;rsquo;s journey. They are used to allow the train to catch up if necessary or for other operational purposes (more details on allowances &lt;a href="../allowances">here&lt;/a>).&lt;/p>
 &lt;p>A new &lt;strong>Allowances&lt;/strong> envelope is therefore calculated using overlays to distribute the allowance requested by the user over the maximum effort envelope calculated previously.&lt;/p>
 &lt;p>&lt;img src="../allowances.png" alt="Allowances">&lt;/p>
-&lt;p>In the OSRD running calculation it is possible to distribute the allowances in a linear way, by lowering all speeds by a certain factor, or in an economic way, i.e. by minimising the energy consumption during the train run.&lt;/p></description></item><item><title>Docs: Contribute code</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/contributing-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/contributing-code/</guid><description>
+&lt;p>In the OSRD running calculation it is possible to distribute the allowances in a linear way, by lowering all speeds by a certain factor, or in an economic way, i.e. by minimising the energy consumption during the train run.&lt;/p></description></item><item><title>Docs: Contribute code</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code/</guid><description>
+&lt;h2 id="set-things-up">Set things up&lt;/h2>
+&lt;div class="alert alert-info" role="alert">
+Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
+&lt;/div>
+&lt;h3 id="getting-the-source-code">Getting the source code&lt;/h3>
+&lt;ul>
+&lt;li>Install &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Open a terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in the folder where the source code of OSRD will be located&lt;/li>
+&lt;li>Run &lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="launch-the-application-with-docker-compose">Launch the application with docker-compose&lt;/h3>
+&lt;p>For a long time, making changes to a component of a multi-service application involved compiling, configuring and running all services manually.&lt;/p>
+&lt;p>Nowadays, it can be done using &lt;code>docker-compose&lt;/code>. You can even start only a subset of the services.&lt;/p>
+&lt;ul>
+&lt;li>Install &lt;code>docker&lt;/code> and &lt;code>docker-compose&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Run &lt;code>docker-compose up --build&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="share-your-changes">Share your changes&lt;/h2>
+&lt;div class="alert alert-warning" role="alert">
+&lt;p>The source code of OSRD is available under &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">the LGPLv3 license&lt;/a>.
+By contributing to the codebase, you consent to the distribution of your changes under the project&amp;rsquo;s license.&lt;/p>
+&lt;p>LGPLv3 forbids modifying source code without sharing the changes under the same license: use other people&amp;rsquo;s work, and share yours!&lt;/p>
+&lt;p>This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.&lt;/p>
+&lt;/div>
 &lt;p>This chapter is about the process of integrating changes into the common code base. &lt;strong>If you need help at any stage, open an issue or message us.&lt;/strong>&lt;/p>
 &lt;ol>
 &lt;li>
@@ -650,17 +541,60 @@ Once your pull request is open, &lt;a href="https://docs.github.com/en/pull-requ
 &lt;li>
 &lt;p>&lt;strong>If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.&lt;/strong>&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>Who-We-Are: Short term digital capacity management</title><link>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/short-term-dcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/who-we-are/project/short-term-dcm/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="definition">Definition&lt;/h3>
-&lt;/font>
-&lt;p>In order to define the Short Term Digital Capacity Management (STDCM) path, we first need to define what a path is, as well as the actors involved. A &lt;strong>path&lt;/strong> is the reservation of space/time on the network. It is an &lt;strong>RC&lt;/strong> (railway company) that orders the path, and the &lt;strong>IM&lt;/strong> (infrastructure manager) that provides the route. When we talk about &amp;ldquo;normal&amp;rdquo; train paths, the reservation request is made several years in advance (A-3), and the IM produces a document in which we can find all the requests with their assigned capacity on the network. &lt;strong>Capacity&lt;/strong> is the total amount of track available on the rail network of a IM. It is divided between commercial capacity, intended for RCs, and work capacity, which, as its name indicates, is reserved for the various works planned on the tracks. As a preventive measure and in order to be able to manage certain contingencies (delays, technical or environmental problems), the rate of reserved train paths may not exceed 75% of the total capacity of the network.&lt;/p>
-&lt;p>This is where the last minute groove comes in. If there are no problems, the IM is left with about 25% of its capacity unused. So if an RC needs a path urgently (between A-1 and up to a few minutes before the rolling stock is due to depart), it can apply for a STDCM.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="challenges-and-ambitions">Challenges and ambitions&lt;/h3>
-&lt;/font>
-&lt;p>The STDCMs are currently managed by the capacity counter between A-1 and D-1, and by the operational counter from D-1 to 5 pm. Several problems arise from this; the request is tedious and the response from the counters is asynchronous (taking several days to respond), the paths are traced by hand (risk of human error) and the billing can get lost in the operations, it is estimated that tens of millions of euros are lost due to unbilled STDCM. Some digital tools already know how to solve these problems, but they do not take into account conflict management on the network, or if they do, they do not know how to manage it at the station.&lt;/p>
-&lt;p>It is in response to these challenges that the idea of offering digital management of last-minute train paths was born. The objective is to allow RCs to book train paths easily, by proposing a calculation of the STDCM within the theoretical forecast capacity, and by providing them with a quick response (about 3 minutes waiting time). Customers could also choose between several calculation modes. This tool is under development and should be available in the next few years.&lt;/p></description></item><item><title>Docs: Allowances</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/allowances/</guid><description>
+&lt;/ol>
+&lt;h2 id="git-commit-style">Git commit style&lt;/h2>
+&lt;p>The overall format for git commits is as follows:&lt;/p>
+&lt;pre tabindex="0">&lt;code>component: imperative description of the change
+Detailed description of the change and what motivates it,
+if it is not entirely obvious from the title.
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong>&lt;/li>
+&lt;li>all lowercase&lt;/li>
+&lt;li>there can be multiple components separated by &lt;code>:&lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
+&lt;li>the body of the commit should probably contain a detailed description of the change&lt;/li>
+&lt;/ul>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Under Linux, use your distribution&amp;rsquo;s package manager, such as &lt;code>apt-get&lt;/code>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Under Windows, open &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>About: Governance</title><link>https://dgexsolutions.github.io/osrd-website/en/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/about/governance/</guid><description>
+&lt;p>One of the ambitions of OSRD is to help with &lt;strong>timetabling on a European scale&lt;/strong>.&lt;/p>
+&lt;p>To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure managers.&lt;/p>
+&lt;p>And for their trouble contributing to OSRD, these companies:&lt;/p>
+&lt;ul>
+&lt;li>profit from all the common development efforts&lt;/li>
+&lt;li>can freely build on the common effort to achieve their own goals&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>participate in the roadmap and technical direction of the project to the extent of their contribution&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-open-rail-foundation">The Open Rail Foundation&lt;/h2>
+&lt;p>The &lt;a href="https://openrailfoundation.gitlab.io/">Open Rail Foundation&lt;/a> is a non-profit commited to organizing cooperative work around railway software tools.&lt;/p>
+&lt;p>&lt;a href="https://openrailfoundation.gitlab.io/">&lt;img class="marginauto" src="openrail_foundation_vector.png" alt="OpenRail Foundation">&lt;/a>&lt;/p>
+&lt;style>
+.marginauto {
+margin: 10px auto 20px;
+display: block;
+width:220px;
+height:200px;
+}
+.marginauto:hover {
+filter: brightness(80%);
+transition: all 0.5s;
+}
+&lt;/style>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>As long as they don&amp;rsquo;t modify the common tools without sharing their improvements. See the details of the LGPLv3 license.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Docs: Allowances</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/allowances/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
 &lt;/font>
@@ -701,23 +635,79 @@ Once your pull request is open, &lt;a href="https://docs.github.com/en/pull-requ
 &lt;p>&lt;img src="../python_plot_eco_w_slopes.png" alt="Python plot eco with slopes">&lt;/p>
 &lt;blockquote>
 &lt;p>An example of economic walking. Above, the gradients/ramps encountered by the train. The areas of travel on the track are shown in blue.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Reviewing code</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/reviewing-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/reviewing-code/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Review code</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/en/docs/guides/contribute/reviewing-code/images/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>Docs: Style conventions</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/conventions/</guid><description>
-&lt;p>Style conventions are writting rules means to standardize various aspects of the project.&lt;/p>
-&lt;p>These matter quite a bit: They enable better communication and programming efficiently.&lt;/p>
-&lt;h2 id="commit-style">Commit style&lt;/h2>
-&lt;p>The overall format for git commits is as follows:&lt;/p>
-&lt;pre tabindex="0">&lt;code>component: imperative description of the change
-Detailed description of the change and what motivates it,
-if it is not entirely obvious from the title.
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong>&lt;/li>
-&lt;li>all lowercase&lt;/li>
-&lt;li>there can be multiple components separated by &lt;code>:&lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
-&lt;li>the body of the commit should probably contain a detailed description of the change&lt;/li>
-&lt;/ul></description></item><item><title>Docs: ETCS</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/reference/railway_wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/reference/railway_wiki/signalling/spacing/ertms/etcs/</guid><description>
+&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/en/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
+&lt;/figure></description></item><item><title>About: Open Source</title><link>https://dgexsolutions.github.io/osrd-website/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/about/opensource/</guid><description>
+&lt;p>Open source is a &lt;strong>software development practice&lt;/strong>, where the software&amp;rsquo;s source code&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> :&lt;/p>
+&lt;ul>
+&lt;li>usually developped by multiple actors, in an open and transparent way&lt;/li>
+&lt;li>free and available for all&lt;/li>
+&lt;li>can be modified or used for derivative work by anyone&lt;/li>
+&lt;li>can be freely distributed&lt;/li>
+&lt;/ul>
+&lt;p>In practice, open source is both a &lt;strong>legal framework&lt;/strong> for collaborative work, and a &lt;strong>set of practices&lt;/strong>.&lt;/p>
+&lt;h2 id="osrd-and-open-source">OSRD and Open Source&lt;/h2>
+&lt;p>Applied to OSRD, Open Source has &lt;strong>multiple avantages&lt;/strong> :&lt;/p>
+&lt;ul>
+&lt;li>the algorigthms and know-how developped with the project are free for all&lt;/li>
+&lt;li>development cost and results are shared between actors&lt;/li>
+&lt;li>it makes interoperability between software systems easier by making helping make the landscape more homogeneous and standardized&lt;/li>
+&lt;li>helps focus collaboration around common interests&lt;/li>
+&lt;li>enables actors to tailor the software to their own interests&lt;/li>
+&lt;li>enables researchers to contribute and benefit from the project&lt;/li>
+&lt;li>it allows public actors to meet their transparency goals&lt;/li>
+&lt;/ul>
+&lt;p>Using open source to enable industrial collaboration is not a new idea:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Blender&lt;/strong> is a modelling, rendering and 3D animation software, which has recently become &lt;a href="https://fund.blender.org/">major point of industry collaboration&lt;/a> for this industry&lt;/li>
+&lt;li>&lt;strong>Linux&lt;/strong>, a Windows alternative used by Google, Microsoft, Amazon, Apple, most websites, cloud platforms, mobile phones, routers, and more. All these companies rely on and contribute to Linux tremendously&lt;/li>
+&lt;li>&lt;strong>Android&lt;/strong> is the common base software for most phones. Phone manufacturers regularly contribute to android&lt;/li>
+&lt;li>&lt;strong>PostgreSQL&lt;/strong>, &lt;strong>MySQL&lt;/strong>, &lt;strong>SQLite&lt;/strong> and other open source data bases collectively dominate the database market. Any actor with special needs can improve an existing open source tool rather than create a new one.&lt;/li>
+&lt;li>Both &lt;strong>Firefox&lt;/strong> and &lt;strong>Chrome&lt;/strong> are Open Source&lt;/li>
+&lt;li>&lt;strong>Wordpress&lt;/strong> is the CMS which runs 43% of all websites. A flock of companies contribute to Wordpress and make extensions&lt;/li>
+&lt;li>&lt;strong>Odoo&lt;/strong> is a powerful modular ERP, which has a community not unlike Wordpress&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>All these projects share the common property of being essential to a number of companies, without being part of what these companies sell.&lt;/strong>&lt;/p>
+&lt;p>It thus makes sense for these companies to collaborate with peers and competitors to build common tools, which makes exchanges easier and helps improve quality of service for all.&lt;/p>
+&lt;h2 id="processes">Processes&lt;/h2>
+&lt;div class="alert alert-info" role="alert">
+These processes are not specific to open source: many companies work in a similar way.
+&lt;/div>
+&lt;p>In practice, most open source software is developed using &lt;a href="https://github.com/DGEXSolutions/osrd">a forge&lt;/a>. Through this forge, developers and users can access the source code, report bugs, plan tasks, and integrate new changes to the code.
+Anyone can suggest a change, report a bug or plan a task.&lt;/p>
+&lt;p>All changes go through a &lt;strong>peer review&lt;/strong>, not unlike those used by the scientific community.
+Reviewers are software developers most familiar with components affected by the change.&lt;/p>
+&lt;p>Changes are integrated into the code base when everyone involved agrees to.
+Maintainers are responsible for keeping the project working and consistent. Maintainers are choosen among developers by developers.
+What motivates whether to integrate a change or not is technical viability: the goal of everyone involved is to &lt;strong>maintain high level of service and quality standard&lt;/strong>.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Source code is a set of text documents which describes how a piece of software works. It&amp;rsquo;s the result of the work of software developers.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>About: Open Data</title><link>https://dgexsolutions.github.io/osrd-website/en/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/about/opendata/</guid><description>
+&lt;p>Open Data is the practice of making data public accessible under a permissive license.
+It is not the same as open source, which only applies to software.&lt;/p>
+&lt;p>&lt;strong>Open data and open source have a symbiotic relationship : without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.&lt;/strong>&lt;/p>
+&lt;p>Alone, &lt;strong>open data&lt;/strong> already brings a number of key benefits:&lt;/p>
+&lt;ul>
+&lt;li>companies can use open data in their products, which also promotes railway services&lt;/li>
+&lt;li>researchers can study the data immediately, and can find the data by themselves&lt;/li>
+&lt;/ul>
+&lt;p>Yet, &lt;strong>open data&lt;/strong> used by an &lt;strong>open source toolbox&lt;/strong> open up new prospects:&lt;/p>
+&lt;ul>
+&lt;li>companies and researchers can use the open source tools to analyse the data, which greatly reduces the barrier to entry by alleviating the need for custom or paid-for tools&lt;/li>
+&lt;li>customers can use the toolbox to improve how they use railway services&lt;/li>
+&lt;/ul>
+&lt;p>If &lt;strong>multiple actors&lt;/strong> have open data exploitable by an open source tool, these datasets can be &lt;strong>combined&lt;/strong> and used to &lt;strong>provide and plan for common services&lt;/strong>.&lt;/p>
+&lt;h2 id="osrd-and-open-data">OSRD and Open Data&lt;/h2>
+&lt;ul>
+&lt;li>having &lt;strong>rolling stock&lt;/strong> and &lt;strong>infrastructure&lt;/strong> open data enables anyone to &lt;strong>simulate trains&lt;/strong>, &lt;strong>study&lt;/strong> and &lt;strong>evaluate&lt;/strong> the railway network&lt;/li>
+&lt;li>having &lt;strong>timetable&lt;/strong> open data enables anyone to &lt;strong>study&lt;/strong> rail network usage&lt;/li>
+&lt;/ul></description></item><item><title>Docs: ETCS</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
 &lt;h2 id="context">Context&lt;/h2>
 &lt;p>The onboard computer of ETCS-enabled trains has to compute a number of position / speed curves.
 Here is how it works:&lt;/p>

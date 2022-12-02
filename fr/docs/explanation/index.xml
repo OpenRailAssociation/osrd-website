@@ -1,4 +1,183 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Explications</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/</link><description>Recent content in Explications on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Calcul de marche</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Explications</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/</link><description>Recent content in Explications on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Données d'infrastructure</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/data-model/</guid><description>
+&lt;font color=#aa026d>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;/font>
+&lt;p>Cette page donne un exemple de la manière dont les formats de données sont utilisés pour décrire une infrastructure dans &lt;strong>OSRD&lt;/strong>.&lt;/p>
+&lt;p>À cette fin, prenons comme exemple l&amp;rsquo;infrastructure-jouet suivante :&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_diagram.drawio.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Conseil&lt;/h4>
+Pour zoomer sur un diagramme, cliquez sur le bouton d&amp;rsquo;édition qui apparaît au survol de celui-ci.
+&lt;/div>
+&lt;p>Ce diagramme est un aperçu de l&amp;rsquo;infrastructure avec les lignes et les stations uniquement.&lt;/p>
+&lt;p>Cette infrastructure ne se veut pas réaliste, mais plutôt destinée à illustrer le modèle de données de l&amp;rsquo;OSRD.
+Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p>
+&lt;h4 id="le-générateur-dinfrastructures">Le générateur d&amp;rsquo;infrastructures&lt;/h4>
+&lt;p>Dans le &lt;a href="https://github.com/DGEXSolutions/osrd">dépôt &lt;em>OSRD&lt;/em>&lt;/a> se trouve une &lt;a href="https://github.com/DGEXSolutions/osrd/tree/dev/core/examples/generated">bibliothèque python&lt;/a> conçue pour aider à générer des infrastructures dans un format compris par &lt;em>OSRD&lt;/em>.&lt;/p>
+&lt;p>L&amp;rsquo;infrastructure discutée dans cette section peut être générée grâce au fichier &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a>. Pour en savoir plus sur les scripts de génération, vous pouvez consulter le &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/README.md">README&lt;/a> correspondant.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="pistes">Pistes&lt;/h3>
+&lt;/font>
+&lt;h4 id="sections-de-piste-track-sections">Sections de piste (Track Sections)&lt;/h4>
+&lt;p>Les premiers objets que nous devons définir sont les &lt;code>TrackSections&lt;/code>. La plupart des autres objets sont positionnés par rapport aux sections de voie.&lt;/p>
+&lt;p>Une section de voie est une section de rail (sans les aiguillages). On peut choisir de diviser les voies de son infrastructure en autant de sections qu&amp;rsquo;on le souhaite. Ici, nous avons choisi d&amp;rsquo;utiliser les sections de voie les plus longues possibles, ce qui signifie qu&amp;rsquo;entre deux aiguillages, il y a toujours une seule section de voie.&lt;/p>
+&lt;p>Les sections de voie sont ce sur quoi les trains simulés roulent. Ils sont l&amp;rsquo;équivalent abstrait des sections de rails physiques. Les sections de voie sont bidirectionnelles.&lt;/p>
+&lt;p>Dans cet exemple, nous définissons deux voies pour la ligne entre les stations Ouest et Nord-Est. Nous avons également des voies de contournement aux stations Nord et Centre-Ouest pour plus de réalisme. Enfin, nous avons trois voies distinctes dans la station Ouest, puisqu&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;une plaque tournante majeure dans notre infrastructure imaginaire.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails.drawio.en.svg" alt="Diagramme des sections de voies">&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Important&lt;/h4>
+&lt;p>Les &lt;code>TrackSections&lt;/code> sont représentées par des flèches dans ce diagramme pour souligner le fait qu&amp;rsquo;elles ont un &lt;strong>début&lt;/strong> et une &lt;strong>fin&lt;/strong>. C&amp;rsquo;est important car les objets positionnés sur les sections de voie sont localisés en fonction de leur distance par rapport au &lt;strong>début&lt;/strong> de leur section de voie.&lt;/p>
+&lt;p>Par conséquent, pour placer un objet au début de sa section de piste, définissez son décalage à 0. Pour le déplacer à la fin de sa section de piste, définissez son décalage à la &lt;code>length&lt;/code> de la section de piste.&lt;/p>
+&lt;/div>
+&lt;p>Ces attributs sont nécessaires pour que la section de voie soit complète :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>length&lt;/code> : la longueur de la section de piste en mètres.&lt;/li>
+&lt;li>&lt;code>geo&lt;/code> : les coordonnées dans la vie réelle (geo pour géographique), au format &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a>.&lt;/li>
+&lt;li>&lt;code>sch&lt;/code> : les coordonnées dans la vue schématique (sch pour schematic), également au format &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a>.&lt;/li>
+&lt;li>attributs cosmétiques : &lt;code>line_name&lt;/code>, &lt;code>track_name&lt;/code>, &lt;code>track_number&lt;/code> qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux pistes / lignes dans la vie réelle.&lt;/li>
+&lt;/ul>
+&lt;p>Pour toutes les sections de voies de notre infrastructure, les attributs &lt;code>geo&lt;/code> et &lt;code>sch&lt;/code> sont identiques, et ressemblent beaucoup au schéma donné.&lt;/p>
+&lt;p>Pour la plupart des sections de voies, leur &amp;ldquo;longueur&amp;rdquo; est proportionnelle à ce que l&amp;rsquo;on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> (qui font 10km et 25km).&lt;/p>
+&lt;h4 id="liens-de-sections-de-voies">Liens de sections de voies&lt;/h4>
+&lt;p>Pour le moment, nous n&amp;rsquo;avons créé que des sections de voies, qui ne sont pas connectées entre elles (les données géospatiales ne sont pas utilisées pour déduire quelles voies sont connectées).&lt;/p>
+&lt;p>Les &lt;code>TrackSectionLinks&lt;/code> sont utilisés pour connecter deux sections de voie ensemble, tout comme un joint de soudure le ferait dans la vie réelle. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par un &lt;code>TrackSectionLink&lt;/code> (ou par un &lt;code>Switch&lt;/code>).&lt;/p>
+&lt;p>Pour connecter plus de deux &lt;code>TrackSections&lt;/code> ensemble, utilisez les &lt;a href="#aiguillages">&lt;code>Switches&lt;/code>&lt;/a>.&lt;/p>
+&lt;p>Dans notre infrastructure, comme nous avons choisi d&amp;rsquo;avoir des sections de voie aussi longues que possible, nous n&amp;rsquo;avons pas besoin d&amp;rsquo;utiliser les &lt;code>TrackSectionLinks&lt;/code>.
+Les &lt;code>TrackSectionLinks&lt;/code> sont toujours optionnels : deux sections de voies reliées par un lien se comportent comme une seule section de voie.&lt;/p>
+&lt;h4 id="aiguillages">Aiguillages&lt;/h4>
+&lt;p>Un &lt;code>Switch&lt;/code> représente ce à quoi vous vous attendez : des aiguillages ferroviaires.&lt;/p>
+&lt;p>Les aiguillages peuvent être vus comme une collection de liens de sections de voies, partitionnés en groupes. Chaque groupe représente un état de l&amp;rsquo;aiguillage. L&amp;rsquo;aiguillage d&amp;rsquo;un groupe peut prendre du temps, et au maximum un lien peut être prêt à être utilisé à la fois.&lt;/p>
+&lt;p>Dans le monde réel, les aiguillages ne sont pas uniques, mais plutôt des instances de modèles existants.
+Ainsi, les liens et les groupes ne font pas partie du switch lui-même, mais d&amp;rsquo;un objet &lt;code>SwitchType&lt;/code>, qui est partagé par les switches du même modèle.&lt;/p>
+&lt;h5 id="types-daiguilles">Types d&amp;rsquo;aiguilles&lt;/h5>
+&lt;p>Les &lt;code>SwitchTypes&lt;/code> ont deux attributs obligatoires :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>ports&lt;/code> : Une liste de noms de ports. Un port est un point d&amp;rsquo;extrémité qui peut être connecté à une section de voie.&lt;/li>
+&lt;li>&lt;code>groups&lt;/code> : Une correspondance entre les noms de groupes et les listes de liens entre deux ports.&lt;/li>
+&lt;/ul>
+&lt;p>A tout moment, toutes les aiguilles ont un groupe actif, et peuvent avoir un lien actif, qui appartient toujours au groupe actif. S&amp;rsquo;il y a un lien actif, il est actif dans une direction donnée. Pendant une simulation, le changement de lien actif à l&amp;rsquo;intérieur d&amp;rsquo;un groupe est instantané, mais le changement de lien actif entre les groupes prend un temps configurable.
+Ceci est dû au fait qu&amp;rsquo;un switch est un objet physique, et que le changement de lien actif peut impliquer le déplacement de certaines de ses parties. Les &lt;code>Groupes&lt;/code> sont conçus pour représenter les différentes positions qu&amp;rsquo;un switch peut avoir. Chaque &lt;code>groupe&lt;/code> contient les liens qui peuvent être utilisés dans la position du switch associé.&lt;/p>
+&lt;p>La durée nécessaire pour changer de groupe est stockée à l&amp;rsquo;intérieur du &lt;code>Switch&lt;/code>, car elle peut varier en fonction de l&amp;rsquo;implémentation physique de l&amp;rsquo;interrupteur.&lt;/p>
+&lt;p>Nos exemples utilisent actuellement trois types de switch. Les types d&amp;rsquo;interrupteurs sont comme les autres objets, et peuvent facilement être ajoutés si nécessaire.&lt;/p>
+&lt;p>&lt;strong>1) L&amp;rsquo;aiguillage&lt;/strong>&lt;/p>
+&lt;p>L&amp;rsquo;omniprésent aiguillage en Y, qui peut être considéré comme la fusion de deux voies ou la séparation d&amp;rsquo;une voie.&lt;/p>
+&lt;p>Ce type d&amp;rsquo;aiguillage possède trois ports : &lt;em>base&lt;/em>, &lt;em>gauche&lt;/em> et &lt;em>droite&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch.en.svg" alt="Diagramme d&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>Il y a deux groupes, chacun avec une connexion dans leur liste : &lt;code>LEFT&lt;/code>, qui connecte &lt;em>base&lt;/em> à &lt;em>gauche&lt;/em>, et &lt;code>RIGHT&lt;/code> qui connecte &lt;em>base&lt;/em> à &lt;em>droite&lt;/em>.&lt;/p>
+&lt;p>Ainsi, à tout moment, un train peut aller de la &lt;em>base&lt;/em> à la &lt;em>gauche&lt;/em> ou de la &lt;em>base&lt;/em> à la &lt;em>droite&lt;/em> mais jamais aux deux en même temps. Un train ne peut pas aller de &lt;em>gauche&lt;/em> à &lt;em>droite&lt;/em>.&lt;/p>
+&lt;p>Un aiguillage n&amp;rsquo;a que deux positions :&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch_positions.en.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>&lt;strong>2) L&amp;rsquo;aiguillage de croisement&lt;/strong>&lt;/p>
+&lt;p>Il s&amp;rsquo;agit simplement de deux voies qui se croisent.&lt;/p>
+&lt;p>Ce type a quatre ports : &lt;em>nord&lt;/em>, &lt;em>sud&lt;/em>, &lt;em>est&lt;/em> et &lt;em>ouest&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch.en.svg" alt="Diagramme de l&amp;amp;rsquo;aiguillage croisé">&lt;/p>
+&lt;p>Il ne comporte qu&amp;rsquo;un seul groupe contenant deux connexions : &lt;em>nord&lt;/em> vers &lt;em>sud&lt;/em> et &lt;em>ouest&lt;/em> vers &lt;em>est&lt;/em>. En effet, ce type d&amp;rsquo;interrupteur est &lt;em>passif&lt;/em> : il n&amp;rsquo;a pas de pièces mobiles. Bien qu&amp;rsquo;il n&amp;rsquo;ait qu&amp;rsquo;un seul groupe, il est tout de même utilisé par la simulation pour faire respecter les réservations de route.&lt;/p>
+&lt;p>Voici les deux connexions différentes que ce type d&amp;rsquo;interrupteur possède :&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch_positions.en.svg" alt="Diagramme des positions des aiguilles croisés">&lt;/p>
+&lt;p>&lt;strong>3) L&amp;rsquo;interrupteur en croix double&lt;/strong>&lt;/p>
+&lt;p>Celui-ci ressemble plus à deux interrupteurs à pointe dos à dos. Il possède quatre ports : &lt;em>sud1&lt;/em>, &lt;em>sud2&lt;/em>, &lt;em>nord1&lt;/em> et &lt;em>nord2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="../svg_diagrammes/double_cross_switch.en.svg" alt="Diagramme d&amp;amp;rsquo;un interrupteur à double croix">&lt;/p>
+&lt;p>Cependant, il comporte quatre groupes, chacun avec une connexion. Les quatre groupes sont représentés dans le diagramme suivant :&lt;/p>
+&lt;p>&lt;img src="../svg_diagrammes/double_cross_switch_positions.en.svg" alt="Diagramme des positions de l&amp;amp;rsquo;interrupteur croisé double">&lt;/p>
+&lt;h5 id="retour-aux-aiguilles">Retour aux aiguilles&lt;/h5>
+&lt;p>Un &lt;code>Switch&lt;/code> possède trois attributs :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>switch_type&lt;/code> : l&amp;rsquo;identifiant &lt;a href="#types-daiguilles">&lt;code>SwitchType&lt;/code>&lt;/a> de cette aiguille.&lt;/li>
+&lt;li>&lt;code>ports&lt;/code> : une correspondance entre les noms de port et les extrémités des sections de piste.&lt;/li>
+&lt;li>&lt;code>group_change_delay&lt;/code> : le temps qu&amp;rsquo;il faut pour changer le groupe de l&amp;rsquo;aiguillage qui est activé.&lt;/li>
+&lt;/ul>
+&lt;p>Les noms des ports doivent correspondre aux ports du type d&amp;rsquo;aiguillage choisi. Les extrémités de la section de voie peuvent être de début ou de fin, faites attention à choisir les bonnes.&lt;/p>
+&lt;p>La plupart des aiguillages de notre exemple sont des aiguillages réguliers. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement, et il y a un double aiguillage de croisement juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Diagramme des sections de voie et des aiguillages">&lt;/p>
+&lt;h4 id="courbes-et-pentes">Courbes et pentes&lt;/h4>
+&lt;p>Les &lt;code>Courbes&lt;/code> et les &lt;code>Pentes&lt;/code> sont essentielles pour des simulations réalistes. Ces objets sont définis comme une plage entre un décalage de &lt;code>début&lt;/code> et de &lt;code>fin&lt;/code> d&amp;rsquo;une section de voie. Si une courbe / pente s&amp;rsquo;étend sur plus d&amp;rsquo;une section de voie, elle doit être ajoutée à toutes les sections.&lt;/p>
+&lt;p>Les valeurs des courbes / pentes sont constantes sur toute leur étendue. Pour des courbes / pentes variables, il faut créer plusieurs objets.&lt;/p>
+&lt;p>Les valeurs de pente sont mesurées en &lt;em>mètres par kilomètres&lt;/em>, et les valeurs de courbe sont mesurées en &lt;em>mètres&lt;/em> (le rayon de la courbe).&lt;/p>
+&lt;div class="alert alert-primary" role="alert">
+N&amp;rsquo;oubliez pas que la valeur de début doit toujours être inférieure à la valeur de fin. C&amp;rsquo;est pourquoi les valeurs de courbe/pente peuvent être négatives : une pente ascendante de 1 allant du décalage 10 à 0 est identique à une pente descendante de -1 allant des décalages 0 à 10.
+&lt;/div>
+&lt;p>Dans le fichier &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a>, nous avons des pentes sur les sections de piste &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>Il y a également des courbes sur les sections de voie &lt;em>TE0&lt;/em>, &lt;em>TE1&lt;/em>, &lt;em>TE3&lt;/em> et &lt;em>TF1&lt;/em>.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="enclenchement">Enclenchement&lt;/h3>
+&lt;/font>
+&lt;p>Jusqu&amp;rsquo;à présent, tous les objets ont contribué à la topologie (forme) des voies. La topologie serait suffisante pour que les trains puissent naviguer sur le réseau, mais pas assez pour le faire en toute sécurité. pour assurer la sécurité, deux systèmes collaborent :&lt;/p>
+&lt;ul>
+&lt;li>L&amp;rsquo;enclenchement garantit que les trains sont autorisés à avancer&lt;/li>
+&lt;li>La signalisation est le moyen par lequel l&amp;rsquo;enclenchement communique avec le train&lt;/li>
+&lt;/ul>
+&lt;h4 id="détecteurs">Détecteurs&lt;/h4>
+&lt;p>Ces objets sont utilisés pour créer des sections TVD (Track Vacancy Detection section) : la zone de la voie située entre les détecteurs est une section TVD. Lorsqu&amp;rsquo;un train rencontre un détecteur, la section dans laquelle il entre est occupée. La seule fonction des sections TVD est de localiser les trains.&lt;/p>
+&lt;p>Dans la réalité, les détecteurs peuvent être des &lt;a href="https://en.wikipedia.org/wiki/Axle_counter">compteurs d&amp;rsquo;essieux&lt;/a> ou des &lt;a href="https://en.wikipedia.org/wiki/Track_circuit">circuits de voie&lt;/a> par exemple.&lt;/p>
+&lt;p>Pour que cette méthode de localisation soit efficace, les détecteurs doivent être placés régulièrement le long de vos voies, pas trop nombreux pour des raisons de coût, mais pas trop peu, car les sections TVD seraient alors très grandes et les trains devraient être très éloignés les uns des autres pour être distingués, ce qui réduirait la capacité.&lt;/p>
+&lt;p>Il y a souvent des détecteurs à proximité de tous les côtés des aiguillages. De cette façon, l&amp;rsquo;enclenchement est averti presque immédiatement lorsqu&amp;rsquo;un aiguillage est libéré, qui est alors libre d&amp;rsquo;être utilisé à nouveau.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+Prenons l&amp;rsquo;exemple d&amp;rsquo;un aiguillage de croisement : si le train A le franchit du &lt;em>nord&lt;/em> au &lt;em>sud&lt;/em> et que le train B vient le franchir de l&amp;rsquo;&lt;em>ouest&lt;/em> à l&amp;rsquo;&lt;em>est&lt;/em>, dès que le dernier wagon du train A a franchi l&amp;rsquo;aiguillage, B devrait pouvoir partir, puisque A se trouve maintenant sur une section de voie complètement indépendante.
+&lt;/div>
+&lt;p>Dans &lt;em>OSRD&lt;/em>, les détecteurs sont des objets ponctuels, donc tous les attributs dont ils ont besoin sont leur &lt;code>id&lt;/code>, et la localisation de la voie (&lt;code>track&lt;/code> et &lt;code>offset&lt;/code>).&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Diagramme infrarouge avec tous les détecteurs">&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet, certains tronçons de voie n&amp;rsquo;étant pas représentés sur toute leur longueur, nous n&amp;rsquo;avons pas pu représenter tous les détecteurs du tronçon de voie correspondant.
+&lt;/div>
+&lt;p>Quelques notes :&lt;/p>
+&lt;ul>
+&lt;li>Entre certains points, nous n&amp;rsquo;avons ajouté qu&amp;rsquo;un seul détecteur (et non pas deux), car ils étaient très proches les uns des autres, et cela n&amp;rsquo;aurait eu aucun sens de créer un minuscule TVDS entre les deux. Cette situation s&amp;rsquo;est produite sur des sections de voies (&lt;em>TA3&lt;/em>, &lt;em>TA4&lt;/em>, &lt;em>TA5&lt;/em>, &lt;em>TF0&lt;/em> et &lt;em>TG3&lt;/em>).&lt;/li>
+&lt;li>Dans notre infrastructure, il y a relativement peu de sections de voie qui sont assez longues pour nécessiter plus de détecteurs que ceux liés aux aiguillages. A savoir, &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TDO&lt;/em>, &lt;em>TD1&lt;/em>, &lt;em>TF1&lt;/em>, &lt;em>TG1&lt;/em> et &lt;em>TH1&lt;/em>. Par exemple, &lt;em>TD0&lt;/em>, qui mesure 25 km, compte en fait 17 détecteurs au total.&lt;/li>
+&lt;/ul>
+&lt;h4 id="arrêts-tampons">Arrêts tampons&lt;/h4>
+&lt;p>Les &lt;code>BufferStops&lt;/code> sont des obstacles destinés à empêcher les trains de glisser dans des culs-de-sac.&lt;/p>
+&lt;p>Dans notre infrastructure, il y a un butoir sur chaque section de voie qui a un cul-de-sac. Il y a donc 8 butoirs au total.&lt;/p>
+&lt;p>Avec les détecteurs, ils définissent les limites des sections &lt;a href="https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&amp;amp;q=TVD">TVD&lt;/a> (voir &lt;a href="#d%C3%A9tecteurs">Detectors&lt;/a>).&lt;/p>
+&lt;h4 id="itinéraires">Itinéraires&lt;/h4>
+&lt;p>Une &lt;code>Route&lt;/code> est un itinéraire dans l&amp;rsquo;infrastructure. Un sillon est une séquence de routes. Les itinéraires sont utilisés pour réserver des sections de sillon avec l&amp;rsquo;enclenchement. Voir la &lt;a href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/">documentation dédiée&lt;/a>.&lt;/p>
+&lt;p>Il est représenté avec les attributs suivants :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>entry_point&lt;/code> et &lt;code>exit_point&lt;/code> : références de détecteurs ou de butées.&lt;/li>
+&lt;li>&lt;code>path&lt;/code> : La liste des plages de sections de voies qu&amp;rsquo;un train peut emprunter pour aller de l&amp;rsquo;entrée à la sortie. Il peut y avoir deux Routes avec les mêmes points d&amp;rsquo;entrée et de sortie et deux chemins différents.&lt;/li>
+&lt;li>&lt;code>release_detectors&lt;/code> : Lorsqu&amp;rsquo;un train franchit un détecteur de libération, les ressources réservées depuis le début de la route jusqu&amp;rsquo;à ce détecteur sont libérées.&lt;/li>
+&lt;/ul>
+&lt;font color=#aa026d>
+&lt;h3 id="signalisation">Signalisation&lt;/h3>
+&lt;/font>
+&lt;p>Thanks to interlocking, trains are located and allowed to move. It&amp;rsquo;s a good start, but meaningless until trains are made aware of it. C&amp;rsquo;est là que les &amp;ldquo;signaux&amp;rdquo; entrent en jeu : les signaux réagissent aux enclenchements et peuvent être vus par les trains.&lt;/p>
+&lt;p>La façon dont les trains réagissent aux signaux dépend de l&amp;rsquo;aspect, du type de signal et du système de signalisation.&lt;/p>
+&lt;p>Voici les attributs les plus importants des signaux :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>linked_detector&lt;/code> : Le [détecteur] lié (#détecteurs).&lt;/li>
+&lt;li>&lt;code>type_code&lt;/code> : Le type de signal.&lt;/li>
+&lt;li>&lt;code>direction&lt;/code> : La direction qu&amp;rsquo;il protège, qui peut être simplement interprétée comme la façon dont il peut être vu par un train entrant (puisqu&amp;rsquo;il n&amp;rsquo;y a des feux que d&amp;rsquo;un côté&amp;hellip;). La direction est relative à l&amp;rsquo;orientation de la section de voie.&lt;/li>
+&lt;li>Des attributs cosmétiques comme &lt;code>angle_geo&lt;/code> and &lt;code>side&lt;/code> qui contrôlent la manière dont les signaux sont affichés dans le front-end.&lt;/li>
+&lt;/ul>
+&lt;p>Voici une visualisation de comment on peut représenter un signal, et quelle direction il protège.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/signal_dir.en.svg" alt="Exemple de signal de direction">&lt;/p>
+&lt;br/>
+&lt;p>La manière dont les signaux sont disposés dépend fortement du système de signalisation et du gestionnaire de l&amp;rsquo;infrastructure.&lt;/p>
+&lt;p>Voici les règles de base utilisées pour cet exemple d&amp;rsquo;infrastructure :&lt;/p>
+&lt;ul>
+&lt;li>Nous ajoutons deux signaux d&amp;rsquo;espacement (un par direction) pour chaque détecteur qui découpe une longue section de TVD en plus petites sections.&lt;/li>
+&lt;li>Les entrées d&amp;rsquo;aiguillage où un train pourrait devoir s&amp;rsquo;arrêter sont protégées par un signal (qui est situé à l&amp;rsquo;extérieur de la section TVD de l&amp;rsquo;aiguillage). Il doit être visible depuis la direction utilisée pour approcher l&amp;rsquo;aiguillage. Lorsqu&amp;rsquo;il y a plusieurs aiguillages dans une rangée, seul le premier a généralement besoin d&amp;rsquo;être protégé, car l&amp;rsquo;enclenchement est généralement conçu pour ne pas encourager les trains à s&amp;rsquo;arrêter au milieu des intersections.&lt;/li>
+&lt;/ul>
+&lt;p>Notez que les détecteurs liés à au moins un signal ne sont pas représentés, car il n&amp;rsquo;y a pas de signaux sans détecteurs associés dans cet exemple.
+Pour obtenir le &lt;code>id&lt;/code> d&amp;rsquo;un détecteur lié à un signal, prenez le &lt;code>id&lt;/code> du signal et remplacez &lt;em>S&lt;/em> par &lt;em>D&lt;/em> (par exemple SA0 -&amp;gt; DA0).&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Diagramme infrarouge avec tous les signaux">&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> nous n&amp;rsquo;avons pas pu représenter tous les signaux car ces sections de voie sont très longues et comportent de nombreux détecteurs, donc de nombreux signaux.
+&lt;/div>
+&lt;font color=#aa026d>
+&lt;h2 id="divers">Divers&lt;/h2>
+&lt;/font>
+&lt;h4 id="points-opérationnels">Points opérationnels&lt;/h4>
+&lt;p>Les &lt;code>OperationalPoints&lt;/code> sont des collections de points (&lt;code>OperationalPointParts&lt;/code>) d&amp;rsquo;intérêt.&lt;/p>
+&lt;p>Par exemple, il peut être pratique de stocker l&amp;rsquo;emplacement des plateformes en tant que parties et de les regrouper par station dans des points opérationnels.&lt;/p>
+&lt;p>Dans l&amp;rsquo;exemple de l&amp;rsquo;infrastructure, nous n&amp;rsquo;avons utilisé que des points opérationnels pour représenter les stations. Les parties de points opérationnels sont représentées par des diamants violets. Gardez à l&amp;rsquo;esprit qu&amp;rsquo;un seul point opérationnel peut contenir plusieurs parties.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Exemples de points opérationnels">&lt;/p>
+&lt;h4 id="limites-de-gabarit-de-chargement">Limites de gabarit de chargement&lt;/h4>
+&lt;p>Ces objets s&amp;rsquo;apparentent aux &lt;code>Pentes&lt;/code> et aux &lt;code>Courbes&lt;/code> : ils couvrent une plage de section de voie, avec un décalage de &lt;code>début&lt;/code> et de &lt;code>fin&lt;/code>. Il représente une restriction sur les trains qui peuvent circuler sur la plage donnée, par poids ou par type de train (fret ou passagers).&lt;/p>
+&lt;p>Nous n&amp;rsquo;en avons pas mis dans nos exemples.&lt;/p>
+&lt;h4 id="sections-de-vitesse">Sections de vitesse&lt;/h4>
+&lt;p>Les &lt;code>SpeedSections&lt;/code> représentent les limites de vitesse (en mètres par seconde) qui sont appliquées sur certaines parties des voies. Une &lt;code>SpeedSection&lt;/code> peut s&amp;rsquo;étendre sur plusieurs sections de voie, et ne couvre pas nécessairement la totalité des sections de voie. Les sections de vitesse peuvent se chevaucher.&lt;/p>
+&lt;p>Dans notre exemple d&amp;rsquo;infrastructure, nous avons une section de vitesse couvrant l&amp;rsquo;ensemble de l&amp;rsquo;infrastructure, limitant la vitesse à 300 km/h. Sur une plus petite partie de l&amp;rsquo;infrastructure, nous avons appliqué des sections de vitesse plus restrictives.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Exemples de sections de vitesse">&lt;/p></description></item><item><title>Docs: Calcul de marche</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/</guid><description>
 &lt;p>OSRD peut être utilisé pour effectuer deux types de calculs :&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Calcul de marche&lt;/strong> (standalone train simulation) : calcul du temps de parcours d&amp;rsquo;un train sur un trajet donné,effectué sans interaction entre le train et le système de signalisation.&lt;/li>

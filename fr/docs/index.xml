@@ -74,7 +74,7 @@ $$&lt;/p>
 &lt;p>La force motrice et la force de freinage dépendent de l&amp;rsquo;action du conducteur (il décide d&amp;rsquo;accélérer ou de freiner plus ou moins fort en fonction de la situation). Cette dépendance se traduit donc par une dépendance de ces deux forces à la position du train. La composante du poids dépend elle aussi de la position du train, car provenant directement des pentes et des virages situées sous ce dernier.&lt;/p>
 &lt;p>De plus, la force motrice dépend de la vitesse du train (selon la courbe effort vitesse) tout comme la résistance à
 l&amp;rsquo;avancement.&lt;/p>
-&lt;p>Ces différentes dépendances rendent impossible la résolution analytique de cette équation, et l&amp;rsquo;accélération du train à chaque instant doit être calculée par intégration numérique.&lt;/p></description></item><item><title>Docs: Éléments mobiles</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/movable-elements/</guid><description>
+&lt;p>Ces différentes dépendances rendent impossible la résolution analytique de cette équation, et l&amp;rsquo;accélération du train à chaque instant doit être calculée par intégration numérique.&lt;/p></description></item><item><title>Docs: Éléments mobiles</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/movable-elements/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Chaque élément mobile, aiguille ou passage à niveau, a une liste d&amp;rsquo;états possibles.
 Ces états sont mutuellement exclusifs.&lt;/p>
@@ -88,121 +88,7 @@ Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;li>observer un élément mobile&lt;/li>
 &lt;li>verrouiller / déverrouiller un élément mobile&lt;/li>
 &lt;li>bouger un élément mobile&lt;/li>
-&lt;/ul></description></item><item><title>Who-We-Are: Horaires stratégiques</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/strategic-timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/strategic-timetable/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="présentation">Présentation&lt;/h3>
-&lt;/font>
-&lt;p>La première phase du processus de conception des plans de transport commence très en amont : A-10 du jour de circulation. Elle a pour objectif &lt;strong>la proposition de plusieurs scenarios de circulation&lt;/strong> sur des infrastructures ferroviaires existantes ou prospectives. Durant cette phase, SNCF Réseau (gestionnaire de l’infrastructure ferroviaire française et responsable de l’affectation et de la vente des sillons) collectionne les demandes des &lt;strong>AO&lt;/strong> (Autorités Organisatrices) et des &lt;strong>EF&lt;/strong> (Entreprises ferroviaires) en termes de mobilité. Les demandes sont transmises sous la forme de &lt;strong>schémas de dessertes&lt;/strong> : Représentation des trains demandés, leur itinéraire et les arrêts à desservir.&lt;/p>
-&lt;p>Le produit &lt;strong>OSRD Horaires Stratégiques&lt;/strong> a été conçu pour construire un plan d’exploitation à partir des schémas de dessertes, en s’appuyant sur la &lt;strong>modélisation de l’infrastructure ferroviaire, le calcul de marche et la simulation&lt;/strong>. Construire un plan d’exploitation signifie qu&amp;rsquo;il faut effectuer la planification horaire des trains présentés sur les schémas de dessertes en répondant au mieux aux besoins de mobilités. L’outil OSRD fournit une base de données avec une &lt;strong>modélisation microscopique de l’infrastructure ferroviaire française&lt;/strong> ainsi que du &lt;strong>matériel roulant déjà utilisé en France&lt;/strong>. De plus, l&amp;rsquo;application propose une interface permettant de :&lt;/p>
-&lt;ul>
-&lt;li>modifier l’infrastructure existante,&lt;/li>
-&lt;li>designer une nouvelle partie de l’infrastructure est proposée.&lt;/li>
-&lt;/ul>
-&lt;p>Les produits de sortie du processus « &lt;strong>OSRD Horaires stratégiques&lt;/strong> » sont des tableaux horaires affichant les horaires des trains. Une représentation graphique des horaires est ainsi proposée.&lt;/p>
-&lt;p>Une vision globale et stratégique de la planification horaire est cruciale pour améliorer la performance ferroviaire. &lt;strong>L’objectif ultime est de répondre aux besoins de mobilité en optimisant l’utilisation de la capacité en ligne, l’occupation de voie en gare et le roulement matériel&lt;/strong>. Pour répondre à cette exigence d’optimisation, des modules de modélisation mathématique et de résolution sont couplés avec le simulateur.&lt;/p></description></item><item><title>Docs: Licence</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/license/</guid><description>
-&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.&lt;/p>
-&lt;p>Comme pour tout autre projet open source, contribuer du code implique que son propriétaire consent à sa distribution sous la licence du projet.&lt;/p>
-&lt;div class="alert alert-warning" role="alert">
-&lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée: profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
-&lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API: Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
-&lt;/div></description></item><item><title>Who-We-Are: Open-Source</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/strategic-choices/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/strategic-choices/opensource/</guid><description>
-&lt;p>&lt;em>&lt;font color=#aa026d>« L’application OSRD est open source. Les simulations sont transparentes, explicites et universelles. Tout acteur désireux d&amp;rsquo;améliorer la compétitivité du système ferroviaire peut y apporter sa contribution »&lt;/font>&lt;/em>&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="osrd--quand-la-simulation-ferroviaire-devient-open-source">OSRD : quand la simulation ferroviaire devient open source&lt;/h3>
-&lt;/font>
-&lt;p>Le choix de l’open source est particulièrement stratégique dans le secteur public. En plus d’une baisse significative des coûts de développement, il offre à chaque citoyen &lt;strong>la transparence nécessaire&lt;/strong> pour comprendre et évaluer les choix d’investissement public.&lt;/p>
-&lt;p>Nous croyons que l’open source répond à des enjeux d’ordre politique, économique, technique et même énergétique :&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Politique&lt;/strong>, par la transparence et l’uniformisation, parce qu’il est nécessaire de retrouver la confiance de nos commanditaires  et parce que les standards peinent à s’imposer dans le secteur;&lt;/li>
-&lt;li>&lt;strong>Économique&lt;/strong>, parce qu’une meilleure utilisation du réseau réduira les couts d’exploitation et de possession du réseau, et parce que l’objectif est de rendre le mode ferré encore plus attractif;&lt;/li>
-&lt;li>&lt;strong>Technique&lt;/strong>, parce que le partage permet l’évolution;&lt;/li>
-&lt;li>&lt;strong>Energétique&lt;/strong>, enfin, car nous pouvons accélérer la transition énergétique en valorisant le transport ferroviaire. Mais nous devons le faire en conservant ou améliorant la performance industrielle.&lt;/li>
-&lt;/ul>
-&lt;p>Enfin, L’open source permet de fédérer une communauté de personnes qui travaillaient jusqu’alors dans leur coin. Tout tient dans la célèbre loi de (Bill) Joy : &lt;em>&lt;font color=#aa026d>« Qui que vous soyez, les meilleurs travaillent pour quelqu’un d’autre »&lt;/font>&lt;/em> !&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="définition">Définition&lt;/h3>
-&lt;/font>
-&lt;p>L’open source consiste à laisser le code source d’un logiciel développé en libre accès, afin que tout le monde puisse &lt;strong>le lire, l’utiliser et proposer des modifications ou développements&lt;/strong>. La conception et le développement des logiciels open source sont alors placés entre les mains de &lt;strong>communautés&lt;/strong> d’utilisateurs et/ou de développeurs.
-Chacun a la capacité d’adapter le logiciel à ses exigences et à ses besoins propres, tout en faisant profiter une large communauté de ses innovations. Les objectifs de développement sont donc partagés : les bugs, l’état de leur résolution et les efforts mis en œuvre pour les résoudre sont publics, tout comme l’avancement des nouvelles fonctionnalités.
-Dans l’absolu, &lt;strong>toute personne volontaire peut contribuer au projet, mais cela ne signifie pas pour autant que tout changement proposé sera intégré :&lt;/strong> à l’instar des revues par les pairs de la communauté scientifique, les communautés open source ont leurs standards, leurs exigences, et leurs revues de code. L’objectif est clair : s’assurer que le projet reste de bonne qualité.&lt;/p></description></item><item><title>Who-We-Are: Roadmap</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/roadmap/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="programme">Programme&lt;/h3>
-&lt;/font>
-&lt;p>&lt;img src="../roadmap_prog.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="horaires-stratégiques">Horaires Stratégiques&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Concevoir un POC de construction et de représentation des horaires stratégiques
-1ère étape : Etape cadrage (2 à 6 mois) :&lt;/p>
-&lt;ul>
-&lt;li>Analyse de l’existant : outil et processus&lt;/li>
-&lt;li>Recueil des besoins / confrontation aux utilisateurs&lt;/li>
-&lt;li>Livrable : note de cadrage (objectifs, fonctionnalités attendues, risques, planning…)&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="../roadmap_hs.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="etudes-dexploitation">Etudes d&amp;rsquo;exploitation&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Livrer la V1 de l’outil
-Fonctionnement de la signalisation
-Edition de l’infra
-1ère version du module Etudes
-Fin de la stabilisation du calcul de marche&lt;/p>
-&lt;p>&lt;img src="../roadmap_eex.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="gestion-dinfrastructure">Gestion d&amp;rsquo;infrastructure&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition :&lt;/p>
-&lt;ul>
-&lt;li>Mise à disposition des couches&lt;/li>
-&lt;li>Recherche dans les données de couches&lt;/li>
-&lt;li>Edition des couches
-(Lien avec OSM)&lt;/li>
-&lt;/ul>
-&lt;font color=#aa026d>
-&lt;h3 id="sillon-de-dernière-minute">Sillon de dernière minute&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 1 -&lt;/strong> Intégrer dans OSRD l’algorithme de recherche dans la capacité résiduelle&lt;/p>
-&lt;p>Faire fonctionner l’algorithme dans OSRD :&lt;/p>
-&lt;ul>
-&lt;li>Intégrer l’algorithme&lt;/li>
-&lt;li>Intégrer l’algorithme dans les données SIPH (données infra et horaires) :
-&lt;ul>
-&lt;li>Import des données SIPH dans OSRD&lt;/li>
-&lt;li>Projection des horaires SIPH à la voie&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Projection sur le trajet le plus probable&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Objectif 2 -&lt;/strong> Concevoir le POC de l’application mobile&lt;/p>
-&lt;p>&lt;img src="../roadmap_sdm.png" alt="Roadmap">&lt;/p></description></item><item><title>Docs: Mise en place</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/setting-things-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/setting-things-up/</guid><description>
-&lt;div class="alert alert-info" role="alert">
-La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
-&lt;/div>
-&lt;h2 id="obtenir-le-code-source">Obtenir le code source&lt;/h2>
-&lt;ul>
-&lt;li>Installer &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
-&lt;li>&lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h2>
-&lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
-&lt;p>L&amp;rsquo;outil &lt;code>docker-compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
-&lt;ul>
-&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker-compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Lancer &lt;code>docker-compose up --build&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;div class="footnotes" role="doc-endnotes">
-&lt;hr>
-&lt;ol>
-&lt;li id="fn:1">
-&lt;p>Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple &lt;code>apt-get&lt;/code>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:2">
-&lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;/div></description></item><item><title>Docs: Intégration numérique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Intégration numérique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
 &lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -354,21 +240,13 @@ width: 50%;
 &lt;/style>&lt;blockquote>
 &lt;/blockquote></description></item><item><title>Docs: Architecture</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/architecture/</guid><description>
 &lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
-&lt;p>&lt;img src="../architecture.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Who-We-Are: Études d'exploitation</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/exploitation-studies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/exploitation-studies/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="présentation">Présentation&lt;/h3>
-&lt;/font>
-&lt;p>Des millions d&amp;rsquo;Euros sont investis chaque année dans des projets ferroviaires sur la base d’études d’exploitation. Les objectifs de ces études sont la &lt;strong>mise en cohérence du besoin de transport avec l’infrastructure ferroviaire et l’évaluation de la capacité du réseau à satisfaire ce besoin&lt;/strong>. Les études d’exploitation, stratégiques et capitales pour éclairer les décisions d’investissements publics relatives à l’avenir du réseau ferré et pour la performance du système ferroviaire, nécessitent des compétences rares et exclusives et &lt;strong>produisent aujourd’hui des données éparses et mal capitalisées&lt;/strong>. Pour cette raison, SNCF Réseau a choisi en 2019 de se doter d’un outil maison pour effectuer ces études.&lt;/p>
-&lt;p>Le projet « &lt;strong>OSRD Etudes d’exploitation&lt;/strong> » est né pour répondre aux carences du marché : des outils nombreux et onéreux, fermés et aux résultats non-comparables. A l’opposé, nous proposons un outil de référence accessible à tous dont les résultats sont transparents, explicites et universels. L’outil OSRD fournit une base des données avec une modélisation microscopique de l’infrastructure ferroviaire française (déclivités, rayons de courbure, vitesses limites). Une interface pour modifier l’infrastructure existante ou pour designer une nouvelle partie de l’infrastructure est proposée.&lt;/p>
-&lt;p>Grâce à cette modélisation et à son moteur de calcul de marche, OSRD peut calculer des itinéraires, tracer des sillons, simuler les trains et leur interaction avec le système de signalisation.
-OSRD répond aux &lt;strong>enjeux de mobilité durable&lt;/strong> en optimisant les consommations énergétiques. La marge de régularité prévue sur la marche d’un train est repartie selon un &lt;strong>algorithme qui minimise l&amp;rsquo;énergie consommée par le train pendant le trajet&lt;/strong>.&lt;/p>
-&lt;p>Un élément intéressant de vérification d’un scenario d’exploitation est &lt;strong>l’évaluation de la robustesse&lt;/strong> de ce qui est projeté. Pour cette fonction, un &lt;strong>module de simulations stochastiques&lt;/strong> est proposé. Des aléas peuvent être modélisés et injectés dans le simulateur pour en évaluer les conséquences et la capacité du système à revenir à l’équilibre.&lt;/p></description></item><item><title>Docs: Exemple d'utilisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/data-model/usage-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/data-model/usage-example/</guid><description>
+&lt;p>&lt;img src="../architecture.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Docs: Données d'infrastructure</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/data-model/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="introduction">Introduction&lt;/h3>
 &lt;/font>
 &lt;p>Cette page donne un exemple de la manière dont les formats de données sont utilisés pour décrire une infrastructure dans &lt;strong>OSRD&lt;/strong>.&lt;/p>
 &lt;p>À cette fin, prenons comme exemple l&amp;rsquo;infrastructure-jouet suivante :&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_diagram.drawio.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_diagram.drawio.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Conseil&lt;/h4>
 Pour zoomer sur un diagramme, cliquez sur le bouton d&amp;rsquo;édition qui apparaît au survol de celui-ci.
@@ -387,7 +265,7 @@ Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p>
 &lt;p>Une section de voie est une section de rail (sans les aiguillages). On peut choisir de diviser les voies de son infrastructure en autant de sections qu&amp;rsquo;on le souhaite. Ici, nous avons choisi d&amp;rsquo;utiliser les sections de voie les plus longues possibles, ce qui signifie qu&amp;rsquo;entre deux aiguillages, il y a toujours une seule section de voie.&lt;/p>
 &lt;p>Les sections de voie sont ce sur quoi les trains simulés roulent. Ils sont l&amp;rsquo;équivalent abstrait des sections de rails physiques. Les sections de voie sont bidirectionnelles.&lt;/p>
 &lt;p>Dans cet exemple, nous définissons deux voies pour la ligne entre les stations Ouest et Nord-Est. Nous avons également des voies de contournement aux stations Nord et Centre-Ouest pour plus de réalisme. Enfin, nous avons trois voies distinctes dans la station Ouest, puisqu&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;une plaque tournante majeure dans notre infrastructure imaginaire.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_rails.drawio.en.svg" alt="Diagramme des sections de voies">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails.drawio.en.svg" alt="Diagramme des sections de voies">&lt;/p>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Important&lt;/h4>
 &lt;p>Les &lt;code>TrackSections&lt;/code> sont représentées par des flèches dans ce diagramme pour souligner le fait qu&amp;rsquo;elles ont un &lt;strong>début&lt;/strong> et une &lt;strong>fin&lt;/strong>. C&amp;rsquo;est important car les objets positionnés sur les sections de voie sont localisés en fonction de leur distance par rapport au &lt;strong>début&lt;/strong> de leur section de voie.&lt;/p>
@@ -426,18 +304,18 @@ Ceci est dû au fait qu&amp;rsquo;un switch est un objet physique, et que le cha
 &lt;p>&lt;strong>1) L&amp;rsquo;aiguillage&lt;/strong>&lt;/p>
 &lt;p>L&amp;rsquo;omniprésent aiguillage en Y, qui peut être considéré comme la fusion de deux voies ou la séparation d&amp;rsquo;une voie.&lt;/p>
 &lt;p>Ce type d&amp;rsquo;aiguillage possède trois ports : &lt;em>base&lt;/em>, &lt;em>gauche&lt;/em> et &lt;em>droite&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrammes/point_switch.en.svg" alt="Diagramme d&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch.en.svg" alt="Diagramme d&amp;amp;rsquo;aiguillage">&lt;/p>
 &lt;p>Il y a deux groupes, chacun avec une connexion dans leur liste : &lt;code>LEFT&lt;/code>, qui connecte &lt;em>base&lt;/em> à &lt;em>gauche&lt;/em>, et &lt;code>RIGHT&lt;/code> qui connecte &lt;em>base&lt;/em> à &lt;em>droite&lt;/em>.&lt;/p>
 &lt;p>Ainsi, à tout moment, un train peut aller de la &lt;em>base&lt;/em> à la &lt;em>gauche&lt;/em> ou de la &lt;em>base&lt;/em> à la &lt;em>droite&lt;/em> mais jamais aux deux en même temps. Un train ne peut pas aller de &lt;em>gauche&lt;/em> à &lt;em>droite&lt;/em>.&lt;/p>
 &lt;p>Un aiguillage n&amp;rsquo;a que deux positions :&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/point_switch_positions.en.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch_positions.en.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage">&lt;/p>
 &lt;p>&lt;strong>2) L&amp;rsquo;aiguillage de croisement&lt;/strong>&lt;/p>
 &lt;p>Il s&amp;rsquo;agit simplement de deux voies qui se croisent.&lt;/p>
 &lt;p>Ce type a quatre ports : &lt;em>nord&lt;/em>, &lt;em>sud&lt;/em>, &lt;em>est&lt;/em> et &lt;em>ouest&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/cross_switch.en.svg" alt="Diagramme de l&amp;amp;rsquo;aiguillage croisé">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch.en.svg" alt="Diagramme de l&amp;amp;rsquo;aiguillage croisé">&lt;/p>
 &lt;p>Il ne comporte qu&amp;rsquo;un seul groupe contenant deux connexions : &lt;em>nord&lt;/em> vers &lt;em>sud&lt;/em> et &lt;em>ouest&lt;/em> vers &lt;em>est&lt;/em>. En effet, ce type d&amp;rsquo;interrupteur est &lt;em>passif&lt;/em> : il n&amp;rsquo;a pas de pièces mobiles. Bien qu&amp;rsquo;il n&amp;rsquo;ait qu&amp;rsquo;un seul groupe, il est tout de même utilisé par la simulation pour faire respecter les réservations de route.&lt;/p>
 &lt;p>Voici les deux connexions différentes que ce type d&amp;rsquo;interrupteur possède :&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/cross_switch_positions.en.svg" alt="Diagramme des positions des aiguilles croisés">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch_positions.en.svg" alt="Diagramme des positions des aiguilles croisés">&lt;/p>
 &lt;p>&lt;strong>3) L&amp;rsquo;interrupteur en croix double&lt;/strong>&lt;/p>
 &lt;p>Celui-ci ressemble plus à deux interrupteurs à pointe dos à dos. Il possède quatre ports : &lt;em>sud1&lt;/em>, &lt;em>sud2&lt;/em>, &lt;em>nord1&lt;/em> et &lt;em>nord2&lt;/em>.&lt;/p>
 &lt;p>&lt;img src="../svg_diagrammes/double_cross_switch.en.svg" alt="Diagramme d&amp;amp;rsquo;un interrupteur à double croix">&lt;/p>
@@ -452,7 +330,7 @@ Ceci est dû au fait qu&amp;rsquo;un switch est un objet physique, et que le cha
 &lt;/ul>
 &lt;p>Les noms des ports doivent correspondre aux ports du type d&amp;rsquo;aiguillage choisi. Les extrémités de la section de voie peuvent être de début ou de fin, faites attention à choisir les bonnes.&lt;/p>
 &lt;p>La plupart des aiguillages de notre exemple sont des aiguillages réguliers. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement, et il y a un double aiguillage de croisement juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Diagramme des sections de voie et des aiguillages">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Diagramme des sections de voie et des aiguillages">&lt;/p>
 &lt;h4 id="courbes-et-pentes">Courbes et pentes&lt;/h4>
 &lt;p>Les &lt;code>Courbes&lt;/code> et les &lt;code>Pentes&lt;/code> sont essentielles pour des simulations réalistes. Ces objets sont définis comme une plage entre un décalage de &lt;code>début&lt;/code> et de &lt;code>fin&lt;/code> d&amp;rsquo;une section de voie. Si une courbe / pente s&amp;rsquo;étend sur plus d&amp;rsquo;une section de voie, elle doit être ajoutée à toutes les sections.&lt;/p>
 &lt;p>Les valeurs des courbes / pentes sont constantes sur toute leur étendue. Pour des courbes / pentes variables, il faut créer plusieurs objets.&lt;/p>
@@ -479,7 +357,7 @@ N&amp;rsquo;oubliez pas que la valeur de début doit toujours être inférieure 
 Prenons l&amp;rsquo;exemple d&amp;rsquo;un aiguillage de croisement : si le train A le franchit du &lt;em>nord&lt;/em> au &lt;em>sud&lt;/em> et que le train B vient le franchir de l&amp;rsquo;&lt;em>ouest&lt;/em> à l&amp;rsquo;&lt;em>est&lt;/em>, dès que le dernier wagon du train A a franchi l&amp;rsquo;aiguillage, B devrait pouvoir partir, puisque A se trouve maintenant sur une section de voie complètement indépendante.
 &lt;/div>
 &lt;p>Dans &lt;em>OSRD&lt;/em>, les détecteurs sont des objets ponctuels, donc tous les attributs dont ils ont besoin sont leur &lt;code>id&lt;/code>, et la localisation de la voie (&lt;code>track&lt;/code> et &lt;code>offset&lt;/code>).&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Diagramme infrarouge avec tous les détecteurs">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Diagramme infrarouge avec tous les détecteurs">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet, certains tronçons de voie n&amp;rsquo;étant pas représentés sur toute leur longueur, nous n&amp;rsquo;avons pas pu représenter tous les détecteurs du tronçon de voie correspondant.
 &lt;/div>
@@ -513,7 +391,7 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;li>Des attributs cosmétiques comme &lt;code>angle_geo&lt;/code> and &lt;code>side&lt;/code> qui contrôlent la manière dont les signaux sont affichés dans le front-end.&lt;/li>
 &lt;/ul>
 &lt;p>Voici une visualisation de comment on peut représenter un signal, et quelle direction il protège.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/signal_dir.en.svg" alt="Exemple de signal de direction">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/signal_dir.en.svg" alt="Exemple de signal de direction">&lt;/p>
 &lt;br/>
 &lt;p>La manière dont les signaux sont disposés dépend fortement du système de signalisation et du gestionnaire de l&amp;rsquo;infrastructure.&lt;/p>
 &lt;p>Voici les règles de base utilisées pour cet exemple d&amp;rsquo;infrastructure :&lt;/p>
@@ -523,7 +401,7 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;/ul>
 &lt;p>Notez que les détecteurs liés à au moins un signal ne sont pas représentés, car il n&amp;rsquo;y a pas de signaux sans détecteurs associés dans cet exemple.
 Pour obtenir le &lt;code>id&lt;/code> d&amp;rsquo;un détecteur lié à un signal, prenez le &lt;code>id&lt;/code> du signal et remplacez &lt;em>S&lt;/em> par &lt;em>D&lt;/em> (par exemple SA0 -&amp;gt; DA0).&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_signals.drawio.en.svg" alt="Diagramme infrarouge avec tous les signaux">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Diagramme infrarouge avec tous les signaux">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> nous n&amp;rsquo;avons pas pu représenter tous les signaux car ces sections de voie sont très longues et comportent de nombreux détecteurs, donc de nombreux signaux.
 &lt;/div>
@@ -534,14 +412,14 @@ Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;
 &lt;p>Les &lt;code>OperationalPoints&lt;/code> sont des collections de points (&lt;code>OperationalPointParts&lt;/code>) d&amp;rsquo;intérêt.&lt;/p>
 &lt;p>Par exemple, il peut être pratique de stocker l&amp;rsquo;emplacement des plateformes en tant que parties et de les regrouper par station dans des points opérationnels.&lt;/p>
 &lt;p>Dans l&amp;rsquo;exemple de l&amp;rsquo;infrastructure, nous n&amp;rsquo;avons utilisé que des points opérationnels pour représenter les stations. Les parties de points opérationnels sont représentées par des diamants violets. Gardez à l&amp;rsquo;esprit qu&amp;rsquo;un seul point opérationnel peut contenir plusieurs parties.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Exemples de points opérationnels">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Exemples de points opérationnels">&lt;/p>
 &lt;h4 id="limites-de-gabarit-de-chargement">Limites de gabarit de chargement&lt;/h4>
 &lt;p>Ces objets s&amp;rsquo;apparentent aux &lt;code>Pentes&lt;/code> et aux &lt;code>Courbes&lt;/code> : ils couvrent une plage de section de voie, avec un décalage de &lt;code>début&lt;/code> et de &lt;code>fin&lt;/code>. Il représente une restriction sur les trains qui peuvent circuler sur la plage donnée, par poids ou par type de train (fret ou passagers).&lt;/p>
 &lt;p>Nous n&amp;rsquo;en avons pas mis dans nos exemples.&lt;/p>
 &lt;h4 id="sections-de-vitesse">Sections de vitesse&lt;/h4>
 &lt;p>Les &lt;code>SpeedSections&lt;/code> représentent les limites de vitesse (en mètres par seconde) qui sont appliquées sur certaines parties des voies. Une &lt;code>SpeedSection&lt;/code> peut s&amp;rsquo;étendre sur plusieurs sections de voie, et ne couvre pas nécessairement la totalité des sections de voie. Les sections de vitesse peuvent se chevaucher.&lt;/p>
 &lt;p>Dans notre exemple d&amp;rsquo;infrastructure, nous avons une section de vitesse couvrant l&amp;rsquo;ensemble de l&amp;rsquo;infrastructure, limitant la vitesse à 300 km/h. Sur une plus petite partie de l&amp;rsquo;infrastructure, nous avons appliqué des sections de vitesse plus restrictives.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrams/speed_sections.en.svg" alt="Exemples de sections de vitesse">&lt;/p></description></item><item><title>Docs: Localisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/location/</guid><description>
+&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Exemples de sections de vitesse">&lt;/p></description></item><item><title>Docs: Localisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/location/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de localisation permet à d&amp;rsquo;autres modules de simulation de suivre le déplacement du train dans l&amp;rsquo;infrastructure.
 L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zones. Quand on train entre dans une zone, ce module permet d&amp;rsquo;en être notifié.&lt;/p>
@@ -564,16 +442,7 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;li>Occuper une zone&lt;/li>
 &lt;li>Libérer une zone&lt;/li>
 &lt;li>Observer les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
-&lt;/ul></description></item><item><title>Who-We-Are: Open-Data</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/strategic-choices/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/program/strategic-choices/opendata/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="lopen-dataest-lun-desprincipaux-enjeuxnumériques">L&amp;rsquo;open data est l&amp;rsquo;un des principaux enjeux numériques&lt;/h3>
-&lt;/font>
-&lt;p>L&amp;rsquo;ouverture des données favorise la transparence et l&amp;rsquo;information, lève les obstacles à l&amp;rsquo;accessibilité et à l&amp;rsquo;utilisation, et constitue un formidable accélérateur d&amp;rsquo;innovation.&lt;/p>
-&lt;p>Du côté du système ferroviaire, la SNCF s&amp;rsquo;est engagée depuis quelques années dans la mise à disposition des données de ses activités de transport de voyageurs. L&amp;rsquo;entreprise produit un très grand nombre de données : horaires, équipements et services en gare, régularité, lignes et correspondances, accessibilité, etc.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="plus-il-y-aura-de-données-libérées-plus-le-simulateur-osrd-sera-puissant-">Plus il y aura de données libérées, plus le simulateur OSRD sera puissant !&lt;/h3>
-&lt;/font>
-&lt;p>Nous oeuvrons chaque jour pour poursuivre cette ouverture ! En effet, certaines données encore classées confidentielles ne relèvent pourtant plus du secret industriel (ex. : données utiles au calcul de marche et à l&amp;rsquo;espacement des trains). La déclassification de ces données non sensibles est indispensable à l’opérationnalité de certains outils open source, dont la performance dépend fortement des données partagées.&lt;/p></description></item><item><title>Docs: Suivi des bugs</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-tracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-tracking/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Signaler des problèmes</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
 &lt;p>Notre outil de suivi des bugs est github. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
 &lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Le système d'enveloppes</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
@@ -606,14 +475,7 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;font color=#aa026d>
 &lt;h3 id="simulation-de-plusieurs-trains">Simulation de plusieurs trains&lt;/h3>
 &lt;/font>
-&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>Who-We-Are: Gestion d'infrastructure</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/infrastructure-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/infrastructure-management/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="présentation">Présentation&lt;/h3>
-&lt;/font>
-&lt;p>Plusieurs applications utilisées au sein du groupe SNCF et à l’extérieur ont besoin d’une &lt;strong>représentation cartographique du réseau ferroviaire&lt;/strong>. Le fond de carte d’OSRD utilise les données géographiques d’&lt;strong>OpenStreetMap (OSM)&lt;/strong>, un « Wikipedia des cartes » qui permet de consulter et éditer des données géographiques de manière collaborative. Ce fond de carte est régulièrement mis à jour pour refléter les évolutions des infrastructures autres que ferroviaires.&lt;/p>
-&lt;p>&lt;img src="../osrd_management.png" alt="OSRD management">&lt;/p>
-&lt;p>« &lt;strong>OSRD Gestion d’infrastructure&lt;/strong> » propose un service de cartographie accessible à tous et partagé, calqué sur le même modèle : tout le monde pourra contribuer et mettre en qualité les données ferroviaires.
-Nous fournissons d&amp;rsquo;une part un &lt;strong>éditeur complet de l&amp;rsquo;infrastructure du réseau ferré et des objets qui le composent&lt;/strong>, et d&amp;rsquo;autre part, &lt;strong>la mise à disposition des couches de données pour leur exploitation et leur représentation dans les standards de la cartographie en ligne&lt;/strong>. Nous étudions enfin la possibilité de &lt;strong>pouvoir à terme automatiser la mise à jour des données ferroviaires&lt;/strong> d&amp;rsquo;OpenStreetMap avec les données ainsi mises en qualité.&lt;/p></description></item><item><title>Docs: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/reservation/</guid><description>
+&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>Docs: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/reservation/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande plannifiée d&amp;rsquo;itinéraire
 &lt;/div>
@@ -758,7 +620,31 @@ La ligne noire représente le MRSP où la longueur du train a été prise en com
 &lt;p>Après avoir effectué le calcul de la marche de base (correspondant au Max Effort Profile dans OSRD), il est possible d&amp;rsquo;y appliquer des marges (allowances). Les marges sont des ajouts de temps supplémentaire au parcours du train. Elles servent notamment à lui permettre de rattraper son retard si besoin ou à d&amp;rsquo;autres besoins opérationnels (plus de détails sur les marges &lt;a href="../allowances">ici&lt;/a>).&lt;/p>
 &lt;p>Une nouvelle enveloppe &lt;strong>Allowances&lt;/strong> est donc calculée grâce à des overlays pour distribuer la marge demandée par l&amp;rsquo;utilisateur sur l&amp;rsquo;enveloppe d&amp;rsquo;effort maximal calculée précédemment.&lt;/p>
 &lt;p>&lt;img src="../allowances.png" alt="Marges">&lt;/p>
-&lt;p>Dans le calcul de marche d&amp;rsquo;OSRD, il est possible de distribuer les marges d&amp;rsquo;une manière linéaire, en abaissant toutes les vitesses d&amp;rsquo;un certain facteur, ou économique, c&amp;rsquo;est-à-dire en minimisant la consommation d&amp;rsquo;énergie pendant le parcours du train.&lt;/p></description></item><item><title>Docs: Contribuer du code</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/contributing-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/contributing-code/</guid><description>
+&lt;p>Dans le calcul de marche d&amp;rsquo;OSRD, il est possible de distribuer les marges d&amp;rsquo;une manière linéaire, en abaissant toutes les vitesses d&amp;rsquo;un certain facteur, ou économique, c&amp;rsquo;est-à-dire en minimisant la consommation d&amp;rsquo;énergie pendant le parcours du train.&lt;/p></description></item><item><title>Docs: Contribuer du code</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code/</guid><description>
+&lt;div class="alert alert-warning" role="alert">
+&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
+En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
+&lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée: profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
+&lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API: Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
+&lt;/div>
+&lt;h2 id="mise-en-place">Mise en place&lt;/h2>
+&lt;div class="alert alert-info" role="alert">
+La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
+&lt;/div>
+&lt;h3 id="obtenir-le-code-source">Obtenir le code source&lt;/h3>
+&lt;ul>
+&lt;li>Installer &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
+&lt;li>&lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h3>
+&lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
+&lt;p>L&amp;rsquo;outil &lt;code>docker-compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
+&lt;ul>
+&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker-compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Lancer &lt;code>docker-compose up --build&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="partager-vos-changements">Partager vos changements&lt;/h2>
 &lt;p>Ce chapitre décrit le processus aboutissant à l&amp;rsquo;intégration de code au sein du projet. &lt;strong>Si vous avez besoin d&amp;rsquo;aide, ouvrez une issue ou envoyez un message instantané.&lt;/strong>&lt;/p>
 &lt;ol>
 &lt;li>
@@ -790,7 +676,60 @@ Une fois que votre pull request est ouverte, &lt;a href="https://docs.github.com
 &lt;li>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin.&lt;/strong>&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>Docs: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/routing/</guid><description>
+&lt;/ol>
+&lt;h2 id="style-des-commits">Style des commits&lt;/h2>
+&lt;p>Le format général des commits est le suivant :&lt;/p>
+&lt;pre tabindex="0">&lt;code>composant: description du changement à l&amp;#39;impératif
+Description détaillée du contenu et de la motivation du changement,
+si le titre n&amp;#39;est pas complètement évident.
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong>&lt;/li>
+&lt;li>tout en minuscule&lt;/li>
+&lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>:&lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
+&lt;li>dans l&amp;rsquo;idéal, le corps du commit contient une description du changement.&lt;/li>
+&lt;/ul>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple &lt;code>apt-get&lt;/code>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>About: Gouvernance</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/governance/</guid><description>
+&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la plannification horaire à l&amp;rsquo;échelle Européenne&lt;/strong>.&lt;/p>
+&lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les companies ferroviaires et gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
+&lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
+&lt;ul>
+&lt;li>profitent des efforts de développement commun&lt;/li>
+&lt;li>peuvent se baser sur les outils commun pour créer les leurs&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution&lt;/li>
+&lt;/ul>
+&lt;h2 id="la-fondation-open-rail">La fondation Open Rail&lt;/h2>
+&lt;p>La &lt;a href="https://openrailfoundation.gitlab.io/">fondation Open Rail&lt;/a> est une association à but non lucratif ayant pour objectif d&amp;rsquo;organiser le travail autour d&amp;rsquo;outils logiciels communs au monde du ferroviaire.&lt;/p>
+&lt;p>&lt;a href="https://openrailfoundation.gitlab.io/">&lt;img class="marginauto" src="openrail_foundation_vector.png" alt="Fondation OpenRail">&lt;/a>&lt;/p>
+&lt;style>
+.marginauto {
+margin: 10px auto 20px;
+display: block;
+width:220px;
+height:200px;
+}
+.marginauto:hover {
+filter: brightness(70%);
+transition: all 0.50s;
+}
+&lt;/style>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Tant qu&amp;rsquo;elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license LGPLv3&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Docs: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/routing/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;ul>
 &lt;li>Les routes ont pour responsabilité d&amp;rsquo;autoriser le déplacement des trains dans l&amp;rsquo;infrastructure. Elles doivent se terminer à un point où l&amp;rsquo;arrêt du train est prévu (en terme de signalisation, pas voyageur).&lt;/li>
@@ -934,201 +873,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;ul>
 &lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
-&lt;/ul></description></item><item><title>Who-We-Are: Sillon de dernière minute</title><link>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/short-term-dcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/who-we-are/project/short-term-dcm/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="définition">Définition&lt;/h3>
-&lt;/font>
-&lt;p>Pour définir le sillon de dernière minute (ou STDCM, pour Short Term Digital Capacity Management), nous devons d&amp;rsquo;abord définir ce qu&amp;rsquo;est un sillon, ainsi que les acteurs qui entrent en jeu. Un &lt;strong>sillon&lt;/strong> correspond à la réservation d&amp;rsquo;espace/temps sur le réseau. C&amp;rsquo;est une &lt;strong>EF&lt;/strong> (entreprise ferroviaire) qui commande le sillon, et le &lt;strong>GI&lt;/strong> (gestionnaire d&amp;rsquo;infrastructure) qui procure le trajet. Lorsqu&amp;rsquo;on parle de sillons &amp;ldquo;normaux&amp;rdquo;, la demande de réservation se fait plusieurs années en amont (A-3), et le GI produit un document dans lequel nous pouvons retrouver toutes les demandes avec leur capacité assignée sur le réseau. La &lt;strong>capacité&lt;/strong>, c’est l’ensemble des voies disponibles sur le réseau ferroviaire d&amp;rsquo;un GI. Elle est partagée entre la capacité commerciale, destinée aux EF, et la capacité travaux, qui comme son nom l&amp;rsquo;indique, est reservée aux différents travaux prévus sur les voies. Par mesure préventive et pour pouvoir gérer certains aléas (retards, problèmes techniques ou environnementaux), le taux de sillons réservés ne peut pas dépasser 75% de la capacité totale du réseau.&lt;/p>
-&lt;p>C&amp;rsquo;est ici que le sillon de dernière minute entre en jeu. Si aucun problème n&amp;rsquo;est à déplorer, le GI se retrouve avec environ 25% de sa capacité non utilisée. Alors, si une EF a besoin d&amp;rsquo;un sillon en urgence (entre A-1 et jusqu&amp;rsquo;à quelques minutes avant le départ du matériel roulant), elle peut faire une demande de STDCM.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="défis-et-ambitions">Défis et ambitions&lt;/h3>
-&lt;/font>
-&lt;p>Les STDCM sont actuellement gérés par le guichet capacitaire entre A-1 et J-1, et par le guichet opérationnel à partir de J-1 à 17h. Plusieurs problèmes en découle ; la demande est fastidieuse et la réponse des guichets est asynchrone (prennent plusieurs jours à répondre), les sillons sont tracés à la main (risque d&amp;rsquo;erreur humaine) et la facturation peut se perdre dans les opérations, on estime à des dizaines de millions d&amp;rsquo;euros les pertes dûes aux STDCM non facturés. Certains outils numériques savent déjà régler ces problèmes, mais ne prennent pas en compte la gestion de conflit sur le réseau, ou s&amp;rsquo;ils la prennent, ils ne savent pas la gérer en gare.&lt;/p>
-&lt;p>C&amp;rsquo;est pour répondre à ces enjeux qu&amp;rsquo;est née l&amp;rsquo;idée de proposer une gestion numérique des sillons de dernière minute. L&amp;rsquo;objectif est de permettre aux EF de réserver des sillons facilement, en proposant un calcul du STDCM dans la capacité théorique prévisionnelle, et en leur apportant une réponse rapide (environ 3 minutes d&amp;rsquo;attente). Les clients pourraient aussi choisir entre plusieurs modes de calculs. Cet outil est en cours de développement, et devrait être disponible dans les prochaines années.&lt;/p></description></item><item><title>Docs: Détection de conflit</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</guid><description>
-&lt;div class="pageinfo pageinfo-warning">
-&lt;p>Ce document n&amp;rsquo;est pas finalisé&lt;/p>
-&lt;/div>
-&lt;script type="application/javascript" src="../mkt.js">&lt;/script>
-&lt;object onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="../space-time-diagram.svg">
-&lt;/object>
-&lt;h2 id="introduction">Introduction&lt;/h2>
-&lt;p>Le système de détection de conflit se repose sur le poste d&amp;rsquo;aiguillage et la simulation de la signalisation pour synthétiser les besoins en ressources des acteurs, et détecter les incompatibilités.&lt;/p>
-&lt;p>Le système de détection de conflit doit permettre :&lt;/p>
-&lt;ul>
-&lt;li>étant donné deux simulations indépendantes, déterminer si elles peuvent être rejouées en même temps sans conflit&lt;/li>
-&lt;li>avoir des résultats interprétables, c&amp;rsquo;est à dire que les conflits produits doivent pouvoir être reliés à un processus métier&lt;/li>
-&lt;li>avoir un fonctionnement interprétable, c&amp;rsquo;est à dire qu&amp;rsquo;il doit être possible de visualiser et interprêter le fonctionnement du système&lt;/li>
-&lt;li>passer à l&amp;rsquo;échelle : étant donné un grand ensemble de trains et leur utilisation de ressources, il doit toujours être possible de détecter leurs conflits en un temps raisonnable&lt;/li>
-&lt;li>de permettre la recherche de chemin à travers les ressources utilisées par un grand nombre de trains&lt;/li>
-&lt;li>de modéliser les conflits d&amp;rsquo;espacements transmits par des systèmes de signalisation à bloc fixe&lt;/li>
-&lt;/ul>
-&lt;p>Un certain nombre de contraintes guident et ont guidé la conception du système de détection de conflit :&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>il ne doit pas pouvoir aboutir à la génération de faux-négatifs&lt;/strong>: s&amp;rsquo;il ne détecte pas de conflits, une simulation multi-train de la même grille horaire ne doit pas présenter de ralentissements&lt;/li>
-&lt;li>le modèle ne doit pas se reposer sur des informations difficiles à obtenir étant donné l&amp;rsquo;état actuel du projet&lt;/li>
-&lt;li>il ne doit pas exclure l&amp;rsquo;inclusion ultérieure de bloc mobile&lt;/li>
-&lt;li>il doit être possible de détecter les conflits en simulant la signalisation tel que prévu dans le modèle de simulation&lt;/li>
-&lt;li>il doit être possible de détecter les conflits dans des zones à signalisation hétérogène, voire superposée&lt;/li>
-&lt;/ul>
-&lt;h2 id="théorie-des-conflits">Théorie des conflits&lt;/h2>
-&lt;p>Ce modèle définit les règles de fonctionnnement du système de détection de conflit.&lt;/p>
-&lt;p>Il repose sur un système de réservation de ressources abstraites.
-Ces ressources ont des configurations possibles, et peuvent être réservées pour un laps de temps donné.
-Si des réservations requièrent une ressource au même moment, elle peuvent où non cohabiter selon leur type et paramètres.
-Si deux réservations simultanées ne peux pas cohabiter, c&amp;rsquo;est un conflit.&lt;/p>
-&lt;h3 id="définitions">Définitions&lt;/h3>
-&lt;h4 id="acteur">Acteur&lt;/h4>
-&lt;p>Un acteur est une entité susceptible de requérir des ressources&lt;/p>
-&lt;h4 id="ressource">Ressource&lt;/h4>
-&lt;p>Une ressource est un objet susceptible d&amp;rsquo;être requis et utilisé par différents acteurs.
-Chaque ressource a des configurations, et ne peut être que dans une configuration à un instant donné.&lt;/p>
-&lt;h4 id="besoin">Besoin&lt;/h4>
-&lt;p>Un besoin est l&amp;rsquo;expression par un acteur de son besoin d&amp;rsquo;utilisation d&amp;rsquo;une ressource pour une période de temps donnée.&lt;/p>
-&lt;p>Ces besoins peuvent prendre plusieurs formes :&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>partageables&lt;/strong> : la ressource est requise dans une configuration donnée, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d&amp;rsquo;autres besions partageables de la même configuration.&lt;/li>
-&lt;li>&lt;strong>exclusifs&lt;/strong> : la ressource est requise dans une configuration donnée, pour un acteur particulier, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d&amp;rsquo;autres du même acteur et de la même configuration.&lt;/li>
-&lt;/ul>
-&lt;h4 id="conflit">Conflit&lt;/h4>
-&lt;h5 id="conflits-de-besoin">Conflits de besoin&lt;/h5>
-&lt;p>Un conflit de besoin se produit lorsque qu&amp;rsquo;il existe deux besoins simultanées dont les contraintes sont incompatibles.&lt;/p>
-&lt;p>Par exemple, il y a un conflit lorsque:&lt;/p>
-&lt;ul>
-&lt;li>un besoin exclusif chevauche n&amp;rsquo;importe quelle autre réservation d&amp;rsquo;un autre acteur&lt;/li>
-&lt;li>un besoin partageable chevauche un besoin d&amp;rsquo;une autre configuration&lt;/li>
-&lt;/ul>
-&lt;p>Il n&amp;rsquo;y a toutefois pas de conflit lorsque:&lt;/p>
-&lt;ul>
-&lt;li>une ressource est requise de manière exclusive sur des périodes qui n&amp;rsquo;ont pas de moment commun&lt;/li>
-&lt;li>une ressource est partagée par des besoins qui ne requièrent pas la même configuration&lt;/li>
-&lt;/ul>
-&lt;p>Un conflit de ressource perturbe l&amp;rsquo;acteur à l&amp;rsquo;origine des réservations.&lt;/p>
-&lt;h5 id="conflits-de-changement-de-configuration">Conflits de changement de configuration&lt;/h5>
-&lt;p>Certains conflits se produisent par manque de temps entre deux réservations consécutives.
-Le temps requis entre deux réservations est spécifique à chaque ressource.&lt;/p>
-&lt;h2 id="application-au-modèle-de-détection-de-conflit">Application au modèle de détection de conflit&lt;/h2>
-&lt;p>Le système de détection de conflit peut être appliqué de différentes manières&lt;/p>
-&lt;h3 id="définitions-1">Définitions&lt;/h3>
-&lt;h4 id="acteur-1">Acteur&lt;/h4>
-&lt;p>On distingue les types d&amp;rsquo;acteurs suivants :&lt;/p>
-&lt;ul>
-&lt;li>les &lt;strong>trains&lt;/strong> (ou un poste d&amp;rsquo;aiguillage / régulateur agissant au nom d&amp;rsquo;un train)&lt;/li>
-&lt;li>les &lt;strong>zones de travaux&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;h4 id="ressource-1">Ressource&lt;/h4>
-&lt;p>On distingue les ressources suivantes :&lt;/p>
-&lt;ul>
-&lt;li>les &lt;strong>zones&lt;/strong>, qui ont autant de configurations qu&amp;rsquo;il y a de manières de les traverser&lt;/li>
-&lt;li>les &lt;strong>aiguilles&lt;/strong>, qui ont autant de configurations qu&amp;rsquo;elles ont de position&lt;/li>
-&lt;/ul>
-&lt;div class="pageinfo pageinfo-info">
-&lt;p>À l&amp;rsquo;avenir, les quais pourraient également être modélisés comme ressources, ce qui permettrait de générer des conflits en cas d&amp;rsquo;embarquement ou débarquement simultané&lt;/p>
-&lt;/div>
-&lt;h4 id="réservation">Réservation&lt;/h4>
-&lt;p>Une réservation, c&amp;rsquo;est quelque chose qui enlève de la capacité.&lt;/p>
-&lt;h4 id="conflit-1">Conflit&lt;/h4>
-&lt;p>En pratique, un conflit de ressource gêne l&amp;rsquo;acteur à l&amp;rsquo;origine des réservations est un événement qui peut forcer un train à ralentir :&lt;/p>
-&lt;ul>
-&lt;li>un délai de formation d&amp;rsquo;itinéraire dû à l&amp;rsquo;indisponibilité de ressources&lt;/li>
-&lt;li>un conflit d&amp;rsquo;espacement dû à un rattrapage&lt;/li>
-&lt;/ul>
-&lt;p>Pour détecter les conflits, il est nécessaire de calculer l&amp;rsquo;impact qu&amp;rsquo;a un train sur la disponibilité des ressources: son empreinte.&lt;/p>
-&lt;h4 id="capacité">Capacité&lt;/h4>
-&lt;p>Le terme capacité désigne la capacité à réserver une ressource, ou plus largement la capacité de réservation d&amp;rsquo;un ensemble de ressources nécessaires au passage d&amp;rsquo;un train.&lt;/p>
-&lt;h2 id="génération-des-réservations">Génération des réservations&lt;/h2>
-&lt;p>&lt;strong>L&amp;rsquo;enjeu principal est de générer des réservations qui, si elles sont satisfaites, garantissent au train simulé, suivant la signalisation simulée, un trajet sans ralentissement.&lt;/strong>&lt;/p>
-&lt;h3 id="conflits-ditinéraire">Conflits d&amp;rsquo;itinéraire&lt;/h3>
-&lt;p>L&amp;rsquo;aiguillage d&amp;rsquo;un train à travers l&amp;rsquo;infrastructure a un impact susceptible de générer des conflits.
-Un conflit se produit lorsqu&amp;rsquo;un conducteur perçoit les conséquences du fait qu&amp;rsquo;un itinéraire a été établi trop tardivement.
-L&amp;rsquo;empreinte d&amp;rsquo;aiguillage, c&amp;rsquo;est les réservations de ressources requises pour qu&amp;rsquo;un train puisse être aiguillé sans gêne jusqu&amp;rsquo;à sa destination.
-Concrètement, ces ressources correspondent à des réservations de zones dans le temps.&lt;/p>
-&lt;p>Ces temps de réservation de ressources sont obtenus selon l&amp;rsquo;algorithme suivant:&lt;/p>
-&lt;ul>
-&lt;li>un planning d&amp;rsquo;établissement des ressources est établi de telle sorte à ce que le train n&amp;rsquo;est jamais forcé de ralentir par une commande trop tardive des routes. Ce planning d&amp;rsquo;établissement est déterminé en calculant les moments à partir duquel le conducteur verrait une signalisation contraignante, puis en soustrayant marge de temps&lt;/li>
-&lt;li>le planning d&amp;rsquo;établissement des routes de tous les trains est utilisé pour déterminer la chronologie combinée de fin d&amp;rsquo;utilisation des zones et des aiguilles&lt;/li>
-&lt;li>la chronologie combinée de fin d&amp;rsquo;utilisation des zones est utilisée pour calculer les temps de formation des routes, puis un planning de commande des routes&lt;/li>
-&lt;li>le planning de commande des routes permet de connaître la chronologie de début d&amp;rsquo;utilisation des zones, et donc connaître les réservations de zones pour chaque train&lt;/li>
-&lt;/ul>
-&lt;p>On peut ensuite superposer les réservations de zones, et traduire en conflit les réservations incompatibles.&lt;/p>
-&lt;h3 id="conflits-despacement">Conflits d&amp;rsquo;espacement&lt;/h3>
-&lt;p>En plus de pouvoir être ralentis par l&amp;rsquo;établissement trop tardif de leurs routes, les trains peuvent être également être ralentis par la présence d&amp;rsquo;un train plus loin sur leur chemin.
-Tout comme les conflits de routes sont détectés en recoupant la chronologie de réservation des zones par les routes, les conflits d&amp;rsquo;espacement sont détectés en recoupant les réservations implicites de zones pour l&amp;rsquo;espacement.
-Des zones sont réservées pour espacement lorsqu&amp;rsquo;elles ne peuvent être occupées sous peine de ralentissement.
-En fait, les zones réservées par un train peuvent être classifiées comme partageables, ou réservées pour espacement.&lt;/p>
-&lt;p>Les réservations implicites de zones sont calculées en simulant la signalisation comme suit:&lt;/p>
-&lt;ul>
-&lt;li>le planning de commande des routes est rejoué&lt;/li>
-&lt;li>on commence par partir du principe que toute les zones réservées pour l&amp;rsquo;aiguillage le sont également pour espacement&lt;/li>
-&lt;li>à chaque fois que le conducteur voit un signal non-contraignant, la dernière zone actuellement réservée pour le train est occupée: si la signalisation ne contraint toujours pas le train, alors cette zone est marquée comme partageable à cet instant, et la zone précédente est testée. Si la signalisation contraint le train, on passe au signal suivant.&lt;/li>
-&lt;li>la chronologie de réservation de zone pour espacement est recoupée pour tous les trains, et comparée avec l&amp;rsquo;occupation des zones. Chaque intersection génère un conflit.&lt;/li>
-&lt;/ul>
-&lt;div class="pageinfo pageinfo-info">
-&lt;p>Le système de réservation pour espacement a plusieurs avantages majeurs :&lt;/p>
-&lt;ul>
-&lt;li>il permet de simuler le partage de l&amp;rsquo;infrastructure par des trains qui utilisent des systèmes de signalisation différents&lt;/li>
-&lt;li>il peut être étendu aux blocs mobiles: au lieu de réserver des zones devant le train, on réserve une distance&lt;/li>
-&lt;/ul>
-&lt;/div></description></item><item><title>Docs: Les marges</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/allowances/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="la-raison-dêtre-des-marges">La raison d&amp;rsquo;être des marges&lt;/h3>
-&lt;/font>
-&lt;p>Comme expliqué dans le &lt;a href="../pipeline/#calcul-du-profil-deffort-maximal">calcul du Max Effort Profile&lt;/a>, la &lt;strong>marche de base&lt;/strong> représente la marche la plus tendue normalement réalisable, c&amp;rsquo;est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.&lt;/p>
-&lt;p>Cette marche de base présente un inconvénient majeur : si un train part avec 10min de retard, il arrivera au mieux avec 10min de retard, car par définition il lui est impossible de rouler plus vite que la marche de base. Par conséquent, les trains sont programmés avec un ajout d&amp;rsquo;une ou de plusieurs marges. Les marges sont une détente du trajet du train, un ajout de temps à l&amp;rsquo;horaire prévu, qui se traduit inévitablement par un abaissement des vitesses de circulation.&lt;/p>
-&lt;blockquote>
-&lt;p>Un train circulant en marche de base est incapable de rattraper son retard !&lt;/p>
-&lt;/blockquote>
-&lt;font color=#aa026d>
-&lt;h3 id="le-type-de-marge">Le type de marge&lt;/h3>
-&lt;/font>
-&lt;p>On distingue deux types de marges :&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>La marge de régularité&lt;/strong> : il s&amp;rsquo;agit du temps complémentaire ajouté à la marche de base pour tenir compte de l’imprécision de la mesure de la vitesse, pour pallier les conséquences des incidents extérieurs venant perturber la marche théorique des trains, et pour maintenir la régularité de la circulation. La marge de régularité s&amp;rsquo;applique sur l&amp;rsquo;ensemble du trajet, bien que sa valeur puisse changer sur certains intervalles.&lt;/li>
-&lt;li>&lt;strong>La marge de construction&lt;/strong> : il s&amp;rsquo;agit du temps ajouté / retiré sur un intervalle spécifique, en plus de la marge de régularité, mais cette fois pour des raisons opérationnelles (esquiver un autre train, libérer une voie plus rapidement, etc.)&lt;/li>
-&lt;/ul>
-&lt;p>Une marche de base à laquelle on vient ajouter une marge de régularité donne ce que l&amp;rsquo;on appelle une &lt;strong>marche type&lt;/strong>.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="la-distribution-de-la-marge">La distribution de la marge&lt;/h3>
-&lt;/font>
-&lt;p>L&amp;rsquo;ajout de marge se traduisant par un abaissement des vitesses le long du trajet, plusieurs marches types sont possibles. En effet, il existe une infinité de solutions aboutissant au même temps de parcours.&lt;/p>
-&lt;p>En guise d&amp;rsquo;exemple simple, pour détendre la marche d&amp;rsquo;un train de 10% de son temps de parcours, il est possible de prolonger n&amp;rsquo;importe quel arrêt de l&amp;rsquo;équivalent en temps de ces 10%, tout comme il est possible de rouler à 1/1,1 = 90,9% des capacités du train sur l&amp;rsquo;ensemble du parcours, ou encore de rouler moins vite, mais seulement aux vitesses élevées&amp;hellip;&lt;/p>
-&lt;p>Il y a pour l&amp;rsquo;instant deux algorithmes de distribution de la marge dans OSRD : linéaire et économique.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="la-distribution-linéaire">La distribution linéaire&lt;/h3>
-&lt;/font>
-&lt;p>La distribution de marge linéaire consiste simplement à abaisser les vitesses d&amp;rsquo;un même facteur sur la zone où l&amp;rsquo;utilisateur applique la marge. En voici un exemple d&amp;rsquo;application :&lt;/p>
-&lt;p>&lt;img src="../python_plot_linear.png" alt="Python plot linear">&lt;/p>
-&lt;p>Cette distribution a pour avantage de répartir la marge de la même manière sur tout le trajet. Un train prenant du retard à 30% de son trajet disposera de 70% de sa marge pour les 70% de trajets restants.&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="la-distribution-économique">La distribution économique&lt;/h3>
-&lt;/font>
-&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="../MARECO.pdf">ce document&lt;/a> (&lt;strong>MARECO&lt;/strong> est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
-&lt;ol>
-&lt;li>une vitesse plafond, évitant les vitesses les plus consommatrices en énergie&lt;/li>
-&lt;li>des zones de marche sur l&amp;rsquo;erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps&lt;/li>
-&lt;/ol>
-&lt;p>&lt;img src="../python_plot_eco_w_slopes.png" alt="Python plot eco with slopes">&lt;/p>
-&lt;blockquote>
-&lt;p>Un exemple de marche économique. En haut, les pentes/rampes rencontrées par le train. Les zones de marche sur l&amp;rsquo;erre sont représentées en bleu.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Gestion des versions</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/versionning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/versionning/</guid><description/></item><item><title>Docs: Passer du code en revue</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/reviewing-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/reviewing-code/</guid><description>
-&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/fr/docs/guides/contribute/reviewing-code/images/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>Docs: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/ordering/</guid><description>
-&lt;div class="alert alert-warning" role="alert">
-Cette page est une ébauche, contribuez-y!
-&lt;/div>
-&lt;h2 id="définition">Définition&lt;/h2>
-&lt;p>La couche d&amp;rsquo;ordonnancement a pour responsabilité d&amp;rsquo;établir l&amp;rsquo;ordre de commande des itinéraires, et par conséquent, l&amp;rsquo;ordre de passage des trains.
-La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pas, du moment qu&amp;rsquo;elle garanti que la simulation se termine (elle ne doit pas amener de trains en nez-à-nez, ou créer d&amp;rsquo;autre cas de figure de blocage).&lt;/p>
-&lt;p>Il est possible d&amp;rsquo;implémenter un module d&amp;rsquo;ordonnancement via des tableaux d&amp;rsquo;ordre de succession des trains aux aiguilles.&lt;/p>
-&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
-&lt;ul>
-&lt;li>Il doit être possible de connecter n&amp;rsquo;importe quel algorithme d&amp;rsquo;ordonnancement&lt;/li>
-&lt;li>Le module d&amp;rsquo;ordonnancement doit approuver les commandes de routes.&lt;/li>
-&lt;/ul>
-&lt;h2 id="opérations">Opérations&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>train&lt;/strong>: Des itinéraires sont &lt;strong>commandés&lt;/strong> pour chaque trains, aussi loin et aussi tôt que possible. L&amp;rsquo;approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/signaling/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/signaling/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de signalisation comprend l&amp;rsquo;ensemble des signaux, qui réagissent au cantonnement et à la réservation.
 Les signaux peuvent être de différent types, et sont chargés de manière modulaire. Seul importe leur comportement
@@ -1296,7 +1041,191 @@ Il est nécessaire de choisir quelle forme prennent les paramètres :&lt;/p>
 &lt;li>&lt;strong>prévoir le chemin&lt;/strong> signaler à la vue les cantons qui seront empruntés par le train&lt;/li>
 &lt;li>&lt;strong>observer un signal&lt;/strong> s&amp;rsquo;abonner à l&amp;rsquo;état d&amp;rsquo;un signal (via la vue)&lt;/li>
 &lt;li>&lt;strong>dépasser un signal&lt;/strong> signaler qu&amp;rsquo;un signal a été dépassé par le train (via la vue)&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/simulation-model/train/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Détection de conflit</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</guid><description>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>Ce document n&amp;rsquo;est pas finalisé&lt;/p>
+&lt;/div>
+&lt;script type="application/javascript" src="../mkt.js">&lt;/script>
+&lt;object onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="../space-time-diagram.svg">
+&lt;/object>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Le système de détection de conflit se repose sur le poste d&amp;rsquo;aiguillage et la simulation de la signalisation pour synthétiser les besoins en ressources des acteurs, et détecter les incompatibilités.&lt;/p>
+&lt;p>Le système de détection de conflit doit permettre :&lt;/p>
+&lt;ul>
+&lt;li>étant donné deux simulations indépendantes, déterminer si elles peuvent être rejouées en même temps sans conflit&lt;/li>
+&lt;li>avoir des résultats interprétables, c&amp;rsquo;est à dire que les conflits produits doivent pouvoir être reliés à un processus métier&lt;/li>
+&lt;li>avoir un fonctionnement interprétable, c&amp;rsquo;est à dire qu&amp;rsquo;il doit être possible de visualiser et interprêter le fonctionnement du système&lt;/li>
+&lt;li>passer à l&amp;rsquo;échelle : étant donné un grand ensemble de trains et leur utilisation de ressources, il doit toujours être possible de détecter leurs conflits en un temps raisonnable&lt;/li>
+&lt;li>de permettre la recherche de chemin à travers les ressources utilisées par un grand nombre de trains&lt;/li>
+&lt;li>de modéliser les conflits d&amp;rsquo;espacements transmits par des systèmes de signalisation à bloc fixe&lt;/li>
+&lt;/ul>
+&lt;p>Un certain nombre de contraintes guident et ont guidé la conception du système de détection de conflit :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>il ne doit pas pouvoir aboutir à la génération de faux-négatifs&lt;/strong>: s&amp;rsquo;il ne détecte pas de conflits, une simulation multi-train de la même grille horaire ne doit pas présenter de ralentissements&lt;/li>
+&lt;li>le modèle ne doit pas se reposer sur des informations difficiles à obtenir étant donné l&amp;rsquo;état actuel du projet&lt;/li>
+&lt;li>il ne doit pas exclure l&amp;rsquo;inclusion ultérieure de bloc mobile&lt;/li>
+&lt;li>il doit être possible de détecter les conflits en simulant la signalisation tel que prévu dans le modèle de simulation&lt;/li>
+&lt;li>il doit être possible de détecter les conflits dans des zones à signalisation hétérogène, voire superposée&lt;/li>
+&lt;/ul>
+&lt;h2 id="théorie-des-conflits">Théorie des conflits&lt;/h2>
+&lt;p>Ce modèle définit les règles de fonctionnnement du système de détection de conflit.&lt;/p>
+&lt;p>Il repose sur un système de réservation de ressources abstraites.
+Ces ressources ont des configurations possibles, et peuvent être réservées pour un laps de temps donné.
+Si des réservations requièrent une ressource au même moment, elle peuvent où non cohabiter selon leur type et paramètres.
+Si deux réservations simultanées ne peux pas cohabiter, c&amp;rsquo;est un conflit.&lt;/p>
+&lt;h3 id="définitions">Définitions&lt;/h3>
+&lt;h4 id="acteur">Acteur&lt;/h4>
+&lt;p>Un acteur est une entité susceptible de requérir des ressources&lt;/p>
+&lt;h4 id="ressource">Ressource&lt;/h4>
+&lt;p>Une ressource est un objet susceptible d&amp;rsquo;être requis et utilisé par différents acteurs.
+Chaque ressource a des configurations, et ne peut être que dans une configuration à un instant donné.&lt;/p>
+&lt;h4 id="besoin">Besoin&lt;/h4>
+&lt;p>Un besoin est l&amp;rsquo;expression par un acteur de son besoin d&amp;rsquo;utilisation d&amp;rsquo;une ressource pour une période de temps donnée.&lt;/p>
+&lt;p>Ces besoins peuvent prendre plusieurs formes :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>partageables&lt;/strong> : la ressource est requise dans une configuration donnée, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d&amp;rsquo;autres besions partageables de la même configuration.&lt;/li>
+&lt;li>&lt;strong>exclusifs&lt;/strong> : la ressource est requise dans une configuration donnée, pour un acteur particulier, pendant le laps de temps donné. Ce type de besoin peut seulement cohabiter avec d&amp;rsquo;autres du même acteur et de la même configuration.&lt;/li>
+&lt;/ul>
+&lt;h4 id="conflit">Conflit&lt;/h4>
+&lt;h5 id="conflits-de-besoin">Conflits de besoin&lt;/h5>
+&lt;p>Un conflit de besoin se produit lorsque qu&amp;rsquo;il existe deux besoins simultanées dont les contraintes sont incompatibles.&lt;/p>
+&lt;p>Par exemple, il y a un conflit lorsque:&lt;/p>
+&lt;ul>
+&lt;li>un besoin exclusif chevauche n&amp;rsquo;importe quelle autre réservation d&amp;rsquo;un autre acteur&lt;/li>
+&lt;li>un besoin partageable chevauche un besoin d&amp;rsquo;une autre configuration&lt;/li>
+&lt;/ul>
+&lt;p>Il n&amp;rsquo;y a toutefois pas de conflit lorsque:&lt;/p>
+&lt;ul>
+&lt;li>une ressource est requise de manière exclusive sur des périodes qui n&amp;rsquo;ont pas de moment commun&lt;/li>
+&lt;li>une ressource est partagée par des besoins qui ne requièrent pas la même configuration&lt;/li>
+&lt;/ul>
+&lt;p>Un conflit de ressource perturbe l&amp;rsquo;acteur à l&amp;rsquo;origine des réservations.&lt;/p>
+&lt;h5 id="conflits-de-changement-de-configuration">Conflits de changement de configuration&lt;/h5>
+&lt;p>Certains conflits se produisent par manque de temps entre deux réservations consécutives.
+Le temps requis entre deux réservations est spécifique à chaque ressource.&lt;/p>
+&lt;h2 id="application-au-modèle-de-détection-de-conflit">Application au modèle de détection de conflit&lt;/h2>
+&lt;p>Le système de détection de conflit peut être appliqué de différentes manières&lt;/p>
+&lt;h3 id="définitions-1">Définitions&lt;/h3>
+&lt;h4 id="acteur-1">Acteur&lt;/h4>
+&lt;p>On distingue les types d&amp;rsquo;acteurs suivants :&lt;/p>
+&lt;ul>
+&lt;li>les &lt;strong>trains&lt;/strong> (ou un poste d&amp;rsquo;aiguillage / régulateur agissant au nom d&amp;rsquo;un train)&lt;/li>
+&lt;li>les &lt;strong>zones de travaux&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ressource-1">Ressource&lt;/h4>
+&lt;p>On distingue les ressources suivantes :&lt;/p>
+&lt;ul>
+&lt;li>les &lt;strong>zones&lt;/strong>, qui ont autant de configurations qu&amp;rsquo;il y a de manières de les traverser&lt;/li>
+&lt;li>les &lt;strong>aiguilles&lt;/strong>, qui ont autant de configurations qu&amp;rsquo;elles ont de position&lt;/li>
+&lt;/ul>
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>À l&amp;rsquo;avenir, les quais pourraient également être modélisés comme ressources, ce qui permettrait de générer des conflits en cas d&amp;rsquo;embarquement ou débarquement simultané&lt;/p>
+&lt;/div>
+&lt;h4 id="réservation">Réservation&lt;/h4>
+&lt;p>Une réservation, c&amp;rsquo;est quelque chose qui enlève de la capacité.&lt;/p>
+&lt;h4 id="conflit-1">Conflit&lt;/h4>
+&lt;p>En pratique, un conflit de ressource gêne l&amp;rsquo;acteur à l&amp;rsquo;origine des réservations est un événement qui peut forcer un train à ralentir :&lt;/p>
+&lt;ul>
+&lt;li>un délai de formation d&amp;rsquo;itinéraire dû à l&amp;rsquo;indisponibilité de ressources&lt;/li>
+&lt;li>un conflit d&amp;rsquo;espacement dû à un rattrapage&lt;/li>
+&lt;/ul>
+&lt;p>Pour détecter les conflits, il est nécessaire de calculer l&amp;rsquo;impact qu&amp;rsquo;a un train sur la disponibilité des ressources: son empreinte.&lt;/p>
+&lt;h4 id="capacité">Capacité&lt;/h4>
+&lt;p>Le terme capacité désigne la capacité à réserver une ressource, ou plus largement la capacité de réservation d&amp;rsquo;un ensemble de ressources nécessaires au passage d&amp;rsquo;un train.&lt;/p>
+&lt;h2 id="génération-des-réservations">Génération des réservations&lt;/h2>
+&lt;p>&lt;strong>L&amp;rsquo;enjeu principal est de générer des réservations qui, si elles sont satisfaites, garantissent au train simulé, suivant la signalisation simulée, un trajet sans ralentissement.&lt;/strong>&lt;/p>
+&lt;h3 id="conflits-ditinéraire">Conflits d&amp;rsquo;itinéraire&lt;/h3>
+&lt;p>L&amp;rsquo;aiguillage d&amp;rsquo;un train à travers l&amp;rsquo;infrastructure a un impact susceptible de générer des conflits.
+Un conflit se produit lorsqu&amp;rsquo;un conducteur perçoit les conséquences du fait qu&amp;rsquo;un itinéraire a été établi trop tardivement.
+L&amp;rsquo;empreinte d&amp;rsquo;aiguillage, c&amp;rsquo;est les réservations de ressources requises pour qu&amp;rsquo;un train puisse être aiguillé sans gêne jusqu&amp;rsquo;à sa destination.
+Concrètement, ces ressources correspondent à des réservations de zones dans le temps.&lt;/p>
+&lt;p>Ces temps de réservation de ressources sont obtenus selon l&amp;rsquo;algorithme suivant:&lt;/p>
+&lt;ul>
+&lt;li>un planning d&amp;rsquo;établissement des ressources est établi de telle sorte à ce que le train n&amp;rsquo;est jamais forcé de ralentir par une commande trop tardive des routes. Ce planning d&amp;rsquo;établissement est déterminé en calculant les moments à partir duquel le conducteur verrait une signalisation contraignante, puis en soustrayant marge de temps&lt;/li>
+&lt;li>le planning d&amp;rsquo;établissement des routes de tous les trains est utilisé pour déterminer la chronologie combinée de fin d&amp;rsquo;utilisation des zones et des aiguilles&lt;/li>
+&lt;li>la chronologie combinée de fin d&amp;rsquo;utilisation des zones est utilisée pour calculer les temps de formation des routes, puis un planning de commande des routes&lt;/li>
+&lt;li>le planning de commande des routes permet de connaître la chronologie de début d&amp;rsquo;utilisation des zones, et donc connaître les réservations de zones pour chaque train&lt;/li>
+&lt;/ul>
+&lt;p>On peut ensuite superposer les réservations de zones, et traduire en conflit les réservations incompatibles.&lt;/p>
+&lt;h3 id="conflits-despacement">Conflits d&amp;rsquo;espacement&lt;/h3>
+&lt;p>En plus de pouvoir être ralentis par l&amp;rsquo;établissement trop tardif de leurs routes, les trains peuvent être également être ralentis par la présence d&amp;rsquo;un train plus loin sur leur chemin.
+Tout comme les conflits de routes sont détectés en recoupant la chronologie de réservation des zones par les routes, les conflits d&amp;rsquo;espacement sont détectés en recoupant les réservations implicites de zones pour l&amp;rsquo;espacement.
+Des zones sont réservées pour espacement lorsqu&amp;rsquo;elles ne peuvent être occupées sous peine de ralentissement.
+En fait, les zones réservées par un train peuvent être classifiées comme partageables, ou réservées pour espacement.&lt;/p>
+&lt;p>Les réservations implicites de zones sont calculées en simulant la signalisation comme suit:&lt;/p>
+&lt;ul>
+&lt;li>le planning de commande des routes est rejoué&lt;/li>
+&lt;li>on commence par partir du principe que toute les zones réservées pour l&amp;rsquo;aiguillage le sont également pour espacement&lt;/li>
+&lt;li>à chaque fois que le conducteur voit un signal non-contraignant, la dernière zone actuellement réservée pour le train est occupée: si la signalisation ne contraint toujours pas le train, alors cette zone est marquée comme partageable à cet instant, et la zone précédente est testée. Si la signalisation contraint le train, on passe au signal suivant.&lt;/li>
+&lt;li>la chronologie de réservation de zone pour espacement est recoupée pour tous les trains, et comparée avec l&amp;rsquo;occupation des zones. Chaque intersection génère un conflit.&lt;/li>
+&lt;/ul>
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>Le système de réservation pour espacement a plusieurs avantages majeurs :&lt;/p>
+&lt;ul>
+&lt;li>il permet de simuler le partage de l&amp;rsquo;infrastructure par des trains qui utilisent des systèmes de signalisation différents&lt;/li>
+&lt;li>il peut être étendu aux blocs mobiles: au lieu de réserver des zones devant le train, on réserve une distance&lt;/li>
+&lt;/ul>
+&lt;/div></description></item><item><title>Docs: Les marges</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/allowances/</guid><description>
+&lt;font color=#aa026d>
+&lt;h3 id="la-raison-dêtre-des-marges">La raison d&amp;rsquo;être des marges&lt;/h3>
+&lt;/font>
+&lt;p>Comme expliqué dans le &lt;a href="../pipeline/#calcul-du-profil-deffort-maximal">calcul du Max Effort Profile&lt;/a>, la &lt;strong>marche de base&lt;/strong> représente la marche la plus tendue normalement réalisable, c&amp;rsquo;est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.&lt;/p>
+&lt;p>Cette marche de base présente un inconvénient majeur : si un train part avec 10min de retard, il arrivera au mieux avec 10min de retard, car par définition il lui est impossible de rouler plus vite que la marche de base. Par conséquent, les trains sont programmés avec un ajout d&amp;rsquo;une ou de plusieurs marges. Les marges sont une détente du trajet du train, un ajout de temps à l&amp;rsquo;horaire prévu, qui se traduit inévitablement par un abaissement des vitesses de circulation.&lt;/p>
+&lt;blockquote>
+&lt;p>Un train circulant en marche de base est incapable de rattraper son retard !&lt;/p>
+&lt;/blockquote>
+&lt;font color=#aa026d>
+&lt;h3 id="le-type-de-marge">Le type de marge&lt;/h3>
+&lt;/font>
+&lt;p>On distingue deux types de marges :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>La marge de régularité&lt;/strong> : il s&amp;rsquo;agit du temps complémentaire ajouté à la marche de base pour tenir compte de l’imprécision de la mesure de la vitesse, pour pallier les conséquences des incidents extérieurs venant perturber la marche théorique des trains, et pour maintenir la régularité de la circulation. La marge de régularité s&amp;rsquo;applique sur l&amp;rsquo;ensemble du trajet, bien que sa valeur puisse changer sur certains intervalles.&lt;/li>
+&lt;li>&lt;strong>La marge de construction&lt;/strong> : il s&amp;rsquo;agit du temps ajouté / retiré sur un intervalle spécifique, en plus de la marge de régularité, mais cette fois pour des raisons opérationnelles (esquiver un autre train, libérer une voie plus rapidement, etc.)&lt;/li>
+&lt;/ul>
+&lt;p>Une marche de base à laquelle on vient ajouter une marge de régularité donne ce que l&amp;rsquo;on appelle une &lt;strong>marche type&lt;/strong>.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="la-distribution-de-la-marge">La distribution de la marge&lt;/h3>
+&lt;/font>
+&lt;p>L&amp;rsquo;ajout de marge se traduisant par un abaissement des vitesses le long du trajet, plusieurs marches types sont possibles. En effet, il existe une infinité de solutions aboutissant au même temps de parcours.&lt;/p>
+&lt;p>En guise d&amp;rsquo;exemple simple, pour détendre la marche d&amp;rsquo;un train de 10% de son temps de parcours, il est possible de prolonger n&amp;rsquo;importe quel arrêt de l&amp;rsquo;équivalent en temps de ces 10%, tout comme il est possible de rouler à 1/1,1 = 90,9% des capacités du train sur l&amp;rsquo;ensemble du parcours, ou encore de rouler moins vite, mais seulement aux vitesses élevées&amp;hellip;&lt;/p>
+&lt;p>Il y a pour l&amp;rsquo;instant deux algorithmes de distribution de la marge dans OSRD : linéaire et économique.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="la-distribution-linéaire">La distribution linéaire&lt;/h3>
+&lt;/font>
+&lt;p>La distribution de marge linéaire consiste simplement à abaisser les vitesses d&amp;rsquo;un même facteur sur la zone où l&amp;rsquo;utilisateur applique la marge. En voici un exemple d&amp;rsquo;application :&lt;/p>
+&lt;p>&lt;img src="../python_plot_linear.png" alt="Python plot linear">&lt;/p>
+&lt;p>Cette distribution a pour avantage de répartir la marge de la même manière sur tout le trajet. Un train prenant du retard à 30% de son trajet disposera de 70% de sa marge pour les 70% de trajets restants.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="la-distribution-économique">La distribution économique&lt;/h3>
+&lt;/font>
+&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="../MARECO.pdf">ce document&lt;/a> (&lt;strong>MARECO&lt;/strong> est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
+&lt;ol>
+&lt;li>une vitesse plafond, évitant les vitesses les plus consommatrices en énergie&lt;/li>
+&lt;li>des zones de marche sur l&amp;rsquo;erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="../python_plot_eco_w_slopes.png" alt="Python plot eco with slopes">&lt;/p>
+&lt;blockquote>
+&lt;p>Un exemple de marche économique. En haut, les pentes/rampes rencontrées par le train. Les zones de marche sur l&amp;rsquo;erre sont représentées en bleu.&lt;/p>
+&lt;/blockquote></description></item><item><title>Docs: Passer du code en revue</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</guid><description>
+&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
+&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
+&lt;/figure></description></item><item><title>Docs: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/ordering/</guid><description>
+&lt;div class="alert alert-warning" role="alert">
+Cette page est une ébauche, contribuez-y!
+&lt;/div>
+&lt;h2 id="définition">Définition&lt;/h2>
+&lt;p>La couche d&amp;rsquo;ordonnancement a pour responsabilité d&amp;rsquo;établir l&amp;rsquo;ordre de commande des itinéraires, et par conséquent, l&amp;rsquo;ordre de passage des trains.
+La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pas, du moment qu&amp;rsquo;elle garanti que la simulation se termine (elle ne doit pas amener de trains en nez-à-nez, ou créer d&amp;rsquo;autre cas de figure de blocage).&lt;/p>
+&lt;p>Il est possible d&amp;rsquo;implémenter un module d&amp;rsquo;ordonnancement via des tableaux d&amp;rsquo;ordre de succession des trains aux aiguilles.&lt;/p>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>Il doit être possible de connecter n&amp;rsquo;importe quel algorithme d&amp;rsquo;ordonnancement&lt;/li>
+&lt;li>Le module d&amp;rsquo;ordonnancement doit approuver les commandes de routes.&lt;/li>
+&lt;/ul>
+&lt;h2 id="opérations">Opérations&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>train&lt;/strong>: Des itinéraires sont &lt;strong>commandés&lt;/strong> pour chaque trains, aussi loin et aussi tôt que possible. L&amp;rsquo;approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/train/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
 Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>
@@ -1305,20 +1234,76 @@ Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garde
 &lt;li>Les trains &lt;strong>occupent les zones&lt;/strong>.&lt;/li>
 &lt;li>Les trains doivent être &lt;strong>suivis&lt;/strong> pour préserver leur &lt;strong>ordre de passage&lt;/strong>.&lt;/li>
 &lt;li>Les trains ont pour responsabilité de &lt;strong>demander les itinéraires&lt;/strong> devant eux.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Conventions de style</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/conventions/</guid><description>
-&lt;p>Les conventions de style sont des règles d&amp;rsquo;écriture qui permettent d&amp;rsquo;uniformiser divers aspects du projet.&lt;/p>
-&lt;p>Elles sont relativement importantes, car elles permettent une meilleure compréhension entre développeurs, et donc une productivité accrue.&lt;/p>
-&lt;h2 id="style-des-commits">Style des commits&lt;/h2>
-&lt;p>Le format général des commits est le suivant :&lt;/p>
-&lt;pre tabindex="0">&lt;code>composant: description du changement à l&amp;#39;impératif
-Description détaillée du contenu et de la motivation du changement,
-si le titre n&amp;#39;est pas complètement évident.
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong>&lt;/li>
-&lt;li>tout en minuscule&lt;/li>
-&lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>:&lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
-&lt;li>dans l&amp;rsquo;idéal, le corps du commit contient une description du changement.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: ETCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/etcs/</guid><description>
+&lt;/ul></description></item><item><title>About: Open Source</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/opensource/</guid><description>
+&lt;p>L’open source est une &lt;strong>pratique de développement logiciel&lt;/strong>, où le code source&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> du logiciel est :&lt;/p>
+&lt;ul>
+&lt;li>généralement développé de manière ouverte et collaborative, par des acteurs variés&lt;/li>
+&lt;li>accessible et gratuitement utilisable par tous&lt;/li>
+&lt;li>tout le monde est libre de proposer un changement, ou créer un logiciel dérivé&lt;/li>
+&lt;li>redistribuable par tous&lt;/li>
+&lt;/ul>
+&lt;p>En pratique, l&amp;rsquo;open source est à la fois un &lt;strong>cadre légal&lt;/strong> pour le travail collaboratif, et un &lt;strong>ensemble de pratiques&lt;/strong>.&lt;/p>
+&lt;h2 id="application-à-osrd">Application à OSRD&lt;/h2>
+&lt;p>Dans le contexte d&amp;rsquo;OSRD, ce modèle a de &lt;strong>multiples avantages&lt;/strong> :&lt;/p>
+&lt;ul>
+&lt;li>les algorithmes et le savoir-faire développé est ouvert à tous&lt;/li>
+&lt;li>les coûts de développement et résultats sont mutualisés entre les différents acteurs&lt;/li>
+&lt;li>permet de faciliter l&amp;rsquo;interopérabilité entre systèmes d&amp;rsquo;information en facilitant la standardisation et l&amp;rsquo;uniformisation&lt;/li>
+&lt;li>permet de catalyser la collaboration d&amp;rsquo;acteurs aux objectifs communs&lt;/li>
+&lt;li>permet à chaque acteur d&amp;rsquo;adapter librement le logiciel à ses besoins&lt;/li>
+&lt;li>il permet aux organismes de recherche publics de contribuer directement, et de profiter du projet&lt;/li>
+&lt;li>il permet aux acteurs publics de répondre à leurs impératifs de transparence&lt;/li>
+&lt;/ul>
+&lt;p>L&amp;rsquo;utilisation d&amp;rsquo;un projet open source comme catalyseur de collaboration industrielle a de nombreux antécédents :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Blender&lt;/strong> est un outil de modélisation, rendu, et animation 3D très complet, qui est récemment devenu une &lt;a href="https://fund.blender.org/">plateforme de collaboration industrielle&lt;/a> majeure pour l&amp;rsquo;industrie audiovisuelle&lt;/li>
+&lt;li>&lt;strong>Linux&lt;/strong>, une alternative à Windows qui équipe Google, Microsoft, Amazon, Apple, la plupart des sites internet, plateformes cloud, téléphones, routeurs, et bien plus. Toutes ces entreprises contribuent et se reposent énormément sur Linux&lt;/li>
+&lt;li>&lt;strong>Android&lt;/strong> est une base commune pour la majorité des téléphones vendus. Les fabriquants contribuent régulièrement à Android&lt;/li>
+&lt;li>&lt;strong>PostgreSQL&lt;/strong>, &lt;strong>MySQL&lt;/strong>, &lt;strong>SQLite&lt;/strong> et d&amp;rsquo;autres bases de donnée open source dominent collectivement ce marché. Un acteur aux besoins inédits peut contribuer à un outil open source plutôt qu&amp;rsquo;en créer un nouveau.&lt;/li>
+&lt;li>À la fois &lt;strong>Firefox&lt;/strong> et &lt;strong>Chrome&lt;/strong> sont Open Source&lt;/li>
+&lt;li>&lt;strong>Wordpress&lt;/strong> est le CMS au coeur de 43% des sites internet en activité. Une armée d&amp;rsquo;entreprises contribuent et produisent des extensions&lt;/li>
+&lt;li>&lt;strong>Odoo&lt;/strong> est un ERP modulaire très complet, à la communauté similaire à Wordpress&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Toutes ces projets ont en commun d&amp;rsquo;être essentiel au business d&amp;rsquo;un grand nombre d&amp;rsquo;entreprises, sans pour autant être ce que l&amp;rsquo;entreprise commercialise&lt;/strong>.&lt;/p>
+&lt;p>Ainsi, ces entreprises décident de collaborer avec leurs pairs ou concurrents à des outils communs, afin de faciliter les échanges et d&amp;rsquo;améliorer la qualité de leur service.&lt;/p>
+&lt;h2 id="fonctionnement-pratique">Fonctionnement pratique&lt;/h2>
+&lt;div class="alert alert-info" role="alert">
+Ce mode de fonctionnement n&amp;rsquo;est pas spécifique à l&amp;rsquo;open source : beaucoup d&amp;rsquo;entreprises adoptent un fonctionnement identique, à la différence près qu&amp;rsquo;il est maintenu privé.
+&lt;/div>
+&lt;p>En pratique, les logiciels libre sont développés via &lt;a href="https://github.com/DGEXSolutions/osrd">une forge&lt;/a>. Cette forge donne accès au code source, un outil de gestion des bugs / tâches, et un outil servant à intégrer des changements dans le code.
+Tout le monde peut proposer un changement, signaler un bug ou proposer une tâche.&lt;/p>
+&lt;p>Les propositions de changement sont soumis à une &lt;strong>revue par les pairs&lt;/strong>, semblables à celles de la communauté scientifique.
+Les individus en charge de la revue (les reviewers) sont ceux qui sont les plus familliers avec les composants affectés par le changement.&lt;/p>
+&lt;p>Les changements sont intégrés par des mainteneurs sur la base du &lt;strong>consensus&lt;/strong> entre reviewers.
+Les mainteneurs sont responsables de la cohérence technique du projet, et obtiennent cette position par consensus.
+L&amp;rsquo;intégration des changement n&amp;rsquo;est motivée que par leur viabilité technique : l&amp;rsquo;objectif des mainteneurs et reviewers est de &lt;strong>s&amp;rsquo;assurer que le projet reste de bonne qualité&lt;/strong>.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Le code source est un ensemble de documents texte qui définit comment fonctionne une application. C&amp;rsquo;est le produit du travail de développeurs logiciels.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>About: Open Data</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/opendata/</guid><description>
+&lt;p>L&amp;rsquo;open data, c&amp;rsquo;est la pratique de rendre publiquement accessible des données sous une license permissive.
+C&amp;rsquo;est une pratique distincte de l&amp;rsquo;open source, qui ne s&amp;rsquo;applique qu&amp;rsquo;au logiciel.&lt;/p>
+&lt;p>&lt;strong>Open data et open source ont une relation symbiotique : sans Open Data, un logiciel open source ferroviaire n&amp;rsquo;est utilisable que par des initiés. Gérer l&amp;rsquo;accès aux données est difficile, coûteux, souvent inutile, et réduit l&amp;rsquo;accessibilité de données pourtant essentielles.&lt;/strong>&lt;/p>
+&lt;p>Seul, l&amp;rsquo;&lt;strong>open data&lt;/strong> présente déjà un certain nombre d&amp;rsquo;avantages clés :&lt;/p>
+&lt;ul>
+&lt;li>des entreprises peuvent utiliser ces données dans leur produit, ce qui promeut les services ferroviaires&lt;/li>
+&lt;li>des chercheurs peuvent étudier les données sans démarche particulière, et découvrir eux-même les données disponibles&lt;/li>
+&lt;/ul>
+&lt;p>Des &lt;strong>données open data&lt;/strong> exploitées par une suite d&amp;rsquo;&lt;strong>outils open source&lt;/strong> ouvrent de nouveaux horizons :&lt;/p>
+&lt;ul>
+&lt;li>les chercheurs et entreprises peuvent maintenant exploiter les données sans avoir à créer leurs propres outils, ou en acquérir par leurs propres moyens&lt;/li>
+&lt;li>les clients de l&amp;rsquo;entreprise peuvent utiliser outils et données pour améliorer leur usage des services&lt;/li>
+&lt;/ul>
+&lt;p>Si &lt;strong>plusieurs acteurs&lt;/strong> mettent en open data des données exploitables par un même logiciel open source, il devient également possible de &lt;strong>recouper les données&lt;/strong> et de &lt;strong>fournir et plannifier des services communs&lt;/strong>.&lt;/p>
+&lt;h2 id="dans-le-cadre-dosrd">Dans le cadre d&amp;rsquo;OSRD&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>si&lt;/strong> les données de &lt;strong>matériel roulant&lt;/strong> et d&amp;rsquo;&lt;strong>infrastructure&lt;/strong> sont en open data, alors il est possible pour tous de &lt;strong>simuler des trajets&lt;/strong>, d&amp;rsquo;&lt;strong>étudier&lt;/strong> et &lt;strong>évaluer&lt;/strong> le réseau ferroviaire&lt;/li>
+&lt;li>&lt;strong>si&lt;/strong> les données de &lt;strong>grilles horaires&lt;/strong> sont accessibles en open data, alors il est possible pour tous d&amp;rsquo;étudier l&amp;rsquo;&lt;strong>usage&lt;/strong> du réseau&lt;/li>
+&lt;/ul></description></item><item><title>Docs: ETCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
 &lt;h3 id="généralités">Généralités&lt;/h3>
 &lt;p>ETCS est le système européen de contrôle commande des trains. La partie bord est interopérable. La partie sol peut être
 différente selon les pays tout en répondant aux mêmes objectifs de fonctionnalité.&lt;/p>
@@ -1458,7 +1443,7 @@ Si le canton en aval du dernier canton alloué est occupé le train doit être e
 canton. Le conducteur est alors avisé par une indication sonore au DMI.&lt;/p>
 &lt;p>Dès lors, les indications de conduite (vitesse but égale à 0 et une distance but) permettant de respecter la courbe de
 freinage sont affichées.&lt;/p>
-&lt;p>Le conducteur doit ralentir de façon à être en mesure de s’arrêter avant l’&lt;a href="../../../../glossary/#e">EOA&lt;/a>, tout en respectant la vitesse autorisée.&lt;/p></description></item><item><title>Docs: GSM-R</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>Docs: GPRS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Docs: FRMCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Docs: ETML</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/ertms/etml/</guid><description/></item><item><title>Docs: BAL</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
+&lt;p>Le conducteur doit ralentir de façon à être en mesure de s’arrêter avant l’&lt;a href="../../../../glossary/#e">EOA&lt;/a>, tout en respectant la vitesse autorisée.&lt;/p></description></item><item><title>Docs: GSM-R</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>Docs: GPRS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Docs: FRMCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Docs: ETML</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</guid><description/></item><item><title>Docs: BAL</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
 &lt;p>Le signal d’entrée du canton présente une indication liée à l’état d’occupation du ou des cantons suivants, selon les
 règles suivantes :&lt;/p>
 &lt;ul>
@@ -1481,7 +1466,7 @@ roue et le rail.&lt;/p>
 &lt;li>lorsque la queue du train libère un canton, son signal d&amp;rsquo;entrée passe en annonce&lt;/li>
 &lt;li>lorsque la queue du train libère un canton, le signal d&amp;rsquo;entrée du canton précédent passe en voie libre&lt;/li>
 &lt;li>les signaux présentent une voie libre par défaut, sauf les signaux Nf qui sont par défaut en indication d&amp;rsquo;arrêt&lt;/li>
-&lt;/ul></description></item><item><title>Docs: BAPR</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/automatic_block_systems/bapr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/railway_wiki/signalling/spacing/automatic_block_systems/bapr/</guid><description>
+&lt;/ul></description></item><item><title>Docs: BAPR</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</guid><description>
 &lt;p>Le signal d’entrée du canton est un signal qui présente une indication liée à l’état d’occupation du canton suivant
 (indication d’arrêt ou de voie libre). Sur certaines lignes l’occupation du canton n’est pas obtenue par le circuit de
 voie mais par un système de comptage d’essieux entrants et sortants.&lt;/p>

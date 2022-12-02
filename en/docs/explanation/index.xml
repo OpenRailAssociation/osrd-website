@@ -1,4 +1,183 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Explanations</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/</link><description>Recent content in Explanations on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/docs/explanation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Running time calculation</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Explanations</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/</link><description>Recent content in Explanations on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/docs/explanation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Infrastructure data</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/data-model/</guid><description>
+&lt;font color=#aa026d>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;/font>
+&lt;p>This page gives an example of how the data formats are used to describe an infrastructure in &lt;strong>OSRD&lt;/strong>.&lt;/p>
+&lt;p>For this purpose, let&amp;rsquo;s take as an example the following toy infrastructure:&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_diagram.drawio.en.svg" alt="Toy infrastructure diagram">&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Tip&lt;/h4>
+To zoom in on diagrams, click on the edit button that appears when hovering over it.
+&lt;/div>
+&lt;p>This diagram is an overview of the infrastructure with lines and stations only.&lt;/p>
+&lt;p>This infrastructure is not meant to be realistic, but rather meant to help illustrate OSRD&amp;rsquo;s data model.
+This example will be created step by step and explained along the way.&lt;/p>
+&lt;h4 id="the-infrastructure-generator">The infrastructure generator&lt;/h4>
+&lt;p>In the &lt;a href="https://github.com/DGEXSolutions/osrd">&lt;em>OSRD&lt;/em> repository&lt;/a> is a &lt;a href="https://github.com/DGEXSolutions/osrd/tree/dev/core/examples/generated">python library&lt;/a> designed to help generate infrastructures in a format understood by &lt;em>OSRD&lt;/em>.&lt;/p>
+&lt;p>The infrastructure discussed in this section can be generated thanks to &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a> file. To learn more about the generation scripts, you can check out the related &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/README.md">README&lt;/a>.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="tracks">Tracks&lt;/h3>
+&lt;/font>
+&lt;h4 id="track-sections">Track sections&lt;/h4>
+&lt;p>The first objects we need to define are &lt;code>TrackSections&lt;/code>. Most other objects are positioned relative to track sections.&lt;/p>
+&lt;p>A track section is a section of rail (switches not included). One can chose to divide the tracks of their infrastructure in as many track sections as they like. Here we chose to use the longest track sections possible, which means that between two switches there is always a single track section.&lt;/p>
+&lt;p>Track sections is what simulated trains roll onto. They are the abstract equivalent to physical rail sections. Track sections are bidirectional.&lt;/p>
+&lt;p>In this example, we define two tracks for the line between the West and North-East stations. We also have overpassing tracks at the North and Mid-West stations for added realism. Finally, we have three separate tracks in the West station, since it&amp;rsquo;s a major hub in our imaginary infrastructure.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails.drawio.en.svg" alt="Track sections diagram">&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Important&lt;/h4>
+&lt;p>&lt;code>TrackSections&lt;/code> are represented as arrows in this diagram to stress the fact that they have a &lt;strong>start&lt;/strong> and an &lt;strong>end&lt;/strong>. It matters as objects positioned on track sections are located using their distance from the &lt;strong>start&lt;/strong> of their track section.&lt;/p>
+&lt;p>Therefore, to locate an object at the beginning of its track section, set its offset to 0. To move it to the end of its track section, set its offset to the &lt;code>length&lt;/code> of the track section.&lt;/p>
+&lt;/div>
+&lt;p>These attributes are required for the track section to be complete:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>length&lt;/code>: the length of the track section in meters.&lt;/li>
+&lt;li>&lt;code>geo&lt;/code>: the coordinates in real life (geo is for geographic), in the &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a> format.&lt;/li>
+&lt;li>&lt;code>sch&lt;/code>: the coordinates in the schematic view (sch for schematic), also in &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a> format.&lt;/li>
+&lt;li>cosmetic attributes: &lt;code>line_name&lt;/code>, &lt;code>track_name&lt;/code>, &lt;code>track_number&lt;/code> which are used to indicate the name and labels that were given to the tracks / lines in real life.&lt;/li>
+&lt;/ul>
+&lt;p>For all track sections in our infrastructure, the &lt;code>geo&lt;/code> and &lt;code>sch&lt;/code> attributes are identical, and very much resemble the given diagram.&lt;/p>
+&lt;p>For most track sections, their &lt;code>length&lt;/code> is proportional to what can be seen in the diagram. To preserve readability, exceptions were made for &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em> (which are 10km and 25km).&lt;/p>
+&lt;h4 id="track-section-links">Track Section Links&lt;/h4>
+&lt;p>At the moment we only created track sections, which are not connected to each other (geospacial data is not used to deduce which tracks connect).&lt;/p>
+&lt;p>&lt;code>TrackSectionLinks&lt;/code> are used to connect two track sections together, just like a weld joint would in real life. In an OSRD simulation, a train can go from one track section to another only if they are connected by a &lt;code>TrackSectionLink&lt;/code> (or by a &lt;code>Switch&lt;/code>).&lt;/p>
+&lt;p>To connect more than two &lt;code>TrackSections&lt;/code> together, use the &lt;a href="#switches">&lt;code>Switches&lt;/code>&lt;/a>.&lt;/p>
+&lt;p>In our infrastructure, since we chose to have our track sections as long as possible, we do not actually need to use &lt;code>TrackSectionLinks&lt;/code>.
+&lt;code>TrackSectionLinks&lt;/code> are always optional: two track sections connected by a link behave just like a single track section.&lt;/p>
+&lt;h4 id="switches">Switches&lt;/h4>
+&lt;p>A &lt;code>Switch&lt;/code> represents just what you would expect: railway switches.&lt;/p>
+&lt;p>Switches can be thought of as a collections of track section links, partitioned into groups. Each group represents for a switch state. Switching group can take time, and at most one link can be ready to use at a time.&lt;/p>
+&lt;p>In the real world, switches are not unique, but rather instances of existing models.
+Thus, links and groups are not part of the switch itself, but in a &lt;code>SwitchType&lt;/code> object, which is shared by switches of the same model.&lt;/p>
+&lt;h5 id="switch-types">Switch Types&lt;/h5>
+&lt;p>&lt;code>SwitchTypes&lt;/code> have two mandatory attributes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>ports&lt;/code>: A list of port names. A port is an endpoint which can be connected to a track section.&lt;/li>
+&lt;li>&lt;code>groups&lt;/code>: A mapping from group names to lists of links between two ports.&lt;/li>
+&lt;/ul>
+&lt;p>At any time, all switches have an active group, and may have an active link, which always belongs to the active group. If there is an active link, it is active in a given direction. During a simulation, changing active link inside a group is instantaneous, but changing active link across groups takes configurable time.
+This is because a switch is a physical object, and changing active link can involve moving parts of it. &lt;code>Groups&lt;/code> are designed to represent the different positions that a switch can have. Each &lt;code>group&lt;/code> contains the links that can be used in the associated switch position.&lt;/p>
+&lt;p>The duration needed to change group is stored inside the &lt;code>Switch&lt;/code>, since it can vary depending on the physical implementation of the switch.&lt;/p>
+&lt;p>Our examples currently use three switch types. Switch types are just like other objects, and can easily be added as needed.&lt;/p>
+&lt;p>&lt;strong>1) The Point Switch&lt;/strong>&lt;/p>
+&lt;p>The ubiquitous Y switch, which can be thought of as either two tracks merging, or one track splitting.&lt;/p>
+&lt;p>This switch type has three ports: &lt;em>base&lt;/em>, &lt;em>left&lt;/em> and &lt;em>right&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch.en.svg" alt="Point switch diagram">&lt;/p>
+&lt;p>There are two groups, each with one connection in their list: &lt;code>LEFT&lt;/code>, which connects &lt;em>base&lt;/em> to &lt;em>left&lt;/em>, and &lt;code>RIGHT&lt;/code> which connects &lt;em>base&lt;/em> to &lt;em>right&lt;/em>.&lt;/p>
+&lt;p>Thus, at any given moment, a train can go from &lt;em>base&lt;/em> to &lt;em>left&lt;/em> or from &lt;em>base&lt;/em> to &lt;em>right&lt;/em> but never to both at the same time. A train cannot go from &lt;em>left&lt;/em> to &lt;em>right&lt;/em>.&lt;/p>
+&lt;p>A Point Switch only has two positions:&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch_positions.en.svg" alt="Point switch positions diagram">&lt;/p>
+&lt;p>&lt;strong>2) The Cross Switch&lt;/strong>&lt;/p>
+&lt;p>This is simply two tracks crossing each other.&lt;/p>
+&lt;p>This type has four ports: &lt;em>north&lt;/em>, &lt;em>south&lt;/em>, &lt;em>east&lt;/em> and &lt;em>west&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch.en.svg" alt="Cross switch diagram">&lt;/p>
+&lt;p>It has only one group containing two connections: &lt;em>north&lt;/em> to &lt;em>south&lt;/em> and &lt;em>west&lt;/em> to &lt;em>east&lt;/em>. Indeed this kind of switch is &lt;em>passive&lt;/em>: it has no moving parts. Despite having a single group, it is still used by the simulation to enforce route reservations.&lt;/p>
+&lt;p>Here are the two different connections that this switch type has:&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/cross_switch_positions.en.svg" alt="Cross switch positions diagram">&lt;/p>
+&lt;p>&lt;strong>3) The Double cross switch&lt;/strong>&lt;/p>
+&lt;p>This one is more like two point switches back to back. It has four ports: &lt;em>south1&lt;/em>, &lt;em>south2&lt;/em>, &lt;em>north1&lt;/em> and &lt;em>north2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/double_cross_switch.en.svg" alt="Double cross switch diagram">&lt;/p>
+&lt;p>However, it has four groups, each with one connection. The four groups are represented in the following diagram:&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/double_cross_switch_positions.en.svg" alt="Double cross switch positions diagram">&lt;/p>
+&lt;h5 id="back-to-switches">Back to switches&lt;/h5>
+&lt;p>A &lt;code>Switch&lt;/code> has three attributes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>switch_type&lt;/code>: the &lt;a href="#switch-types">&lt;code>SwitchType&lt;/code>&lt;/a> identifier for this switch.&lt;/li>
+&lt;li>&lt;code>ports&lt;/code>: a mapping from port names to track sections extremities.&lt;/li>
+&lt;li>&lt;code>group_change_delay&lt;/code>: the time it takes to change which group of the switch is activated.&lt;/li>
+&lt;/ul>
+&lt;p>The port names must match the ports of the switch type chosen. The track section endpoints can be start or end, be careful to chose the appropriate ones.&lt;/p>
+&lt;p>Most of our example&amp;rsquo;s switches are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Track sections and points diagram">&lt;/p>
+&lt;h4 id="curves-and-slopes">Curves and slopes&lt;/h4>
+&lt;p>&lt;code>Curves&lt;/code> and &lt;code>Slopes&lt;/code> are instrumental to realistic simulations. These objects are defined as a range between a &lt;code>begin&lt;/code> and &lt;code>end&lt;/code> offsets of one track section. If a curve / slope spans more than one track section, it has to be added to all of them.&lt;/p>
+&lt;p>The slope / curve values are constant on their entire range. For varying curves / slopes, one needs to create several objects.&lt;/p>
+&lt;p>Slope values are measured in &lt;em>meters per kilometers&lt;/em>, and the curve values are measured in &lt;em>meters&lt;/em> (the radius of the curve).&lt;/p>
+&lt;div class="alert alert-primary" role="alert">
+Mind that the &lt;code>begin&lt;/code> value should always be smaller than the &lt;code>end&lt;/code> value. That is why the curve / slope values can be negative: an uphill slope of 1 going from offset 10 to 0 is the same as a downhill slope of -1 going from offsets 0 to 10.
+&lt;/div>
+&lt;p>In the &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a> file, we have slopes on the track sections &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>There are curves as well, on the track sections &lt;em>TE0&lt;/em>, &lt;em>TE1&lt;/em>, &lt;em>TE3&lt;/em> and &lt;em>TF1&lt;/em>.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="interlocking">Interlocking&lt;/h3>
+&lt;/font>
+&lt;p>All objects so far contributed to track topology (shape). Topology would be enough for trains to navigate the network, but not enough to do so safely. to ensure safety, two systems collaborate:&lt;/p>
+&lt;ul>
+&lt;li>Interlocking ensures trains are allowed to move forward&lt;/li>
+&lt;li>Signaling is the mean by which interlocking communicates with the train&lt;/li>
+&lt;/ul>
+&lt;h4 id="detectors">Detectors&lt;/h4>
+&lt;p>These objects are used to create TVD sections (Track Vacancy Detection section): the track area in between detectors is a TVD section. When a train runs into a detector, the section it is entering becomes occupied. The only function of TVD sections is to locate trains.&lt;/p>
+&lt;p>In real life, detectors can be &lt;a href="https://en.wikipedia.org/wiki/Axle_counter">axle counters&lt;/a> or &lt;a href="https://en.wikipedia.org/wiki/Track_circuit">track circuits&lt;/a> for example.&lt;/p>
+&lt;p>For this mean of location to be efficient, detectors need to be placed regularly along your tracks, not too many because of cost, but not too few, because then TVD sections would be very large and trains would need to be very far apart to be told apart, which reduces capacity.&lt;/p>
+&lt;p>There often are detectors close to all sides of switches. This way, interlocking is made aware pretty much immediately when a switch is cleared, which is then free to be used again.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+Let&amp;rsquo;s take a cross switch as an example: if train A is crossing it &lt;em>north&lt;/em> to &lt;em>south&lt;/em> and train B is coming to cross &lt;em>west&lt;/em> to &lt;em>east&lt;/em>, then as soon as train A&amp;rsquo;s last car has passed the crossing, B should be able to go, since A is now on a completely unrelated track section.
+&lt;/div>
+&lt;p>In &lt;em>OSRD&lt;/em>, detectors are point objects, so all the attributes it needs are its &lt;code>id&lt;/code>, and track location (&lt;code>track&lt;/code> and &lt;code>offset&lt;/code>).&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Infra diagram with all detectors">&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+The clumped up squares represent many detectors at once. Indeed, because some track sections are not represented with their full length, we could not represent all the detectors on the corresponding track section.
+&lt;/div>
+&lt;p>Some notes:&lt;/p>
+&lt;ul>
+&lt;li>Between some points, we added only one detector (and not two), because they were really close together, and it would have made no sense to create a tiny TVDS between the two. This situation happened on track sections (&lt;em>TA3&lt;/em>, &lt;em>TA4&lt;/em>, &lt;em>TA5&lt;/em>, &lt;em>TF0&lt;/em> and &lt;em>TG3&lt;/em>).&lt;/li>
+&lt;li>In our infrastructure, there is relatively few track sections which are long enough to require more detectors than just those related to switches. Namely, &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TDO&lt;/em>, &lt;em>TD1&lt;/em>, &lt;em>TF1&lt;/em>, &lt;em>TG1&lt;/em> and &lt;em>TH1&lt;/em>. For example &lt;em>TD0&lt;/em>, which measures 25km, has in fact 17 detectors in total.&lt;/li>
+&lt;/ul>
+&lt;h4 id="buffer-stops">Buffer stops&lt;/h4>
+&lt;p>&lt;code>BufferStops&lt;/code> are obstacles designed to prevent trains from sliding off dead ends.&lt;/p>
+&lt;p>In our infrastructure, there is a buffer stop on each track section which has a loose end. There are therefore 8 buffer stops in total.&lt;/p>
+&lt;p>Together with detectors, they set the boundaries of &lt;a href="https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&amp;amp;q=TVD">TVD&lt;/a> sections (see &lt;a href="#detectors">Detectors&lt;/a>)&lt;/p>
+&lt;h4 id="routes">Routes&lt;/h4>
+&lt;p>A &lt;code>Route&lt;/code> is an itinerary in the infrastructure. A train path is a sequence of routes. Routes are used to reserve section of path with the interlocking. See the &lt;a href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/">dedicated documentation&lt;/a>.&lt;/p>
+&lt;p>It is represented with the following attributes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>entry_point&lt;/code> and &lt;code>exit_point&lt;/code>: references detectors or buffer stops.&lt;/li>
+&lt;li>&lt;code>path&lt;/code>: The list of track section ranges a train can pass on to go from entry to exit. There can be two Routes with the same entry and exit points and two different paths.&lt;/li>
+&lt;li>&lt;code>release_detectors&lt;/code>: When a train clears a release detector, resources reserved from the beginning of the route until this detector are released.&lt;/li>
+&lt;/ul>
+&lt;font color=#aa026d>
+&lt;h3 id="signaling">Signaling&lt;/h3>
+&lt;/font>
+&lt;p>Thanks to interlocking, trains are located and allowed to move. It&amp;rsquo;s a good start, but meaningless until trains are made aware of it. This is where &lt;code>Signal&lt;/code>s come into play: signals react to interlocking, and can be seen by trains.&lt;/p>
+&lt;p>How trains react to signals depends on the aspect, kind of signal, and signaling system.&lt;/p>
+&lt;p>Here are the most important attributes for signals:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>linked_detector&lt;/code>: The linked &lt;a href="#detectors">detector&lt;/a>.&lt;/li>
+&lt;li>&lt;code>type_code&lt;/code>: The type of signal.&lt;/li>
+&lt;li>&lt;code>direction&lt;/code>: The direction it protects, which can simply be interpreted as the way in which it can be seen by an incoming train (since there are lights only on one side&amp;hellip;). Direction is relative to track section orientation.&lt;/li>
+&lt;li>Cosmetic attributes like &lt;code>angle_geo&lt;/code> or &lt;code>side&lt;/code> which control the way in which the signals are displayed in the front-end.&lt;/li>
+&lt;/ul>
+&lt;p>Here is a visualization of how one can represent a signal, and which direction it protects.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/signal_dir.en.svg" alt="Signal direction example">&lt;/p>
+&lt;br/>
+&lt;p>The way the signals are arranged is highly dependent on both signaling system and infrastructure manager.&lt;/p>
+&lt;p>Here are the basic rules used for this example infrastructure:&lt;/p>
+&lt;ul>
+&lt;li>We add two spacing signals (one per direction) for each detector that is cutting a long TVD section into smaller ones.&lt;/li>
+&lt;li>Switch entries where a train might have to stop are protected by a signal (which is located outside of the switch TVD section). It must be visible from the direction used to approach the switch. When there are multiple switches in a row, only the first one usually needs protection, as interlocking is usually designed as not to encourage trains stopping in the middle of intersections.&lt;/li>
+&lt;/ul>
+&lt;p>Note that detectors linked to at least one signal are not represented, as there are not signals without associated detectors in this example.
+To get the &lt;code>id&lt;/code> of a detector linked to a signal, take the signal&amp;rsquo;s &lt;code>id&lt;/code> and replace &lt;em>S&lt;/em> by &lt;em>D&lt;/em> (e.g. SA0 -&amp;gt; DA0).&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Infra diagram with all signals">&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+On &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em> we could not represent all signals because these track sections are very long and have many detectors, hence many signals.
+&lt;/div>
+&lt;font color=#aa026d>
+&lt;h2 id="miscellaneous">Miscellaneous&lt;/h2>
+&lt;/font>
+&lt;h4 id="operational-points">Operational points&lt;/h4>
+&lt;p>&lt;code>OperationalPoints&lt;/code> are collections of points (&lt;code>OperationalPointParts&lt;/code>) of interest.&lt;/p>
+&lt;p>For example, it may be convenient to store the location of platforms as parts and group them by station in operational points.&lt;/p>
+&lt;p>In the example infrastructure, we only used operational points to represent stations. Operational point parts are displayed as purple diamonds. Keep in mind a single operational point may contain multiple parts.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Operational points examples">&lt;/p>
+&lt;h4 id="loading-gauge-limits">Loading Gauge Limits&lt;/h4>
+&lt;p>These objects are akin to &lt;code>Slopes&lt;/code> and &lt;code>Curves&lt;/code>: it covers a range of track section, with a &lt;code>begin&lt;/code> and an &lt;code>end&lt;/code> offset. It represents a restriction on the trains that can travel on the given range, by weight or by train type (freight or passenger).&lt;/p>
+&lt;p>We did not put any in our examples.&lt;/p>
+&lt;h4 id="speed-sections">Speed Sections&lt;/h4>
+&lt;p>The &lt;code>SpeedSections&lt;/code> represent speed limits (in meters per second) that are applied on some parts of the tracks. One &lt;code>SpeedSection&lt;/code> can span on several track sections, and do not necessarily cover the whole track sections. Speed sections can overlap.&lt;/p>
+&lt;p>In our example infrastructure, we have a speed section covering the whole infrastructure, limiting the speed to 300 km/h. On a smaller part of the infrastructure, we applied more restrictive speed sections.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Speed section examples">&lt;/p></description></item><item><title>Docs: Running time calculation</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/explanation/running_time_calculation/</guid><description>
 &lt;p>OSRD can be used to perform two types of calculations:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Standalone train simulation:&lt;/strong> calculation of the travel time of a train on a given route without interaction between the train and the signalling system.&lt;/li>

@@ -1,40 +1,31 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Licence</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/license/</guid><description>
-&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.&lt;/p>
-&lt;p>Comme pour tout autre projet open source, contribuer du code implique que son propriétaire consent à sa distribution sous la licence du projet.&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Signaler des problèmes</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-reports/</guid><description>
+&lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
+&lt;p>Notre outil de suivi des bugs est github. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
+&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Contribuer du code</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
+&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
+En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
 &lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée: profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
 &lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API: Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
-&lt;/div></description></item><item><title>Docs: Mise en place</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/setting-things-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/setting-things-up/</guid><description>
+&lt;/div>
+&lt;h2 id="mise-en-place">Mise en place&lt;/h2>
 &lt;div class="alert alert-info" role="alert">
 La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
 &lt;/div>
-&lt;h2 id="obtenir-le-code-source">Obtenir le code source&lt;/h2>
+&lt;h3 id="obtenir-le-code-source">Obtenir le code source&lt;/h3>
 &lt;ul>
 &lt;li>Installer &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
 &lt;li>&lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h2 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h2>
+&lt;h3 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h3>
 &lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
 &lt;p>L&amp;rsquo;outil &lt;code>docker-compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
 &lt;ul>
 &lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker-compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Lancer &lt;code>docker-compose up --build&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;div class="footnotes" role="doc-endnotes">
-&lt;hr>
-&lt;ol>
-&lt;li id="fn:1">
-&lt;p>Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple &lt;code>apt-get&lt;/code>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:2">
-&lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;/div></description></item><item><title>Docs: Suivi des bugs</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-tracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-tracking/</guid><description>
-&lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
-&lt;p>Notre outil de suivi des bugs est github. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
-&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Contribuer du code</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/contributing-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/contributing-code/</guid><description>
+&lt;h2 id="partager-vos-changements">Partager vos changements&lt;/h2>
 &lt;p>Ce chapitre décrit le processus aboutissant à l&amp;rsquo;intégration de code au sein du projet. &lt;strong>Si vous avez besoin d&amp;rsquo;aide, ouvrez une issue ou envoyez un message instantané.&lt;/strong>&lt;/p>
 &lt;ol>
 &lt;li>
@@ -66,12 +57,7 @@ Une fois que votre pull request est ouverte, &lt;a href="https://docs.github.com
 &lt;li>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin.&lt;/strong>&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>Docs: Passer du code en revue</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/reviewing-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/reviewing-code/</guid><description>
-&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/fr/docs/guides/contribute/reviewing-code/images/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>Docs: Conventions de style</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/conventions/</guid><description>
-&lt;p>Les conventions de style sont des règles d&amp;rsquo;écriture qui permettent d&amp;rsquo;uniformiser divers aspects du projet.&lt;/p>
-&lt;p>Elles sont relativement importantes, car elles permettent une meilleure compréhension entre développeurs, et donc une productivité accrue.&lt;/p>
+&lt;/ol>
 &lt;h2 id="style-des-commits">Style des commits&lt;/h2>
 &lt;p>Le format général des commits est le suivant :&lt;/p>
 &lt;pre tabindex="0">&lt;code>composant: description du changement à l&amp;#39;impératif
@@ -82,4 +68,18 @@ si le titre n&amp;#39;est pas complètement évident.
 &lt;li>tout en minuscule&lt;/li>
 &lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>:&lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
 &lt;li>dans l&amp;rsquo;idéal, le corps du commit contient une description du changement.&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple &lt;code>apt-get&lt;/code>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Docs: Passer du code en revue</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</guid><description>
+&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
+&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
+&lt;/figure></description></item></channel></rss>
