@@ -22,7 +22,5 @@ If **multiple actors** have open data exploitable by an open source tool, these 
 
 ## OSRD and Open Data
 
-- having **rolling stock** and **infrastructure** open data[^full-data] enables anyone to **simulate trains**,  **study** and **evaluate** the railway network
-- having **timetable** open data[^full-data] enables anyone to **study** rail network usage
-
-[^full-data]: Data sets have to be complete to be useful. Organisations providing open data need to have feedback channels, and take the experience of open data users into account.
+- having **rolling stock** and **infrastructure** open data enables anyone to **simulate trains**,  **study** and **evaluate** the railway network
+- having **timetable** open data enables anyone to **study** rail network usage

@@ -19,13 +19,11 @@ En pratique, l'open source est à la fois un **cadre légal** pour le travail co
 
 Dans le contexte d'OSRD, ce modèle a de **multiples avantages** :
  - les algorithmes et le savoir-faire développé est ouvert à tous
- - les coûts de développement sont mutualisés entre les différents acteurs
- - les résultats des efforts de développement sont mutualisés
+ - les coûts de développement et résultats sont mutualisés entre les différents acteurs
  - permet de faciliter l'interopérabilité entre systèmes d'information en facilitant la standardisation et l'uniformisation
  - permet de catalyser la collaboration d'acteurs aux objectifs communs
  - permet à chaque acteur d'adapter librement le logiciel à ses besoins
  - il permet aux organismes de recherche publics de contribuer directement, et de profiter du projet
- - il met tous les acteurs sur un pied d'égalité
  - il permet aux acteurs publics de répondre à leurs impératifs de transparence
 
 L'utilisation d'un projet open source comme catalyseur de collaboration industrielle a de nombreux antécédents :

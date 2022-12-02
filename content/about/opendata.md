@@ -22,7 +22,5 @@ Si **plusieurs acteurs** mettent en open data des données exploitables par un m
 
 ## Dans le cadre d'OSRD
 
-- la mise en open data de données de **matériel roulant** et d'**infrastructure**[^full-data] permet à tous de **simuler des trajets**,  d'**étudier** et **évaluer** le réseau ferroviaire
-- la mise en open data de données de **grilles horaires**[^full-data] permet à tous d'étudier l'**usage** du réseau
-
-[^full-data]: Il est important que les données soient complètes, et que des voies de recours existent. Beaucoup de jeu de données sont inexploitables par négligence.
+- **si** les données de **matériel roulant** et d'**infrastructure** sont en open data, alors il est possible pour tous de **simuler des trajets**,  d'**étudier** et **évaluer** le réseau ferroviaire
+- **si** les données de **grilles horaires** sont accessibles en open data, alors il est possible pour tous d'étudier l'**usage** du réseau
