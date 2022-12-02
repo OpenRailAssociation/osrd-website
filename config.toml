@@ -10,8 +10,13 @@ enableMissingTranslationPlaceholders = true
 
 enableRobotsTXT = true
 
-# Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
+# Hugo allows theme composition (and inheritance).
+[module]
+proxy = "direct"
+[[module.imports]]
+path = "github.com/google/docsy"
+[[module.imports]]
+path = "github.com/google/docsy/dependencies"
 
 # Will give values to .Lastmod etc.
 enableGitInfo = false
@@ -148,9 +153,6 @@ offlineSearch = true
 prism_syntax_highlighting = false
 
 [params.markmap]
-enable = true
-
-[params.mermaid]
 enable = true
 
 # User interface configuration
