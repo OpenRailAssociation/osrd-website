@@ -3,7 +3,7 @@ title = "OSRD"
 
 # Language settings
 contentDir = "content"
-defaultContentLanguage = "fr"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
