@@ -74,7 +74,7 @@ $$&lt;/p>
 &lt;p>La force motrice et la force de freinage dépendent de l&amp;rsquo;action du conducteur (il décide d&amp;rsquo;accélérer ou de freiner plus ou moins fort en fonction de la situation). Cette dépendance se traduit donc par une dépendance de ces deux forces à la position du train. La composante du poids dépend elle aussi de la position du train, car provenant directement des pentes et des virages situées sous ce dernier.&lt;/p>
 &lt;p>De plus, la force motrice dépend de la vitesse du train (selon la courbe effort vitesse) tout comme la résistance à
 l&amp;rsquo;avancement.&lt;/p>
-&lt;p>Ces différentes dépendances rendent impossible la résolution analytique de cette équation, et l&amp;rsquo;accélération du train à chaque instant doit être calculée par intégration numérique.&lt;/p></description></item><item><title>Docs: Éléments mobiles</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/movable-elements/</guid><description>
+&lt;p>Ces différentes dépendances rendent impossible la résolution analytique de cette équation, et l&amp;rsquo;accélération du train à chaque instant doit être calculée par intégration numérique.&lt;/p></description></item><item><title>Docs: Éléments mobiles</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/movable-elements/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Chaque élément mobile, aiguille ou passage à niveau, a une liste d&amp;rsquo;états possibles.
 Ces états sont mutuellement exclusifs.&lt;/p>
@@ -419,7 +419,7 @@ Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;
 &lt;h4 id="sections-de-vitesse">Sections de vitesse&lt;/h4>
 &lt;p>Les &lt;code>SpeedSections&lt;/code> représentent les limites de vitesse (en mètres par seconde) qui sont appliquées sur certaines parties des voies. Une &lt;code>SpeedSection&lt;/code> peut s&amp;rsquo;étendre sur plusieurs sections de voie, et ne couvre pas nécessairement la totalité des sections de voie. Les sections de vitesse peuvent se chevaucher.&lt;/p>
 &lt;p>Dans notre exemple d&amp;rsquo;infrastructure, nous avons une section de vitesse couvrant l&amp;rsquo;ensemble de l&amp;rsquo;infrastructure, limitant la vitesse à 300 km/h. Sur une plus petite partie de l&amp;rsquo;infrastructure, nous avons appliqué des sections de vitesse plus restrictives.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Exemples de sections de vitesse">&lt;/p></description></item><item><title>Docs: Localisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/location/</guid><description>
+&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Exemples de sections de vitesse">&lt;/p></description></item><item><title>Docs: Localisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/location/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de localisation permet à d&amp;rsquo;autres modules de simulation de suivre le déplacement du train dans l&amp;rsquo;infrastructure.
 L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zones. Quand on train entre dans une zone, ce module permet d&amp;rsquo;en être notifié.&lt;/p>
@@ -475,7 +475,7 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;font color=#aa026d>
 &lt;h3 id="simulation-de-plusieurs-trains">Simulation de plusieurs trains&lt;/h3>
 &lt;/font>
-&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>Docs: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/reservation/</guid><description>
+&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>Docs: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande plannifiée d&amp;rsquo;itinéraire
 &lt;/div>
@@ -729,7 +729,7 @@ transition: all 0.50s;
 &lt;p>Tant qu&amp;rsquo;elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license LGPLv3&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/routing/</guid><description>
+&lt;/div></description></item><item><title>Docs: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/routing/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;ul>
 &lt;li>Les routes ont pour responsabilité d&amp;rsquo;autoriser le déplacement des trains dans l&amp;rsquo;infrastructure. Elles doivent se terminer à un point où l&amp;rsquo;arrêt du train est prévu (en terme de signalisation, pas voyageur).&lt;/li>
@@ -873,7 +873,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;ul>
 &lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/signaling/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/signaling/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de signalisation comprend l&amp;rsquo;ensemble des signaux, qui réagissent au cantonnement et à la réservation.
 Les signaux peuvent être de différent types, et sont chargés de manière modulaire. Seul importe leur comportement
@@ -1041,7 +1041,7 @@ Il est nécessaire de choisir quelle forme prennent les paramètres :&lt;/p>
 &lt;li>&lt;strong>prévoir le chemin&lt;/strong> signaler à la vue les cantons qui seront empruntés par le train&lt;/li>
 &lt;li>&lt;strong>observer un signal&lt;/strong> s&amp;rsquo;abonner à l&amp;rsquo;état d&amp;rsquo;un signal (via la vue)&lt;/li>
 &lt;li>&lt;strong>dépasser un signal&lt;/strong> signaler qu&amp;rsquo;un signal a été dépassé par le train (via la vue)&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Détection de conflit</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/conflict-detection/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Détection de conflit</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/conflict-detection/</guid><description>
 &lt;div class="pageinfo pageinfo-warning">
 &lt;p>Ce document n&amp;rsquo;est pas finalisé&lt;/p>
 &lt;/div>
@@ -1209,7 +1209,7 @@ En fait, les zones réservées par un train peuvent être classifiées comme par
 &lt;/blockquote></description></item><item><title>Docs: Passer du code en revue</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>Docs: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/ordering/</guid><description>
+&lt;/figure></description></item><item><title>Docs: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Cette page est une ébauche, contribuez-y!
 &lt;/div>
@@ -1225,7 +1225,7 @@ La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pa
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>train&lt;/strong>: Des itinéraires sont &lt;strong>commandés&lt;/strong> pour chaque trains, aussi loin et aussi tôt que possible. L&amp;rsquo;approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/interlocking/train/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/train/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
 Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>
