@@ -235,7 +235,7 @@ Chaque signal logique peut avoir un certain nombre de pilotes. Les&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>bal[Nf,ralen30]+bapr&lt;/code>&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Une chaine de charactère simplifiée de description du type de signal peut être généré. Ici: &lt;code>bal[Nf=true,ralen30=true]+bapr&lt;/code>.&lt;/p>
 &lt;h3 id="chargement-des-paramètres-du-signal">Chargement des paramètres du signal&lt;/h3>
 &lt;p>La première étape du chargement du signal est de charactériser le signal dans le système de signalisation.
 Cette étape produit un objet qui décrit le signal.&lt;/p>
