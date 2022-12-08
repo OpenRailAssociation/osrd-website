@@ -191,7 +191,7 @@ En fonction du contexte, différents mécanismes peuvent être à la source de c
 }
 ```
 
-`bal[Nf,ralen30]+bapr`
+Une chaine de charactère simplifiée de description du type de signal peut être généré. Ici: `bal[Nf=true,ralen30=true]+bapr`.
 
 ### Chargement des paramètres du signal
 
