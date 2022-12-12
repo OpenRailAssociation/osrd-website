@@ -1221,11 +1221,24 @@ Les cas de figure de validation que l&amp;rsquo;on souhaite supporter sont les s
 &lt;li>si un signal donne sur des cantons empruntant le même chemin, il est simulé avec les autres signaux de la suite, dans une vue construite à cet effet&lt;/li>
 &lt;/ul>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
+&lt;p>Pour la génération du graphe de cantons :&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>statique&lt;/code> graphe des routes, pour pouvoir créer des cantons&lt;/li>
-&lt;li>&lt;code>statique&lt;/code> les signaux, leur type et détecteur + direction associé&lt;/li>
-&lt;li>&lt;code>statique&lt;/code> les propriétés de cantonnement pour chaque signal&lt;/li>
-&lt;li>&lt;code>dynamique&lt;/code> observer l&amp;rsquo;&lt;strong>état des zones&lt;/strong>&lt;/li>
+&lt;li>graphe des routes. Pour chaque route :
+&lt;ul>
+&lt;li>&lt;code>waypoints: List&amp;lt;DiDetector&amp;gt;&lt;/code>&lt;/li>
+&lt;li>&lt;code>signals: OrderedMap&amp;lt;Position, UnloadedSignal&amp;gt;&lt;/code>&lt;/li>
+&lt;li>&lt;code>speed_limits: RangeMap&amp;lt;Position, SpeedLimit&amp;gt;&lt;/code>, y compris la logique de limite par categorie de train&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>systèmes de signalisation&lt;/li>
+&lt;li>pilotes&lt;/li>
+&lt;/ul>
+&lt;p>Pour l&amp;rsquo;évaluation :&lt;/p>
+&lt;ul>
+&lt;li>chemin du train en cantons&lt;/li>
+&lt;li>portion du chemin à évaluer&lt;/li>
+&lt;li>pilotes&lt;/li>
+&lt;li>état des zones dans la section à évaluer&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
