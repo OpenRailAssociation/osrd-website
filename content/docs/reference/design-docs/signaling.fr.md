@@ -74,7 +74,7 @@ Il est à noter que si un système de signalisation a un double rôle transmissi
 ```yaml
 {
     # unique identifier for the signaling system
-    "id": "bal",
+    "id": "BAL",
     "version": "1.0",
     # a list of roles the system assumes
     "roles": ["MA", "SPEED_LIMITS"],
@@ -98,7 +98,7 @@ Il est à noter que si un système de signalisation a un double rôle transmissi
     # true, false, <flag>, <enum> == value, && and || can be used
 
     # used to evaluate whether a signal is a block boundary.
-    "block_boundary_when": "Nf",
+    "block_boundary_when": "true",
 
     # used for conflict detection. 
     "constraining_ma_when": "aspect != VL"
@@ -108,16 +108,16 @@ Il est à noter que si un système de signalisation a un double rôle transmissi
 ## Design des cantons
 
 Les cantons ont plusieurs attributs:
- - un système de signalisation
+ - un système de signalisation qui correspond à celui affiché par son premier signal.
  - un **chemin**, qui représente les zones protégées par le canton, et leur état attendu (au même format que le chemin des routes)
- - un **signal d'entrée**, optionnel (quand le canton pars d'un butoir)
+ - un **signal d'entrée**, (optionnel quand le canton pars d'un butoir)
  - des **signaux intermédiaires** éventuels (c'est utilisé avec des systèmes du style BAPR)
- - un **signal de sortie**, optionnel (quand le canton se termine à un butoir)
+ - un **signal de sortie**, (optionnel quand le canton se termine à un butoir)
 
 Le chemin est exprimé de détecteur en détecteur afin de pouvoir faire un rapprochement avec le graphe des routes.
 
 Quelques remarques:
-- il peut y avoir plusieurs systèmes de signalisation superposés sur la même infrastructure. le modèle pars du principe qu'un seul système à la fois est actif
+- il peut y avoir plusieurs systèmes de signalisation superposés sur la même infrastructure. le modèle pars du principe qu'un seul système à la fois est actif pour la gestion de la MA
 - un canton n'a pas d'état: on peut se reposer sur l'état dynamique des zones qui le compose
 - les signaux utilisent les cantons pour savoir quelles zones sont à protéger à un instant donné
 
@@ -150,6 +150,7 @@ En fonction du contexte, différents mécanismes peuvent être à la source de c
             # the settings for this signal, as defined in the signaling system manifest
             "settings": ["has_ralen30=true", "Nf=true"],
             # all the ways the signal can be driven
+            # optional: if not present, we determine the drivers automatically
             "drivers": [
                 # the signal can react to a following bal signal
                 {"next_signaling_system": "bal"},
@@ -271,7 +272,7 @@ Les cas de figure de validation que l'on souhaite supporter sont les suivants:
  - le système de signalisation peut vouloir valider, sachant si le canton pars / se termine sur un butoir :
    - la longueur du canton
    - l'espacement entre les signaux du canton, premier signal exclu
- - le signal d'entrée de canton, s'il existe, peut avoir des informations particulières sur la validité d'un canton s'il est un signal de transition
+ - chaque signal du canton peut avoir des informations specifiques s'il est un signal de transition. Par conséquent, tout les drivers de signaux participent a la validation.
 
 En pratique, il existe deux mécanismes distincts pour répondre à ces deux besoins :
  - le **module de système de signalisation** s'occupe de valider la signalisation **dans le canton**
@@ -284,7 +285,8 @@ extern fn report_error(/* TODO */);
 struct Block {
    startsAtBufferStop: bool,
    stopsAtBufferStop: bool,
-   signals: Vec<SignalSettings>,
+   signalTypes: Vec<SignalingSystemId>,
+   signalSettings: Vec<SignalSettings>,
    signalPositions: Vec<Distance>,
    length: Distance,
 }
@@ -296,9 +298,9 @@ fn check_block(
 
 
 /// Runs in the signal driver module
-fn check_entry_signal(
-   entry_signal: SignalSettings,
-   block: Block,
+fn check_signal(
+   signal: SignalSettings,
+   block: Block, // The partial block in front of the signal - no signal can see backward
 );
 ```
 
