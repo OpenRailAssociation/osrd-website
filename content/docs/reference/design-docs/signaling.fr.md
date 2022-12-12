@@ -379,10 +379,22 @@ Il est possible de simuler la signalisation hors du chemin du train :
 
 ## Dépendances
 
-- `statique` graphe des routes, pour pouvoir créer des cantons
-- `statique` les signaux, leur type et détecteur + direction associé
-- `statique` les propriétés de cantonnement pour chaque signal
-- `dynamique` observer l'**état des zones**
+Pour la génération du graphe de cantons :
+
+- graphe des routes. Pour chaque route :
+  - `waypoints: List<DiDetector>`
+  - `signals: OrderedMap<Position, UnloadedSignal>`
+  - `speed_limits: RangeMap<Position, SpeedLimit>`, y compris la logique de limite par categorie de train
+- systèmes de signalisation
+- pilotes
+
+Pour l'évaluation :
+
+- chemin du train en cantons
+- portion du chemin à évaluer
+- pilotes
+- état des zones dans la section à évaluer
+
 
 ## Opérations
 
