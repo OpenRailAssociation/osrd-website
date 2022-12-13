@@ -23,7 +23,7 @@ Lorsqu’aucun véhicule n’est présent sur la zone délimitant le circuit de 
 
 Lorsqu’un véhicule est présent, son premier essieu agit comme une faible résistance, appelée shunt, qui court-circuite la transmission. Dans ce cas, le niveau du signal parvenant au récepteur n’est plus suffisant et le relais de voie se désexcite, ce qui entraine la fermeture du signal d’entrée du canton (cas 2 ci-dessous).
 
-![](../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-079.png)
+![](/osrd-website/images/docs/railway-wiki/signalling/image-079.png)
 
 ### Fonctionnement des compteurs d'essieux
 
