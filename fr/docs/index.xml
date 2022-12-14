@@ -1672,7 +1672,7 @@ complémentaire au sol.&lt;/p>
 &lt;p>Le bord est constitué d&amp;rsquo;un DMI, d’un EVC, de capteurs odométriques (de vitesse), d’antennes pour la lecture des PI ETCS,
 un modem &lt;a href="../gsm-r/">GSM-R&lt;/a> (Euroradio) pour ETCS2, d’une unité juridique d’enregistrement des paramètres d’exploitation,
 d’interfaces avec le train.&lt;/p>
-&lt;p>&lt;img src="../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-106.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-106.png" alt="">&lt;/p>
 &lt;h3 id="le-dmi">Le DMI&lt;/h3>
 &lt;p>Le DMI est l’interface entre le conducteur et la machine. Il permet d’afficher les ordres et instructions en fonction
 des données sol et/ou bord. Le conducteur renseigne également le système par saisie de données.&lt;/p>
@@ -1768,7 +1768,278 @@ Si le canton en aval du dernier canton alloué est occupé le train doit être e
 canton. Le conducteur est alors avisé par une indication sonore au DMI.&lt;/p>
 &lt;p>Dès lors, les indications de conduite (vitesse but égale à 0 et une distance but) permettant de respecter la courbe de
 freinage sont affichées.&lt;/p>
-&lt;p>Le conducteur doit ralentir de façon à être en mesure de s’arrêter avant l’&lt;a href="../../../../glossary/#e">EOA&lt;/a>, tout en respectant la vitesse autorisée.&lt;/p></description></item><item><title>Docs: GSM-R</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>Docs: GPRS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Docs: FRMCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Docs: ETML</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</guid><description/></item><item><title>Docs: BAL</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
+&lt;p>Le conducteur doit ralentir de façon à être en mesure de s’arrêter avant l’&lt;a href="../../../../glossary/#e">EOA&lt;/a>, tout en respectant la vitesse autorisée.&lt;/p></description></item><item><title>Docs: Les installations de contresens (ICS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</guid><description>
+&lt;h2 id="1-les-installations-permanentes-de-contresens-ipcs">1. Les installations permanentes de contresens (IPCS)&lt;/h2>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Certaines sections de ligne comportent des installations permanentes de contresens (IPCS). Ces installations accessibles
+sans arrêt des trains à l’entrée, permettent à tout moment la circulation des trains à contresens sans que les
+conducteurs en soient préavisés autrement que par la signalisation.&lt;/p>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Des enclenchements de sécurité s’opposent à l’expédition de deux trains de sens contraire à la rencontre l’un de l’autre.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>L’espacement des trains circulant dans le sens normal est assuré dans les conditions habituelles.&lt;/p>
+&lt;p>L’espacement des trains à contresens est assuré automatiquement.&lt;/p>
+&lt;h3 id="avis-au-conducteur">Avis au conducteur&lt;/h3>
+&lt;p>Les sections de ligne équipées d’IPCS sont désignées aux RT.&lt;/p>
+&lt;p>La circulation (entrée et sortie) sur IPCS est indiquée au conducteur par la signalisation.&lt;/p>
+&lt;h2 id="2-les-installations-temporaires-de-contresens-itcs">2. Les installations temporaires de contresens (ITCS)&lt;/h2>
+&lt;h3 id="principe-1">Principe&lt;/h3>
+&lt;p>L’ITCS est un régime temporaire d’exploitation permettant en double voie de faire circuler sur une voie des trains en
+sens inverse du sens normal.&lt;/p>
+&lt;p>Ces installations, accessibles sans arrêt des trains à l’entrée, permettent à tout moment la circulation des trains à
+contresens. Elles sont installées en prévision de chantier de travaux qui vont nécessiter l’obstruction d’une des deux voies.&lt;/p>
+&lt;h4 id="le-risque-de-nez-à-nez-1">Le risque de nez à nez&lt;/h4>
+&lt;p>Des enclenchements de sécurité s’opposent à l’expédition de deux trains de sens contraire à la rencontre l’un de l’autre.&lt;/p>
+&lt;p>Les ITCS ont leurs extrémités dans les gares les plus rapprochées encadrant le chantier de travaux prévu ou bien dans des postes de pleine voie existants ou créés à cet effet, considérés dès lors comme des gares. Si le chantier se déplace, les extrémités de l’ITCS sont reportées au fur et à mesure de la progression du chantier par phases successives, chaque phase faisant l’objet d’une ITCS distincte.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage-1">Le risque de rattrapage&lt;/h4>
+&lt;p>L’espacement des trains circulant dans le sens normal est assuré dans les conditions habituelles.&lt;/p>
+&lt;p>L’espacement des trains à contresens est assuré automatiquement.&lt;/p>
+&lt;h3 id="avis-au-conducteur-1">Avis au conducteur&lt;/h3>
+&lt;p>Les informations nécessaires aux conducteurs sont fournies par le gestionnaire d’infrastructure aux entreprises
+ferroviaires. Les particularités de signalisation et d’exploitation de l’ITCS sont mentionnées.&lt;/p>
+&lt;p>Un schéma adapté à ses besoins peut compléter ces informations.&lt;/p>
+&lt;p>La circulation (entrée et sortie) sur ITCS est indiquée au conducteur par la signalisation.&lt;/p>
+&lt;h2 id="3-circulation-à-contresens-sur-une-ics">3. Circulation à contresens sur une ICS&lt;/h2>
+&lt;p>L’entrée d’un parcours à contresens sur une ICS est repérée par un tableau lumineux d’entrée à contresens (TECS). Ce
+tableau, normalement éteint, est groupé avec le panneau qui porte le carré protégeant l’aiguille d’entrée.&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-073.jpg" alt="">&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>Exemple d’entrée à contresens à 60 km/h sur une section de ligne où la circulation normale se fait à gauche&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>Les signaux s’adressant aux conducteurs des trains circulant à contresens sont :&lt;/p>
+&lt;ul>
+&lt;li>implantés à droite (disposition inverse sur les lignes où la circulation se fait normalement à droite) ;&lt;/li>
+&lt;li>répétés sur les engins moteurs.&lt;/li>
+&lt;/ul>
+&lt;p>Les ICS peuvent comporter à contresens &lt;em>un ou plusieurs cantons&lt;/em>.&lt;/p>
+&lt;p>&lt;strong>La sortie d’un parcours à contresens&lt;/strong> est repérée par un &lt;strong>tableau lumineux de sortie de contresens (TSCS)&lt;/strong>. Ce tableau
+est groupé avec le panneau qui porte le signal « carré » protégeant l’aiguille de sortie.&lt;/p></description></item><item><title>Docs: La voie unique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d’exploitation d’une ligne dans lequel les trains des deux sens circulent sur la même voie, les dispositions à
+prendre pour éviter la rencontre de deux trains de sens contraire ne sont pas automatiques, mais résultent de procédures
+à appliquer par les personnels affectés à la circulation des trains, voire par les personnels des trains dans certains
+cas de lignes faiblement équipées. Ces dispositions sont définies par le gestionnaire d’infrastructure.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Les documents horaires sont conçus en respectant des obligations fondamentales telles que le croisement obligatoire de
+deux trains en gare, qui permettent d’éviter le nez à nez pour les trains de sens contraires.&lt;/p>
+&lt;p>Ce risque est donc avant tout couvert par le respect de l’ordre normal de circulation des trains figurant aux documents
+horaires.&lt;/p>
+&lt;p>En effet, le principe d’exploitation d’une ligne à voie unique s’effectue selon des modalités définies par le
+gestionnaire d&amp;rsquo;infrastructure, qui prévoient notamment le respect absolu de l’ordre théorique de succession des trains
+et en conséquence de l&amp;rsquo;ordre chronologique d&amp;rsquo;occupation de la voie unique. Une circulation qui n&amp;rsquo;est pas à son ordre, ne
+peut occuper la voie unique sans procédure.&lt;/p>
+&lt;p>En cas de modification de l’ordre théorique (retard, train supprimé, etc.), des procédures permettent d’organiser le
+nouvel ordre de circulation des trains (procédures de reports de croisement, dépassements, etc.).&lt;/p>
+&lt;dl>
+&lt;dt>Le respect des procédures reposant sur l’humain, certaines lignes sont équipées d’une « barrière » technique de sécurité&lt;/dt>
+&lt;dd>le block manuel de voie unique (BMVU - voir 4.4.2.). Des moyens d’arrêt complémentaires (DAAT, GSM/GFU, RST, coupure
+d’urgence si la ligne est électrifiée, …) peuvent être utilisés ou mis en place afin de réduire les conséquences d’une
+erreur humaine.&lt;/dd>
+&lt;/dl>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>Le risque de collision par rattrapage est couvert par le mode de cantonnement. Les différents modes de cantonnement
+existants sont :&lt;/p>
+&lt;ul>
+&lt;li>le cantonnement téléphonique (Voir - 4.3.) ;&lt;/li>
+&lt;li>le cantonnement assisté par informatique (CAPI - voir 4.3.) ;&lt;/li>
+&lt;li>le cantonnement assisté par informatique initié en 1995 (CAPI 95 - voir 4.3.) ;&lt;/li>
+&lt;li>le block manuel de voie unique (BMVU - voir 4.4.2.).&lt;/li>
+&lt;/ul></description></item><item><title>Docs: GSM-R</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>Docs: La voie unique à signalisation simplifiée (VUSS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Certaines lignes à voie unique sont désignées à la documentation d’exploitation comme « Lignes à voie unique à
+signalisation simplifiée ». Par rapport au régime général de la voie unique, ce type de ligne se distingue par la mise
+en œuvre d’un minimum d’équipements. Ils se limitent à une pancarte « gare » à distance et à un repère d’entrée.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Elles sont exploitées selon les modalités du régime général d’exploitation de la voie unique (notamment le respect
+de l’ordre théorique de circulation).&lt;/p>
+&lt;p>Leur fonctionnement repose en outre sur l’arrêt général des circulations dans toutes les gares.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>La gestion de l’espacement est assurée par le cantonnement téléphonique.&lt;/p>
+&lt;p>Il n’y a aucune barrière technique de sécurité, toute erreur humaine peut avoir des conséquences graves. Des boucles de
+rattrapage peuvent permettre de pallier ces erreurs (DAAT, CAPI, GSM/GFU, RST, coupure d’urgence si la ligne est
+électrifiée, etc.).&lt;/p></description></item><item><title>Docs: La voie unique temporaire à caractère permanent (VUTP)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</guid><description>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Les installations de voie unique temporaire à caractère permanent (VUTP) permettent la circulation occasionnelle des
+trains des deux sens sur une seule voie, entre deux gares, sans arrêt à l’entrée et sans préavis aux conducteurs.&lt;/p>
+&lt;p>Les sections de ligne équipées de VUTP sont désignées aux RT.&lt;/p>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Des enclenchements de sécurité s’opposent à l’expédition de deux trains de sens contraire à la rencontre l’un de l’autre.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>L’espacement des trains circulant dans le sens normal est assuré dans les conditions habituelles.&lt;/p>
+&lt;p>L’espacement des trains à contresens est assuré automatiquement.&lt;/p>
+&lt;h3 id="circulation-à-contresens">Circulation à contresens&lt;/h3>
+&lt;p>L’entrée d’un parcours à contresens est repérée par &lt;strong>un tableau VUT&lt;/strong> groupé avec le panneau qui porte le carré protégeant
+l’aiguille d’entrée.&lt;/p>
+&lt;p>La présentation du &lt;strong>tableau VUT&lt;/strong> indique au conducteur :&lt;/p>
+&lt;ul>
+&lt;li>que le train est dirigé et est &lt;strong>autorisé à s’engager à contresens&lt;/strong> ;&lt;/li>
+&lt;li>qu’à partir de ce tableau, &lt;strong>les signaux qui le concernent sont implantés à droite&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-074.jpg" alt="">&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>Exemple d’entrée à 30 km/h sur VUTP&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>La vitesse limite à ne pas dépasser est fixée à 70 km/h.&lt;/p>
+&lt;p>La sortie du parcours à contresens est repérée par &lt;strong>un tableau « FIN de VUT »&lt;/strong> groupé avec le panneau qui porte le signal
+carré protégeant l’aiguille de sortie.&lt;/p>
+&lt;p>La présentation du &lt;strong>tableau « FIN de VUT »&lt;/strong> indique au conducteur :&lt;/p>
+&lt;ul>
+&lt;li>que le train est parvenu à &lt;strong>la fin du parcours à contresens&lt;/strong> ;&lt;/li>
+&lt;li>qu’à partir de ce tableau, &lt;strong>les signaux qui le concernent sont implantés à gauche&lt;/strong>.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: GPRS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Docs: La voie unique temporaire (VUT)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</guid><description>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Lorsqu’une cause quelconque (incident, exécution de travaux, etc.), interdit l’utilisation d’une voie et en l’absence
+d’installations permettant la circulation dans les deux sens en sécurité sur l’autre voie (ICS, voie banalisée), la
+circulation des trains est organisée par les agents du service de gestion des circulations situés aux extrémités selon
+des procédures adaptées.&lt;/p>
+&lt;p>La VUT est donc un régime temporaire d’exploitation permettant, sur une ligne à double voie non équipée d’installation
+de contresens, de faire circuler les trains des deux sens sur une seule et même voie.&lt;/p>
+&lt;p>Les trains devant circuler à contre sens sont &lt;strong>arrêtés à l’entrée&lt;/strong>.&lt;/p>
+&lt;p>La circulation sur la VUT dans les deux sens se fait selon le principe de la demande et de l’accord de voie entre agents
+du service de la gestion des circulations.&lt;/p>
+&lt;p>La vitesse limite à contre sens est de 70 km/h.&lt;/p>
+&lt;p>La sortie de la VUT est repérée soit :&lt;/p>
+&lt;ul>
+&lt;li>par un &lt;strong>signal carré&lt;/strong> implanté à gauche, à droite ou au-dessus de la voie ;&lt;/li>
+&lt;li>par un &lt;strong>signal d’arrêt à main&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="organisation">Organisation&lt;/h3>
+&lt;p>La VUT est établie entre les deux changements de voies utilisables les plus rapprochés qui en constituent les extrémités.&lt;/p>
+&lt;p>La VUT est organisée par l’agent du service de la gestion des circulations qui expédie les trains à contresens sur cette
+voie (gare B dans l’exemple ci-dessous) et qui doit aviser ou faire aviser les agents intéressés : agents des postes,
+des PN gardés, agents travaillant sur la voie ou les caténaires.&lt;/p>
+&lt;h3 id="circulation-sur-la-vut">Circulation sur la VUT&lt;/h3>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-077.png" alt="">&lt;/p>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>L’expédition de tout train sur la VUT est subordonnée à un accord de voie donné par l’agent du service de gestion des
+circulations de l’autre extrémité de la VUT à l’agent-du service de gestion des circulations qui doit expédier le train.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>Les trains de sens normal sont cantonnés dans les conditions habituelles.&lt;/p>
+&lt;p>Les trains circulant à contresens sont cantonnés téléphoniquement dans les conditions prévues pour la voie unique (voir 4.3.).&lt;/p>
+&lt;h3 id="avis-au-conducteur">Avis au conducteur&lt;/h3>
+&lt;p>&lt;strong>En sens normal :&lt;/strong> aucun avis n’est fait au conducteur, les trains circulent sans arrêt à l’entrée.&lt;/p>
+&lt;p>&lt;strong>À contre sens :&lt;/strong> le conducteur est arrêté à l’entrée de la VUT puis informé par écrit par l’agent du service de la
+gestion des circulations qu’il va circuler à contresens en VUT.&lt;/p>
+&lt;p>Cet ordre écrit reprend les points ou zones du parcours sur lesquels le conducteur doit appliquer des prescriptions
+particulières.&lt;/p>
+&lt;p>En effet, les installations et la signalisation ne sont généralement pas prévues pour les circulations en sens inverse
+du sens normal (PN, limitations de vitesse, etc.).&lt;/p></description></item><item><title>Docs: La voie unique à trafic restreint (VUTR)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Ce régime concerne des lignes fermées au service voyageurs qui ne comportent normalement pas de signaux. Les règles
+concernant le régime général d’exploitation de la voie unique ne sont pas applicables et sont remplacées par des
+modalités particulières définies par le gestionnaire d&amp;rsquo;infrastructure.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Une consigne locale d’exploitation adaptée à chaque VUTR précise les caractéristiques d&amp;rsquo;exploitation comme la vitesse de
+la ligne, la signalisation, les établissements, les liaisons téléphoniques, les PN, etc.&lt;/p>
+&lt;p>Elle est complétée par un programme de circulation qui comporte les horaires des trains devant circuler et précise les
+dispositions particulières concernant chaque train (trains entre lesquels l&amp;rsquo;espacement doit être assuré, croisements,
+etc.).&lt;/p>
+&lt;p>Ces lignes ne comportent normalement pas de signaux, les limitations de vitesse à observer sur les aiguilles ainsi que
+les autres limitations permanentes de vitesse sont inscrites à la consigne locale d’exploitation de la ligne ; elles ne
+sont pas rappelées par des signaux sur le terrain.&lt;/p>
+&lt;p>Par principe, la vitesse de circulation ne dépasse généralement pas 50 km/h.&lt;/p>
+&lt;p>Aucun enclenchement n’est prévu. Chaque ligne dépend d&amp;rsquo;un agent de SNCF Réseau dénommé « chef de ligne ». La sécurité
+des circulations est assurée par le chef de ligne et par les agents des trains.&lt;/p>
+&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: FRMCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Docs: Mouvement à contre-voie</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</guid><description>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Lorsqu’une cause quelconque (incident, secours, travaux inopinés de courte durée, etc.), interdit l’utilisation d’une
+voie, en l’absence d’installation permettant la circulation dans les deux sens sur l’autre voie (ICS, voie banalisée) et
+qu’il n’est pas envisagé d’organiser une VUT (par exemple, du fait que très peu de circulations seront concernées), la
+circulation d’un train n’empruntant pas le sens normal se fait alors à contre-voie sur la voie non interceptée. Les
+trains devant circuler à contre-voie sont &lt;strong>arrêtés à l’entrée&lt;/strong>.&lt;/p>
+&lt;p>Le mouvement à contre-voie peut être effectué :&lt;/p>
+&lt;ul>
+&lt;li>d’un point quelconque vers un point situé en amont (ces points pouvant être un point de pleine voie, une gare, un
+évitement télécommandé) ;&lt;/li>
+&lt;li>à l’intérieur d’une gare.&lt;/li>
+&lt;/ul>
+&lt;h3 id="organisation">Organisation&lt;/h3>
+&lt;h4 id="mouvements-à-contre-voie-à-lintérieur-dune-gare">Mouvements à contre-voie à l’intérieur d’une gare&lt;/h4>
+&lt;p>Lorsqu’un mouvement à contre-voie doit être effectué à l’intérieur d’une gare, il est organisé à l’initiative de l’agent
+du service de gestion des circulations.&lt;/p>
+&lt;p>Le conducteur est avisé par l’agent du service de la gestion des circulations qu’il doit effectuer un mouvement à
+contre-voie et que le mouvement s’effectue :&lt;/p>
+&lt;ul>
+&lt;li>soit comme une manœuvre. Dans ce cas le conducteur sera renseigné et guidé par des signaux de manœuvre ;&lt;/li>
+&lt;li>soit par la transmission d’un ordre écrit ou d’une dépêche.&lt;/li>
+&lt;/ul>
+&lt;h4 id="autres-mouvements-à-contre-voie">Autres mouvements à contre-voie&lt;/h4>
+&lt;ul>
+&lt;li>d’une gare vers la gare en amont ou de la gare en avant vers un point de pleine voie
+L’agent chargé d’organiser ce mouvement à contre-voie est l’agent du service de gestion des circulations de la gare
+dans laquelle le mouvement a son origine.&lt;/li>
+&lt;li>d’un point de pleine voie vers la gare en arrière
+L’agent chargé d’organiser ce mouvement à contre-voie est l’agent du service de gestion des circulations de la gare
+dans laquelle le mouvement se termine.
+Dans ces deux cas, l’agent du service de la gestion des circulations, après avoir obtenu l’assurance que la partie de
+voie à parcourir est libre et le restera, remet un ordre écrit ou transmet une dépêche au conducteur pour circuler à contre-voie.&lt;/li>
+&lt;li>En pleine voie
+Le conducteur est responsable de ce mouvement, lorsqu’il prend l’initiative d’exécuter ce mouvement :
+&lt;ul>
+&lt;li>à la suite d’une rupture d’attelage lorsque le train peut être reconstitué ;&lt;/li>
+&lt;li>à la suite d’un léger dépassement du point d’arrêt habituel dans un établissement PL.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="circulation-à-contre-voie">Circulation à contre-voie&lt;/h3>
+&lt;p>Après arrêt du train, l’agent du service de la gestion des circulations, selon le cas, remet au conducteur un ordre
+écrit ou le transmet par dépêche. Cet ordre reprend les points ou zones du parcours sur lesquels le conducteur doit
+appliquer des prescriptions particulières.&lt;/p>
+&lt;p>En effet, les installations et la signalisation ne sont généralement pas prévues pour les circulations en sens inverse
+du sens normal (PN, limitations de vitesse, etc.).&lt;/p>
+&lt;p>Lorsque le conducteur est en tête du mouvement, la circulation s’effectue en &lt;strong>marche à vue&lt;/strong> sur tout le parcours effectué
+à contre-voie (le conducteur peut rencontrer un obstacle non protégé).&lt;/p>
+&lt;p>Lorsque le conducteur n’est pas en tête, la circulation est guidée par des signaux de manœuvre.&lt;/p>
+&lt;p>La fin du parcours à contre voie est généralement repérée soit :&lt;/p>
+&lt;ul>
+&lt;li>par un &lt;strong>signal carré&lt;/strong> ;&lt;/li>
+&lt;li>par un &lt;strong>signal d’arrêt à main&lt;/strong>.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: L’exploitation en navette</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d’exploitation d’une ligne sur laquelle la circulation d’un train ne peut être autorisée qu’après dégagement du
+train précédemment engagé, l’engagement et le dégagement se faisant au même point.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>L’exploitation en navette consiste à n’autoriser la présence que d’une seule circulation sur la section de ligne
+concernée, cette circulation revenant à son point de départ, ce qui par conception limite les risques de collision de
+trains.&lt;/p>
+&lt;p>Toutefois, le programme peut inclure moyennant des procédures adaptées des mouvements de desserte, avec ou sans
+possibilité de garage (desserte origine terminus ou desserte en antenne).&lt;/p>
+&lt;p>L’accès à la voie exploitée en navette est commandé par un signal muni du DAAT ou du KVB.&lt;/p></description></item><item><title>Docs: ETML</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</guid><description/></item><item><title>Docs: La voie banalisée</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d&amp;rsquo;exploitation d&amp;rsquo;une ligne à une ou plusieurs voies parcourues par les trains des deux sens. Sur ces voies,
+des installations de sécurité s&amp;rsquo;opposent à l&amp;rsquo;expédition de deux trains de sens contraire à la rencontre l&amp;rsquo;un de l&amp;rsquo;autre.
+Sur les lignes à plusieurs voies banalisées, les trains d&amp;rsquo;un même sens peuvent circuler indifféremment sur l&amp;rsquo;une
+quelconque de ces voies.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Une voie banalisée peut être découpée en plusieurs intervalles (points entre lesquels il n’existe aucune possibilité de
+croisement ou dépassement).&lt;/p>
+&lt;p>Sur une voie, quel que soit le sens :&lt;/p>
+&lt;ul>
+&lt;li>les signaux sont normalement implantés à gauche ;&lt;/li>
+&lt;li>le découpage éventuel d’un intervalle en cantons est identique.&lt;/li>
+&lt;/ul>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Les deux extrémités d’un intervalle de voie banalisée sont équipées de signaux d’arrêt non permissifs permettant
+d’arrêter et de retenir les trains se dirigeant vers l’intervalle. Elles sont reliées par un enclenchement entre
+itinéraires de sens contraires.&lt;/p>
+&lt;p>Le risque de nez à nez est pris en charge notamment, par l&amp;rsquo;enclenchement entre itinéraires de sens contraire. Cet
+enclenchement agit directement sur le circuit de commande des signaux de protection donnant accès à l’intervalle. Il
+nécessite la mise en oeuvre de circuits de voie ou de compteurs d’essieux qui interviennent en outre dans le block
+automatique (cf. rattrapage ci-dessous).&lt;/p>
+&lt;p>Les installations de sécurité s’opposent à l’expédition de deux trains de sens contraire dans le même intervalle.
+Cette interdiction est maintenue tant que l’intervalle est occupé.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>L&amp;rsquo;espacement est assuré automatiquement.
+En signalisation au sol, l’espacement des trains de même sens est assuré par le block automatique par l’intermédiaire
+de circuits de voie ou de compteur d’essieux. Selon l’importance du trafic, il peut s’agir de :&lt;/p>
+&lt;ul>
+&lt;li>BAPR : La longueur d’un canton de BAPR peut atteindre 15 km ou plus ;&lt;/li>
+&lt;li>BAL : La longueur maximale d’un canton de BAL n’excède pas généralement 2,8 km ce qui permet un écoulement de trafic
+plus important.&lt;/li>
+&lt;/ul>
+&lt;p>En signalisation de cabine, la TVM ou l’ETCS assurent l’espacement.&lt;/p></description></item><item><title>Docs: BAL</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
 &lt;p>Le signal d’entrée du canton présente une indication liée à l’état d’occupation du ou des cantons suivants, selon les
 règles suivantes :&lt;/p>
 &lt;ul>
@@ -1778,7 +2049,7 @@ règles suivantes :&lt;/p>
 &lt;/ul>
 &lt;p>La longueur maximale d’un canton est en principe de 2800 m. Elle est généralement de 1500 m sur les lignes parcourues à
 la vitesse maximale de 160 km/h.&lt;/p>
-&lt;p>&lt;img src="../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-080.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-080.png" alt="">&lt;/p>
 &lt;h3 id="avantages-du-bal">Avantages du BAL&lt;/h3>
 &lt;p>Le BAL offre un niveau élevé de sécurité et permet un débit important.&lt;/p>
 &lt;h3 id="limites">Limites&lt;/h3>
@@ -1796,8 +2067,8 @@ roue et le rail.&lt;/p>
 (indication d’arrêt ou de voie libre). Sur certaines lignes l’occupation du canton n’est pas obtenue par le circuit de
 voie mais par un système de comptage d’essieux entrants et sortants.&lt;/p>
 &lt;p>Les cantons sont beaucoup plus longs que le BAL (jusqu’à 15 km et plus) et par conséquent le débit est moins important.&lt;/p>
-&lt;p>&lt;img src="../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-081.png" alt="">&lt;/p>
-&lt;p>&lt;img src="../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-082.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-081.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-082.png" alt="">&lt;/p>
 &lt;h3 id="avantages-du-bapr">Avantages du BAPR&lt;/h3>
 &lt;p>Le BAPR offre un bon niveau de sécurité et il est moins coûteux que le BAL.&lt;/p>
 &lt;h3 id="limites">Limites&lt;/h3>

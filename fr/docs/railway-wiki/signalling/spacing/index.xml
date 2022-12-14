@@ -15,7 +15,7 @@ Le BAL permet un débit élevé des circulations sur la ligne.&lt;/li>
 &lt;/ul>
 &lt;p>Lorsqu’aucun véhicule n’est présent sur la zone délimitant le circuit de voie (voie libre), le signal délivré par l’émetteur parvient au récepteur à travers la ligne de transmission, et le relais de voie est excité. Le feu d’entrée du canton est à voie libre (cas 1 ci-dessous).&lt;/p>
 &lt;p>Lorsqu’un véhicule est présent, son premier essieu agit comme une faible résistance, appelée shunt, qui court-circuite la transmission. Dans ce cas, le niveau du signal parvenant au récepteur n’est plus suffisant et le relais de voie se désexcite, ce qui entraine la fermeture du signal d’entrée du canton (cas 2 ci-dessous).&lt;/p>
-&lt;p>&lt;img src="../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-079.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-079.png" alt="">&lt;/p>
 &lt;h3 id="fonctionnement-des-compteurs-dessieux">Fonctionnement des compteurs d&amp;rsquo;essieux&lt;/h3>
 &lt;p>Un compteur d’essieux est un dispositif technique servant à détecter la présence d’une circulation sur une section, par
 comptage des essieux qui franchissent les détecteurs encadrant cette section.&lt;/p>

@@ -1,0 +1,107 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Les lignes à une seule voie</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/</link><description>Recent content in Les lignes à une seule voie on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: La voie unique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d’exploitation d’une ligne dans lequel les trains des deux sens circulent sur la même voie, les dispositions à
+prendre pour éviter la rencontre de deux trains de sens contraire ne sont pas automatiques, mais résultent de procédures
+à appliquer par les personnels affectés à la circulation des trains, voire par les personnels des trains dans certains
+cas de lignes faiblement équipées. Ces dispositions sont définies par le gestionnaire d’infrastructure.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Les documents horaires sont conçus en respectant des obligations fondamentales telles que le croisement obligatoire de
+deux trains en gare, qui permettent d’éviter le nez à nez pour les trains de sens contraires.&lt;/p>
+&lt;p>Ce risque est donc avant tout couvert par le respect de l’ordre normal de circulation des trains figurant aux documents
+horaires.&lt;/p>
+&lt;p>En effet, le principe d’exploitation d’une ligne à voie unique s’effectue selon des modalités définies par le
+gestionnaire d&amp;rsquo;infrastructure, qui prévoient notamment le respect absolu de l’ordre théorique de succession des trains
+et en conséquence de l&amp;rsquo;ordre chronologique d&amp;rsquo;occupation de la voie unique. Une circulation qui n&amp;rsquo;est pas à son ordre, ne
+peut occuper la voie unique sans procédure.&lt;/p>
+&lt;p>En cas de modification de l’ordre théorique (retard, train supprimé, etc.), des procédures permettent d’organiser le
+nouvel ordre de circulation des trains (procédures de reports de croisement, dépassements, etc.).&lt;/p>
+&lt;dl>
+&lt;dt>Le respect des procédures reposant sur l’humain, certaines lignes sont équipées d’une « barrière » technique de sécurité&lt;/dt>
+&lt;dd>le block manuel de voie unique (BMVU - voir 4.4.2.). Des moyens d’arrêt complémentaires (DAAT, GSM/GFU, RST, coupure
+d’urgence si la ligne est électrifiée, …) peuvent être utilisés ou mis en place afin de réduire les conséquences d’une
+erreur humaine.&lt;/dd>
+&lt;/dl>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>Le risque de collision par rattrapage est couvert par le mode de cantonnement. Les différents modes de cantonnement
+existants sont :&lt;/p>
+&lt;ul>
+&lt;li>le cantonnement téléphonique (Voir - 4.3.) ;&lt;/li>
+&lt;li>le cantonnement assisté par informatique (CAPI - voir 4.3.) ;&lt;/li>
+&lt;li>le cantonnement assisté par informatique initié en 1995 (CAPI 95 - voir 4.3.) ;&lt;/li>
+&lt;li>le block manuel de voie unique (BMVU - voir 4.4.2.).&lt;/li>
+&lt;/ul></description></item><item><title>Docs: La voie unique à signalisation simplifiée (VUSS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Certaines lignes à voie unique sont désignées à la documentation d’exploitation comme « Lignes à voie unique à
+signalisation simplifiée ». Par rapport au régime général de la voie unique, ce type de ligne se distingue par la mise
+en œuvre d’un minimum d’équipements. Ils se limitent à une pancarte « gare » à distance et à un repère d’entrée.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Elles sont exploitées selon les modalités du régime général d’exploitation de la voie unique (notamment le respect
+de l’ordre théorique de circulation).&lt;/p>
+&lt;p>Leur fonctionnement repose en outre sur l’arrêt général des circulations dans toutes les gares.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>La gestion de l’espacement est assurée par le cantonnement téléphonique.&lt;/p>
+&lt;p>Il n’y a aucune barrière technique de sécurité, toute erreur humaine peut avoir des conséquences graves. Des boucles de
+rattrapage peuvent permettre de pallier ces erreurs (DAAT, CAPI, GSM/GFU, RST, coupure d’urgence si la ligne est
+électrifiée, etc.).&lt;/p></description></item><item><title>Docs: La voie unique à trafic restreint (VUTR)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Ce régime concerne des lignes fermées au service voyageurs qui ne comportent normalement pas de signaux. Les règles
+concernant le régime général d’exploitation de la voie unique ne sont pas applicables et sont remplacées par des
+modalités particulières définies par le gestionnaire d&amp;rsquo;infrastructure.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Une consigne locale d’exploitation adaptée à chaque VUTR précise les caractéristiques d&amp;rsquo;exploitation comme la vitesse de
+la ligne, la signalisation, les établissements, les liaisons téléphoniques, les PN, etc.&lt;/p>
+&lt;p>Elle est complétée par un programme de circulation qui comporte les horaires des trains devant circuler et précise les
+dispositions particulières concernant chaque train (trains entre lesquels l&amp;rsquo;espacement doit être assuré, croisements,
+etc.).&lt;/p>
+&lt;p>Ces lignes ne comportent normalement pas de signaux, les limitations de vitesse à observer sur les aiguilles ainsi que
+les autres limitations permanentes de vitesse sont inscrites à la consigne locale d’exploitation de la ligne ; elles ne
+sont pas rappelées par des signaux sur le terrain.&lt;/p>
+&lt;p>Par principe, la vitesse de circulation ne dépasse généralement pas 50 km/h.&lt;/p>
+&lt;p>Aucun enclenchement n’est prévu. Chaque ligne dépend d&amp;rsquo;un agent de SNCF Réseau dénommé « chef de ligne ». La sécurité
+des circulations est assurée par le chef de ligne et par les agents des trains.&lt;/p>
+&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: L’exploitation en navette</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d’exploitation d’une ligne sur laquelle la circulation d’un train ne peut être autorisée qu’après dégagement du
+train précédemment engagé, l’engagement et le dégagement se faisant au même point.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>L’exploitation en navette consiste à n’autoriser la présence que d’une seule circulation sur la section de ligne
+concernée, cette circulation revenant à son point de départ, ce qui par conception limite les risques de collision de
+trains.&lt;/p>
+&lt;p>Toutefois, le programme peut inclure moyennant des procédures adaptées des mouvements de desserte, avec ou sans
+possibilité de garage (desserte origine terminus ou desserte en antenne).&lt;/p>
+&lt;p>L’accès à la voie exploitée en navette est commandé par un signal muni du DAAT ou du KVB.&lt;/p></description></item><item><title>Docs: La voie banalisée</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d&amp;rsquo;exploitation d&amp;rsquo;une ligne à une ou plusieurs voies parcourues par les trains des deux sens. Sur ces voies,
+des installations de sécurité s&amp;rsquo;opposent à l&amp;rsquo;expédition de deux trains de sens contraire à la rencontre l&amp;rsquo;un de l&amp;rsquo;autre.
+Sur les lignes à plusieurs voies banalisées, les trains d&amp;rsquo;un même sens peuvent circuler indifféremment sur l&amp;rsquo;une
+quelconque de ces voies.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Une voie banalisée peut être découpée en plusieurs intervalles (points entre lesquels il n’existe aucune possibilité de
+croisement ou dépassement).&lt;/p>
+&lt;p>Sur une voie, quel que soit le sens :&lt;/p>
+&lt;ul>
+&lt;li>les signaux sont normalement implantés à gauche ;&lt;/li>
+&lt;li>le découpage éventuel d’un intervalle en cantons est identique.&lt;/li>
+&lt;/ul>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Les deux extrémités d’un intervalle de voie banalisée sont équipées de signaux d’arrêt non permissifs permettant
+d’arrêter et de retenir les trains se dirigeant vers l’intervalle. Elles sont reliées par un enclenchement entre
+itinéraires de sens contraires.&lt;/p>
+&lt;p>Le risque de nez à nez est pris en charge notamment, par l&amp;rsquo;enclenchement entre itinéraires de sens contraire. Cet
+enclenchement agit directement sur le circuit de commande des signaux de protection donnant accès à l’intervalle. Il
+nécessite la mise en oeuvre de circuits de voie ou de compteurs d’essieux qui interviennent en outre dans le block
+automatique (cf. rattrapage ci-dessous).&lt;/p>
+&lt;p>Les installations de sécurité s’opposent à l’expédition de deux trains de sens contraire dans le même intervalle.
+Cette interdiction est maintenue tant que l’intervalle est occupé.&lt;/p>
+&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
+&lt;p>L&amp;rsquo;espacement est assuré automatiquement.
+En signalisation au sol, l’espacement des trains de même sens est assuré par le block automatique par l’intermédiaire
+de circuits de voie ou de compteur d’essieux. Selon l’importance du trafic, il peut s’agir de :&lt;/p>
+&lt;ul>
+&lt;li>BAPR : La longueur d’un canton de BAPR peut atteindre 15 km ou plus ;&lt;/li>
+&lt;li>BAL : La longueur maximale d’un canton de BAL n’excède pas généralement 2,8 km ce qui permet un écoulement de trafic
+plus important.&lt;/li>
+&lt;/ul>
+&lt;p>En signalisation de cabine, la TVM ou l’ETCS assurent l’espacement.&lt;/p></description></item></channel></rss>

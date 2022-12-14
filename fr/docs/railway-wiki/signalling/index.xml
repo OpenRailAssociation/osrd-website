@@ -1,33 +1,57 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/</link><description>Recent content in Signalisation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Les signaux</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/signals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/signals/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/</link><description>Recent content in Signalisation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Les risques ferroviaires</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/risks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/risks/</guid><description>
+&lt;p>Les trains doivent circuler en toute sécurité. Les risques majeurs liés aux circulations ferroviaires sont les suivants :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>le rattrapage&lt;/strong> des trains qui circulent dans le même sens sur la même voie ;&lt;/li>
+&lt;li>&lt;strong>la prise en écharpe&lt;/strong>, c’est-à-dire la collision latérale de trains qui circulent sur des itinéraires convergents ;&lt;/li>
+&lt;li>&lt;strong>le nez à nez&lt;/strong>, c’est-à-dire la collision frontale de trains qui circulent en sens contraire sur la même voie ;&lt;/li>
+&lt;li>&lt;strong>le déraillement&lt;/strong> ;&lt;/li>
+&lt;li>&lt;strong>la collision&lt;/strong> avec un obstacle.&lt;/li>
+&lt;/ul>
+&lt;p>On prévient ces risques notamment par :&lt;/p>
+&lt;ul>
+&lt;li>la mise en place d’une signalisation ;&lt;/li>
+&lt;li>l’établissement d’un régime d’exploitation de la ligne (double voie, voie banalisée, voie unique) ;&lt;/li>
+&lt;li>la mise en place d’un système d’espacement des trains ;&lt;/li>
+&lt;li>la mise en oeuvre de procédures d’exploitation.&lt;/li>
+&lt;/ul>
+&lt;p>D’autres dispositifs techniques contribuent également à couvrir ces risques tels que :&lt;/p>
+&lt;ul>
+&lt;li>les installations de sécurité, notamment les enclenchements des postes d’aiguillage ;&lt;/li>
+&lt;li>le DAAT qui est un dispositif permettant d’assurer l’arrêt automatique des trains en cas de franchissement intempestif d’un point d’information avec signal d’arrêt fermé ;&lt;/li>
+&lt;li>le KVB, le COVIT (TVM) sont des exemples de systèmes de contrôle de la vitesse, avec contrôle de franchissement des signaux non franchissables ;&lt;/li>
+&lt;li>le système de contrôle commande des trains, intégré dans l’ETCS.&lt;/li>
+&lt;/ul>
+&lt;p>La sécurité des circulations repose aussi sur le respect rigoureux des consignes et instructions opérationnelles par tous les agents concernés par la circulation des trains.&lt;/p>
+&lt;p>Ces procédures sont de la responsabilité des exploitants ferroviaires. Elles sont décrites dans le manuel du système de gestion de la sécurité (SGS) qu’ils établissent et qui fait l’objet d’une instruction par l’EPSF chargé de délivrer le certificat ou l’agrément de sécurité.&lt;/p></description></item><item><title>Docs: Les signaux</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/signals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/signals/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Pour transmettre au conducteur des ordres et informations liées à la sécurité des circulations, il est fait usage de
 signaux. Ces signaux peuvent indiquer des informations relatives aux limites de vitesse, peuvent servir à garantir
 l&amp;rsquo;espacement des trains ou donner des indications diverses telles que l&amp;rsquo;accès à des voies de service, des ouvrages
 d&amp;rsquo;art à gabarits réduit, etc.&lt;/p>
 &lt;h3 id="la-signalisation-à-main">La signalisation à main&lt;/h3>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-009.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-009.png" alt="">&lt;/p>
 &lt;h3 id="la-signalisation-au-sol">La signalisation au sol&lt;/h3>
 &lt;p>La signalisation au sol est normalement implantée à gauche ou au-dessus de la voie concernée.&lt;/p>
 &lt;h4 id="signaux-de-protection">Signaux de protection&lt;/h4>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-010.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-010.png" alt="">&lt;/p>
 &lt;p>Les signaux de protection sont destinés à interdire l’accès à un itinéraire, à une aiguille, à un PN, etc. Ils sont
 généralement manœuvrés depuis des postes par des agents de SNCF Réseau.&lt;/p>
 &lt;h4 id="signaux-de-cantonnement">Signaux de cantonnement&lt;/h4>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-011.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-011.png" alt="">&lt;/p>
 &lt;p>Les signaux de cantonnement sont destinés à assurer l’espacement des circulations de même sens.&lt;/p>
 &lt;p>Sur les sections de lignes équipées en &lt;a href="../spacing/automatic_block_systems/">block automatique (BA)&lt;/a>, les signaux de
 cantonnement &lt;strong>se ferment automatiquement&lt;/strong> dès l’occupation du canton et restent fermés jusqu’à sa complète libération.&lt;/p>
 &lt;p>Sur les sections de lignes équipées en block manuel (BM), les signaux de cantonnement sont &lt;strong>manœuvrés depuis des postes
 par des agents du service du GI chargé de la gestion des circulations&lt;/strong>.&lt;/p>
 &lt;h4 id="signaux-dannonce-darrêt">Signaux d’annonce d’arrêt&lt;/h4>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-012.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-012.png" alt="">&lt;/p>
 &lt;p>Le carré, le sémaphore et le feu rouge clignotant sont normalement &lt;strong>annoncés à distance&lt;/strong> par un &lt;strong>avertissement&lt;/strong> qui
 peut lui-même être précédé, en signalisation lumineuse, par un feu jaune clignotant.&lt;/p>
 &lt;p>Toutefois, les signaux qui ne peuvent être abordés qu’en marche à vue ou en marche en manœuvre ne sont normalement pas
 annoncés (par exemple, le guidon d’arrêt). Il en est de même des signaux situés sur voie principale à la sortie des
 gares en impasse.&lt;/p>
 &lt;h4 id="signaux-dindication-de-marche">Signaux d’indication de marche&lt;/h4>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-013.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-013.png" alt="">&lt;/p>
 &lt;p>Le feu vert indique au conducteur que la circulation en marche normale est autorisée, s’y rien ne s’y oppose.&lt;/p>
 &lt;p>Sur les sections de ligne où la vitesse des trains est supérieure à 160 km/h, un &lt;strong>feu vert clignotant&lt;/strong> précède
 généralement l’avertissement ou le feu jaune clignotant.&lt;/p>
@@ -38,36 +62,36 @@ particuliers (aiguille, traversée de gare, etc.).&lt;/p>
 &lt;ul>
 &lt;li>Sur des parties de voie par tableau indicateur de vitesse (TIV) ordinaire&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-014.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-014.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>Au franchissement de certains points particuliers (exemple des aiguilles)&lt;/p>
 &lt;ul>
 &lt;li>Ralentissement à 30 km/h en signalisation lumineuse&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-015.png" alt="">&lt;/p>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-034.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-015.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-034.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>Ralentissement à 60 km/h en signalisation lumineuse&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-016.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-016.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>TIV mobiles&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-017.png" alt="">
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-017.png" alt="">
 Ces tableaux peuvent être lumineux ou mécaniques ; lorsqu’ils sont ouverts ils présentent une bande verticale blanche continue.&lt;/p>
 &lt;p>Si cela est nécessaire, l’emplacement de l’aiguille (ou de la première aiguille dans le cas d’aiguilles successives) est repéré par un chevron pointe en bas.&lt;/p>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-039.png" alt="">&lt;/p>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-042.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-039.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-042.png" alt="">&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h5 id="les-limitations-temporaires-de-vitesse">Les limitations temporaires de vitesse&lt;/h5>
 &lt;p>Cette signalisation s’applique sur des parties de voie (chantiers de travaux, etc.) sur lesquelles une limitation
 temporaire de vitesse doit être observée.&lt;/p>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-045.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-045.png" alt="">&lt;/p>
 &lt;h4 id="signaux-indicateurs-de-direction">Signaux indicateurs de direction&lt;/h4>
 &lt;p>Ils renseignent les conducteurs sur la direction géographique qui leur est donnée.&lt;/p>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-049.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-049.png" alt="">&lt;/p>
 &lt;h4 id="signaux-caractéristiques-de-prescriptions-particulières">Signaux caractéristiques de prescriptions particulières&lt;/h4>
 &lt;p>Ils renseignent les conducteurs sur des particularités.&lt;/p>
 &lt;p>On trouve :&lt;/p>
@@ -78,18 +102,18 @@ temporaire de vitesse doit être observée.&lt;/p>
 &lt;li>la croix de Saint-André (annulation des signaux)&lt;/li>
 &lt;/ul>
 &lt;h5 id="exemples-de-tableaux">Exemples de tableaux&lt;/h5>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-018.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-018.png" alt="">&lt;/p>
 &lt;h5 id="exemples-de-pancartes">Exemples de pancartes&lt;/h5>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-019.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-019.png" alt="">&lt;/p>
 &lt;h5 id="bande-lumineuse-jaune-horizontale">Bande lumineuse jaune horizontale&lt;/h5>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-021.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-021.png" alt="">&lt;/p>
 &lt;p>La bande lumineuse jaune horizontale est utilisée en complément de l&amp;rsquo;avertissement. Elle indique au conducteur que son
 train est dirigé vers une voie à quai de courte longueur ou bien que sa longueur se trouve réduite.&lt;/p>
 &lt;h5 id="croix-de-saint-andré-annulation-des-signaux">Croix de Saint-André (annulation des signaux)&lt;/h5>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-022.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-022.png" alt="">&lt;/p>
 &lt;h4 id="signalisation-de-sortie-de-certains-faisceaux-ou-groupes-de-voies-convergentes">Signalisation de sortie de certains faisceaux ou groupes de voies convergentes&lt;/h4>
 &lt;p>Elle peut être constituée de :&lt;/p>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-020.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-020.png" alt="">&lt;/p>
 &lt;h3 id="la-signalisation-de-cabine">La signalisation de cabine&lt;/h3>
 &lt;p>Sur les lignes à signalisation de cabine, le système transmet de manière continue (ou discontinue) en cabine de conduite
 des ordres et une consigne de vitesse associée éventuellement à une distance but.
@@ -97,7 +121,7 @@ La signalisation de cabine peut être complétée par une signalisation au sol d
 &lt;ul>
 &lt;li>&lt;strong>repérer&lt;/strong> les points à ne pas dépasser, par exemple :&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-072.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-072.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>donner&lt;/strong> des ordres de traction électrique, des informations aux points d&amp;rsquo;entrée et de sortie du domaine de
 signalisation de cabine, etc.&lt;/li>
@@ -112,7 +136,25 @@ signalisation de cabine, etc.&lt;/li>
 &lt;p>Nota : les repères ETCS et de la TVM ne sont pas fléchés du fait de leur graphisme indiquant la voie à laquelle ils s&amp;rsquo;adressent.&lt;/p>
 &lt;h3 id="point-de-transition-de-signalisation-entrée-sur-lgv-armement-de-la-signalisation-de-cabine">Point de transition de signalisation (entrée sur LGV, armement de la signalisation de cabine)&lt;/h3>
 &lt;p>Le point de transition de signalisation (tableau CAB), ainsi que l&amp;rsquo;armement de la signalisation de cabine, se situent à
-hauteur ou immédiatement en aval du dernier signal au sol (signal carré).&lt;/p></description></item><item><title>Docs: Les systèmes d'espacement des trains</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/</guid><description>
+hauteur ou immédiatement en aval du dernier signal au sol (signal carré).&lt;/p></description></item><item><title>Docs: Les régimes d’exploitation des lignes</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/</guid><description>
+&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Ensemble des règles d’exploitation, c’est-à-dire des règles appliquées pour organiser et assurer le trafic, propres à
+une ligne en fonction des installations mises en œuvre pour en assurer l’exploitation.&lt;/p>
+&lt;p>Les principaux régimes d&amp;rsquo;exploitation sont : la &lt;a href="single-track-lines/single-track">voie unique&lt;/a>, la
+&lt;a href="single-track-lines/single-track-two-ways">voie banalisée&lt;/a>, la &lt;a href="double-track-lines/">double voie&lt;/a>.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Il ne faut pas confondre régime d&amp;rsquo;exploitation et nombre de voies sur une plateforme, car il existe des plateformes à 2
+voies qui ne sont pas des « double voie », des plateformes à 3 ou 4 voies qui sont des « double voie », des plateformes
+à 1 seule voie qui ne sont pas des « voie unique ».&lt;/p>
+&lt;p>Les appellations et définitions de ces régimes d&amp;rsquo;exploitation sont donc très importantes, car elles entraînent notamment
+des contraintes particulières de conduite que ce soit en situation normale ou dégradée (implantation des signaux, marche
+à vue ou règle spéciale de certains signaux par exemple).&lt;/p>
+&lt;p>En &lt;a href="single-track-lines/single-track">voie unique&lt;/a>, l’organisation de la circulation des trains des deux sens sur une même voie génère un risque spécifique
+de nez à nez en plus du risque de rattrapage également présent sur les lignes à double voie.&lt;/p>
+&lt;p>L’exploitation sous le régime de la « &lt;a href="double-track-lines">double voie&lt;/a> » permet, par conception, d’éviter le risque de nez à nez, compte tenu
+de l’affectation des trains à un sens de circulation par voie. Cependant sur certaines lignes, la circulation des trains
+s’effectue selon l’un des deux régimes suivants : la &lt;a href="single-track-lines/single-track">voie unique&lt;/a> ou la
+&lt;a href="single-track-lines/single-track-two-ways">voie banalisée&lt;/a>.&lt;/p></description></item><item><title>Docs: Les systèmes d'espacement des trains</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/</guid><description>
 &lt;h3 id="définition">Définition&lt;/h3>
 &lt;p>Le système d’espacement des trains de même sens, est destiné à éviter les rattrapages et consiste à fractionner la ligne
 en plusieurs cantons dont l’entrée est protégée par un signal d’arrêt.&lt;/p>
@@ -122,7 +164,7 @@ d’une distance importante pour s’arrêter.&lt;/p>
 &lt;p>De ce fait, la distance nécessaire pour obtenir l’arrêt est généralement plus grande que la partie de voie visible par
 le conducteur. Dans ces conditions, le conducteur d’un train en marche ne voyant pas à temps la queue d’un train arrêté
 ou circulant à plus faible vitesse devant lui risquerait de le heurter.&lt;/p>
-&lt;p>&lt;img src="../images/document-pedagogique-signaux-regimes-exploitation-v1/image-078.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-078.png" alt="">&lt;/p>
 &lt;p>Pour prévenir le risque de rattrapage : un dispositif d’espacement des trains appelé « cantonnement » est mis en place
 selon les principes suivants :&lt;/p>
 &lt;ul>

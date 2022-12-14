@@ -42,7 +42,7 @@ complémentaire au sol.&lt;/p>
 &lt;p>Le bord est constitué d&amp;rsquo;un DMI, d’un EVC, de capteurs odométriques (de vitesse), d’antennes pour la lecture des PI ETCS,
 un modem &lt;a href="../gsm-r/">GSM-R&lt;/a> (Euroradio) pour ETCS2, d’une unité juridique d’enregistrement des paramètres d’exploitation,
 d’interfaces avec le train.&lt;/p>
-&lt;p>&lt;img src="../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-106.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-106.png" alt="">&lt;/p>
 &lt;h3 id="le-dmi">Le DMI&lt;/h3>
 &lt;p>Le DMI est l’interface entre le conducteur et la machine. Il permet d’afficher les ordres et instructions en fonction
 des données sol et/ou bord. Le conducteur renseigne également le système par saisie de données.&lt;/p>
