@@ -14,7 +14,7 @@ règles suivantes :
 La longueur maximale d’un canton est en principe de 2800 m. Elle est généralement de 1500 m sur les lignes parcourues à
 la vitesse maximale de 160 km/h.
 
-![](../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-080.png)
+![](/osrd-website/images/docs/railway-wiki/signalling/image-080.png)
 
 ### Avantages du BAL
 

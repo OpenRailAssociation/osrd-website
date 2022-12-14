@@ -1,7 +1,7 @@
 ---
 title: "Les systèmes d'espacement des trains"
 linkTitle: "Espacement des trains"
-weight: 2000
+weight: 4000
 description:
 ---
 
@@ -19,7 +19,7 @@ De ce fait, la distance nécessaire pour obtenir l’arrêt est généralement p
 le conducteur. Dans ces conditions, le conducteur d’un train en marche ne voyant pas à temps la queue d’un train arrêté
 ou circulant à plus faible vitesse devant lui risquerait de le heurter.
 
-![](../images/document-pedagogique-signaux-regimes-exploitation-v1/image-078.png)
+![](/osrd-website/images/docs/railway-wiki/signalling/image-078.png)
 
 Pour prévenir le risque de rattrapage : un dispositif d’espacement des trains appelé « cantonnement » est mis en place
 selon les principes suivants :
