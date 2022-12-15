@@ -95,7 +95,7 @@ Il est à noter que si un système de signalisation a un double rôle transmissi
     ],
 
     # these are C-like boolean expressions:
-    # true, false, <flag>, <enum> == value, && and || can be used
+    # true, false, <flag>, <enum> == value, &&, || and ! can be used
 
     # used to evaluate whether a signal is a block boundary.
     "block_boundary_when": "true",
@@ -204,16 +204,6 @@ Lors du chargement du signal :
  - les paramètres du signal sont chargés et validés suivant la spec du système de signalisation
  - le rôle de cantonnement du signal est évalué à partir de l'expression
 
-Un objet de paramètres du signal est produit:
-
-```rust
-trait SignalSettings {
-      fn is_block_boundary() -> bool;
-
-      // field access APIs
-}
-```
-
 ### Chargement du signal
 
 Une fois que les paramètres du signal sont chargés, il devient possible de charger ses pilotes. Pour chaque pilote :
@@ -276,7 +266,7 @@ Les cas de figure de validation que l'on souhaite supporter sont les suivants:
 
 En pratique, il existe deux mécanismes distincts pour répondre à ces deux besoins :
  - le **module de système de signalisation** s'occupe de valider la signalisation **dans le canton**
- - le **pilote du signal d'entrée**, s'il existe, s'occupe de valider la **transition entre cantons**
+ - les **pilote de signaux**, s'occupe de valider les **transitions entre cantons**
 
 ```rust
 extern fn report_warning(/* TODO */);
