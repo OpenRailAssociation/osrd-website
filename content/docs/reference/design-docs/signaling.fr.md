@@ -290,7 +290,7 @@ fn check_block(
 /// Runs in the signal driver module
 fn check_signal(
    signal: SignalSettings,
-   block: Block, // The partial block in front of the signal - no signal can see backward
+   block: Block, // The partial block downstream of the signal - no signal can see backward
 );
 ```
 
@@ -341,7 +341,7 @@ interface IndirectSpeedLimit {
 }
 
 interface SpeedLimitView {
-    /** A list of speed limits directly in front of the signal */
+    /** A list of speed limits directly downstream of the signal */
     val directSpeedLimits: List<DirectSpeedLimit>
     /** A list of speed limits which need to be announced in a signal chain */
     val indirectSpeedLimits: List<IndirectSpeedLimit>
