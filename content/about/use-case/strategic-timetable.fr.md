@@ -1,6 +1,6 @@
 ---
-title: Horaires stratégiques
-linkTitle: Horaires stratégiques
+title: Planification des plans de transport
+linkTitle: Planification des plans de transport
 weight: 10
 ---
 
