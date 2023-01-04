@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – BA</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/</link><description>Recent content in BA on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: BAL</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – BA</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/</link><description>Recent content in BA on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: BAL</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
 &lt;p>Le signal d’entrée du canton présente une indication liée à l’état d’occupation du ou des cantons suivants, selon les
 règles suivantes :&lt;/p>
 &lt;ul>
@@ -8,7 +8,7 @@ règles suivantes :&lt;/p>
 &lt;/ul>
 &lt;p>La longueur maximale d’un canton est en principe de 2800 m. Elle est généralement de 1500 m sur les lignes parcourues à
 la vitesse maximale de 160 km/h.&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-080.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-080.png" alt="">&lt;/p>
 &lt;h3 id="avantages-du-bal">Avantages du BAL&lt;/h3>
 &lt;p>Le BAL offre un niveau élevé de sécurité et permet un débit important.&lt;/p>
 &lt;h3 id="limites">Limites&lt;/h3>
@@ -21,13 +21,13 @@ roue et le rail.&lt;/p>
 &lt;li>lorsque la queue du train libère un canton, son signal d&amp;rsquo;entrée passe en annonce&lt;/li>
 &lt;li>lorsque la queue du train libère un canton, le signal d&amp;rsquo;entrée du canton précédent passe en voie libre&lt;/li>
 &lt;li>les signaux présentent une voie libre par défaut, sauf les signaux Nf qui sont par défaut en indication d&amp;rsquo;arrêt&lt;/li>
-&lt;/ul></description></item><item><title>Docs: BAPR</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</guid><description>
+&lt;/ul></description></item><item><title>Docs: BAPR</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</guid><description>
 &lt;p>Le signal d’entrée du canton est un signal qui présente une indication liée à l’état d’occupation du canton suivant
 (indication d’arrêt ou de voie libre). Sur certaines lignes l’occupation du canton n’est pas obtenue par le circuit de
 voie mais par un système de comptage d’essieux entrants et sortants.&lt;/p>
 &lt;p>Les cantons sont beaucoup plus longs que le BAL (jusqu’à 15 km et plus) et par conséquent le débit est moins important.&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-081.png" alt="">&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-082.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-081.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-082.png" alt="">&lt;/p>
 &lt;h3 id="avantages-du-bapr">Avantages du BAPR&lt;/h3>
 &lt;p>Le BAPR offre un bon niveau de sécurité et il est moins coûteux que le BAL.&lt;/p>
 &lt;h3 id="limites">Limites&lt;/h3>

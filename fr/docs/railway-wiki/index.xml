@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Wiki Ferroviaire</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/</link><description>Recent content in Wiki Ferroviaire on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Glossaire</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/glossary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/glossary/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Wiki Ferroviaire</title><link>https://osrd.fr/fr/docs/railway-wiki/</link><description>Recent content in Wiki Ferroviaire on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/railway-wiki/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Glossaire</title><link>https://osrd.fr/fr/docs/railway-wiki/glossary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/glossary/</guid><description>
 &lt;p>À compléter : ouvrez une issue en cas de mot manquant&lt;/p>
 &lt;h3 id="a">A&lt;/h3>
 &lt;ul>
@@ -118,13 +118,13 @@
 &lt;li>&lt;strong>VU&lt;/strong> : Voie unique&lt;/li>
 &lt;li>&lt;strong>VUT&lt;/strong> : Voie unique temporaire&lt;/li>
 &lt;li>&lt;strong>VUTP&lt;/strong> : Voie unique temporaire à caractère permanent&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Signalisation</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/</guid><description>
 &lt;p>Cette section est destinée à exposer les principes généraux relatifs :&lt;/p>
 &lt;ul>
 &lt;li>aux signaux&lt;/li>
 &lt;li>aux régimes d’exploitation des lignes (à venir)&lt;/li>
 &lt;li>aux différents systèmes d’espacement des trains&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-001.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-001.png" alt="">&lt;/p>
 &lt;p>La grande majorité des informations de cette section sont extraites du &lt;strong>&lt;em>&lt;a href="./docs/document-pedagogique-signaux-regimes-exploitation-v1.pdf">document pédagogique de l&amp;rsquo;Établissement Public de
 Sécurité Ferroviaire (EPSF)&lt;/a>&lt;/em>&lt;/strong> édité le 05 juillet 2017.&lt;/p></description></item></channel></rss>

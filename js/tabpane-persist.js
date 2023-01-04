@@ -2,16 +2,16 @@ if (typeof Storage !== 'undefined') {
     const activeLanguage = localStorage.getItem('active_language');
     if (activeLanguage) {
         document
-            .querySelectorAll('.persistLang-' + activeLanguage)
+            .querySelectorAll('.tab-' + activeLanguage)
             .forEach((element) => {
               $('#' + element.id).tab('show');
             });
     }
 }
-function persistLang(language) {
+function handleClick(language) {
     if (typeof Storage !== 'undefined') {
         localStorage.setItem('active_language', language);
-        document.querySelectorAll('.persistLang-' + language)
+        document.querySelectorAll('.tab-' + language)
           .forEach((element) => {
             $('#' + element.id).tab('show');
         });

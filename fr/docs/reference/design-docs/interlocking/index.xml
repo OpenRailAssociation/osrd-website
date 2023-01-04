@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Poste d'aiguillage</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/</link><description>Recent content in Poste d'aiguillage on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Éléments mobiles</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/movable-elements/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Poste d'aiguillage</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/</link><description>Recent content in Poste d'aiguillage on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/reference/design-docs/interlocking/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Éléments mobiles</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/movable-elements/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Chaque élément mobile, aiguille ou passage à niveau, a une liste d&amp;rsquo;états possibles.
 Ces états sont mutuellement exclusifs.&lt;/p>
@@ -12,7 +12,7 @@ Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;li>observer un élément mobile&lt;/li>
 &lt;li>verrouiller / déverrouiller un élément mobile&lt;/li>
 &lt;li>bouger un élément mobile&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Localisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/location/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Localisation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/location/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de localisation permet à d&amp;rsquo;autres modules de simulation de suivre le déplacement du train dans l&amp;rsquo;infrastructure.
 L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zones. Quand on train entre dans une zone, ce module permet d&amp;rsquo;en être notifié.&lt;/p>
@@ -35,7 +35,7 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;li>Occuper une zone&lt;/li>
 &lt;li>Libérer une zone&lt;/li>
 &lt;li>Observer les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Reservation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande plannifiée d&amp;rsquo;itinéraire
 &lt;/div>
@@ -131,7 +131,7 @@ Un enclenchement, c&amp;rsquo;est une garantie qu&amp;rsquo;une situation partic
 &lt;li>&lt;strong>routage&lt;/strong>: Confirmer la réservation d&amp;rsquo;une zone&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Attendre que la réservation de la zone soit occupée par son train&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Relacher une réservation de zone&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/routing/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Routage</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;ul>
 &lt;li>Les routes ont pour responsabilité d&amp;rsquo;autoriser le déplacement des trains dans l&amp;rsquo;infrastructure. Elles doivent se terminer à un point où l&amp;rsquo;arrêt du train est prévu (en terme de signalisation, pas voyageur).&lt;/li>
@@ -275,7 +275,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;ul>
 &lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Ordonnancement</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Cette page est une ébauche, contribuez-y!
 &lt;/div>
@@ -291,7 +291,7 @@ La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pa
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>train&lt;/strong>: Des itinéraires sont &lt;strong>commandés&lt;/strong> pour chaque trains, aussi loin et aussi tôt que possible. L&amp;rsquo;approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/train/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Train</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
 Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>

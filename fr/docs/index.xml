@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Modélisation physique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://osrd.fr/fr/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Modélisation physique</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
 &lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -74,7 +74,7 @@ $$&lt;/p>
 &lt;p>La force motrice et la force de freinage dépendent de l&amp;rsquo;action du conducteur (il décide d&amp;rsquo;accélérer ou de freiner plus ou moins fort en fonction de la situation). Cette dépendance se traduit donc par une dépendance de ces deux forces à la position du train. La composante du poids dépend elle aussi de la position du train, car provenant directement des pentes et des virages situées sous ce dernier.&lt;/p>
 &lt;p>De plus, la force motrice dépend de la vitesse du train (selon la courbe effort vitesse) tout comme la résistance à
 l&amp;rsquo;avancement.&lt;/p>
-&lt;p>Ces différentes dépendances rendent impossible la résolution analytique de cette équation, et l&amp;rsquo;accélération du train à chaque instant doit être calculée par intégration numérique.&lt;/p></description></item><item><title>Docs: Éléments mobiles</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/movable-elements/</guid><description>
+&lt;p>Ces différentes dépendances rendent impossible la résolution analytique de cette équation, et l&amp;rsquo;accélération du train à chaque instant doit être calculée par intégration numérique.&lt;/p></description></item><item><title>Docs: Éléments mobiles</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/movable-elements/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Chaque élément mobile, aiguille ou passage à niveau, a une liste d&amp;rsquo;états possibles.
 Ces états sont mutuellement exclusifs.&lt;/p>
@@ -88,7 +88,7 @@ Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;li>observer un élément mobile&lt;/li>
 &lt;li>verrouiller / déverrouiller un élément mobile&lt;/li>
 &lt;li>bouger un élément mobile&lt;/li>
-&lt;/ul></description></item><item><title>About: Horaires stratégiques</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/strategic-timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/strategic-timetable/</guid><description>
+&lt;/ul></description></item><item><title>About: Horaires stratégiques</title><link>https://osrd.fr/fr/about/use-case/strategic-timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/use-case/strategic-timetable/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="présentation">Présentation&lt;/h3>
 &lt;/font>
@@ -99,7 +99,7 @@ Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;li>designer une nouvelle partie de l’infrastructure est proposée.&lt;/li>
 &lt;/ul>
 &lt;p>Les produits de sortie du processus « &lt;strong>OSRD Horaires stratégiques&lt;/strong> » sont des tableaux horaires affichant les horaires des trains. Une représentation graphique des horaires est ainsi proposée.&lt;/p>
-&lt;p>Une vision globale et stratégique de la planification horaire est cruciale pour améliorer la performance ferroviaire. &lt;strong>L’objectif ultime est de répondre aux besoins de mobilité en optimisant l’utilisation de la capacité en ligne, l’occupation de voie en gare et le roulement matériel&lt;/strong>. Pour répondre à cette exigence d’optimisation, des modules de modélisation mathématique et de résolution sont couplés avec le simulateur.&lt;/p></description></item><item><title>Docs: Intégration numérique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
+&lt;p>Une vision globale et stratégique de la planification horaire est cruciale pour améliorer la performance ferroviaire. &lt;strong>L’objectif ultime est de répondre aux besoins de mobilité en optimisant l’utilisation de la capacité en ligne, l’occupation de voie en gare et le roulement matériel&lt;/strong>. Pour répondre à cette exigence d’optimisation, des modules de modélisation mathématique et de résolution sont couplés avec le simulateur.&lt;/p></description></item><item><title>Docs: Intégration numérique</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
 &lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -249,9 +249,9 @@ height: 50%;
 width: 50%;
 }
 &lt;/style>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>Docs: Architecture</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/architecture/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Architecture</title><link>https://osrd.fr/fr/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/</guid><description>
 &lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
-&lt;p>&lt;img src="../architecture.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Docs: Données d'infrastructure</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/data-model/</guid><description>
+&lt;p>&lt;img src="../architecture.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Docs: Données d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/data-model/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="introduction">Introduction&lt;/h3>
 &lt;/font>
@@ -382,7 +382,7 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;p>Dans notre infrastructure, il y a un butoir sur chaque section de voie qui a un cul-de-sac. Il y a donc 8 butoirs au total.&lt;/p>
 &lt;p>Avec les détecteurs, ils définissent les limites des sections &lt;a href="https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&amp;amp;q=TVD">TVD&lt;/a> (voir &lt;a href="#d%C3%A9tecteurs">Detectors&lt;/a>).&lt;/p>
 &lt;h4 id="itinéraires">Itinéraires&lt;/h4>
-&lt;p>Une &lt;code>Route&lt;/code> est un itinéraire dans l&amp;rsquo;infrastructure. Un sillon est une séquence de routes. Les itinéraires sont utilisés pour réserver des sections de sillon avec l&amp;rsquo;enclenchement. Voir la &lt;a href="https://dgexsolutions.github.io/osrd-website/fr/developers/internals/simulation-model/">documentation dédiée&lt;/a>.&lt;/p>
+&lt;p>Une &lt;code>Route&lt;/code> est un itinéraire dans l&amp;rsquo;infrastructure. Un sillon est une séquence de routes. Les itinéraires sont utilisés pour réserver des sections de sillon avec l&amp;rsquo;enclenchement. Voir la &lt;a href="https://osrd.fr/fr/developers/internals/simulation-model/">documentation dédiée&lt;/a>.&lt;/p>
 &lt;p>Il est représenté avec les attributs suivants :&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>entry_point&lt;/code> et &lt;code>exit_point&lt;/code> : références de détecteurs ou de butées.&lt;/li>
@@ -430,7 +430,7 @@ Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;
 &lt;h4 id="sections-de-vitesse">Sections de vitesse&lt;/h4>
 &lt;p>Les &lt;code>SpeedSections&lt;/code> représentent les limites de vitesse (en mètres par seconde) qui sont appliquées sur certaines parties des voies. Une &lt;code>SpeedSection&lt;/code> peut s&amp;rsquo;étendre sur plusieurs sections de voie, et ne couvre pas nécessairement la totalité des sections de voie. Les sections de vitesse peuvent se chevaucher.&lt;/p>
 &lt;p>Dans notre exemple d&amp;rsquo;infrastructure, nous avons une section de vitesse couvrant l&amp;rsquo;ensemble de l&amp;rsquo;infrastructure, limitant la vitesse à 300 km/h. Sur une plus petite partie de l&amp;rsquo;infrastructure, nous avons appliqué des sections de vitesse plus restrictives.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Exemples de sections de vitesse">&lt;/p></description></item><item><title>About: Études d'exploitation</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/exploitation-studies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/exploitation-studies/</guid><description>
+&lt;p>&lt;img src="svg_diagrams/speed_sections.en.svg" alt="Exemples de sections de vitesse">&lt;/p></description></item><item><title>About: Études d'exploitation</title><link>https://osrd.fr/fr/about/use-case/exploitation-studies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/use-case/exploitation-studies/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="présentation">Présentation&lt;/h3>
 &lt;/font>
@@ -438,7 +438,7 @@ Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;
 &lt;p>Le projet « &lt;strong>OSRD Etudes d’exploitation&lt;/strong> » est né pour répondre aux carences du marché : des outils nombreux et onéreux, fermés et aux résultats non-comparables. A l’opposé, nous proposons un outil de référence accessible à tous dont les résultats sont transparents, explicites et universels. L’outil OSRD fournit une base des données avec une modélisation microscopique de l’infrastructure ferroviaire française (déclivités, rayons de courbure, vitesses limites). Une interface pour modifier l’infrastructure existante ou pour designer une nouvelle partie de l’infrastructure est proposée.&lt;/p>
 &lt;p>Grâce à cette modélisation et à son moteur de calcul de marche, OSRD peut calculer des itinéraires, tracer des sillons, simuler les trains et leur interaction avec le système de signalisation.
 OSRD répond aux &lt;strong>enjeux de mobilité durable&lt;/strong> en optimisant les consommations énergétiques. La marge de régularité prévue sur la marche d’un train est repartie selon un &lt;strong>algorithme qui minimise l&amp;rsquo;énergie consommée par le train pendant le trajet&lt;/strong>.&lt;/p>
-&lt;p>Un élément intéressant de vérification d’un scenario d’exploitation est &lt;strong>l’évaluation de la robustesse&lt;/strong> de ce qui est projeté. Pour cette fonction, un &lt;strong>module de simulations stochastiques&lt;/strong> est proposé. Des aléas peuvent être modélisés et injectés dans le simulateur pour en évaluer les conséquences et la capacité du système à revenir à l’équilibre.&lt;/p></description></item><item><title>Docs: Localisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/location/</guid><description>
+&lt;p>Un élément intéressant de vérification d’un scenario d’exploitation est &lt;strong>l’évaluation de la robustesse&lt;/strong> de ce qui est projeté. Pour cette fonction, un &lt;strong>module de simulations stochastiques&lt;/strong> est proposé. Des aléas peuvent être modélisés et injectés dans le simulateur pour en évaluer les conséquences et la capacité du système à revenir à l’équilibre.&lt;/p></description></item><item><title>Docs: Localisation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/location/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>La couche de localisation permet à d&amp;rsquo;autres modules de simulation de suivre le déplacement du train dans l&amp;rsquo;infrastructure.
 L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zones. Quand on train entre dans une zone, ce module permet d&amp;rsquo;en être notifié.&lt;/p>
@@ -461,10 +461,10 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;li>Occuper une zone&lt;/li>
 &lt;li>Libérer une zone&lt;/li>
 &lt;li>Observer les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Signaler des problèmes</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/bug-reports/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
 &lt;p>Notre outil de suivi des bugs est github. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
-&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Le système d'enveloppes</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
+&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Le système d'enveloppes</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
 &lt;p>Le système d&amp;rsquo;enveloppes est une interface créée spécifiquement pour le calcul de marche d&amp;rsquo;OSRD. Il permet de manipuler différentes courbes espace/vitesse, de les découper, de les mettre bout à bout, d&amp;rsquo;interpoler des points spécifiques, et d&amp;rsquo;adresser beaucoup d&amp;rsquo;autres besoins nécessaires au calcul de marche.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="une-interface-spécifique-dans-le-service-osrd-core">Une interface spécifique dans le service OSRD Core&lt;/h3>
@@ -494,14 +494,14 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;font color=#aa026d>
 &lt;h3 id="simulation-de-plusieurs-trains">Simulation de plusieurs trains&lt;/h3>
 &lt;/font>
-&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>About: Gestion d'infrastructure</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/infrastructure-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/infrastructure-management/</guid><description>
+&lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>About: Gestion d'infrastructure</title><link>https://osrd.fr/fr/about/use-case/infrastructure-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/use-case/infrastructure-management/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="présentation">Présentation&lt;/h3>
 &lt;/font>
 &lt;p>Plusieurs applications utilisées au sein du groupe SNCF et à l’extérieur ont besoin d’une &lt;strong>représentation cartographique du réseau ferroviaire&lt;/strong>. Le fond de carte d’OSRD utilise les données géographiques d’&lt;strong>OpenStreetMap (OSM)&lt;/strong>, un « Wikipedia des cartes » qui permet de consulter et éditer des données géographiques de manière collaborative. Ce fond de carte est régulièrement mis à jour pour refléter les évolutions des infrastructures autres que ferroviaires.&lt;/p>
 &lt;p>&lt;img src="../osrd_management.png" alt="OSRD management">&lt;/p>
 &lt;p>« &lt;strong>OSRD Gestion d’infrastructure&lt;/strong> » propose un service de cartographie accessible à tous et partagé, calqué sur le même modèle : tout le monde pourra contribuer et mettre en qualité les données ferroviaires.
-Nous fournissons d&amp;rsquo;une part un &lt;strong>éditeur complet de l&amp;rsquo;infrastructure du réseau ferré et des objets qui le composent&lt;/strong>, et d&amp;rsquo;autre part, &lt;strong>la mise à disposition des couches de données pour leur exploitation et leur représentation dans les standards de la cartographie en ligne&lt;/strong>. Nous étudions enfin la possibilité de &lt;strong>pouvoir à terme automatiser la mise à jour des données ferroviaires&lt;/strong> d&amp;rsquo;OpenStreetMap avec les données ainsi mises en qualité.&lt;/p></description></item><item><title>Docs: Reservation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>
+Nous fournissons d&amp;rsquo;une part un &lt;strong>éditeur complet de l&amp;rsquo;infrastructure du réseau ferré et des objets qui le composent&lt;/strong>, et d&amp;rsquo;autre part, &lt;strong>la mise à disposition des couches de données pour leur exploitation et leur représentation dans les standards de la cartographie en ligne&lt;/strong>. Nous étudions enfin la possibilité de &lt;strong>pouvoir à terme automatiser la mise à jour des données ferroviaires&lt;/strong> d&amp;rsquo;OpenStreetMap avec les données ainsi mises en qualité.&lt;/p></description></item><item><title>Docs: Reservation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande plannifiée d&amp;rsquo;itinéraire
 &lt;/div>
@@ -597,7 +597,7 @@ Un enclenchement, c&amp;rsquo;est une garantie qu&amp;rsquo;une situation partic
 &lt;li>&lt;strong>routage&lt;/strong>: Confirmer la réservation d&amp;rsquo;une zone&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Attendre que la réservation de la zone soit occupée par son train&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Relacher une réservation de zone&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Le processus de calcul de marche</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/pipeline/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Le processus de calcul de marche</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</guid><description>
 &lt;p>Le calcul de marche dans OSRD est un processus à 4 étapes, utilisant chacune &lt;a href="../envelopes_system">le système d&amp;rsquo;enveloppes&lt;/a> :&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="#calcul-du-profil-de-vitesse-le-plus-restrictif">Construction du profil de vitesse le plus restrictif&lt;/a>&lt;/li>
@@ -646,7 +646,7 @@ La ligne noire représente le MRSP où la longueur du train a été prise en com
 &lt;p>Après avoir effectué le calcul de la marche de base (correspondant au Max Effort Profile dans OSRD), il est possible d&amp;rsquo;y appliquer des marges (allowances). Les marges sont des ajouts de temps supplémentaire au parcours du train. Elles servent notamment à lui permettre de rattraper son retard si besoin ou à d&amp;rsquo;autres besoins opérationnels (plus de détails sur les marges &lt;a href="../allowances">ici&lt;/a>).&lt;/p>
 &lt;p>Une nouvelle enveloppe &lt;strong>Allowances&lt;/strong> est donc calculée grâce à des overlays pour distribuer la marge demandée par l&amp;rsquo;utilisateur sur l&amp;rsquo;enveloppe d&amp;rsquo;effort maximal calculée précédemment.&lt;/p>
 &lt;p>&lt;img src="../allowances.png" alt="Marges">&lt;/p>
-&lt;p>Dans le calcul de marche d&amp;rsquo;OSRD, il est possible de distribuer les marges d&amp;rsquo;une manière linéaire, en abaissant toutes les vitesses d&amp;rsquo;un certain facteur, ou économique, c&amp;rsquo;est-à-dire en minimisant la consommation d&amp;rsquo;énergie pendant le parcours du train.&lt;/p></description></item><item><title>Docs: Contribuer du code</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code/</guid><description>
+&lt;p>Dans le calcul de marche d&amp;rsquo;OSRD, il est possible de distribuer les marges d&amp;rsquo;une manière linéaire, en abaissant toutes les vitesses d&amp;rsquo;un certain facteur, ou économique, c&amp;rsquo;est-à-dire en minimisant la consommation d&amp;rsquo;énergie pendant le parcours du train.&lt;/p></description></item><item><title>Docs: Contribuer du code</title><link>https://osrd.fr/fr/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 &lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
 En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
@@ -724,7 +724,7 @@ si le titre n&amp;#39;est pas complètement évident.
 &lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>About: Gouvernance</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/governance/</guid><description>
+&lt;/div></description></item><item><title>About: Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>
 &lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la plannification horaire à l&amp;rsquo;échelle Européenne&lt;/strong>.&lt;/p>
 &lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les companies ferroviaires et gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
 &lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
@@ -755,7 +755,7 @@ transition: all 0.50s;
 &lt;p>Tant qu&amp;rsquo;elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license LGPLv3&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Routage</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/routing/</guid><description>
+&lt;/div></description></item><item><title>Docs: Routage</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;ul>
 &lt;li>Les routes ont pour responsabilité d&amp;rsquo;autoriser le déplacement des trains dans l&amp;rsquo;infrastructure. Elles doivent se terminer à un point où l&amp;rsquo;arrêt du train est prévu (en terme de signalisation, pas voyageur).&lt;/li>
@@ -899,7 +899,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;ul>
 &lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
-&lt;/ul></description></item><item><title>About: Sillon de dernière minute</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/short-term-dcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/use-case/short-term-dcm/</guid><description>
+&lt;/ul></description></item><item><title>About: Sillon de dernière minute</title><link>https://osrd.fr/fr/about/use-case/short-term-dcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/use-case/short-term-dcm/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="définition">Définition&lt;/h3>
 &lt;/font>
@@ -909,7 +909,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;h3 id="défis-et-ambitions">Défis et ambitions&lt;/h3>
 &lt;/font>
 &lt;p>Les STDCM sont actuellement gérés par le guichet capacitaire entre A-1 et J-1, et par le guichet opérationnel à partir de J-1 à 17h. Plusieurs problèmes en découle ; la demande est fastidieuse et la réponse des guichets est asynchrone (prennent plusieurs jours à répondre), les sillons sont tracés à la main (risque d&amp;rsquo;erreur humaine) et la facturation peut se perdre dans les opérations, on estime à des dizaines de millions d&amp;rsquo;euros les pertes dûes aux STDCM non facturés. Certains outils numériques savent déjà régler ces problèmes, mais ne prennent pas en compte la gestion de conflit sur le réseau, ou s&amp;rsquo;ils la prennent, ils ne savent pas la gérer en gare.&lt;/p>
-&lt;p>C&amp;rsquo;est pour répondre à ces enjeux qu&amp;rsquo;est née l&amp;rsquo;idée de proposer une gestion numérique des sillons de dernière minute. L&amp;rsquo;objectif est de permettre aux EF de réserver des sillons facilement, en proposant un calcul du STDCM dans la capacité théorique prévisionnelle, et en leur apportant une réponse rapide (environ 3 minutes d&amp;rsquo;attente). Les clients pourraient aussi choisir entre plusieurs modes de calculs. Cet outil est en cours de développement, et devrait être disponible dans les prochaines années.&lt;/p></description></item><item><title>Docs: Signalisation</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/signaling/</guid><description>
+&lt;p>C&amp;rsquo;est pour répondre à ces enjeux qu&amp;rsquo;est née l&amp;rsquo;idée de proposer une gestion numérique des sillons de dernière minute. L&amp;rsquo;objectif est de permettre aux EF de réserver des sillons facilement, en proposant un calcul du STDCM dans la capacité théorique prévisionnelle, et en leur apportant une réponse rapide (environ 3 minutes d&amp;rsquo;attente). Les clients pourraient aussi choisir entre plusieurs modes de calculs. Cet outil est en cours de développement, et devrait être disponible dans les prochaines années.&lt;/p></description></item><item><title>Docs: Signalisation</title><link>https://osrd.fr/fr/docs/reference/design-docs/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/signaling/</guid><description>
 &lt;div class="pageinfo pageinfo-warning">
 &lt;p>Ce document est en attente de revue&lt;/p>
 &lt;/div>
@@ -1309,7 +1309,7 @@ Les cas de figure de validation que l&amp;rsquo;on souhaite supporter sont les s
 &lt;li>
 &lt;p>quelles sont les données nécessaires à la génération des cantons ?&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Docs: Détection de conflit</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/conflict-detection/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Détection de conflit</title><link>https://osrd.fr/fr/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/conflict-detection/</guid><description>
 &lt;div class="pageinfo pageinfo-warning">
 &lt;p>Ce document n&amp;rsquo;est pas finalisé&lt;/p>
 &lt;/div>
@@ -1433,7 +1433,7 @@ En fait, les zones réservées par un train peuvent être classifiées comme par
 &lt;li>il permet de simuler le partage de l&amp;rsquo;infrastructure par des trains qui utilisent des systèmes de signalisation différents&lt;/li>
 &lt;li>il peut être étendu aux blocs mobiles: au lieu de réserver des zones devant le train, on réserve une distance&lt;/li>
 &lt;/ul>
-&lt;/div></description></item><item><title>Docs: Les marges</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/explanation/running_time_calculation/allowances/</guid><description>
+&lt;/div></description></item><item><title>Docs: Les marges</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="la-raison-dêtre-des-marges">La raison d&amp;rsquo;être des marges&lt;/h3>
 &lt;/font>
@@ -1474,10 +1474,10 @@ En fait, les zones réservées par un train peuvent être classifiées comme par
 &lt;p>&lt;img src="../python_plot_eco_w_slopes.png" alt="Python plot eco with slopes">&lt;/p>
 &lt;blockquote>
 &lt;p>Un exemple de marche économique. En haut, les pentes/rampes rencontrées par le train. Les zones de marche sur l&amp;rsquo;erre sont représentées en bleu.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Passer du code en revue</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/guides/contribute/code-reviews/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Passer du code en revue</title><link>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>Docs: Ordonnancement</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>
+&lt;img src="https://osrd.fr/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
+&lt;/figure></description></item><item><title>Docs: Ordonnancement</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 Cette page est une ébauche, contribuez-y!
 &lt;/div>
@@ -1493,7 +1493,7 @@ La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pa
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>train&lt;/strong>: Des itinéraires sont &lt;strong>commandés&lt;/strong> pour chaque trains, aussi loin et aussi tôt que possible. L&amp;rsquo;approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Train</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/reference/design-docs/interlocking/train/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Train</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
 Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>
@@ -1502,7 +1502,7 @@ Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garde
 &lt;li>Les trains &lt;strong>occupent les zones&lt;/strong>.&lt;/li>
 &lt;li>Les trains doivent être &lt;strong>suivis&lt;/strong> pour préserver leur &lt;strong>ordre de passage&lt;/strong>.&lt;/li>
 &lt;li>Les trains ont pour responsabilité de &lt;strong>demander les itinéraires&lt;/strong> devant eux.&lt;/li>
-&lt;/ul></description></item><item><title>About: Feuille de route</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/roadmap/</guid><description>
+&lt;/ul></description></item><item><title>About: Feuille de route</title><link>https://osrd.fr/fr/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/roadmap/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="programme">Programme&lt;/h3>
 &lt;/font>
@@ -1553,7 +1553,7 @@ Fin de la stabilisation du calcul de marche&lt;/p>
 &lt;li>Projection sur le trajet le plus probable&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Objectif 2 -&lt;/strong> Concevoir le POC de l’application mobile&lt;/p>
-&lt;p>&lt;img src="roadmap_sdm.png" alt="Roadmap">&lt;/p></description></item><item><title>About: Open Source</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/opensource/</guid><description>
+&lt;p>&lt;img src="roadmap_sdm.png" alt="Roadmap">&lt;/p></description></item><item><title>About: Open Source</title><link>https://osrd.fr/fr/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/opensource/</guid><description>
 &lt;p>L’open source est une &lt;strong>pratique de développement logiciel&lt;/strong>, où le code source&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> du logiciel est :&lt;/p>
 &lt;ul>
 &lt;li>généralement développé de manière ouverte et collaborative, par des acteurs variés&lt;/li>
@@ -1603,7 +1603,7 @@ L&amp;rsquo;intégration des changement n&amp;rsquo;est motivée que par leur vi
 &lt;p>Le code source est un ensemble de documents texte qui définit comment fonctionne une application. C&amp;rsquo;est le produit du travail de développeurs logiciels.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>About: Open Data</title><link>https://dgexsolutions.github.io/osrd-website/fr/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/about/opendata/</guid><description>
+&lt;/div></description></item><item><title>About: Open Data</title><link>https://osrd.fr/fr/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/opendata/</guid><description>
 &lt;p>L&amp;rsquo;open data, c&amp;rsquo;est la pratique de rendre publiquement accessible des données sous une license permissive.
 C&amp;rsquo;est une pratique distincte de l&amp;rsquo;open source, qui ne s&amp;rsquo;applique qu&amp;rsquo;au logiciel.&lt;/p>
 &lt;p>&lt;strong>Open data et open source ont une relation symbiotique : sans Open Data, un logiciel open source ferroviaire n&amp;rsquo;est utilisable que par des initiés. Gérer l&amp;rsquo;accès aux données est difficile, coûteux, souvent inutile, et réduit l&amp;rsquo;accessibilité de données pourtant essentielles.&lt;/strong>&lt;/p>
@@ -1622,7 +1622,7 @@ C&amp;rsquo;est une pratique distincte de l&amp;rsquo;open source, qui ne s&amp;
 &lt;ul>
 &lt;li>&lt;strong>si&lt;/strong> les données de &lt;strong>matériel roulant&lt;/strong> et d&amp;rsquo;&lt;strong>infrastructure&lt;/strong> sont en open data, alors il est possible pour tous de &lt;strong>simuler des trajets&lt;/strong>, d&amp;rsquo;&lt;strong>étudier&lt;/strong> et &lt;strong>évaluer&lt;/strong> le réseau ferroviaire&lt;/li>
 &lt;li>&lt;strong>si&lt;/strong> les données de &lt;strong>grilles horaires&lt;/strong> sont accessibles en open data, alors il est possible pour tous d&amp;rsquo;étudier l&amp;rsquo;&lt;strong>usage&lt;/strong> du réseau&lt;/li>
-&lt;/ul></description></item><item><title>Docs: ETCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
+&lt;/ul></description></item><item><title>Docs: ETCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
 &lt;h3 id="généralités">Généralités&lt;/h3>
 &lt;p>ETCS est le système européen de contrôle commande des trains. La partie bord est interopérable. La partie sol peut être
 différente selon les pays tout en répondant aux mêmes objectifs de fonctionnalité.&lt;/p>
@@ -1666,7 +1666,7 @@ complémentaire au sol.&lt;/p>
 &lt;p>Le bord est constitué d&amp;rsquo;un DMI, d’un EVC, de capteurs odométriques (de vitesse), d’antennes pour la lecture des PI ETCS,
 un modem &lt;a href="../gsm-r/">GSM-R&lt;/a> (Euroradio) pour ETCS2, d’une unité juridique d’enregistrement des paramètres d’exploitation,
 d’interfaces avec le train.&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-106.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-106.png" alt="">&lt;/p>
 &lt;h3 id="le-dmi">Le DMI&lt;/h3>
 &lt;p>Le DMI est l’interface entre le conducteur et la machine. Il permet d’afficher les ordres et instructions en fonction
 des données sol et/ou bord. Le conducteur renseigne également le système par saisie de données.&lt;/p>
@@ -1762,7 +1762,7 @@ Si le canton en aval du dernier canton alloué est occupé le train doit être e
 canton. Le conducteur est alors avisé par une indication sonore au DMI.&lt;/p>
 &lt;p>Dès lors, les indications de conduite (vitesse but égale à 0 et une distance but) permettant de respecter la courbe de
 freinage sont affichées.&lt;/p>
-&lt;p>Le conducteur doit ralentir de façon à être en mesure de s’arrêter avant l’&lt;a href="../../../../glossary/#e">EOA&lt;/a>, tout en respectant la vitesse autorisée.&lt;/p></description></item><item><title>Docs: Les installations de contresens (ICS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</guid><description>
+&lt;p>Le conducteur doit ralentir de façon à être en mesure de s’arrêter avant l’&lt;a href="../../../../glossary/#e">EOA&lt;/a>, tout en respectant la vitesse autorisée.&lt;/p></description></item><item><title>Docs: Les installations de contresens (ICS)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</guid><description>
 &lt;h2 id="1-les-installations-permanentes-de-contresens-ipcs">1. Les installations permanentes de contresens (IPCS)&lt;/h2>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Certaines sections de ligne comportent des installations permanentes de contresens (IPCS). Ces installations accessibles
@@ -1796,7 +1796,7 @@ ferroviaires. Les particularités de signalisation et d’exploitation de l’IT
 &lt;h2 id="3-circulation-à-contresens-sur-une-ics">3. Circulation à contresens sur une ICS&lt;/h2>
 &lt;p>L’entrée d’un parcours à contresens sur une ICS est repérée par un tableau lumineux d’entrée à contresens (TECS). Ce
 tableau, normalement éteint, est groupé avec le panneau qui porte le carré protégeant l’aiguille d’entrée.&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-073.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-073.jpg" alt="">&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;em>Exemple d’entrée à contresens à 60 km/h sur une section de ligne où la circulation normale se fait à gauche&lt;/em>&lt;/p>
 &lt;/blockquote>
@@ -1807,7 +1807,7 @@ tableau, normalement éteint, est groupé avec le panneau qui porte le carré pr
 &lt;/ul>
 &lt;p>Les ICS peuvent comporter à contresens &lt;em>un ou plusieurs cantons&lt;/em>.&lt;/p>
 &lt;p>&lt;strong>La sortie d’un parcours à contresens&lt;/strong> est repérée par un &lt;strong>tableau lumineux de sortie de contresens (TSCS)&lt;/strong>. Ce tableau
-est groupé avec le panneau qui porte le signal « carré » protégeant l’aiguille de sortie.&lt;/p></description></item><item><title>Docs: La voie unique</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</guid><description>
+est groupé avec le panneau qui porte le signal « carré » protégeant l’aiguille de sortie.&lt;/p></description></item><item><title>Docs: La voie unique</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</guid><description>
 &lt;h3 id="définition">Définition&lt;/h3>
 &lt;p>Régime d’exploitation d’une ligne dans lequel les trains des deux sens circulent sur la même voie, les dispositions à
 prendre pour éviter la rencontre de deux trains de sens contraire ne sont pas automatiques, mais résultent de procédures
@@ -1839,7 +1839,7 @@ existants sont :&lt;/p>
 &lt;li>le cantonnement assisté par informatique (CAPI - voir 4.3.) ;&lt;/li>
 &lt;li>le cantonnement assisté par informatique initié en 1995 (CAPI 95 - voir 4.3.) ;&lt;/li>
 &lt;li>le block manuel de voie unique (BMVU - voir 4.4.2.).&lt;/li>
-&lt;/ul></description></item><item><title>Docs: GSM-R</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>Docs: La voie unique à signalisation simplifiée (VUSS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</guid><description>
+&lt;/ul></description></item><item><title>Docs: GSM-R</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>Docs: La voie unique à signalisation simplifiée (VUSS)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</guid><description>
 &lt;h3 id="définition">Définition&lt;/h3>
 &lt;p>Certaines lignes à voie unique sont désignées à la documentation d’exploitation comme « Lignes à voie unique à
 signalisation simplifiée ». Par rapport au régime général de la voie unique, ce type de ligne se distingue par la mise
@@ -1853,7 +1853,7 @@ de l’ordre théorique de circulation).&lt;/p>
 &lt;p>La gestion de l’espacement est assurée par le cantonnement téléphonique.&lt;/p>
 &lt;p>Il n’y a aucune barrière technique de sécurité, toute erreur humaine peut avoir des conséquences graves. Des boucles de
 rattrapage peuvent permettre de pallier ces erreurs (DAAT, CAPI, GSM/GFU, RST, coupure d’urgence si la ligne est
-électrifiée, etc.).&lt;/p></description></item><item><title>Docs: La voie unique temporaire à caractère permanent (VUTP)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</guid><description>
+électrifiée, etc.).&lt;/p></description></item><item><title>Docs: La voie unique temporaire à caractère permanent (VUTP)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Les installations de voie unique temporaire à caractère permanent (VUTP) permettent la circulation occasionnelle des
 trains des deux sens sur une seule voie, entre deux gares, sans arrêt à l’entrée et sans préavis aux conducteurs.&lt;/p>
@@ -1871,7 +1871,7 @@ l’aiguille d’entrée.&lt;/p>
 &lt;li>que le train est dirigé et est &lt;strong>autorisé à s’engager à contresens&lt;/strong> ;&lt;/li>
 &lt;li>qu’à partir de ce tableau, &lt;strong>les signaux qui le concernent sont implantés à droite&lt;/strong>.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-074.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-074.jpg" alt="">&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;em>Exemple d’entrée à 30 km/h sur VUTP&lt;/em>&lt;/p>
 &lt;/blockquote>
@@ -1882,7 +1882,7 @@ carré protégeant l’aiguille de sortie.&lt;/p>
 &lt;ul>
 &lt;li>que le train est parvenu à &lt;strong>la fin du parcours à contresens&lt;/strong> ;&lt;/li>
 &lt;li>qu’à partir de ce tableau, &lt;strong>les signaux qui le concernent sont implantés à gauche&lt;/strong>.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: GPRS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Docs: La voie unique temporaire (VUT)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</guid><description>
+&lt;/ul></description></item><item><title>Docs: GPRS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Docs: La voie unique temporaire (VUT)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Lorsqu’une cause quelconque (incident, exécution de travaux, etc.), interdit l’utilisation d’une voie et en l’absence
 d’installations permettant la circulation dans les deux sens en sécurité sur l’autre voie (ICS, voie banalisée), la
@@ -1905,7 +1905,7 @@ du service de la gestion des circulations.&lt;/p>
 voie (gare B dans l’exemple ci-dessous) et qui doit aviser ou faire aviser les agents intéressés : agents des postes,
 des PN gardés, agents travaillant sur la voie ou les caténaires.&lt;/p>
 &lt;h3 id="circulation-sur-la-vut">Circulation sur la VUT&lt;/h3>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-077.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-077.png" alt="">&lt;/p>
 &lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
 &lt;p>L’expédition de tout train sur la VUT est subordonnée à un accord de voie donné par l’agent du service de gestion des
 circulations de l’autre extrémité de la VUT à l’agent-du service de gestion des circulations qui doit expédier le train.&lt;/p>
@@ -1919,7 +1919,7 @@ gestion des circulations qu’il va circuler à contresens en VUT.&lt;/p>
 &lt;p>Cet ordre écrit reprend les points ou zones du parcours sur lesquels le conducteur doit appliquer des prescriptions
 particulières.&lt;/p>
 &lt;p>En effet, les installations et la signalisation ne sont généralement pas prévues pour les circulations en sens inverse
-du sens normal (PN, limitations de vitesse, etc.).&lt;/p></description></item><item><title>Docs: La voie unique à trafic restreint (VUTR)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</guid><description>
+du sens normal (PN, limitations de vitesse, etc.).&lt;/p></description></item><item><title>Docs: La voie unique à trafic restreint (VUTR)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</guid><description>
 &lt;h3 id="définition">Définition&lt;/h3>
 &lt;p>Ce régime concerne des lignes fermées au service voyageurs qui ne comportent normalement pas de signaux. Les règles
 concernant le régime général d’exploitation de la voie unique ne sont pas applicables et sont remplacées par des
@@ -1936,7 +1936,7 @@ sont pas rappelées par des signaux sur le terrain.&lt;/p>
 &lt;p>Par principe, la vitesse de circulation ne dépasse généralement pas 50 km/h.&lt;/p>
 &lt;p>Aucun enclenchement n’est prévu. Chaque ligne dépend d&amp;rsquo;un agent de SNCF Réseau dénommé « chef de ligne ». La sécurité
 des circulations est assurée par le chef de ligne et par les agents des trains.&lt;/p>
-&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: FRMCS</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Docs: Mouvement à contre-voie</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</guid><description>
+&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: FRMCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Docs: Mouvement à contre-voie</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Lorsqu’une cause quelconque (incident, secours, travaux inopinés de courte durée, etc.), interdit l’utilisation d’une
 voie, en l’absence d’installation permettant la circulation dans les deux sens sur l’autre voie (ICS, voie banalisée) et
@@ -1990,7 +1990,7 @@ du sens normal (PN, limitations de vitesse, etc.).&lt;/p>
 &lt;ul>
 &lt;li>par un &lt;strong>signal carré&lt;/strong> ;&lt;/li>
 &lt;li>par un &lt;strong>signal d’arrêt à main&lt;/strong>.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: L’exploitation en navette</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</guid><description>
+&lt;/ul></description></item><item><title>Docs: L’exploitation en navette</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</guid><description>
 &lt;h3 id="définition">Définition&lt;/h3>
 &lt;p>Régime d’exploitation d’une ligne sur laquelle la circulation d’un train ne peut être autorisée qu’après dégagement du
 train précédemment engagé, l’engagement et le dégagement se faisant au même point.&lt;/p>
@@ -2000,7 +2000,7 @@ concernée, cette circulation revenant à son point de départ, ce qui par conce
 trains.&lt;/p>
 &lt;p>Toutefois, le programme peut inclure moyennant des procédures adaptées des mouvements de desserte, avec ou sans
 possibilité de garage (desserte origine terminus ou desserte en antenne).&lt;/p>
-&lt;p>L’accès à la voie exploitée en navette est commandé par un signal muni du DAAT ou du KVB.&lt;/p></description></item><item><title>Docs: ETML</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</guid><description/></item><item><title>Docs: La voie banalisée</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</guid><description>
+&lt;p>L’accès à la voie exploitée en navette est commandé par un signal muni du DAAT ou du KVB.&lt;/p></description></item><item><title>Docs: ETML</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</guid><description/></item><item><title>Docs: La voie banalisée</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</guid><description>
 &lt;h3 id="définition">Définition&lt;/h3>
 &lt;p>Régime d&amp;rsquo;exploitation d&amp;rsquo;une ligne à une ou plusieurs voies parcourues par les trains des deux sens. Sur ces voies,
 des installations de sécurité s&amp;rsquo;opposent à l&amp;rsquo;expédition de deux trains de sens contraire à la rencontre l&amp;rsquo;un de l&amp;rsquo;autre.
@@ -2033,7 +2033,7 @@ de circuits de voie ou de compteur d’essieux. Selon l’importance du trafic, 
 &lt;li>BAL : La longueur maximale d’un canton de BAL n’excède pas généralement 2,8 km ce qui permet un écoulement de trafic
 plus important.&lt;/li>
 &lt;/ul>
-&lt;p>En signalisation de cabine, la TVM ou l’ETCS assurent l’espacement.&lt;/p></description></item><item><title>Docs: BAL</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
+&lt;p>En signalisation de cabine, la TVM ou l’ETCS assurent l’espacement.&lt;/p></description></item><item><title>Docs: BAL</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
 &lt;p>Le signal d’entrée du canton présente une indication liée à l’état d’occupation du ou des cantons suivants, selon les
 règles suivantes :&lt;/p>
 &lt;ul>
@@ -2043,7 +2043,7 @@ règles suivantes :&lt;/p>
 &lt;/ul>
 &lt;p>La longueur maximale d’un canton est en principe de 2800 m. Elle est généralement de 1500 m sur les lignes parcourues à
 la vitesse maximale de 160 km/h.&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-080.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-080.png" alt="">&lt;/p>
 &lt;h3 id="avantages-du-bal">Avantages du BAL&lt;/h3>
 &lt;p>Le BAL offre un niveau élevé de sécurité et permet un débit important.&lt;/p>
 &lt;h3 id="limites">Limites&lt;/h3>
@@ -2056,13 +2056,13 @@ roue et le rail.&lt;/p>
 &lt;li>lorsque la queue du train libère un canton, son signal d&amp;rsquo;entrée passe en annonce&lt;/li>
 &lt;li>lorsque la queue du train libère un canton, le signal d&amp;rsquo;entrée du canton précédent passe en voie libre&lt;/li>
 &lt;li>les signaux présentent une voie libre par défaut, sauf les signaux Nf qui sont par défaut en indication d&amp;rsquo;arrêt&lt;/li>
-&lt;/ul></description></item><item><title>Docs: BAPR</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</guid><description>
+&lt;/ul></description></item><item><title>Docs: BAPR</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</guid><description>
 &lt;p>Le signal d’entrée du canton est un signal qui présente une indication liée à l’état d’occupation du canton suivant
 (indication d’arrêt ou de voie libre). Sur certaines lignes l’occupation du canton n’est pas obtenue par le circuit de
 voie mais par un système de comptage d’essieux entrants et sortants.&lt;/p>
 &lt;p>Les cantons sont beaucoup plus longs que le BAL (jusqu’à 15 km et plus) et par conséquent le débit est moins important.&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-081.png" alt="">&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-082.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-081.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-082.png" alt="">&lt;/p>
 &lt;h3 id="avantages-du-bapr">Avantages du BAPR&lt;/h3>
 &lt;p>Le BAPR offre un bon niveau de sécurité et il est moins coûteux que le BAL.&lt;/p>
 &lt;h3 id="limites">Limites&lt;/h3>

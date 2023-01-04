@@ -1,7 +1,7 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute to OSRD</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/</link><description>Recent content in Contribute to OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Report issues</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/bug-reports/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute to OSRD</title><link>https://osrd.fr/en/docs/guides/contribute/</link><description>Recent content in Contribute to OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
 &lt;p>Our bug tracking platform is github, so have to register to report bugs.&lt;/p>
-&lt;p>Follow &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p></description></item><item><title>Docs: Contribute code</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code/</guid><description>
+&lt;p>Follow &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p></description></item><item><title>Docs: Contribute code</title><link>https://osrd.fr/en/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code/</guid><description>
 &lt;h2 id="set-things-up">Set things up&lt;/h2>
 &lt;div class="alert alert-info" role="alert">
 Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
@@ -79,7 +79,7 @@ if it is not entirely obvious from the title.
 &lt;p>Under Windows, open &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Review code</title><link>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/en/docs/guides/contribute/code-reviews/</guid><description>
+&lt;/div></description></item><item><title>Docs: Review code</title><link>https://osrd.fr/en/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/en/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
+&lt;img src="https://osrd.fr/en/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure></description></item></channel></rss>

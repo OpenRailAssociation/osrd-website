@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – La double voie</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/</link><description>Recent content in La double voie on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Les installations de contresens (ICS)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – La double voie</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/</link><description>Recent content in La double voie on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Les installations de contresens (ICS)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</guid><description>
 &lt;h2 id="1-les-installations-permanentes-de-contresens-ipcs">1. Les installations permanentes de contresens (IPCS)&lt;/h2>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Certaines sections de ligne comportent des installations permanentes de contresens (IPCS). Ces installations accessibles
@@ -32,7 +32,7 @@ ferroviaires. Les particularités de signalisation et d’exploitation de l’IT
 &lt;h2 id="3-circulation-à-contresens-sur-une-ics">3. Circulation à contresens sur une ICS&lt;/h2>
 &lt;p>L’entrée d’un parcours à contresens sur une ICS est repérée par un tableau lumineux d’entrée à contresens (TECS). Ce
 tableau, normalement éteint, est groupé avec le panneau qui porte le carré protégeant l’aiguille d’entrée.&lt;/p>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-073.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-073.jpg" alt="">&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;em>Exemple d’entrée à contresens à 60 km/h sur une section de ligne où la circulation normale se fait à gauche&lt;/em>&lt;/p>
 &lt;/blockquote>
@@ -43,7 +43,7 @@ tableau, normalement éteint, est groupé avec le panneau qui porte le carré pr
 &lt;/ul>
 &lt;p>Les ICS peuvent comporter à contresens &lt;em>un ou plusieurs cantons&lt;/em>.&lt;/p>
 &lt;p>&lt;strong>La sortie d’un parcours à contresens&lt;/strong> est repérée par un &lt;strong>tableau lumineux de sortie de contresens (TSCS)&lt;/strong>. Ce tableau
-est groupé avec le panneau qui porte le signal « carré » protégeant l’aiguille de sortie.&lt;/p></description></item><item><title>Docs: La voie unique temporaire à caractère permanent (VUTP)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</guid><description>
+est groupé avec le panneau qui porte le signal « carré » protégeant l’aiguille de sortie.&lt;/p></description></item><item><title>Docs: La voie unique temporaire à caractère permanent (VUTP)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Les installations de voie unique temporaire à caractère permanent (VUTP) permettent la circulation occasionnelle des
 trains des deux sens sur une seule voie, entre deux gares, sans arrêt à l’entrée et sans préavis aux conducteurs.&lt;/p>
@@ -61,7 +61,7 @@ l’aiguille d’entrée.&lt;/p>
 &lt;li>que le train est dirigé et est &lt;strong>autorisé à s’engager à contresens&lt;/strong> ;&lt;/li>
 &lt;li>qu’à partir de ce tableau, &lt;strong>les signaux qui le concernent sont implantés à droite&lt;/strong>.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-074.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-074.jpg" alt="">&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;em>Exemple d’entrée à 30 km/h sur VUTP&lt;/em>&lt;/p>
 &lt;/blockquote>
@@ -72,7 +72,7 @@ carré protégeant l’aiguille de sortie.&lt;/p>
 &lt;ul>
 &lt;li>que le train est parvenu à &lt;strong>la fin du parcours à contresens&lt;/strong> ;&lt;/li>
 &lt;li>qu’à partir de ce tableau, &lt;strong>les signaux qui le concernent sont implantés à gauche&lt;/strong>.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: La voie unique temporaire (VUT)</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</guid><description>
+&lt;/ul></description></item><item><title>Docs: La voie unique temporaire (VUT)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Lorsqu’une cause quelconque (incident, exécution de travaux, etc.), interdit l’utilisation d’une voie et en l’absence
 d’installations permettant la circulation dans les deux sens en sécurité sur l’autre voie (ICS, voie banalisée), la
@@ -95,7 +95,7 @@ du service de la gestion des circulations.&lt;/p>
 voie (gare B dans l’exemple ci-dessous) et qui doit aviser ou faire aviser les agents intéressés : agents des postes,
 des PN gardés, agents travaillant sur la voie ou les caténaires.&lt;/p>
 &lt;h3 id="circulation-sur-la-vut">Circulation sur la VUT&lt;/h3>
-&lt;p>&lt;img src="https://dgexsolutions.github.io/osrd-website/osrd-website/images/docs/railway-wiki/signalling/image-077.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-077.png" alt="">&lt;/p>
 &lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
 &lt;p>L’expédition de tout train sur la VUT est subordonnée à un accord de voie donné par l’agent du service de gestion des
 circulations de l’autre extrémité de la VUT à l’agent-du service de gestion des circulations qui doit expédier le train.&lt;/p>
@@ -109,7 +109,7 @@ gestion des circulations qu’il va circuler à contresens en VUT.&lt;/p>
 &lt;p>Cet ordre écrit reprend les points ou zones du parcours sur lesquels le conducteur doit appliquer des prescriptions
 particulières.&lt;/p>
 &lt;p>En effet, les installations et la signalisation ne sont généralement pas prévues pour les circulations en sens inverse
-du sens normal (PN, limitations de vitesse, etc.).&lt;/p></description></item><item><title>Docs: Mouvement à contre-voie</title><link>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dgexsolutions.github.io/osrd-website/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</guid><description>
+du sens normal (PN, limitations de vitesse, etc.).&lt;/p></description></item><item><title>Docs: Mouvement à contre-voie</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</guid><description>
 &lt;h3 id="principe">Principe&lt;/h3>
 &lt;p>Lorsqu’une cause quelconque (incident, secours, travaux inopinés de courte durée, etc.), interdit l’utilisation d’une
 voie, en l’absence d’installation permettant la circulation dans les deux sens sur l’autre voie (ICS, voie banalisée) et
