@@ -65,7 +65,7 @@ La circulation (entrée et sortie) sur ITCS est indiquée au conducteur par la s
 L’entrée d’un parcours à contresens sur une ICS est repérée par un tableau lumineux d’entrée à contresens (TECS). Ce
 tableau, normalement éteint, est groupé avec le panneau qui porte le carré protégeant l’aiguille d’entrée.
 
-![](/osrd-website/images/docs/railway-wiki/signalling/image-073.jpg)
+![](/images/docs/railway-wiki/signalling/image-073.jpg)
 
 > _Exemple d’entrée à contresens à 60 km/h sur une section de ligne où la circulation normale se fait à gauche_
 

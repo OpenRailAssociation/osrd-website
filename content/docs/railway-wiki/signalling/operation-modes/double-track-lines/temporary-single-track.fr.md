@@ -36,7 +36,7 @@ des PN gardés, agents travaillant sur la voie ou les caténaires.
 
 ### Circulation sur la VUT
 
-![](/osrd-website/images/docs/railway-wiki/signalling/image-077.png)
+![](/images/docs/railway-wiki/signalling/image-077.png)
 
 #### Le risque de nez à nez
 
