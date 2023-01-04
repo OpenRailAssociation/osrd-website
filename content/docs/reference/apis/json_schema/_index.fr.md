@@ -14,7 +14,7 @@ weight: 70
     // The JSObject that you want to render
 var infra = {};
     tmp = $.ajax({
-        url: "/osrd-website/schemas/infra_schema.json",
+        url: "/schemas/infra_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -34,7 +34,7 @@ var infra = {};
     // The JSObject that you want to render
 var rolling_stock = {};
     tmp = $.ajax({
-        url: "/osrd-website/schemas/rolling_stock_schema.json",
+        url: "/schemas/rolling_stock_schema.json",
         async: false,
         dataType: 'json',
         success: function(data) {

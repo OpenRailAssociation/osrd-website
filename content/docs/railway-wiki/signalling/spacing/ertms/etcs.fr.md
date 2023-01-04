@@ -47,7 +47,7 @@ Le bord est constitué d'un DMI, d’un EVC, de capteurs odométriques (de vites
 un modem [GSM-R](../gsm-r/) (Euroradio) pour ETCS2, d’une unité juridique d’enregistrement des paramètres d’exploitation,
 d’interfaces avec le train.
 
-![](/osrd-website/images/docs/railway-wiki/signalling/image-106.png)
+![](/images/docs/railway-wiki/signalling/image-106.png)
 
 ### Le DMI
 

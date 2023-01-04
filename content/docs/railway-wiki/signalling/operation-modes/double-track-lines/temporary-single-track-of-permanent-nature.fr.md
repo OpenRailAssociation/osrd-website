@@ -31,7 +31,7 @@ La présentation du **tableau VUT** indique au conducteur :
 - que le train est dirigé et est **autorisé à s’engager à contresens** ;
 - qu’à partir de ce tableau, **les signaux qui le concernent sont implantés à droite**.
 
-![](/osrd-website/images/docs/railway-wiki/signalling/image-074.jpg)
+![](/images/docs/railway-wiki/signalling/image-074.jpg)
 
 > _Exemple d’entrée à 30 km/h sur VUTP_
 

@@ -2,7 +2,7 @@
   "name": "osrd-website",
   "version": "0.2.0",
   "description": "OSRD documentation website.",
-  "homepage": "https://dgexsolutions.github.io/osrd-website/fr/developers/contribute/",
+  "homepage": "https://osrd.fr/fr/developers/contribute/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DGEXSolutions/osrd-website.git"
