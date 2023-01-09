@@ -669,58 +669,7 @@ transition: all 0.5s;
 &lt;/blockquote></description></item><item><title>Docs: Review code</title><link>https://osrd.fr/en/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/en/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>About: Roadmap</title><link>https://osrd.fr/en/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/roadmap/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="program">Program&lt;/h3>
-&lt;/font>
-&lt;p>&lt;img src="roadmap_prog_en.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="strategic-timetables">Strategic Timetables&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>2022 Objective:&lt;/strong> Designing a POC for building and representing strategic schedules
-Stage 1: Scoping stage (2-6 months):&lt;/p>
-&lt;ul>
-&lt;li>Analysis of the existing tool and process&lt;/li>
-&lt;li>Collection of needs/confrontation with users&lt;/li>
-&lt;li>Deliverable: scoping note (objectives, expected functionalities, risks, planning, etc.)&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="roadmap_hs_en.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="exploitation-study">Exploitation Study&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>2022 Objective:&lt;/strong> Delivering V1 of the tool
-Operation of the signalling system
-Edition of the infra
-1st version of the Studies module
-End of the stabilisation of the running calculation&lt;/p>
-&lt;p>&lt;img src="roadmap_eex_en.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="infrastructure-management">Infrastructure management&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>2022 Objective:&lt;/strong> To offer an open access infrastructure management service (layers and data) and their editing:&lt;/p>
-&lt;ul>
-&lt;li>Provision of layers&lt;/li>
-&lt;li>Search in layer data&lt;/li>
-&lt;li>Layers editing
-(Link with OSM)&lt;/li>
-&lt;/ul>
-&lt;font color=#aa026d>
-&lt;h3 id="short-term-dcm">Short Term DCM&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objective 1 -&lt;/strong> Integrating the residual capacity search algorithm into OSRD&lt;/p>
-&lt;p>Run the algorithm in OSRD:&lt;/p>
-&lt;ul>
-&lt;li>Integrate the algorithm&lt;/li>
-&lt;li>Integrate the algorithm into the SIPH data (infra and hourly data)
-&lt;ul>
-&lt;li>Import of SIPH data into OSRD&lt;/li>
-&lt;li>Projection of SIPH schedules to track&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Projection on the most likely route&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Objective 2 -&lt;/strong> Design the POC of the mobile application&lt;/p>
-&lt;p>&lt;img src="roadmap_sdm_en.png" alt="Roadmap">&lt;/p></description></item><item><title>About: Open Source</title><link>https://osrd.fr/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opensource/</guid><description>
+&lt;/figure></description></item><item><title>About: Open Source</title><link>https://osrd.fr/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opensource/</guid><description>
 &lt;p>Open source is a &lt;strong>software development practice&lt;/strong>, where the software&amp;rsquo;s source code&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> :&lt;/p>
 &lt;ul>
 &lt;li>usually developped by multiple actors, in an open and transparent way&lt;/li>

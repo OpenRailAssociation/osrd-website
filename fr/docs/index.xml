@@ -1502,58 +1502,7 @@ Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garde
 &lt;li>Les trains &lt;strong>occupent les zones&lt;/strong>.&lt;/li>
 &lt;li>Les trains doivent être &lt;strong>suivis&lt;/strong> pour préserver leur &lt;strong>ordre de passage&lt;/strong>.&lt;/li>
 &lt;li>Les trains ont pour responsabilité de &lt;strong>demander les itinéraires&lt;/strong> devant eux.&lt;/li>
-&lt;/ul></description></item><item><title>About: Feuille de route</title><link>https://osrd.fr/fr/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/roadmap/</guid><description>
-&lt;font color=#aa026d>
-&lt;h3 id="programme">Programme&lt;/h3>
-&lt;/font>
-&lt;p>&lt;img src="roadmap_prog.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="horaires-stratégiques">Horaires Stratégiques&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Concevoir un POC de construction et de représentation des horaires stratégiques
-1ère étape : Etape cadrage (2 à 6 mois) :&lt;/p>
-&lt;ul>
-&lt;li>Analyse de l’existant : outil et processus&lt;/li>
-&lt;li>Recueil des besoins / confrontation aux utilisateurs&lt;/li>
-&lt;li>Livrable : note de cadrage (objectifs, fonctionnalités attendues, risques, planning…)&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="roadmap_hs.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="etudes-dexploitation">Etudes d&amp;rsquo;exploitation&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Livrer la V1 de l’outil
-Fonctionnement de la signalisation
-Edition de l’infra
-1ère version du module Etudes
-Fin de la stabilisation du calcul de marche&lt;/p>
-&lt;p>&lt;img src="roadmap_eex.png" alt="Roadmap">&lt;/p>
-&lt;font color=#aa026d>
-&lt;h3 id="gestion-dinfrastructure">Gestion d&amp;rsquo;infrastructure&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 2022 :&lt;/strong> Proposer un service de gestion d’infrastructures en libre accès (couches et données) et leur édition :&lt;/p>
-&lt;ul>
-&lt;li>Mise à disposition des couches&lt;/li>
-&lt;li>Recherche dans les données de couches&lt;/li>
-&lt;li>Edition des couches
-(Lien avec OSM)&lt;/li>
-&lt;/ul>
-&lt;font color=#aa026d>
-&lt;h3 id="sillon-de-dernière-minute">Sillon de dernière minute&lt;/h3>
-&lt;/font>
-&lt;p>&lt;strong>Objectif 1 -&lt;/strong> Intégrer dans OSRD l’algorithme de recherche dans la capacité résiduelle&lt;/p>
-&lt;p>Faire fonctionner l’algorithme dans OSRD :&lt;/p>
-&lt;ul>
-&lt;li>Intégrer l’algorithme&lt;/li>
-&lt;li>Intégrer l’algorithme dans les données SIPH (données infra et horaires) :
-&lt;ul>
-&lt;li>Import des données SIPH dans OSRD&lt;/li>
-&lt;li>Projection des horaires SIPH à la voie&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Projection sur le trajet le plus probable&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Objectif 2 -&lt;/strong> Concevoir le POC de l’application mobile&lt;/p>
-&lt;p>&lt;img src="roadmap_sdm.png" alt="Roadmap">&lt;/p></description></item><item><title>About: Open Source</title><link>https://osrd.fr/fr/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/opensource/</guid><description>
+&lt;/ul></description></item><item><title>About: Open Source</title><link>https://osrd.fr/fr/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/opensource/</guid><description>
 &lt;p>L’open source est une &lt;strong>pratique de développement logiciel&lt;/strong>, où le code source&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> du logiciel est :&lt;/p>
 &lt;ul>
 &lt;li>généralement développé de manière ouverte et collaborative, par des acteurs variés&lt;/li>
