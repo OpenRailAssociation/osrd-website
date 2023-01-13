@@ -224,8 +224,9 @@ A `Route` is an itinerary in the infrastructure. A train path is a sequence of r
 
 It is represented with the following attributes:
 
-* `entry_point` and `exit_point`: references detectors or buffer stops.
-* `path`: The list of track section ranges a train can pass on to go from entry to exit. There can be two Routes with the same entry and exit points and two different paths.
+* `entry_point` and `exit_point`: references detectors or buffer stops which mark the beginning and the end of the Route.
+* `entry_point_direction` : Direction on a track section to start the route from the `entry_point`.
+* `switches_direction` : A set of directions to follow when we encounter a switch on our Route, to build this Route from `entry_point` to `exit_point`.
 * `release_detectors`: When a train clears a release detector, resources reserved from the beginning of the route until this detector are released.
 
 <font color=#aa026d>

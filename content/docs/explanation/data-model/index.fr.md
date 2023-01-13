@@ -224,8 +224,9 @@ Une `Route` est un itinéraire dans l'infrastructure. Un sillon est une séquenc
 
 Il est représenté avec les attributs suivants :
 
-* `entry_point` et `exit_point` : références de détecteurs ou de butées.
-* `path` : La liste des plages de sections de voies qu'un train peut emprunter pour aller de l'entrée à la sortie. Il peut y avoir deux Routes avec les mêmes points d'entrée et de sortie et deux chemins différents.
+* `entry_point` et `exit_point` : Références de détecteurs ou de butées qui marquent le début et la fin de l'itinéraire.
+* `entry_point_direction` : Direction à prendre sur la section de voie depuis `entry_point` pour commencer l'itinéraire.
+* `switches_direction` : Un ensemble de directions à suivre lorsqu'on rencontre une aiguille sur notre itinéraire, de manière à reconstituer cet itinéraire de `entry_point` jusqu'à `exit_point`.
 * `release_detectors` : Lorsqu'un train franchit un détecteur de libération, les ressources réservées depuis le début de la route jusqu'à ce détecteur sont libérées.
 
 <font color=#aa026d>
