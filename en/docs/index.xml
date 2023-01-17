@@ -372,8 +372,9 @@ The clumped up squares represent many detectors at once. Indeed, because some tr
 &lt;p>A &lt;code>Route&lt;/code> is an itinerary in the infrastructure. A train path is a sequence of routes. Routes are used to reserve section of path with the interlocking. See the &lt;a href="https://osrd.fr/fr/developers/internals/simulation-model/">dedicated documentation&lt;/a>.&lt;/p>
 &lt;p>It is represented with the following attributes:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>entry_point&lt;/code> and &lt;code>exit_point&lt;/code>: references detectors or buffer stops.&lt;/li>
-&lt;li>&lt;code>path&lt;/code>: The list of track section ranges a train can pass on to go from entry to exit. There can be two Routes with the same entry and exit points and two different paths.&lt;/li>
+&lt;li>&lt;code>entry_point&lt;/code> and &lt;code>exit_point&lt;/code>: references detectors or buffer stops which mark the beginning and the end of the Route.&lt;/li>
+&lt;li>&lt;code>entry_point_direction&lt;/code> : Direction on a track section to start the route from the &lt;code>entry_point&lt;/code>.&lt;/li>
+&lt;li>&lt;code>switches_direction&lt;/code> : A set of directions to follow when we encounter a switch on our Route, to build this Route from &lt;code>entry_point&lt;/code> to &lt;code>exit_point&lt;/code>.&lt;/li>
 &lt;li>&lt;code>release_detectors&lt;/code>: When a train clears a release detector, resources reserved from the beginning of the route until this detector are released.&lt;/li>
 &lt;/ul>
 &lt;font color=#aa026d>

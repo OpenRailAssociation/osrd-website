@@ -132,8 +132,9 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;p>Une &lt;code>Route&lt;/code> est un itinéraire dans l&amp;rsquo;infrastructure. Un sillon est une séquence de routes. Les itinéraires sont utilisés pour réserver des sections de sillon avec l&amp;rsquo;enclenchement. Voir la &lt;a href="https://osrd.fr/fr/developers/internals/simulation-model/">documentation dédiée&lt;/a>.&lt;/p>
 &lt;p>Il est représenté avec les attributs suivants :&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>entry_point&lt;/code> et &lt;code>exit_point&lt;/code> : références de détecteurs ou de butées.&lt;/li>
-&lt;li>&lt;code>path&lt;/code> : La liste des plages de sections de voies qu&amp;rsquo;un train peut emprunter pour aller de l&amp;rsquo;entrée à la sortie. Il peut y avoir deux Routes avec les mêmes points d&amp;rsquo;entrée et de sortie et deux chemins différents.&lt;/li>
+&lt;li>&lt;code>entry_point&lt;/code> et &lt;code>exit_point&lt;/code> : Références de détecteurs ou de butées qui marquent le début et la fin de l&amp;rsquo;itinéraire.&lt;/li>
+&lt;li>&lt;code>entry_point_direction&lt;/code> : Direction à prendre sur la section de voie depuis &lt;code>entry_point&lt;/code> pour commencer l&amp;rsquo;itinéraire.&lt;/li>
+&lt;li>&lt;code>switches_direction&lt;/code> : Un ensemble de directions à suivre lorsqu&amp;rsquo;on rencontre une aiguille sur notre itinéraire, de manière à reconstituer cet itinéraire de &lt;code>entry_point&lt;/code> jusqu&amp;rsquo;à &lt;code>exit_point&lt;/code>.&lt;/li>
 &lt;li>&lt;code>release_detectors&lt;/code> : Lorsqu&amp;rsquo;un train franchit un détecteur de libération, les ressources réservées depuis le début de la route jusqu&amp;rsquo;à ce détecteur sont libérées.&lt;/li>
 &lt;/ul>
 &lt;font color=#aa026d>
