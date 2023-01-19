@@ -59,7 +59,7 @@ The advantage of this distribution is that the allowance is spread evenly over t
 
 </font>
 
-The economic distribution of the allowance, presented in detail in [this document](../MARECO.pdf) (**MARECO** is an algorithm designed by the SNCF research department), consists of distributing the allowance in the most energy-efficient way possible. It is based on two principles:
+The economic distribution of the allowance, presented in detail in [this document](/pdf/MARECO.pdf) (**MARECO** is an algorithm designed by the SNCF research department), consists of distributing the allowance in the most energy-efficient way possible. It is based on two principles:
 
 1. a maximum speed, avoiding the most energy-intensive speeds
 2. run-on zones, located before braking and steep gradients, where the train runs with the engine off thanks to its inertia, allowing it to consume no energy during this period

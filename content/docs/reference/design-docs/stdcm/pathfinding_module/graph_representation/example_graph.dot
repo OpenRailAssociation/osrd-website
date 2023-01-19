@@ -1,0 +1,10 @@
+digraph {
+	a [label="A\nt=0\nspeed=0"]
+	b [label="B\nt=60\nspeed=15"]
+	c [label="C\nt=900\nspeed=60"]
+	d [label="D\nt=300\nspeed=60"]
+	e [label="E\nt=360\nspeed=60"]
+	a -> b -> c
+	b -> d
+	b -> d -> e
+}
