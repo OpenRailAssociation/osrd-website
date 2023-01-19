@@ -59,7 +59,7 @@ Cette distribution a pour avantage de répartir la marge de la même manière su
 
 </font>
 
-La distribution économique de la marge, présentée en détail dans [ce document](../MARECO.pdf) (**MARECO** est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :
+La distribution économique de la marge, présentée en détail dans [ce document](/pdf/MARECO.pdf) (**MARECO** est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :
 
 1. une vitesse plafond, évitant les vitesses les plus consommatrices en énergie
 2. des zones de marche sur l'erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps
