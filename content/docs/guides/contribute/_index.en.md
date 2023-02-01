@@ -19,8 +19,8 @@ Chatting with other contributors is a great way to speed things up:
 
 ### Inquire
 
-As for any project, each change is based on what has been done before.
-Before making any change, learn about what's already there :
+Just like with any project, changes rely on past work.
+Before making changes, it is best to learn about what's already there:
 
 - You can [read the technical documentation]({{< ref "/docs" >}})
 - It's best to read the existing code related to your project before proposing something new
