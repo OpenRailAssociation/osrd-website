@@ -22,8 +22,8 @@ Chatting with other contributors is a great way to speed things up:
 Just like with any project, changes rely on past work.
 Before making changes, it is best to learn about what's already there:
 
-- You can [read the technical documentation]({{< ref "/docs" >}})
-- It's best to read the existing code related to your project before proposing something new
-- You can contact the last developers who have worked on code areas that are of interest to you
+- [read technical documentation]({{< ref "/docs" >}})
+- read the existing source code related to your project
+- chat with developers who last worked on areas you are interested in
 
 [^guidelines-not-rules]: These guidelines are mostly not strict rules, it's probably fine to do things slightly differently.
