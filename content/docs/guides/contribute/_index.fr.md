@@ -13,8 +13,8 @@ Si les sections suivantes forment un guide du contributeur, ce n'est pas pour au
 
 Vous pouvez gagner du temps en discutant de votre projet de contribution avec les autres contributeurs :
 
+- Rejoignez le salon de messagerie instantanée sur IRC à [libera.chat#osrd](https://web.libera.chat/#osrd)
 - [**Créez une issue**](https://github.com/DGEXSolutions/osrd/issues/new/choose) pour avoir un endroit un discuter de votre contribution
-- Rejoignez le salon de messagerie instantanée matrix ! **(très bientôt en place)**
 
 ### Se renseigner
 

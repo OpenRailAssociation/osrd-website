@@ -14,8 +14,8 @@ If you have not, it will probably help a lot!
 
 Chatting with other contributors is a great way to speed things up:
 
+- Join our instant messaging room on IRC at [libera.chat#osrd](https://web.libera.chat/#osrd)
 - [**Create an issue**](https://github.com/DGEXSolutions/osrd/issues/new/choose) to discuss your contribution project
-- Join our matrix instant messaging room ! **(very soon, it's not yet there)**
 
 ### Se renseigner
 
