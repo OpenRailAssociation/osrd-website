@@ -55,7 +55,7 @@ méthodes concernées.
 #### Heuristiques
 
 L'algorithme de recherche de chemin dans le graphe est un A*,
-avec une heuristique basée sur la géométrie.
+avec une heuristique basée sur les coordonnées géographiques.
 
 Cependant, la géométrie des infrastructures générées sont arbitraires,
 elle ne correspond pas aux distances indiquées sur les voies.

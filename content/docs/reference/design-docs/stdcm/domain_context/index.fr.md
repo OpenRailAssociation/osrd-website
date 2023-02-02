@@ -59,7 +59,7 @@ Sur les graphiques espace-temps de cette page, un sillon correspond
 
 Dans un fonctionnement habituel, le gestionnaire d'infrastructure
 (ex : SNCF Réseau) propose des sillons à la vente pour les entreprises
-ferroviaires (ex : SNCF voyageur).
+ferroviaires (ex : SNCF Voyageurs).
 
 À une date donnée avant le jour de
 circulation prévu, tous les sillons sont attribués. Mais **il peut rester

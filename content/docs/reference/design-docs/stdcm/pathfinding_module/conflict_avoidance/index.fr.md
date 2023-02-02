@@ -54,5 +54,6 @@ le graphe est parcouru en arrière pour créer de nouvelles arêtes.
 
 ![Marge de construction (2/2)](engineering_allowance_edges.png)
 
-La marge de construction est une fonctionnalité du calcul de marche
+La [marge de construction]({{< ref "docs/explanation/running_time_calculation/allowances" >}} "marges")
+est une fonctionnalité du calcul de marche
 permettant d'ajouter un délai donné entre deux point du parcours.

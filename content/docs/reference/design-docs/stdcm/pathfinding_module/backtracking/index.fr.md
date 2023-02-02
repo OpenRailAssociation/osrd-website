@@ -7,7 +7,7 @@ weight: 30
 #### Le problème des discontinuités
 
 Au moment d'explorer une arête du graphe, on effectue un calcul de
-marche pour connaître l'évolution de sa vitesse.
+marche pour connaître l'évolution de la vitesse.
 Mais il n'est pas possible de voir plus loin que l'arête en question,
 ce qui est gênant pour calculer les courbes de freinages qui peuvent
 nécessiter de commencer à freiner plusieurs kilomètres avant l'arrivée.
