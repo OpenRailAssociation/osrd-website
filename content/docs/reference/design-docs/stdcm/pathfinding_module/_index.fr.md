@@ -16,4 +16,4 @@ dans ce graphe pour trouver une solution. Le graphe est calculé
 au fil de son exploration.
 
 Ce graphe peut d'une certaine manière être vu comme une forme
-d'arbre de décision.
+d'arbre de décision, si différents chemins peuvent mener au même noeud.
