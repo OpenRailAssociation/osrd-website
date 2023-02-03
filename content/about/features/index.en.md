@@ -20,6 +20,11 @@ Its algorithm is able to find a train path smoothly integrated into the input ti
 To do so, the proposed train path can take detours and go slower than maximum speed. The proposed solution can bien viewed in the interface.
 
 ## Pathfinding
+Pathfinding finds the shortest train path between two points anywhere on the tracks network.
+It takes account of network constraints : switches, preset routes, traffic direction.
+It performs a compatibility check between tracks and the selected rolling stock to respect loading gauge and electrification mode.
+It does not take account of other trains.
+Result is shown dynamically on the map.
 
 ## Simulation
 
