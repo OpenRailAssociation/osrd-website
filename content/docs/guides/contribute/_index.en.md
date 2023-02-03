@@ -17,13 +17,13 @@ Chatting with other contributors is a great way to speed things up:
 - Join our instant messaging room on IRC at [libera.chat#osrd](https://web.libera.chat/#osrd)
 - [**Create an issue**](https://github.com/DGEXSolutions/osrd/issues/new/choose) to discuss your contribution project
 
-### Se renseigner
+### Inquire
 
-Comme dans tout projet, chaque changement se repose sur ce qui a été fait par le passé.
-Avant d'apporter un changement, renseignez-vous sur l'existant:
+Just like with any project, changes rely on past work.
+Before making changes, it is best to learn about what's already there:
 
-- Vous pouvez [lire la documentation technique]({{< ref "/docs" >}})
-- Il est préférable de lire le code source de l'application en rapport avec votre projet
-- Vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet
+- [read technical documentation]({{< ref "/docs" >}})
+- read the existing source code related to your project
+- chat with developers who last worked on areas you are interested in
 
 [^guidelines-not-rules]: These guidelines are mostly not strict rules, it's probably fine to do things slightly differently.
