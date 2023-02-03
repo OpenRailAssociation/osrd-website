@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg12122"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="space-time-diagram.svg"
    inkscape:export-filename="../../../../Downloads/space-time-diagram.png"
    inkscape:export-xdpi="130.62857"
@@ -42,15 +42,15 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="false"
-     inkscape:zoom="8.1688895"
-     inkscape:cx="67.940691"
-     inkscape:cy="601.61176"
+     inkscape:zoom="11.552554"
+     inkscape:cx="58.861441"
+     inkscape:cy="330.35984"
      inkscape:window-width="1920"
      inkscape:window-height="1050"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g30682">
+     inkscape:current-layer="g30686">
     <sodipodi:guide
        position="186.25532,274.69732"
        orientation="1,0"
@@ -259,6 +259,28 @@
          d="m -0.14780188,-2.873901 4.49560378,2.24780197 a 0.7,0.7 0 0 1 0,1.25219806 L -0.14780188,2.873901 A 0.8652476,0.8652476 0 0 1 -1.4,2.1 v -4.2 a 0.8652476,0.8652476 0 0 1 1.25219812,-0.773901 z"
          style="fill:#5079d3;fill-rule:evenodd;stroke:none;stroke-width:0.7"
          id="path108905" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow_Fnone_S-5079d3_reversed"
+       refX="4"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="RoundedArrow"
+       markerWidth="4.0653563"
+       markerHeight="3.9299998"
+       viewBox="0 0 6.1347524 5.9304953"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <g
+         transform="rotate(180,4,0)"
+         id="g42360">
+        <path
+           d="m -0.14780188,-2.873901 4.49560378,2.24780197 a 0.7,0.7 0 0 1 0,1.25219806 L -0.14780188,2.873901 A 0.8652476,0.8652476 0 0 1 -1.4,2.1 v -4.2 a 0.8652476,0.8652476 0 0 1 1.25219812,-0.773901 z"
+           style="fill:#5079d3;fill-rule:evenodd;stroke:none;stroke-width:0.7"
+           id="path42358" />
+      </g>
     </marker>
     <linearGradient
        id="linearGradient75979"
@@ -2505,7 +2527,7 @@
              d="m 93.003379,214.11431 h 4.795024 m -8.411948,0 h 3.616924 l 3.911894,-3.91515" />
           <path
              style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#d3d3d3;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-             d="M 99.961926,214.11431 H 117.86796"
+             d="m 99.961925,214.11431 h 8.394705"
              id="path30552"
              sodipodi:nodetypes="cc" />
           <path
@@ -2674,24 +2696,24 @@
                xml:space="preserve"
                style="font-style:normal;font-weight:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;display:inline;fill:#bbbbbb;fill-opacity:1;stroke:none;stroke-width:0.264583"
                x="210.42349"
-               y="-107.82458"
+               y="-104.12041"
                id="text30632"
                transform="rotate(90)"><tspan
                  sodipodi:role="line"
                  id="tspan30626"
                  style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';text-align:center;text-anchor:middle;fill:#bbbbbb;fill-opacity:1;stroke-width:0.264583"
                  x="210.42349"
-                 y="-107.82458">I</tspan><tspan
+                 y="-104.12041">I</tspan><tspan
                  sodipodi:role="line"
                  style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';text-align:center;text-anchor:middle;fill:#bbbbbb;fill-opacity:1;stroke-width:0.264583"
                  x="210.42349"
-                 y="-104.71366"
+                 y="-101.0095"
                  dy="-1"
                  id="tspan30628" /><tspan
                  sodipodi:role="line"
                  style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';text-align:center;text-anchor:middle;fill:#bbbbbb;fill-opacity:1;stroke-width:0.264583"
                  x="210.42349"
-                 y="-101.60275"
+                 y="-97.898582"
                  dy="-1"
                  id="tspan30630" /></text>
             <text
@@ -4909,7 +4931,7 @@
          id="tspan1196-6"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Roboto Mono';-inkscape-font-specification:'Roboto Mono';text-align:center;text-anchor:middle;fill:#666666;stroke-width:0.264582"
          x="105.00693"
-         y="11.834589">Space time diagram</tspan></text>
+         y="11.834589">Conflict diagram</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -5481,7 +5503,7 @@
          id="path106305-6" />
       <path
          id="path4796"
-         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#5079d3;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:url(#RoundedArrow_Fnone_S-5079d3);stop-color:#000000;stop-opacity:1"
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#5079d3;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:url(#RoundedArrow_Fnone_S-5079d3_reversed);stop-color:#000000;stop-opacity:1"
          d="m 105.95626,210.49111 6.11889,-6.11888 h 5.86895 l 11.76678,11.76676"
          sodipodi:nodetypes="cccc" />
       <path
@@ -5491,7 +5513,7 @@
          sodipodi:nodetypes="cc" />
       <path
          id="path8513"
-         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#5079d3;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:url(#RoundedArrow_Fnone_S-5079d3);stop-color:#000000;stop-opacity:1"
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#5079d3;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-start:url(#RoundedArrow_Fnone_S-5079d3_reversed);stop-color:#000000;stop-opacity:1"
          d="m 20.241501,204.37223 h 7.99863 l 11.766703,11.76676"
          sodipodi:nodetypes="ccc" />
       <path
