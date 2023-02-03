@@ -8,13 +8,13 @@ If you have not, it will probably help a lot!&lt;/p>
 &lt;li>Join our instant messaging room on IRC at &lt;a href="https://web.libera.chat/#osrd">libera.chat#osrd&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">&lt;strong>Create an issue&lt;/strong>&lt;/a> to discuss your contribution project&lt;/li>
 &lt;/ul>
-&lt;h3 id="se-renseigner">Se renseigner&lt;/h3>
-&lt;p>Comme dans tout projet, chaque changement se repose sur ce qui a été fait par le passé.
-Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;existant:&lt;/p>
+&lt;h3 id="inquire">Inquire&lt;/h3>
+&lt;p>Just like with any project, changes rely on past work.
+Before making changes, it is best to learn about what&amp;rsquo;s already there:&lt;/p>
 &lt;ul>
-&lt;li>Vous pouvez &lt;a href="https://osrd.fr/en/docs/">lire la documentation technique&lt;/a>&lt;/li>
-&lt;li>Il est préférable de lire le code source de l&amp;rsquo;application en rapport avec votre projet&lt;/li>
-&lt;li>Vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/">read technical documentation&lt;/a>&lt;/li>
+&lt;li>read the existing source code related to your project&lt;/li>
+&lt;li>chat with developers who last worked on areas you are interested in&lt;/li>
 &lt;/ul>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
