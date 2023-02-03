@@ -1,0 +1,133 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Design documents</title><link>https://osrd.fr/en/docs/reference/design-docs/</link><description>Recent content in Design documents on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/reference/design-docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>This document is a work in progress&lt;/p>
+&lt;/div>
+&lt;p>Conflict detection is a process which enables figuring out if a timetable,
+comprised of many train paths, can be performed as planned.&lt;/p>
+&lt;p>If a train has to slow down because of another train, or undergoing work on
+rail infrastructure, these actors are in conflict, which causes the timetable
+to become impossible to perform.&lt;/p>
+&lt;p>Conflict detection relies on interlocking and signaling simulation to:&lt;/p>
+&lt;ol>
+&lt;li>figure out what each actor requires to perform its duty undisturbed&lt;/li>
+&lt;li>detect conflicting requirements&lt;/li>
+&lt;/ol>
+&lt;p>This system has to:&lt;/p>
+&lt;ul>
+&lt;li>produce conflicts which can be linked back to a root cause&lt;/li>
+&lt;li>operate in way that can be visualized and interpreted&lt;/li>
+&lt;li>be scalable: it should work just as fast given a massive number of train paths to intersect&lt;/li>
+&lt;li>enable threading new train paths into an existing timetable&lt;/li>
+&lt;/ul>
+&lt;p>The design of this system is guided by a number of constraints:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>it must not cause false-negatives&lt;/strong>: if no conflicts are detected, a multi-train simulation of the same timetable must not yield any slowdowns&lt;/li>
+&lt;li>it cannot rely on data we do not have&lt;/li>
+&lt;li>it has to enable later support of mobile block systems&lt;/li>
+&lt;li>it has to rely on existing signaling and interlocking simulation&lt;/li>
+&lt;li>it has to enable detecting conflicts regardless of the signaling system in use&lt;/li>
+&lt;li>it has to support transitions between signaling systems&lt;/li>
+&lt;li>it has to support conflicts between different signaling systems&lt;/li>
+&lt;/ul>
+&lt;h2 id="conflict-theory">Conflict theory&lt;/h2>
+&lt;p>Conflict detection relies on an abstract model:&lt;/p>
+&lt;ul>
+&lt;li>objects where conflicts happen are resources&lt;/li>
+&lt;li>resources are used by actors&lt;/li>
+&lt;li>resource uses can be incompatible&lt;/li>
+&lt;li>overlapping incompatible ressource uses generate a conflict&lt;/li>
+&lt;/ul>
+&lt;h3 id="actors">Actors&lt;/h3>
+&lt;p>Actors are objects which cause resources to be used:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>train paths&lt;/strong> (or someone / something on the behalf of the train)&lt;/li>
+&lt;li>&lt;strong>planned infrastructure work&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="resources">Resources&lt;/h3>
+&lt;p>Resources have the following properties:&lt;/p>
+&lt;ul>
+&lt;li>can be used by actors&lt;/li>
+&lt;li>have multiple states&lt;/li>
+&lt;li>can only be in a single state at any given time&lt;/li>
+&lt;li>may take time changing state&lt;/li>
+&lt;/ul>
+&lt;p>The current model only considers the following two resources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>zones&lt;/strong>, which have one state per way to traverse it&lt;/li>
+&lt;li>&lt;strong>switches&lt;/strong>, which have one state per position&lt;/li>
+&lt;/ul>
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>Station platforms could also be resources, which would enable modeling platform use conflicts: if two tracks share a tiny platform, it may not be allowed to use both sides of the platform at once.&lt;/p>
+&lt;/div>
+&lt;h3 id="requirements-and-conflicts">Requirements and conflicts&lt;/h3>
+&lt;p>A &lt;strong>requirement&lt;/strong> describes what resource is needed by an actor, and when.&lt;/p>
+&lt;p>There are a few types of requirements:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>shareable&lt;/strong>: the resource is required to be in a given configuration, for a given time lapse. Other shareable requirements with the same configuration can stack up.&lt;/li>
+&lt;li>&lt;strong>exclusive&lt;/strong>: the resource is required to be in a given configuration, for a given actor, for a given time lapse. This requirement cannot be combined with others.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Conflicts&lt;/strong> are both real-life disturbances and the incompatible resource requirements which cause them. A disturbance is something that would cause a train to be unable to run as planned.&lt;/p>
+&lt;ul>
+&lt;li>route setup delays due to unavailable resources&lt;/li>
+&lt;li>spacing conflicts due to a train catching up with another&lt;/li>
+&lt;/ul>
+&lt;p>These real-life issues can be linked to conflicts, which arise from incompatible resource requirements:&lt;/p>
+&lt;ul>
+&lt;li>an exclusive requirement overlaps another requirement&lt;/li>
+&lt;li>a shareable requirements overlaps an incompatible requirement&lt;/li>
+&lt;li>a resource does not have time to change state between non-overlapping, yet close, requirements&lt;/li>
+&lt;/ul>
+&lt;p>For example, there are &lt;strong>no&lt;/strong> conflicts when:&lt;/p>
+&lt;ul>
+&lt;li>a resource has non-overlapping exclusive requirements&lt;/li>
+&lt;li>a resource is shared by requirements which require the same configuration&lt;/li>
+&lt;/ul>
+&lt;h2 id="generating-requirements">Generating requirements&lt;/h2>
+&lt;p>&lt;strong>For conflict detection to work, resource requirements have to strictly match what&amp;rsquo;s required
+to garantee that a simulated train will not be disturbed.&lt;/strong>&lt;/p>
+&lt;h3 id="routing-requirements">Routing requirements&lt;/h3>
+&lt;p>For a train to be routed across rail infrastructure without any trouble, some resources have to
+be available for routes to set in time. A route does not set in time if a train is disturbed by
+a route being set too late.&lt;/p>
+&lt;p>A route might be set too late for a couple of reasons:&lt;/p>
+&lt;ul>
+&lt;li>one of the zones required may be unavailable&lt;/li>
+&lt;li>a switch may be unavailable, or still moving&lt;/li>
+&lt;/ul>
+&lt;p>Routing requirements are generated by the following algorithm:&lt;/p>
+&lt;ul>
+&lt;li>compute a route calling timeline, so that the train never slows down due to late route setting.
+It can be done by finding when the driver would be constrained by signaling, and using that minus an allowance as the deadline.&lt;/li>
+&lt;li>for each zone in each route, simulate when it would be released, and thus not required anymore&lt;/li>
+&lt;li>use the route calling deadline as the requirement start time for each zone, and the release time as the requirement end. It is a shareable requirement.
+Switch requirements use the same time bounds.&lt;/li>
+&lt;/ul>
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>Implementing route overlaps alternatives would require a richer model for requirements, such as a hierarchy and alternatives&lt;/p>
+&lt;/div>
+&lt;h3 id="spacing-requirements">Spacing requirements&lt;/h3>
+&lt;p>Trains can also be slowed down by catching up with another train.
+When this happens, signaling forces the following train to slow down,
+or even stop if the train being followed does not clear the way fast enough.&lt;/p>
+&lt;p>These slowdowns are conflicts, and thus need to be avoided by emitting sufficient requirements.&lt;/p>
+&lt;p>&lt;strong>At any time, exclusive requirements are emitted for zones which if occupied, would trigger a slowdown&lt;/strong>&lt;/p>
+&lt;p>These requirements are emitted as follows:&lt;/p>
+&lt;ul>
+&lt;li>the route calling timeline is followed&lt;/li>
+&lt;li>every time the driver sees a signal:
+&lt;ul>
+&lt;li>start by assuming routes reserved for routing should be reserved for spacing as well&lt;/li>
+&lt;li>until the driver sees a signal which would cause a slowdown:
+&lt;ul>
+&lt;li>attempt to make the last reserved zone occupied by a virtual train&lt;/li>
+&lt;li>if the signal now causes a slowdown, the currently reserved zones are correct, continue to the next signal&lt;/li>
+&lt;li>if not, unreserve the last zone of the path&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="detecting-conflicts">Detecting conflicts&lt;/h2>
+&lt;p>&lt;a href="./conflict-diagram.html">Full-page diagram&lt;/a>&lt;/p>
+&lt;script type="application/javascript" src="mkt.js">&lt;/script>
+&lt;p>&lt;object onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="conflict-diagram.svg">&lt;/object>&lt;/p></description></item></channel></rss>
