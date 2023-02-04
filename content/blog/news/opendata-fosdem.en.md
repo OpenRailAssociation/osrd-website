@@ -11,7 +11,7 @@ I have presented the main results of this study during a talk at the FOSDEM 2023
 In this post I will go into details of the methodology I followed, feel free to contact me if you have any remarks or question :-)
 
 ### Data download
-You can download the detailed data I created [here](link).
+You can download the detailed data I created [here](/files/EU-open-data.xlsx).
 
 The file is composed of three tabs:
 - EU-sources: links to download each country's open data & info on license compatibility
