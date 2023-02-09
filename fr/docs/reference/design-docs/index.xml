@@ -464,4 +464,9 @@ Les cas de figure de validation que l&amp;rsquo;on souhaite supporter sont les s
 &lt;li>
 &lt;p>quelles sont les données nécessaires à la génération des cantons ?&lt;/p>
 &lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Docs: Recherche de sillons de dernière minute (STDCM)</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/</guid><description>
+&lt;p>OSRD permet d&amp;rsquo;ajouter un nouveau train dans une grille horaire déjà établie,
+sans générer aucun conflit avec les autres trains. L&amp;rsquo;application directe de cette fonctionnalité
+est appelée la &lt;strong>recherche de sillon de dernière minute&lt;/strong>.&lt;/p>
+&lt;p>L&amp;rsquo;acronyme STDCM (Short Term Digital Capacity Management) est utilisé
+pour parler du concept en général.&lt;/p></description></item></channel></rss>

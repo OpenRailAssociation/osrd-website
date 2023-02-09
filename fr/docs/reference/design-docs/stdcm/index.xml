@@ -1,0 +1,122 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Recherche de sillons de dernière minute (STDCM)</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/</link><description>Recent content in Recherche de sillons de dernière minute (STDCM) on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/reference/design-docs/stdcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Contexte métier</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</guid><description>
+&lt;p>Quelques définitions :&lt;/p>
+&lt;h3 id="la-capacité">La capacité&lt;/h3>
+&lt;p>La &lt;strong>capacité&lt;/strong>, dans ce contexte, correspond à la possibilité de
+réserver des éléments d&amp;rsquo;infrastructure pour permettre le passage
+d&amp;rsquo;un train.&lt;/p>
+&lt;p>La capacité s&amp;rsquo;exprime en fonction de l&amp;rsquo;espace et du temps :
+la réservation d&amp;rsquo;un élément peut bloquer une zone précise
+qui devient inaccessible aux autres trains, et cette réservation
+se fait sur un intervalle de temps.&lt;/p>
+&lt;p>On peut la représenter
+sur un graphique, avec le temps en abscisse et la distance parcourue
+sur un chemin en ordonnée.&lt;/p>
+&lt;p>&lt;img src="space_time_chart.png" alt="Graphique espace temps">&lt;/p>
+&lt;blockquote>
+&lt;p>Exemple d&amp;rsquo;un graphique espace-temps montrant le passage d&amp;rsquo;un train.&lt;/p>
+&lt;p>Les couleurs représentent ici les aspects des signaux, mais
+montrent également une consommation de la capacité :
+quand ces blocs se superposent pour deux trains, ils sont en conflit.&lt;/p>
+&lt;/blockquote>
+&lt;p>Deux trains d&amp;rsquo;une grille horaire sont en &lt;strong>conflit&lt;/strong>
+quand ils réservent en même temps un même objet, dans des
+configurations incompatibles.&lt;/p>
+&lt;p>&lt;img src="conflict.png" alt="Graphique espace temps avec conflit">&lt;/p>
+&lt;blockquote>
+&lt;p>Exemple d&amp;rsquo;un graphique espace-temps avec conflit : le second train
+est plus rapide que le premier, ils sont en conflit sur la fin du trajet,
+quand les rectangles se superposent.&lt;/p>
+&lt;p>En essayant de simuler cette grille horaire, le second train serait
+ralentis par des signaux indiquant de ralentir, provoqués par la
+présence du premier train.&lt;/p>
+&lt;/blockquote>
+&lt;p>La consommation de capacité est souvent représentée sous la forme de
+rectangles car, dans les systèmes de signalisation les plus simples,
+il s&amp;rsquo;agit de réservations d&amp;rsquo;une zone fixe dans l&amp;rsquo;espace pendant un intervalle de temps donné.&lt;/p>
+&lt;h3 id="les-sillons-horaires">Les sillons horaires&lt;/h3>
+&lt;p>Un &lt;strong>sillon&lt;/strong> correspond à une réservation de capacité pour le
+passage d&amp;rsquo;un train. Il est fixé dans l&amp;rsquo;espace et dans le temps :
+le temps de départ et le chemin emprunté sont connus.
+Sur les graphiques espace-temps de cette page, un sillon correspond
+à l&amp;rsquo;ensemble des blocs pour un train.&lt;/p>
+&lt;p>Dans un fonctionnement habituel, le gestionnaire d&amp;rsquo;infrastructure
+(ex : SNCF Réseau) propose des sillons à la vente pour les entreprises
+ferroviaires (ex : SNCF Voyageurs).&lt;/p>
+&lt;p>À une date donnée avant le jour de
+circulation prévu, tous les sillons sont attribués. Mais &lt;strong>il peut rester
+assez de capacité pour faire rouler plus de trains&lt;/strong>. Il est
+possible de placer des trains entre les sillons déjà établis,
+quand ces derniers sont suffisamment espacés ou n&amp;rsquo;ont pas
+trouvé d&amp;rsquo;acheteurs.&lt;/p>
+&lt;p>La capacité restante après l&amp;rsquo;attribution des sillons est appelée
+la &lt;strong>capacité résiduelle&lt;/strong>. Le problème traité ici est la recherche
+de sillons dans celle-ci.&lt;/p></description></item><item><title>Docs: Module de recherche de sillons</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/</guid><description>
+&lt;p>Ce module gère la recherche de solution.&lt;/p>
+&lt;p>Les entrées et sorties sont fortement simplifiées et abstraites
+pour simplifier le problème au maximum et permettre des tests efficaces.&lt;/p>
+&lt;p>Pour décrire son fonctionnement en quelques phrases :
+l&amp;rsquo;espace de solutions est représenté sous forme d&amp;rsquo;un graphe qui encode le temps,
+la position et la vitesse. Une recherche de chemin est ensuite effectuée
+dans ce graphe pour trouver une solution. Le graphe est calculé
+au fil de son exploration.&lt;/p>
+&lt;p>Ce graphe peut d&amp;rsquo;une certaine manière être vu comme une forme
+d&amp;rsquo;arbre de décision, si différents chemins peuvent mener au même noeud.&lt;/p></description></item><item><title>Docs: Interface avec la signalisation</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/signaling_interface/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/signaling_interface/</guid><description>
+&lt;p>Cette interface est encore en cours de conception.&lt;/p>
+&lt;h4 id="objectifs-et-contraintes">Objectifs et contraintes&lt;/h4>
+&lt;p>L&amp;rsquo;interface doit respecter plusieurs critères :&lt;/p>
+&lt;ul>
+&lt;li>Les calculs se basent sur le nouveau modèle de signalisation,
+avec la notion de réservations d&amp;rsquo;objets capacitaires&lt;/li>
+&lt;li>Les sillons générés ne doivent jamais générer de nouveaux conflits :
+l&amp;rsquo;interface peut être pessimiste sur les possibilités, mais jamais
+plus permissive que la réalité.&lt;/li>
+&lt;li>Idéalement, le module de recherche de sillon devrait rester
+un bloc indépendant avec un minimum de changements (dans la mesure
+du possible).&lt;/li>
+&lt;/ul>
+&lt;p>L&amp;rsquo;objectif serait donc d&amp;rsquo;interpréter le modèle de signalisation,
+pour générer des entrées valides pour le module de recherche
+de sillon : un graphe d&amp;rsquo;infrastructure et des intervalles
+de disponibilités de sections.&lt;/p>
+&lt;h4 id="difficultés">Difficultés&lt;/h4>
+&lt;p>La plupart des contraintes établies par la signalisation peuvent
+facilement s&amp;rsquo;exprimer sous la forme de sections non disponibles,
+sauf dans un cas : le comportement de la signalisation peut dépendre
+du chemin emprunté par le train. Pour être capable d&amp;rsquo;exprimer les
+disponibilités sur une zone, il peut être nécessaire de devoir
+anticiper la direction du train.&lt;/p>
+&lt;h4 id="solution-proposée">Solution proposée&lt;/h4>
+&lt;p>La proposition est d&amp;rsquo;écrire un nouveau module qui se brancherait au module
+de signalisation pour gérer les entrées pour la recherche
+de sillon. Il effectuerait un parcours du graphe des itinéraires
+pour construire progressivement un graphe avec occupations au bon
+format.&lt;/p>
+&lt;p>À chaque itinéraire visité, l&amp;rsquo;algorithme regarde jusqu&amp;rsquo;où il est possible
+de déterminer l&amp;rsquo;ensemble des occupations, c&amp;rsquo;est-à-dire quel
+est le premier signal dont l&amp;rsquo;état dépend du prochain choix
+d&amp;rsquo;itinéraire du train. Une arête est alors générée jusqu&amp;rsquo;à ce point,
+avec les occupations.&lt;/p>
+&lt;p>La partie restante de l&amp;rsquo;itinéraire n&amp;rsquo;est pas encore considérée.
+C&amp;rsquo;est seulement lorsque le graphe est exploré un niveau plus loin,
+avec l&amp;rsquo;itinéraire suivant, que la fin de l&amp;rsquo;itinéraire précédent
+est intégrée. Elle fait alors partie de l&amp;rsquo;arête suivante,
+car à ce moment davantage d&amp;rsquo;informations sont disponibles sur le
+trajet du train.&lt;/p>
+&lt;p>Par exemple :&lt;/p>
+&lt;p>&lt;img src="example_interface_signaling_1.svg" alt="Configuration nécessitant d&amp;amp;rsquo;anticiper">&lt;/p>
+&lt;p>Dans cette configuration en BAL3, il est possible de déterminer
+l&amp;rsquo;absence de conflit des signaux 1 à 4. Mais l&amp;rsquo;état du signal
+5 dépend de l&amp;rsquo;itinéraire emprunté par le train : s&amp;rsquo;il va vers
+le haut, le signal 5 affiche un avertissement. Dans le cas
+contraire, il affiche un &amp;ldquo;voie libre&amp;rdquo;.&lt;/p>
+&lt;p>&lt;img src="example_interface_signaling_2.svg" alt="Arêtes générées">&lt;/p>
+&lt;p>Dans cet exemple, une première arrête est alors générée, allant
+du premier signal jusqu&amp;rsquo;à la première incertitude : le point
+où le signal 5 est visible.&lt;/p>
+&lt;p>Dans un second temps, une nouvelle arête est générée pour chaque itinéraire
+accessible depuis la fin du précédent : un vers A, l&amp;rsquo;autre vers B.
+La zone entre le signal 5 et l&amp;rsquo;aiguille sera donc dupliquée
+entre les deux arêtes, mais les occupations dans cette région seront
+différentes.&lt;/p>
+&lt;p>Ce graphe peut être généré au fil de l&amp;rsquo;exploration, sans surcoût
+initial.&lt;/p></description></item></channel></rss>

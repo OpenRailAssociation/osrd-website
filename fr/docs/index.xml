@@ -1,4 +1,116 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://osrd.fr/fr/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Modélisation physique</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://osrd.fr/fr/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Contexte métier</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</guid><description>
+&lt;p>Quelques définitions :&lt;/p>
+&lt;h3 id="la-capacité">La capacité&lt;/h3>
+&lt;p>La &lt;strong>capacité&lt;/strong>, dans ce contexte, correspond à la possibilité de
+réserver des éléments d&amp;rsquo;infrastructure pour permettre le passage
+d&amp;rsquo;un train.&lt;/p>
+&lt;p>La capacité s&amp;rsquo;exprime en fonction de l&amp;rsquo;espace et du temps :
+la réservation d&amp;rsquo;un élément peut bloquer une zone précise
+qui devient inaccessible aux autres trains, et cette réservation
+se fait sur un intervalle de temps.&lt;/p>
+&lt;p>On peut la représenter
+sur un graphique, avec le temps en abscisse et la distance parcourue
+sur un chemin en ordonnée.&lt;/p>
+&lt;p>&lt;img src="space_time_chart.png" alt="Graphique espace temps">&lt;/p>
+&lt;blockquote>
+&lt;p>Exemple d&amp;rsquo;un graphique espace-temps montrant le passage d&amp;rsquo;un train.&lt;/p>
+&lt;p>Les couleurs représentent ici les aspects des signaux, mais
+montrent également une consommation de la capacité :
+quand ces blocs se superposent pour deux trains, ils sont en conflit.&lt;/p>
+&lt;/blockquote>
+&lt;p>Deux trains d&amp;rsquo;une grille horaire sont en &lt;strong>conflit&lt;/strong>
+quand ils réservent en même temps un même objet, dans des
+configurations incompatibles.&lt;/p>
+&lt;p>&lt;img src="conflict.png" alt="Graphique espace temps avec conflit">&lt;/p>
+&lt;blockquote>
+&lt;p>Exemple d&amp;rsquo;un graphique espace-temps avec conflit : le second train
+est plus rapide que le premier, ils sont en conflit sur la fin du trajet,
+quand les rectangles se superposent.&lt;/p>
+&lt;p>En essayant de simuler cette grille horaire, le second train serait
+ralentis par des signaux indiquant de ralentir, provoqués par la
+présence du premier train.&lt;/p>
+&lt;/blockquote>
+&lt;p>La consommation de capacité est souvent représentée sous la forme de
+rectangles car, dans les systèmes de signalisation les plus simples,
+il s&amp;rsquo;agit de réservations d&amp;rsquo;une zone fixe dans l&amp;rsquo;espace pendant un intervalle de temps donné.&lt;/p>
+&lt;h3 id="les-sillons-horaires">Les sillons horaires&lt;/h3>
+&lt;p>Un &lt;strong>sillon&lt;/strong> correspond à une réservation de capacité pour le
+passage d&amp;rsquo;un train. Il est fixé dans l&amp;rsquo;espace et dans le temps :
+le temps de départ et le chemin emprunté sont connus.
+Sur les graphiques espace-temps de cette page, un sillon correspond
+à l&amp;rsquo;ensemble des blocs pour un train.&lt;/p>
+&lt;p>Dans un fonctionnement habituel, le gestionnaire d&amp;rsquo;infrastructure
+(ex : SNCF Réseau) propose des sillons à la vente pour les entreprises
+ferroviaires (ex : SNCF Voyageurs).&lt;/p>
+&lt;p>À une date donnée avant le jour de
+circulation prévu, tous les sillons sont attribués. Mais &lt;strong>il peut rester
+assez de capacité pour faire rouler plus de trains&lt;/strong>. Il est
+possible de placer des trains entre les sillons déjà établis,
+quand ces derniers sont suffisamment espacés ou n&amp;rsquo;ont pas
+trouvé d&amp;rsquo;acheteurs.&lt;/p>
+&lt;p>La capacité restante après l&amp;rsquo;attribution des sillons est appelée
+la &lt;strong>capacité résiduelle&lt;/strong>. Le problème traité ici est la recherche
+de sillons dans celle-ci.&lt;/p></description></item><item><title>Docs: Description du format d'entrée</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</guid><description>
+&lt;p>Ce module prend plusieurs entrées pour effectuer une recherche de chemin :&lt;/p>
+&lt;ul>
+&lt;li>Un graphe décrivant l&amp;rsquo;infrastructure physique&lt;/li>
+&lt;li>Des zones non disponibles selon des intervalles de temps&lt;/li>
+&lt;li>Des points de départ et d&amp;rsquo;arrivée&lt;/li>
+&lt;li>Une fenêtre de départ&lt;/li>
+&lt;li>Un temps de parcours maximal&lt;/li>
+&lt;li>Des données de simulation (matériel roulant, time step, marges, etc)&lt;/li>
+&lt;/ul>
+&lt;p>Parmi ces entrées, les deux premières méritent d&amp;rsquo;être détaillées.&lt;/p>
+&lt;h4 id="graphe-dinfrastructure">Graphe d&amp;rsquo;infrastructure&lt;/h4>
+&lt;p>Aujourd&amp;rsquo;hui, le graphe donné en entrée correspond au graphe
+des &lt;code>SignalingRoutes&lt;/code>. Mais il peut s&amp;rsquo;agir de n&amp;rsquo;importe quel graphe
+orienté permettant de naviguer l&amp;rsquo;infrastructure physique.&lt;/p>
+&lt;p>Les seules contraintes sont : les arêtes doivent avoir une longueur,
+et il doit être possible d&amp;rsquo;effectuer un calcul de marche sur des
+sections d&amp;rsquo;arêtes.&lt;/p>
+&lt;h4 id="zones-non-disponibles">Zones non disponibles&lt;/h4>
+&lt;p>Cette entrée représente les zones inaccessibles à cause de contraintes
+de capacité.&lt;/p>
+&lt;p>À chaque arête du graphe est associé un ensemble de &amp;ldquo;bloc d&amp;rsquo;occupation&amp;rdquo;.
+Un bloc est composé d&amp;rsquo;une distance de début et de fin (relative
+au début de l&amp;rsquo;arête), et un temps de début et de fin.
+Il est considéré que la &lt;em>tête&lt;/em> du train ne peut pas se trouver dans cette
+zone dans l&amp;rsquo;intervalle de temps donné.&lt;/p>
+&lt;p>Ces blocs encodent également la marge de grille : s&amp;rsquo;il faut rajouter
+&lt;code>x&lt;/code> secondes de marges avant le train, chaque bloc est agrandi de
+&lt;code>x&lt;/code> secondes dans un sens.&lt;/p>
+&lt;p>Pour donner un exemple, avec la grille horaire suivante, en
+supposant une arête par canton, un train de 42m et
+une distance de visibilité de 10m :&lt;/p>
+&lt;p>&lt;img src="unavailable_sections.svg" alt="Exemple de sections non disponibles">&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>L&amp;rsquo;occupation du canton 1 de t=0 à t=300 le rend non disponible
+dans sa globalité pendant cette période.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Les 10 derniers mètres du canton 1 sont non disponibles de t=300 à t=360,
+car le signal en début de canton 2 doit être vert quand le conducteur le voit.
+Il est possible de considérer que ce bloc-ci commence à t=130
+(quand le canton du signal suivant n&amp;rsquo;affiche plus de vert),
+une superposition
+de blocs n&amp;rsquo;étant pas problématique.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>L&amp;rsquo;occupation du canton 2 de t=130 à t=360 le rend non disponible
+pendant cette période. Il est également non disponible à partir de
+t=0, car la présence d&amp;rsquo;un train provoquerait un avertissement sur
+le canton 1 quand il est utilisé par le train déjà planifié.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Les 42 premiers mètres du canton 3 sont non disponibles de t=0 à t=360,
+car la queue du train doit avoir libéré le second canton.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Le reste du canton 3 est non disponible dans sa globalité
+de t=280 à t=360.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Modélisation physique</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
 &lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -249,7 +361,44 @@ height: 50%;
 width: 50%;
 }
 &lt;/style>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>Docs: Architecture</title><link>https://osrd.fr/fr/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Représentation de l'espace de solutions</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
+&lt;h4 id="principe-général">Principe général&lt;/h4>
+&lt;p>Le problème reste une recherche de graphe. En représentant
+l&amp;rsquo;espace de solution sous forme de graphe, il est possible de réutiliser
+nos outils déjà existants de recherche de chemin.&lt;/p>
+&lt;p>Le &lt;em>graphe produit&lt;/em> de la position, du temps, et de la vitesse est utilisé.
+Autrement dit, chaque élément du graphe contient (entre autres) ces
+3 variables.&lt;/p>
+&lt;p>Chaque arête du graphe est calculée avec un
+&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/" title="calcul de marche">calcul de marche&lt;/a>
+pour connaître l&amp;rsquo;évolution de la vitesse et de la position dans le temps.&lt;/p>
+&lt;h4 id="représentation-visuelle">Représentation visuelle&lt;/h4>
+&lt;p>Le graphe de départ représente l&amp;rsquo;infrastructure physique&lt;/p>
+&lt;p>&lt;img src="routes_time_1.png" alt="Graphe produit (1/3)">&lt;/p>
+&lt;p>Il est ensuite &amp;ldquo;dupliqué&amp;rdquo; à des temps différents&lt;/p>
+&lt;p>&lt;img src="routes_time_2.png" alt="Graphe produit (2/3)">&lt;/p>
+&lt;p>Puis des nœuds sont reliés de manière à refléter le temps de parcours&lt;/p>
+&lt;p>&lt;img src="routes_time_3.png" alt="Graphe produit (3/3)">&lt;/p>
+&lt;h4 id="précisions">Précisions&lt;/h4>
+&lt;ul>
+&lt;li>Le graphe est construit &lt;em>au fil de l&amp;rsquo;exploration&lt;/em>.&lt;/li>
+&lt;li>Une discrétisation est faite au niveau du temps, uniquement pour
+évaluer ce qui a déjà été visité. Si le même emplacement est visité une
+seconde fois, il faut une certaine différence de temps pour estimer
+qu&amp;rsquo;il n&amp;rsquo;est pas déjà visité.&lt;/li>
+&lt;li>Toutes les arêtes sont réalisées avec des calculs de marche&lt;/li>
+&lt;li>La vitesse n&amp;rsquo;est pas discrétisée ni utilisée pour estimer quel
+emplacement est déjà visité, mais elle fait partie des calculs.&lt;/li>
+&lt;li>Par défaut, tous les calculs sont faits en allant à la vitesse maximale.
+Les ralentissements sont ajoutés seulement quand ils sont nécessaires.&lt;/li>
+&lt;/ul>
+&lt;h4 id="exemple">Exemple&lt;/h4>
+&lt;p>Par exemple, avec l&amp;rsquo;infrastructure suivante en se basant sur
+le graphe des voies :
+&lt;img src="example_infra.svg" alt="Infra d&amp;amp;rsquo;exemple">&lt;/p>
+&lt;p>Explorer le graphe des sillons possibles peut donner ce
+type de résultat :
+&lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Architecture</title><link>https://osrd.fr/fr/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/</guid><description>
 &lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
 &lt;p>&lt;img src="../architecture.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Docs: Données d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/data-model/</guid><description>
 &lt;font color=#aa026d>
@@ -465,7 +614,97 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;/ul></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
 &lt;p>Notre outil de suivi des bugs est github. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
-&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Le système d'enveloppes</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
+&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Discontinuités et retours en arrière</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>
+&lt;h4 id="le-problème-des-discontinuités">Le problème des discontinuités&lt;/h4>
+&lt;p>Au moment d&amp;rsquo;explorer une arête du graphe, on effectue un calcul de
+marche pour connaître l&amp;rsquo;évolution de la vitesse.
+Mais il n&amp;rsquo;est pas possible de voir plus loin que l&amp;rsquo;arête en question,
+ce qui est gênant pour calculer les courbes de freinages qui peuvent
+nécessiter de commencer à freiner plusieurs kilomètres avant l&amp;rsquo;arrivée.&lt;/p>
+&lt;p>&lt;img src="discontinuity.png" alt="Discontinuité">&lt;/p>
+&lt;blockquote>
+&lt;p>Cet exemple illustre le problème : par défaut
+la première arête est explorée en allant à la vitesse maximale.
+C&amp;rsquo;est seulement en explorant la seconde arête que la destination devient visible,
+sans que la distance restante soit suffisante pour s&amp;rsquo;arrêter.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="la-solution--revenir-en-arrière">La solution : revenir en arrière&lt;/h4>
+&lt;p>Pour régler ce problème, lorsqu&amp;rsquo;une arête est générée avec une discontinuité
+dans les courbes de vitesse, l&amp;rsquo;algorithme revient sur les arêtes précédentes
+pour en créer des nouvelles qui incluent les décélérations.&lt;/p>
+&lt;p>Pour donner un exemple simplifié, sur un chemin de 4 routes
+où le train peut accélérer ou décélérer de 10km/h par route :&lt;/p>
+&lt;p>&lt;img src="backtracking_1.png" alt="Discontinuité (version arêtes, 1/2)">&lt;/p>
+&lt;p>Pour que le train s&amp;rsquo;arrête à la fin de la route 4, il doit être au plus à 10km/h
+à la fin de la route 3. Une nouvelle arête est alors créée sur la route
+3 qui finit à 10km/h. Une décélération est ensuite calculée à rebours de la fin de la route
+vers le début, jusqu&amp;rsquo;à retrouver la courbe d&amp;rsquo;origine (ou le début
+de l&amp;rsquo;arrête).&lt;/p>
+&lt;p>Dans cet exemple, la discontinuité a seulement été déplacée vers la
+transition entre les routes 2 et 3. Le procédé est ensuite réitéré
+sur la route 2, ce qui donne le résultat suivant :&lt;/p>
+&lt;p>&lt;img src="backtracking_2.png" alt="Discontinuité (version arêtes, 2/2)">&lt;/p>
+&lt;p>Les anciennes arêtes sont toujours présentes dans le graphe, elles
+peuvent mener à d&amp;rsquo;autres solutions.&lt;/p></description></item><item><title>Docs: Interface avec la signalisation</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/signaling_interface/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/signaling_interface/</guid><description>
+&lt;p>Cette interface est encore en cours de conception.&lt;/p>
+&lt;h4 id="objectifs-et-contraintes">Objectifs et contraintes&lt;/h4>
+&lt;p>L&amp;rsquo;interface doit respecter plusieurs critères :&lt;/p>
+&lt;ul>
+&lt;li>Les calculs se basent sur le nouveau modèle de signalisation,
+avec la notion de réservations d&amp;rsquo;objets capacitaires&lt;/li>
+&lt;li>Les sillons générés ne doivent jamais générer de nouveaux conflits :
+l&amp;rsquo;interface peut être pessimiste sur les possibilités, mais jamais
+plus permissive que la réalité.&lt;/li>
+&lt;li>Idéalement, le module de recherche de sillon devrait rester
+un bloc indépendant avec un minimum de changements (dans la mesure
+du possible).&lt;/li>
+&lt;/ul>
+&lt;p>L&amp;rsquo;objectif serait donc d&amp;rsquo;interpréter le modèle de signalisation,
+pour générer des entrées valides pour le module de recherche
+de sillon : un graphe d&amp;rsquo;infrastructure et des intervalles
+de disponibilités de sections.&lt;/p>
+&lt;h4 id="difficultés">Difficultés&lt;/h4>
+&lt;p>La plupart des contraintes établies par la signalisation peuvent
+facilement s&amp;rsquo;exprimer sous la forme de sections non disponibles,
+sauf dans un cas : le comportement de la signalisation peut dépendre
+du chemin emprunté par le train. Pour être capable d&amp;rsquo;exprimer les
+disponibilités sur une zone, il peut être nécessaire de devoir
+anticiper la direction du train.&lt;/p>
+&lt;h4 id="solution-proposée">Solution proposée&lt;/h4>
+&lt;p>La proposition est d&amp;rsquo;écrire un nouveau module qui se brancherait au module
+de signalisation pour gérer les entrées pour la recherche
+de sillon. Il effectuerait un parcours du graphe des itinéraires
+pour construire progressivement un graphe avec occupations au bon
+format.&lt;/p>
+&lt;p>À chaque itinéraire visité, l&amp;rsquo;algorithme regarde jusqu&amp;rsquo;où il est possible
+de déterminer l&amp;rsquo;ensemble des occupations, c&amp;rsquo;est-à-dire quel
+est le premier signal dont l&amp;rsquo;état dépend du prochain choix
+d&amp;rsquo;itinéraire du train. Une arête est alors générée jusqu&amp;rsquo;à ce point,
+avec les occupations.&lt;/p>
+&lt;p>La partie restante de l&amp;rsquo;itinéraire n&amp;rsquo;est pas encore considérée.
+C&amp;rsquo;est seulement lorsque le graphe est exploré un niveau plus loin,
+avec l&amp;rsquo;itinéraire suivant, que la fin de l&amp;rsquo;itinéraire précédent
+est intégrée. Elle fait alors partie de l&amp;rsquo;arête suivante,
+car à ce moment davantage d&amp;rsquo;informations sont disponibles sur le
+trajet du train.&lt;/p>
+&lt;p>Par exemple :&lt;/p>
+&lt;p>&lt;img src="example_interface_signaling_1.svg" alt="Configuration nécessitant d&amp;amp;rsquo;anticiper">&lt;/p>
+&lt;p>Dans cette configuration en BAL3, il est possible de déterminer
+l&amp;rsquo;absence de conflit des signaux 1 à 4. Mais l&amp;rsquo;état du signal
+5 dépend de l&amp;rsquo;itinéraire emprunté par le train : s&amp;rsquo;il va vers
+le haut, le signal 5 affiche un avertissement. Dans le cas
+contraire, il affiche un &amp;ldquo;voie libre&amp;rdquo;.&lt;/p>
+&lt;p>&lt;img src="example_interface_signaling_2.svg" alt="Arêtes générées">&lt;/p>
+&lt;p>Dans cet exemple, une première arrête est alors générée, allant
+du premier signal jusqu&amp;rsquo;à la première incertitude : le point
+où le signal 5 est visible.&lt;/p>
+&lt;p>Dans un second temps, une nouvelle arête est générée pour chaque itinéraire
+accessible depuis la fin du précédent : un vers A, l&amp;rsquo;autre vers B.
+La zone entre le signal 5 et l&amp;rsquo;aiguille sera donc dupliquée
+entre les deux arêtes, mais les occupations dans cette région seront
+différentes.&lt;/p>
+&lt;p>Ce graphe peut être généré au fil de l&amp;rsquo;exploration, sans surcoût
+initial.&lt;/p></description></item><item><title>Docs: Le système d'enveloppes</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
 &lt;p>Le système d&amp;rsquo;enveloppes est une interface créée spécifiquement pour le calcul de marche d&amp;rsquo;OSRD. Il permet de manipuler différentes courbes espace/vitesse, de les découper, de les mettre bout à bout, d&amp;rsquo;interpoler des points spécifiques, et d&amp;rsquo;adresser beaucoup d&amp;rsquo;autres besoins nécessaires au calcul de marche.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="une-interface-spécifique-dans-le-service-osrd-core">Une interface spécifique dans le service OSRD Core&lt;/h3>
@@ -598,7 +837,51 @@ Un enclenchement, c&amp;rsquo;est une garantie qu&amp;rsquo;une situation partic
 &lt;li>&lt;strong>routage&lt;/strong>: Confirmer la réservation d&amp;rsquo;une zone&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Attendre que la réservation de la zone soit occupée par son train&lt;/li>
 &lt;li>&lt;strong>routage&lt;/strong>: Relacher une réservation de zone&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Le processus de calcul de marche</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Contourner les conflits</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</guid><description>
+&lt;p>En explorant le graphe, il arrive souvent de tomber sur des situations
+qui mèneraient à des conflits. Il faut être en mesure de rajouter du délai
+pour les éviter.&lt;/p>
+&lt;h4 id="décalage-du-temps-de-départ">Décalage du temps de départ&lt;/h4>
+&lt;p>Dans les paramètres de l&amp;rsquo;algorithme, le temps de départ est donné
+sous la forme d&amp;rsquo;une fenêtre : un temps de départ au plus tôt et au plus tard.
+Tant que c&amp;rsquo;est possible, il est toujours préférable de décaler le temps
+de départ pour éviter les conflits.&lt;/p>
+&lt;blockquote>
+&lt;p>Par exemple : un train doit partir entre 10:00 et 11:00. En partant
+à 10:00, cela provoque un conflit, le train doit entrer en gare
+d&amp;rsquo;arrivée 15 minutes plus tard. Il suffit de faire partir le train à
+10:15 pour régler le problème.&lt;/p>
+&lt;/blockquote>
+&lt;p>Dans OSRD, cette fonctionnalité est gérée en gardant une trace,
+à chaque arête, du décalage maximal du temps de départ qui pourra
+être ajouté sur la suite du parcours. Tant que cette valeur est suffisante,
+tous les conflits sont évités par ce moyen.&lt;/p>
+&lt;p>Le décalage du temps de départ est une valeur stockée sur chaque arête
+et additionnée à la fin de la recherche de chemin.&lt;/p>
+&lt;blockquote>
+&lt;p>Par exemple :&lt;/p>
+&lt;ul>
+&lt;li>un train doit partir entre 10:00 et 11:00. La recherche
+commence avec un délai maximal de 1:00.&lt;/li>
+&lt;li>Après quelques arêtes, une non-disponibilité est constatée
+20 minutes après notre passage. La valeur passe donc à
+20 minutes pour la suite du parcours.&lt;/li>
+&lt;li>Le temps de départ est ensuite décalé de 5 minutes pour contourner
+un conflit, modifiant le décalage maximal à 15 minutes.&lt;/li>
+&lt;li>Ce procédé continue jusqu&amp;rsquo;à arriver à la fin du trajet, ou
+jusqu&amp;rsquo;au point où il faut ajouter plus de délai.&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="marges-de-construction">Marges de construction&lt;/h4>
+&lt;p>Quand la valeur de décalage maximal du temps de départ tombe à 0,
+il faut rajouter du délai entre deux points du parcours du train.&lt;/p>
+&lt;p>&lt;img src="engineering_allowance.png" alt="Marge de construction (1/2)">&lt;/p>
+&lt;p>Le principe est le même que pour régler les discontinuités de vitesse :
+le graphe est parcouru en arrière pour créer de nouvelles arêtes.&lt;/p>
+&lt;p>&lt;img src="engineering_allowance_edges.png" alt="Marge de construction (2/2)">&lt;/p>
+&lt;p>La &lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/" title="marges">marge de construction&lt;/a>
+est une fonctionnalité du calcul de marche
+permettant d&amp;rsquo;ajouter un délai donné entre deux point du parcours.&lt;/p></description></item><item><title>Docs: Le processus de calcul de marche</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</guid><description>
 &lt;p>Le calcul de marche dans OSRD est un processus à 4 étapes, utilisant chacune &lt;a href="../envelopes_system">le système d&amp;rsquo;enveloppes&lt;/a> :&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="#calcul-du-profil-de-vitesse-le-plus-restrictif">Construction du profil de vitesse le plus restrictif&lt;/a>&lt;/li>
@@ -1343,7 +1626,7 @@ Les cas de figure de validation que l&amp;rsquo;on souhaite supporter sont les s
 &lt;font color=#aa026d>
 &lt;h3 id="la-distribution-économique">La distribution économique&lt;/h3>
 &lt;/font>
-&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="../MARECO.pdf">ce document&lt;/a> (&lt;strong>MARECO&lt;/strong> est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
+&lt;p>La distribution économique de la marge, présentée en détail dans &lt;a href="https://osrd.fr/pdf/MARECO.pdf">ce document&lt;/a> (&lt;strong>MARECO&lt;/strong> est un algorithme conçu par la direction de la recherche SNCF), consiste à répartir la marge de la manière la plus économe possible en énergie. Elle est basée sur deux principes :&lt;/p>
 &lt;ol>
 &lt;li>une vitesse plafond, évitant les vitesses les plus consommatrices en énergie&lt;/li>
 &lt;li>des zones de marche sur l&amp;rsquo;erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps&lt;/li>
@@ -1351,7 +1634,65 @@ Les cas de figure de validation que l&amp;rsquo;on souhaite supporter sont les s
 &lt;p>&lt;img src="../python_plot_eco_w_slopes.png" alt="Python plot eco with slopes">&lt;/p>
 &lt;blockquote>
 &lt;p>Un exemple de marche économique. En haut, les pentes/rampes rencontrées par le train. Les zones de marche sur l&amp;rsquo;erre sont représentées en bleu.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Passer du code en revue</title><link>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Marge de régularité</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>
+&lt;p>Une des fonctionnalités qui doit être supportée par STDCM est la
+&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/" title="marge de régularité">marge de régularité&lt;/a>.
+L&amp;rsquo;utilisateur doit pouvoir indiquer une valeur
+de marge, exprimée en fonction de la distance ou du temps de parcours,
+et cette marge doit être ajoutée au trajet.&lt;/p>
+&lt;blockquote>
+&lt;p>Par exemple : l&amp;rsquo;utilisateur peut indiquer une marge de 5 minutes au
+100km. Sur un trajet de 42km, un trajet de 10 minutes au plus rapide
+doit maintenant durer 12 minutes et 6 secondes.&lt;/p>
+&lt;/blockquote>
+&lt;p>Le problème se situe au niveau de la détection de conflits.
+En effet, ralentir le train décale l&amp;rsquo;ensemble du sillon dans le temps
+et augmente la capacité consommée.
+La marge doit donc être prise en compte pendant l&amp;rsquo;exploration
+pour détecter correctement les conflits.&lt;/p>
+&lt;p>Pour plus de difficulté, la marge doit suivre le modèle
+&lt;a href="https://osrd.fr/pdf/MARECO.pdf">MARECO&lt;/a>.
+La marge n&amp;rsquo;est pas répartie uniformément sur le trajet, mais selon
+un calcul qui nécessite de connaître l&amp;rsquo;ensemble du trajet.&lt;/p>
+&lt;h4 id="marge-linéaire-exprimée-en-fonction-du-temps-de-parcours">Marge linéaire exprimée en fonction du temps de parcours&lt;/h4>
+&lt;p>Pour commencer, le problème est résolu avec une marge linéaire,
+c&amp;rsquo;est-à-dire répartie uniformément sur le parcours du train.
+La vitesse est simplement multipliée par un facteur constant.&lt;/p>
+&lt;p>Les &lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/" title="enveloppes">enveloppes&lt;/a>.
+calculées pendant l&amp;rsquo;exploration du graphe ne sont
+pas modifiées, celles-ci sont toujours à vitesse maximale.
+Mais elles sont accompagnées du facteur de vitesse, qui est utilisé
+pour calculer les temps de parcours et les conflits.&lt;/p>
+&lt;p>C&amp;rsquo;est seulement quand le chemin est trouvé que la marge est appliquée à
+l&amp;rsquo;enveloppe finale. Parce qu&amp;rsquo;il s&amp;rsquo;agit uniquement de multiplication par un
+facteur, les conflits ne peuvent pas apparaître ici.&lt;/p>
+&lt;h4 id="marge-linéaire-exprimée-en-fonction-de-la-distance">Marge linéaire exprimée en fonction de la distance&lt;/h4>
+&lt;p>Le principe ici est généralement similaire, mais avec une difficulté
+supplémentaire : le facteur n&amp;rsquo;est pas constant au long du trajet.
+En effet, un train roulant à faible vitesse parcours moins de distance
+dans un même intervalle de temps qu&amp;rsquo;un train à pleine vitesse.
+La vitesse est réduite d&amp;rsquo;un facteur plus faible quand le train
+roule moins vite.&lt;/p>
+&lt;p>Comme le train ne roule pas à vitesse constante pendant son trajet,
+le facteur de vitesse évolue d&amp;rsquo;une arête à l&amp;rsquo;autre.
+Cela provoque des courbes de vitesse irrégulières.&lt;/p>
+&lt;h4 id="marge-mareco">Marge mareco&lt;/h4>
+&lt;p>Il s&amp;rsquo;agit ici exclusivement d&amp;rsquo;un post-traitement, car il est impossible
+de calculer une courbe mareco sans connaître l&amp;rsquo;intégralité du trajet.
+La détection de conflit pendant l&amp;rsquo;exploration se base exclusivement
+sur la courbe avec une marge linéaire.&lt;/p>
+&lt;p>Cela implique que des conflits peuvent apparaître pendant cette étape.
+Pour les éviter, la procédure suivante est appliquée :&lt;/p>
+&lt;ol>
+&lt;li>Une marge est appliquée à la courbe sur l&amp;rsquo;ensemble du trajet
+avec l&amp;rsquo;algorithme mareco&lt;/li>
+&lt;li>Le premier conflit provoqué par le changement est recherché&lt;/li>
+&lt;li>S&amp;rsquo;il existe, &lt;em>l&amp;rsquo;application de mareco sera séparée en deux
+intervalles&lt;/em>. Le point à la position du conflit est alors fixé
+dans l&amp;rsquo;espace-temps par rapport à la courbe avec une marge linéaire,
+qui elle ne génère pas de conflit.&lt;/li>
+&lt;li>Le procédé est répété itérativement jusqu&amp;rsquo;à une absence de conflit.&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Passer du code en revue</title><link>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure></description></item><item><title>Docs: Ordonnancement</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>
@@ -1370,7 +1711,60 @@ La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pa
 &lt;h2 id="opérations">Opérations&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>train&lt;/strong>: Des itinéraires sont &lt;strong>commandés&lt;/strong> pour chaque trains, aussi loin et aussi tôt que possible. L&amp;rsquo;approbation de la commande est soumise au régulateur, qui peut la retarder indéfiniment, selon des critères de son choix.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Train</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Détails d'implémentation</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</guid><description>
+&lt;p>Cette page précise certains détails d&amp;rsquo;implémentation.
+Sa lecture n&amp;rsquo;est pas nécessaire pour comprendre les principes
+généraux, mais peut aider avant de se plonger dans le code.&lt;/p>
+&lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
+&lt;p>Cette classe est utilisée pour simplifier la création d&amp;rsquo;instances de &lt;code>STDCMEdge&lt;/code>,
+les arêtes du graphe. Celles-ci contiennent de nombreux attributs,
+la plupart pouvant être déterminés en fonction du contexte (comme
+le nœud précédent). La classe &lt;code>STDCMEdgeBuilder&lt;/code> permet de rendre
+certains attributs optionnels et en calcule d&amp;rsquo;autres.&lt;/p>
+&lt;p>Une fois instancié et paramétré, un &lt;code>EdgeBuilder&lt;/code> a deux méthodes :&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>Collection&amp;lt;STDCMEdge&amp;gt; makeAllEdges()&lt;/code> permet de créer toutes
+les arêtes possibles dans le contexte donné pour une route donnée.
+S&amp;rsquo;il y a plusieurs &amp;ldquo;ouvertures&amp;rdquo; entre des blocks d&amp;rsquo;occupation,
+une arête est créée par ouverture. Tous les conflits, leurs
+évitements et les attributs associés sont déterminés ici.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>STDCMEdge findEdgeSameNextOccupancy(double timeNextOccupancy)&lt;/code> :
+Cette méthode permet d&amp;rsquo;obtenir l&amp;rsquo;arête passant par une certaine
+&amp;ldquo;ouverture&amp;rdquo; (quand elle existe), identifiée ici par le temps
+de la prochaine occupation sur la route. Elle est utilisée à chaque
+fois qu&amp;rsquo;une arête doit être re-créée dans un contexte différent,
+comme pour appliquer une marge ou corriger une discontinuité.
+Elle appelle la méthode précédente.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="recherche-de-chemin">Recherche de chemin&lt;/h3>
+&lt;h4 id="evaluation-des-distances">Evaluation des distances&lt;/h4>
+&lt;p>La fonction utilisée pour déterminer la distance (au sens
+de la recherche de chemin) détermine quel chemin sera privilégié.
+Le chemin obtenu sera toujours le plus court en fonction du critère
+donné.&lt;/p>
+&lt;p>Ici, deux paramètres sont utilisés : le temps de parcours total
+et l&amp;rsquo;heure de départ. Le second a un poids très faible par rapport
+au premier, pour sélectionner en priorité le chemin le plus rapide.
+Les détails du calcul sont indiqués dans les commentaires des
+méthodes concernées.&lt;/p>
+&lt;h4 id="heuristiques">Heuristiques&lt;/h4>
+&lt;p>L&amp;rsquo;algorithme de recherche de chemin dans le graphe est un A*,
+avec une heuristique basée sur les coordonnées géographiques.&lt;/p>
+&lt;p>Cependant, la géométrie des infrastructures générées sont arbitraires,
+elle ne correspond pas aux distances indiquées sur les voies.
+Il est donc possible que, sur ces infrastructures, les chemins
+obtenus ne soient pas les plus courts.&lt;/p>
+&lt;p>Il est en théorie possible d&amp;rsquo;utiliser cette heuristique pour
+déterminer si le chemin en cours d&amp;rsquo;exploration pourra mener à une
+solution dont le temps de parcours ne dépasse pas le maximum.
+Mais pour la même raison, ajouter ce critère rend STDCM
+inutilisable sur les infrastructures générées.
+Plus de détails dans
+&lt;a href="https://github.com/DGEXSolutions/osrd/issues/2818">cette issue&lt;/a>.&lt;/p></description></item><item><title>Docs: Train</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
 Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>

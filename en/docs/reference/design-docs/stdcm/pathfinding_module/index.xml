@@ -1,0 +1,266 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Train slot search module</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/</link><description>Recent content in Train slot search module on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Input format</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</guid><description>
+&lt;p>This module takes several parameters to find a path:&lt;/p>
+&lt;ul>
+&lt;li>A graph describing the physical infrastructure&lt;/li>
+&lt;li>Unavailable sections in time intervals&lt;/li>
+&lt;li>Origin and destination point(s)&lt;/li>
+&lt;li>Departure time interval&lt;/li>
+&lt;li>Maximum run time&lt;/li>
+&lt;li>Simulation parameters (rolling stock, time step, allowances, &amp;hellip;)&lt;/li>
+&lt;/ul>
+&lt;p>Among those, the first 3 require more explanations.&lt;/p>
+&lt;h4 id="infrastructure-graph">Infrastructure graph&lt;/h4>
+&lt;p>Today, the input graph is the &lt;code>SignalingRoutes&lt;/code> graph.
+But it can be any graph that represents the physical infrastructures
+and the paths that can be used.&lt;/p>
+&lt;p>The only constraints are: the edges must have a length, and it must
+be possible to compute running time on parts of an edge.&lt;/p>
+&lt;h4 id="unavailable-sections">Unavailable sections&lt;/h4>
+&lt;p>This input encodes the areas that are unavailable because of
+capacity constraints.&lt;/p>
+&lt;p>Every edge has a set of &amp;ldquo;occupancy block&amp;rdquo;. A block is made of these elements:&lt;/p>
+&lt;ul>
+&lt;li>Start offset&lt;/li>
+&lt;li>End offset&lt;/li>
+&lt;li>Start time&lt;/li>
+&lt;li>End time&lt;/li>
+&lt;/ul>
+&lt;p>Offsets are relative to the start of the edge. Each block means that
+the &lt;em>head&lt;/em> of the train cannot be located in the edge
+segment during the given interval.&lt;/p>
+&lt;p>These blocks include the grid margin. If the solution needs to have
+an &lt;code>x&lt;/code> seconds margin before the train passage, every block ends
+&lt;code>x&lt;/code> seconds later.&lt;/p>
+&lt;p>To give an example, with the following schedule, a 42m long train,
+and 10m sight distance:&lt;/p>
+&lt;p>&lt;img src="unavailable_sections.svg" alt="Unavailable section example">&lt;/p>
+&lt;ul>
+&lt;li>The occupancy of the block 1 from t=0 to t=300 makes it unavailable
+in its entirety during this time&lt;/li>
+&lt;li>The last 10 meters of block 1 are unavailable from t=300 to t=360,
+because the signal at the start of block 2 must be green when the
+conductor sees it. It is possible to consider that this unavailability block
+starts at t=130 (when the next signal isn&amp;rsquo;t green), as blocks can overlap.&lt;/li>
+&lt;li>The occupancy of block 2 from t=130 to t=360 makes it unavailable
+during this time. It is also unavailable from t=0, as the presence of a
+train in this block would cause a warning on block 1.&lt;/li>
+&lt;li>The first 42 meters of block 3 are unavailable from t=0 to t=360,
+because the tail of the train must have left the block 2 at this time.&lt;/li>
+&lt;li>The rest of block 3 is unavailable in its entirety from t=280 to t=360&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
+&lt;h4 id="general-principle">General principle&lt;/h4>
+&lt;p>The problem is still a pathfinding problem in a given graph.
+Once the problem is encoded as a graph search, it is possible to reuse
+our existing tools for this purpose.&lt;/p>
+&lt;p>We consider the &lt;em>product graph&lt;/em> of position, time, and speed.
+This means that every graph element contains these 3 variables
+(among other things)&lt;/p>
+&lt;p>Every graph edge is computed using
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/" title="running-time calculation">running-time calculation&lt;/a>
+to get speed and positions as functions of time.&lt;/p>
+&lt;h4 id="graphical-representation">Graphical representation&lt;/h4>
+&lt;p>Space is encoded with a graph that contains the physical infrastructure.&lt;/p>
+&lt;p>&lt;img src="routes_time_1.png" alt="product graph (1/3)">&lt;/p>
+&lt;p>It is then &amp;ldquo;duplicated&amp;rdquo; at different times.&lt;/p>
+&lt;p>&lt;img src="routes_time_2.png" alt="product graph (2/3)">&lt;/p>
+&lt;p>The nodes are then linked together in a way that reflects travel time.&lt;/p>
+&lt;p>&lt;img src="routes_time_3.png" alt="product graph (3/3)">&lt;/p>
+&lt;h4 id="notes">Notes&lt;/h4>
+&lt;ul>
+&lt;li>The graph is constructed on the fly as it is explored.&lt;/li>
+&lt;li>It is &lt;em>discretized&lt;/em> in time, to evaluate which nodes have already
+been visited. We keep full accuracy of time values, but two nodes
+at the same place and close times are considered identical.&lt;/li>
+&lt;li>Every edge is computed with a running time computation.&lt;/li>
+&lt;li>Speed isn&amp;rsquo;t discretized or considered to check visited nodes,
+it&amp;rsquo;s only used to compute time.&lt;/li>
+&lt;li>By default, the train always goes as fast as it can
+(while still following standard allowances).
+It only slows down when necessary.&lt;/li>
+&lt;/ul>
+&lt;h4 id="example">Example&lt;/h4>
+&lt;p>For example, with the following infrastructure, using the track graph:
+&lt;img src="example_infra.svg" alt="Example infra">&lt;/p>
+&lt;p>Exploring the solution graph can give the following result:
+&lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Discontinuities and backtracking</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>
+&lt;h4 id="the-discontinuity-problem">The discontinuity problem&lt;/h4>
+&lt;p>When a new graph edge is visited, a simulation is run to evaluate
+its speed. But it is not possible to see beyond the current edge.
+This makes it difficult to compute braking curves, because
+they can span over several edges.&lt;/p>
+&lt;p>&lt;img src="discontinuity.png" alt="Discontinuity">&lt;/p>
+&lt;blockquote>
+&lt;p>This example illustrates the problem: by default
+the first edge is explored by going at maximum speed.
+The destination is only visible once the second edge is visited,
+which doesn&amp;rsquo;t leave enough distance to stop.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="solution--backtracking">Solution : backtracking&lt;/h4>
+&lt;p>To solve this problem, when an edge is generated with a
+discontinuity in the speed envelopes, the algorithm goes back
+over the previous edges to create new ones that include the
+decelerations.&lt;/p>
+&lt;p>To give a simplified example, on a path of 4 edges
+where the train can accelerate or decelerate by 10km/h per edge:&lt;/p>
+&lt;p>&lt;img src="backtracking_1.png" alt="Discontinuity (edge version, 1/2)">&lt;/p>
+&lt;p>For the train to stop at the end of route 4, it must be at most
+at 10km/h at the end of edge 3. A new edge is then created on
+edge 3, which ends at 10km/h. A deceleration is computed
+backwards from the end of the edge back to the start,
+until the original curve is met (or the start of the edge).&lt;/p>
+&lt;p>In this example, the discontinuity has only been moved to the
+transition between edges 2 and 3. The process is then repeated
+on edge 2, which gives the following result:&lt;/p>
+&lt;p>&lt;img src="backtracking_2.png" alt="Discontinuity (edge version, 2/2)">&lt;/p>
+&lt;p>Old edges are still present in the graph as they can lead to other solutions.&lt;/p></description></item><item><title>Docs: Conflict avoidance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</guid><description>
+&lt;p>While exploring the graph, it is possible to end up in locations that would
+generate conflicts. They can be avoided by adding delay.&lt;/p>
+&lt;h4 id="shifting-the-departure-time">Shifting the departure time&lt;/h4>
+&lt;p>The departure time is defined as an interval in the module parameters:
+the train can leave at a given time, or up to &lt;code>x&lt;/code> seconds later.
+Whenever possible, delay should be added by shifting the departure time.&lt;/p>
+&lt;blockquote>
+&lt;p>for example : a train can leave between 10:00 et 11:00. Leaving
+at 10:00 would cause a conflict, the train actually needs to enter the
+destination station 15 minutes later. Making the train leave at
+10:15 solves the problem.&lt;/p>
+&lt;/blockquote>
+&lt;p>In OSRD, this feature is handled by keeping track, for every edge,
+of the maximum duration by which we can delay the departure time.
+As long as this value is enough, conflicts are avoided this way.&lt;/p>
+&lt;p>This time shift is a value stored in every edge of the path.
+Once a path is found, the value is summed over the whole path.
+This is added to the departure time.&lt;/p>
+&lt;blockquote>
+&lt;p>For example :&lt;/p>
+&lt;ul>
+&lt;li>a train leaves between 10:00 and 11:00. The initial maximum
+time shift is 1:00.&lt;/li>
+&lt;li>At some point, an edge becomes unavailable 20 minutes after the
+train passage. The value is now at 20 for any edge accessed from here.&lt;/li>
+&lt;li>The departure time is then delayed by 5 minutes to avoid a conflict.
+The maximum time shift value is now at 15 minutes.&lt;/li>
+&lt;li>This process is applied until the destination is found,
+or until no more delay can be added this way.&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="engineering-allowances">Engineering allowances&lt;/h4>
+&lt;p>Once the maximum delay is at 0, the delay needs to be added
+between two points of the path.&lt;/p>
+&lt;p>&lt;img src="engineering_allowance.png" alt="Engineering allowances (1/2)">&lt;/p>
+&lt;p>The idea is the same as the one used to fix speed discontinuities:
+new edges are created, replacing the previous ones.
+The new edges have an engineering allowance, to add the delay where
+it is possible.&lt;/p>
+&lt;p>&lt;img src="engineering_allowance_edges.png" alt="Engineering allowances (2/2)">&lt;/p>
+&lt;p>computing an
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/" title="allowances">engineering allowance&lt;/a>
+is a feature of the running-time
+calculation module. It adds a given delay between two points of
+a path, without affecting the speeds on the rest of the path.&lt;/p></description></item><item><title>Docs: Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>
+&lt;p>The STDCM module must be usable with
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/" title="marge de régularité">standard allowances&lt;/a>.
+The user can set an allowance value, expressed either as a function of
+the running time or the travelled distance. This time must be added to the
+running time, so that it arrives later compared to its fastest possible
+running time.&lt;/p>
+&lt;blockquote>
+&lt;p>For example: the user can set a margin of 5 minutes per 100km.
+On a 42km long path that would take 10 minutes at best,
+the train should arrive 12 minutes and 6 seconds after leaving.&lt;/p>
+&lt;/blockquote>
+&lt;p>This can cause problems to detect conflicts, as an allowance would move
+the end of the train slot to a later time.
+The allowance must be considered when we compute conflicts as
+the graph is explored.&lt;/p>
+&lt;p>The allowance must also follow the &lt;a href="https://osrd.fr/pdf/MARECO.pdf">MARECO&lt;/a> model:
+the extra time isn&amp;rsquo;t added evenly over the whole path,
+it is computed in a way that requires knowing the whole path.
+This is done to optimize the energy used by the train.&lt;/p>
+&lt;h4 id="linear-margin-expressed-as-a-function-of-time">Linear margin expressed as a function of time&lt;/h4>
+&lt;p>As a first step, the problem is solved with a linear margin,
+i.e. added evenly over the whole path.
+The speed is simply modified by a constant factor.&lt;/p>
+&lt;p>The &lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/" title="envelopes">envelopes&lt;/a>.
+computed during the graph traversal are not modified, they are always
+at maximum speed. But they are paired with a speed factor, which is used
+to compute running time and to evaluate conflicts.&lt;/p>
+&lt;p>The final envelope, with the allowance, is only computed once a path
+is found.&lt;/p>
+&lt;h4 id="linear-margin-expressed-as-a-function-of-distance">Linear margin expressed as a function of distance&lt;/h4>
+&lt;p>The principle is generally the same, but with an extra difficulty:
+the speed factor isn&amp;rsquo;t constant over the path.
+When a train goes faster, it travels more distance in the same time,
+which increases the allowance time and the speed factor.&lt;/p>
+&lt;p>Because the train speed changes over the path, the speed factor
+changes from one edge to another. This causes irregular speed curves.&lt;/p>
+&lt;h4 id="mareco-allowances">MARECO Allowances&lt;/h4>
+&lt;p>This is exclusively a post-processing step,
+because it isn&amp;rsquo;t possible to compute the MARECO envelope
+without knowing the full train path.
+When looking for a path, linear allowances are used.&lt;/p>
+&lt;p>This means that conflicts may appear at this step.
+To avoid them, the following procedure is applied:&lt;/p>
+&lt;ol>
+&lt;li>A mareco allowance is applied over the whole path.&lt;/li>
+&lt;li>If there are conflict, the first one is considered.&lt;/li>
+&lt;li>The mareco allowance is &lt;em>split in two intervals&lt;/em>.
+The point where the first conflict appeared is set
+to be at the same time as the envelope with a linear allowance,
+removing the conflict at this point.&lt;/li>
+&lt;li>This process is repeated iteratively until no conflict is found.&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Implementation details</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</guid><description>
+&lt;p>This page is about implementation details.
+It isn&amp;rsquo;t necessary to understand general principles,
+but it helps before reading the code.&lt;/p>
+&lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
+&lt;p>This refers to
+&lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/src/main/java/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.java">this class&lt;/a>
+in the project.&lt;/p>
+&lt;p>This class is used to make it easier to create instances of
+&lt;code>STDCMEdge&lt;/code>, the graph edges. Those contain many attributes,
+most of which can be determined from the context (e.g. the
+previous node).
+The &lt;code>STDCMEdgeBuilder&lt;/code> class makes some parameters optional
+and automatically computes others.&lt;/p>
+&lt;p>Once instantiated and parametrized, an &lt;code>STDCMEdgeBuilder&lt;/code> has two methods:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>Collection&amp;lt;STDCMEdge&amp;gt; makeAllEdges()&lt;/code> can be used to create all
+the possible edges in the given context for a given route.
+If there are several &amp;ldquo;openings&amp;rdquo; between occupancy blocks, one edge
+is instantiated for each opening. Every conflict, their avoidance,
+and their related attributes are handled here.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>STDCMEdge findEdgeSameNextOccupancy(double timeNextOccupancy)&lt;/code>:
+This method is used to get the specific edges that uses a certain
+opening (when it exists), identified here with the time of the next
+occupancy block. It is called whenever a new edge must be re-created
+to replace an old one. It calls the previous method.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="pathfinding">Pathfinding&lt;/h3>
+&lt;p>The methods mentioned here are defined in
+&lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/src/main/java/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.java">this class&lt;/a>.&lt;/p>
+&lt;h4 id="cost-function">Cost function&lt;/h4>
+&lt;p>The function used to define pathfinding cost sets which path
+is used over another. The result is always the one that minimizes
+this cost (as long as the heuristic is admissible).&lt;/p>
+&lt;p>Here, two parameters are used: total run time and departure time.
+The latter has a very small weight compared to the former,
+so that the fastest path is found. More details
+are explained in the documentation of those methods.&lt;/p>
+&lt;h4 id="heuristics">Heuristics&lt;/h4>
+&lt;p>The algorithm used to find a path is an A*, with a heuristic based
+on geographical coordinates.&lt;/p>
+&lt;p>However, the coordinates of generated infrastructures are arbitrary
+and don&amp;rsquo;t reflect the track distance. It means that,
+for the generated infrastructures, the path may not always be the
+shortest one.&lt;/p>
+&lt;p>It would be possible to use this heuristic to determine whether
+the current node can lead to a path that doesn&amp;rsquo;t take
+longer than the maximum allowed total run time. But for the same
+reason, adding this feature would break any STDCM test on generated
+infras. More details in
+&lt;a href="https://github.com/DGEXSolutions/osrd/issues/2818">this issue&lt;/a>.&lt;/p></description></item></channel></rss>
