@@ -4,7 +4,7 @@ linkTitle: "OpenStreetMap and open data talk at Fosdem 2023"
 date: 2023-02-03
 ---
 
-Hi ! My name Céline, and I am on a mission to bring more open data into OSRD. To do so, I searched open data that can fit OSRD's needs in every country of the European Union (+ Norway, United Kingdom and Switzerland).
+Hi ! My name is Céline, and I am on a mission to bring more open data into OSRD. To do so, I searched open data that can fit OSRD's needs in every country of the European Union (+ Norway, United Kingdom and Switzerland).
 
 I have presented the main results of this study during a talk at the FOSDEM 2023 meeting, and you can see the replay on [their website](https://fosdem.org/2023/schedule/track/railways_and_open_transport/).
 
