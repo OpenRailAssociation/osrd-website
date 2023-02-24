@@ -137,3 +137,30 @@ These requirements are emitted as follows:
 
 <script type="application/javascript" src="mkt.js"></script>
 <object onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="conflict-diagram.svg"></object>
+
+
+## Resource requirements generation library
+
+This library would be used to generate resource requirements.
+
+```rust
+trait RequirementGenerator: Clone {
+    fn init(route: Route, time: Time) -> Self
+
+    /// Adds a route to the path
+    /// The envelope must contain the path of the train at least until the start of the route
+    fn set_route(&mut self, envelope: Envelope, route: Route, time: Time) -> Vec<ResourceRequirement>
+
+    /// Given a planned envelope inside the last added route,
+    /// find out when the next route must be set not to disturb the train.
+    fn find_required_set_time(&self, envelope: Envelope) -> Time
+}
+```
+
+
+## Resource conflict detection library
+
+```rust
+/// WIP
+fn detect_conflicts(requirements: Map<Resource, Vec<ResourceRequirements>>) -> Vec<Conflicts>
+```
