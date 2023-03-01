@@ -27,6 +27,6 @@ Rendez-vous l’année prochaine au FOSDEM 2024 avec des exemples concrets de co
 
 [Conférence STDCM (Eloi Charpentier)](https://mirror.cyberbits.eu/fosdem/2023/AW1.126/rot_osrd.webm)
 
-![fosdem](img_fosdem1.jpeg)
-![fosdem](img_fosdem2.jpeg)
-![fosdem](img_fosdem3.jpeg)
+![fosdem](pictures/img_fosdem1.jpeg)
+![fosdem](pictures/img_fosdem2.jpeg)
+![fosdem](pictures/img_fosdem3.jpeg)
