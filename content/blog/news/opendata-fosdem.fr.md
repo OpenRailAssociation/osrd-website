@@ -1,10 +1,8 @@
 ---
-title: "OpenStreetMap and open data talk at Fosdem 2023"
-linkTitle: "OpenStreetMap and open data talk at Fosdem 2023"
+title: "Fosdem 2023 : OSRD était présent!"
+linkTitle: "Fosdem 2023 : OSRD était présent!"
 date: 2023-02-06
 ---
-# FOSDEM 2023 : OSRD était présent&nbsp;!
-
 ## Une Devroom pour la Fondation Openrail
 
 Les 4 et 5 février se tenait le FOSDEM, l’évènement européen annuel incontournable pour la communauté open source. 
