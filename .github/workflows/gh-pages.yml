@@ -58,22 +58,22 @@ jobs:
         uses: actions/cache@v3
         id: cached-poetry-dependencies
         with:
-          path: /tmp/osrd_repo/api/.venv
+          path: /tmp/osrd_repo/python/api/.venv
           key: osrd-api-venv-${{ hashFiles('/tmp/osrd_repo/api/poetry.lock') }}
 
       - name: Install dependencies
         run: |
-          cd /tmp/osrd_repo/api
+          cd /tmp/osrd_repo/python/api
           poetry install --no-interaction --no-root -E production
 
       - name: Add JSON schemas
         env:
           OSRD_DEV: "True"
         run: |
-          source /tmp/osrd_repo/api/.venv/bin/activate
+          source /tmp/osrd_repo/python/api/.venv/bin/activate
           mkdir -p public/schemas
-          python /tmp/osrd_repo/api/manage.py json_schema infra > public/schemas/infra_schema.json
-          python /tmp/osrd_repo/api/manage.py json_schema rolling_stock > public/schemas/rolling_stock_schema.json
+          python /tmp/osrd_repo/python/api/manage.py json_schema infra > public/schemas/infra_schema.json
+          python /tmp/osrd_repo/python/api/manage.py json_schema rolling_stock > public/schemas/rolling_stock_schema.json
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
