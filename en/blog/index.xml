@@ -1,98 +1,18 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – OSRD Blog</title><link>https://osrd.fr/en/blog/</link><description>Recent content in OSRD Blog on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 03 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/en/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: OpenStreetMap and open data talk at Fosdem 2023</title><link>https://osrd.fr/en/blog/2023/02/03/openstreetmap-and-open-data-talk-at-fosdem-2023/</link><pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/02/03/openstreetmap-and-open-data-talk-at-fosdem-2023/</guid><description>
-&lt;p>Hi ! My name is Céline, and I am on a mission to bring more open data into OSRD. To do so, I searched open data that can fit OSRD&amp;rsquo;s needs in every country of the European Union (+ Norway, United Kingdom and Switzerland).&lt;/p>
-&lt;p>I have presented the main results of this study during a talk at the FOSDEM 2023 meeting, and you can see the replay on &lt;a href="https://fosdem.org/2023/schedule/track/railways_and_open_transport/">their website&lt;/a>.&lt;/p>
-&lt;p>In this post I will go into details of the methodology I followed, feel free to contact me if you have any remarks or question :-)&lt;/p>
-&lt;h3 id="data-download">Data download&lt;/h3>
-&lt;p>You can download the detailed data I created &lt;a href="https://osrd.fr/files/EU-open-data.xlsx">here&lt;/a>.&lt;/p>
-&lt;p>The file is composed of three tabs:&lt;/p>
-&lt;ul>
-&lt;li>EU-sources: links to download each country&amp;rsquo;s open data &amp;amp; info on license compatibility&lt;/li>
-&lt;li>EU-data: data used to compare total track length between countries and source and to compute the &amp;ldquo;usability indicator&amp;rdquo;&lt;/li>
-&lt;li>EU-epsg: &lt;a href="https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset">EPSG&lt;/a> code used for reprojecting geographical data for each country&lt;/li>
-&lt;/ul>
-&lt;h3 id="compare-total-track-length">Compare total track length&lt;/h3>
-&lt;h4 id="calculate-track-length-from-open-data">Calculate track length from open data&lt;/h4>
-&lt;ul>
-&lt;li>
-&lt;p>Look for open data sources&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>If a source is found, look for data license&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Check license compatibility with OpenStreetMap using &lt;a href="https://wiki.openstreetmap.org/wiki/Import/ODbL_Compatibility">OSM wiki&lt;/a> and &lt;a href="https://blog.openstreetmap.org/2017/03/17/use-of-cc-by-data/">this blog post&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Download open data&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Load data into &lt;a href="https://qgis.org/en/site/">QGIS&lt;/a> and reproject it based on the EU-epsg tab&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Calculate a new field using the following formula to get the length of each track in kilometers:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;length&amp;quot; = $length / 1000
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Report total length using the &amp;ldquo;Basic Statistics for Fields&amp;rdquo; tool&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Learn more about &lt;a href="https://inspire.ec.europa.eu/file/1723/download?token=0GOYYbMF">Inspire data model&lt;/a>&lt;/p>
-&lt;h4 id="calculate-track-length-for-openstreetmap-data">Calculate track length for OpenStreetMap data&lt;/h4>
-&lt;ul>
-&lt;li>
-&lt;p>Download last OSM export from &lt;a href="https://download.geofabrik.de/europe.html">https://download.geofabrik.de/europe.html&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Load lines data into QGIS&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Select data using the &amp;ldquo;other_tags&amp;rdquo; field to select railway network:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;other_tags&amp;quot; like '%&amp;quot;railway&amp;quot;=&amp;gt;&amp;quot;rail&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;railway&amp;quot;=&amp;gt;&amp;quot;narrow_gauge&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;railway&amp;quot;=&amp;gt;&amp;quot;light_rail&amp;quot;%'
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Export selected objects and reproject the layer based on the EU-epsg tab&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Calculate a new field using the following formula to get the length of each track in kilometers:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;length&amp;quot; = $length / 1000
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Select electrified parts of the network using the &amp;ldquo;other_tages&amp;rdquo; field:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;yes&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;contact_line&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;rail&amp;quot;%'
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Report total length using the Basic Statistics for Fields tool&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Learn more about &lt;a href="https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging">OpenStreetMap data model&lt;/a>&lt;/p>
-&lt;h3 id="calculate-usability-indicator">Calculate usability indicator&lt;/h3>
-&lt;ul>
-&lt;li>List required and optional data&lt;/li>
-&lt;li>For each data, indicate its availability using QGIS (&lt;a href="https://overpass-turbo.eu/">Overpass Turbo&lt;/a> can also be helpful to check OSM data) and the following scale :
-&lt;ul>
-&lt;li>&amp;ldquo;Yes&amp;rdquo;: fully available&lt;/li>
-&lt;li>&amp;ldquo;Partial&amp;rdquo;: not available everywhere on the country, or missing parts of the data&lt;/li>
-&lt;li>&amp;ldquo;No&amp;rdquo;: not available&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Sum total required and optional data with Yes = 1; Partial = 0.5; No = 0&lt;/li>
-&lt;li>Generate indicator:
-&lt;ul>
-&lt;li>&amp;ldquo;Good&amp;rdquo; if required=2 and optional&amp;gt;2&lt;/li>
-&lt;li>&amp;ldquo;Okay&amp;rdquo; if required &amp;gt;1 and optional &amp;gt;=0&lt;/li>
-&lt;li>&amp;ldquo;Poor&amp;rdquo; if required=1 and optional &amp;gt;2&lt;/li>
-&lt;li>&amp;ldquo;Not usable&amp;rdquo; else&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="map-the-result">Map the result&lt;/h3>
-&lt;p>To show the indicator and license compatibility on a map, use the &lt;a href="https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries">Eurostat borders datasets&lt;/a> (for my presentation, I have used the 1:20 million scale and EPSG:3035) and join the table using countries names.&lt;/p></description></item><item><title>Blog: Welcome to OSRD News</title><link>https://osrd.fr/en/blog/2022/11/27/welcome-to-osrd-news/</link><pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2022/11/27/welcome-to-osrd-news/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – OSRD Blog</title><link>https://osrd.fr/en/blog/</link><description>Recent content in OSRD Blog on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 06 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/en/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Fosdem 2023 : OSRD était présent !</title><link>https://osrd.fr/en/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</link><pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</guid><description>
+&lt;p>&lt;img src="img_fosdem2.jpeg" alt="fosdem">&lt;/p>
+&lt;h2 id="une-devroom-pour-la-fondation-openrail">Une Devroom pour la Fondation Openrail&lt;/h2>
+&lt;p>Les 4 et 5 février se tenait le FOSDEM, l’évènement européen annuel incontournable pour la communauté open source.
+Tout au long de ces 2 jours à Bruxelles, les participants ont pu assister à une variété de conférences et ateliers portant sur les dernières tendances du logiciel libre et de l’open source.
+L&amp;rsquo;un des moments forts de l&amp;rsquo;événement était le lancement de la Devroom « Opening railways and open transport », portée par la toute nouvelle OpenRail Foundation. Le programme OSRD a eu la chance d’ouvrir cette nouvelle room avec ST DCM.&lt;/p>
+&lt;h2 id="-short-term-digital-capacity-management--ou-le-challenge-des-sillons-de-dernière-minute">« Short-term digital capacity management » ou le challenge des sillons de dernière minute&lt;/h2>
+&lt;p>La conférence d’Eloi Charpentier, intitulée « automated short-term train planning in OSRD » présentait les réflexions issues de nos travaux sur la simulation de sillons de dernière minute. Ou comment permettre aux entreprises de fret ferroviaire d’obtenir des autorisations de circulation de dernière minute évitant les embouteillages sur le réseau, et d’avoir ainsi l’agilité indispensable pour concurrencer le transport routier ?&lt;/p>
+&lt;h3 id="slideshttpsfosdemorg2023scheduleeventrot_osrdattachmentsslides5586exporteventsattachmentsrot_osrdslides5586automated_short_term_train_planningpdf">&lt;a href="https://fosdem.org/2023/schedule/event/rot_osrd/attachments/slides/5586/export/events/attachments/rot_osrd/slides/5586/automated_short_term_train_planning.pdf">Slides&lt;/a>&lt;/h3>
+&lt;h3 id="vidéohttpsmirrorcyberbitseufosdem2023aw1126rot_osrdwebm">&lt;a href="https://mirror.cyberbits.eu/fosdem/2023/AW1.126/rot_osrd.webm">Vidéo&lt;/a>&lt;/h3>
+&lt;p>&lt;img src="img_fosdem3.jpeg" alt="fosdem">&lt;/p>
+&lt;h2 id="opendata-et-cartographie-du-réseau-ferroviaire">Opendata et cartographie du réseau ferroviaire&lt;/h2>
+&lt;p>La présentation de Céline Durupt, “OpenStreetMap, one geographic database to rule them all?” abordait le sujet de l’opendata en matière de réseau ferroviaire. Sur la base d’une analyse européenne, Céline a présenté un plan d’actions pour partager la donnée ferroviaire via OSM et la rendre utilisable par OSRD.&lt;/p>
+&lt;h3 id="slideshttpsmirrorcyberbitseufosdem2023aw1126rot_osmwebm">&lt;a href="https://mirror.cyberbits.eu/fosdem/2023/AW1.126/rot_osm.webm">Slides&lt;/a>&lt;/h3>
+&lt;h3 id="vidéohttpsftpfaudefosdem2023aw1126rot_osmwebm">&lt;a href="https://ftp.fau.de/fosdem/2023/AW1.126/rot_osm.webm">Vidéo&lt;/a>&lt;/h3>
+&lt;p>&lt;img src="img_fosdem1.jpeg" alt="fosdem">&lt;/p>
+&lt;p>Rendez-vous l’année prochaine au FOSDEM 2024 avec des exemples concrets de collaboration et de nouveaux développements d’open source ferroviaire.&lt;/p></description></item><item><title>Blog: Welcome to OSRD News</title><link>https://osrd.fr/en/blog/2022/11/27/welcome-to-osrd-news/</link><pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2022/11/27/welcome-to-osrd-news/</guid><description>
 &lt;p>There aren&amp;rsquo;t any news updates yet, wait for it!&lt;/p></description></item></channel></rss>
