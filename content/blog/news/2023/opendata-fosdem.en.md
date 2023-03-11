@@ -12,6 +12,11 @@ In this post I will go into details of the methodology I followed, feel free to 
 
 ### Data download
 You can download the detailed data I created [here](/files/EU-open-data.xlsx).
+**Update 11/03/23 :** get the updated file [here](/files/EU-open-data-updated.xlsx).
+- Added open data sources links for : Estonia, Czechia, Poland, Slovakia
+- Added license detail pour : Sweden
+- Added information on real-time position of trains for : Finland
+*Special thanks to Christoph Breit & everyone that contributed by sending me links & info*
 
 The file is composed of three tabs:
 - EU-sources: links to download each country's open data & info on license compatibility
