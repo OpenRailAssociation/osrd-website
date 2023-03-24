@@ -1,7 +1,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute to OSRD</title><link>https://osrd.fr/en/docs/guides/contribute/</link><description>Recent content in Contribute to OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
-&lt;p>Our bug tracking platform is github, so have to register to report bugs.&lt;/p>
-&lt;p>Follow &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p></description></item><item><title>Docs: Contribute code</title><link>https://osrd.fr/en/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code/</guid><description>
+&lt;p>Our bug tracking platform is &lt;a href="https://github.com/DGEXSolutions/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
+&lt;p>Follow &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
+&lt;h3 id="bugs">Bugs&lt;/h3>
+&lt;ul>
+&lt;li>Bug must have a correct description and the bug&amp;rsquo;s issue template must be filled carefully.&lt;/li>
+&lt;li>Bug must be tagged with (&lt;em>for team members&lt;/em>):
+&lt;ul>
+&lt;li>&lt;code>kind:bug&lt;/code>&lt;/li>
+&lt;li>one or several &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> if possible, if the affected area is not known leave it blank it will be added later by another team member.&lt;/li>
+&lt;li>one &lt;code>severity:&amp;lt;bug_severity&amp;gt;&lt;/code> if possible, if severity is not known leave it blank it will be added later by another team member.
+&lt;ul>
+&lt;li>&lt;code>severity:minor&lt;/code>: User can still use the feature.&lt;/li>
+&lt;li>&lt;code>severity:major&lt;/code>: User sometimes can&amp;rsquo;t use the feature.&lt;/li>
+&lt;li>&lt;code>severity:critical&lt;/code>: User can&amp;rsquo;t use the feature.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>OSRD team members can change issues&amp;rsquo; tags (severity, area, kind, &amp;hellip;).
+You may leave a comment to explain changes.&lt;/li>
+&lt;li>If you are working on a bug or plan to work on a bug, assign yourself to the bug.&lt;/li>
+&lt;li>PRs solving bugs should add a regression tests to ensure that bug will not be back in the future.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Contribute code</title><link>https://osrd.fr/en/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code/</guid><description>
 &lt;h2 id="set-things-up">Set things up&lt;/h2>
 &lt;div class="alert alert-info" role="alert">
 Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
@@ -14,10 +35,10 @@ Most OSRD developers use Linux. Windows and MacOS should work too, but you may r
 &lt;/ul>
 &lt;h3 id="launch-the-application-with-docker-compose">Launch the application with docker-compose&lt;/h3>
 &lt;p>For a long time, making changes to a component of a multi-service application involved compiling, configuring and running all services manually.&lt;/p>
-&lt;p>Nowadays, it can be done using &lt;code>docker-compose&lt;/code>. You can even start only a subset of the services.&lt;/p>
+&lt;p>Nowadays, it can be done using &lt;code>docker compose&lt;/code>. You can even start only a subset of the services.&lt;/p>
 &lt;ul>
-&lt;li>Install &lt;code>docker&lt;/code> and &lt;code>docker-compose&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Run &lt;code>docker-compose up --build&lt;/code>&lt;/li>
+&lt;li>Install &lt;code>docker&lt;/code> and &lt;code>docker compose&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Run &lt;code>docker compose up --build&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="share-your-changes">Share your changes&lt;/h2>
 &lt;div class="alert alert-warning" role="alert">
@@ -37,11 +58,25 @@ If you intend to contribute regularly, you can request access to the &lt;a href=
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Add changes to your branch&lt;/strong>&lt;br>
-Before you start working, try to split your work into macroscopic steps. At the end of each stop, save your changes into a commit. Try to follow &lt;a href="../conventions/">style conventions&lt;/a>.&lt;/p>
+Before you start working, try to split your work into macroscopic steps.
+At the end of each stop, save your changes into a commit.
+Try to make commits of logical and atomic units.
+Try to follow &lt;a href="../conventions/">style conventions&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
+&lt;p>&lt;strong>Keep your branch up-to-date&lt;/strong>&lt;/p>
+&lt;pre tabindex="0">&lt;code>git switch &amp;lt;your_branch&amp;gt;
+git fetch
+git rebase origin/dev
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
 &lt;p>&lt;strong>Open a pull request&lt;/strong>&lt;br>
-Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch. It can be done through &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">the web interface&lt;/a>.&lt;/p>
+Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch.
+If possible, make PR of logical and atomic units too (avoid mixing refactoring, new features and bug fix at the same time).
+Add a description to PRs to explain what they do and why.
+Help the reviewer by following advice given in &lt;a href="https://mtlynch.io/code-review-love/">mtlynch article&lt;/a>.
+Add tags &lt;code>Area:&amp;lt;affected_area&amp;gt;&lt;/code> to show which part of the application have been impacted.
+It can be done through &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">the web interface&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Take feedback into account&lt;/strong>&lt;br>
@@ -49,10 +84,12 @@ Once your pull request is open, &lt;a href="https://docs.github.com/en/pull-requ
 &lt;ul>
 &lt;li>Any user can review your changes&lt;/li>
 &lt;li>Your code has to be approved by a contributor &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/.github/CODEOWNERS">familiar with the code&lt;/a>&lt;/li>
-&lt;li>All users are expected to take critical comments into account&lt;/li>
-&lt;li>Comments tend to be written in an open and direct manner. The intent is to efficiently collaborate towards a solution we all agree on.&lt;/li>
+&lt;li>All users are expected to take comments into account.&lt;/li>
+&lt;li>Comments tend to be written in an open and direct manner.
+The intent is to efficiently collaborate towards a solution we all agree on.&lt;/li>
 &lt;li>Once all discussions are resolved, a maintainer integrates the change.&lt;/li>
 &lt;/ul>
+&lt;p>As a reviewer try to follow advice given in &lt;a href="https://mtlynch.io/human-code-reviews-1/">mtlynch article&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.&lt;/strong>&lt;/p>
@@ -79,7 +116,77 @@ if it is not entirely obvious from the title.
 &lt;p>Under Windows, open &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Review code</title><link>https://osrd.fr/en/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-reviews/</guid><description>
+&lt;/div></description></item><item><title>Docs: Style guide</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/conventions/</guid><description>
+&lt;p>OSRD application is split in multiple services written in several languages. We try to follow general code best practices and follow specificity for each languages when required.&lt;/p>
+&lt;h2 id="general-rules">General rules&lt;/h2>
+&lt;ul>
+&lt;li>Explain what you&amp;rsquo;re doing and why.&lt;/li>
+&lt;li>Document new code with doc comments.&lt;/li>
+&lt;li>Include clear, simple tests.&lt;/li>
+&lt;li>Break work into digestible chunks.&lt;/li>
+&lt;li>Take the time to pick good names.
+Avoid non well-known abbreviations.&lt;/li>
+&lt;li>&lt;strong>Control and consistency over 3rd party code reuse&lt;/strong>: Only add a dependency if it is absolutely necessary.
+Every dependency we add decreases our autonomy and consistency.&lt;/li>
+&lt;li>&lt;strong>Don&amp;rsquo;t re-invent every wheel&lt;/strong>: As a counter to the previous point, don&amp;rsquo;t re-invent everything at all costs.
+If there is a dependency in the ecosystem that is the &amp;ldquo;de-facto&amp;rdquo; standard, we should heavily consider using it.&lt;/li>
+&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/DGEXSolutions/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>Ask for any help that you need!&lt;/li>
+&lt;/ul>
+&lt;h3 id="python">Python&lt;/h3>
+&lt;p>Python code is used for some packages and integration testing.&lt;/p>
+&lt;ul>
+&lt;li>Follow &lt;a href="https://www.python.org/dev/peps/pep-0020/">the Zen of Python&lt;/a>.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
+&lt;li>Imports are sorted with &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Python tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="python-1">Python&lt;/h3>
+&lt;ul>
+&lt;li>Use the &lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">documentation example&lt;/a> to know how to phrase and format your documentation.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
+&lt;li>Rust code is tested files per files following these &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">recommendations&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="rust">Rust&lt;/h3>
+&lt;ul>
+&lt;li>As a reference for our API development we are using the &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
+Generally, these should be followed.&lt;/li>
+&lt;li>Prefer granular imports over glob imports like &lt;code>diesel::*&lt;/code>.&lt;/li>
+&lt;li>Tests are written with the &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">built-in testing framework&lt;/a>.&lt;/li>
+&lt;li>Use the &lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">documentation example&lt;/a> to know how to phrase and format your documentation.&lt;/li>
+&lt;li>Use consistent comment style:
+&lt;ul>
+&lt;li>&lt;code>///&lt;/code> doc comments belong above &lt;code>#[derive(Trait)]&lt;/code> invocations.&lt;/li>
+&lt;li>&lt;code>//&lt;/code> comments should generally go above the line in question, rather than in-line.&lt;/li>
+&lt;li>Start comments with capital letters. End them with a period if they are sentence-like.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Use comments to organize long and complex stretches of code that can&amp;rsquo;t sensibly be refactored into separate functions.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="java">Java&lt;/h3>
+&lt;ul>
+&lt;li>Code is formatted with &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="javascript--typescript--front">Javascript / Typescript / Front&lt;/h3>
+&lt;ul>
+&lt;li>When adding new files, write them in TypeScript as there is a goal to move to TypeScript.&lt;/li>
+&lt;li>Use generated endpoints from the &lt;code>openapi.yaml&lt;/code> files to consume the backend.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://eslint.org/">eslint&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/li>
+&lt;li>End-to-end tests are required for stable and critical features.
+&lt;a href="https://playwright.dev/">Playwright&lt;/a> is used to write these tests.&lt;/li>
+&lt;li>To write unit test use &lt;a href="https://vitest.dev/">vitest&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="integration-tests">Integration tests&lt;/h3>
+&lt;ul>
+&lt;li>Integration tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a> under the &lt;code>/tests&lt;/code> folder.&lt;/li>
+&lt;li>Each route described in the &lt;code>openapi.yaml&lt;/code> files must have an integration test.&lt;/li>
+&lt;li>Test must check both the valid and invalid response format and content.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Review code</title><link>https://osrd.fr/en/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/en/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure></description></item></channel></rss>
