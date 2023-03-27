@@ -32,13 +32,6 @@ Python code is used for some packages and integration testing.
 - Imports are sorted with [Isort](https://github.com/PyCQA/isort).
 - Python tests are written using [pytest](https://docs.pytest.org/).
 
-### Python
-
-- Use the [documentation example](https://doc.rust-lang.org/rust-by-example/meta/doc.html) to know how to phrase and format your documentation.
-- Code is linted with [clippy](https://github.com/rust-lang/rust-clippy).
-- Code is formatted with [fmt](https://github.com/rust-lang/rustfmt).
-- Rust code is tested files per files following these [recommendations](https://doc.rust-lang.org/book/ch11-01-writing-tests.html).
-
 ### Rust
 
 - As a reference for our API development we are using the [Rust API guidelines](https://rust-lang.github.io/api-guidelines/about.html).
