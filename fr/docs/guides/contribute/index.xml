@@ -1,7 +1,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
-&lt;p>Notre outil de suivi des bugs est github. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
-&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p></description></item><item><title>Docs: Contribuer du code</title><link>https://osrd.fr/fr/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code/</guid><description>
+&lt;p>Notre outil de suivi des bugs est &lt;a href="https://github.com/DGEXSolutions/osrd/issues">github&lt;/a>. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
+&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p>
+&lt;h3 id="bugs">Bugs&lt;/h3>
+&lt;ul>
+&lt;li>Le bug doit avoir une description correcte et le modèle du bug doit être rempli avec soin.&lt;/li>
+&lt;li>Le bug doit être étiqueté avec (&lt;em>pour les membres de l&amp;rsquo;équipe&lt;/em>) :
+&lt;ul>
+&lt;li>&lt;code>kind:bug&lt;/code>&lt;/li>
+&lt;li>une ou plusieurs &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> si possible (si la zone affectée n&amp;rsquo;est pas connue, laissez-la vide et elle sera ajoutée plus tard par un autre membre de l&amp;rsquo;équipe).&lt;/li>
+&lt;li>un &lt;code>severity:&amp;lt;bug_severity&amp;gt;&lt;/code> si possible (si la sévérité n&amp;rsquo;est pas connue, laissez-la vide et elle sera ajoutée plus tard par un autre membre de l&amp;rsquo;équipe).
+&lt;ul>
+&lt;li>&lt;code>severity:minor&lt;/code> : L&amp;rsquo;utilisateur peut encore utiliser la fonctionnalité.&lt;/li>
+&lt;li>&lt;code>severity:major&lt;/code> : L&amp;rsquo;utilisateur ne peut parfois pas utiliser la fonctionnalité.&lt;/li>
+&lt;li>&lt;code>severity:critical&lt;/code> : L&amp;rsquo;utilisateur ne peut pas utiliser la fonctionnalité.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Les membres de l&amp;rsquo;équipe OSRD peuvent modifier les étiquettes des problèmes (gravité, domaine, type, &amp;hellip;).
+Vous pouvez laisser un commentaire pour expliquer les changements.&lt;/li>
+&lt;li>Si vous travaillez sur un bug ou planifiez de travailler sur un bug, assignez vous au bug.&lt;/li>
+&lt;li>Les PRs qui résolvent des bugs doivent ajouter des tests de régression pour s&amp;rsquo;assurer que le bug ne reviendra pas dans le futur.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Contribuer du code</title><link>https://osrd.fr/fr/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 &lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
 En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
@@ -18,12 +39,12 @@ La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows 
 &lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
 &lt;li>&lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h3 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker-compose&lt;/h3>
+&lt;h3 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker compose&lt;/h3>
 &lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
-&lt;p>L&amp;rsquo;outil &lt;code>docker-compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
+&lt;p>L&amp;rsquo;outil &lt;code>docker compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
 &lt;ul>
-&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker-compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Lancer &lt;code>docker-compose up --build&lt;/code>&lt;/li>
+&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Lancer &lt;code>docker compose up --build&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="partager-vos-changements">Partager vos changements&lt;/h2>
 &lt;p>Ce chapitre décrit le processus aboutissant à l&amp;rsquo;intégration de code au sein du projet. &lt;strong>Si vous avez besoin d&amp;rsquo;aide, ouvrez une issue ou envoyez un message instantané.&lt;/strong>&lt;/p>
@@ -40,19 +61,31 @@ Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a
 Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre &lt;a href="../conventions/">les conventions du projet&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
+&lt;p>&lt;strong>Conservez votre branche à jour&lt;/strong>&lt;/p>
+&lt;pre tabindex="0">&lt;code>git switch &amp;lt;your_branch&amp;gt;
+git fetch
+git rebase origin/dev
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
 &lt;p>&lt;strong>Ouvrez une pull request&lt;/strong>&lt;br>
-Une fois que vos changements sont prêts, il est temps de proposer de les intégrer à la branche &lt;code>dev&lt;/code>. Cela se fait &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">dans l&amp;rsquo;interface web de Github&lt;/a>.&lt;/p>
+Une fois que vos changements sont prêts, il est temps de proposer de les intégrer à la branche &lt;code>dev&lt;/code>. Cela se fait &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">dans l&amp;rsquo;interface web de Github&lt;/a>.
+Si possible, faites des PRs d&amp;rsquo;unités logiques et atomiques également (évitez de mélanger le refactoring, les nouvelles fonctionnalités et la correction de bugs en même temps).
+Ajoutez une description aux PR pour expliquer ce qu&amp;rsquo;elles font et pourquoi.
+Aidez le relecteur en suivant les conseils donnés dans &lt;a href="https://mtlynch.io/code-review-love/">l&amp;rsquo;article de mtlynch&lt;/a>.
+Ajouter les balises &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> pour montrer quelle partie de l&amp;rsquo;application a été impactée.
+Cela peut être fait via &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">l&amp;rsquo;interface web&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Prennez en compte les retours&lt;/strong>&lt;br>
 Une fois que votre pull request est ouverte, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">d&amp;rsquo;autres contributeurs doivent donner leur avis sur votre proposition&lt;/a>:&lt;/p>
 &lt;ul>
 &lt;li>N&amp;rsquo;importe qui peut donner son avis&lt;/li>
-&lt;li>Il est nécessaire d&amp;rsquo;obtenir l&amp;rsquo;approbation de &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/.github/CODEOWNERS">quelqu&amp;rsquo;un familier avec le code&lt;/a> pour pouvoir intégrer le changement&lt;/li>
+&lt;li>Il est nécessaire d&amp;rsquo;obtenir l&amp;rsquo;approbation d&amp;rsquo;un &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/.github/CODEOWNERS">code owner&lt;/a> pour pouvoir intégrer le changement.&lt;/li>
 &lt;li>Il est d&amp;rsquo;usage de prendre en compte tous les commentaires critiques&lt;/li>
 &lt;li>Les commentaires sont souvent écrits dans un style plutôt direct, dans le soucis de collaborer efficacement vers une solution acceptable par tous.&lt;/li>
 &lt;li>Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.&lt;/li>
 &lt;/ul>
+&lt;p>En tant que reviewer tentez de suivre les recommandations de &lt;a href="https://mtlynch.io/human-code-reviews-1/">mtlynch&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin.&lt;/strong>&lt;/p>
@@ -79,7 +112,71 @@ si le titre n&amp;#39;est pas complètement évident.
 &lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Passer du code en revue</title><link>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</guid><description>
+&lt;/div></description></item><item><title>Docs: Conventions</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/</guid><description>
+&lt;p>L&amp;rsquo;application OSRD est divisée en plusieurs services écrits dans plusieurs langues. Nous essayons de suivre les bonnes pratiques générales en matière de code et de respecter les spécificités de chaque langue lorsque cela est nécessaire.&lt;/p>
+&lt;h2 id="règles-générales">Règles générales&lt;/h2>
+&lt;ul>
+&lt;li>Expliquez ce que vous faites et pourquoi.&lt;/li>
+&lt;li>Documentez le nouveau code.&lt;/li>
+&lt;li>Ajoutez des tests clairs et simples.&lt;/li>
+&lt;li>Décomposez le travail en morceaux intelligibles.&lt;/li>
+&lt;li>Prenez le temps de choisir de bons noms.
+Évitez les abréviations peu connues.&lt;/li>
+&lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : Ajoutez une dépendance que si elle est absolument nécessaire.
+Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
+&lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : En opposition au point précédent, ne réinventez pas tout à tout prix.
+S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard &amp;ldquo;de-facto&amp;rdquo;, nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
+&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/DGEXSolutions/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>Demandez toute l&amp;rsquo;aide dont vous avez besoin !&lt;/li>
+&lt;/ul>
+&lt;h3 id="python">Python&lt;/h3>
+&lt;p>Le code Python est utilisé pour certains paquets et pour les tests d&amp;rsquo;intégration.&lt;/p>
+&lt;ul>
+&lt;li>Suivez le &lt;a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python&lt;/a>.&lt;/li>
+&lt;li>Le code est linté avec &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
+&lt;li>Les imports sont triées avec &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Les tests sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="rust">Rust&lt;/h3>
+&lt;ul>
+&lt;li>Comme référence pour le développement de notre API, nous utilisons les &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
+D&amp;rsquo;une manière générale, il convient de les respecter.&lt;/li>
+&lt;li>Préférer les importations granulaires aux importations globales comme &lt;code>diesel::*&lt;/code>.&lt;/li>
+&lt;li>Les tests sont écrits avec le &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">framework de base&lt;/a>.&lt;/li>
+&lt;li>Utilisez l&amp;rsquo;&lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">exemple de documentation&lt;/a> pour savoir comment formuler et formater votre documentation.&lt;/li>
+&lt;li>Utilisez un style de commentaire cohérent :
+&lt;ul>
+&lt;li>&lt;code>///&lt;/code> les commentaires de la documentation sont au-dessus des invocations &lt;code>#[derive(Trait)]&lt;/code>.&lt;/li>
+&lt;li>Les commentaires &lt;code>//&lt;/code> doivent généralement être placés au-dessus de la ligne en question, plutôt qu&amp;rsquo;en ligne.&lt;/li>
+&lt;li>Les commentaires commencent par des lettres majuscules.
+Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Utilisez les commentaires pour organiser des portions de code longues et complexes qui ne peuvent être raisonnablement remaniées en fonctions distinctes.&lt;/li>
+&lt;li>Le code est linté avec &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="java">Java&lt;/h3>
+&lt;ul>
+&lt;li>Le code est formaté avec &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="javascript--typescript--front">Javascript / Typescript / Front&lt;/h3>
+&lt;ul>
+&lt;li>Lorsque vous ajoutez de nouveaux fichiers, écrivez-les en TypeScript car l&amp;rsquo;objectif est de passer l&amp;rsquo;ensemble du code à TypeScript.&lt;/li>
+&lt;li>Utiliser les endpoints générés à partir des fichiers &lt;code>openapi.yaml&lt;/code> pour consommer le backend.&lt;/li>
+&lt;li>Le code a été linté avec [eslint] (&lt;a href="https://eslint.org/)">https://eslint.org/)&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/li>
+&lt;li>Des tests de bout en bout sont nécessaires pour les fonctionnalités stables et critiques.
+&lt;a href="https://playwright.dev/">Playwright&lt;/a> est utilisé pour écrire ces tests.&lt;/li>
+&lt;li>Pour écrire des tests unitaires, utilisez &lt;a href="https://vitest.dev/">vitest&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="tests-dintégration">Tests d&amp;rsquo;intégration&lt;/h3>
+&lt;ul>
+&lt;li>Les tests d&amp;rsquo;intégration sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a> dans le dossier &lt;code>/tests&lt;/code>.&lt;/li>
+&lt;li>Chaque route décrite dans les fichiers &lt;code>openapi.yaml&lt;/code> doit avoir un test d&amp;rsquo;intégration.&lt;/li>
+&lt;li>Le test doit vérifier à la fois le format et le contenu des réponses valides et invalides.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Passer du code en revue</title><link>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure></description></item></channel></rss>
