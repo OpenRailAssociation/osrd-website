@@ -3,7 +3,14 @@
 &lt;p>I have presented the main results of this study during a talk at the FOSDEM 2023 meeting, and you can see the replay on &lt;a href="https://fosdem.org/2023/schedule/track/railways_and_open_transport/">their website&lt;/a>.&lt;/p>
 &lt;p>In this post I will go into details of the methodology I followed, feel free to contact me if you have any remarks or question :-)&lt;/p>
 &lt;h3 id="data-download">Data download&lt;/h3>
-&lt;p>You can download the detailed data I created &lt;a href="https://osrd.fr/files/EU-open-data.xlsx">here&lt;/a>.&lt;/p>
+&lt;p>You can download the detailed data I created &lt;a href="https://osrd.fr/files/EU-open-data.xlsx">here&lt;/a>.
+&lt;strong>Update 11/03/23 :&lt;/strong> get the updated file &lt;a href="https://osrd.fr/files/EU-open-data-updated.xlsx">here&lt;/a>.&lt;/p>
+&lt;ul>
+&lt;li>Added open data sources links for : Estonia, Czechia, Poland, Slovakia&lt;/li>
+&lt;li>Added license detail pour : Sweden&lt;/li>
+&lt;li>Added information on real-time position of trains for : Finland
+&lt;em>Special thanks to Christoph Breit &amp;amp; everyone that contributed by sending me links &amp;amp; info&lt;/em>&lt;/li>
+&lt;/ul>
 &lt;p>The file is composed of three tabs:&lt;/p>
 &lt;ul>
 &lt;li>EU-sources: links to download each country&amp;rsquo;s open data &amp;amp; info on license compatibility&lt;/li>
