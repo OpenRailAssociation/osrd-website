@@ -1106,13 +1106,13 @@ Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
 &lt;li>Chaque route décrite dans les fichiers &lt;code>openapi.yaml&lt;/code> doit avoir un test d&amp;rsquo;intégration.&lt;/li>
 &lt;li>Le test doit vérifier à la fois le format et le contenu des réponses valides et invalides.&lt;/li>
 &lt;/ul></description></item><item><title>About: Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>
-&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la plannification horaire à l&amp;rsquo;échelle Européenne&lt;/strong>.&lt;/p>
+&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la planification horaire à l&amp;rsquo;échelle Européenne&lt;/strong>.&lt;/p>
 &lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les companies ferroviaires et gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
-&lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
+&lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
 &lt;ul>
-&lt;li>profitent des efforts de développement commun&lt;/li>
-&lt;li>peuvent se baser sur les outils commun pour créer les leurs&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution&lt;/li>
+&lt;li>Profitent des efforts de développement commun ;&lt;/li>
+&lt;li>Peuvent se baser sur les outils communs pour créer les leurs&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> ;&lt;/li>
+&lt;li>Participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution.&lt;/li>
 &lt;/ul>
 &lt;h2 id="la-fondation-open-rail">La fondation Open Rail&lt;/h2>
 &lt;p>La &lt;a href="https://openrailfoundation.gitlab.io/">fondation Open Rail&lt;/a> est une association à but non lucratif ayant pour objectif d&amp;rsquo;organiser le travail autour d&amp;rsquo;outils logiciels communs au monde du ferroviaire.&lt;/p>
