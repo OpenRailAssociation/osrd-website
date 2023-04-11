@@ -5,14 +5,14 @@ description: Organisation et gouvernance d'OSRD
 weight: 40
 ---
 
-Une des ambitions d'OSRD est d'**aider à la plannification horaire à l'échelle Européenne**.
+Une des ambitions d'OSRD est d'**aider à la planification horaire à l'échelle Européenne**.
 
 Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les companies ferroviaires et gestionnaires d'infrastructure.
 
-En échange de leur contribution, ces entreprises :
- - profitent des efforts de développement commun
- - peuvent se baser sur les outils commun pour créer les leurs[^license]
- - participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution
+En échange de leur contribution, ces entreprises&nbsp;:
+ - Profitent des efforts de développement commun&nbsp;;
+ - Peuvent se baser sur les outils communs pour créer les leurs[^license]&nbsp;;
+ - Participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution.
 
 [^license]: Tant qu'elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license LGPLv3
 
