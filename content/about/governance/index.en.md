@@ -16,9 +16,14 @@ And for their trouble contributing to OSRD, these companies:
 
 [^license]: As long as they don't modify the common tools without sharing their improvements. See the details of the LGPLv3 license.
 
+OSRD is currently developped by:
+
+- a team of full-time developpers at SNCF Réseau, financed by the European Union
+- individual contributors
+
 ## The Open Rail Foundation
 
-The [Open Rail Foundation](https://openrailfoundation.gitlab.io/) is a non-profit commited to organizing cooperative work around railway software tools.
+The [Open Rail Foundation](https://openrailfoundation.gitlab.io/) is an upcoming non-profit commited to organizing cooperative work around railway software tools.
 
 <a href="https://openrailfoundation.gitlab.io/"><img class="marginauto" src="openrail_foundation_vector.png" alt="OpenRail Foundation"></a>
 
