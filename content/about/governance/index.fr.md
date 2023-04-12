@@ -16,9 +16,13 @@ En échange de leur contribution, ces entreprises&nbsp;:
 
 [^license]: Tant qu'elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license LGPLv3
 
+OSRD est actuellement développé par:
+ - une équipe de développeurs à plein temps au sein de SNCF Réseau, grâce à un financement de l'Union Européenne
+ - des contributeurs individuels
+
 ## La fondation Open Rail
 
-La [fondation Open Rail](https://openrailfoundation.gitlab.io/) est une association à but non lucratif ayant pour objectif d'organiser le travail autour d'outils logiciels communs au monde du ferroviaire.
+La [fondation Open Rail](https://openrailfoundation.gitlab.io/) est une association à but non lucratif en cours de création, avec pour objectif d'organiser le travail autour d'outils logiciels communs au monde du ferroviaire.
 
 <a href="https://openrailfoundation.gitlab.io/"><img class="marginauto" src="openrail_foundation_vector.png" alt="Fondation OpenRail"></a>
 
