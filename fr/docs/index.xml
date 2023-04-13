@@ -1114,8 +1114,13 @@ Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
 &lt;li>Peuvent se baser sur les outils communs pour créer les leurs&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> ;&lt;/li>
 &lt;li>Participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution.&lt;/li>
 &lt;/ul>
+&lt;p>OSRD est actuellement développé par:&lt;/p>
+&lt;ul>
+&lt;li>une équipe de développeurs à plein temps au sein de SNCF Réseau, grâce à un financement de l&amp;rsquo;Union Européenne&lt;/li>
+&lt;li>des contributeurs individuels&lt;/li>
+&lt;/ul>
 &lt;h2 id="la-fondation-open-rail">La fondation Open Rail&lt;/h2>
-&lt;p>La &lt;a href="https://openrailfoundation.gitlab.io/">fondation Open Rail&lt;/a> est une association à but non lucratif ayant pour objectif d&amp;rsquo;organiser le travail autour d&amp;rsquo;outils logiciels communs au monde du ferroviaire.&lt;/p>
+&lt;p>La &lt;a href="https://openrailfoundation.gitlab.io/">fondation Open Rail&lt;/a> est une association à but non lucratif en cours de création, avec pour objectif d&amp;rsquo;organiser le travail autour d&amp;rsquo;outils logiciels communs au monde du ferroviaire.&lt;/p>
 &lt;p>&lt;a href="https://openrailfoundation.gitlab.io/">&lt;img class="marginauto" src="openrail_foundation_vector.png" alt="Fondation OpenRail">&lt;/a>&lt;/p>
 &lt;style>
 .marginauto {

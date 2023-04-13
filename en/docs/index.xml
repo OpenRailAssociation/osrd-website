@@ -845,8 +845,13 @@ if it is not entirely obvious from the title.
 &lt;li>can freely build on the common effort to achieve their own goals&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>participate in the roadmap and technical direction of the project to the extent of their contribution&lt;/li>
 &lt;/ul>
+&lt;p>OSRD is currently developped by:&lt;/p>
+&lt;ul>
+&lt;li>a team of full-time developpers at SNCF Réseau, financed by the European Union&lt;/li>
+&lt;li>individual contributors&lt;/li>
+&lt;/ul>
 &lt;h2 id="the-open-rail-foundation">The Open Rail Foundation&lt;/h2>
-&lt;p>The &lt;a href="https://openrailfoundation.gitlab.io/">Open Rail Foundation&lt;/a> is a non-profit commited to organizing cooperative work around railway software tools.&lt;/p>
+&lt;p>The &lt;a href="https://openrailfoundation.gitlab.io/">Open Rail Foundation&lt;/a> is an upcoming non-profit commited to organizing cooperative work around railway software tools.&lt;/p>
 &lt;p>&lt;a href="https://openrailfoundation.gitlab.io/">&lt;img class="marginauto" src="openrail_foundation_vector.png" alt="OpenRail Foundation">&lt;/a>&lt;/p>
 &lt;style>
 .marginauto {
