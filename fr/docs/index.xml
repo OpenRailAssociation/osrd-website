@@ -400,7 +400,7 @@ le graphe des voies :
 type de résultat :
 &lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Architecture</title><link>https://osrd.fr/fr/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/</guid><description>
 &lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
-&lt;p>&lt;img src="../architecture.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Docs: Données d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/data-model/</guid><description>
+&lt;p>&lt;img src="../architecture.fr.svg" alt="Architecture du projet">&lt;/p></description></item><item><title>Docs: Données d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/data-model/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="introduction">Introduction&lt;/h3>
 &lt;/font>
