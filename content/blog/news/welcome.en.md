@@ -5,3 +5,5 @@ date: 2022-11-27
 ---
 
 There aren't any news updates yet, wait for it!
+
+Here's a new article !
