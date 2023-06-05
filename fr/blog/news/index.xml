@@ -1,4 +1,16 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – News</title><link>https://osrd.fr/fr/blog/news/</link><description>Recent content in News on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 06 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/fr/blog/news/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Fosdem 2023 : OSRD était présent !</title><link>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</link><pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – News</title><link>https://osrd.fr/fr/blog/news/</link><description>Recent content in News on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/fr/blog/news/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: I&amp;A et PIP 4 - février 2023</title><link>https://osrd.fr/fr/blog/2023/02/13/ia-et-pip-4-f%C3%A9vrier-2023/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/02/13/ia-et-pip-4-f%C3%A9vrier-2023/</guid><description>
+&lt;h2 id="ia-février-2023--ce-quon-retiendra-">I&amp;amp;A février 2023 : ce qu’on retiendra !&lt;/h2>
+&lt;p>L‘Inspect &amp;amp; Adapt est une cérémonie issue du framework d’agilité à l&amp;rsquo;échelle SAFe (Scaled Agile Framework), au cours de laquelle nous inspectons notre travail réalisé sur les 11 dernières semaines pour nous adapter en conséquence.
+Nous nous sommes donc réunis ce lundi 13 février pour clore le 4ème Increment de notre programme (PI 4).&lt;/p>
+&lt;p>Après avoir assisté à la demo de toutes les fonctionnalités développées par nos 3 équipes (PI system demo), nos parties prenantes ont pu évaluer l’atteinte de nos objectifs. Résultat : environ 80% de réussite.&lt;/p>
+&lt;h2 id="lancement-de-notre-5ème-pip-">Lancement de notre 5ème PIP !&lt;/h2>
+&lt;p>Le Product Increment Planning (PIP) est une cérémonie au cours de laquelle les équipes se répartissent le backlog des nouvelles fonctionnalités et planifient leur travail sur les 11 prochaines semaines.
+Avant d’entamer le travail de planification en sous-groupe, Loïc Hamelin nous a présenté les évolutions du contexte business d’OSRD, retraçant les attentes de nos clients.&lt;/p>
+&lt;p>Dans la matinée du 15 février, Caroline Johnson, Directrice Solutions Numériques Exploitation chez SNCF Réseau, nous a présenté l’offre de service sur la DG-Num et a répondu à nos questions sur l’intégration prochaine de notre application dans le SI interne.&lt;/p>
+&lt;p>A l’issue du PIP, nos business owners ont attribué une valeur, entre 1 et 10, à nos nouveaux objectifs de PI et les risques de programme ont été évalués.&lt;/p>
+&lt;p>&lt;img src="../pip5_1.png" alt="Photo du pip 5.1">
+&lt;img src="pip5_1.png" alt="Photo du pip 5.2">
+&lt;img src="pip5_1.png" alt="Photo du pip 5.3">&lt;/p></description></item><item><title>Blog: Fosdem 2023 : OSRD était présent !</title><link>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</link><pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</guid><description>
 &lt;p>&lt;img src="img_fosdem2.jpeg" alt="fosdem">&lt;/p>
 &lt;h2 id="une-devroom-pour-la-fondation-openrail">Une Devroom pour la Fondation Openrail&lt;/h2>
 &lt;p>Les 4 et 5 février se tenait le FOSDEM, l’évènement européen annuel incontournable pour la communauté open source.
@@ -14,5 +26,4 @@ L&amp;rsquo;un des moments forts de l&amp;rsquo;événement était le lancement 
 &lt;h3 id="slideshttpsmirrorcyberbitseufosdem2023aw1126rot_osmwebm">&lt;a href="https://mirror.cyberbits.eu/fosdem/2023/AW1.126/rot_osm.webm">Slides&lt;/a>&lt;/h3>
 &lt;h3 id="vidéohttpsftpfaudefosdem2023aw1126rot_osmwebm">&lt;a href="https://ftp.fau.de/fosdem/2023/AW1.126/rot_osm.webm">Vidéo&lt;/a>&lt;/h3>
 &lt;p>&lt;img src="img_fosdem1.jpeg" alt="fosdem">&lt;/p>
-&lt;p>Rendez-vous l’année prochaine au FOSDEM 2024 avec des exemples concrets de collaboration et de nouveaux développements d’open source ferroviaire.&lt;/p></description></item><item><title>Blog: Bienvenue sur OSRD News</title><link>https://osrd.fr/fr/blog/2022/11/27/bienvenue-sur-osrd-news/</link><pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2022/11/27/bienvenue-sur-osrd-news/</guid><description>
-&lt;p>Pas de nouvelles pour le moment, patientez un peu !&lt;/p></description></item></channel></rss>
+&lt;p>Rendez-vous l’année prochaine au FOSDEM 2024 avec des exemples concrets de collaboration et de nouveaux développements d’open source ferroviaire.&lt;/p></description></item></channel></rss>
