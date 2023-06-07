@@ -7,19 +7,18 @@ weight: 40
 
 One of the ambitions of OSRD is to help with **timetabling on a European scale**.
 
-To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure managers.
+To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure operators.
 
-And for their trouble contributing to OSRD, these companies:
- - profit from all the common development efforts
- - can freely build on the common effort to achieve their own goals[^license]
- - participate in the roadmap and technical direction of the project to the extent of their contribution
+And by contributing to OSRD, these companies:
+ - Profit from all the common development efforts
+ - Can freely build on the common effort to achieve their own goals[^license]
+ - Participate in the roadmap and technical direction of the project to the extent of their contribution
 
-[^license]: As long as they don't modify the common tools without sharing their improvements. See the details of the LGPLv3 license.
+[^license]: As long as they don't modify the common tools without sharing their improvements. See the details of the [LGPLv3](https://www.gnu.org/licenses/lgpl-3.0.en.html) license.
 
 OSRD is currently developped by:
-
-- a team of full-time developpers at SNCF Réseau, financed by the European Union
-- individual contributors
+- A team of full-time developpers at SNCF Réseau, financed by the European Union
+- Individual contributors
 
 ## The Open Rail Foundation
 
