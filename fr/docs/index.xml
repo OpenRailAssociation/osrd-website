@@ -1106,8 +1106,8 @@ Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
 &lt;li>Chaque route décrite dans les fichiers &lt;code>openapi.yaml&lt;/code> doit avoir un test d&amp;rsquo;intégration.&lt;/li>
 &lt;li>Le test doit vérifier à la fois le format et le contenu des réponses valides et invalides.&lt;/li>
 &lt;/ul></description></item><item><title>About: Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>
-&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la planification horaire à l&amp;rsquo;échelle Européenne&lt;/strong>.&lt;/p>
-&lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les companies ferroviaires et gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
+&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la planification horaire à l&amp;rsquo;échelle européenne&lt;/strong>.&lt;/p>
+&lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les compagnies ferroviaires et les gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
 &lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
 &lt;ul>
 &lt;li>Profitent des efforts de développement commun ;&lt;/li>
@@ -1116,11 +1116,11 @@ Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
 &lt;/ul>
 &lt;p>OSRD est actuellement développé par:&lt;/p>
 &lt;ul>
-&lt;li>une équipe de développeurs à plein temps au sein de SNCF Réseau, grâce à un financement de l&amp;rsquo;Union Européenne&lt;/li>
-&lt;li>des contributeurs individuels&lt;/li>
+&lt;li>une équipe de développeurs à plein temps au sein de SNCF Réseau, grâce à un financement de l&amp;rsquo;Union Européenne ;&lt;/li>
+&lt;li>des contributeurs individuels.&lt;/li>
 &lt;/ul>
 &lt;h2 id="la-fondation-open-rail">La fondation Open Rail&lt;/h2>
-&lt;p>La &lt;a href="https://openrailfoundation.gitlab.io/">fondation Open Rail&lt;/a> est une association à but non lucratif en cours de création, avec pour objectif d&amp;rsquo;organiser le travail autour d&amp;rsquo;outils logiciels communs au monde du ferroviaire.&lt;/p>
+&lt;p>La &lt;a href="https://openrailfoundation.gitlab.io/">fondation Open Rail&lt;/a> est une association à but non lucratif en cours de création ayant pour objectif d&amp;rsquo;organiser le travail autour d&amp;rsquo;outils logiciels communs au monde du ferroviaire.&lt;/p>
 &lt;p>&lt;a href="https://openrailfoundation.gitlab.io/">&lt;img class="marginauto" src="openrail_foundation_vector.png" alt="Fondation OpenRail">&lt;/a>&lt;/p>
 &lt;style>
 .marginauto {
@@ -1138,7 +1138,7 @@ transition: all 0.50s;
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>Tant qu&amp;rsquo;elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license LGPLv3&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Tant qu&amp;rsquo;elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license &lt;a href="https://www.gnu.org/licenses/lgpl-3.0.fr.html">LGPLv3&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Docs: Routage</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</guid><description>

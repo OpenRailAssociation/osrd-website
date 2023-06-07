@@ -838,17 +838,17 @@ if it is not entirely obvious from the title.
 &lt;/ol>
 &lt;/div></description></item><item><title>About: Governance</title><link>https://osrd.fr/en/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/governance/</guid><description>
 &lt;p>One of the ambitions of OSRD is to help with &lt;strong>timetabling on a European scale&lt;/strong>.&lt;/p>
-&lt;p>To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure managers.&lt;/p>
-&lt;p>And for their trouble contributing to OSRD, these companies:&lt;/p>
+&lt;p>To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure operators.&lt;/p>
+&lt;p>And by contributing to OSRD, these companies:&lt;/p>
 &lt;ul>
-&lt;li>profit from all the common development efforts&lt;/li>
-&lt;li>can freely build on the common effort to achieve their own goals&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>participate in the roadmap and technical direction of the project to the extent of their contribution&lt;/li>
+&lt;li>Profit from all the common development efforts&lt;/li>
+&lt;li>Can freely build on the common effort to achieve their own goals&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Participate in the roadmap and technical direction of the project to the extent of their contribution&lt;/li>
 &lt;/ul>
 &lt;p>OSRD is currently developped by:&lt;/p>
 &lt;ul>
-&lt;li>a team of full-time developpers at SNCF Réseau, financed by the European Union&lt;/li>
-&lt;li>individual contributors&lt;/li>
+&lt;li>A team of full-time developpers at SNCF Réseau, financed by the European Union&lt;/li>
+&lt;li>Individual contributors&lt;/li>
 &lt;/ul>
 &lt;h2 id="the-open-rail-foundation">The Open Rail Foundation&lt;/h2>
 &lt;p>The &lt;a href="https://openrailfoundation.gitlab.io/">Open Rail Foundation&lt;/a> is an upcoming non-profit commited to organizing cooperative work around railway software tools.&lt;/p>
@@ -869,7 +869,7 @@ transition: all 0.5s;
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>As long as they don&amp;rsquo;t modify the common tools without sharing their improvements. See the details of the LGPLv3 license.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>As long as they don&amp;rsquo;t modify the common tools without sharing their improvements. See the details of the &lt;a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPLv3&lt;/a> license.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>About: Short term digital capacity management</title><link>https://osrd.fr/en/about/use-case/short-term-dcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/use-case/short-term-dcm/</guid><description>
