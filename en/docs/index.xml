@@ -363,9 +363,7 @@ img[src$="method"] {
 height: 70%;
 width: 70%;
 }
-&lt;/style></description></item><item><title>Docs: Architecture</title><link>https://osrd.fr/en/docs/reference/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/</guid><description>
-&lt;p>It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.&lt;/p>
-&lt;p>&lt;img src="../architecture.en.svg" alt="Projet Architecture">&lt;/p></description></item><item><title>About: Exploitation studies</title><link>https://osrd.fr/en/about/use-case/exploitation-studies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/use-case/exploitation-studies/</guid><description>
+&lt;/style></description></item><item><title>About: Exploitation studies</title><link>https://osrd.fr/en/about/use-case/exploitation-studies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/use-case/exploitation-studies/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="presentation">Presentation&lt;/h3>
 &lt;/font>
@@ -945,7 +943,10 @@ Generally, these should be followed.&lt;/li>
 &lt;li>Integration tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a> under the &lt;code>/tests&lt;/code> folder.&lt;/li>
 &lt;li>Each route described in the &lt;code>openapi.yaml&lt;/code> files must have an integration test.&lt;/li>
 &lt;li>Test must check both the valid and invalid response format and content.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Data-flow</title><link>https://osrd.fr/en/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/data_flow/</guid><description>
+&lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Docs: Services</title><link>https://osrd.fr/en/docs/reference/architecture/services/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/services/</guid><description>
+&lt;p>It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.&lt;/p>
+&lt;p>&lt;img src="services.en.svg" alt="Services architecture">&lt;/p></description></item><item><title>Docs: Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>
 &lt;div class="pageinfo pageinfo-warning">
 &lt;p>This document is a work in progress&lt;/p>
 &lt;/div>
