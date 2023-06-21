@@ -8,4 +8,4 @@ cascade:
   - type: docs
 ---
 
-OSRD est une suite d'outils ferroviaires au service de différents cas d'utilisation. Ces outils ont pour point commun de se reposer sur la simulation de l'infrastructure ferroviaire, et son analyse.
+OSRD est une suite d'outils ferroviaires pour différents cas d'utilisation. Ces outils sont basés sur la simulation de l'infrastructure ferroviaire ainsi que son analyse.
