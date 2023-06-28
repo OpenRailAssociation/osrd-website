@@ -140,7 +140,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>Adams 2&lt;/li>
 &lt;li>Adams 3&lt;/li>
 &lt;/ul>
-&lt;p>Toutes les explications sur ces méthodes peuvent être trouvées dans &lt;a href="https://github.com/DGEXSolutions/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">ce document&lt;/a>, et le code python utilisé pour la simulation est &lt;a href="https://raw.githubusercontent.com/wiki/DGEXSolutions/osrd/code/integration/Tests_precision.py">ici&lt;/a>.&lt;/p>
+&lt;p>Toutes les explications sur ces méthodes peuvent être trouvées dans &lt;a href="https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">ce document&lt;/a>, et le code python utilisé pour la simulation est &lt;a href="https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py">ici&lt;/a>.&lt;/p>
 &lt;p>La simulation calcule la position et la vitesse d&amp;rsquo;un TGV accélérant sur une ligne droite plate.&lt;/p>
 &lt;h4 id="simulations-à-pas-de-temps-équivalent">&lt;strong>Simulations à pas de temps équivalent&lt;/strong>&lt;/h4>
 &lt;p>Une courbe de référence a été simulée en utilisant la méthode d&amp;rsquo;Euler avec un pas de temps de 0,1s, puis le même parcours a été simulé en utilisant les autres méthodes avec un pas de temps de 1s. Il est alors possible de comparer simplement chaque courbe à la courbe de référence, en calculant la valeur absolue de la différence à chaque point calculé. Voici l&amp;rsquo;erreur absolue résultante de la position du train sur sa distance parcourue :&lt;/p>

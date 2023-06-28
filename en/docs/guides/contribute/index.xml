@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute to OSRD</title><link>https://osrd.fr/en/docs/guides/contribute/</link><description>Recent content in Contribute to OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
-&lt;p>Our bug tracking platform is &lt;a href="https://github.com/DGEXSolutions/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
-&lt;p>Follow &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
+&lt;p>Our bug tracking platform is &lt;a href="https://github.com/osrd-project/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
+&lt;p>Follow &lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
 &lt;h3 id="bugs">Bugs&lt;/h3>
 &lt;ul>
 &lt;li>Bug must have a correct description and the bug&amp;rsquo;s issue template must be filled carefully.&lt;/li>
@@ -31,7 +31,7 @@ Most OSRD developers use Linux. Windows and MacOS should work too, but you may r
 &lt;ul>
 &lt;li>Install &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Open a terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in the folder where the source code of OSRD will be located&lt;/li>
-&lt;li>Run &lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
+&lt;li>Run &lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="launch-the-application-with-docker-compose">Launch the application with docker-compose&lt;/h3>
 &lt;p>For a long time, making changes to a component of a multi-service application involved compiling, configuring and running all services manually.&lt;/p>
@@ -54,7 +54,7 @@ By contributing to the codebase, you consent to the distribution of your changes
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Create a branch&lt;/strong>&lt;br>
-If you intend to contribute regularly, you can request access to the &lt;a href="https://github.com/DGEXSolutions/osrd">main repository&lt;/a>. Otherwise, &lt;a href="https://github.com/DGEXSolutions/osrd/fork">create a fork&lt;/a>.&lt;/p>
+If you intend to contribute regularly, you can request access to the &lt;a href="https://github.com/osrd-project/osrd">main repository&lt;/a>. Otherwise, &lt;a href="https://github.com/osrd-project/osrd/fork">create a fork&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Add changes to your branch&lt;/strong>&lt;br>
@@ -83,7 +83,7 @@ It can be done through &lt;a href="https://docs.github.com/en/pull-requests/coll
 Once your pull request is open, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">other contributors can review your changes&lt;/a>:&lt;/p>
 &lt;ul>
 &lt;li>Any user can review your changes&lt;/li>
-&lt;li>Your code has to be approved by a contributor &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/.github/CODEOWNERS">familiar with the code&lt;/a>&lt;/li>
+&lt;li>Your code has to be approved by a contributor &lt;a href="https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS">familiar with the code&lt;/a>&lt;/li>
 &lt;li>All users are expected to take comments into account.&lt;/li>
 &lt;li>Comments tend to be written in an open and direct manner.
 The intent is to efficiently collaborate towards a solution we all agree on.&lt;/li>
@@ -130,7 +130,7 @@ Avoid non well-known abbreviations.&lt;/li>
 Every dependency we add decreases our autonomy and consistency.&lt;/li>
 &lt;li>&lt;strong>Don&amp;rsquo;t re-invent every wheel&lt;/strong>: As a counter to the previous point, don&amp;rsquo;t re-invent everything at all costs.
 If there is a dependency in the ecosystem that is the &amp;ldquo;de-facto&amp;rdquo; standard, we should heavily consider using it.&lt;/li>
-&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/DGEXSolutions/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/osrd-project/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
 &lt;li>Ask for any help that you need!&lt;/li>
 &lt;/ul>
 &lt;h3 id="python">Python&lt;/h3>

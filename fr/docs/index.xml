@@ -277,7 +277,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>Adams 2&lt;/li>
 &lt;li>Adams 3&lt;/li>
 &lt;/ul>
-&lt;p>Toutes les explications sur ces méthodes peuvent être trouvées dans &lt;a href="https://github.com/DGEXSolutions/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">ce document&lt;/a>, et le code python utilisé pour la simulation est &lt;a href="https://raw.githubusercontent.com/wiki/DGEXSolutions/osrd/code/integration/Tests_precision.py">ici&lt;/a>.&lt;/p>
+&lt;p>Toutes les explications sur ces méthodes peuvent être trouvées dans &lt;a href="https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">ce document&lt;/a>, et le code python utilisé pour la simulation est &lt;a href="https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py">ici&lt;/a>.&lt;/p>
 &lt;p>La simulation calcule la position et la vitesse d&amp;rsquo;un TGV accélérant sur une ligne droite plate.&lt;/p>
 &lt;h4 id="simulations-à-pas-de-temps-équivalent">&lt;strong>Simulations à pas de temps équivalent&lt;/strong>&lt;/h4>
 &lt;p>Une courbe de référence a été simulée en utilisant la méthode d&amp;rsquo;Euler avec un pas de temps de 0,1s, puis le même parcours a été simulé en utilisant les autres méthodes avec un pas de temps de 1s. Il est alors possible de comparer simplement chaque courbe à la courbe de référence, en calculant la valeur absolue de la différence à chaque point calculé. Voici l&amp;rsquo;erreur absolue résultante de la position du train sur sa distance parcourue :&lt;/p>
@@ -413,8 +413,8 @@ Pour zoomer sur un diagramme, cliquez sur le bouton d&amp;rsquo;édition qui app
 &lt;p>Cette infrastructure ne se veut pas réaliste, mais plutôt destinée à illustrer le modèle de données de l&amp;rsquo;OSRD.
 Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p>
 &lt;h4 id="le-générateur-dinfrastructures">Le générateur d&amp;rsquo;infrastructures&lt;/h4>
-&lt;p>Dans le &lt;a href="https://github.com/DGEXSolutions/osrd">dépôt &lt;em>OSRD&lt;/em>&lt;/a> se trouve une &lt;a href="https://github.com/DGEXSolutions/osrd/tree/dev/core/examples/generated">bibliothèque python&lt;/a> conçue pour aider à générer des infrastructures dans un format compris par &lt;em>OSRD&lt;/em>.&lt;/p>
-&lt;p>L&amp;rsquo;infrastructure discutée dans cette section peut être générée grâce au fichier &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a>. Pour en savoir plus sur les scripts de génération, vous pouvez consulter le &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/README.md">README&lt;/a> correspondant.&lt;/p>
+&lt;p>Dans le &lt;a href="https://github.com/osrd-project/osrd">dépôt &lt;em>OSRD&lt;/em>&lt;/a> se trouve une &lt;a href="https://github.com/osrd-project/osrd/tree/dev/core/examples/generated">bibliothèque python&lt;/a> conçue pour aider à générer des infrastructures dans un format compris par &lt;em>OSRD&lt;/em>.&lt;/p>
+&lt;p>L&amp;rsquo;infrastructure discutée dans cette section peut être générée grâce au fichier &lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a>. Pour en savoir plus sur les scripts de génération, vous pouvez consulter le &lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/README.md">README&lt;/a> correspondant.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="pistes">Pistes&lt;/h3>
 &lt;/font>
@@ -496,7 +496,7 @@ Ceci est dû au fait qu&amp;rsquo;un switch est un objet physique, et que le cha
 &lt;div class="alert alert-primary" role="alert">
 N&amp;rsquo;oubliez pas que la valeur de début doit toujours être inférieure à la valeur de fin. C&amp;rsquo;est pourquoi les valeurs de courbe/pente peuvent être négatives : une pente ascendante de 1 allant du décalage 10 à 0 est identique à une pente descendante de -1 allant des décalages 0 à 10.
 &lt;/div>
-&lt;p>Dans le fichier &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a>, nous avons des pentes sur les sections de piste &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>Dans le fichier &lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a>, nous avons des pentes sur les sections de piste &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em>.&lt;/p>
 &lt;p>Il y a également des courbes sur les sections de voie &lt;em>TE0&lt;/em>, &lt;em>TE1&lt;/em>, &lt;em>TE3&lt;/em> et &lt;em>TF1&lt;/em>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="enclenchement">Enclenchement&lt;/h3>
@@ -611,8 +611,8 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;li>Observer les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
-&lt;p>Notre outil de suivi des bugs est &lt;a href="https://github.com/DGEXSolutions/osrd/issues">github&lt;/a>. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
-&lt;p>Suivez &lt;a href="https://github.com/DGEXSolutions/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p>
+&lt;p>Notre outil de suivi des bugs est &lt;a href="https://github.com/osrd-project/osrd/issues">github&lt;/a>. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
+&lt;p>Suivez &lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p>
 &lt;h3 id="bugs">Bugs&lt;/h3>
 &lt;ul>
 &lt;li>Le bug doit avoir une description correcte et le modèle du bug doit être rempli avec soin.&lt;/li>
@@ -964,7 +964,7 @@ La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows 
 &lt;ul>
 &lt;li>Installer &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
-&lt;li>&lt;code>git clone git@github.com:DGEXSolutions/osrd&lt;/code>&lt;/li>
+&lt;li>&lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker compose&lt;/h3>
 &lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
@@ -981,7 +981,7 @@ La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows 
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Créez une branche&lt;/strong>&lt;br>
-Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/DGEXSolutions/osrd">dépot principal&lt;/a>. Sinon, &lt;a href="https://github.com/DGEXSolutions/osrd/fork">créez un fork&lt;/a>.&lt;/p>
+Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/osrd-project/osrd">dépot principal&lt;/a>. Sinon, &lt;a href="https://github.com/osrd-project/osrd/fork">créez un fork&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Ajoutez des changements sur votre branche&lt;/strong>&lt;br>
@@ -1007,7 +1007,7 @@ Cela peut être fait via &lt;a href="https://docs.github.com/en/pull-requests/co
 Une fois que votre pull request est ouverte, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">d&amp;rsquo;autres contributeurs doivent donner leur avis sur votre proposition&lt;/a>:&lt;/p>
 &lt;ul>
 &lt;li>N&amp;rsquo;importe qui peut donner son avis&lt;/li>
-&lt;li>Il est nécessaire d&amp;rsquo;obtenir l&amp;rsquo;approbation d&amp;rsquo;un &lt;a href="https://github.com/DGEXSolutions/osrd/blob/dev/.github/CODEOWNERS">code owner&lt;/a> pour pouvoir intégrer le changement.&lt;/li>
+&lt;li>Il est nécessaire d&amp;rsquo;obtenir l&amp;rsquo;approbation d&amp;rsquo;un &lt;a href="https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS">code owner&lt;/a> pour pouvoir intégrer le changement.&lt;/li>
 &lt;li>Il est d&amp;rsquo;usage de prendre en compte tous les commentaires critiques&lt;/li>
 &lt;li>Les commentaires sont souvent écrits dans un style plutôt direct, dans le soucis de collaborer efficacement vers une solution acceptable par tous.&lt;/li>
 &lt;li>Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.&lt;/li>
@@ -1053,7 +1053,7 @@ si le titre n&amp;#39;est pas complètement évident.
 Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
 &lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : En opposition au point précédent, ne réinventez pas tout à tout prix.
 S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard &amp;ldquo;de-facto&amp;rdquo;, nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
-&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/DGEXSolutions/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/osrd-project/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
 &lt;li>Demandez toute l&amp;rsquo;aide dont vous avez besoin !&lt;/li>
 &lt;/ul>
 &lt;h3 id="python">Python&lt;/h3>
@@ -1867,7 +1867,7 @@ solution dont le temps de parcours ne dépasse pas le maximum.
 Mais pour la même raison, ajouter ce critère rend STDCM
 inutilisable sur les infrastructures générées.
 Plus de détails dans
-&lt;a href="https://github.com/DGEXSolutions/osrd/issues/2818">cette issue&lt;/a>.&lt;/p></description></item><item><title>Docs: Train</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</guid><description>
+&lt;a href="https://github.com/osrd-project/osrd/issues/2818">cette issue&lt;/a>.&lt;/p></description></item><item><title>Docs: Train</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</guid><description>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
 Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>
@@ -1912,7 +1912,7 @@ Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garde
 &lt;div class="alert alert-info" role="alert">
 Ce mode de fonctionnement n&amp;rsquo;est pas spécifique à l&amp;rsquo;open source : beaucoup d&amp;rsquo;entreprises adoptent un fonctionnement identique, à la différence près qu&amp;rsquo;il est maintenu privé.
 &lt;/div>
-&lt;p>En pratique, les logiciels libre sont développés via &lt;a href="https://github.com/DGEXSolutions/osrd">une forge&lt;/a>. Cette forge donne accès au code source, un outil de gestion des bugs / tâches, et un outil servant à intégrer des changements dans le code.
+&lt;p>En pratique, les logiciels libre sont développés via &lt;a href="https://github.com/osrd-project/osrd">une forge&lt;/a>. Cette forge donne accès au code source, un outil de gestion des bugs / tâches, et un outil servant à intégrer des changements dans le code.
 Tout le monde peut proposer un changement, signaler un bug ou proposer une tâche.&lt;/p>
 &lt;p>Les propositions de changement sont soumis à une &lt;strong>revue par les pairs&lt;/strong>, semblables à celles de la communauté scientifique.
 Les individus en charge de la revue (les reviewers) sont ceux qui sont les plus familliers avec les composants affectés par le changement.&lt;/p>
