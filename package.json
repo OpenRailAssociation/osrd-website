@@ -5,11 +5,11 @@
   "homepage": "https://osrd.fr/fr/developers/contribute/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DGEXSolutions/osrd-website.git"
+    "url": "git+https://github.com/osrd-project/osrd-website.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DGEXSolutions/osrd-website/issues"
+    "url": "https://github.com/osrd-project/osrd-website/issues"
   },
   "scripts": {
     "build": "hugo --gc --cleanDestinationDir --minify",

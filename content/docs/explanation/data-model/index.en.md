@@ -28,9 +28,9 @@ This example will be created step by step and explained along the way.
 
 #### The infrastructure generator
 
-In the [*OSRD* repository](https://github.com/DGEXSolutions/osrd) is a [python library](https://github.com/DGEXSolutions/osrd/tree/dev/core/examples/generated) designed to help generate infrastructures in a format understood by *OSRD*.
+In the [*OSRD* repository](https://github.com/osrd-project/osrd) is a [python library](https://github.com/osrd-project/osrd/tree/dev/core/examples/generated) designed to help generate infrastructures in a format understood by *OSRD*.
 
-The infrastructure discussed in this section can be generated thanks to [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py) file. To learn more about the generation scripts, you can check out the related [README](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/README.md).
+The infrastructure discussed in this section can be generated thanks to [small_infra.py](https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py) file. To learn more about the generation scripts, you can check out the related [README](https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/README.md).
 
 <font color=#aa026d>
 
@@ -167,7 +167,7 @@ Slope values are measured in *meters per kilometers*, and the curve values are m
 Mind that the `begin` value should always be smaller than the `end` value. That is why the curve / slope values can be negative: an uphill slope of 1 going from offset 10 to 0 is the same as a downhill slope of -1 going from offsets 0 to 10.
 {{% /alert %}}
 
-In the [small_infra.py](https://github.com/DGEXSolutions/osrd/blob/dev/core/examples/generated/scripts/small_infra.py) file, we have slopes on the track sections *TA6*, *TA7*, *TD0* and *TD1*.
+In the [small_infra.py](https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py) file, we have slopes on the track sections *TA6*, *TA7*, *TD0* and *TD1*.
 
 There are curves as well, on the track sections *TE0*, *TE1*, *TE3* and *TF1*.
 

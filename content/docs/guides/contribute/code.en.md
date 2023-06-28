@@ -15,7 +15,7 @@ Most OSRD developers use Linux. Windows and MacOS should work too, but you may r
 
 - Install [`git`](https://git-scm.com/).[^package-manager]
 - Open a terminal[^git-bash] in the folder where the source code of OSRD will be located
-- Run `git clone git@github.com:DGEXSolutions/osrd`
+- Run `git clone git@github.com:osrd-project/osrd`
 
 ### Launch the application with docker-compose
 
@@ -45,7 +45,7 @@ This chapter is about the process of integrating changes into the common code ba
 1. If you are not used to Git, [follow this tutorial](https://learngitbranching.js.org/)
 
 2. **Create a branch**  
-   If you intend to contribute regularly, you can request access to the [main repository](https://github.com/DGEXSolutions/osrd). Otherwise, [create a fork](https://github.com/DGEXSolutions/osrd/fork).
+   If you intend to contribute regularly, you can request access to the [main repository](https://github.com/osrd-project/osrd). Otherwise, [create a fork](https://github.com/osrd-project/osrd/fork).
 
 3. **Add changes to your branch**  
    Before you start working, try to split your work into macroscopic steps.
@@ -73,7 +73,7 @@ This chapter is about the process of integrating changes into the common code ba
    Once your pull request is open, [other contributors can review your changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews):
 
    - Any user can review your changes
-   - Your code has to be approved by a contributor [familiar with the code](https://github.com/DGEXSolutions/osrd/blob/dev/.github/CODEOWNERS)
+   - Your code has to be approved by a contributor [familiar with the code](https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS)
    - All users are expected to take comments into account.
    - Comments tend to be written in an open and direct manner.
      The intent is to efficiently collaborate towards a solution we all agree on.

@@ -68,5 +68,5 @@ solution dont le temps de parcours ne dépasse pas le maximum.
 Mais pour la même raison, ajouter ce critère rend STDCM
 inutilisable sur les infrastructures générées.
 Plus de détails dans
-[cette issue](https://github.com/DGEXSolutions/osrd/issues/2818).
+[cette issue](https://github.com/osrd-project/osrd/issues/2818).
 

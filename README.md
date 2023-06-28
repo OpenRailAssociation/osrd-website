@@ -11,7 +11,7 @@ It's free and open-source forever!
 
 ## Clone
 
-`git clone --recurse-submodules git@github.com:DGEXSolutions/osrd-website.git`
+`git clone --recurse-submodules git@github.com:osrd-project/osrd-website.git`
 
 **This repository uses submodules. Please read the following carefuly**
 
@@ -90,7 +90,7 @@ For french developers Codespace is still in [beta](https://fr.github.com/feature
 ## Contributing
 
 If you think OSRD doesn't quite fit your needs yet, but still believe it could,
-please [tell us about your needs](https://github.com/DGEXSolutions/osrd/issues/new).
+please [tell us about your needs](https://github.com/osrd-project/osrd/issues/new).
 
 Please consider committing resources to help development if you'd like to use OSRD in production.
 Code contributions are very welcome, and we'd love to work together to make this project better.
