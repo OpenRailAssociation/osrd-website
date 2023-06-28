@@ -46,7 +46,7 @@ Ce mode de fonctionnement n'est pas spécifique à l'open source : beaucoup d'en
 {{% /alert %}}
 
 
-En pratique, les logiciels libre sont développés via [une forge](https://github.com/DGEXSolutions/osrd). Cette forge donne accès au code source, un outil de gestion des bugs / tâches, et un outil servant à intégrer des changements dans le code.
+En pratique, les logiciels libre sont développés via [une forge](https://github.com/osrd-project/osrd). Cette forge donne accès au code source, un outil de gestion des bugs / tâches, et un outil servant à intégrer des changements dans le code.
 Tout le monde peut proposer un changement, signaler un bug ou proposer une tâche.
 
 Les propositions de changement sont soumis à une **revue par les pairs**, semblables à celles de la communauté scientifique.

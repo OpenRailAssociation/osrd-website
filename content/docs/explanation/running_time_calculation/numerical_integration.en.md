@@ -109,7 +109,7 @@ Different integration methods could have replaced the basic Euler integration in
 - Adams 2
 - Adams 3
 
-All explanations of these methods can be found (in french) in [this document](https://github.com/DGEXSolutions/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf), and the python code used for the simulation is [here](https://raw.githubusercontent.com/wiki/DGEXSolutions/osrd/code/integration/Tests_precision.py).
+All explanations of these methods can be found (in french) in [this document](https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf), and the python code used for the simulation is [here](https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py).
 
 The simulation calculates the position and speed of a high-speed train accelerating on a flat straight line.
 

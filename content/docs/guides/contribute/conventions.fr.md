@@ -19,7 +19,7 @@ L'application OSRD est divisée en plusieurs services écrits dans plusieurs lan
   Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.
 - **Ne pas réinventer la roue** : En opposition au point précédent, ne réinventez pas tout à tout prix.
   S'il existe une dépendance dans l'écosystème qui est le standard "de-facto", nous devrions fortement envisager de l'utiliser.
-- Plus de code et de recommandations générales dans le dépôt principal [CONTRIBUTING.md](https://github.com/DGEXSolutions/osrd).
+- Plus de code et de recommandations générales dans le dépôt principal [CONTRIBUTING.md](https://github.com/osrd-project/osrd).
 - Demandez toute l'aide dont vous avez besoin !
 
 ### Python

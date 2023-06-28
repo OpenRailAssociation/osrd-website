@@ -24,7 +24,7 @@ La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows 
 
 - Installer [`git`](https://git-scm.com/)[^package-manager]
 - Ouvrir un terminal[^git-bash] dans le dossier qui contiendra le code source d'OSRD
-- `git clone git@github.com:DGEXSolutions/osrd`
+- `git clone git@github.com:osrd-project/osrd`
 
 ### Lancer l'application avec docker compose
 
@@ -45,7 +45,7 @@ Ce chapitre décrit le processus aboutissant à l'intégration de code au sein d
 1. Si vous n'être pas un habitué de Git, [suivez ce tutoriel](https://learngitbranching.js.org/)
 
 2. **Créez une branche**  
-   Si vous comptez contribuer régulièrement, vous pouvez demander accès au [dépot principal](https://github.com/DGEXSolutions/osrd). Sinon, [créez un fork](https://github.com/DGEXSolutions/osrd/fork).
+   Si vous comptez contribuer régulièrement, vous pouvez demander accès au [dépot principal](https://github.com/osrd-project/osrd). Sinon, [créez un fork](https://github.com/osrd-project/osrd/fork).
 
 3. **Ajoutez des changements sur votre branche**  
    Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre [les conventions du projet](../conventions/).
@@ -70,7 +70,7 @@ Ce chapitre décrit le processus aboutissant à l'intégration de code au sein d
    Une fois que votre pull request est ouverte, [d'autres contributeurs doivent donner leur avis sur votre proposition](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews):
 
    - N'importe qui peut donner son avis
-   - Il est nécessaire d'obtenir l'approbation d'un [code owner](https://github.com/DGEXSolutions/osrd/blob/dev/.github/CODEOWNERS) pour pouvoir intégrer le changement.
+   - Il est nécessaire d'obtenir l'approbation d'un [code owner](https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS) pour pouvoir intégrer le changement.
    - Il est d'usage de prendre en compte tous les commentaires critiques
    - Les commentaires sont souvent écrits dans un style plutôt direct, dans le soucis de collaborer efficacement vers une solution acceptable par tous.
    - Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.

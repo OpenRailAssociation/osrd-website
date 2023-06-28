@@ -19,7 +19,7 @@ OSRD application is split in multiple services written in several languages. We 
   Every dependency we add decreases our autonomy and consistency.
 - **Don't re-invent every wheel**: As a counter to the previous point, don't re-invent everything at all costs.
   If there is a dependency in the ecosystem that is the "de-facto" standard, we should heavily consider using it.
-- More code general recommendations in main repository [CONTRIBUTING.md](https://github.com/DGEXSolutions/osrd).
+- More code general recommendations in main repository [CONTRIBUTING.md](https://github.com/osrd-project/osrd).
 - Ask for any help that you need!
 
 ### Python

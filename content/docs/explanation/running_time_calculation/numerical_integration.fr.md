@@ -109,7 +109,7 @@ Différentes méthodes d'intégration auraient pu remplacer l'intégration d'Eul
 - Adams 2
 - Adams 3
 
-Toutes les explications sur ces méthodes peuvent être trouvées dans [ce document](https://github.com/DGEXSolutions/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf), et le code python utilisé pour la simulation est [ici](https://raw.githubusercontent.com/wiki/DGEXSolutions/osrd/code/integration/Tests_precision.py).
+Toutes les explications sur ces méthodes peuvent être trouvées dans [ce document](https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf), et le code python utilisé pour la simulation est [ici](https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py).
 
 La simulation calcule la position et la vitesse d'un TGV accélérant sur une ligne droite plate.
 
