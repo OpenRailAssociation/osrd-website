@@ -7,7 +7,7 @@ weight: 60
 
 ![OSRD presentation](osrd_presentation.png)
 
-Le projet a pour ambition de répondre à une large gamme de besoins autour de la plannification ferroviaire :
+Le projet a pour ambition de répondre à une large gamme de besoins autour de la planification ferroviaire :
  - [conception des plans de transport](#conception-des-plans-de-transport)
  - [études d'exploitation](#%C3%A9tudes-dexploitation)
  - [gestion d'infrastructure](#gestion-dinfrastructure)
@@ -20,15 +20,15 @@ Le projet a pour ambition de répondre à une large gamme de besoins autour de l
 ## Conception des plans de transport
 
 La conception de plans de transport consiste à formuler une réponse[^plan-exploitation] aux
-schémas de dessertes[^schema-desserte]. OSRD fournit déjà un certain nombre de fonctionnés utiles à cette fin :
- - base d'infrastructure ferroviaires à la voie
- - base de donnée de matériel roulant
+schémas de dessertes[^schema-desserte]. OSRD fournit déjà un certain nombre de fonctionnalités utiles à cette fin :
+ - base d'infrastructure ferroviaire à la voie
+ - base de données de matériel roulant
  - possibilité de modifier l'infrastructure
  - visualisation de grilles horaires
  - application de différents types de marges sur les sillons, y compris une
    marge économique, qui minimise l'énergie consommée
 
-Les perspectives futures comprennent notament :
+Les perspectives futures comprennent notamment :
  - la détection automatique de conflits[^conflit]
  - synthèse d'infrastructure à la ligne à partir d'infrastructure à la voie
  - visualisation schématique du plan de transport
@@ -51,23 +51,23 @@ Elles permettent de prendre des décisions d'investissements d'infrastructure pu
 
 OSRD permet de répondre à ce besoin en :
  - fournissant une base d'infrastructure ferroviaires à la voie
- - fournissant une base de donnée de matériel roulant
+ - fournissant une base de données de matériel roulant
  - donnant la possibilité de modifier l'infrastructure existante et ajouter des installations
  - permettant de visualiser les grilles horaires
  - permettant d'appliquer différents types de marges sur les sillons, dont une
    répartition économique, qui minimise l'énergie consommée.
  - fournissant un simulateur de signalisation
 
-Les pespectives futures comprennent notament :
+Les perspectives futures comprennent notamment :
  - détection de conflits[^conflit]
- - évaluation de la robustesse d'une grille horaire via un module de simulation stochastique.
+ - évaluation de la robustesse d'une grille horaire via un module de simulation stochastique
  - calcul automatique de débit et capacité
 
 
 ## Gestion d'infrastructure
 
 Le traitement d'informations liées à l'infrastructure ferroviaire étant un besoin
-commun à toutes les fonctionnalités d'OSRD, un module dédié permet de:
+commun à toutes les fonctionnalités d'OSRD, un module dédié permet de :
  - visualiser sur une carte les différents types d'objets utilisables dans l'application
  - éditer l'infrastructure ferroviaire
  - rechercher des objets
@@ -91,7 +91,7 @@ Il faut par conséquent être capable de répondre non seulement rapidement
 (moins de 3 minutes) à ces demandes, mais aussi correctement, ce qui n'est pas
 possible sans automatisation.
 
-Une offre de sillon correcte doit répondre à de nombreux critères, notament :
+Une offre de sillon correcte doit répondre à de nombreux critères, notamment :
  - prendre en compte les travaux sur l'infrastructure
  - ne pas générer de conflits[^conflit] avec des sillons déjà établis, y compris en gare
  - estimer de manière réaliste le comportement du train, et donc le moment auquel
