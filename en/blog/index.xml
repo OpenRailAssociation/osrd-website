@@ -1,4 +1,39 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – OSRD Blog</title><link>https://osrd.fr/en/blog/</link><description>Recent content in OSRD Blog on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 12 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/en/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: DGEX Solutions Forum</title><link>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – OSRD Blog</title><link>https://osrd.fr/en/blog/</link><description>Recent content in OSRD Blog on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/en/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: OSRD at Dreiländer Hack in Wien</title><link>https://osrd.fr/en/blog/2023/07/19/osrd-at-dreil%C3%A4nder-hack-in-wien/</link><pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/07/19/osrd-at-dreil%C3%A4nder-hack-in-wien/</guid><description>
+&lt;h2 id="dreiländer-hack-the-annual-meeting-of-german-speaking-railway-companies-but-not-only">Dreiländer hack, the annual meeting of German-speaking railway companies&amp;hellip; but not only!&lt;/h2>
+&lt;p>On 29 and 30 June, the &lt;a href="https://bcc.oebb.at/de/das-leisten-wir/innovationen/dreilaenderhack">&amp;ldquo;Dreiländer hack&amp;rdquo;&lt;/a> (the hackathon of the three countries) was held in Wien (Austria). Organised by DB (Germany), ÖBB (Austria) and SBB (Switzerland), this is an annual event dedicated to collaboration on shared railway-related challenges.&lt;/p>
+&lt;p>We were delighted to be invited to take part thanks to the &lt;a href="https://openrailfoundation.org/">OpenRail Foundation&lt;/a>, and this year&amp;rsquo;s theme being &amp;ldquo;Open Railways&amp;rdquo;, it would have been hard to refuse!&lt;/p>
+&lt;h2 id="24-hours-to-work-together-on-a-topic-of-common-interest">24 hours to work together on a topic of common interest&lt;/h2>
+&lt;p>The 150 participants were divided into 16 working groups on a wide variety of topics such as:&lt;/p>
+&lt;ul>
+&lt;li>Imagining a simple interface for ordering train paths (an important subject for the future of OSRD);&lt;/li>
+&lt;li>Offering passenger information adapted to different disabilities;&lt;/li>
+&lt;li>Optimizing the prioritisation of trains at junctions according to the number of passengers on board and on the platform (Motis project);&lt;/li>
+&lt;li>Automatically identifying energy-consuming trains in storage;&lt;/li>
+&lt;li>Calculating forecast maintenance dates from a historical database for each train component;&lt;/li>
+&lt;li>Detecting speed measurement and GPS positioning errors on track inspection trains;&lt;/li>
+&lt;li>Optimizing maintenance work to limit lost capacity;&lt;/li>
+&lt;li>Facilitating passenger information with a GPT chatbot;&lt;/li>
+&lt;li>Designing an easy-to-use display and ticketing interface for night trains across Europe.&lt;/li>
+&lt;/ul>
+&lt;h2 id="challenge-proposal-by-osrd">Challenge proposal by OSRD&lt;/h2>
+&lt;p>The challenge proposed by OSRD was to consolidate the railway data in OpenStreetMap, an open &amp;amp; collaborative database that we use as a source for railway infrastructure in Europe.&lt;/p>
+&lt;p>The objective was to develop an algorithm to identify 5 types of probable errors in the data:&lt;/p>
+&lt;h3 id="disconnected-tracks">Disconnected tracks&lt;/h3>
+&lt;img src="illustrate-disconnected.webp" alt="A toy train with wooden tracks separated by a space"/>
+&lt;h3 id="suspicious-switches">Suspicious switches&lt;/h3>
+&lt;img src="illustrate-switches.webp" alt="A toy train where an extra wooden track has been added to a switch"/>
+&lt;h3 id="stations-apart-from-tracks">Stations apart from tracks&lt;/h3>
+&lt;img src="illustrate-stations.webp" alt="A toy train on wooden tracks and a station drawn on a post-it note. A question mark is drawn between the two."/>
+&lt;h3 id="weird-angles">Weird angles&lt;/h3>
+&lt;img src="illustrate-angles.webp" alt="A toy train with wooden tracks at a 60° angle"/>
+&lt;h3 id="missing-gauge-info">Missing gauge info&lt;/h3>
+&lt;img src="illustrate-gauge.webp" alt="A wooden toy train. A measuring ruler is placed on the tracks, with a post-it note with a question mark."/>
+&lt;p>The subject was of interest and we formed a team of 10 people divided between the four participating companies. After a presentation of the challenge and of the OpenStreetMap data model, we looked for existing tools and chose to use &lt;a href="https://osmose.openstreetmap.fr/">Osmose&lt;/a>, an open source application for detecting and displaying potential errors in OSM. We then split up to work on the 5 types of errors.&lt;/p>
+&lt;img src="team.webp" alt="The 10 members of the team pose in front of a decorated container wall reading “Es ist möglich”."/>
+&lt;p>&lt;em>From left to right: Christoph (DB), Klara (ÖBB), Frederik (SBB), Carl (SBB), Julius (DB), Jennifer (DB), Daniel (ÖBB), Céline (SNCF), Max (DB), Tristram (SNCF).&lt;/em>&lt;/p>
+&lt;h2 id="results">Results&lt;/h2>
+&lt;p>After 24 hours of work, the result is an &lt;a href="https://openrailfoundation.github.io/FixOurRail-weird-angles/">interactive map showing the various errors&lt;/a> (click on the pictograms to show error details). You can find all the code that was produced on the &lt;a href="https://github.com/OpenRailFoundation/FixOurRail-simple-solutions">Open Rail Foundation&amp;rsquo;s GitHub&lt;/a>.&lt;/p>
+&lt;p>We did not manage to integrate our analysers into Osmose within the allotted time, but that remains the target on which we&amp;rsquo;re going to continue working, so that all OpenStreetMap contributors can easily correct errors in railway data!&lt;/p></description></item><item><title>Blog: DGEX Solutions Forum</title><link>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</guid><description>
 &lt;h2 id="dgex-solutions-forum">DGEX Solutions Forum&lt;/h2>
 &lt;p>Here&amp;rsquo;s an extract from Loïc Hamelin&amp;rsquo;s talk at the DGEX Solutions forum, on the subject of search for last-minute train slots (STDCM).&lt;/p>
 &lt;h3 id="first-of-all-what-is-a-train-path">First of all, what is a train path?&lt;/h3>

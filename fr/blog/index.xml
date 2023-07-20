@@ -1,4 +1,40 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Blog OSRD</title><link>https://osrd.fr/fr/blog/</link><description>Recent content in Blog OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 24 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/fr/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: I&amp;A5 et PIP6 - avril 2023</title><link>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</link><pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Blog OSRD</title><link>https://osrd.fr/fr/blog/</link><description>Recent content in Blog OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/fr/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: OSRD au Dreiländer Hack à Vienne</title><link>https://osrd.fr/fr/blog/2023/07/19/osrd-au-dreil%C3%A4nder-hack-%C3%A0-vienne/</link><pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/07/19/osrd-au-dreil%C3%A4nder-hack-%C3%A0-vienne/</guid><description>
+&lt;h2 id="le-dreiländer-hack-le-rendez-vous-des-entreprises-ferroviaires-germanophones-mais-pas-que-">Le Dreiländer hack, le rendez-vous des entreprises ferroviaires germanophones&amp;hellip; mais pas que !&lt;/h2>
+&lt;p>Les 29 et 30 juin derniers s&amp;rsquo;est tenu à Vienne (Autriche) le &lt;a href="https://bcc.oebb.at/de/das-leisten-wir/innovationen/dreilaenderhack">Dreiländer hack&lt;/a> (le hackathon des trois pays). Organisé par Deutsche Bahn - DB (Allemagne), Österreichische Bundesbahnen - ÖBB (Autriche) et Schweizerische Bundesbahnen - SBB (Suisse), c&amp;rsquo;est un rendez-vous annuel dédié à la collaboration sur des problématiques ferroviaires communes.&lt;/p>
+&lt;p>Nous avons eu le plaisir d&amp;rsquo;être invité·es à participer dans le cadre de la fondation &lt;a href="https://openrailfoundation.org/">OpenRail&lt;/a>, et le thème de cette année étant &amp;ldquo;Open Railways&amp;rdquo; il aurait été difficile de refuser !&lt;/p>
+&lt;h2 id="24h-pour-travailler-ensemble-sur-un-sujet-dintérêt-commun">24h pour travailler ensemble sur un sujet d&amp;rsquo;intérêt commun&lt;/h2>
+&lt;p>Les 150 participant·es se sont réparti·es en 16 groupes de travail sur des thèmes très variés tels que :&lt;/p>
+&lt;ul>
+&lt;li>Imaginer une interface simple de commande de sillons (un sujet important pour l&amp;rsquo;avenir d&amp;rsquo;OSRD) ;&lt;/li>
+&lt;li>Proposer de l&amp;rsquo;information voyageur adaptée aux différents handicaps ;&lt;/li>
+&lt;li>Optimiser la priorisation des trains aux embranchements en fonction de l&amp;rsquo;affluence à bord et à quai (projet Motis) ;&lt;/li>
+&lt;li>Identifier automatiquement des trains au garage qui consomment de l&amp;rsquo;énergie ;&lt;/li>
+&lt;li>Calculer des dates de maintenance prévisionnelles à partir d&amp;rsquo;une base de données historique sur chaque composant du train ;&lt;/li>
+&lt;li>Détecter des erreurs de mesure de vitesse et de positionnement GPS sur des trains d&amp;rsquo;inspection des voies ;&lt;/li>
+&lt;li>Optimiser les chantiers de maintenance pour limiter la capacité perdue ;&lt;/li>
+&lt;li>Faciliter l&amp;rsquo;information voyageurs avec un chatbot GPT ;&lt;/li>
+&lt;li>Imaginer une interface de visualisation &amp;amp; de commande pour l&amp;rsquo;offre de trains de nuit au niveau européen facile à utiliser.&lt;/li>
+&lt;/ul>
+&lt;h2 id="le-challenge-proposé-par-osrd">Le challenge proposé par OSRD&lt;/h2>
+&lt;p>Le challenge proposé par OSRD visait à consolider les données ferroviaires présentes dans OpenStreetMap, une base de données ouverte &amp;amp; collaborative que nous utilisons comme source pour l&amp;rsquo;infrastructure ferroviaire en Europe.&lt;/p>
+&lt;p>L&amp;rsquo;objectif était de développer un algorithme permettant d&amp;rsquo;identifier 5 types d&amp;rsquo;erreurs probables dans les données :&lt;/p>
+&lt;h3 id="voies-proches-géographiquement-mais-non-connectées-topologiquement">Voies proches géographiquement mais non connectées topologiquement&lt;/h3>
+&lt;img src="illustrate-disconnected.webp" alt="Un train jouet où les voies en bois sont séparées par un espace"/>
+&lt;h3 id="aiguilles-à-plus-de-3-branches">Aiguilles à plus de 3 branches&lt;/h3>
+&lt;img src="illustrate-switches.webp" alt="Un train où une voie supplémentaire a été ajoutée à une aiguille"/>
+&lt;h3 id="gares-éloignées-des-voies">Gares éloignées des voies&lt;/h3>
+&lt;img src="illustrate-stations.webp" alt="Un train jouet sur des rails en bois et une gare dessinée sur un post-it. Un point d'interrogation est dessiné entre les deux."/>
+&lt;h3 id="voies-avec-des-angles-trop-importants">Voies avec des angles trop importants&lt;/h3>
+&lt;img src="illustrate-angles.webp" alt="Un train jouet où les voies en bois forment un angle à 60°"/>
+&lt;h3 id="information-décartement-des-voies-manquante">Information d&amp;rsquo;écartement des voies manquante&lt;/h3>
+&lt;img src="illustrate-gauge.webp" alt="Un train jouet en bois. Une règle à mesurer est posée sur les voies, avec un post-it avec un point d'interrogation."/>
+&lt;p>Le sujet a eu du succès et nous avons formé une équipe de 10 personnes réparties entre les quatre entreprises participantes. Après une présentation du challenge &amp;amp; du modèle de données d&amp;rsquo;OpenStreetMap, nous avons recherché des outils existant et avons choisi de nous appuyer sur &lt;a href="https://osmose.openstreetmap.fr/">Osmose&lt;/a>, une application open source de détection et d&amp;rsquo;affichage d&amp;rsquo;erreurs potentielles dans OSM. Nous nous sommes ensuite réparti·es sur les 5 types d&amp;rsquo;erreurs.&lt;/p>
+&lt;img src="team.webp" alt="Les 10 membres de l'équipe posent devant une paroi de container décorée où il est écrit “Es ist möglich.”"/>
+&lt;p>&lt;em>De gauche à droite : Christoph (DB), Klara (ÖBB), Frederik (SBB), Carl (SBB), Julius (DB), Jennifer (DB), Daniel (ÖBB), Céline (SNCF), Max (DB), Tristram (SNCF).&lt;/em>&lt;/p>
+&lt;h2 id="les-résultats">Les résultats&lt;/h2>
+&lt;p>Après 24h de travail le résultat est une &lt;a href="https://openrailfoundation.github.io/FixOurRail-weird-angles/">carte interactive permettant d&amp;rsquo;afficher les différentes erreurs&lt;/a> (cliquez sur les pictogrammes pour afficher le détail des erreurs).
+Vous pouvez retrouver tout le code qui a été produit sur le &lt;a href="https://github.com/OpenRailFoundation/FixOurRail-simple-solutions">GitHub de la fondation Open Rail&lt;/a>.&lt;/p>
+&lt;p>Le manque de temps imparti ne nous a malheureusement pas permis d’intégrer nos analyseurs dans Osmose, cependant cela reste notre priorité pour faire avancer les travaux des contributeurs et contributrices d&amp;rsquo;OpenStreetMap sur les données ferroviaires !&lt;/p></description></item><item><title>Blog: I&amp;A5 et PIP6 - avril 2023</title><link>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</link><pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</guid><description>
 &lt;h2 id="un-ia-prometteur">Un I&amp;amp;A prometteur&lt;/h2>
 &lt;p>Notre 5ème Inspect &amp;amp; Adapt a commencé avec la présentation de notre PI System demo de l&amp;rsquo;application OSRD, démontrant l’ensemble des travaux réalisés au cours de ce PI5 par nos équipes. À la suite de cette demo, l’atteinte de nos objectifs (engagés et non engagés) a été évaluée par nos partie-prenantes. Verdict : 113 % de réussite&amp;hellip; Si, si, c’est possible 😉 !&lt;/p>
 &lt;h2 id="planification-de-notre-6ème--product-increment-pip6-">Planification de notre 6ème Product Increment (PIP6) !&lt;/h2>
