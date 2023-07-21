@@ -390,26 +390,36 @@ regardless of which signals are in use.&lt;/p>
 &lt;div class="pageinfo pageinfo-warning">
 &lt;p>This document is a work in progress&lt;/p>
 &lt;/div>
-&lt;p>Conflict detection is a process which enables figuring out if a timetable,
-comprised of many train paths, can be performed as planned.&lt;/p>
-&lt;p>If a train has to slow down because of another train, or undergoing work on
-rail infrastructure, these actors are in conflict, which causes the timetable
-to become impossible to perform.&lt;/p>
-&lt;p>Conflict detection relies on interlocking and signaling simulation to:&lt;/p>
+&lt;p>Conflict detection is the process of looking for timetable conflicts.
+A timetable conflict is any predictable condition which disrupts planned operations.
+Planned operations can be disrupted if a train is slowed down, prevented from proceeding, or delayed.&lt;/p>
+&lt;p>One of the core features of OSRD is the ability to automatically detect some conflicts:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>spacing conflicts&lt;/strong>: insufficient spacing between trains sharing the same path&lt;/li>
+&lt;li>&lt;strong>routing conflicts&lt;/strong>: insufficient spacing between trains with intersecting paths&lt;/li>
+&lt;/ul>
+&lt;p>Some other kinds of conflicts may be detected &lt;em>later on&lt;/em>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>maintenance conflicts&lt;/strong>: planned maintenance disrupts the path of a train&lt;/li>
+&lt;li>&lt;strong>power delivery conflicts&lt;/strong>: combined power delivery requirements exceeds capacity&lt;/li>
+&lt;/ul>
+&lt;p>Conflict detection relies on interlocking and signaling modeling and simulation to:&lt;/p>
 &lt;ol>
 &lt;li>figure out what each actor requires to perform its duty undisturbed&lt;/li>
 &lt;li>detect conflicting requirements&lt;/li>
 &lt;/ol>
-&lt;p>This system has to:&lt;/p>
+&lt;h2 id="design-constraints">Design constraints&lt;/h2>
+&lt;p>The primary design goals are as follows:&lt;/p>
 &lt;ul>
+&lt;li>enable threading new train paths into an existing timetable (see STDCM)&lt;/li>
 &lt;li>produce conflicts which can be linked back to a root cause&lt;/li>
 &lt;li>operate in way that can be visualized and interpreted&lt;/li>
-&lt;li>be scalable: it should work just as fast given a massive number of train paths to intersect&lt;/li>
-&lt;li>enable threading new train paths into an existing timetable&lt;/li>
+&lt;li>scale to real world timetables: millions of yearly trains, tens of thousands of daily trains&lt;/li>
 &lt;/ul>
-&lt;p>The design of this system is guided by a number of constraints:&lt;/p>
+&lt;p>In addition to these goals, the following constraints apply:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>it must not cause false-negatives&lt;/strong>: if no conflicts are detected, a multi-train simulation of the same timetable must not yield any slowdowns&lt;/li>
+&lt;li>it must be possible to thread new train paths into timetables with existing conflicts&lt;/li>
+&lt;li>it must not cause false-negatives: if no conflicts are detected, a multi-train simulation of the same timetable must not yield any slowdowns&lt;/li>
 &lt;li>it cannot rely on data we do not have&lt;/li>
 &lt;li>it has to enable later support of mobile block systems&lt;/li>
 &lt;li>it has to rely on existing signaling and interlocking simulation&lt;/li>
@@ -417,108 +427,137 @@ to become impossible to perform.&lt;/p>
 &lt;li>it has to support transitions between signaling systems&lt;/li>
 &lt;li>it has to support conflicts between different signaling systems&lt;/li>
 &lt;/ul>
-&lt;h2 id="conflict-theory">Conflict theory&lt;/h2>
-&lt;p>Conflict detection relies on an abstract model:&lt;/p>
-&lt;ul>
-&lt;li>objects where conflicts happen are resources&lt;/li>
-&lt;li>resources are used by actors&lt;/li>
-&lt;li>resource uses can be incompatible&lt;/li>
-&lt;li>overlapping incompatible ressource uses generate a conflict&lt;/li>
-&lt;/ul>
-&lt;h3 id="actors">Actors&lt;/h3>
-&lt;p>Actors are objects which cause resources to be used:&lt;/p>
+&lt;h2 id="conflict-modeling">Conflict modeling&lt;/h2>
+&lt;p>&lt;strong>Actors&lt;/strong> are objects which cause resources to be used:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>train paths&lt;/strong> (or someone / something on the behalf of the train)&lt;/li>
-&lt;li>&lt;strong>planned infrastructure work&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>maintenance work&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;h3 id="resources">Resources&lt;/h3>
-&lt;p>Resources have the following properties:&lt;/p>
-&lt;ul>
-&lt;li>can be used by actors&lt;/li>
-&lt;li>have multiple states&lt;/li>
-&lt;li>can only be in a single state at any given time&lt;/li>
-&lt;li>may take time changing state&lt;/li>
-&lt;/ul>
-&lt;p>The current model only considers the following two resources:&lt;/p>
+&lt;p>Actors need &lt;strong>resources&lt;/strong> to be available to proceed, such as:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>zones&lt;/strong>, which have one state per way to traverse it&lt;/li>
 &lt;li>&lt;strong>switches&lt;/strong>, which have one state per position&lt;/li>
+&lt;li>&lt;strong>station platforms&lt;/strong>, which could be used to prevent two large trains from occupying both sides of a tiny platform&lt;/li>
+&lt;/ul>
+&lt;p>Actor emit &lt;strong>resource requirements&lt;/strong>, which:&lt;/p>
+&lt;ul>
+&lt;li>describe the need of an actor for a resource, for a given time span&lt;/li>
+&lt;li>describe what the resource is needed for&lt;/li>
+&lt;li>detail how the resource is used, such as switch position, zone entry and exit&lt;/li>
+&lt;/ul>
+&lt;p>Resource requirements can turn out to be either &lt;strong>satisfied&lt;/strong>
+or &lt;strong>conflicting&lt;/strong> with other requirements, depending on compatibility rules.&lt;/p>
+&lt;p>&lt;strong>Compatibility rules differ by requirement purpose and resource type&lt;/strong>. For example:&lt;/p>
+&lt;ul>
+&lt;li>spacing requirements are exclusive: simultaneous requirements for the same resource are conflicting&lt;/li>
+&lt;li>zone and switch requirements are shareable: simultaneous requirements are satisfied if the resource configuration is identical&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>For conflict detection to work, resource requirements have to be at least as extensive as what&amp;rsquo;s required to guarantee that a train path will not be disturbed.&lt;/strong>&lt;/p>
+&lt;h2 id="routing-conflicts">Routing conflicts&lt;/h2>
+&lt;h3 id="context">Context&lt;/h3>
+&lt;p>For trains to proceed safely along their planned path:&lt;/p>
+&lt;ul>
+&lt;li>switches have to be moved in the appropriate position&lt;/li>
+&lt;li>level crossings have to activate&lt;/li>
+&lt;li>risks of collision with other trains have to be mitigated&lt;/li>
+&lt;/ul>
+&lt;p>In practice, the path of trains is partitioned into routes, which when set, ensure a train can safely follow the route.&lt;/p>
+&lt;p>Routes have the following lifestyle:&lt;/p>
+&lt;ul>
+&lt;li>As a train approaches the start of one of its routes, it is &lt;strong>called&lt;/strong> by an operator. If all resources required to safely use the route are available, switches and level crossings start to move. If a resources is not available, e.g. because another train has reserved a section of track, this process is delayed until all conditions are met.&lt;/li>
+&lt;li>Once all resources are configured and reserved, the route is &lt;strong>set&lt;/strong> and ready to be followed. Before that point, the entry of the route was protected by signaling, which prevented the train from moving past the entry point.&lt;/li>
+&lt;li>As the train moves along the route, it is &lt;strong>destroyed&lt;/strong>. When the tail of the trail releases key detectors along the route, resources before this detector are released, and can this be reserved by other routes.&lt;/li>
+&lt;/ul>
+&lt;p>For a train to proceed through a route unimpeded, the following things have to happen:&lt;/p>
+&lt;ul>
+&lt;li>The route has to be set before the train arrives, and before it is slowed down by signaling.&lt;/li>
+&lt;li>The route has to be called, so that is it set in time.&lt;/li>
+&lt;li>All resources required for the route to start setting at call time have to be available.&lt;/li>
+&lt;/ul>
+&lt;h3 id="generating-requirements">Generating requirements&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">RouteRequirement&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">route&lt;/span>: &lt;span style="color:#000">RouteId&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">set_deadline&lt;/span>: &lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">zone_requirements&lt;/span>: &lt;span style="color:#204a87">Vec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">RouteZoneRequirement&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">RouteZoneRequirement&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">zone&lt;/span>: &lt;span style="color:#000">ZoneId&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">entry_det&lt;/span>: &lt;span style="color:#000">DirDetectorId&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">exit_det&lt;/span>: &lt;span style="color:#000">DirDetectorId&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">release_time&lt;/span>: &lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">switches&lt;/span>: &lt;span style="color:#000">Map&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">SwitchId&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">SwitchConfigId&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Routing requirements are generated by the following algorithm:&lt;/p>
+&lt;ul>
+&lt;li>Compute the set deadline using signaling simulation. The set deadline is the point in time at which the train would be slowed down if the route were not set.&lt;/li>
+&lt;li>For each zone in each route, simulate when it would be released, and thus not required anymore.&lt;/li>
 &lt;/ul>
 &lt;div class="pageinfo pageinfo-info">
-&lt;p>Station platforms could also be resources, which would enable modeling platform use conflicts: if two tracks share a tiny platform, it may not be allowed to use both sides of the platform at once.&lt;/p>
+&lt;p>Route overlaps are not yet supported.&lt;/p>
 &lt;/div>
-&lt;h3 id="requirements-and-conflicts">Requirements and conflicts&lt;/h3>
-&lt;p>A &lt;strong>requirement&lt;/strong> describes what resource is needed by an actor, and when.&lt;/p>
-&lt;p>There are a few types of requirements:&lt;/p>
+&lt;h3 id="requirement-compatibility-rules">Requirement compatibility rules&lt;/h3>
+&lt;p>Requirement compatibility is evaluated for all &lt;code>RouteZoneRequirement&lt;/code>s, grouped by zone. Requirements A and B, ordered such that &lt;code>A.set_deadline &amp;lt;= B.set_deadline&lt;/code>, are compatible if and only if either:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>shareable&lt;/strong>: the resource is required to be in a given configuration, for a given time lapse. Other shareable requirements with the same configuration can stack up.&lt;/li>
-&lt;li>&lt;strong>exclusive&lt;/strong>: the resource is required to be in a given configuration, for a given actor, for a given time lapse. This requirement cannot be combined with others.&lt;/li>
+&lt;li>their active time span does not overlap, such that &lt;code>A.release_time &amp;lt;= (B.set_deadline - activation_time)&lt;/code>, where the activation time is the delay required to reconfigure from &lt;code>A.switches&lt;/code> to &lt;code>B.switches&lt;/code>.&lt;/li>
+&lt;li>&lt;code>(A.entry_det, A.exit_det, A.switches) == (B.entry_det, B.exit_det, B.switches)&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Conflicts&lt;/strong> are both real-life disturbances and the incompatible resource requirements which cause them. A disturbance is something that would cause a train to be unable to run as planned.&lt;/p>
+&lt;h2 id="spacing-conflicts">Spacing conflicts&lt;/h2>
+&lt;h3 id="context-1">Context&lt;/h3>
+&lt;p>Even if interlocking mitigates some of the risks associated with operating trains, a major one is left out: head to tail collisions, caused by insufficient spacing.&lt;/p>
+&lt;p>This responsibility is handled by signaling, which conveys both interlocking and spacing constraints.&lt;/p>
+&lt;p>Signaling helps trains slow down until the end of their movement authority, which is either:&lt;/p>
 &lt;ul>
-&lt;li>route setup delays due to unavailable resources&lt;/li>
-&lt;li>spacing conflicts due to a train catching up with another&lt;/li>
+&lt;li>behind the tail of the next train&lt;/li>
+&lt;li>at the end of the last route set for this train&lt;/li>
 &lt;/ul>
-&lt;p>These real-life issues can be linked to conflicts, which arise from incompatible resource requirements:&lt;/p>
+&lt;p>&lt;strong>Spacing requirements are emitted for zones which if occupied, would cause a slowdown, and zones occupied by the train&lt;/strong>&lt;/p>
+&lt;h3 id="generating-requirements-1">Generating requirements&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">SpacingRequirement&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">zone&lt;/span>: &lt;span style="color:#000">ZoneId&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">begin_time&lt;/span>: &lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">end_time&lt;/span>: &lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Every time the driver sees a signal, generate updated spacing requirements by calculating which zones, if occupied, would trigger a slowdown:&lt;/p>
 &lt;ul>
-&lt;li>an exclusive requirement overlaps another requirement&lt;/li>
-&lt;li>a shareable requirements overlaps an incompatible requirement&lt;/li>
-&lt;li>a resource does not have time to change state between non-overlapping, yet close, requirements&lt;/li>
+&lt;li>start by assuming the zone just after the head of the train is occupied&lt;/li>
+&lt;li>until the train is not slowed down, move the occupied section one zone further away from the train&lt;/li>
 &lt;/ul>
-&lt;p>For example, there are &lt;strong>no&lt;/strong> conflicts when:&lt;/p>
-&lt;ul>
-&lt;li>a resource has non-overlapping exclusive requirements&lt;/li>
-&lt;li>a resource is shared by requirements which require the same configuration&lt;/li>
-&lt;/ul>
-&lt;h2 id="generating-requirements">Generating requirements&lt;/h2>
-&lt;p>&lt;strong>For conflict detection to work, resource requirements have to strictly match what&amp;rsquo;s required
-to garantee that a simulated train will not be disturbed.&lt;/strong>&lt;/p>
+&lt;h3 id="requirement-compatibility-rules-1">Requirement compatibility rules&lt;/h3>
+&lt;p>Requirement compatibility is evaluated for all &lt;code>SpacingRequirement&lt;/code>s, grouped by zone.&lt;/p>
+&lt;p>Requirements A and B are compatible if and only if their &lt;code>[begin_time, end_time]&lt;/code> ranges do not overlap.&lt;/p>
+&lt;h2 id="incremental-requirement-generation">Incremental requirement generation&lt;/h2>
 &lt;h3 id="routing-requirements">Routing requirements&lt;/h3>
-&lt;p>For a train to be routed across rail infrastructure without any trouble, some resources have to
-be available for routes to set in time. A route does not set in time if a train is disturbed by
-a route being set too late.&lt;/p>
-&lt;p>A route might be set too late for a couple of reasons:&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+participant client as Client
+participant gen as Routing resource generator
+client -&amp;gt;&amp;gt; gen: initial path + train movement
+loop
+gen -&amp;gt;&amp;gt; client: prefix path extension needed
+client -&amp;gt;&amp;gt; gen: extra prefix path + train movement
+end
+gen -&amp;gt;&amp;gt; client: resource requirements
+&lt;/code>&lt;/pre>&lt;p>After an initial path is given, the requirement generator can ask for more &lt;strong>prefix&lt;/strong> path (before the start of the route). The client responds with:&lt;/p>
 &lt;ul>
-&lt;li>one of the zones required may be unavailable&lt;/li>
-&lt;li>a switch may be unavailable, or still moving&lt;/li>
+&lt;li>the extra prefix path&lt;/li>
+&lt;li>the movement of the train over time on the given prefix path&lt;/li>
 &lt;/ul>
-&lt;p>Routing requirements are generated by the following algorithm:&lt;/p>
-&lt;ul>
-&lt;li>compute a route calling timeline, so that the train never slows down due to late route setting.
-It can be done by finding when the driver would be constrained by signaling, and using that minus an allowance as the deadline.&lt;/li>
-&lt;li>for each zone in each route, simulate when it would be released, and thus not required anymore&lt;/li>
-&lt;li>use the route calling deadline as the requirement start time for each zone, and the release time as the requirement end. It is a shareable requirement.
-Switch requirements use the same time bounds.&lt;/li>
-&lt;/ul>
-&lt;div class="pageinfo pageinfo-info">
-&lt;p>Implementing route overlaps alternatives would require a richer model for requirements, such as a hierarchy and alternatives&lt;/p>
-&lt;/div>
+&lt;p>If the initial path has multiple routes, the last route is the one resource requirements are emitted for.&lt;/p>
 &lt;h3 id="spacing-requirements">Spacing requirements&lt;/h3>
-&lt;p>Trains can also be slowed down by catching up with another train.
-When this happens, signaling forces the following train to slow down,
-or even stop if the train being followed does not clear the way fast enough.&lt;/p>
-&lt;p>These slowdowns are conflicts, and thus need to be avoided by emitting sufficient requirements.&lt;/p>
-&lt;p>&lt;strong>At any time, exclusive requirements are emitted for zones which if occupied, would trigger a slowdown&lt;/strong>&lt;/p>
-&lt;p>These requirements are emitted as follows:&lt;/p>
-&lt;ul>
-&lt;li>the route calling timeline is followed&lt;/li>
-&lt;li>every time the driver sees a signal:
-&lt;ul>
-&lt;li>start by assuming routes reserved for routing should be reserved for spacing as well&lt;/li>
-&lt;li>until the driver sees a signal which would cause a slowdown:
-&lt;ul>
-&lt;li>attempt to make the last reserved zone occupied by a virtual train&lt;/li>
-&lt;li>if the signal now causes a slowdown, the currently reserved zones are correct, continue to the next signal&lt;/li>
-&lt;li>if not, unreserve the last zone of the path&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="detecting-conflicts">Detecting conflicts&lt;/h2>
-&lt;p>&lt;a href="./conflict-diagram.html">Full-page diagram&lt;/a>&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+participant client as Client
+participant gen as Spacing resource generator
+client -&amp;gt;&amp;gt; gen: initial path + train movement
+loop
+gen -&amp;gt;&amp;gt; client: postfix path extension needed
+client -&amp;gt;&amp;gt; gen: extra postfix path
+end
+gen -&amp;gt;&amp;gt; client: resource requirements
+&lt;/code>&lt;/pre>&lt;p>After an initial path is given, the requirement generator can ask for more &lt;strong>postfix&lt;/strong> path (before the start of the route).&lt;/p>
+&lt;h2 id="visualizing-requirements">Visualizing requirements&lt;/h2>
 &lt;script type="application/javascript" src="mkt.js">&lt;/script>
-&lt;p>&lt;object onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="conflict-diagram.svg">&lt;/object>&lt;/p></description></item><item><title>Docs: Search for last-minute train slots (STDCM)</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/</guid><description>
+&lt;p>&lt;object style="width: 100%" onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="requirements-diagram.svg">&lt;/object>&lt;/p>
+&lt;p>&lt;a href="./requirements-diagram.html">Full-page requirements diagram&lt;/a>&lt;/p></description></item><item><title>Docs: Search for last-minute train slots (STDCM)</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/</guid><description>
 &lt;p>OSRD can be used to find a slot for a train in an already established
 timetable, without causing conflicts with other trains.&lt;/p>
 &lt;p>The acronym STDCM (Short Term Digital Capacity Management) is used
