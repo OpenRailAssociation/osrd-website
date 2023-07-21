@@ -11,7 +11,7 @@ This document is a work in progress
 
 Conflict detection is the process of looking for timetable conflicts.
 A timetable conflict is any predictable condition which disrupts planned operations.
-Planned operations can be disrupted if a train slows down, is prevented from proceeding, or delayed.
+Planned operations can be disrupted if a train is slowed down, prevented from proceeding, or delayed.
 
 One of the core features of OSRD is the ability to automatically detect some conflicts:
 
@@ -87,7 +87,7 @@ In practice, the path of trains is partitioned into routes, which when set, ensu
 
 Routes have the following lifestyle:
 
- - As a train approaches the start of one of its routes, it is **called** by an operator. If all resources required to safely use the route are available, switches and level crossings start to move. If a resources is not available, say because another train has reserved a section of track, this process is delayed until all conditions are met.
+ - As a train approaches the start of one of its routes, it is **called** by an operator. If all resources required to safely use the route are available, switches and level crossings start to move. If a resources is not available, e.g. because another train has reserved a section of track, this process is delayed until all conditions are met.
  - Once all resources are configured and reserved, the route is **set** and ready to be followed. Before that point, the entry of the route was protected by signaling, which prevented the train from moving past the entry point.
  - As the train moves along the route, it is **destroyed**. When the tail of the trail releases key detectors along the route, resources before this detector are released, and can this be reserved by other routes.
 
