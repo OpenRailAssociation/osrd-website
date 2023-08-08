@@ -7,48 +7,45 @@ aliases:
     - ../neutral_sections
 ---
 
-{{% alert title="Disclaimer" color="warning"%}}
-Traduction will come soon
-{{% /alert %}}
+## Physical object to model
 
-## Objet physique que l'on cherche à modéliser
+### Introduction
+For a train to be able to run, it must either have an energy source on board (fuel, battery, hydrogen, ...) or be supplied with energy throughout its journey.
 
-### Infrastructure
-Pour qu'un train puisse circuler, il faut soit qu'il ait un stock d'énergie à bord (fuel, batterie, hydrogène, ...) soit qu'on l'alimente en énergie tout au long de son parcours. 
+To supply this energy, electrical cables are suspended above the tracks: the *catenaries*. The train then makes contact with these cables thanks to a conducting piece mounted on a mechanical arm: the *pantograph*.
 
-Les zones neutres interviennent dans le second cas. Pour le réaliser, des câbles électriques sont suspendus au dessus des voies: les *caténaires*. Le train assure ensuite un contact avec ces câbles grâce à un patin conducteur monté sur un bras mécanique: le *pantographe*.
+### Neutral sections
+With this system it is difficult to ensure the electrical supply of a train continuously over the entire length of a line. On certain sections of track, it is necessary to cut the electrical supply of the train. These portions are called **neutral sections**.
 
-Avec ce système il est difficile d'assurer l'alimentation électrique d'un train en continu sur toute la longueur d'une ligne.
+Indeed, in order to avoid energy losses along the catenaries, the current is supplied by several substations distributed along the tracks. Two portions of catenaries supplied by different substations must be electrically isolated to avoid short circuits.
 
-En effet, pour éviter les pertes énergétiques le long des caténaires, le courant est fourni par plusieurs sous-stations réparties le long des voies. Deux portions de caténaires alimentées par des sous-stations différentes doivent être isolées électriquement pour éviter les courts-circuits.
+Moreover, the way the tracks are electrified (DC or not for example) can change according to the local uses and the time of installation. It is again necessary to electrically isolate the portions of tracks which are electrified differently. The train must also (except in particular cases) change its pantograph when the type of electrification changes.
 
-Par ailleurs, la façon doit les voies sont électrifiées (courant continu ou non par exemple) peut changer selon les us locaux et l'époque d'installation. Il faut également isoler électriquement les portions de voies qui sont électrifiées différemment. Le train doit aussi (sauf cas particuliers) changer de pantographe lorsqu'il change de type d'électrification.
+In both cases, the driver is instructed to cut the train's traction, and sometimes even to lower the pantograph.  
+In the French infrastructure, these zones are indicated by announcement, execution and end signs. They also carry the indication to lower the pantograph or not. The portions of track between the execution and end may not be electrified entirely, and may not even have a catenary (in this case the zone necessarily requires lowering the pantograph).  
+*REV* (for reversible) signs are sometimes placed downstream of the end of zone signs. They are intended for trains that run with a pantograph at the rear of the train. These signs indicate that the driver can resume traction safely.
 
-Dans ces deux cas on indique alors au conducteur de couper la traction du train, et parfois même d'en baisser le pantographe. Ce sont ces zones où le train ne peut pas tractionner que l'on appelle zones neutres.  
-Dans l'infrastructure française, ces zones sont signalées par des panneaux d'annonce (qui porte d'ailleurs l'indication de baisser le pantographe ou non), puis d'exécution et de fin. Les portions de voies entre l'exécution et la fin peuvent ne pas être électrifiées entièrement, et même ne pas posséder de caténaire (dans ce cas la zone nécessite forcément de baisser le pantographe).  
-Parfois, des pancartes *REV* (pour réversible) sont placées en aval des panneaux de fin de zone. Elles sont destinées aux trains qui circulent avec un pantographe à l'arrière du train. Ces pancartes indiquent que le conducteur peut reprendre la traction en toute sécurité.
+Additionally, it may sometimes be impossible on a short section of track to place a catenary or to raise the train's pantograph. In this case the line is still considered electrified, and the area without electrification (passage under a bridge for example) is considered as a neutral section.
 
-Par ailleurs il peut parfois être impossible sur une courte portion de voie de placer une caténaire ou bien de lever le pantographe du train. Dans ce cas la ligne est tout de même considérée électrifiée, et la zone sans électrification (passage sous un pont par exemple) est considérée comme une zone neutre.
+### Rolling stock
 
-### Matériel roulant
+After passing through a neutral section, a train must resume traction. This is not immediate (a few seconds), and the necessary duration depends on the rolling stock.
 
-Après avoir traversé une zone neutre, un train doit donc reprendre la traction. Ce n'est pas immédiat (quelques secondes), et la durée nécessaire dépend du matériel roulant.
+In addition, the driver must, if necessary, lower his pantograph, which also takes time (a few tens of seconds) and also depends on the rolling stock.
 
-Il doit également, le cas échéant, relever son pantographe, ce qui prend également du temps (quelques dizaines de secondes) et dépend également du matériel roulant.
+Thus, the coasting imposed on the train extends outside the neutral section, since these system times are to be counted from the end of the neutral section.
 
-Ainsi la marche sur l'erre imposée au train s'étend en dehors de la zone neutre, puisque ces temps systèmes sont à décompter à partir de la fin de la zone neutre.
+## Data model
 
-## Modèle de données
+We have chosen to model the neutral sections as the space between the signs linked to it (and not as the precise zone where there is no catenary or where the catenary is not electrified).
 
-Nous avons choisi de modéliser les zones neutres comme l'espace entre les panneaux liés à celle-ci (et non pas comme la zone précise où il n'y a pas de caténaire ou bien où la caténaire n'est pas électrifiée). 
+This zone is directional, *i.e.* associated with a direction of travel, in order to be able to take into account different placements of signs according to the direction. The execution sign of a given direction is not necessarily placed at the same position as the end of zone sign of the opposite direction.
 
-Cette zone est directionnelle, *i.e.* associée à un sens de circulation, pour pouvoir prendre en compte des placements de panneaux différents selon le sens. Le panneau d'exécution d'un sens donné n'est pas nécessairement placé à la même position que le panneau de fin de zone du sens opposé.
+For a two-way track, a neutral section is therefore represented by two objects.
 
-Pour une voie à double sens, une zone neutre est donc représentée par deux objets. 
+The schema is the following
 
-Le schema est le suivant
-
-```jsonschema
+```json
 {
     "lower_pantograph": boolean,
     "track_ranges": [
@@ -69,40 +66,39 @@ Le schema est le suivant
     ]
 }
 ```
+- `lower_pantograph`: indicates whether the pantograph should be lowered in this section
+- `track_ranges`: list of track sections ranges where the train must not traction
+- `announcement_track_ranges`: list of track sections ranges between the announcement sign and the execution sign
 
-- `lower_pantograph` : indique si le pantographe doit être baissé dans cette zone
-- `track_ranges` : liste des portions de voie où le train ne doit pas tractionner
-- `announcement_track_ranges` : liste des portions de voie entre le panneau d'annonce et le panneau d’exécution
+## Display
 
-## Affichage
+### Map
+The zones displayed in the map correspond to the `track_ranges` of neutral sections, thus are between the execution and end signs of the zone. The color of the zone indicates whether the train must lower its pantograph in the zone or not.
 
-### Cartographie
-Les zones affichées dans la cartographie correspondent aux `track_ranges`, donc entre les panneaux d’exécution et de fin de zone. La couleur de la zone indique si le train doit baisser son pantographe dans la zone ou non.
+The direction in which the zone applies is not represented.
 
-La direction dans laquelle la zone s'applique n'est pas représentée.
+### Simulation results
+In the linear display, it is always the area between EXE and FIN that is displayed.
 
-### Résultat de simulation
-Dans l'affichage linéaire, c'est toujours la zone entre EXE et FIN qui est affichée.
+## Pathfinding
+Neutral sections are therefore portions of "non-electrified" track where an electric train can still run (but where it cannot traction).
 
-## Recherche d'itinéraire
-Les zones neutres sont donc des portions de voie "non électrifiées" où un train électrique peut tout de même circuler (mais où il ne peut pas tractionner).
-
-Lors de la recherche de chemin dans l'infrastructure, une portion de voie qui n'est pas couverte par les `track_ranges` d'un objet caténaire (documentation à écrire) peut être empruntée par un train électrique seulement si elle est couverte par les `track_ranges` d'une zone neutre.
+When searching for a path in the infrastructure, an electric train can travel through a track section that is not covered by the `track_ranges` of a catenary object (documentation to be written) only if it is covered by the `track_ranges` of a neutral section.
 
 ## Simulation
 
-Dans la simulation, nous approximons le comportement du conducteur de la façon suivante :
-* La marche sur l'erre est entamée dès que la tête du train passe le panneau d'annonce
-* Le décompte des temps systèmes (relevé du pantographe et reprise de la traction) commence dès que la tête du train passe le panneau de fin.
+In our simulation, we approximate the driver's behavior as follows:
+* The coasting is started as soon as the train's head passes the announcement sign
+* The system times (pantograph reading and traction resumption) start as soon as the train's head passes the end sign.
 
-Dans la simulation actuelle, il est plus facile de manier des bornes d'intégration spatiales que temporelles. Nous effectuons l'approximation suivante: lors de la sortie de la zone neutre, on multiplie les temps systèmes par la vitesse en sortie de zone. La marche sur l'erre est alors prolongée de la distance obtenue. Cette approximation est raisonnable car l'inertie du train et la quasi-absence de frottement garantissent que la vitesse varie peu sur cet intervalle de temps.
+In the current simulation, it is easier to use spatial integration bounds rather than temporal ones. We make the following approximation: when leaving the neutral section, we multiply the system times by the speed at the exit of the zone. The coasting is then extended over the obtained distance. This approximation is reasonable because the train's inertia and the almost absence of friction guarantee that the speed varies little over this time interval.
 
+## Improvements to be made
+Several aspects could be improved:
 
-## Potentielles améliorations
-Plusieurs points pourraient être améliorés aujourd'hui :
+- We do not model the *REV* signs, all trains therefore only have one pantograph at the front in our simulations.
+- System times are approximated.
+- The driver's behavior is rather restrictive (coasting could start after the announcement sign).
+- The display of the zones is limited: no representation of the direction or the announcement zones.
+- These zones are not editable.
 
-- On ne considère pas les pancartes *REV*, tous les trains ne possèdent donc qu'un pantographe à l'avant dans nos simulations.
-- Les temps systèmes sont approximés.
-- Le comportement conducteur est plutôt restrictif (la marche sur l'erre pourrait commencer après le panneau d'annonce).
-- L'affichage des zones est limité: pas de représentation de la direction ou des zones d'annonce.
-- Ces zones ne sont pas éditables.
