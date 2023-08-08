@@ -9,25 +9,28 @@ aliases:
 
 ## Objet physique que l'on cherche à modéliser
 
-### Infrastructure
-Pour qu'un train puisse circuler, il faut soit qu'il ait un stock d'énergie à bord (fuel, batterie, hydrogène, ...) soit qu'on l'alimente en énergie tout au long de son parcours. 
+### Introduction
+Pour qu'un train puisse circuler, il faut soit qu'il ait une source d'énergie à bord (fuel, batterie, hydrogène, ...) soit qu'on l'alimente en énergie tout au long de son parcours. 
 
-Les zones neutres interviennent dans le second cas. Pour le réaliser, des câbles électriques sont suspendus au dessus des voies: les *caténaires*. Le train assure ensuite un contact avec ces câbles grâce à un patin conducteur monté sur un bras mécanique: le *pantographe*.
+Pour fournir cette énergie, des câbles électriques sont suspendus au dessus des voies: les *caténaires*. Le train assure ensuite un contact avec ces câbles grâce à un patin conducteur monté sur un bras mécanique: le *pantographe*.
 
-Avec ce système il est difficile d'assurer l'alimentation électrique d'un train en continu sur toute la longueur d'une ligne.
+### Zones neutres
+
+Avec ce système il est difficile d'assurer l'alimentation électrique d'un train en continu sur toute la longueur d'une ligne: sur certaines portions de voie, il est nécessaire de couper l'alimentation électrique du train. Ce sont ces portions que l'on appelle **zones neutres**.
 
 En effet, pour éviter les pertes énergétiques le long des caténaires, le courant est fourni par plusieurs sous-stations réparties le long des voies. Deux portions de caténaires alimentées par des sous-stations différentes doivent être isolées électriquement pour éviter les courts-circuits.
 
 Par ailleurs, la façon dont les voies sont électrifiées (courant continu ou non par exemple) peut changer selon les us locaux et l'époque d'installation. Il faut également isoler électriquement les portions de voies qui sont électrifiées différemment. Le train doit aussi (sauf cas particuliers) changer de pantographe lorsqu'il change de type d'électrification.
 
-Dans ces deux cas on indique alors au conducteur de couper la traction du train, et parfois même d'en baisser le pantographe. Ce sont ces zones où le train ne peut pas tractionner que l'on appelle zones neutres.  
-Dans l'infrastructure française, ces zones sont signalées par des panneaux d'annonce (qui porte d'ailleurs l'indication de baisser le pantographe ou non), puis d'exécution et de fin. Les portions de voies entre l'exécution et la fin peuvent ne pas être électrifiées entièrement, et même ne pas posséder de caténaire (dans ce cas la zone nécessite forcément de baisser le pantographe).  
+Dans ces deux cas on indique alors au conducteur de couper la traction du train, et parfois même d'en baisser le pantographe.
+
+Dans l'infrastructure française, ces zones sont signalées par des panneaux d'annonce, d'exécution et de fin. Ces panneaux portent par ailleurs l'indication de baisser le pantographe ou non. Les portions de voies entre l'exécution et la fin peuvent ne pas être électrifiées entièrement, et même ne pas posséder de caténaire (dans ce cas la zone nécessite forcément de baisser le pantographe).  
 Parfois, des pancartes *REV* (pour réversible) sont placées en aval des panneaux de fin de zone. Elles sont destinées aux trains qui circulent avec un pantographe à l'arrière du train. Ces pancartes indiquent que le conducteur peut reprendre la traction en toute sécurité.
 
 Par ailleurs il peut parfois être impossible sur une courte portion de voie de placer une caténaire ou bien de lever le pantographe du train. Dans ce cas la ligne est tout de même considérée électrifiée, et la zone sans électrification (passage sous un pont par exemple) est considérée comme une zone neutre.
 
 ### Matériel roulant
-Après avoir traversé une zone neutre, un train doit donc reprendre la traction. Ce n'est pas immédiat (quelques secondes), et la durée nécessaire dépend du matériel roulant.
+Après avoir traversé une zone neutre, un train doit reprendre la traction. Ce n'est pas immédiat (quelques secondes), et la durée nécessaire dépend du matériel roulant.
 
 Il doit également, le cas échéant, relever son pantographe, ce qui prend également du temps (quelques dizaines de secondes) et dépend également du matériel roulant.
 
@@ -42,7 +45,7 @@ Pour une voie à double sens, une zone neutre est donc représentée par deux ob
 
 Le schema est le suivant
 
-```jsonschema
+```json
 {
     "lower_pantograph": boolean,
     "track_ranges": [
@@ -91,7 +94,7 @@ Dans la simulation, nous approximons le comportement du conducteur de la façon 
 Dans la simulation actuelle, il est plus facile de manier des bornes d'intégration spatiales que temporelles. Nous effectuons l'approximation suivante: lors de la sortie de la zone neutre, on multiplie les temps systèmes par la vitesse en sortie de zone. La marche sur l'erre est alors prolongée de la distance obtenue. Cette approximation est raisonnable car l'inertie du train et la quasi-absence de frottement garantissent que la vitesse varie peu sur cet intervalle de temps.
 
 ## Potentielles améliorations
-Plusieurs points pourraient être améliorés aujourd'hui :
+Plusieurs points pourraient être améliorés :
 
 - On ne considère pas les pancartes *REV*, tous les trains ne possèdent donc qu'un pantographe à l'avant dans nos simulations.
 - Les temps systèmes sont approximés.
