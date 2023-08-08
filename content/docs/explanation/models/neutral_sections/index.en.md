@@ -3,6 +3,8 @@ title: "Neutral Sections"
 linkTitle: "Neutral Sections"
 weight: 20
 description: "Documentation about what they are and how they are implemented"
+aliases:
+    - ../neutral_sections
 ---
 
 {{% alert title="Disclaimer" color="warning"%}}
