@@ -3,6 +3,8 @@ title: "Zones neutres"
 linkTitle: "Zones neutres"
 weight: 20
 description: "Documentation des zones neutres et de leur implémentation"
+aliases:
+    - ../neutral_sections
 ---
 
 ## Objet physique que l'on cherche à modéliser
