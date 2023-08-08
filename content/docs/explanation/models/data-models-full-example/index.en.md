@@ -28,9 +28,9 @@ This example will be created step by step and explained along the way.
 
 #### The infrastructure generator
 
-In the [*OSRD* repository](https://github.com/osrd-project/osrd) is a [python library](https://github.com/osrd-project/osrd/tree/dev/core/examples/generated) designed to help generate infrastructures in a format understood by *OSRD*.
+In the [*OSRD* repository](https://github.com/osrd-project/osrd) is a [python library](https://github.com/osrd-project/osrd/tree/dev/python/railjson_generator) designed to help generate infrastructures in a format understood by *OSRD*.
 
-The infrastructure discussed in this section can be generated thanks to [small_infra.py](https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py) file. To learn more about the generation scripts, you can check out the related [README](https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/README.md).
+The infrastructure discussed in this section can be generated thanks to [small_infra.py](https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py) file. To learn more about the generation scripts, you can check out the related [README](https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/README.md).
 
 <font color=#aa026d>
 
@@ -184,7 +184,7 @@ All objects so far contributed to track topology (shape). Topology would be enou
 
 #### Detectors
 
-These objects are used to create TVD sections (Track Vacancy Detection section): the track area in between detectors is a TVD section. When a train runs into a detector, the section it is entering becomes occupied. The only function of TVD sections is to locate trains.
+These objects are used to create [TVD](https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&q=TVD) sections (Track Vacancy Detection section): the track area in between detectors is a TVD section. When a train runs into a detector, the section it is entering becomes occupied. The only function of TVD sections is to locate trains.
 
 In real life, detectors can be [axle counters](https://en.wikipedia.org/wiki/Axle_counter) or [track circuits](https://en.wikipedia.org/wiki/Track_circuit) for example.
 
@@ -216,7 +216,7 @@ Some notes:
 
 In our infrastructure, there is a buffer stop on each track section which has a loose end. There are therefore 8 buffer stops in total.
 
-Together with detectors, they set the boundaries of [TVD](https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&q=TVD) sections (see [Detectors](#detectors))
+Together with detectors, they set the boundaries of TVD sections (see [Detectors](#detectors))
 
 #### Routes
 
@@ -305,7 +305,7 @@ For more details about the model see the [dedicated page](../neutral_sections).
 
 <font color=#aa026d>
 
-## Miscellaneous
+### Miscellaneous
 
 </font>
 
