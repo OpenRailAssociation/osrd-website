@@ -1,6 +1,6 @@
 ---
-title: "Infrastructure data"
-linkTitle: "Infrastructure data"
+title: "Infrastructure example"
+linkTitle: "Infrastructure example"
 weight: 20
 description: "Explains using an example how infrastructure data is structured"
 ---
@@ -267,6 +267,41 @@ To get the `id` of a detector linked to a signal, take the signal's `id` and rep
 {{% alert title="" color="info"%}}
 On *TA6*, *TA7*, *TD0* and *TD1* we could not represent all signals because these track sections are very long and have many detectors, hence many signals.
 {{% /alert %}}
+
+<font color=#aa026d>
+
+### Electrification
+</font>
+
+To allow electric trains to run on our infrastructure, we need to specify which parts of the infrastructure is electrified.
+
+#### Catenaries
+
+`Catenaries` are objects that represent the overhead wires that power electric trains. They are represented with the following attributes: 
+* `voltage`: A string representing the type of power supply used for electrification
+* `track_ranges`: A list of range of track sections (`TrackRanges`) covered by this catenary. A `TrackRange` is composed of a track section id, a `begin` offset and an `end` offset.
+
+In our example infrastructure, we have two `Catenaries`:
+* One with `voltage` set to `"1500"`, which covers only *TA0*.
+* One with `voltage` set to `"25000"`, which covers all others except *TD1*.
+
+This means that only thermal trains can cross the *TD1* track section.
+
+Our example also outlines that, unlike its real life counterpart, a single `Catenary` may cover the whole infrastructure.
+
+#### Neutral Sections
+
+In some parts of an infrastructure, the train drivers may be instructed - mainly for safety reasons - to cut the power supply to the train. 
+
+To represent such parts, we use `NeutralSections`. They are represented mainly with the following attributes:
+
+* `track_ranges`: A list of `DirectedTrackRanges` (track ranges associated to a direction) which are covered by this neutral section.
+* `lower_pantograph`: A boolean indicating whether the train's pantograph should be lowered while in this section.
+
+In our example infrastructure, we have three `NeutralSections`: one at the junction of the `"1500"` and `"25000"` catenaries, one on *TA6* and one on *TG1* and *TG4*.
+
+For more details about the model see the [dedicated page](../neutral_sections).
+
 
 <font color=#aa026d>
 

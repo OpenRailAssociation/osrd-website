@@ -1,6 +1,6 @@
 ---
-title: "Données d'infrastructure"
-linkTitle: "Données d'infrastructure"
+title: "Exemple d'infrastructure"
+linkTitle: "Exemple d'infrastructure"
 weight: 20
 description: "Explique par l'exemple comment les données d'infrastructure sont structurées"
 ---
@@ -267,6 +267,40 @@ Pour obtenir le `id` d'un détecteur lié à un signal, prenez le `id` du signal
 {{% alert title="" color="info"%}}
 Sur *TA6*, *TA7*, *TD0* et *TD1* nous n'avons pas pu représenter tous les signaux car ces sections de voie sont très longues et comportent de nombreux détecteurs, donc de nombreux signaux.
 {{% /alert %}}
+
+<font color=#aa026d>
+
+### Électrification
+</font>
+
+Pour permettre à des trains électriques de circuler sur notre infrastructure, nous devons spécifier les parties de celle-ci qui sont électrifiées.
+
+#### Caténaires (`Catenaries`)
+
+Les `Catenaries` représentent les câbles d'alimentation qui alimentent les trains électriques. Ils sont représentés avec les attributs suivants :
+* `voltage` : Une chaîne de caractères représentant le type d'alimentation électrique utilisée pour l'électrification.
+* `track_ranges` : Une liste de portions de sections de voie (`TrackRanges`) couvertes par cette caténaire. Une `TrackRange` est composée d'un identifiant de section de voie, d'une position `begin` et d'une position `end`.
+
+Dans notre exemple, nous avons deux `Catenaries`:
+* Une avec `voltage` défini sur `"1500"`, qui couvre uniquement *TA0*.
+* Une avec `voltage` défini sur `"25000"`, qui couvre tous les autres sauf *TD1*.
+
+Cela signifie que seuls les trains thermiques peuvent traverser la section de voie *TD1*.
+
+Notre exemple montre également que, contrairement à son homologue réel, une seule `Catenary` peut couvrir toute l'infrastructure.
+
+#### Sections Neutres (`NeutralSections`)
+
+Dans certaines parties d'une infrastructure, les conducteurs de train sont sommés - principalement pour des raisons de sécurité - de couper l'alimentation électrique du train.
+
+Pour représenter de telles parties, nous utilisons des `NeutralSections`. Elles sont représentées avec principalement les attributs suivants :
+
+* `track_ranges` : Une liste de `DirectedTrackRanges` (portions de sections de voie associées à une direction) couvertes par cette section neutre.
+* `lower_pantograph` : Un booléen indiquant si le pantographe du train doit être abaissé pendant la traversée de cette section.
+
+Dans notre exemple, nous avons trois `NeutralSections` : une à la jonction des caténaires `"1500"` et `"25000"`, une sur *TA6* et une sur *TG1* et *TG4*.
+
+Pour plus de détails sur le modèle, voir la [page dédiée](../neutral_sections).
 
 <font color=#aa026d>
 
