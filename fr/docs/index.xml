@@ -387,7 +387,7 @@ le graphe des voies :
 &lt;img src="example_infra.svg" alt="Infra d&amp;amp;rsquo;exemple">&lt;/p>
 &lt;p>Explorer le graphe des sillons possibles peut donner ce
 type de résultat :
-&lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Données d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/data-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/data-model/</guid><description>
+&lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Exemple d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="introduction">Introduction&lt;/h3>
 &lt;/font>
@@ -554,6 +554,32 @@ Pour obtenir le &lt;code>id&lt;/code> d&amp;rsquo;un détecteur lié à un signa
 Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> nous n&amp;rsquo;avons pas pu représenter tous les signaux car ces sections de voie sont très longues et comportent de nombreux détecteurs, donc de nombreux signaux.
 &lt;/div>
 &lt;font color=#aa026d>
+&lt;h3 id="électrification">Électrification&lt;/h3>
+&lt;/font>
+&lt;p>Pour permettre à des trains électriques de circuler sur notre infrastructure, nous devons spécifier les parties de celle-ci qui sont électrifiées.&lt;/p>
+&lt;h4 id="caténaires-catenaries">Caténaires (&lt;code>Catenaries&lt;/code>)&lt;/h4>
+&lt;p>Les &lt;code>Catenaries&lt;/code> représentent les câbles d&amp;rsquo;alimentation qui alimentent les trains électriques. Ils sont représentés avec les attributs suivants :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>voltage&lt;/code> : Une chaîne de caractères représentant le type d&amp;rsquo;alimentation électrique utilisée pour l&amp;rsquo;électrification.&lt;/li>
+&lt;li>&lt;code>track_ranges&lt;/code> : Une liste de portions de sections de voie (&lt;code>TrackRanges&lt;/code>) couvertes par cette caténaire. Une &lt;code>TrackRange&lt;/code> est composée d&amp;rsquo;un identifiant de section de voie, d&amp;rsquo;une position &lt;code>begin&lt;/code> et d&amp;rsquo;une position &lt;code>end&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;p>Dans notre exemple, nous avons deux &lt;code>Catenaries&lt;/code>:&lt;/p>
+&lt;ul>
+&lt;li>Une avec &lt;code>voltage&lt;/code> défini sur &lt;code>&amp;quot;1500&amp;quot;&lt;/code>, qui couvre uniquement &lt;em>TA0&lt;/em>.&lt;/li>
+&lt;li>Une avec &lt;code>voltage&lt;/code> défini sur &lt;code>&amp;quot;25000&amp;quot;&lt;/code>, qui couvre tous les autres sauf &lt;em>TD1&lt;/em>.&lt;/li>
+&lt;/ul>
+&lt;p>Cela signifie que seuls les trains thermiques peuvent traverser la section de voie &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>Notre exemple montre également que, contrairement à son homologue réel, une seule &lt;code>Catenary&lt;/code> peut couvrir toute l&amp;rsquo;infrastructure.&lt;/p>
+&lt;h4 id="sections-neutres-neutralsections">Sections Neutres (&lt;code>NeutralSections&lt;/code>)&lt;/h4>
+&lt;p>Dans certaines parties d&amp;rsquo;une infrastructure, les conducteurs de train sont sommés - principalement pour des raisons de sécurité - de couper l&amp;rsquo;alimentation électrique du train.&lt;/p>
+&lt;p>Pour représenter de telles parties, nous utilisons des &lt;code>NeutralSections&lt;/code>. Elles sont représentées avec principalement les attributs suivants :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>track_ranges&lt;/code> : Une liste de &lt;code>DirectedTrackRanges&lt;/code> (portions de sections de voie associées à une direction) couvertes par cette section neutre.&lt;/li>
+&lt;li>&lt;code>lower_pantograph&lt;/code> : Un booléen indiquant si le pantographe du train doit être abaissé pendant la traversée de cette section.&lt;/li>
+&lt;/ul>
+&lt;p>Dans notre exemple, nous avons trois &lt;code>NeutralSections&lt;/code> : une à la jonction des caténaires &lt;code>&amp;quot;1500&amp;quot;&lt;/code> et &lt;code>&amp;quot;25000&amp;quot;&lt;/code>, une sur &lt;em>TA6&lt;/em> et une sur &lt;em>TG1&lt;/em> et &lt;em>TG4&lt;/em>.&lt;/p>
+&lt;p>Pour plus de détails sur le modèle, voir la &lt;a href="../neutral_sections">page dédiée&lt;/a>.&lt;/p>
+&lt;font color=#aa026d>
 &lt;h2 id="divers">Divers&lt;/h2>
 &lt;/font>
 &lt;h4 id="points-opérationnels">Points opérationnels&lt;/h4>
@@ -614,6 +640,76 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 Vous pouvez laisser un commentaire pour expliquer les changements.&lt;/li>
 &lt;li>Si vous travaillez sur un bug ou planifiez de travailler sur un bug, assignez vous au bug.&lt;/li>
 &lt;li>Les PRs qui résolvent des bugs doivent ajouter des tests de régression pour s&amp;rsquo;assurer que le bug ne reviendra pas dans le futur.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Zones neutres</title><link>https://osrd.fr/fr/docs/explanation/models/neutral_sections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/models/neutral_sections/</guid><description>
+&lt;h2 id="objet-physique-que-lon-cherche-à-modéliser">Objet physique que l&amp;rsquo;on cherche à modéliser&lt;/h2>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>Pour qu&amp;rsquo;un train puisse circuler, il faut soit qu&amp;rsquo;il ait une source d&amp;rsquo;énergie à bord (fuel, batterie, hydrogène, &amp;hellip;) soit qu&amp;rsquo;on l&amp;rsquo;alimente en énergie tout au long de son parcours.&lt;/p>
+&lt;p>Pour fournir cette énergie, des câbles électriques sont suspendus au dessus des voies: les &lt;em>caténaires&lt;/em>. Le train assure ensuite un contact avec ces câbles grâce à un patin conducteur monté sur un bras mécanique: le &lt;em>pantographe&lt;/em>.&lt;/p>
+&lt;h3 id="zones-neutres">Zones neutres&lt;/h3>
+&lt;p>Avec ce système il est difficile d&amp;rsquo;assurer l&amp;rsquo;alimentation électrique d&amp;rsquo;un train en continu sur toute la longueur d&amp;rsquo;une ligne: sur certaines portions de voie, il est nécessaire de couper l&amp;rsquo;alimentation électrique du train. Ce sont ces portions que l&amp;rsquo;on appelle &lt;strong>zones neutres&lt;/strong>.&lt;/p>
+&lt;p>En effet, pour éviter les pertes énergétiques le long des caténaires, le courant est fourni par plusieurs sous-stations réparties le long des voies. Deux portions de caténaires alimentées par des sous-stations différentes doivent être isolées électriquement pour éviter les courts-circuits.&lt;/p>
+&lt;p>Par ailleurs, la façon dont les voies sont électrifiées (courant continu ou non par exemple) peut changer selon les us locaux et l&amp;rsquo;époque d&amp;rsquo;installation. Il faut également isoler électriquement les portions de voies qui sont électrifiées différemment. Le train doit aussi (sauf cas particuliers) changer de pantographe lorsqu&amp;rsquo;il change de type d&amp;rsquo;électrification.&lt;/p>
+&lt;p>Dans ces deux cas on indique alors au conducteur de couper la traction du train, et parfois même d&amp;rsquo;en baisser le pantographe.&lt;/p>
+&lt;p>Dans l&amp;rsquo;infrastructure française, ces zones sont signalées par des panneaux d&amp;rsquo;annonce, d&amp;rsquo;exécution et de fin. Ces panneaux portent par ailleurs l&amp;rsquo;indication de baisser le pantographe ou non. Les portions de voies entre l&amp;rsquo;exécution et la fin peuvent ne pas être électrifiées entièrement, et même ne pas posséder de caténaire (dans ce cas la zone nécessite forcément de baisser le pantographe).&lt;br>
+Parfois, des pancartes &lt;em>REV&lt;/em> (pour réversible) sont placées en aval des panneaux de fin de zone. Elles sont destinées aux trains qui circulent avec un pantographe à l&amp;rsquo;arrière du train. Ces pancartes indiquent que le conducteur peut reprendre la traction en toute sécurité.&lt;/p>
+&lt;p>Par ailleurs il peut parfois être impossible sur une courte portion de voie de placer une caténaire ou bien de lever le pantographe du train. Dans ce cas la ligne est tout de même considérée électrifiée, et la zone sans électrification (passage sous un pont par exemple) est considérée comme une zone neutre.&lt;/p>
+&lt;h3 id="matériel-roulant">Matériel roulant&lt;/h3>
+&lt;p>Après avoir traversé une zone neutre, un train doit reprendre la traction. Ce n&amp;rsquo;est pas immédiat (quelques secondes), et la durée nécessaire dépend du matériel roulant.&lt;/p>
+&lt;p>Il doit également, le cas échéant, relever son pantographe, ce qui prend également du temps (quelques dizaines de secondes) et dépend également du matériel roulant.&lt;/p>
+&lt;p>Ainsi la marche sur l&amp;rsquo;erre imposée au train s&amp;rsquo;étend en dehors de la zone neutre, puisque ces temps systèmes sont à décompter à partir de la fin de la zone neutre.&lt;/p>
+&lt;h2 id="modèle-de-données">Modèle de données&lt;/h2>
+&lt;p>Nous avons choisi de modéliser les zones neutres comme l&amp;rsquo;espace entre les panneaux liés à celle-ci (et non pas comme la zone précise où il n&amp;rsquo;y a pas de caténaire ou bien où la caténaire n&amp;rsquo;est pas électrifiée).&lt;/p>
+&lt;p>Cette zone est directionnelle, &lt;em>i.e.&lt;/em> associée à un sens de circulation, pour pouvoir prendre en compte des placements de panneaux différents selon le sens. Le panneau d&amp;rsquo;exécution d&amp;rsquo;un sens donné n&amp;rsquo;est pas nécessairement placé à la même position que le panneau de fin de zone du sens opposé.&lt;/p>
+&lt;p>Pour une voie à double sens, une zone neutre est donc représentée par deux objets.&lt;/p>
+&lt;p>Le schema est le suivant&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;lower_pantograph&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">boolean&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;track_ranges&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;track&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;start&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">number&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;end&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">number&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;direction&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">enum&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;announcement_track_ranges&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;track&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;start&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">number&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;end&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">number&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;direction&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">enum&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>lower_pantograph&lt;/code> : indique si le pantographe doit être baissé dans cette zone&lt;/li>
+&lt;li>&lt;code>track_ranges&lt;/code> : liste des portions de voie où le train ne doit pas tractionner&lt;/li>
+&lt;li>&lt;code>announcement_track_ranges&lt;/code> : liste des portions de voie entre le panneau d&amp;rsquo;annonce et le panneau d’exécution&lt;/li>
+&lt;/ul>
+&lt;h2 id="affichage">Affichage&lt;/h2>
+&lt;h3 id="cartographie">Cartographie&lt;/h3>
+&lt;p>Les zones affichées dans la cartographie correspondent aux &lt;code>track_ranges&lt;/code>, donc entre les panneaux d’exécution et de fin de zone. La couleur de la zone indique si le train doit baisser son pantographe dans la zone ou non.&lt;/p>
+&lt;p>La direction dans laquelle la zone s&amp;rsquo;applique n&amp;rsquo;est pas représentée.&lt;/p>
+&lt;h3 id="résultat-de-simulation">Résultat de simulation&lt;/h3>
+&lt;p>Dans l&amp;rsquo;affichage linéaire, c&amp;rsquo;est toujours la zone entre EXE et FIN qui est affichée.&lt;/p>
+&lt;h2 id="recherche-ditinéraire">Recherche d&amp;rsquo;itinéraire&lt;/h2>
+&lt;p>Les zones neutres sont donc des portions de voie &amp;ldquo;non électrifiées&amp;rdquo; où un train électrique peut tout de même circuler (mais où il ne peut pas tractionner).&lt;/p>
+&lt;p>Lors de la recherche de chemin dans l&amp;rsquo;infrastructure, une portion de voie qui n&amp;rsquo;est pas couverte par les &lt;code>track_ranges&lt;/code> d&amp;rsquo;un objet caténaire (documentation à écrire) peut être empruntée par un train électrique seulement si elle est couverte par les &lt;code>track_ranges&lt;/code> d&amp;rsquo;une zone neutre.&lt;/p>
+&lt;h2 id="simulation">Simulation&lt;/h2>
+&lt;p>Dans la simulation, nous approximons le comportement du conducteur de la façon suivante :&lt;/p>
+&lt;ul>
+&lt;li>La marche sur l&amp;rsquo;erre est entamée dès que la tête du train passe le panneau d&amp;rsquo;annonce&lt;/li>
+&lt;li>Le décompte des temps systèmes (relevé du pantographe et reprise de la traction) commence dès que la tête du train passe le panneau de fin.&lt;/li>
+&lt;/ul>
+&lt;p>Dans la simulation actuelle, il est plus facile de manier des bornes d&amp;rsquo;intégration spatiales que temporelles. Nous effectuons l&amp;rsquo;approximation suivante: lors de la sortie de la zone neutre, on multiplie les temps systèmes par la vitesse en sortie de zone. La marche sur l&amp;rsquo;erre est alors prolongée de la distance obtenue. Cette approximation est raisonnable car l&amp;rsquo;inertie du train et la quasi-absence de frottement garantissent que la vitesse varie peu sur cet intervalle de temps.&lt;/p>
+&lt;h2 id="potentielles-améliorations">Potentielles améliorations&lt;/h2>
+&lt;p>Plusieurs points pourraient être améliorés :&lt;/p>
+&lt;ul>
+&lt;li>On ne considère pas les pancartes &lt;em>REV&lt;/em>, tous les trains ne possèdent donc qu&amp;rsquo;un pantographe à l&amp;rsquo;avant dans nos simulations.&lt;/li>
+&lt;li>Les temps systèmes sont approximés.&lt;/li>
+&lt;li>Le comportement conducteur est plutôt restrictif (la marche sur l&amp;rsquo;erre pourrait commencer après le panneau d&amp;rsquo;annonce).&lt;/li>
+&lt;li>L&amp;rsquo;affichage des zones est limité: pas de représentation de la direction ou des zones d&amp;rsquo;annonce.&lt;/li>
+&lt;li>Ces zones ne sont pas éditables.&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Discontinuités et retours en arrière</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>
 &lt;h4 id="le-problème-des-discontinuités">Le problème des discontinuités&lt;/h4>
 &lt;p>Au moment d&amp;rsquo;explorer une arête du graphe, on effectue un calcul de
