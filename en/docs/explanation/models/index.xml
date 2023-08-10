@@ -13,8 +13,8 @@ To zoom in on diagrams, click on the edit button that appears when hovering over
 &lt;p>This infrastructure is not meant to be realistic, but rather meant to help illustrate OSRD&amp;rsquo;s data model.
 This example will be created step by step and explained along the way.&lt;/p>
 &lt;h4 id="the-infrastructure-generator">The infrastructure generator&lt;/h4>
-&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd">&lt;em>OSRD&lt;/em> repository&lt;/a> is a &lt;a href="https://github.com/osrd-project/osrd/tree/dev/core/examples/generated">python library&lt;/a> designed to help generate infrastructures in a format understood by &lt;em>OSRD&lt;/em>.&lt;/p>
-&lt;p>The infrastructure discussed in this section can be generated thanks to &lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a> file. To learn more about the generation scripts, you can check out the related &lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/README.md">README&lt;/a>.&lt;/p>
+&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd">&lt;em>OSRD&lt;/em> repository&lt;/a> is a &lt;a href="https://github.com/osrd-project/osrd/tree/dev/python/railjson_generator">python library&lt;/a> designed to help generate infrastructures in a format understood by &lt;em>OSRD&lt;/em>.&lt;/p>
+&lt;p>The infrastructure discussed in this section can be generated thanks to &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file. To learn more about the generation scripts, you can check out the related &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/README.md">README&lt;/a>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="tracks">Tracks&lt;/h3>
 &lt;/font>
@@ -107,7 +107,7 @@ Mind that the &lt;code>begin&lt;/code> value should always be smaller than the &
 &lt;li>Signaling is the mean by which interlocking communicates with the train&lt;/li>
 &lt;/ul>
 &lt;h4 id="detectors">Detectors&lt;/h4>
-&lt;p>These objects are used to create TVD sections (Track Vacancy Detection section): the track area in between detectors is a TVD section. When a train runs into a detector, the section it is entering becomes occupied. The only function of TVD sections is to locate trains.&lt;/p>
+&lt;p>These objects are used to create &lt;a href="https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&amp;amp;q=TVD">TVD&lt;/a> sections (Track Vacancy Detection section): the track area in between detectors is a TVD section. When a train runs into a detector, the section it is entering becomes occupied. The only function of TVD sections is to locate trains.&lt;/p>
 &lt;p>In real life, detectors can be &lt;a href="https://en.wikipedia.org/wiki/Axle_counter">axle counters&lt;/a> or &lt;a href="https://en.wikipedia.org/wiki/Track_circuit">track circuits&lt;/a> for example.&lt;/p>
 &lt;p>For this mean of location to be efficient, detectors need to be placed regularly along your tracks, not too many because of cost, but not too few, because then TVD sections would be very large and trains would need to be very far apart to be told apart, which reduces capacity.&lt;/p>
 &lt;p>There often are detectors close to all sides of switches. This way, interlocking is made aware pretty much immediately when a switch is cleared, which is then free to be used again.&lt;/p>
@@ -127,7 +127,7 @@ The clumped up squares represent many detectors at once. Indeed, because some tr
 &lt;h4 id="buffer-stops">Buffer stops&lt;/h4>
 &lt;p>&lt;code>BufferStops&lt;/code> are obstacles designed to prevent trains from sliding off dead ends.&lt;/p>
 &lt;p>In our infrastructure, there is a buffer stop on each track section which has a loose end. There are therefore 8 buffer stops in total.&lt;/p>
-&lt;p>Together with detectors, they set the boundaries of &lt;a href="https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&amp;amp;q=TVD">TVD&lt;/a> sections (see &lt;a href="#detectors">Detectors&lt;/a>)&lt;/p>
+&lt;p>Together with detectors, they set the boundaries of TVD sections (see &lt;a href="#detectors">Detectors&lt;/a>)&lt;/p>
 &lt;h4 id="routes">Routes&lt;/h4>
 &lt;p>A &lt;code>Route&lt;/code> is an itinerary in the infrastructure. A train path is a sequence of routes. Routes are used to reserve section of path with the interlocking. See the &lt;a href="https://osrd.fr/fr/developers/internals/simulation-model/">dedicated documentation&lt;/a>.&lt;/p>
 &lt;p>It is represented with the following attributes:&lt;/p>
@@ -191,7 +191,7 @@ On &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;
 &lt;p>In our example infrastructure, we have three &lt;code>NeutralSections&lt;/code>: one at the junction of the &lt;code>&amp;quot;1500&amp;quot;&lt;/code> and &lt;code>&amp;quot;25000&amp;quot;&lt;/code> catenaries, one on &lt;em>TA6&lt;/em> and one on &lt;em>TG1&lt;/em> and &lt;em>TG4&lt;/em>.&lt;/p>
 &lt;p>For more details about the model see the &lt;a href="../neutral_sections">dedicated page&lt;/a>.&lt;/p>
 &lt;font color=#aa026d>
-&lt;h2 id="miscellaneous">Miscellaneous&lt;/h2>
+&lt;h3 id="miscellaneous">Miscellaneous&lt;/h3>
 &lt;/font>
 &lt;h4 id="operational-points">Operational points&lt;/h4>
 &lt;p>&lt;code>OperationalPoints&lt;/code> are collections of points (&lt;code>OperationalPointParts&lt;/code>) of interest.&lt;/p>
