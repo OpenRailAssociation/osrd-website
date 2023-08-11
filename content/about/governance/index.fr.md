@@ -17,7 +17,7 @@ En échange de leur contribution, ces entreprises&nbsp;:
 [^license]: Tant qu'elles ne modifient pas les outils communs sans partager leurs améliorations, voir les détails de la license [LGPLv3](https://www.gnu.org/licenses/lgpl-3.0.fr.html).
 
 OSRD est actuellement développé par:
- - une équipe de développeurs à plein temps au sein de SNCF Réseau, grâce à un financement de l'Union Européenne&nbsp;;
+ - une équipe de développeurs à plein temps au sein de SNCF Réseau, grâce à un financement de SNCF Réseau, de l'Etat Français et de l'Union Européenne&nbsp;;
  - des contributeurs individuels.
 
 ## La fondation Open Rail
