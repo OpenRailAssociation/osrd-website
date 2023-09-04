@@ -5,6 +5,26 @@ weight: 40
 description: Décrit le fonctionnement du poste d'aiguillage virtuel
 ---
 
+{{% pageinfo color="warning" %}}
+Le modèle de poste d'aiguillage virtuel d'OSRD est pensé pour les besoins
+spécifiques de la détection de conflit.
+
+Certaines classes de fonctionnalités essentielles dans les postes
+d'aiguillages réels, comme la tolérance aux pannes, ne sont pas utiles
+à la détection de conflit, et donc omises du modèle.
+{{% /pageinfo %}}
+
+{{% pageinfo color="info" %}}
+Ce document est une description vivante du fonctionnement du poste d'aiguillage virtuel d'OSRD.
+Il a pour objectif de renseigner développeurs et experts métiers sur le fonctionnement du simulateur.
+Des changements y sont apportés au fil de l'évolution du projet.
+
+Certaines fonctionnalités importantes sont manquantes:
+ - enclanchements de convergence (France)
+ - pédales (France)
+ - overlaps (hors France)
+{{% /pageinfo %}}
+
 Le modèle de simulation définit le rôle et comportement des différents objets simulés au sein d'OSRD.
 
 Cette modélisation est un compromis entre de multiples enjeux:
@@ -16,15 +36,6 @@ En particulier, certaines subtilités propres aux systèmes pratiques ont été 
  - un signal doit forcément s'addresser à un train en particulier: les signaux n'ont pas d'aspect par défaut; ils n'existent que pour être vus
  - les itinéraires / routes sont formées à destination d'un train en particulier
 
-{{% pageinfo color="info" %}}
-Ce document est une description du modèle de fonctionnement cible d'OSRD.
-Il a pour objectif de renseigner développeurs et experts métiers sur le fonctionnement du simulateur.
-Des changements y sont apportés au fil de l'évolution du projet.
-{{% /pageinfo %}}
-
-{{% pageinfo color="warning" %}}
-Ce modèle est en cours d'implémentation
-{{% /pageinfo %}}
 
 ## Architecture
 
