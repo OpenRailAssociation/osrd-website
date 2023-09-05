@@ -81,4 +81,4 @@ For speed limits:
 - Is it nominal for a train to have multiple active signaling systems at the same time? SNCF(Loïc): No.
 - are there any signals which depend on which route is set, but are not route delimiters? SNCF(Loïc): Yes, see Sémaphore Clignotant
 - how do speed limits per train category and dynamic signaling interact? SNCF(Nicolas): There shouldn't be any speed limit per category signaled by dynamic signaling
-- are there any signals which depend on the state of multiple routes? SNCF(Loïc): !!!!!!!!!!!!TODO!!!!!!!!!!!!
+- are there any signals which depend on the state of multiple routes? SNCF(Loïc): No
