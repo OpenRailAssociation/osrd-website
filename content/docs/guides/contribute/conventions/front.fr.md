@@ -65,6 +65,11 @@ Utiliser les endpoints générés à partir des fichiers `openapi.yaml` pour con
 >
 > Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l'arborescence possible dans le fichier SCSS.
 
-> **Les liens des imports doivent être absolus**
+> **Les liens des imports doivent être absolus au sein d'une application**
 >
-> Vous devez utiliser le <u>chemin complet</u> pour tous vos imports, sans exception, même si le fichier à importer se trouve dans le même répertoire.
+> Vous devez utiliser le <u>chemin complet</u> pour tous vos imports, même si le fichier à importer se trouve dans le même répertoire.
+
+> **Les liens des imports doivent être relatifs au sein d'un module ou d'un composant**
+>
+> Au sein d'un module ou d'un composant, à l'instar d'une librairie, les liens d'imports doivent rester relatifs afin de permettre leur utilisation n'importe où.
+
