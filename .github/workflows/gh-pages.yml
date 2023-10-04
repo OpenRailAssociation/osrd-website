@@ -38,44 +38,36 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-
       - name: Install GDAL
         run: |
           sudo apt-get update
           sudo apt-get install -y gdal-bin
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-in-project: true
-
       - name: Clone OSRD repository
-        run: git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd_repo
+        run: |
+          git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd
+          mv /tmp/osrd/python/osrd_schemas ./
 
-      - name: Load cached venv
-        uses: actions/cache@v3
-        id: cached-poetry-dependencies
+      - name: Install poetry
+        run: pipx install poetry
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          path: /tmp/osrd_repo/python/api/.venv
-          key: osrd-api-venv-${{ hashFiles('/tmp/osrd_repo/api/poetry.lock') }}
+          python-version: '3.9'
+          cache: poetry
 
-      - name: Install dependencies
-        run: |
-          cd /tmp/osrd_repo/python/api
-          poetry install --no-interaction --no-root -E production
+      - name: Install osrd_schemas
+        working-directory: ./osrd_schemas
+        run: poetry install --no-interaction --no-root
 
-      - name: Add JSON schemas
-        env:
-          OSRD_DEV: "True"
+      - name: Generate infra and rolling_stock JSON schema
         run: |
-          source /tmp/osrd_repo/python/api/.venv/bin/activate
           mkdir -p public/schemas
-          python /tmp/osrd_repo/python/api/manage.py json_schema infra > public/schemas/infra_schema.json
-          python /tmp/osrd_repo/python/api/manage.py json_schema rolling_stock > public/schemas/rolling_stock_schema.json
+          cd ./osrd_schemas
+          poetry run python -m osrd_schemas.infra > ../public/schemas/infra_schema.json
+          poetry run python -m osrd_schemas.rolling_stock > ../public/schemas/rolling_stock_schema.json
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
