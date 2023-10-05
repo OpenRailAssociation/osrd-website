@@ -17,7 +17,7 @@ Cette contrainte n'est pas contagieuse à travers les API: Il est possible d'uti
 ## Mise en place
 
 {{% alert color="info" %}}
-La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
+La plupart des développeurs OSRD utilisent Linux  (y compris [WSL](https://learn.microsoft.com/fr-fr/windows/wsl/)). Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
 {{% /alert %}}
 
 ### Obtenir le code source
@@ -32,11 +32,12 @@ Pendant longtemps, même dans les cas où on ne développe que sur une partie de
 
 L'outil `docker compose`, sert à lancer les composants d'OSRD.
 
-- Installer `docker` et `docker compose`[^package-manager]
+- Installer `docker` et `docker compose`[^package-manager][^docker-desktop]
 - Lancer `docker compose up --build`
 
 [^package-manager]: Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple `apt-get`.
 [^git-bash]: Sous Windows, ouvrez `Git Bash`
+[^docker-desktop]: Sous Windows/WSL, [Docker Desktop](https://www.docker.com/products/docker-desktop/) est recommandé
 
 ## Partager vos changements
 

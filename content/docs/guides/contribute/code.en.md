@@ -8,7 +8,7 @@ description: "Integrate changes into OSRD"
 ## Set things up
 
 {{% alert color="info" %}}
-Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
+Most OSRD developers use Linux (incl. [WSL](https://learn.microsoft.com/en-us/windows/wsl/)). Windows and MacOS should work too, but you may run into some issues.
 {{% /alert %}}
 
 ### Getting the source code
@@ -23,11 +23,12 @@ For a long time, making changes to a component of a multi-service application in
 
 Nowadays, it can be done using `docker compose`. You can even start only a subset of the services.
 
-- Install `docker` and `docker compose`. [^package-manager]
+- Install `docker` and `docker compose`. [^package-manager][^docker-desktop]
 - Run `docker compose up --build`
 
 [^package-manager]: Under Linux, use your distribution's package manager, such as `apt-get`
 [^git-bash]: Under Windows, open `Git Bash`
+[^docker-desktop]: Under Windows/WSL, [Docker Desktop](https://www.docker.com/products/docker-desktop/) is recommended
 
 ## Share your changes
 
