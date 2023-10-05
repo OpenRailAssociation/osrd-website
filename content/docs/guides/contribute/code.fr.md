@@ -37,7 +37,7 @@ L'outil `docker compose`, sert à lancer les composants d'OSRD.
 
 [^package-manager]: Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple `apt-get`.
 [^git-bash]: Sous Windows, ouvrez `Git Bash`
-[^docker-desktop]: Sous Windows/WSL, [Docker Desktop](https://www.docker.com/products/docker-desktop/) est recommandé
+[^docker-desktop]: Sous Windows/[WSL](https://learn.microsoft.com/fr-fr/windows/wsl/tutorials/wsl-containers), [Docker Desktop](https://www.docker.com/products/docker-desktop/) est recommandé
 
 ## Partager vos changements
 

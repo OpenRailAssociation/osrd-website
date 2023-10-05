@@ -28,7 +28,7 @@ Nowadays, it can be done using `docker compose`. You can even start only a subse
 
 [^package-manager]: Under Linux, use your distribution's package manager, such as `apt-get`
 [^git-bash]: Under Windows, open `Git Bash`
-[^docker-desktop]: Under Windows/WSL, [Docker Desktop](https://www.docker.com/products/docker-desktop/) is recommended
+[^docker-desktop]: Under Windows/[WSL](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers), [Docker Desktop](https://www.docker.com/products/docker-desktop/) is recommended
 
 ## Share your changes
 
