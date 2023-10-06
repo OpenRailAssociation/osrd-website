@@ -1,5 +1,8 @@
 {
     "m.homeserver": {
         "base_url": "https://element.osrd.fr"
+    },
+    "m.tile_server": {
+        "map_style_url": "https://osm.osrd.fr/styles/basic-preview/style.json"
     }
 }
