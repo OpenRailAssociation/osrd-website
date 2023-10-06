@@ -31,7 +31,7 @@ En contribuant du code, vous acceptez la redistribution de votre contribution so
 &lt;/div>
 &lt;h2 id="mise-en-place">Mise en place&lt;/h2>
 &lt;div class="alert alert-info" role="alert">
-La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
+La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/">WSL&lt;/a>). Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
 &lt;/div>
 &lt;h3 id="obtenir-le-code-source">Obtenir le code source&lt;/h3>
 &lt;ul>
@@ -43,7 +43,7 @@ La plupart des développeurs OSRD utilisent Linux. Vous pouvez utiliser Windows 
 &lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
 &lt;p>L&amp;rsquo;outil &lt;code>docker compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
 &lt;ul>
-&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Lancer &lt;code>docker compose up --build&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="partager-vos-changements">Partager vos changements&lt;/h2>
@@ -110,6 +110,9 @@ si le titre n&amp;#39;est pas complètement évident.
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>Sous Windows/&lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/tutorials/wsl-containers">WSL&lt;/a>, &lt;a href="https://www.docker.com/products/docker-desktop/">Docker Desktop&lt;/a> est recommandé&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Docs: Conventions</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/</guid><description>

@@ -818,7 +818,7 @@ The black line represents the MRSP where the train length has been taken into ac
 &lt;p>In the OSRD running calculation it is possible to distribute the allowances in a linear way, by lowering all speeds by a certain factor, or in an economic way, i.e. by minimising the energy consumption during the train run.&lt;/p></description></item><item><title>Docs: Contribute code</title><link>https://osrd.fr/en/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code/</guid><description>
 &lt;h2 id="set-things-up">Set things up&lt;/h2>
 &lt;div class="alert alert-info" role="alert">
-Most OSRD developers use Linux. Windows and MacOS should work too, but you may run into some issues.
+Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/">WSL&lt;/a>). Windows and MacOS should work too, but you may run into some issues.
 &lt;/div>
 &lt;h3 id="getting-the-source-code">Getting the source code&lt;/h3>
 &lt;ul>
@@ -830,7 +830,7 @@ Most OSRD developers use Linux. Windows and MacOS should work too, but you may r
 &lt;p>For a long time, making changes to a component of a multi-service application involved compiling, configuring and running all services manually.&lt;/p>
 &lt;p>Nowadays, it can be done using &lt;code>docker compose&lt;/code>. You can even start only a subset of the services.&lt;/p>
 &lt;ul>
-&lt;li>Install &lt;code>docker&lt;/code> and &lt;code>docker compose&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Install &lt;code>docker&lt;/code> and &lt;code>docker compose&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Run &lt;code>docker compose up --build&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="share-your-changes">Share your changes&lt;/h2>
@@ -907,6 +907,9 @@ if it is not entirely obvious from the title.
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>Under Windows, open &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>Under Windows/&lt;a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">WSL&lt;/a>, &lt;a href="https://www.docker.com/products/docker-desktop/">Docker Desktop&lt;/a> is recommended&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>About: Governance</title><link>https://osrd.fr/en/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/governance/</guid><description>
