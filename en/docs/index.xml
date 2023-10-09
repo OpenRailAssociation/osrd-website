@@ -948,70 +948,7 @@ transition: all 0.5s;
 &lt;p>As long as they don&amp;rsquo;t modify the common tools without sharing their improvements. See the details of the &lt;a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPLv3&lt;/a> license.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Style guide</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/conventions/</guid><description>
-&lt;p>OSRD application is split in multiple services written in several languages. We try to follow general code best practices and follow specificity for each languages when required.&lt;/p>
-&lt;h2 id="general-rules">General rules&lt;/h2>
-&lt;ul>
-&lt;li>Explain what you&amp;rsquo;re doing and why.&lt;/li>
-&lt;li>Document new code with doc comments.&lt;/li>
-&lt;li>Include clear, simple tests.&lt;/li>
-&lt;li>Break work into digestible chunks.&lt;/li>
-&lt;li>Take the time to pick good names.
-Avoid non well-known abbreviations.&lt;/li>
-&lt;li>&lt;strong>Control and consistency over 3rd party code reuse&lt;/strong>: Only add a dependency if it is absolutely necessary.
-Every dependency we add decreases our autonomy and consistency.&lt;/li>
-&lt;li>&lt;strong>Don&amp;rsquo;t re-invent every wheel&lt;/strong>: As a counter to the previous point, don&amp;rsquo;t re-invent everything at all costs.
-If there is a dependency in the ecosystem that is the &amp;ldquo;de-facto&amp;rdquo; standard, we should heavily consider using it.&lt;/li>
-&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/osrd-project/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
-&lt;li>Ask for any help that you need!&lt;/li>
-&lt;/ul>
-&lt;h3 id="python">Python&lt;/h3>
-&lt;p>Python code is used for some packages and integration testing.&lt;/p>
-&lt;ul>
-&lt;li>Follow &lt;a href="https://www.python.org/dev/peps/pep-0020/">the Zen of Python&lt;/a>.&lt;/li>
-&lt;li>Code is linted with &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
-&lt;li>Code is formatted with &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
-&lt;li>Imports are sorted with &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
-&lt;li>Python tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="rust">Rust&lt;/h3>
-&lt;ul>
-&lt;li>As a reference for our API development we are using the &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
-Generally, these should be followed.&lt;/li>
-&lt;li>Prefer granular imports over glob imports like &lt;code>diesel::*&lt;/code>.&lt;/li>
-&lt;li>Tests are written with the &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">built-in testing framework&lt;/a>.&lt;/li>
-&lt;li>Use the &lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">documentation example&lt;/a> to know how to phrase and format your documentation.&lt;/li>
-&lt;li>Use consistent comment style:
-&lt;ul>
-&lt;li>&lt;code>///&lt;/code> doc comments belong above &lt;code>#[derive(Trait)]&lt;/code> invocations.&lt;/li>
-&lt;li>&lt;code>//&lt;/code> comments should generally go above the line in question, rather than in-line.&lt;/li>
-&lt;li>Start comments with capital letters. End them with a period if they are sentence-like.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Use comments to organize long and complex stretches of code that can&amp;rsquo;t sensibly be refactored into separate functions.&lt;/li>
-&lt;li>Code is linted with &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
-&lt;li>Code is formatted with &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="java">Java&lt;/h3>
-&lt;ul>
-&lt;li>Code is formatted with &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="javascript--typescript--front">Javascript / Typescript / Front&lt;/h3>
-&lt;ul>
-&lt;li>When adding new files, write them in TypeScript as there is a goal to move to TypeScript.&lt;/li>
-&lt;li>Use generated endpoints from the &lt;code>openapi.yaml&lt;/code> files to consume the backend.&lt;/li>
-&lt;li>Code is linted with &lt;a href="https://eslint.org/">eslint&lt;/a>.&lt;/li>
-&lt;li>Code is formatted with &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/li>
-&lt;li>End-to-end tests are required for stable and critical features.
-&lt;a href="https://playwright.dev/">Playwright&lt;/a> is used to write these tests.&lt;/li>
-&lt;li>To write unit test use &lt;a href="https://vitest.dev/">vitest&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="integration-tests">Integration tests&lt;/h3>
-&lt;ul>
-&lt;li>Integration tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a> under the &lt;code>/tests&lt;/code> folder.&lt;/li>
-&lt;li>Each route described in the &lt;code>openapi.yaml&lt;/code> files must have an integration test.&lt;/li>
-&lt;li>Test must check both the valid and invalid response format and content.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Data-flow</title><link>https://osrd.fr/en/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/data_flow/</guid><description>
+&lt;/div></description></item><item><title>Docs: Data-flow</title><link>https://osrd.fr/en/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/data_flow/</guid><description>
 &lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Docs: Services</title><link>https://osrd.fr/en/docs/reference/architecture/services/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/services/</guid><description>
 &lt;p>It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.&lt;/p>
 &lt;p>&lt;img src="services.en.svg" alt="Services architecture">&lt;/p></description></item><item><title>Docs: Signaling</title><link>https://osrd.fr/en/docs/reference/design-docs/signaling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/signaling/</guid><description>
@@ -1857,4 +1794,126 @@ Here is how it works:&lt;/p>
 &lt;li>&lt;code>WARNING&lt;/code> (warning curve) computed as a shift of &lt;code>FLOI&lt;/code> by &lt;code>Twarning&lt;/code>&lt;/li>
 &lt;li>&lt;code>PS&lt;/code> (permitted speed curve): shift of &lt;code>WARNING&lt;/code> by time &lt;code>Tdriver&lt;/code>&lt;/li>
 &lt;li>&lt;code>INDICATION&lt;/code> is a shift of &lt;code>PS&lt;/code> by time &lt;code>Tindication&lt;/code>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Docs: Back-end</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/back/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/conventions/back/</guid><description>
+&lt;h1 id="python">Python&lt;/h1>
+&lt;p>Python code is used for some packages and integration testing.&lt;/p>
+&lt;ul>
+&lt;li>Follow &lt;a href="https://www.python.org/dev/peps/pep-0020/">the Zen of Python&lt;/a>.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
+&lt;li>Imports are sorted with &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Python tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="rust">Rust&lt;/h1>
+&lt;ul>
+&lt;li>As a reference for our API development we are using the &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
+Generally, these should be followed.&lt;/li>
+&lt;li>Prefer granular imports over glob imports like &lt;code>diesel::*&lt;/code>.&lt;/li>
+&lt;li>Tests are written with the &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">built-in testing framework&lt;/a>.&lt;/li>
+&lt;li>Use the &lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">documentation example&lt;/a> to know how to phrase and format your documentation.&lt;/li>
+&lt;li>Use consistent comment style:
+&lt;ul>
+&lt;li>&lt;code>///&lt;/code> doc comments belong above &lt;code>#[derive(Trait)]&lt;/code> invocations.&lt;/li>
+&lt;li>&lt;code>//&lt;/code> comments should generally go above the line in question, rather than in-line.&lt;/li>
+&lt;li>Start comments with capital letters. End them with a period if they are sentence-like.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Use comments to organize long and complex stretches of code that can&amp;rsquo;t sensibly be refactored into separate functions.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="java">Java&lt;/h1>
+&lt;ul>
+&lt;li>Code is formatted with &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Front-end</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/front/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/conventions/front/</guid><description>
+&lt;p>Nous utilisons &lt;strong>ReactJS&lt;/strong> et tous les fichiers doivent être écrits en &lt;strong>Typescript&lt;/strong>.&lt;/p>
+&lt;p>Le code est &lt;strong>linté&lt;/strong> avec &lt;a href="https://eslint.org/">eslint&lt;/a>, et &lt;strong>formaté&lt;/strong> avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/p>
+&lt;h2 id="nomenclature">Nomenclature&lt;/h2>
+&lt;p>&lt;img src="../nomenclature-front-end.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
+&lt;p>Les &lt;strong>applications&lt;/strong> (osrd eex, osrd stdcm, éditeur infra, éditeur matériel) proposent des &lt;strong>vues&lt;/strong> (gestion des projets, gestions des études, etc.) liées à des &lt;strong>modules&lt;/strong> (projet, étude, etc.) qui contiennent les composants.&lt;/p>
+&lt;p>Ces &lt;strong>vues&lt;/strong> sont constituées de &lt;strong>composants&lt;/strong> et sous-composants &lt;u>tous issus des modules&lt;/u>.
+En plus de contenir les fichiers de &lt;strong>vues&lt;/strong> des applications, elles peuvent contenir un répertoire &lt;strong>scripts&lt;/strong> qui propose des scripts liés à ces vues. Les &lt;strong>vues&lt;/strong> déterminent la logique et l&amp;rsquo;&lt;u>accès au store&lt;/u>.&lt;/p>
+&lt;p>Les &lt;strong>modules&lt;/strong> sont des collections de &lt;strong>composants&lt;/strong> rattachés à un &lt;strong>objet&lt;/strong> (un scénario, un matériel roulant, un TrainSchedule). Ils contiennent :&lt;/p>
+&lt;ul>
+&lt;li>un répertoire &lt;em>components&lt;/em> qui héberge &lt;u>tous&lt;/u> les composants&lt;/li>
+&lt;li>un répertoire &lt;em>styles&lt;/em> optionnel &lt;u>par module&lt;/u> pour le style des composants en scss&lt;/li>
+&lt;li>un répertoire &lt;em>assets&lt;/em> optionnel &lt;u>par module&lt;/u> (qui contient les assets, de jeux de données par défaut par ex, spécifiques au module)&lt;/li>
+&lt;li>un fichier &lt;em>reducers&lt;/em> optionnel &lt;u>par module&lt;/u>&lt;/li>
+&lt;li>un fichier &lt;em>types&lt;/em> optionnel &lt;u>par module&lt;/u>&lt;/li>
+&lt;li>un fichier &lt;em>consts&lt;/em> optionnel &lt;u>par module&lt;/u>&lt;/li>
+&lt;/ul>
+&lt;p>Un répertoire &lt;strong>assets&lt;/strong> (qui contient les images et autre fichiers).&lt;/p>
+&lt;p>Enfin, un répertoire &lt;strong>common&lt;/strong> qui propose :&lt;/p>
+&lt;ul>
+&lt;li>un répertoire &lt;em>utils&lt;/em> pour les fonctions utilitaires communes à l&amp;rsquo;ensemble du projet&lt;/li>
+&lt;li>un fichier &lt;em>types&lt;/em> pour les types communs à l&amp;rsquo;ensemble du projet&lt;/li>
+&lt;li>un fichier &lt;em>consts&lt;/em> pour les constantes communes à l&amp;rsquo;ensemble du projet&lt;/li>
+&lt;/ul>
+&lt;h2 id="principes-dimplémentation">Principes d&amp;rsquo;implémentation&lt;/h2>
+&lt;h3 id="routage--slug">Routage &amp;amp; SLUG&lt;/h3>
+&lt;p>&lt;em>Rédaction en cours&lt;/em>&lt;/p>
+&lt;p>&lt;code>projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}&lt;/code>&lt;/p>
+&lt;h3 id="styles--scss">Styles &amp;amp; SCSS&lt;/h3>
+&lt;p>&lt;em>Rédaction en cours&lt;/em>&lt;/p>
+&lt;h3 id="storeredux">Store/Redux&lt;/h3>
+&lt;p>Tout ce qui est &lt;em>selector&lt;/em> est géré par la &lt;strong>vue&lt;/strong> passé en props aux composants et sous-composants.&lt;/p>
+&lt;p>Par conséquent les appels au store en lecture et en écriture doivent être passés un niveau de la vue, en irrigant par des &lt;em>props&lt;/em> et &lt;em>states&lt;/em> les composants proposées par la vue.&lt;/p>
+&lt;h3 id="rtk">RTK&lt;/h3>
+&lt;p>&lt;em>Rédaction en cours&lt;/em>&lt;/p>
+&lt;p>Utiliser les endpoints générés à partir des fichiers &lt;code>openapi.yaml&lt;/code> pour consommer le backend.&lt;/p>
+&lt;h2 id="lois-et-éléments-importants">Lois et éléments importants&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;strong>Aucun composant ne doit détenir la responsabilité de mise à jour de la donnée qu&amp;rsquo;il utilise&lt;/strong>&lt;/p>
+&lt;p>Seules &lt;u>les vues&lt;/u> contiennent les sélecteurs du store, donnés ensuite en props aux composants du module lié à la vue.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Le SCSS n&amp;rsquo;est pas scopé&lt;/strong>&lt;/p>
+&lt;p>Un fichier &lt;code>.scss&lt;/code> enfoui dans l&amp;rsquo;arborescence ne vous garantit pas que les classes contenues soient seulement accessibles à cet endroit, y compris par import react (formellement interdit au passage : vous devez utiliser l&amp;rsquo;import SCSS), toutes les classes déclarées sont accessibles partout.&lt;/p>
+&lt;p>Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l&amp;rsquo;arborescence possible dans le fichier SCSS.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Les liens des imports doivent être absolus au sein d&amp;rsquo;une application&lt;/strong>&lt;/p>
+&lt;p>Vous devez utiliser le &lt;u>chemin complet&lt;/u> pour tous vos imports, même si le fichier à importer se trouve dans le même répertoire.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Les liens des imports doivent être relatifs au sein d&amp;rsquo;un module ou d&amp;rsquo;un composant&lt;/strong>&lt;/p>
+&lt;p>Au sein d&amp;rsquo;un module ou d&amp;rsquo;un composant, à l&amp;rsquo;instar d&amp;rsquo;une librairie, les liens d&amp;rsquo;imports doivent rester relatifs afin de permettre leur utilisation n&amp;rsquo;importe où.&lt;/p>
+&lt;/blockquote></description></item><item><title>Docs: Tests</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/conventions/tests/</guid><description>
+&lt;h2 id="back-end">Back-end&lt;/h2>
+&lt;ul>
+&lt;li>Integration tests are written with &lt;a href="https://docs.pytest.org/">pytest&lt;/a> in the &lt;code>/tests&lt;/code> folder.&lt;/li>
+&lt;li>Each route described in the &lt;code>openapi.yaml&lt;/code> files must have an integration test.&lt;/li>
+&lt;li>The test must check both the format and content of valid and invalid responses.&lt;/li>
+&lt;/ul>
+&lt;h2 id="front-end">Front-end&lt;/h2>
+&lt;p>The functional writing of the tests is carried out with the &lt;em>Product Owners&lt;/em>, and the developers choose a technical implementation that precisely meets the needs expressed and fits in with the recommendations presented here.&lt;/p>
+&lt;p>We use &lt;a href="https://playwright.dev/">Playwright&lt;/a> to write end-to-end tests, and &lt;a href="https://vitest.dev/">vitest&lt;/a> to write unit tests.&lt;/p>
+&lt;p>The browsers tested are currently &lt;a href="https://www.mozilla.org/fr/firefox/switch/">Firefox&lt;/a> and Chromium.&lt;/p>
+&lt;h3 id="basic-principles">Basic principles&lt;/h3>
+&lt;ul>
+&lt;li>Tests must be &lt;strong>short&lt;/strong> (1min max) and go &lt;strong>straight to the point&lt;/strong>.&lt;/li>
+&lt;li>Arbitrary timeouts are outlawed; a test must systematically wait for a specific event. It is possible to use &lt;em>polling&lt;/em> (retry an action - a click for example - after a certain time) proposed in the &lt;a href="https://playwright.dev/">Playwright&amp;rsquo;s&lt;/a> API.&lt;/li>
+&lt;li>All tests must be parallelizable.&lt;/li>
+&lt;li>Tests must not point to or wait for text elements from the translation, prefer the &lt;em>DOM&lt;/em> tree structure or place specific &lt;code>id&lt;/code>.&lt;/li>
+&lt;li>We&amp;rsquo;re not testing the data, but the application and its functionality. Data-specific tests should be developed in parallel.&lt;/li>
+&lt;/ul>
+&lt;h4 id="data">Data&lt;/h4>
+&lt;p>&lt;strong>The data tested must be public data&lt;/strong>.
+The data required (infrastructure and rolling stock) for the tests are offered in the application&amp;rsquo;s &lt;code>json&lt;/code> files, &lt;em>injected&lt;/em> at the start of each test and deleted at the end, regardless of its result or how it is stopped, including with &lt;code>CTRL+C&lt;/code>.&lt;/p>
+&lt;p>This is done by API calls in typescript before launching the actual test.&lt;/p>
+&lt;p>The data tested is the same, both locally and via continuous integration.&lt;/p>
+&lt;h4 id="atomicity-of-a-test">Atomicity of a test&lt;/h4>
+&lt;p>Each test must be &lt;strong>atomic&lt;/strong>: it is self-sufficient and cannot be divided.&lt;/p>
+&lt;p>A test will target a single feature or component, provided it is not too large. A test will not test an entire module or application; it will necessarily be a set of tests, in order to preserve test atomicity.&lt;/p>
+&lt;p>If a test needs elements to be created or added, these operations must be carried out by API calls in typescript upstream of the test, as is done for adding data. These elements must be deleted at the end of the test, regardless of the result or how it is stopped, including by &lt;code>CTRL+C&lt;/code>.&lt;/p>
+&lt;p>This allows tests to be parallelized.&lt;/p>
+&lt;p>However, in certain cases where it is relevant, a test may contain several clearly explained and justified test subdivisions (several &lt;code>test()&lt;/code> in a single &lt;code>describe()&lt;/code>).&lt;/p>
+&lt;h3 id="example-of-a-test">Example of a test&lt;/h3>
+&lt;p>The requirement: &amp;ldquo;We want to test the addition of a train to a timetable&amp;rdquo;.&lt;/p>
+&lt;ol>
+&lt;li>add the test infrastructure and rolling stock to the database &lt;strong>by API calls&lt;/strong>.&lt;/li>
+&lt;li>create project, study and scenario with choice of test infrastructure &lt;strong>by API calls&lt;/strong>.&lt;/li>
+&lt;li>start the test, clicking on &amp;ldquo;add one or more trains&amp;rdquo; until the presence of the trains in the timetable is verified&lt;/li>
+&lt;li>the test passes, fails or is stopped, the project, study and scenario are deleted, along with the test rolling stock and infrastructure &lt;strong>by API calls&lt;/strong>.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;em>NB: the test will not test all the possibilities offered by the addition of trains; this should be a specific test which would test the response of the interface for all scenarios without adding trains.&lt;/em>&lt;/p></description></item></channel></rss>

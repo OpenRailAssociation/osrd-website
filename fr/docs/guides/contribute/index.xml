@@ -123,62 +123,14 @@ si le titre n&amp;#39;est pas complètement évident.
 &lt;li>Documentez le nouveau code.&lt;/li>
 &lt;li>Ajoutez des tests clairs et simples.&lt;/li>
 &lt;li>Décomposez le travail en morceaux intelligibles.&lt;/li>
-&lt;li>Prenez le temps de choisir de bons noms.
-Évitez les abréviations peu connues.&lt;/li>
-&lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : Ajoutez une dépendance que si elle est absolument nécessaire.
-Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
-&lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : En opposition au point précédent, ne réinventez pas tout à tout prix.
-S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard &amp;ldquo;de-facto&amp;rdquo;, nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
+&lt;li>Prenez le temps de choisir de bons noms.&lt;/li>
+&lt;li>Évitez les abréviations peu connues.&lt;/li>
+&lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : une dépendance est ajoutée seulement si elle est absolument nécessaire.&lt;/li>
+&lt;li>Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
+&lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : En opposition au point précédent, ne réinventez pas tout à tout prix.&lt;/li>
+&lt;li>S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard &amp;ldquo;de-facto&amp;rdquo;, nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
 &lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/osrd-project/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
 &lt;li>Demandez toute l&amp;rsquo;aide dont vous avez besoin !&lt;/li>
-&lt;/ul>
-&lt;h3 id="python">Python&lt;/h3>
-&lt;p>Le code Python est utilisé pour certains paquets et pour les tests d&amp;rsquo;intégration.&lt;/p>
-&lt;ul>
-&lt;li>Suivez le &lt;a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python&lt;/a>.&lt;/li>
-&lt;li>Le code est linté avec &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
-&lt;li>Le code est formaté avec &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
-&lt;li>Les imports sont triées avec &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
-&lt;li>Les tests sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="rust">Rust&lt;/h3>
-&lt;ul>
-&lt;li>Comme référence pour le développement de notre API, nous utilisons les &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
-D&amp;rsquo;une manière générale, il convient de les respecter.&lt;/li>
-&lt;li>Préférer les importations granulaires aux importations globales comme &lt;code>diesel::*&lt;/code>.&lt;/li>
-&lt;li>Les tests sont écrits avec le &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">framework de base&lt;/a>.&lt;/li>
-&lt;li>Utilisez l&amp;rsquo;&lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">exemple de documentation&lt;/a> pour savoir comment formuler et formater votre documentation.&lt;/li>
-&lt;li>Utilisez un style de commentaire cohérent :
-&lt;ul>
-&lt;li>&lt;code>///&lt;/code> les commentaires de la documentation sont au-dessus des invocations &lt;code>#[derive(Trait)]&lt;/code>.&lt;/li>
-&lt;li>Les commentaires &lt;code>//&lt;/code> doivent généralement être placés au-dessus de la ligne en question, plutôt qu&amp;rsquo;en ligne.&lt;/li>
-&lt;li>Les commentaires commencent par des lettres majuscules.
-Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Utilisez les commentaires pour organiser des portions de code longues et complexes qui ne peuvent être raisonnablement remaniées en fonctions distinctes.&lt;/li>
-&lt;li>Le code est linté avec &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
-&lt;li>Le code est formaté avec &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="java">Java&lt;/h3>
-&lt;ul>
-&lt;li>Le code est formaté avec &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="javascript--typescript--front">Javascript / Typescript / Front&lt;/h3>
-&lt;ul>
-&lt;li>Lorsque vous ajoutez de nouveaux fichiers, écrivez-les en TypeScript car l&amp;rsquo;objectif est de passer l&amp;rsquo;ensemble du code à TypeScript.&lt;/li>
-&lt;li>Utiliser les endpoints générés à partir des fichiers &lt;code>openapi.yaml&lt;/code> pour consommer le backend.&lt;/li>
-&lt;li>Le code a été linté avec [eslint] (&lt;a href="https://eslint.org/)">https://eslint.org/)&lt;/a>.&lt;/li>
-&lt;li>Le code est formaté avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/li>
-&lt;li>Des tests de bout en bout sont nécessaires pour les fonctionnalités stables et critiques.
-&lt;a href="https://playwright.dev/">Playwright&lt;/a> est utilisé pour écrire ces tests.&lt;/li>
-&lt;li>Pour écrire des tests unitaires, utilisez &lt;a href="https://vitest.dev/">vitest&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="tests-dintégration">Tests d&amp;rsquo;intégration&lt;/h3>
-&lt;ul>
-&lt;li>Les tests d&amp;rsquo;intégration sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a> dans le dossier &lt;code>/tests&lt;/code>.&lt;/li>
-&lt;li>Chaque route décrite dans les fichiers &lt;code>openapi.yaml&lt;/code> doit avoir un test d&amp;rsquo;intégration.&lt;/li>
-&lt;li>Le test doit vérifier à la fois le format et le contenu des réponses valides et invalides.&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Passer du code en revue</title><link>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</guid><description>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>

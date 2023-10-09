@@ -1112,71 +1112,7 @@ si le titre n&amp;#39;est pas complètement évident.
 &lt;p>Sous Windows/&lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/tutorials/wsl-containers">WSL&lt;/a>, &lt;a href="https://www.docker.com/products/docker-desktop/">Docker Desktop&lt;/a> est recommandé&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Conventions</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/</guid><description>
-&lt;p>L&amp;rsquo;application OSRD est divisée en plusieurs services écrits dans plusieurs langues. Nous essayons de suivre les bonnes pratiques générales en matière de code et de respecter les spécificités de chaque langue lorsque cela est nécessaire.&lt;/p>
-&lt;h2 id="règles-générales">Règles générales&lt;/h2>
-&lt;ul>
-&lt;li>Expliquez ce que vous faites et pourquoi.&lt;/li>
-&lt;li>Documentez le nouveau code.&lt;/li>
-&lt;li>Ajoutez des tests clairs et simples.&lt;/li>
-&lt;li>Décomposez le travail en morceaux intelligibles.&lt;/li>
-&lt;li>Prenez le temps de choisir de bons noms.
-Évitez les abréviations peu connues.&lt;/li>
-&lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : Ajoutez une dépendance que si elle est absolument nécessaire.
-Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
-&lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : En opposition au point précédent, ne réinventez pas tout à tout prix.
-S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard &amp;ldquo;de-facto&amp;rdquo;, nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
-&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/osrd-project/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
-&lt;li>Demandez toute l&amp;rsquo;aide dont vous avez besoin !&lt;/li>
-&lt;/ul>
-&lt;h3 id="python">Python&lt;/h3>
-&lt;p>Le code Python est utilisé pour certains paquets et pour les tests d&amp;rsquo;intégration.&lt;/p>
-&lt;ul>
-&lt;li>Suivez le &lt;a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python&lt;/a>.&lt;/li>
-&lt;li>Le code est linté avec &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
-&lt;li>Le code est formaté avec &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
-&lt;li>Les imports sont triées avec &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
-&lt;li>Les tests sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="rust">Rust&lt;/h3>
-&lt;ul>
-&lt;li>Comme référence pour le développement de notre API, nous utilisons les &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
-D&amp;rsquo;une manière générale, il convient de les respecter.&lt;/li>
-&lt;li>Préférer les importations granulaires aux importations globales comme &lt;code>diesel::*&lt;/code>.&lt;/li>
-&lt;li>Les tests sont écrits avec le &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">framework de base&lt;/a>.&lt;/li>
-&lt;li>Utilisez l&amp;rsquo;&lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">exemple de documentation&lt;/a> pour savoir comment formuler et formater votre documentation.&lt;/li>
-&lt;li>Utilisez un style de commentaire cohérent :
-&lt;ul>
-&lt;li>&lt;code>///&lt;/code> les commentaires de la documentation sont au-dessus des invocations &lt;code>#[derive(Trait)]&lt;/code>.&lt;/li>
-&lt;li>Les commentaires &lt;code>//&lt;/code> doivent généralement être placés au-dessus de la ligne en question, plutôt qu&amp;rsquo;en ligne.&lt;/li>
-&lt;li>Les commentaires commencent par des lettres majuscules.
-Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Utilisez les commentaires pour organiser des portions de code longues et complexes qui ne peuvent être raisonnablement remaniées en fonctions distinctes.&lt;/li>
-&lt;li>Le code est linté avec &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
-&lt;li>Le code est formaté avec &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="java">Java&lt;/h3>
-&lt;ul>
-&lt;li>Le code est formaté avec &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="javascript--typescript--front">Javascript / Typescript / Front&lt;/h3>
-&lt;ul>
-&lt;li>Lorsque vous ajoutez de nouveaux fichiers, écrivez-les en TypeScript car l&amp;rsquo;objectif est de passer l&amp;rsquo;ensemble du code à TypeScript.&lt;/li>
-&lt;li>Utiliser les endpoints générés à partir des fichiers &lt;code>openapi.yaml&lt;/code> pour consommer le backend.&lt;/li>
-&lt;li>Le code a été linté avec [eslint] (&lt;a href="https://eslint.org/)">https://eslint.org/)&lt;/a>.&lt;/li>
-&lt;li>Le code est formaté avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/li>
-&lt;li>Des tests de bout en bout sont nécessaires pour les fonctionnalités stables et critiques.
-&lt;a href="https://playwright.dev/">Playwright&lt;/a> est utilisé pour écrire ces tests.&lt;/li>
-&lt;li>Pour écrire des tests unitaires, utilisez &lt;a href="https://vitest.dev/">vitest&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="tests-dintégration">Tests d&amp;rsquo;intégration&lt;/h3>
-&lt;ul>
-&lt;li>Les tests d&amp;rsquo;intégration sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a> dans le dossier &lt;code>/tests&lt;/code>.&lt;/li>
-&lt;li>Chaque route décrite dans les fichiers &lt;code>openapi.yaml&lt;/code> doit avoir un test d&amp;rsquo;intégration.&lt;/li>
-&lt;li>Le test doit vérifier à la fois le format et le contenu des réponses valides et invalides.&lt;/li>
-&lt;/ul></description></item><item><title>About: Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>
+&lt;/div></description></item><item><title>About: Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>
 &lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la planification horaire à l&amp;rsquo;échelle européenne&lt;/strong>.&lt;/p>
 &lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les compagnies ferroviaires et les gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
 &lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
@@ -2419,7 +2355,39 @@ de circuits de voie ou de compteur d’essieux. Selon l’importance du trafic, 
 &lt;li>BAL : La longueur maximale d’un canton de BAL n’excède pas généralement 2,8 km ce qui permet un écoulement de trafic
 plus important.&lt;/li>
 &lt;/ul>
-&lt;p>En signalisation de cabine, la TVM ou l’ETCS assurent l’espacement.&lt;/p></description></item><item><title>Docs: BAL</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
+&lt;p>En signalisation de cabine, la TVM ou l’ETCS assurent l’espacement.&lt;/p></description></item><item><title>Docs: Back-end</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/back/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/back/</guid><description>
+&lt;h1 id="python">Python&lt;/h1>
+&lt;p>Le code Python est utilisé pour certains paquets et pour les tests d&amp;rsquo;intégration.&lt;/p>
+&lt;ul>
+&lt;li>Suivez le &lt;a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python&lt;/a>.&lt;/li>
+&lt;li>Le code est linté avec &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
+&lt;li>Les imports sont triées avec &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Les tests sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="rust">Rust&lt;/h1>
+&lt;ul>
+&lt;li>Comme référence pour le développement de notre API, nous utilisons les &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
+D&amp;rsquo;une manière générale, il convient de les respecter.&lt;/li>
+&lt;li>Préférer les importations granulaires aux importations globales comme &lt;code>diesel::*&lt;/code>.&lt;/li>
+&lt;li>Les tests sont écrits avec le &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">framework de base&lt;/a>.&lt;/li>
+&lt;li>Utilisez l&amp;rsquo;&lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">exemple de documentation&lt;/a> pour savoir comment formuler et formater votre documentation.&lt;/li>
+&lt;li>Utilisez un style de commentaire cohérent :
+&lt;ul>
+&lt;li>&lt;code>///&lt;/code> les commentaires de la documentation sont au-dessus des invocations &lt;code>#[derive(Trait)]&lt;/code>.&lt;/li>
+&lt;li>Les commentaires &lt;code>//&lt;/code> doivent généralement être placés au-dessus de la ligne en question, plutôt qu&amp;rsquo;en ligne.&lt;/li>
+&lt;li>Les commentaires commencent par des lettres majuscules.
+Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Utilisez les commentaires pour organiser des portions de code longues et complexes qui ne peuvent être raisonnablement remaniées en fonctions distinctes.&lt;/li>
+&lt;li>Le code est linté avec &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="java">Java&lt;/h1>
+&lt;ul>
+&lt;li>Le code est formaté avec &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: BAL</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>
 &lt;p>Le signal d’entrée du canton présente une indication liée à l’état d’occupation du ou des cantons suivants, selon les
 règles suivantes :&lt;/p>
 &lt;ul>
@@ -2453,4 +2421,95 @@ voie mais par un système de comptage d’essieux entrants et sortants.&lt;/p>
 &lt;p>Le BAPR offre un bon niveau de sécurité et il est moins coûteux que le BAL.&lt;/p>
 &lt;h3 id="limites">Limites&lt;/h3>
 &lt;p>Ce type de block n’est adapté qu’aux lignes conventionnelles à trafic moyen compte tenu de l’espacement imposé entre 2
-trains successifs.&lt;/p></description></item></channel></rss>
+trains successifs.&lt;/p></description></item><item><title>Docs: Front-end</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/front/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/front/</guid><description>
+&lt;p>Nous utilisons &lt;strong>ReactJS&lt;/strong> et tous les fichiers doivent être écrits en &lt;strong>Typescript&lt;/strong>.&lt;/p>
+&lt;p>Le code est &lt;strong>linté&lt;/strong> avec &lt;a href="https://eslint.org/">eslint&lt;/a>, et &lt;strong>formaté&lt;/strong> avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/p>
+&lt;h2 id="nomenclature">Nomenclature&lt;/h2>
+&lt;p>&lt;img src="../nomenclature-front-end.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
+&lt;p>Les &lt;strong>applications&lt;/strong> (osrd eex, osrd stdcm, éditeur infra, éditeur matériel) proposent des &lt;strong>vues&lt;/strong> (gestion des projets, gestions des études, etc.) liées à des &lt;strong>modules&lt;/strong> (projet, étude, etc.) qui contiennent les composants.&lt;/p>
+&lt;p>Ces &lt;strong>vues&lt;/strong> sont constituées de &lt;strong>composants&lt;/strong> et sous-composants &lt;u>tous issus des modules&lt;/u>.
+En plus de contenir les fichiers de &lt;strong>vues&lt;/strong> des applications, elles peuvent contenir un répertoire &lt;strong>scripts&lt;/strong> qui propose des scripts liés à ces vues. Les &lt;strong>vues&lt;/strong> déterminent la logique et l&amp;rsquo;&lt;u>accès au store&lt;/u>.&lt;/p>
+&lt;p>Les &lt;strong>modules&lt;/strong> sont des collections de &lt;strong>composants&lt;/strong> rattachés à un &lt;strong>objet&lt;/strong> (un scénario, un matériel roulant, un TrainSchedule). Ils contiennent :&lt;/p>
+&lt;ul>
+&lt;li>un répertoire &lt;em>components&lt;/em> qui héberge &lt;u>tous&lt;/u> les composants&lt;/li>
+&lt;li>un répertoire &lt;em>styles&lt;/em> optionnel &lt;u>par module&lt;/u> pour le style des composants en scss&lt;/li>
+&lt;li>un répertoire &lt;em>assets&lt;/em> optionnel &lt;u>par module&lt;/u> (qui contient les assets, de jeux de données par défaut par ex, spécifiques au module)&lt;/li>
+&lt;li>un fichier &lt;em>reducers&lt;/em> optionnel &lt;u>par module&lt;/u>&lt;/li>
+&lt;li>un fichier &lt;em>types&lt;/em> optionnel &lt;u>par module&lt;/u>&lt;/li>
+&lt;li>un fichier &lt;em>consts&lt;/em> optionnel &lt;u>par module&lt;/u>&lt;/li>
+&lt;/ul>
+&lt;p>Un répertoire &lt;strong>assets&lt;/strong> (qui contient les images et autre fichiers).&lt;/p>
+&lt;p>Enfin, un répertoire &lt;strong>common&lt;/strong> qui propose :&lt;/p>
+&lt;ul>
+&lt;li>un répertoire &lt;em>utils&lt;/em> pour les fonctions utilitaires communes à l&amp;rsquo;ensemble du projet&lt;/li>
+&lt;li>un fichier &lt;em>types&lt;/em> pour les types communs à l&amp;rsquo;ensemble du projet&lt;/li>
+&lt;li>un fichier &lt;em>consts&lt;/em> pour les constantes communes à l&amp;rsquo;ensemble du projet&lt;/li>
+&lt;/ul>
+&lt;h2 id="principes-dimplémentation">Principes d&amp;rsquo;implémentation&lt;/h2>
+&lt;h3 id="routage--slug">Routage &amp;amp; SLUG&lt;/h3>
+&lt;p>&lt;em>Rédaction en cours&lt;/em>&lt;/p>
+&lt;p>&lt;code>projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}&lt;/code>&lt;/p>
+&lt;h3 id="styles--scss">Styles &amp;amp; SCSS&lt;/h3>
+&lt;p>&lt;em>Rédaction en cours&lt;/em>&lt;/p>
+&lt;h3 id="storeredux">Store/Redux&lt;/h3>
+&lt;p>Tout ce qui est &lt;em>selector&lt;/em> est géré par la &lt;strong>vue&lt;/strong> passé en props aux composants et sous-composants.&lt;/p>
+&lt;p>Par conséquent les appels au store en lecture et en écriture doivent être passés un niveau de la vue, en irrigant par des &lt;em>props&lt;/em> et &lt;em>states&lt;/em> les composants proposées par la vue.&lt;/p>
+&lt;h3 id="rtk">RTK&lt;/h3>
+&lt;p>&lt;em>Rédaction en cours&lt;/em>&lt;/p>
+&lt;p>Utiliser les endpoints générés à partir des fichiers &lt;code>openapi.yaml&lt;/code> pour consommer le backend.&lt;/p>
+&lt;h2 id="lois-et-éléments-importants">Lois et éléments importants&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;strong>Aucun composant ne doit détenir la responsabilité de mise à jour de la donnée qu&amp;rsquo;il utilise&lt;/strong>&lt;/p>
+&lt;p>Seules &lt;u>les vues&lt;/u> contiennent les sélecteurs du store, donnés ensuite en props aux composants du module lié à la vue.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Le SCSS n&amp;rsquo;est pas scopé&lt;/strong>&lt;/p>
+&lt;p>Un fichier &lt;code>.scss&lt;/code> enfoui dans l&amp;rsquo;arborescence ne vous garantit pas que les classes contenues soient seulement accessibles à cet endroit, y compris par import react (formellement interdit au passage : vous devez utiliser l&amp;rsquo;import SCSS), toutes les classes déclarées sont accessibles partout.&lt;/p>
+&lt;p>Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l&amp;rsquo;arborescence possible dans le fichier SCSS.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Les liens des imports doivent être absolus au sein d&amp;rsquo;une application&lt;/strong>&lt;/p>
+&lt;p>Vous devez utiliser le &lt;u>chemin complet&lt;/u> pour tous vos imports, même si le fichier à importer se trouve dans le même répertoire.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Les liens des imports doivent être relatifs au sein d&amp;rsquo;un module ou d&amp;rsquo;un composant&lt;/strong>&lt;/p>
+&lt;p>Au sein d&amp;rsquo;un module ou d&amp;rsquo;un composant, à l&amp;rsquo;instar d&amp;rsquo;une librairie, les liens d&amp;rsquo;imports doivent rester relatifs afin de permettre leur utilisation n&amp;rsquo;importe où.&lt;/p>
+&lt;/blockquote></description></item><item><title>Docs: Tests</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/tests/</guid><description>
+&lt;h2 id="back-end">Back-end&lt;/h2>
+&lt;ul>
+&lt;li>Les tests d&amp;rsquo;intégration sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a> dans le dossier &lt;code>/tests&lt;/code>.&lt;/li>
+&lt;li>Chaque route décrite dans les fichiers &lt;code>openapi.yaml&lt;/code> doit avoir un test d&amp;rsquo;intégration.&lt;/li>
+&lt;li>Le test doit vérifier à la fois le format et le contenu des réponses valides et invalides.&lt;/li>
+&lt;/ul>
+&lt;h2 id="front-end">Front-end&lt;/h2>
+&lt;p>L&amp;rsquo;écriture fonctionnelle des tests est réalisée avec les &lt;em>Product Owners&lt;/em>, et les développeurs choisissent une implémentation technique qui répond précisément aux besoins exprimés et qui s&amp;rsquo;intègre dans les recommandations présentes ici.&lt;/p>
+&lt;p>Nous utilisons &lt;a href="https://playwright.dev/">Playwright&lt;/a> pour écrire les tests bout en bout, et &lt;a href="https://vitest.dev/">vitest&lt;/a> pour écrire les tests unitaires.&lt;/p>
+&lt;p>Les navigateurs testés sont pour l&amp;rsquo;instant &lt;a href="https://www.mozilla.org/fr/firefox/switch/">Firefox&lt;/a> et Chromium.&lt;/p>
+&lt;h3 id="principes-de-base">Principes de base&lt;/h3>
+&lt;ul>
+&lt;li>Les tests doivent être &lt;strong>courts&lt;/strong> (1min max) et aller &lt;strong>droit au but&lt;/strong>.&lt;/li>
+&lt;li>Les timeout arbitraires sont proscrits, un test doit systématiquement attendre un évènement spécifique. Il est possible d&amp;rsquo;utiliser le &lt;em>polling&lt;/em> (retenter une action — un clic par exemple — au bout d&amp;rsquo;un certain temps) proposé dans l&amp;rsquo;API de &lt;a href="https://playwright.dev/">Playwright&lt;/a>.&lt;/li>
+&lt;li>Les tests doivent tous pouvoir être parallélisables.&lt;/li>
+&lt;li>Les tests ne doivent pas pointer/attendre des éléments de texte issus de la traduction, préférer l&amp;rsquo;arborescence du &lt;em>DOM&lt;/em> ou encore placer des &lt;code>id&lt;/code> spécifiques.&lt;/li>
+&lt;li>On ne teste pas les données mais l&amp;rsquo;application et ses fonctionnalités. Des tests spécifiques aux données sont à élaborer par ailleurs.&lt;/li>
+&lt;/ul>
+&lt;h4 id="données">Données&lt;/h4>
+&lt;p>&lt;strong>Les données testées doivent impérativement être des données publiques.&lt;/strong>
+Les données nécessaires (infrastructure et matériel) aux tests sont proposées dans des fichiers &lt;code>json&lt;/code> de l&amp;rsquo;application, &lt;em>injectées&lt;/em> au début de chaque test et effacées à la fin peu importe son résultat ou la manière d&amp;rsquo;être stoppé, y compris par &lt;code>CTRL+C&lt;/code>.&lt;/p>
+&lt;p>Cela se fait par des appels API en typescript avant de lancer le test à proprement parler.&lt;/p>
+&lt;p>Les données testées sont les mêmes en local ou via l&amp;rsquo;intégration continue.&lt;/p>
+&lt;h4 id="atomicité-dun-test">Atomicité d&amp;rsquo;un test&lt;/h4>
+&lt;p>Chaque test doit être &lt;strong>atomique&lt;/strong> : il se suffit à lui même et ne peut pas être divisé.&lt;/p>
+&lt;p>Un test va cibler une fonctionnalité ou un composant, si ce dernier n&amp;rsquo;est pas trop gros. Un test ne testera pas tout un module ou tout une application, ce sera forcément un ensemble de tests afin de préserver l&amp;rsquo;atomicité des tests.&lt;/p>
+&lt;p>Si un test a besoin que des éléments soient créés ou ajoutés, ces opérations doivent être opérées par des appels API en typescript en amont du test, à l&amp;rsquo;instar de ce qui est fait pour l&amp;rsquo;ajout de données. Ces éléments doivent être supprimés à l&amp;rsquo;issue du test, peu importe son résultat ou la manière d&amp;rsquo;être stoppé, y compris par &lt;code>CTRL+C&lt;/code>.&lt;/p>
+&lt;p>Cela permettra notamment la parallélisation des tests.&lt;/p>
+&lt;p>Un test peut cependant, dans certains cas de figure où cela est pertinent, contenir plusieurs sous-divisions de test, clairement explicitées, et justifiées (plusieurs &lt;code>test()&lt;/code> dans un seul &lt;code>describe()&lt;/code>).&lt;/p>
+&lt;h3 id="exemple-de-test">Exemple de test&lt;/h3>
+&lt;p>Le besoin : « nous voulons tester l&amp;rsquo;ajout d&amp;rsquo;un train dans une grille horaire ».&lt;/p>
+&lt;ol>
+&lt;li>ajouter l&amp;rsquo;infrastructure et le matériel roulant de test dans la base de données &lt;strong>par appels API&lt;/strong>&lt;/li>
+&lt;li>créer projet, étude et scénario avec choix de l&amp;rsquo;infra de test &lt;strong>par appels API&lt;/strong>&lt;/li>
+&lt;li>début du test qui clique sur « ajouter un ou plusieurs trains » jusqu&amp;rsquo;à la vérification de la présence des trains dans la grille horaire&lt;/li>
+&lt;li>le test a réussi, a échoué, ou est stoppé, le projet, l&amp;rsquo;étude et le scénario sont effacés, ainsi que le matériel roulant et et l&amp;rsquo;infrastructure de test &lt;strong>par appels API&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;em>NB : le test ne va pas tester toutes les possibilités offertes par l&amp;rsquo;ajout de trains, cela relève d&amp;rsquo;un test spécifique qui testerait la réponse de l&amp;rsquo;interface pour tous les cas de figure sans ajouter de trains.&lt;/em>&lt;/p></description></item></channel></rss>
