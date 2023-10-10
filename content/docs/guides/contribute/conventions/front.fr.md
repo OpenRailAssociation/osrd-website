@@ -73,3 +73,31 @@ Utiliser les endpoints générés à partir des fichiers `openapi.yaml` pour con
 >
 > Au sein d'un module ou d'un composant, à l'instar d'une librairie, les liens d'imports doivent rester relatifs afin de permettre leur utilisation n'importe où.
 
+## TypeScript
+
+### import & export
+
+Nous recommendons d’utiliser les imports et export typés.
+
+Lorsque qu’un `import` ou un `export` ne comporte que des types, l’indiquer par le mot clé `type`. 
+
+```typescript
+export type { Direction, DirectionalTrackRange as TrackRange };
+```
+```typescript
+import type { typedEntries, ValueOf } from 'utils/types';
+```
+
+Cette pratique permet de&nbsp;:
+- Améliorer les performances et le travail d’analyse du compilateur et du linter.
+- Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.
+- Éviter des cycles de dépendances&nbsp;:
+
+ ![dependency cyle](./dependency-cycle.png)
+
+L’erreur disparaît avec le mot clé `type`
+
+ ![dependency cyle](./dependency-cycle-gone.png)
+
+
+- Alléger le bundle final (tous les types disparaissent à la compilation).
