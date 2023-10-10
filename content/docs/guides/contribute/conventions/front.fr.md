@@ -40,7 +40,49 @@ _Rédaction en cours_
 `projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}`
 
 ### Styles & SCSS
-_Rédaction en cours_
+> ATTENTION : en CSS/React, le scope d'une classe ne dépend pas de l'endroit où le fichier est importé mais est valide pour toute l'application. Si vous importez un fichier `scss` au fin fond d'un composant (ce que nous déconseillons fortement par ailleurs), ses classes seront disponibles pour toute l'application et peuvent donc provoquer des effets de bord.
+
+Il est donc très recommandé de pouvoir facilement suivre l'arborescence des applications, vues, modules et composants également au sein du code SCSS, et notamment imbriquer les noms de classes pour éviter les effets de bord, le compilateur se chargera de fabriquer la hiérarchie nécessaire.
+
+Si par exemple nous avons un composant `rollingStockSelector` qui propose une liste de matériel `rollingStockList` représentés par des cartes `rollingStockCard` contenant une image représentant le matériel roulant `rollingStockImg` nous devrions avoir la structure SCSS suivante :
+
+```scss
+.rollinStockSelector {
+  .rollingStockList {
+    .rollingStockCard {
+      .rollingStockImg {
+        width: 5rem;
+        height: auto;
+      }
+    }
+  }
+}
+```
+
+Ainsi, on a la garantie que l'image contenue dans la carte de matériel roulant héritera bien des bonnes propriétés css `.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg`.
+
+#### Noms de classes, utilisation de `cx()`
+Les classes sont ajoutées les unes à la suite des autres, normalement, dans la propriété `className=""`.
+
+Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une classe, concaténation, etc.&nbsp;— nous utilisons la librairie [classnames](https://github.com/JedWatson/classnames) qui préconise l'usage suivant :
+
+```ts
+<div className="rollingStockSelector">
+  <div className="rollingStockList">
+    <div className="rollingStockCard w-100 my-2">
+      <img
+        className={cx('rollingStockImg', 'm-2', 'p-1', 'bg-white', {
+          valid: isValid(),
+          selected: rollingStockID === selectedRollingStockID,
+        })}
+      />
+    </div>
+  </div>
+</div>
+```
+
+Les classes sont **séparées** chacune dans un `string` et les opérations booléennes ou autres sont réalisées dans un objet qui retournera —&nbsp;ou pas&nbsp;— le nom de propriété comme nom de classe à utiliser dans le CSS.
+
 
 ### Store/Redux
 Tout ce qui est *selector* est géré par la **vue** passé en props aux composants et sous-composants.
