@@ -219,7 +219,7 @@ Avec les détecteurs, ils définissent les limites des sections [TVD](https://re
 
 #### Itinéraires (`Routes`)
 
-Une `Route` est un itinéraire dans l'infrastructure. Un sillon est une séquence de routes. Les itinéraires sont utilisés pour réserver des sections de sillon avec l'enclenchement. Voir la [documentation dédiée](/fr/developers/internals/simulation-model/).
+Une `Route` est un itinéraire dans l'infrastructure. Un sillon est une séquence de routes. Les itinéraires sont utilisés pour réserver des sections de sillon avec l'enclenchement. Voir la [documentation dédiée](/fr/docs/reference/design-docs/interlocking/).
 
 Il est représenté avec les attributs suivants :
 
