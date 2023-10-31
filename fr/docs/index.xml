@@ -485,7 +485,7 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Switch&lt;/code> est un objet phys
 &lt;div class="alert alert-primary" role="alert">
 N&amp;rsquo;oubliez pas que la valeur &lt;code>begin&lt;/code> doit toujours être inférieure à la valeur &lt;code>end&lt;/code>. C&amp;rsquo;est pourquoi les valeurs de courbe/pente peuvent être négatives : une pente ascendante de 1 allant du décalage 10 à 0 est identique à une pente descendante de -1 allant des décalages 0 à 10.
 &lt;/div>
-&lt;p>Dans le fichier &lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a>, nous avons des pentes sur les sections de voie &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>Dans le fichier &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a>, nous avons des pentes sur les sections de voie &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em>.&lt;/p>
 &lt;p>Il y a également des courbes sur les sections de voie &lt;em>TE0&lt;/em>, &lt;em>TE1&lt;/em>, &lt;em>TE3&lt;/em> et &lt;em>TF1&lt;/em>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="enclenchement">Enclenchement&lt;/h3>

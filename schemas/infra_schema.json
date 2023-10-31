@@ -951,21 +951,6 @@
                     "title": "Id",
                     "type": "string"
                 },
-                "linked_detector": {
-                    "anyOf": [
-                        {
-                            "maxLength": 255,
-                            "minLength": 1,
-                            "type": "string"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "default": null,
-                    "description": "Identifier of the detector linked to the signal",
-                    "title": "Linked Detector"
-                },
                 "logical_signals": {
                     "description": "Logical signals bundled into this physical signal",
                     "items": {
@@ -1020,41 +1005,6 @@
         },
         "SignalSncfExtension": {
             "properties": {
-                "aspects": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "title": "Aspects",
-                    "type": "array"
-                },
-                "comment": {
-                    "title": "Comment",
-                    "type": "string"
-                },
-                "default_aspect": {
-                    "description": "Aspect displayed when no train is around",
-                    "title": "Default Aspect",
-                    "type": "string"
-                },
-                "installation_type": {
-                    "title": "Installation Type",
-                    "type": "string"
-                },
-                "is_in_service": {
-                    "description": "Precise if the signal is in service",
-                    "title": "Is In Service",
-                    "type": "boolean"
-                },
-                "is_lightable": {
-                    "description": "Precise if the signal is lightable",
-                    "title": "Is Lightable",
-                    "type": "boolean"
-                },
-                "is_operational": {
-                    "description": "Precise if the signal is operational",
-                    "title": "Is Operational",
-                    "type": "boolean"
-                },
                 "kp": {
                     "description": "Kilometric point of the signal",
                     "title": "Kp",
@@ -1072,32 +1022,10 @@
                     ],
                     "default": "CENTER",
                     "description": "Side of the signal on the track"
-                },
-                "support_type": {
-                    "title": "Support Type",
-                    "type": "string"
-                },
-                "type_code": {
-                    "title": "Type Code",
-                    "type": "string"
-                },
-                "value": {
-                    "title": "Value",
-                    "type": "string"
                 }
             },
             "required": [
-                "aspects",
-                "comment",
-                "default_aspect",
-                "installation_type",
-                "is_in_service",
-                "is_lightable",
-                "is_operational",
                 "label",
-                "support_type",
-                "type_code",
-                "value",
                 "kp"
             ],
             "title": "SignalSncfExtension",
@@ -1498,41 +1426,6 @@
             "title": "TrackSectionExtensions",
             "type": "object"
         },
-        "TrackSectionLink": {
-            "description": "\n    Track section links is used to connect and link two track sections.\n    A track section link is characterized by its identifier.\n    ",
-            "properties": {
-                "dst": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/TrackEndpoint"
-                        }
-                    ],
-                    "description": "Finish track section, relative position in track section is defined by its end point"
-                },
-                "id": {
-                    "description": "Unique identifier of the object",
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "title": "Id",
-                    "type": "string"
-                },
-                "src": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/TrackEndpoint"
-                        }
-                    ],
-                    "description": "Starting track section, relative position in track section is defined by its end point"
-                }
-            },
-            "required": [
-                "id",
-                "src",
-                "dst"
-            ],
-            "title": "TrackSectionLink",
-            "type": "object"
-        },
         "TrackSectionSncfExtension": {
             "properties": {
                 "line_code": {
@@ -1651,14 +1544,6 @@
             "title": "Switches",
             "type": "array"
         },
-        "track_section_links": {
-            "description": "Track section links of the infra",
-            "items": {
-                "$ref": "#/$defs/TrackSectionLink"
-            },
-            "title": "Track Section Links",
-            "type": "array"
-        },
         "track_sections": {
             "description": "Track sections of the infra",
             "items": {
@@ -1668,8 +1553,8 @@
             "type": "array"
         },
         "version": {
-            "const": "3.4.3",
-            "default": "3.4.3",
+            "const": "3.4.5",
+            "default": "3.4.5",
             "description": "Version of the schema",
             "title": "Version"
         }
@@ -1679,7 +1564,6 @@
         "routes",
         "switch_types",
         "switches",
-        "track_section_links",
         "track_sections",
         "speed_sections",
         "catenaries",

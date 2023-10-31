@@ -96,7 +96,7 @@ This is because a switch is a physical object, and changing active link can invo
 &lt;div class="alert alert-primary" role="alert">
 Mind that the &lt;code>begin&lt;/code> value should always be smaller than the &lt;code>end&lt;/code> value. That is why the curve / slope values can be negative: an uphill slope of 1 going from offset 10 to 0 is the same as a downhill slope of -1 going from offsets 0 to 10.
 &lt;/div>
-&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/examples/generated/scripts/small_infra.py">small_infra.py&lt;/a> file, we have slopes on the track sections &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file, we have slopes on the track sections &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em>.&lt;/p>
 &lt;p>There are curves as well, on the track sections &lt;em>TE0&lt;/em>, &lt;em>TE1&lt;/em>, &lt;em>TE3&lt;/em> and &lt;em>TF1&lt;/em>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="interlocking">Interlocking&lt;/h3>
