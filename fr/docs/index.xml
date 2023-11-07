@@ -2474,7 +2474,25 @@ En plus de contenir les fichiers de &lt;strong>vues&lt;/strong> des applications
 &lt;blockquote>
 &lt;p>&lt;strong>Les liens des imports doivent être relatifs au sein d&amp;rsquo;un module ou d&amp;rsquo;un composant&lt;/strong>&lt;/p>
 &lt;p>Au sein d&amp;rsquo;un module ou d&amp;rsquo;un composant, à l&amp;rsquo;instar d&amp;rsquo;une librairie, les liens d&amp;rsquo;imports doivent rester relatifs afin de permettre leur utilisation n&amp;rsquo;importe où.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Tests</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/tests/</guid><description>
+&lt;/blockquote>
+&lt;h2 id="typescript">TypeScript&lt;/h2>
+&lt;h3 id="import--export">import &amp;amp; export&lt;/h3>
+&lt;p>Nous recommendons d’utiliser les imports et export typés.&lt;/p>
+&lt;p>Lorsque qu’un &lt;code>import&lt;/code> ou un &lt;code>export&lt;/code> ne comporte que des types, l’indiquer par le mot clé &lt;code>type&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">export&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">Direction&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">DirectionalTrackRange&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">TrackRange&lt;/span> &lt;span style="color:#000;font-weight:bold">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">typedEntries&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ValueOf&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;utils/types&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette pratique permet de :&lt;/p>
+&lt;ul>
+&lt;li>Améliorer les performances et le travail d’analyse du compilateur et du linter.&lt;/li>
+&lt;li>Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.&lt;/li>
+&lt;li>Éviter des cycles de dépendances :&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="./dependency-cycle.png" alt="dependency cyle">&lt;/p>
+&lt;p>L’erreur disparaît avec le mot clé &lt;code>type&lt;/code>&lt;/p>
+&lt;p>&lt;img src="./dependency-cycle-gone.png" alt="dependency cyle">&lt;/p>
+&lt;ul>
+&lt;li>Alléger le bundle final (tous les types disparaissent à la compilation).&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Tests</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/tests/</guid><description>
 &lt;h2 id="back-end">Back-end&lt;/h2>
 &lt;ul>
 &lt;li>Les tests d&amp;rsquo;intégration sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a> dans le dossier &lt;code>/tests&lt;/code>.&lt;/li>

@@ -1488,6 +1488,15 @@
             "title": "Detectors",
             "type": "array"
         },
+        "extended_switch_types": {
+            "default": [],
+            "description": "Switch types of the infra that can be added by the user",
+            "items": {
+                "$ref": "#/$defs/SwitchType"
+            },
+            "title": "Extended Switch Types",
+            "type": "array"
+        },
         "neutral_sections": {
             "description": "Neutral sections of the infra",
             "items": {
@@ -1528,14 +1537,6 @@
             "title": "Speed Sections",
             "type": "array"
         },
-        "switch_types": {
-            "description": "Switch types of the infra",
-            "items": {
-                "$ref": "#/$defs/SwitchType"
-            },
-            "title": "Switch Types",
-            "type": "array"
-        },
         "switches": {
             "description": "Switches of the infra",
             "items": {
@@ -1553,8 +1554,8 @@
             "type": "array"
         },
         "version": {
-            "const": "3.4.5",
-            "default": "3.4.5",
+            "const": "3.4.6",
+            "default": "3.4.6",
             "description": "Version of the schema",
             "title": "Version"
         }
@@ -1562,7 +1563,6 @@
     "required": [
         "operational_points",
         "routes",
-        "switch_types",
         "switches",
         "track_sections",
         "speed_sections",
