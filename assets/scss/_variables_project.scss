@@ -3,10 +3,25 @@
 Add styles or override variables from the theme here.
 
 */
-$pink-bright: #aa026d;
-$pink-dark: #71196f;
+@import 'ibm-plex';
+
+$pink-bright: #796ac4;
+$pink-dark: #493E80;
 $primary: $pink-bright;
 $secondary: $pink-dark;
+
+.main-logo {
+  margin: 3rem 0 5rem;
+  width: 500px;
+  @media screen and (max-width: 640px) {
+    width: 300px;    
+  }
+}
+.main-title {
+  @media screen and (max-width: 640px) {
+    font-size: 1.5rem;
+  }
+}
 
 .td-navbar {
   background: $pink-dark !important;
@@ -19,4 +34,23 @@ $secondary: $pink-dark;
 /* SWAGGER OVERRIDE */
 .swagger-ui .info .title small pre {
   background-color: inherit;
+}
+/* BACKGROUND OVERRIDE */
+.td-overlay--dark::after {
+  background-color: unset !important;
+}
+
+/* NAVBAR OVERRIDE */
+a.navbar-brand {
+  font-size: unset;
+  span:last-child {
+    display: none;
+  }
+  .navbar-logo {
+    svg {
+      height: 22px !important;
+      width: auto;
+      margin: 0 5px;
+    }
+  }
 }
