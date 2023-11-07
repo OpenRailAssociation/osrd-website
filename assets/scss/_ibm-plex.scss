@@ -1,0 +1,64 @@
+$font-prefix: '../fonts' !default;
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('IBM Plex Sans SmBld'),
+    local('IBMPlexSans-SmBld'),
+    url('#{$font-prefix}/IBMPlexSans-SemiBold.woff2') format('woff2'),
+    url('#{$font-prefix}/IBMPlexSans-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('IBM Plex Sans SmBld Italic'),
+    local('IBMPlexSans-SmBldItalic'),
+    url('#{$font-prefix}/IBMPlexSans-SemiBoldItalic.woff2') format('woff2'),
+    url('#{$font-prefix}/IBMPlexSans-SemiBoldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('IBM Plex Sans'),
+    local('IBMPlexSans'),
+    url('#{$font-prefix}/IBMPlexSans-Regular.woff2') format('woff2'),
+    url('#{$font-prefix}/IBMPlexSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  src: local('IBM Plex Mono SmBld'),
+    local('IBMPlexMono-SmBld'),
+    url('#{$font-prefix}/IBMPlexMono-SemiBold.woff2') format('woff2'),
+    url('#{$font-prefix}/IBMPlexMono-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: italic;
+  font-weight: 600;
+  src: local('IBM Plex Mono SmBld Italic'),
+    local('IBMPlexMono-SmBldItalic'),
+    url('#{$font-prefix}/IBMPlexMono-SemiBoldItalic.woff2') format('woff2'),
+    url('#{$font-prefix}/IBMPlexMono-SemiBoldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('IBM Plex Mono'),
+    local('IBMPlexMono'),
+    url('#{$font-prefix}/IBMPlexMono-Regular.woff2') format('woff2'),
+    url('#{$font-prefix}/IBMPlexMono-Regular.woff') format('woff');
+}
+
+$font-family-sans-serif: 'IBM Plex Sans' !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
