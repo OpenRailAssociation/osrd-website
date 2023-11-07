@@ -1,6 +1,7 @@
 ---
 title: "Tests"
 linkTitle: "Tests"
+weight: 6
 description: "Recommandations pour les tests"
 ---
 ## Back-end
@@ -50,3 +51,5 @@ Le besoin : « nous voulons tester l'ajout d'un train dans une grille horaire »
 4. le test a réussi, a échoué, ou est stoppé, le projet, l'étude et le scénario sont effacés, ainsi que le matériel roulant et et l'infrastructure de test **par appels API**
 
 *NB : le test ne va pas tester toutes les possibilités offertes par l'ajout de trains, cela relève d'un test spécifique qui testerait la réponse de l'interface pour tous les cas de figure sans ajouter de trains.*
+
+*[Continuer vers l'écriture de code ‣]({{< ref "write-code">}})*

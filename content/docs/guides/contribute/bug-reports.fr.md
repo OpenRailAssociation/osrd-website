@@ -1,7 +1,7 @@
 ---
 title: "Signaler des problèmes"
 linkTitle: "Signaler des problèmes"
-weight: 20
+weight: 5
 description: "Comment signaler un bug ou suggérer une amélioration"
 ---
 

@@ -1,16 +1,17 @@
 ---
-title: "Front-end"
-linkTitle: "Front-end"
+title: "Conventions front-end"
+linkTitle: "Conventions front-end"
+weight: 2
 description: "Conventions de codes et bonnes pratiques pour le front-end"
 ---
 
 Nous utilisons **ReactJS** et tous les fichiers doivent être écrits en **Typescript**.
 
-Le code est **linté** avec [eslint](https://eslint.org/), et **formaté** avec [prettier](https://prettier.io/).
+Le code est _linté_ avec [eslint](https://eslint.org/), et **formaté** avec [prettier](https://prettier.io/).
 
 ## Nomenclature
 
-![Diagramme de l'Infrastructure](../nomenclature-front-end.svg)
+![Diagramme de l'Infrastructure](/images/docs/contribute/nomenclature-front-end.svg)
 
 Les **applications** (osrd eex, osrd stdcm, éditeur infra, éditeur matériel) proposent des **vues** (gestion des projets, gestions des études, etc.) liées à des **modules** (projet, étude, etc.) qui contiennent les composants.
 
@@ -104,7 +105,7 @@ Pour plus d'information, vous pouvez regarder la [documentation](https://vitejs.
 #### Noms de classes, utilisation de `cx()`
 Les classes sont ajoutées les unes à la suite des autres, normalement, dans la propriété `className=""`.
 
-Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une classe, concaténation, etc.&nbsp;— nous utilisons la librairie [classnames](https://github.com/JedWatson/classnames) qui préconise l'usage suivant :
+Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une classe, concaténation, etc.&nbsp;— nous utilisons la bibliothèque [classnames](https://github.com/JedWatson/classnames) qui préconise l'usage suivant :
 
 ```ts
 <div className="rollingStockSelector">
@@ -123,7 +124,6 @@ Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une cl
 
 Les classes sont **séparées** chacune dans un `string` et les opérations booléennes ou autres sont réalisées dans un objet qui retournera —&nbsp;ou pas&nbsp;— le nom de propriété comme nom de classe à utiliser dans le CSS.
 
-
 ### Store/Redux
 Tout ce qui est *selector* est géré par la **vue** et passé en props aux composants et sous-composants.
 
@@ -139,7 +139,7 @@ Lorsque de la donnée est récupérée depuis le back, RTK va mettre cette donn�
 
 Dans le store, vous verrez cette clé `editoastApi` qui contient la donnée en cache de tous les endpoints editoast :
 
-![store Redux](../store-redux-main.png)
+![store Redux](/images/docs/contribute/store-redux-main.png)
 
 Ici par exemple l’endpoint `getProjects` a été appelé.
 
@@ -255,23 +255,17 @@ Dès que le dernier composant est démonté, la donnée est supprimée du cache 
 
 ## Lois et éléments importants
 
-> **Aucun composant ne doit détenir la responsabilité de mise à jour de la donnée qu'il utilise**
->
-> Seules <u>les vues</u> contiennent les sélecteurs du store, donnés ensuite en props aux composants du module lié à la vue.
+#### Aucun composant ne doit détenir la responsabilité de mise à jour de la donnée qu'il utilise
+Seules <u>les vues</u> contiennent les sélecteurs du store, donnés ensuite en props aux composants du module lié à la vue.
 
-> **Le SCSS n'est pas scopé**
->
-> Un fichier `.scss` enfoui dans l'arborescence ne vous garantit pas que les classes contenues soient seulement accessibles à cet endroit, y compris par import react (formellement interdit au passage : vous devez utiliser l'import SCSS), toutes les classes déclarées sont accessibles partout.
->
-> Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l'arborescence possible dans le fichier SCSS.
+#### Le SCSS n'est pas scopé
+Un fichier `.scss` enfoui dans l'arborescence ne vous garantit pas que les classes contenues soient seulement accessibles à cet endroit, y compris par import react (formellement interdit au passage : vous devez utiliser l'import SCSS), toutes les classes déclarées sont accessibles partout.
 
-> **Les liens des imports doivent être absolus au sein d'une application**
->
-> Vous devez utiliser le <u>chemin complet</u> pour tous vos imports, même si le fichier à importer se trouve dans le même répertoire.
+Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l'arborescence possible dans le fichier SCSS.
 
-> **Les liens des imports doivent être relatifs au sein d'un module ou d'un composant**
->
-> Au sein d'un module ou d'un composant, à l'instar d'une librairie, les liens d'imports doivent rester relatifs afin de permettre leur utilisation n'importe où.
+#### Les liens des imports doivent être absolus
+Vous devez utiliser le <u>chemin complet</u> pour tous vos imports.
+> Le chemin peut être relatif seulement si le fichier à importer est dans le même répertoire.
 
 ## TypeScript
 
@@ -293,11 +287,10 @@ Cette pratique permet de&nbsp;:
 - Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.
 - Éviter des cycles de dépendances&nbsp;:
 
- ![dependency cyle](../dependency-cycle.png)
+ ![dependency cyle](/images/docs/contribute/dependency-cycle.png)
 
 L’erreur disparaît avec le mot clé `type`
 
- ![dependency cyle](../dependency-cycle-gone.png)
-
+ ![dependency cyle](/images/docs/contribute/dependency-cycle-gone.png)
 
 - Alléger le bundle final (tous les types disparaissent à la compilation).

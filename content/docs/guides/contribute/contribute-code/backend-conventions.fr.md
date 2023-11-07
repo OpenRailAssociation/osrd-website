@@ -1,6 +1,7 @@
 ---
-title: "Back-end"
-linkTitle: "Back-end"
+title: "Conventions back-end"
+linkTitle: "Conventions back-end"
+weight: 2
 description: "Conventions de codes et bonnes pratiques pour le back-end"
 ---
 

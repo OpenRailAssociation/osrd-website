@@ -1,6 +1,7 @@
 ---
-title: "Back-end"
-linkTitle: "Back-end"
+title: "Back-end conventions"
+linkTitle: "Back-end conventions"
+weight: 2
 description: "Coding style guide and best practices for back-end"
 ---
 
