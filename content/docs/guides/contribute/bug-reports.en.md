@@ -1,7 +1,7 @@
 ---
 title: "Report issues"
 linkTitle: "Report issues"
-weight: 20
+weight: 5
 description: "Report a bug or suggest an enhancement"
 ---
 

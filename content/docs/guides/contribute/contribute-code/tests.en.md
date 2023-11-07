@@ -1,6 +1,7 @@
 ---
 title: "Tests"
 linkTitle: "Tests"
+weight: 6
 description: "Recommandations for testing purpose"
 ---
 
@@ -51,3 +52,5 @@ The requirement: "We want to test the addition of a train to a timetable".
 4. the test passes, fails or is stopped, the project, study and scenario are deleted, along with the test rolling stock and infrastructure **by API calls**.
 
 *NB: the test will not test all the possibilities offered by the addition of trains; this should be a specific test which would test the response of the interface for all scenarios without adding trains.*
+
+*[Continue towards write code ‣]({{< ref "write-code">}})*
