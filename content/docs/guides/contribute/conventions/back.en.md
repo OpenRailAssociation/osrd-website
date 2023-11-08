@@ -13,6 +13,7 @@ Python code is used for some packages and integration testing.
 - Code is formatted with [Black](https://github.com/psf/black).
 - Imports are sorted with [Isort](https://github.com/PyCQA/isort).
 - Python tests are written using [pytest](https://docs.pytest.org/).
+- Typing is checked using [pytype](https://google.github.io/pytype/).
 
 # Rust
 
