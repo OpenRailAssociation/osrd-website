@@ -13,6 +13,7 @@ Le code Python est utilisé pour certains paquets et pour les tests d'intégrati
 - Le code est formaté avec [Black](https://github.com/psf/black).
 - Les imports sont triées avec [Isort](https://github.com/PyCQA/isort).
 - Les tests sont écrits avec [pytest](https://docs.pytest.org/).
+- Les types sont vérifiés avec [pytype](https://google.github.io/pytype/).
 
 # Rust
 
