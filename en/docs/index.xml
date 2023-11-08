@@ -1803,6 +1803,7 @@ Here is how it works:&lt;/p>
 &lt;li>Code is formatted with &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
 &lt;li>Imports are sorted with &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
 &lt;li>Python tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;li>Typing is checked using &lt;a href="https://google.github.io/pytype/">pytype&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;h1 id="rust">Rust&lt;/h1>
 &lt;ul>

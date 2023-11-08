@@ -2364,6 +2364,7 @@ plus important.&lt;/li>
 &lt;li>Le code est formaté avec &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
 &lt;li>Les imports sont triées avec &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
 &lt;li>Les tests sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;li>Les types sont vérifiés avec &lt;a href="https://google.github.io/pytype/">pytype&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;h1 id="rust">Rust&lt;/h1>
 &lt;ul>
