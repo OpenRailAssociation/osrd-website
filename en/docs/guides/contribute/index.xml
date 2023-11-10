@@ -27,18 +27,17 @@ You may leave a comment to explain changes.&lt;/li>
 &lt;div class="alert alert-info" role="alert">
 Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/">WSL&lt;/a>). Windows and MacOS should work too, but you may run into some issues.
 &lt;/div>
-&lt;h3 id="getting-the-source-code">Getting the source code&lt;/h3>
+&lt;h3 id="get-the-source-code">Get the source code&lt;/h3>
 &lt;ul>
 &lt;li>Install &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Open a terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in the folder where the source code of OSRD will be located&lt;/li>
 &lt;li>Run &lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h3 id="launch-the-application-with-docker-compose">Launch the application with docker-compose&lt;/h3>
-&lt;p>For a long time, making changes to a component of a multi-service application involved compiling, configuring and running all services manually.&lt;/p>
-&lt;p>Nowadays, it can be done using &lt;code>docker compose&lt;/code>. You can even start only a subset of the services.&lt;/p>
+&lt;h3 id="launch-the-application">Launch the application&lt;/h3>
+&lt;p>Thanks to &lt;code>docker&lt;/code>, one can easily compile, configure, and run all services after making a change. One can also start only a subset of the services.&lt;/p>
 &lt;ul>
-&lt;li>Install &lt;code>docker&lt;/code> and &lt;code>docker compose&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Run &lt;code>docker compose up --build&lt;/code>&lt;/li>
+&lt;li>Install &lt;code>docker&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Follow &lt;a href="https://github.com/osrd-project/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;h2 id="share-your-changes">Share your changes&lt;/h2>
 &lt;div class="alert alert-warning" role="alert">

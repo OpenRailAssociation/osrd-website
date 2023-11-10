@@ -39,12 +39,11 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
 &lt;li>&lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h3 id="lancer-lapplication-avec-docker-compose">Lancer l&amp;rsquo;application avec docker compose&lt;/h3>
-&lt;p>Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l&amp;rsquo;application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l&amp;rsquo;application.&lt;/p>
-&lt;p>L&amp;rsquo;outil &lt;code>docker compose&lt;/code>, sert à lancer les composants d&amp;rsquo;OSRD.&lt;/p>
+&lt;h3 id="lancer-lapplication">Lancer l&amp;rsquo;application&lt;/h3>
+&lt;p>Grâce à &lt;code>docker&lt;/code>, on peut facilement compiler, configurer, et lancer les différents composants après un changement. On peut aussi choisir de lancer seulement une partie des composants.&lt;/p>
 &lt;ul>
-&lt;li>Installer &lt;code>docker&lt;/code> et &lt;code>docker compose&lt;/code>&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Lancer &lt;code>docker compose up --build&lt;/code>&lt;/li>
+&lt;li>Installer &lt;code>docker&lt;/code> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>.&lt;/li>
+&lt;li>Suivre le &lt;a href="https://github.com/osrd-project/osrd#getting-started">README d&amp;rsquo;OSRD&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;h2 id="partager-vos-changements">Partager vos changements&lt;/h2>
 &lt;p>Ce chapitre décrit le processus aboutissant à l&amp;rsquo;intégration de code au sein du projet. &lt;strong>Si vous avez besoin d&amp;rsquo;aide, ouvrez une issue ou envoyez un message instantané.&lt;/strong>&lt;/p>
