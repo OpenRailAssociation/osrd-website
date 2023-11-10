@@ -26,14 +26,12 @@ La plupart des développeurs OSRD utilisent Linux  (y compris [WSL](https://lear
 - Ouvrir un terminal[^git-bash] dans le dossier qui contiendra le code source d'OSRD
 - `git clone git@github.com:osrd-project/osrd`
 
-### Lancer l'application avec docker compose
+### Lancer l'application
 
-Pendant longtemps, même dans les cas où on ne développe que sur une partie des composants de l'application à la fois, il était necessaire de compiler, configurer et lancer les différents composants de l'application.
+Grâce à `docker`, on peut facilement compiler, configurer, et lancer les différents composants après un changement. On peut aussi choisir de lancer seulement une partie des composants.
 
-L'outil `docker compose`, sert à lancer les composants d'OSRD.
-
-- Installer `docker` et `docker compose`[^package-manager][^docker-desktop]
-- Lancer `docker compose up --build`
+- Installer `docker` [^package-manager][^docker-desktop].
+- Suivre le [README d'OSRD](https://github.com/osrd-project/osrd#getting-started).
 
 [^package-manager]: Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple `apt-get`.
 [^git-bash]: Sous Windows, ouvrez `Git Bash`
