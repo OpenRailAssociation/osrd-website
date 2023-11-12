@@ -38,6 +38,7 @@ $secondary: $pink-dark;
 /* BACKGROUND OVERRIDE */
 .td-overlay--dark::after {
   background-color: unset !important;
+  background: none !important;
 }
 
 /* NAVBAR OVERRIDE */
