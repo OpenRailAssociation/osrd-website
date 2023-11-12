@@ -72,38 +72,30 @@ For most track sections, their `length` is proportional to what can be seen in t
 #### Node
 
 A `Node` represents a node in the infrastructure. In an OSRD simulation, a train can only move from one section of track to another if they are linked by a node.
-A node can take one of two forms :
-
-**1) Switches**
-
-Switches can be seen as a collection of track section links, partitioned into groups. Each group represents a state of the switch. Moving from one group to another can take time, and at most one link can be ready for use at any one time.
-
-In the real world, switches are not unique, but rather instances of existing models.
-
-**2) Track section links**
-
-For the moment, we have only created track sections, which are not interconnected (geospatial data is not used to deduce which tracks are connected).
-
-Links are used to connect two track sections together, just as a weld joint would in real life. In an OSRD simulation, a train can only move from one section of track to another if they are connected by this type of node, the `link` (or by another `NodeType`).
-
-Whether for switches or track section links, links and groups are not part of the switch itself, but of a `Node` object, which is shared by switches in the same model.
-
 
 ##### Node Types
 
 `NodeTypes` have two mandatory attributes:
 
-* `ports`: A list of port names. A port is an endpoint which can be connected to a track section.
-* `groups`: A mapping from group names to lists of links between two ports.
+* `ports`: A list of port names. A port is an endpoint connected to a track section.
+* `groups`: A mapping between group names and lists of branch  (connection between 2 ports) that characterises the different possible positions of the node type
 
-At any time, all nodes have an active group, and may have an active link, which always belongs to the active group. If there is an active link, it is active in a given direction. During a simulation, changing active link inside a group is instantaneous, but changing active link across groups takes configurable time.
-This is because a node is a physical object, and changing active link can involve moving parts of it. `Groups` are designed to represent the different positions that a node can have. Each `group` contains the links that can be used in the associated node position.
+At any time, all nodes have an active group, and may have an active branch, which always belongs to the active group. During a simulation, changing the active branch inside a group is instantaneous, but changing the active branch across groups (changing the active group) takes configurable time.
+This is because a node is a physical object, and changing active branch can involve moving parts of it. `Groups` are designed to represent the different positions that a node can have. Each `group` contains the branches that can be used in the associated node position.
 
 The duration needed to change group is stored inside the `Node`, since it can vary depending on the physical implementation of the node.
 
-Our examples currently use five node types. Node types are just like other objects, and can easily be added as needed using `extended_switch_type` that has the same .
+Our examples currently use five node types. Node types are just like other objects, and can easily be added as needed using `extended_switch_type`.
 
-**1) The Point Switch**
+**1) Link**
+
+This one represents the link between two sections of track. It has two ports: *A* and *B*.
+
+![Link diagram](svg_diagrams/link.svg)
+
+It is used in the OSRD model to create a link between two track sections. This is not a physical object.
+
+**2) The Point Switch**
 
 The ubiquitous Y switch, which can be thought of as either two tracks merging, or one track splitting.
 
@@ -111,7 +103,7 @@ This node type has three ports: *A*, *B1* and *B2*.
 
 ![Point switch diagram](svg_diagrams/point_switch.svg)
 
-There are two groups, each with one connection in their list: `A_B1`, which connects *base* to *left*, and `A_B2` which connects *base* to *right*.
+There are two groups, each with one connection in their list: `A_B1`, which connects *A* to *B1*, and `A_B2` which connects *A* to *B2*.
 
 Thus, at any given moment, a train can go from *A* to *B1* or from *A* to *B2* but never to both at the same time. A train cannot go from *B1* to *B2*.
 
@@ -122,7 +114,7 @@ A Point Switch only has two positions:
 
 ![point switch position diagram](svg_diagrams/PointSwitch_AtoB1.svg) ![point switch position diagram](svg_diagrams/PointSwitch_AtoB2.svg)
 
-**2) The Cross Switch**
+**3) The Crossing**
 
 This is simply two tracks crossing each other.
 
@@ -140,9 +132,9 @@ Here are the two different connections this switch type has:
 
 ![Cross Switch Diagram positions](svg_diagrams/Crossing_A1toB1.svg) ![Cross Switch Diagram positions](svg_diagrams/Crossing_A2toB2.svg)
 
-**3) The Double cross switch**
+**4) The Double slip switch**
 
-This one is more like two point switches back to back. It has four ports: *A1*, *A2*, *B1* et *B2*.
+This one is more like two point switches back to back. It has four ports: *A1*, *A2*, *B1* and *B2*.
 
 ![Double cross switch diagram](svg_diagrams/double_slip_crossing.svg)
 
@@ -153,23 +145,31 @@ However, it has four groups, each with one connection. The four groups are repre
 - *A2* to *B1*
 - *A2* to *B2*
 
-![Diagramme des positions de l'aiguillage de croisement double](svg_diagrams/DoubleSlipCrossing_A1toB1.svg) ![Diagramme des positions de l'aiguillage de croisement double](svg_diagrams/DoubleSlipCrossing_A1toB2.svg)
+![Diagram of double crossing switch positions](svg_diagrams/DoubleSlipCrossing_A1toB1.svg) ![Diagram of double crossing switch positions](svg_diagrams/DoubleSlipCrossing_A1toB2.svg)
 
-![Diagramme des positions de l'aiguillage de croisement double](svg_diagrams/DoubleSlipCrossing_A2toB1.svg) ![Diagramme des positions de l'aiguillage de croisement double](svg_diagrams/DoubleSlipCrossing_A2toB2.svg)
+![Diagram of double crossing switch positions](svg_diagrams/DoubleSlipCrossing_A2toB1.svg) ![Diagram of double crossing switch positions](svg_diagrams/DoubleSlipCrossing_A2toB2.svg)
 
-**4) Link**
+**5) The Single slip switch**
 
-This one represents the link between two sections of track. It has two ports: *A* and *B*.
+This one looks more like a cross between a single needle and a crossover. It has four ports: *A1*, *A2*, *B1* and *B2*.
 
-![Link diagram](svg_diagrams/link.svg)
+![Single slip switch diagram](svg_diagrams/DoubleSlipCrossing_A1toB1.svg)
 
-It is used to create a link between two track sections as defined in OSRD. This `NodeType` is not a physical object.
+Here are the three connections that can be made by this switch:
+
+- *A1* to *B1*
+- *A1* to *B2*
+- *A2* to *B2*
+
+![Diagram of the positions of the single crossing points](svg_diagrams/SingleSlipCrossing_A1toB1.svg) ![Diagram of the positions of the single crossing points](svg_diagrams/SingleSlipCrossing_A1toB2.svg)
+![Diagram of the positions of the single crossing points](svg_diagrams/SingleSlipCrossing_A2toB2.svg)
+
 
 ##### Back to nodes
 
-A `NodeType` has three attributes:
+A `Node` has three attributes:
 
-* `node_type`: the [`NodeType`](#node-types) identifier for this node.
+* `node_type`: the identifier of the [`NodeType`](#node-types) of this node.
 * `ports`: a mapping from port names to track sections extremities.
 * `group_change_delay`: the time it takes to change which group of the node is activated.
 
@@ -178,6 +178,8 @@ The port names must match the ports of the node type chosen. The track section e
 Most of our example's nodes are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.
 
 ![Track sections and points diagram](svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
+
+It is important to note that these node types are hard-coded into the project code. Only the `extended_node_type` added by the user will appear in the railjson.
 
 #### Curves and slopes
 
