@@ -43,15 +43,133 @@ _Rédaction en cours_
 _Rédaction en cours_
 
 ### Store/Redux
-Tout ce qui est *selector* est géré par la **vue** passé en props aux composants et sous-composants.
+Tout ce qui est *selector* est géré par la **vue** et passé en props aux composants et sous-composants.
 
 Par conséquent les appels au store en lecture et en écriture doivent être passés un niveau de la vue, en irrigant par des _props_ et _states_ les composants proposées par la vue.
 
 ### RTK
-_Rédaction en cours_
 
 Utiliser les endpoints générés à partir des fichiers `openapi.yaml` pour consommer le backend.
 
+#### Fonctionnement du cache dans RTK Query
+
+Lorsque de la donnée est récupérée depuis le back, RTK va mettre cette donnée en cache dans le store. Si le même endpoint est appelé avec les même paramètres, RTK va réutiliser la donnée dans le cache plutôt que de rappeler le back.
+
+Dans le store, vous verrez cette clé `editoastApi` qui contient la donnée en cache de tous les endpoints editoast :
+
+![store Redux](../store-redux-main.png)
+
+Ici par exemple l’endpoint `getProjects` a été appelé.
+
+RTK stocke le nom de l’endpoint, ainsi que les paramètres d’appel, pour former une clé unique `nomDuEndpoint({ paramètres })`. (ici `getProjects({"ordering":"LastModifiedDesc","pageSize":1000})`).
+
+```js
+{
+  'getProjectsByProjectIdStudiesAndStudyId({"projectId":13,"studyId":16})': {
+    status :"fulfilled",
+    etc…
+  },
+  'getProjectsByProjectIdStudiesAndStudyId({"projectId":13,"studyId":14})': {
+    …
+  }
+}
+```
+
+Dans ce deuxième exemple, le même endpoint a été appelé avec le même paramètre `projectId`, mais un paramètre `studyId` différent. 
+
+##### Sérialisation des clés dans le cache
+
+Les string utilisées comme clé dans le cache sont à peu de choses près l’objet paramètre passé à la moulinette `JSON.stringify` que transforme un object JS en string (donc sérialisé).
+
+Normalement La sérialisation ne conserve pas l’ordre des clés des objets. Par exemple, `JSON.stringify` ne produira pas la même string avec ces deux objets: `{ a: 1, b: 2 }` et `{ b: 2, a: 1 }`.
+
+RTK va optimiser la mise en cache en faisant en sorte que le résultat d’un appel avec `{"projectId":13,"studyId":16}` ou `{"studyId":16, "projectId":13}` soient stockées dans la même clé dans le cache.
+
+Pour voir le fonctionnement en détail, voici le code de cette fonction de sérialisation :
+
+<details>
+  <summary>Fonction de sérialisation RTK</summary>
+
+  ```js
+  const defaultSerializeQueryArgs: SerializeQueryArgs<any> = ({
+      endpointName,
+      queryArgs,
+    }) => {
+      let serialized = ''
+
+      const cached = cache?.get(queryArgs)
+
+      if (typeof cached === 'string') {
+        serialized = cached
+      } else {
+        const stringified = JSON.stringify(queryArgs, (key, value) =>
+          isPlainObject(value)
+            ? Object.keys(value)
+                .sort() // les clés sont remises dans l’ordre ici
+                .reduce<any>((acc, key) => {
+                  acc[key] = (value as any)[key]
+                  return acc
+                }, {})
+            : value
+        )
+        if (isPlainObject(queryArgs)) {
+          cache?.set(queryArgs, stringified)
+        }
+        serialized = stringified
+      }
+      // Sort the object keys before stringifying, to prevent useQuery({ a: 1, b: 2 }) having a different cache key than useQuery({ b: 2, a: 1 })
+      return `${endpointName}(${serialized})`
+    }
+  ```
+
+</details>
+
+##### Souscriptions à la donnée
+
+Dans la terminologie de RTK query, Lorsqu’un composant react appelle un endpoint défini dans RTK Query, il _souscrit_ à la donnée.
+
+RTK compte le nombre de référence à la même paire (endpoint,{paramètres}). Lorsque deux composants souscrivent à la même donnée. Ils partagent la même clé dans le cache.
+
+```ts
+import { osrdEditoastApi } from './api.ts'  
+  
+function Component1() {  
+  // component subscribes to the data  
+  const { data } = osrdEditoastApi.useGetXQuery(1)
+  
+  return <div>...</div>  
+}  
+  
+function Component2() {  
+  // component subscribes to the data  
+  const { data } = osrdEditoastApi.useGetXQuery(2)
+  
+  return <div>...</div>  
+}  
+  
+function Component3() {  
+  // component subscribes to the data  
+  const { data } = osrdEditoastApi.useGetXQuery(3)  
+  
+  return <div>...</div>  
+}  
+  
+function Component4() {  
+  // component subscribes to the *same* data as ComponentThree,  
+  // as it has the same query parameters  
+  const { data } = osrdEditoastApi.useGetXQuery(3)  
+  
+  return <div>...</div>  
+}
+```
+
+Ici `Component3` et `Component4` ne vont générer qu’un seul appel vers le back. Ils souscrivent à la même donnée (même endpoint et même paramètre `3`). Ils vont partager la même clé dans le cache. 
+
+Au total ici il y aura trois appels vers le back, avec les paramètres `1`, `2`, `3`.
+
+Tant qu’il existe au moins un composant react monté, qui appelle le hook `osrdEditoastApi.endpoints.getProjectsByProjectId.useQuery` par exemple, la donnée sera conservée dans le cache.
+
+Dès que le dernier composant est démonté, la donnée est supprimée du cache au bout de 60 secondes (valeur par défaut).
 
 ## Lois et éléments importants
 
@@ -93,11 +211,11 @@ Cette pratique permet de&nbsp;:
 - Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.
 - Éviter des cycles de dépendances&nbsp;:
 
- ![dependency cyle](./dependency-cycle.png)
+ ![dependency cyle](../dependency-cycle.png)
 
 L’erreur disparaît avec le mot clé `type`
 
- ![dependency cyle](./dependency-cycle-gone.png)
+ ![dependency cyle](../dependency-cycle-gone.png)
 
 
 - Alléger le bundle final (tous les types disparaissent à la compilation).
