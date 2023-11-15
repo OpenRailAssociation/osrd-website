@@ -240,7 +240,7 @@ La façon dont les trains réagissent aux signaux dépend de l'aspect, du type d
 
 Voici les attributs les plus importants des signaux :
 
-* `linked_detector` : Le [détecteur] lié (#détecteurs).
+* `linked_detector` : Le [détecteur](#détecteurs) lié.
 * `type_code` : Le type de signal.
 * `direction` : La direction qu'il protège, qui peut être simplement interprétée comme la façon dont il peut être vu par un train entrant (puisqu'il n'y a des feux que d'un côté...). La direction est relative à l'orientation de la section de voie.
 * Des attributs cosmétiques comme `angle_geo` and `side` qui contrôlent la manière dont les signaux sont affichés dans le front-end.
