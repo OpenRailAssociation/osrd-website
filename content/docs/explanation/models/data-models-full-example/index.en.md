@@ -60,14 +60,12 @@ These attributes are required for the track section to be complete:
 
 * `length`: the length of the track section in meters.
 * `geo`: the coordinates in real life (geo is for geographic), in the [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
-* `sch`: the coordinates in the schematic view (sch for schematic), also in [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
+* `sch`: the coordinates in the schematic view (sch for schematic, simplified representation), also in [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
 * cosmetic attributes: `line_name`, `track_name`, `track_number` which are used to indicate the name and labels that were given to the tracks / lines in real life.
 
 For all track sections in our infrastructure, the `geo` and `sch` attributes are identical, and very much resemble the given diagram.
 
 For most track sections, their `length` is proportional to what can be seen in the diagram. To preserve readability, exceptions were made for *TA6*, *TA7*, *TD0* and *TD1* (which are 10km and 25km).
-
-
 
 #### Node
 
@@ -105,12 +103,12 @@ This node type has three ports: *A*, *B1* and *B2*.
 
 There are two groups, each with one connection in their list: `A_B1`, which connects *A* to *B1*, and `A_B2` which connects *A* to *B2*.
 
-Thus, at any given moment, a train can go from *A* to *B1* or from *A* to *B2* but never to both at the same time. A train cannot go from *B1* to *B2*.
+Thus, at any given moment (except when the switch moves from one group to another), a train can go from *A* to *B1* or from *A* to *B2* but never to both at the same time. A train cannot go from *B1* to *B2*.
 
 A Point Switch only has two positions:
 
-- *A* to *B1*
-- *A* to *B2*
+* *A* to *B1*
+* *A* to *B2*
 
 ![point switch position diagram](svg_diagrams/PointSwitch_AtoB1.svg) ![point switch position diagram](svg_diagrams/PointSwitch_AtoB2.svg)
 
@@ -126,9 +124,8 @@ It has only one group containing two connections: *A1* to *B1* and *A2* to *B2*.
 
 Here are the two different connections this switch type has:
 
-- *A1* to *B1*
-- *A2* to *B2*
-
+* *A1* to *B1*
+* *A2* to *B2*
 
 ![Cross Switch Diagram positions](svg_diagrams/Crossing_A1toB1.svg) ![Cross Switch Diagram positions](svg_diagrams/Crossing_A2toB2.svg)
 
@@ -140,10 +137,10 @@ This one is more like two point switches back to back. It has four ports: *A1*, 
 
 However, it has four groups, each with one connection. The four groups are represented in the following diagram:
 
-- *A1* to *B1*
-- *A1* to *B2*
-- *A2* to *B1*
-- *A2* to *B2*
+* *A1* to *B1*
+* *A1* to *B2*
+* *A2* to *B1*
+* *A2* to *B2*
 
 ![Diagram of double crossing switch positions](svg_diagrams/DoubleSlipCrossing_A1toB1.svg) ![Diagram of double crossing switch positions](svg_diagrams/DoubleSlipCrossing_A1toB2.svg)
 
@@ -157,13 +154,12 @@ This one looks more like a cross between a single needle and a crossover. It has
 
 Here are the three connections that can be made by this switch:
 
-- *A1* to *B1*
-- *A1* to *B2*
-- *A2* to *B2*
+* *A1* to *B1*
+* *A1* to *B2*
+* *A2* to *B2*
 
 ![Diagram of the positions of the single crossing points](svg_diagrams/SingleSlipCrossing_A1toB1.svg) ![Diagram of the positions of the single crossing points](svg_diagrams/SingleSlipCrossing_A1toB2.svg)
 ![Diagram of the positions of the single crossing points](svg_diagrams/SingleSlipCrossing_A2toB2.svg)
-
 
 ##### Back to nodes
 
@@ -175,7 +171,7 @@ A `Node` has three attributes:
 
 The port names must match the ports of the node type chosen. The track section endpoints can be start or end, be careful to chose the appropriate ones.
 
-Most of our example's nodes are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.
+Most of our example's nodes are regular point switches. The path from North station to South station has two cross switches. Finally, there is a double cross switch right before the main line splits into the North-East and South-East lines.
 
 ![Track sections and points diagram](svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
 
@@ -223,7 +219,6 @@ Let's take a cross switch as an example: if train A is crossing it *north* to *s
 {{% /alert %}}
 
 In *OSRD*, detectors are point objects, so all the attributes it needs are its `id`, and track location (`track` and `offset`).
-
 
 ![Infra diagram with all detectors](svg_diagrams/small_infra_detectors.drawio.en.svg)
 
@@ -287,6 +282,7 @@ Here are the basic rules used for this example infrastructure:
 * Switch entries where a train might have to stop are protected by a signal (which is located outside of the switch TVD section). It must be visible from the direction used to approach the switch. When there are multiple switches in a row, only the first one usually needs protection, as interlocking is usually designed as not to encourage trains stopping in the middle of intersections.
 
 Note that detectors linked to at least one signal are not represented, as there are not signals without associated detectors in this example.
+
 To get the `id` of a detector linked to a signal, take the signal's `id` and replace *S* by *D* (e.g. SA0 -> DA0).
 
 ![Infra diagram with all signals](svg_diagrams/small_infra_signals.drawio.en.svg)
@@ -298,17 +294,20 @@ On *TA6*, *TA7*, *TD0* and *TD1* we could not represent all signals because thes
 <font color=#aa026d>
 
 ### Electrification
+
 </font>
 
 To allow electric trains to run on our infrastructure, we need to specify which parts of the infrastructure is electrified.
 
 #### Catenaries
 
-`Catenaries` are objects that represent the overhead wires that power electric trains. They are represented with the following attributes: 
+`Catenaries` are objects that represent the overhead wires that power electric trains. They are represented with the following attributes:
+
 * `voltage`: A string representing the type of power supply used for electrification
 * `track_ranges`: A list of range of track sections (`TrackRanges`) covered by this catenary. A `TrackRange` is composed of a track section id, a `begin` offset and an `end` offset.
 
 In our example infrastructure, we have two `Catenaries`:
+
 * One with `voltage` set to `"1500"`, which covers only *TA0*.
 * One with `voltage` set to `"25000"`, which covers all others except *TD1*.
 
@@ -318,7 +317,7 @@ Our example also outlines that, unlike its real life counterpart, a single `Cate
 
 #### Neutral Sections
 
-In some parts of an infrastructure, the train drivers may be instructed - mainly for safety reasons - to cut the power supply to the train. 
+In some parts of an infrastructure, the train drivers may be instructed - mainly for safety reasons - to cut the power supply to the train.
 
 To represent such parts, we use `NeutralSections`. They are represented mainly with the following attributes:
 
@@ -328,7 +327,6 @@ To represent such parts, we use `NeutralSections`. They are represented mainly w
 In our example infrastructure, we have three `NeutralSections`: one at the junction of the `"1500"` and `"25000"` catenaries, one on *TA6* and one on *TG1* and *TG4*.
 
 For more details about the model see the [dedicated page](../neutral_sections).
-
 
 <font color=#aa026d>
 
