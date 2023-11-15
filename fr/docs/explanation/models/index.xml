@@ -144,7 +144,7 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;p>La façon dont les trains réagissent aux signaux dépend de l&amp;rsquo;aspect, du type de signal et du système de signalisation.&lt;/p>
 &lt;p>Voici les attributs les plus importants des signaux :&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>linked_detector&lt;/code> : Le [détecteur] lié (#détecteurs).&lt;/li>
+&lt;li>&lt;code>linked_detector&lt;/code> : Le &lt;a href="#d%C3%A9tecteurs">détecteur&lt;/a> lié.&lt;/li>
 &lt;li>&lt;code>type_code&lt;/code> : Le type de signal.&lt;/li>
 &lt;li>&lt;code>direction&lt;/code> : La direction qu&amp;rsquo;il protège, qui peut être simplement interprétée comme la façon dont il peut être vu par un train entrant (puisqu&amp;rsquo;il n&amp;rsquo;y a des feux que d&amp;rsquo;un côté&amp;hellip;). La direction est relative à l&amp;rsquo;orientation de la section de voie.&lt;/li>
 &lt;li>Des attributs cosmétiques comme &lt;code>angle_geo&lt;/code> and &lt;code>side&lt;/code> qui contrôlent la manière dont les signaux sont affichés dans le front-end.&lt;/li>
