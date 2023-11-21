@@ -1,4 +1,21 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Mise à jour groupée des dépendances</title><link>https://osrd.fr/fr/docs/guides/contribute/batch-updating-dependencies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/batch-updating-dependencies/</guid><description>
+&lt;h2 id="pour-editoast">Pour editoast&lt;/h2>
+&lt;p>Nous utilisons dependabot sur le projet pour signaler quand les dépendances sont obsolètes. Nous ne nous en servons pas pour mettre à jour automatiquement les dépendances, pour intégrer toutes les mises à jour en une seule fois et relire les modifications.&lt;/p>
+&lt;p>Pour mettre à jour les dépendances :&lt;/p>
+&lt;ol>
+&lt;li>Changez les versions.
+&lt;ul>
+&lt;li>&lt;em>Si vous utilisez VSCode&lt;/em> vous pouvez installer l&amp;rsquo;extension &lt;a href="https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates">&lt;code>serayuzgur.crates&lt;/code>&lt;/a> et exécuter la commande &amp;ldquo;update all dependencies&amp;rdquo;.&lt;br>
+Cela mettra à jour toutes les dépendances vers leur dernière version, et écrasera les contraintes de version trop larges.&lt;br>
+Assurez-vous que la nouvelle version choisie est stable, et que les contraintes volontairement larges ne sont pas écrasées par votre commit.&lt;/li>
+&lt;li>&lt;em>Sinon&lt;/em> vous pouvez vérifier les versions utilisées par dependabot dans &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">ses PRs&lt;/a> et mettre à jour les versions manuellement.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Exécutez &lt;code>cargo update&lt;/code> pour mettre à jour le fichier Cargo.lock (y compris les sous-dépendances).&lt;/li>
+&lt;li>Vérifiez que tous les &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">PRs dependabot editoast&lt;/a> sont inclus dans votre commit.&lt;/li>
+&lt;li>Adaptez le code aux nouvelles versions, si nécessaire.&lt;/li>
+&lt;li>Créez un PR avec vos modifications, et reliez-y tous les PRs dependabot en description.&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
 &lt;p>Notre outil de suivi des bugs est &lt;a href="https://github.com/osrd-project/osrd/issues">github&lt;/a>. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
 &lt;p>Suivez &lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p>
