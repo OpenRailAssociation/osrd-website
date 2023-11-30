@@ -27,10 +27,10 @@ Railway infrastructure has a surprising variety of speed limits:
     # /!\ When a speed section is announced by signals, the routes it is
     # announced on are automatically filled in /!\
     "on_routes": ["${ROUTE_A}", "${ROUTE_B}"]
+    # "on_routes": null, # not conditional
+    # "on_routes": [], # conditional
 
-    # An optional speed limit in meters per second.
-    # If missing, the speed limit is deduced from its announce signal.
-    # If the signal has no implied speed limit, an error is raised.
+    # A speed limit in meters per second.
     "speed_limit": 30,
 
     # A map from train tag to speed limit override. If missing and
@@ -52,7 +52,7 @@ When a speed limit is announced by dynamic signaling, we may be in a position wh
 
 There are multiple ways this issue can be dealt with:
 
-#### {{< rejected >}} Mandatory speed limit value in the speed section
+#### {{< adopted >}} Mandatory speed limit value in the speed section
 
 Upsides:
 - simpler to implement, works even without train reactions to signals nor additional API
@@ -66,7 +66,7 @@ Downsides:
 This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.
 
-#### {{< adopted >}} Deduce the speed limit from the signal
+#### {{< rejected >}} Deduce the speed limit from the signal
 
 Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.
@@ -77,6 +77,7 @@ Upsides:
 
 Downsides:
  - not all signaling systems work well with this. It may be difficult to deduce the announced speed limit from a signal configuration, such as with TVM.
+ - speed limits have to be deduced, which increases implementation complexity
 
 ### How to link announce signals and speed limit area
 
@@ -95,7 +96,7 @@ Was not deemed realistic.
 Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.
 
-#### {{< construction >}} Explicit link from speed limit to signals
+#### {{< rejected >}} Explicit link from speed limit to signals
 
 Add a list of `(route, signal)` tuples to speed sections.
 
@@ -107,7 +108,7 @@ Downside:
  - Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.
 
 
-#### {{< construction >}} Inlining speed limit definitions into signals
+#### {{< rejected >}} Inlining speed limit definitions into signals
 
 Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.
@@ -141,7 +142,7 @@ Downsides:
  - speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)
  - the cost of reversing this decision could be fairly high
 
-#### {{< construction >}} Explicit link from signal to speed section
+#### {{< adopted >}} Explicit link from signal to speed section
 
 ```yaml
 {
