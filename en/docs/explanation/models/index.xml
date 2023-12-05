@@ -38,57 +38,79 @@ This example will be created step by step and explained along the way.&lt;/p>
 &lt;/ul>
 &lt;p>For all track sections in our infrastructure, the &lt;code>geo&lt;/code> and &lt;code>sch&lt;/code> attributes are identical, and very much resemble the given diagram.&lt;/p>
 &lt;p>For most track sections, their &lt;code>length&lt;/code> is proportional to what can be seen in the diagram. To preserve readability, exceptions were made for &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em> (which are 10km and 25km).&lt;/p>
-&lt;h4 id="track-section-links">Track Section Links&lt;/h4>
-&lt;p>At the moment we only created track sections, which are not connected to each other (geospacial data is not used to deduce which tracks connect).&lt;/p>
-&lt;p>&lt;code>TrackSectionLinks&lt;/code> are used to connect two track sections together, just like a weld joint would in real life. In an OSRD simulation, a train can go from one track section to another only if they are connected by a &lt;code>TrackSectionLink&lt;/code> (or by a &lt;code>Switch&lt;/code>).&lt;/p>
-&lt;p>To connect more than two &lt;code>TrackSections&lt;/code> together, use the &lt;a href="#switches">&lt;code>Switches&lt;/code>&lt;/a>.&lt;/p>
-&lt;p>In our infrastructure, since we chose to have our track sections as long as possible, we do not actually need to use &lt;code>TrackSectionLinks&lt;/code>.
-&lt;code>TrackSectionLinks&lt;/code> are always optional: two track sections connected by a link behave just like a single track section.&lt;/p>
-&lt;h4 id="switches">Switches&lt;/h4>
-&lt;p>A &lt;code>Switch&lt;/code> represents just what you would expect: railway switches.&lt;/p>
-&lt;p>Switches can be thought of as a collections of track section links, partitioned into groups. Each group represents for a switch state. Switching group can take time, and at most one link can be ready to use at a time.&lt;/p>
-&lt;p>In the real world, switches are not unique, but rather instances of existing models.
-Thus, links and groups are not part of the switch itself, but in a &lt;code>SwitchType&lt;/code> object, which is shared by switches of the same model.&lt;/p>
-&lt;h5 id="switch-types">Switch Types&lt;/h5>
-&lt;p>&lt;code>SwitchTypes&lt;/code> have two mandatory attributes:&lt;/p>
+&lt;h4 id="node">Node&lt;/h4>
+&lt;p>A &lt;code>Node&lt;/code> represents a node in the infrastructure. In an OSRD simulation, a train can only move from one section of track to another if they are linked by a node.&lt;/p>
+&lt;h5 id="node-types">Node Types&lt;/h5>
+&lt;p>&lt;code>NodeTypes&lt;/code> have two mandatory attributes:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ports&lt;/code>: A list of port names. A port is an endpoint which can be connected to a track section.&lt;/li>
-&lt;li>&lt;code>groups&lt;/code>: A mapping from group names to lists of links between two ports.&lt;/li>
+&lt;li>&lt;code>ports&lt;/code>: A list of port names. A port is an endpoint connected to a track section.&lt;/li>
+&lt;li>&lt;code>groups&lt;/code>: A mapping between group names and lists of branch (connection between 2 ports) that characterises the different possible positions of the node type&lt;/li>
 &lt;/ul>
-&lt;p>At any time, all switches have an active group, and may have an active link, which always belongs to the active group. If there is an active link, it is active in a given direction. During a simulation, changing active link inside a group is instantaneous, but changing active link across groups takes configurable time.
-This is because a switch is a physical object, and changing active link can involve moving parts of it. &lt;code>Groups&lt;/code> are designed to represent the different positions that a switch can have. Each &lt;code>group&lt;/code> contains the links that can be used in the associated switch position.&lt;/p>
-&lt;p>The duration needed to change group is stored inside the &lt;code>Switch&lt;/code>, since it can vary depending on the physical implementation of the switch.&lt;/p>
-&lt;p>Our examples currently use three switch types. Switch types are just like other objects, and can easily be added as needed.&lt;/p>
-&lt;p>&lt;strong>1) The Point Switch&lt;/strong>&lt;/p>
+&lt;p>At any time, all nodes have an active group, and may have an active branch, which always belongs to the active group. During a simulation, changing the active branch inside a group is instantaneous, but changing the active branch across groups (changing the active group) takes configurable time.
+This is because a node is a physical object, and changing active branch can involve moving parts of it. &lt;code>Groups&lt;/code> are designed to represent the different positions that a node can have. Each &lt;code>group&lt;/code> contains the branches that can be used in the associated node position.&lt;/p>
+&lt;p>The duration needed to change group is stored inside the &lt;code>Node&lt;/code>, since it can vary depending on the physical implementation of the node.&lt;/p>
+&lt;p>Our examples currently use five node types. Node types are just like other objects, and can easily be added as needed using &lt;code>extended_switch_type&lt;/code>.&lt;/p>
+&lt;p>&lt;strong>1) Link&lt;/strong>&lt;/p>
+&lt;p>This one represents the link between two sections of track. It has two ports: &lt;em>A&lt;/em> and &lt;em>B&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/link.svg" alt="Link diagram">&lt;/p>
+&lt;p>It is used in the OSRD model to create a link between two track sections. This is not a physical object.&lt;/p>
+&lt;p>&lt;strong>2) The Point Switch&lt;/strong>&lt;/p>
 &lt;p>The ubiquitous Y switch, which can be thought of as either two tracks merging, or one track splitting.&lt;/p>
-&lt;p>This switch type has three ports: &lt;em>base&lt;/em>, &lt;em>left&lt;/em> and &lt;em>right&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/point_switch.en.svg" alt="Point switch diagram">&lt;/p>
-&lt;p>There are two groups, each with one connection in their list: &lt;code>LEFT&lt;/code>, which connects &lt;em>base&lt;/em> to &lt;em>left&lt;/em>, and &lt;code>RIGHT&lt;/code> which connects &lt;em>base&lt;/em> to &lt;em>right&lt;/em>.&lt;/p>
-&lt;p>Thus, at any given moment, a train can go from &lt;em>base&lt;/em> to &lt;em>left&lt;/em> or from &lt;em>base&lt;/em> to &lt;em>right&lt;/em> but never to both at the same time. A train cannot go from &lt;em>left&lt;/em> to &lt;em>right&lt;/em>.&lt;/p>
+&lt;p>This node type has three ports: &lt;em>A&lt;/em>, &lt;em>B1&lt;/em> and &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch.svg" alt="Point switch diagram">&lt;/p>
+&lt;p>There are two groups, each with one connection in their list: &lt;code>A_B1&lt;/code>, which connects &lt;em>A&lt;/em> to &lt;em>B1&lt;/em>, and &lt;code>A_B2&lt;/code> which connects &lt;em>A&lt;/em> to &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>Thus, at any given moment, a train can go from &lt;em>A&lt;/em> to &lt;em>B1&lt;/em> or from &lt;em>A&lt;/em> to &lt;em>B2&lt;/em> but never to both at the same time. A train cannot go from &lt;em>B1&lt;/em> to &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>A Point Switch only has two positions:&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/point_switch_positions.en.svg" alt="Point switch positions diagram">&lt;/p>
-&lt;p>&lt;strong>2) The Cross Switch&lt;/strong>&lt;/p>
-&lt;p>This is simply two tracks crossing each other.&lt;/p>
-&lt;p>This type has four ports: &lt;em>north&lt;/em>, &lt;em>south&lt;/em>, &lt;em>east&lt;/em> and &lt;em>west&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/cross_switch.en.svg" alt="Cross switch diagram">&lt;/p>
-&lt;p>It has only one group containing two connections: &lt;em>north&lt;/em> to &lt;em>south&lt;/em> and &lt;em>west&lt;/em> to &lt;em>east&lt;/em>. Indeed this kind of switch is &lt;em>passive&lt;/em>: it has no moving parts. Despite having a single group, it is still used by the simulation to enforce route reservations.&lt;/p>
-&lt;p>Here are the two different connections that this switch type has:&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/cross_switch_positions.en.svg" alt="Cross switch positions diagram">&lt;/p>
-&lt;p>&lt;strong>3) The Double cross switch&lt;/strong>&lt;/p>
-&lt;p>This one is more like two point switches back to back. It has four ports: &lt;em>south1&lt;/em>, &lt;em>south2&lt;/em>, &lt;em>north1&lt;/em> and &lt;em>north2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/double_cross_switch.en.svg" alt="Double cross switch diagram">&lt;/p>
-&lt;p>However, it has four groups, each with one connection. The four groups are represented in the following diagram:&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/double_cross_switch_positions.en.svg" alt="Double cross switch positions diagram">&lt;/p>
-&lt;h5 id="back-to-switches">Back to switches&lt;/h5>
-&lt;p>A &lt;code>Switch&lt;/code> has three attributes:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>switch_type&lt;/code>: the &lt;a href="#switch-types">&lt;code>SwitchType&lt;/code>&lt;/a> identifier for this switch.&lt;/li>
-&lt;li>&lt;code>ports&lt;/code>: a mapping from port names to track sections extremities.&lt;/li>
-&lt;li>&lt;code>group_change_delay&lt;/code>: the time it takes to change which group of the switch is activated.&lt;/li>
+&lt;li>&lt;em>A&lt;/em> to &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A&lt;/em> to &lt;em>B2&lt;/em>&lt;/li>
 &lt;/ul>
-&lt;p>The port names must match the ports of the switch type chosen. The track section endpoints can be start or end, be careful to chose the appropriate ones.&lt;/p>
-&lt;p>Most of our example&amp;rsquo;s switches are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/PointSwitch_AtoB1.svg" alt="point switch position diagram"> &lt;img src="svg_diagrams/PointSwitch_AtoB2.svg" alt="point switch position diagram">&lt;/p>
+&lt;p>&lt;strong>3) The Crossing&lt;/strong>&lt;/p>
+&lt;p>This is simply two tracks crossing each other.&lt;/p>
+&lt;p>This type has four ports: &lt;em>A1&lt;/em>, &lt;em>B1&lt;/em>, &lt;em>A2&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/crossing.svg" alt="Cross Switch Diagram">&lt;/p>
+&lt;p>It has only one group containing two connections: &lt;em>A1&lt;/em> to &lt;em>B1&lt;/em> and &lt;em>A2&lt;/em> to &lt;em>B2&lt;/em>. Indeed this kind of switch is &lt;em>passive&lt;/em>: it has no moving parts. Despite having a single group, it is still used by the simulation to enforce route reservations.&lt;/p>
+&lt;p>Here are the two different connections this switch type has:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>A1&lt;/em> to &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> to &lt;em>B2&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="svg_diagrams/Crossing_A1toB1.svg" alt="Cross Switch Diagram positions"> &lt;img src="svg_diagrams/Crossing_A2toB2.svg" alt="Cross Switch Diagram positions">&lt;/p>
+&lt;p>&lt;strong>4) The Double slip switch&lt;/strong>&lt;/p>
+&lt;p>This one is more like two point switches back to back. It has four ports: &lt;em>A1&lt;/em>, &lt;em>A2&lt;/em>, &lt;em>B1&lt;/em> and &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/double_slip_crossing.svg" alt="Double cross switch diagram">&lt;/p>
+&lt;p>However, it has four groups, each with one connection. The four groups are represented in the following diagram:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>A1&lt;/em> to &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A1&lt;/em> to &lt;em>B2&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> to &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> to &lt;em>B2&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB1.svg" alt="Diagram of double crossing switch positions"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB2.svg" alt="Diagram of double crossing switch positions">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB1.svg" alt="Diagram of double crossing switch positions"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB2.svg" alt="Diagram of double crossing switch positions">&lt;/p>
+&lt;p>&lt;strong>5) The Single slip switch&lt;/strong>&lt;/p>
+&lt;p>This one looks more like a cross between a single needle and a crossover. It has four ports: &lt;em>A1&lt;/em>, &lt;em>A2&lt;/em>, &lt;em>B1&lt;/em> and &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB1.svg" alt="Single slip switch diagram">&lt;/p>
+&lt;p>Here are the three connections that can be made by this switch:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>A1&lt;/em> to &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A1&lt;/em> to &lt;em>B2&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> to &lt;em>B2&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="svg_diagrams/SingleSlipCrossing_A1toB1.svg" alt="Diagram of the positions of the single crossing points"> &lt;img src="svg_diagrams/SingleSlipCrossing_A1toB2.svg" alt="Diagram of the positions of the single crossing points">
+&lt;img src="svg_diagrams/SingleSlipCrossing_A2toB2.svg" alt="Diagram of the positions of the single crossing points">&lt;/p>
+&lt;h5 id="back-to-nodes">Back to nodes&lt;/h5>
+&lt;p>A &lt;code>Node&lt;/code> has three attributes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>node_type&lt;/code>: the identifier of the &lt;a href="#node-types">&lt;code>NodeType&lt;/code>&lt;/a> of this node.&lt;/li>
+&lt;li>&lt;code>ports&lt;/code>: a mapping from port names to track sections extremities.&lt;/li>
+&lt;li>&lt;code>group_change_delay&lt;/code>: the time it takes to change which group of the node is activated.&lt;/li>
+&lt;/ul>
+&lt;p>The port names must match the ports of the node type chosen. The track section endpoints can be start or end, be careful to chose the appropriate ones.&lt;/p>
+&lt;p>Most of our example&amp;rsquo;s nodes are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Track sections and points diagram">&lt;/p>
+&lt;p>It is important to note that these node types are hard-coded into the project code. Only the &lt;code>extended_node_type&lt;/code> added by the user will appear in the railjson.&lt;/p>
 &lt;h4 id="curves-and-slopes">Curves and slopes&lt;/h4>
 &lt;p>&lt;code>Curves&lt;/code> and &lt;code>Slopes&lt;/code> are instrumental to realistic simulations. These objects are defined as a range between a &lt;code>begin&lt;/code> and &lt;code>end&lt;/code> offsets of one track section. If a curve / slope spans more than one track section, it has to be added to all of them.&lt;/p>
 &lt;p>The slope / curve values are constant on their entire range. For varying curves / slopes, one needs to create several objects.&lt;/p>

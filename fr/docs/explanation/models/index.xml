@@ -38,57 +38,87 @@ Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p>
 &lt;/ul>
 &lt;p>Pour toutes les sections de voies de notre infrastructure, les attributs &lt;code>geo&lt;/code> et &lt;code>sch&lt;/code> sont identiques, et se rapprochent beaucoup au schéma donné.&lt;/p>
 &lt;p>Pour la plupart des sections de voies, leur &lt;code>length&lt;/code> est proportionnelle à ce que l&amp;rsquo;on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> (qui font 10km et 25km).&lt;/p>
-&lt;h4 id="liens-de-sections-de-voies">Liens de sections de voies&lt;/h4>
-&lt;p>Pour le moment, nous n&amp;rsquo;avons créé que des sections de voies, qui ne sont pas interconnectées (les données géospatiales ne sont pas utilisées pour déduire quelles voies sont connectées).&lt;/p>
-&lt;p>Les &lt;code>TrackSectionLinks&lt;/code> sont utilisés pour connecter deux sections de voie ensemble, tout comme un joint de soudure le ferait dans la vie réelle. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par un &lt;code>TrackSectionLink&lt;/code> (ou par un &lt;code>Switch&lt;/code>).&lt;/p>
-&lt;p>Pour connecter plus de deux &lt;code>TrackSections&lt;/code> ensemble, utilisez les &lt;a href="#aiguillages">&lt;code>Switches&lt;/code>&lt;/a>.&lt;/p>
-&lt;p>Dans notre infrastructure, comme nous avons choisi d&amp;rsquo;avoir des sections de voie aussi longues que possible, nous n&amp;rsquo;avons pas besoin d&amp;rsquo;utiliser les &lt;code>TrackSectionLinks&lt;/code>.
-Les &lt;code>TrackSectionLinks&lt;/code> sont toujours optionnels : deux sections de voies reliées par un lien se comportent comme une seule section de voie.&lt;/p>
-&lt;h4 id="aiguillages">Aiguillages&lt;/h4>
-&lt;p>Un &lt;code>Switch&lt;/code> représente un aiguillage.&lt;/p>
+&lt;h4 id="noeud">Noeud&lt;/h4>
+&lt;p>Un &lt;code>Node&lt;/code> représente un noeud dans l&amp;rsquo;infrastructure. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par un noeud.
+Un noeud peut se présenter de deux manières différentes :&lt;/p>
+&lt;p>&lt;strong>1) Aiguillages&lt;/strong>&lt;/p>
 &lt;p>Les aiguillages peuvent être vus comme une collection de liens de sections de voies, partitionnés en groupes. Chaque groupe représente un état de l&amp;rsquo;aiguillage. Passer d&amp;rsquo;un groupe à un autre peut prendre du temps, et au maximum un lien peut être prêt à être utilisé à la fois.&lt;/p>
-&lt;p>Dans le monde réel, les aiguillages ne sont pas uniques, mais plutôt des instances de modèles existants.
-Ainsi, les liens et les groupes ne font pas partie du switch lui-même, mais d&amp;rsquo;un objet &lt;code>SwitchType&lt;/code>, qui est partagé par les aiguillages du même modèle.&lt;/p>
-&lt;h5 id="types-daiguillages">Types d&amp;rsquo;aiguillages&lt;/h5>
-&lt;p>Les &lt;code>SwitchTypes&lt;/code> ont deux attributs obligatoires :&lt;/p>
+&lt;p>Dans le monde réel, les aiguillages ne sont pas uniques, mais plutôt des instances de modèles existants.&lt;/p>
+&lt;p>&lt;strong>2) Liens de sections de voies&lt;/strong>&lt;/p>
+&lt;p>Pour le moment, nous n&amp;rsquo;avons créé que des sections de voies, qui ne sont pas interconnectées (les données géospatiales ne sont pas utilisées pour déduire quelles voies sont connectées).&lt;/p>
+&lt;p>Les &lt;code>link&lt;/code> sont utilisés pour connecter deux sections de voie ensemble, tout comme un joint de soudure le ferait dans la vie réelle. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par ce type de noeud, le &lt;code>link&lt;/code> (ou par un autre &lt;code>NodeType&lt;/code>).&lt;/p>
+&lt;p>Que ce soit pour les aiguillages ou les liens de sections de voies, les liens et les groupes ne font pas partie du switch lui-même, mais d&amp;rsquo;un objet &lt;code>NodeType&lt;/code>, qui est partagé par les aiguillages du même modèle.&lt;/p>
+&lt;h6 id="types-de-noeud">Types de Noeud&lt;/h6>
+&lt;p>Les &lt;code>NodeTypes&lt;/code> ont deux attributs obligatoires :&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ports&lt;/code> : Une liste de noms de ports. Un port est une extrémité de l&amp;rsquo;aiguillage qui peut être connecté à une section de voie.&lt;/li>
-&lt;li>&lt;code>groups&lt;/code> : Une table de correspondance entre des noms de groupes et des listes de liens entre deux ports.&lt;/li>
+&lt;li>&lt;code>ports&lt;/code> : Une liste de noms de ports. Un port est une extrémité du noeud qui peut être connecté à une section de voie.&lt;/li>
+&lt;li>&lt;code>groups&lt;/code> : Un table de correspondance entre le nom des groupes et les listes de branches (connexion entre 2 ports) qui caractérisent les différentes positions possibles du type de Noeud&lt;/li>
 &lt;/ul>
-&lt;p>À tout moment, tous les aiguillages &lt;em>ont&lt;/em> un groupe actif, et &lt;em>peuvent avoir&lt;/em> un lien actif, qui appartient toujours au groupe actif. S&amp;rsquo;il y a un lien actif, il est actif dans une direction donnée. Pendant une simulation, le changement de lien actif à l&amp;rsquo;intérieur d&amp;rsquo;un groupe est instantané, mais le changement de lien actif entre les groupes prend un temps configurable.
-Ceci est dû au fait qu&amp;rsquo;un &lt;code>Switch&lt;/code> est un objet physique, et que le changement de lien actif peut impliquer le déplacement de certaines de ses parties. Les &lt;code>groups&lt;/code> sont conçus pour représenter les différentes positions qu&amp;rsquo;un &lt;code>Switch&lt;/code> peut avoir. Chaque groupe contient les liens qui peuvent être utilisés dans la position du &lt;code>Switch&lt;/code> associé.&lt;/p>
-&lt;p>La durée nécessaire pour changer de groupe est stockée à l&amp;rsquo;intérieur du &lt;code>Switch&lt;/code>, car elle peut varier en fonction de l&amp;rsquo;implémentation physique du modèle d&amp;rsquo;aiguillage.&lt;/p>
-&lt;p>Nos exemples utilisent actuellement trois &lt;code>SwitchTypes&lt;/code>. Ceux-ci sont comme les autres objets, et peuvent facilement être ajoutés si nécessaire.&lt;/p>
-&lt;p>&lt;strong>1) L&amp;rsquo;aiguille&lt;/strong>&lt;/p>
+&lt;p>À tout moment, tous les noeuds &lt;em>ont&lt;/em> un groupe actif, et &lt;em>peuvent avoir&lt;/em> une branche active, qui appartient toujours au groupe actif. Pendant une simulation, le changement de branche active à l&amp;rsquo;intérieur d&amp;rsquo;un groupe est instantané, mais le changement de branche active entre les groupes prend un temps configurable.
+Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un objet physique (dans le cas des aiguillages), et que le changement de branche active peut impliquer le déplacement de certaines de ses parties. Les &lt;code>groups&lt;/code> sont conçus pour représenter les différentes positions qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut avoir. Chaque groupe contient les liens qui peuvent être utilisés dans la position du &lt;code>Noeud&lt;/code> associé.&lt;/p>
+&lt;p>Dans le cas des aiguilles, la durée nécessaire pour changer de groupe est stockée à l&amp;rsquo;intérieur du &lt;code>Noeud&lt;/code>, car elle peut varier en fonction de l&amp;rsquo;implémentation physique du modèle d&amp;rsquo;aiguillage.&lt;/p>
+&lt;p>Nos exemples utilisent actuellement cinq &lt;code>NodeTypes&lt;/code>. Il est possible d&amp;rsquo;ajouter un type de noeud si nécessaire via le champ &lt;code>extended_node_type&lt;/code>.&lt;/p>
+&lt;p>&lt;strong>1) Le lien entre deux sectionx de voies&lt;/strong>&lt;/p>
+&lt;p>Celui-ci représente le lien entre deux sections de voies. Il possède deux ports : &lt;em>A&lt;/em> et &lt;em>B&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/link.svg" alt="Diagramme d&amp;amp;rsquo;un lien">&lt;/p>
+&lt;p>Il permet de créer un lien entre deux sections de voies tel que définis dans OSRD. Ce n&amp;rsquo;est pas un objet physique.&lt;/p>
+&lt;p>&lt;strong>2) L&amp;rsquo;aiguille&lt;/strong>&lt;/p>
 &lt;p>L&amp;rsquo;omniprésent aiguillage en Y, qui peut être considéré comme la fusion de deux voies ou la séparation d&amp;rsquo;une voie.&lt;/p>
-&lt;p>Ce type d&amp;rsquo;aiguillage possède trois ports : &lt;em>base&lt;/em>, &lt;em>gauche&lt;/em> et &lt;em>droite&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/point_switch.en.svg" alt="Diagramme d&amp;amp;rsquo;aiguillage">&lt;/p>
-&lt;p>Il y a deux groupes, chacun avec une connexion dans leur liste : &lt;code>LEFT&lt;/code>, qui connecte &lt;em>base&lt;/em> à &lt;em>gauche&lt;/em>, et &lt;code>RIGHT&lt;/code> qui connecte &lt;em>base&lt;/em> à &lt;em>droite&lt;/em>.&lt;/p>
-&lt;p>Ainsi, à tout moment, un train peut aller de la &lt;em>base&lt;/em> à la &lt;em>gauche&lt;/em> ou de la &lt;em>base&lt;/em> à la &lt;em>droite&lt;/em> mais jamais aux deux en même temps. Un train ne peut pas aller de &lt;em>gauche&lt;/em> à &lt;em>droite&lt;/em>.&lt;/p>
+&lt;p>Ce type d&amp;rsquo;aiguillage possède trois ports : &lt;em>A&lt;/em>, &lt;em>B1&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch.svg" alt="Diagramme d&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>Il y a deux groupes, chacun avec une connexion dans leur liste : &lt;code>A_B1&lt;/code>, qui connecte &lt;em>A&lt;/em> à &lt;em>B1&lt;/em>, et &lt;code>A_B2&lt;/code> qui connecte &lt;em>A&lt;/em> à &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>Ainsi, à tout moment, un train peut aller de &lt;em>A&lt;/em> à &lt;em>B1&lt;/em> ou de &lt;em>A&lt;/em> à &lt;em>B2&lt;/em> mais jamais aux deux en même temps. Un train ne peut pas aller de &lt;em>B1&lt;/em> à &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>Une aiguille n&amp;rsquo;a que deux positions :&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/point_switch_positions.en.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage">&lt;/p>
-&lt;p>&lt;strong>2) L&amp;rsquo;aiguillage de croisement&lt;/strong>&lt;/p>
-&lt;p>Il s&amp;rsquo;agit simplement de deux voies qui se croisent.&lt;/p>
-&lt;p>Ce type a quatre ports : &lt;em>nord&lt;/em>, &lt;em>sud&lt;/em>, &lt;em>est&lt;/em> et &lt;em>ouest&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/cross_switch.en.svg" alt="Diagramme de l&amp;amp;rsquo;aiguillage croisé">&lt;/p>
-&lt;p>Il ne comporte qu&amp;rsquo;un seul groupe contenant deux connexions : &lt;em>nord&lt;/em> vers &lt;em>sud&lt;/em> et &lt;em>ouest&lt;/em> vers &lt;em>est&lt;/em>. En effet, ce type d&amp;rsquo;aiguillage est &lt;em>passif&lt;/em> : il n&amp;rsquo;a pas de pièces mobiles. Bien qu&amp;rsquo;il n&amp;rsquo;ait qu&amp;rsquo;un seul groupe, il est tout de même utilisé par la simulation pour faire respecter les réservations de route.&lt;/p>
-&lt;p>Voici les deux connexions différentes que ce type d&amp;rsquo;aiguillage possède :&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/cross_switch_positions.en.svg" alt="Diagramme des positions des aiguillages croisés">&lt;/p>
-&lt;p>&lt;strong>3) L&amp;rsquo;aiguillage de croisement double&lt;/strong>&lt;/p>
-&lt;p>Celui-ci ressemble plus à deux aiguilles dos à dos. Il possède quatre ports : &lt;em>sud1&lt;/em>, &lt;em>sud2&lt;/em>, &lt;em>nord1&lt;/em> et &lt;em>nord2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="../svg_diagrammes/double_cross_switch.en.svg" alt="Diagramme d&amp;amp;rsquo;un aiguillage de croisement double">&lt;/p>
-&lt;p>Cependant, il comporte quatre groupes, chacun avec une connexion. Les quatre groupes sont représentés dans le diagramme suivant :&lt;/p>
-&lt;p>&lt;img src="../svg_diagrammes/double_cross_switch_positions.en.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double">&lt;/p>
-&lt;h5 id="retour-aux-aiguillages">Retour aux aiguillages&lt;/h5>
-&lt;p>Un &lt;code>Switch&lt;/code> possède trois attributs :&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>switch_type&lt;/code> : l&amp;rsquo;identifiant &lt;a href="#types-daiguillages">&lt;code>SwitchType&lt;/code>&lt;/a> de cette aiguillage.&lt;/li>
+&lt;li>&lt;em>A&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="svg_diagrams/PointSwitch_AtoB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage"> &lt;img src="svg_diagrams/PointSwitch_AtoB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>&lt;strong>3) L&amp;rsquo;aiguillage de croisement&lt;/strong>&lt;/p>
+&lt;p>Il s&amp;rsquo;agit simplement de deux voies qui se croisent.&lt;/p>
+&lt;p>Ce type a quatre ports : &lt;em>A1&lt;/em>, &lt;em>B1&lt;/em>, &lt;em>A2&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/crossing.svg" alt="Diagramme de l&amp;amp;rsquo;aiguillage croisé">&lt;/p>
+&lt;p>Il ne comporte qu&amp;rsquo;un seul groupe contenant deux connexions : &lt;em>A1&lt;/em> vers &lt;em>B1&lt;/em> et &lt;em>A2&lt;/em> vers &lt;em>B2&lt;/em>. En effet, ce type d&amp;rsquo;aiguillage est &lt;em>passif&lt;/em> : il n&amp;rsquo;a pas de pièces mobiles. Bien qu&amp;rsquo;il n&amp;rsquo;ait qu&amp;rsquo;un seul groupe, il est tout de même utilisé par la simulation pour faire respecter les réservations de route.&lt;/p>
+&lt;p>Voici les deux connexions différentes que ce type d&amp;rsquo;aiguillage possède :&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>A1&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="svg_diagrams/Crossing_A1toB1.svg" alt="Diagramme des positions des aiguillages croisés"> &lt;img src="svg_diagrams/Crossing_A2toB2.svg" alt="Diagramme des positions des aiguillages croisés">&lt;/p>
+&lt;p>&lt;strong>4) L&amp;rsquo;aiguillage de croisement double&lt;/strong>&lt;/p>
+&lt;p>Celui-ci ressemble plus à deux aiguilles dos à dos. Il possède quatre ports : &lt;em>A1&lt;/em>, &lt;em>A2&lt;/em>, &lt;em>B1&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/double_slip_crossing.svg" alt="Diagramme d&amp;amp;rsquo;un aiguillage de croisement double">&lt;/p>
+&lt;p>Cependant, il comporte quatre groupes, chacun avec une connexion. Les quatre connexions possibles sont les suivantes :&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>A1&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A1&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double">&lt;/p>
+&lt;p>&lt;strong>5) L&amp;rsquo;aiguillage de croisement simple&lt;/strong>&lt;/p>
+&lt;p>Celui-ci ressemble plus à un mélange entre une aiguille simple et un croisement. Il possède quatre ports : &lt;em>A1&lt;/em>, &lt;em>A2&lt;/em>, &lt;em>B1&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB1.svg" alt="Diagramme d&amp;amp;rsquo;un aiguillage de croisement simple">&lt;/p>
+&lt;p>Voici les trois connexions que peut réaliser cet aiguillage :&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>A1&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
+&lt;li>&lt;em>A1&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
+&lt;li>&lt;em>A2&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="svg_diagrams/SingleSlipCrossing_A1toB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement simple"> &lt;img src="svg_diagrams/SingleSlipCrossing_A1toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement simple">
+&lt;img src="svg_diagrams/SingleSlipCrossing_A2toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement simple">&lt;/p>
+&lt;h5 id="retour-aux-noeuds">Retour aux noeuds&lt;/h5>
+&lt;p>Un &lt;code>Node&lt;/code> possède trois attributs :&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>node_type&lt;/code> : l&amp;rsquo;identifiant &lt;a href="#types-daiguillages">&lt;code>NodeType&lt;/code>&lt;/a> de ce noeud.&lt;/li>
 &lt;li>&lt;code>ports&lt;/code> : une correspondance entre les noms de port et les extrémités des sections de voie.&lt;/li>
 &lt;li>&lt;code>group_change_delay&lt;/code> : le temps qu&amp;rsquo;il faut pour changer le groupe de l&amp;rsquo;aiguillage qui est actif.&lt;/li>
 &lt;/ul>
-&lt;p>Les noms des ports doivent correspondre aux ports du type d&amp;rsquo;aiguillage choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.&lt;/p>
-&lt;p>La plupart des aiguillages de notre exemple sont des aiguillages habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement, et il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
+&lt;p>Les noms des ports doivent correspondre aux ports du type du noeud choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.&lt;/p>
+&lt;p>La plupart des noeuds de notre exemple sont des noeuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement, et il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Diagramme des sections de voie et des aiguillages">&lt;/p>
+&lt;p>Il est important de noter que ces noeuds sont présents par défaut dans le code du projet. Seuls les &lt;code>extended_switch_type&lt;/code> ajoutés par l&amp;rsquo;utilisateur apparaîtront dans le railjson.&lt;/p>
 &lt;h4 id="courbes-et-pentes">Courbes et pentes&lt;/h4>
 &lt;p>Les &lt;code>Courbes&lt;/code> et les &lt;code>Pentes&lt;/code> sont essentielles pour des simulations réalistes. Ces objets sont définis comme une plage entre une position de début (&lt;code>begin&lt;/code>) et de fin (&lt;code>end&lt;/code>) sur une section de voie. Si une courbe / pente s&amp;rsquo;étend sur plus d&amp;rsquo;une section de voie, elle doit être ajoutée à toutes les sections.&lt;/p>
 &lt;p>Les valeurs des courbes / pentes sont constantes sur toute leur étendue. Pour des courbes / pentes variables, il faut créer plusieurs objets.&lt;/p>
