@@ -1,4 +1,21 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Explanations</title><link>https://osrd.fr/en/docs/explanation/</link><description>Recent content in Explanations on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/explanation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Models</title><link>https://osrd.fr/en/docs/explanation/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/models/</guid><description/></item><item><title>Docs: Running time calculation</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Explanations</title><link>https://osrd.fr/en/docs/explanation/</link><description>Recent content in Explanations on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/explanation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Containers architecture</title><link>https://osrd.fr/en/docs/explanation/containers-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/containers-architecture/</guid><description>
+&lt;p>There are 3 main containers deployed in a standard OSRD setup:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Gateway&lt;/strong> &lt;em>(includes the frontend)&lt;/em>: Serves the front end, handles authentication and proxies requests to the backend.&lt;/li>
+&lt;li>&lt;strong>Editoast&lt;/strong>: Acts as the backend that interacts with the front end.&lt;/li>
+&lt;li>&lt;strong>Core&lt;/strong>: Handles computation and business logic, called by Editoast.&lt;/li>
+&lt;/ul>
+&lt;h2 id="standard-deployment">Standard deployment&lt;/h2>
+&lt;p>The standard deployment can be represented with the following diagram.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
+gw[&amp;#34;gateway&amp;#34;]
+front[&amp;#34;front-end static files&amp;#34;]
+gw -- local file --&amp;gt; front
+browser --&amp;gt; gw
+gw -- HTTP --&amp;gt; editoast
+editoast -- HTTP --&amp;gt; core
+&lt;/code>&lt;/pre>&lt;p>External requests are received by the gateway. If the path asked starts with &lt;code>/api&lt;/code> it will be forwarded using HTTP to editoast, otherwise it will serve a file with the asked path. Editoast reach the core using HTTP if required.&lt;/p>
+&lt;p>The gateway is not only a reverse proxy with the front-end bundle included, it also provides all the authentication mechanisms: using OIDC or tokens.&lt;/p></description></item><item><title>Docs: Models</title><link>https://osrd.fr/en/docs/explanation/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/models/</guid><description/></item><item><title>Docs: Running time calculation</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/</guid><description>
 &lt;p>OSRD can be used to perform two types of calculations:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Standalone train simulation:&lt;/strong> calculation of the travel time of a train on a given route without interaction between the train and the signalling system.&lt;/li>

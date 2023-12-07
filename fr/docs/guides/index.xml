@@ -14,4 +14,11 @@ Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;exista
 &lt;li>Vous pouvez &lt;a href="https://osrd.fr/fr/docs/">lire la documentation technique&lt;/a>&lt;/li>
 &lt;li>Il est préférable de lire le code source de l&amp;rsquo;application en rapport avec votre projet&lt;/li>
 &lt;li>Vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Docs: Déployer OSRD</title><link>https://osrd.fr/fr/docs/guides/deploy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/deploy/</guid><description>
+&lt;p>Tout d&amp;rsquo;abord, nous recommandons de se familiariser sur &lt;a href="https://osrd.fr/fr/docs/explanation/containers-architecture/">l&amp;rsquo;architecture des conteneurs d&amp;rsquo;OSRD&lt;/a>.&lt;/p>
+&lt;p>Nous allons couvrir comment déployer OSRD dans les configurations suivantes :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://osrd.fr/fr/docs/guides/deploy/docker-compose/">Utiliser docker compose&lt;/a> sur un seul nœud.&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/fr/docs/guides/deploy/docker-compose/">Utiliser helm&lt;/a> sur un cluster kubernetes.&lt;/li>
+&lt;/ul>
+&lt;p>Il est également possible de déployer manuellement chaque service d&amp;rsquo;OSRD sur un système, mais nous ne couvrirons pas ce sujet dans ce guide.&lt;/p></description></item></channel></rss>
