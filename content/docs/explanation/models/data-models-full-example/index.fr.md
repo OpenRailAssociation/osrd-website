@@ -60,25 +60,23 @@ Ces attributs sont nécessaires pour que la section de voie soit complète :
 
 * `length` : la longueur de la section de voie en mètres.
 * `geo` : les coordonnées dans la réalité (geo pour géographique), au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
-* `sch` : les coordonnées dans la vue schématique (sch pour schematic), également au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
+* `sch` : les coordonnées dans la vue schématique (sch pour schématique, représentation simplifiée), également au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
 * attributs cosmétiques : `line_name`, `track_name`, `track_number` qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux voies / lignes dans la réalité.
 
 Pour toutes les sections de voies de notre infrastructure, les attributs `geo` et `sch` sont identiques, et se rapprochent beaucoup au schéma donné.
 
 Pour la plupart des sections de voies, leur `length` est proportionnelle à ce que l'on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour *TA6*, *TA7*, *TD0* et *TD1* (qui font 10km et 25km).
 
-
 #### Noeud
 
 Un `Node` représente un noeud dans l'infrastructure. Dans une simulation OSRD, un train ne peut passer d'une section de voie à une autre que si elles sont reliées par un noeud.
-Un noeud peut se présenter de deux manières différentes : 
+Un noeud peut se présenter de deux manières différentes :
 
 **1) Aiguillages**
 
 Les aiguillages peuvent être vus comme une collection de liens de sections de voies, partitionnés en groupes. Chaque groupe représente un état de l'aiguillage. Passer d'un groupe à un autre peut prendre du temps, et au maximum un lien peut être prêt à être utilisé à la fois.
 
 Dans le monde réel, les aiguillages ne sont pas uniques, mais plutôt des instances de modèles existants.
-
 
 **2) Liens de sections de voies**
 
@@ -110,7 +108,6 @@ Celui-ci représente le lien entre deux sections de voies. Il possède deux port
 
  Il permet de créer un lien entre deux sections de voies tel que définis dans OSRD. Ce n'est pas un objet physique.  
 
-
 **2) L'aiguille**
 
 L'omniprésent aiguillage en Y, qui peut être considéré comme la fusion de deux voies ou la séparation d'une voie.
@@ -121,12 +118,12 @@ Ce type d'aiguillage possède trois ports : *A*, *B1* et *B2*.
 
 Il y a deux groupes, chacun avec une connexion dans leur liste : `A_B1`, qui connecte *A* à *B1*, et `A_B2` qui connecte *A* à *B2*.
 
-Ainsi, à tout moment, un train peut aller de *A* à *B1* ou de *A* à *B2* mais jamais aux deux en même temps. Un train ne peut pas aller de *B1* à *B2*.
+Ainsi, à tout moment (sauf lorsque l'aiguille bouge pour changer de groupe), un train peut aller de *A* à *B1* ou de *A* à *B2* mais jamais aux deux en même temps. Un train ne peut pas aller de *B1* à *B2*.
 
 Une aiguille n'a que deux positions :
 
-- *A* vers *B1*
-- *A* vers *B2*
+* *A* vers *B1*
+* *A* vers *B2*
 
 ![Diagramme des positions de l'aiguillage](svg_diagrams/PointSwitch_AtoB1.svg) ![Diagramme des positions de l'aiguillage](svg_diagrams/PointSwitch_AtoB2.svg)
 
@@ -142,12 +139,10 @@ Il ne comporte qu'un seul groupe contenant deux connexions : *A1* vers *B1* et *
 
 Voici les deux connexions différentes que ce type d'aiguillage possède :
 
-- *A1* vers *B1*
-- *A2* vers *B2*
-
+* *A1* vers *B1*
+* *A2* vers *B2*
 
 ![Diagramme des positions des aiguillages croisés](svg_diagrams/Crossing_A1toB1.svg) ![Diagramme des positions des aiguillages croisés](svg_diagrams/Crossing_A2toB2.svg)
-
 
 **4) L'aiguillage de croisement double**
 
@@ -157,10 +152,10 @@ Celui-ci ressemble plus à deux aiguilles dos à dos. Il possède quatre ports :
 
 Cependant, il comporte quatre groupes, chacun avec une connexion. Les quatre connexions possibles sont les suivantes :
 
-- *A1* vers *B1*
-- *A1* vers *B2*
-- *A2* vers *B1*
-- *A2* vers *B2*
+* *A1* vers *B1*
+* *A1* vers *B2*
+* *A2* vers *B1*
+* *A2* vers *B2*
 
 ![Diagramme des positions de l'aiguillage de croisement double](svg_diagrams/DoubleSlipCrossing_A1toB1.svg) ![Diagramme des positions de l'aiguillage de croisement double](svg_diagrams/DoubleSlipCrossing_A1toB2.svg)
 
@@ -174,13 +169,12 @@ Celui-ci ressemble plus à un mélange entre une aiguille simple et un croisemen
 
 Voici les trois connexions que peut réaliser cet aiguillage :
 
-- *A1* vers *B1*
-- *A1* vers *B2*
-- *A2* vers *B2*
+* *A1* vers *B1*
+* *A1* vers *B2*
+* *A2* vers *B2*
 
 ![Diagramme des positions de l'aiguillage de croisement simple](svg_diagrams/SingleSlipCrossing_A1toB1.svg) ![Diagramme des positions de l'aiguillage de croisement simple](svg_diagrams/SingleSlipCrossing_A1toB2.svg)
 ![Diagramme des positions de l'aiguillage de croisement simple](svg_diagrams/SingleSlipCrossing_A2toB2.svg)
-
 
 ##### Retour aux noeuds
 
@@ -192,11 +186,11 @@ Un `Node` possède trois attributs :
 
 Les noms des ports doivent correspondre aux ports du type du noeud choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.
 
-La plupart des noeuds de notre exemple sont des noeuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement, et il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.
+La plupart des noeuds de notre exemple sont des noeuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement. Enfin, il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.
 
 ![Diagramme des sections de voie et des aiguillages](svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
 
-Il est important de noter que ces noeuds sont présents par défaut dans le code du projet. Seuls les `extended_switch_type` ajoutés par l'utilisateur apparaîtront dans le railjson. 
+Il est important de noter que ces noeuds sont présents par défaut dans le code du projet. Seuls les `extended_switch_type` ajoutés par l'utilisateur apparaîtront dans le railjson.
 
 #### Courbes et pentes
 
@@ -277,7 +271,7 @@ Il est représenté avec les attributs suivants :
 
 </font>
 
-Thanks to interlocking, trains are located and allowed to move. It's a good start, but meaningless until trains are made aware of it. C'est là que les "signaux" entrent en jeu : les signaux réagissent aux enclenchements et peuvent être vus par les trains.
+Grâce à l'enclenchement, les trains sont localisés et autorisés à se déplacer. C'est un bon début, mais c'est inutile tant que les trains n'en sont pas informés. C'est là que les "signaux" entrent en jeu : les signaux réagissent aux enclenchements et peuvent être vus par les trains.
 
 La façon dont les trains réagissent aux signaux dépend de l'aspect, du type de signal et du système de signalisation.
 
@@ -302,6 +296,7 @@ Voici les règles de base utilisées pour cet exemple d'infrastructure :
 * Les entrées d'aiguillage où un train pourrait devoir s'arrêter sont protégées par un signal (qui est situé à l'extérieur de la section TVD de l'aiguillage). Il doit être visible depuis la direction utilisée pour approcher l'aiguillage. Lorsqu'il y a plusieurs aiguillages dans une rangée, seul le premier a généralement besoin d'être protégé, car l'enclenchement est généralement conçu pour ne pas encourager les trains à s'arrêter au milieu des intersections.
 
 Notez que les détecteurs liés à au moins un signal ne sont pas représentés, car il n'y a pas de signaux sans détecteurs associés dans cet exemple.
+
 Pour obtenir le `id` d'un détecteur lié à un signal, prenez le `id` du signal et remplacez *S* par *D* (par exemple SA0 -> DA0).
 
 ![Diagramme d'infra avec tous les signaux](svg_diagrams/small_infra_signals.drawio.en.svg)
@@ -313,6 +308,7 @@ Sur *TA6*, *TA7*, *TD0* et *TD1* nous n'avons pas pu représenter tous les signa
 <font color=#aa026d>
 
 ### Électrification
+
 </font>
 
 Pour permettre à des trains électriques de circuler sur notre infrastructure, nous devons spécifier les parties de celle-ci qui sont électrifiées.
@@ -320,10 +316,12 @@ Pour permettre à des trains électriques de circuler sur notre infrastructure, 
 #### Caténaires (`Catenaries`)
 
 Les `Catenaries` représentent les câbles d'alimentation qui alimentent les trains électriques. Ils sont représentés avec les attributs suivants :
+
 * `voltage` : Une chaîne de caractères représentant le type d'alimentation électrique utilisée pour l'électrification.
 * `track_ranges` : Une liste de portions de sections de voie (`TrackRanges`) couvertes par cette caténaire. Une `TrackRange` est composée d'un identifiant de section de voie, d'une position `begin` et d'une position `end`.
 
 Dans notre exemple, nous avons deux `Catenaries`:
+
 * Une avec `voltage` défini sur `"1500"`, qui couvre uniquement *TA0*.
 * Une avec `voltage` défini sur `"25000"`, qui couvre tous les autres sauf *TD1*.
 
@@ -373,4 +371,3 @@ Les `SpeedSections` représentent les limites de vitesse (en mètres par seconde
 Dans notre exemple d'infrastructure, nous avons une section de vitesse couvrant l'ensemble de l'infrastructure, limitant la vitesse à 300 km/h. Sur une plus petite partie de l'infrastructure, nous avons appliqué des sections de vitesse plus restrictives.
 
 ![Exemples de sections de vitesse](svg_diagrams/speed_sections.en.svg)
-
