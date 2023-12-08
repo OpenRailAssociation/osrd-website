@@ -408,7 +408,7 @@ This example will be created step by step and explained along the way.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>length&lt;/code>: the length of the track section in meters.&lt;/li>
 &lt;li>&lt;code>geo&lt;/code>: the coordinates in real life (geo is for geographic), in the &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a> format.&lt;/li>
-&lt;li>&lt;code>sch&lt;/code>: the coordinates in the schematic view (sch for schematic), also in &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a> format.&lt;/li>
+&lt;li>&lt;code>sch&lt;/code>: the coordinates in the schematic view (sch for schematic, simplified representation), also in &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a> format.&lt;/li>
 &lt;li>cosmetic attributes: &lt;code>line_name&lt;/code>, &lt;code>track_name&lt;/code>, &lt;code>track_number&lt;/code> which are used to indicate the name and labels that were given to the tracks / lines in real life.&lt;/li>
 &lt;/ul>
 &lt;p>For all track sections in our infrastructure, the &lt;code>geo&lt;/code> and &lt;code>sch&lt;/code> attributes are identical, and very much resemble the given diagram.&lt;/p>
@@ -434,7 +434,7 @@ This is because a node is a physical object, and changing active branch can invo
 &lt;p>This node type has three ports: &lt;em>A&lt;/em>, &lt;em>B1&lt;/em> and &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/point_switch.svg" alt="Point switch diagram">&lt;/p>
 &lt;p>There are two groups, each with one connection in their list: &lt;code>A_B1&lt;/code>, which connects &lt;em>A&lt;/em> to &lt;em>B1&lt;/em>, and &lt;code>A_B2&lt;/code> which connects &lt;em>A&lt;/em> to &lt;em>B2&lt;/em>.&lt;/p>
-&lt;p>Thus, at any given moment, a train can go from &lt;em>A&lt;/em> to &lt;em>B1&lt;/em> or from &lt;em>A&lt;/em> to &lt;em>B2&lt;/em> but never to both at the same time. A train cannot go from &lt;em>B1&lt;/em> to &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>Thus, at any given moment (except when the switch moves from one group to another), a train can go from &lt;em>A&lt;/em> to &lt;em>B1&lt;/em> or from &lt;em>A&lt;/em> to &lt;em>B2&lt;/em> but never to both at the same time. A train cannot go from &lt;em>B1&lt;/em> to &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>A Point Switch only has two positions:&lt;/p>
 &lt;ul>
 &lt;li>&lt;em>A&lt;/em> to &lt;em>B1&lt;/em>&lt;/li>
@@ -483,7 +483,7 @@ This is because a node is a physical object, and changing active branch can invo
 &lt;li>&lt;code>group_change_delay&lt;/code>: the time it takes to change which group of the node is activated.&lt;/li>
 &lt;/ul>
 &lt;p>The port names must match the ports of the node type chosen. The track section endpoints can be start or end, be careful to chose the appropriate ones.&lt;/p>
-&lt;p>Most of our example&amp;rsquo;s nodes are regular point switches. The path from North station to South station has two cross switches, and there is a double cross switch right before the main line splits into the North-East and South-East lines.&lt;/p>
+&lt;p>Most of our example&amp;rsquo;s nodes are regular point switches. The path from North station to South station has two cross switches. Finally, there is a double cross switch right before the main line splits into the North-East and South-East lines.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Track sections and points diagram">&lt;/p>
 &lt;p>It is important to note that these node types are hard-coded into the project code. Only the &lt;code>extended_node_type&lt;/code> added by the user will appear in the railjson.&lt;/p>
 &lt;h4 id="curves-and-slopes">Curves and slopes&lt;/h4>
@@ -556,8 +556,8 @@ The clumped up squares represent many detectors at once. Indeed, because some tr
 &lt;li>We add two spacing signals (one per direction) for each detector that is cutting a long TVD section into smaller ones.&lt;/li>
 &lt;li>Switch entries where a train might have to stop are protected by a signal (which is located outside of the switch TVD section). It must be visible from the direction used to approach the switch. When there are multiple switches in a row, only the first one usually needs protection, as interlocking is usually designed as not to encourage trains stopping in the middle of intersections.&lt;/li>
 &lt;/ul>
-&lt;p>Note that detectors linked to at least one signal are not represented, as there are not signals without associated detectors in this example.
-To get the &lt;code>id&lt;/code> of a detector linked to a signal, take the signal&amp;rsquo;s &lt;code>id&lt;/code> and replace &lt;em>S&lt;/em> by &lt;em>D&lt;/em> (e.g. SA0 -&amp;gt; DA0).&lt;/p>
+&lt;p>Note that detectors linked to at least one signal are not represented, as there are not signals without associated detectors in this example.&lt;/p>
+&lt;p>To get the &lt;code>id&lt;/code> of a detector linked to a signal, take the signal&amp;rsquo;s &lt;code>id&lt;/code> and replace &lt;em>S&lt;/em> by &lt;em>D&lt;/em> (e.g. SA0 -&amp;gt; DA0).&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Infra diagram with all signals">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 On &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em> we could not represent all signals because these track sections are very long and have many detectors, hence many signals.

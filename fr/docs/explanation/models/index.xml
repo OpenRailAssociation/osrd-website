@@ -33,7 +33,7 @@ Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>length&lt;/code> : la longueur de la section de voie en mètres.&lt;/li>
 &lt;li>&lt;code>geo&lt;/code> : les coordonnées dans la réalité (geo pour géographique), au format &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a>.&lt;/li>
-&lt;li>&lt;code>sch&lt;/code> : les coordonnées dans la vue schématique (sch pour schematic), également au format &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a>.&lt;/li>
+&lt;li>&lt;code>sch&lt;/code> : les coordonnées dans la vue schématique (sch pour schématique, représentation simplifiée), également au format &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a>.&lt;/li>
 &lt;li>attributs cosmétiques : &lt;code>line_name&lt;/code>, &lt;code>track_name&lt;/code>, &lt;code>track_number&lt;/code> qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux voies / lignes dans la réalité.&lt;/li>
 &lt;/ul>
 &lt;p>Pour toutes les sections de voies de notre infrastructure, les attributs &lt;code>geo&lt;/code> et &lt;code>sch&lt;/code> sont identiques, et se rapprochent beaucoup au schéma donné.&lt;/p>
@@ -67,7 +67,7 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un obje
 &lt;p>Ce type d&amp;rsquo;aiguillage possède trois ports : &lt;em>A&lt;/em>, &lt;em>B1&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/point_switch.svg" alt="Diagramme d&amp;amp;rsquo;aiguillage">&lt;/p>
 &lt;p>Il y a deux groupes, chacun avec une connexion dans leur liste : &lt;code>A_B1&lt;/code>, qui connecte &lt;em>A&lt;/em> à &lt;em>B1&lt;/em>, et &lt;code>A_B2&lt;/code> qui connecte &lt;em>A&lt;/em> à &lt;em>B2&lt;/em>.&lt;/p>
-&lt;p>Ainsi, à tout moment, un train peut aller de &lt;em>A&lt;/em> à &lt;em>B1&lt;/em> ou de &lt;em>A&lt;/em> à &lt;em>B2&lt;/em> mais jamais aux deux en même temps. Un train ne peut pas aller de &lt;em>B1&lt;/em> à &lt;em>B2&lt;/em>.&lt;/p>
+&lt;p>Ainsi, à tout moment (sauf lorsque l&amp;rsquo;aiguille bouge pour changer de groupe), un train peut aller de &lt;em>A&lt;/em> à &lt;em>B1&lt;/em> ou de &lt;em>A&lt;/em> à &lt;em>B2&lt;/em> mais jamais aux deux en même temps. Un train ne peut pas aller de &lt;em>B1&lt;/em> à &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>Une aiguille n&amp;rsquo;a que deux positions :&lt;/p>
 &lt;ul>
 &lt;li>&lt;em>A&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
@@ -116,7 +116,7 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un obje
 &lt;li>&lt;code>group_change_delay&lt;/code> : le temps qu&amp;rsquo;il faut pour changer le groupe de l&amp;rsquo;aiguillage qui est actif.&lt;/li>
 &lt;/ul>
 &lt;p>Les noms des ports doivent correspondre aux ports du type du noeud choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.&lt;/p>
-&lt;p>La plupart des noeuds de notre exemple sont des noeuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement, et il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
+&lt;p>La plupart des noeuds de notre exemple sont des noeuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement. Enfin, il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Diagramme des sections de voie et des aiguillages">&lt;/p>
 &lt;p>Il est important de noter que ces noeuds sont présents par défaut dans le code du projet. Seuls les &lt;code>extended_switch_type&lt;/code> ajoutés par l&amp;rsquo;utilisateur apparaîtront dans le railjson.&lt;/p>
 &lt;h4 id="courbes-et-pentes">Courbes et pentes&lt;/h4>
@@ -170,7 +170,7 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;font color=#aa026d>
 &lt;h3 id="signalisation">Signalisation&lt;/h3>
 &lt;/font>
-&lt;p>Thanks to interlocking, trains are located and allowed to move. It&amp;rsquo;s a good start, but meaningless until trains are made aware of it. C&amp;rsquo;est là que les &amp;ldquo;signaux&amp;rdquo; entrent en jeu : les signaux réagissent aux enclenchements et peuvent être vus par les trains.&lt;/p>
+&lt;p>Grâce à l&amp;rsquo;enclenchement, les trains sont localisés et autorisés à se déplacer. C&amp;rsquo;est un bon début, mais c&amp;rsquo;est inutile tant que les trains n&amp;rsquo;en sont pas informés. C&amp;rsquo;est là que les &amp;ldquo;signaux&amp;rdquo; entrent en jeu : les signaux réagissent aux enclenchements et peuvent être vus par les trains.&lt;/p>
 &lt;p>La façon dont les trains réagissent aux signaux dépend de l&amp;rsquo;aspect, du type de signal et du système de signalisation.&lt;/p>
 &lt;p>Voici les attributs les plus importants des signaux :&lt;/p>
 &lt;ul>
@@ -188,8 +188,8 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;li>Nous ajoutons deux signaux d&amp;rsquo;espacement (un par direction) pour chaque détecteur qui découpe une longue section de TVD en plus petites sections.&lt;/li>
 &lt;li>Les entrées d&amp;rsquo;aiguillage où un train pourrait devoir s&amp;rsquo;arrêter sont protégées par un signal (qui est situé à l&amp;rsquo;extérieur de la section TVD de l&amp;rsquo;aiguillage). Il doit être visible depuis la direction utilisée pour approcher l&amp;rsquo;aiguillage. Lorsqu&amp;rsquo;il y a plusieurs aiguillages dans une rangée, seul le premier a généralement besoin d&amp;rsquo;être protégé, car l&amp;rsquo;enclenchement est généralement conçu pour ne pas encourager les trains à s&amp;rsquo;arrêter au milieu des intersections.&lt;/li>
 &lt;/ul>
-&lt;p>Notez que les détecteurs liés à au moins un signal ne sont pas représentés, car il n&amp;rsquo;y a pas de signaux sans détecteurs associés dans cet exemple.
-Pour obtenir le &lt;code>id&lt;/code> d&amp;rsquo;un détecteur lié à un signal, prenez le &lt;code>id&lt;/code> du signal et remplacez &lt;em>S&lt;/em> par &lt;em>D&lt;/em> (par exemple SA0 -&amp;gt; DA0).&lt;/p>
+&lt;p>Notez que les détecteurs liés à au moins un signal ne sont pas représentés, car il n&amp;rsquo;y a pas de signaux sans détecteurs associés dans cet exemple.&lt;/p>
+&lt;p>Pour obtenir le &lt;code>id&lt;/code> d&amp;rsquo;un détecteur lié à un signal, prenez le &lt;code>id&lt;/code> du signal et remplacez &lt;em>S&lt;/em> par &lt;em>D&lt;/em> (par exemple SA0 -&amp;gt; DA0).&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Diagramme d&amp;amp;rsquo;infra avec tous les signaux">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> nous n&amp;rsquo;avons pas pu représenter tous les signaux car ces sections de voie sont très longues et comportent de nombreux détecteurs, donc de nombreux signaux.
