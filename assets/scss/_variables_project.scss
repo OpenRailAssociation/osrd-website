@@ -5,6 +5,9 @@ Add styles or override variables from the theme here.
 */
 @import 'ibm-plex';
 
+$enable-gradients: false;
+$enable-shadows: false;
+
 $pink-bright: #796ac4;
 $pink-dark: #493E80;
 $primary: $pink-bright;
