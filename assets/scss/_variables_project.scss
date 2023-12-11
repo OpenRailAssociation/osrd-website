@@ -8,16 +8,20 @@ Add styles or override variables from the theme here.
 $enable-gradients: false;
 $enable-shadows: false;
 
-$pink-bright: #796ac4;
-$pink-dark: #493E80;
-$primary: $pink-bright;
-$secondary: $pink-dark;
+// the default minimum contrast ratio of 4.5 puts
+// osrd-light-blue on a dark background, which is pretty nasty
+$min-contrast-ratio: 4;
+
+$osrd-light-blue: #796ac4;
+$osrd-dark-blue: #493E80;
+$primary: $osrd-light-blue;
+$secondary: $osrd-dark-blue;
 
 .main-logo {
   margin: 3rem 0 5rem;
   width: 500px;
   @media screen and (max-width: 640px) {
-    width: 300px;    
+    width: 300px;
   }
 }
 .main-title {
@@ -27,11 +31,11 @@ $secondary: $pink-dark;
 }
 
 .td-navbar {
-  background: $pink-dark !important;
+  background: $osrd-dark-blue !important;
 }
 .td-sidebar-nav .td-sidebar-link.tree-root {
-  color: $pink-dark !important;
-  border-color: $pink-dark !important;
+  color: $osrd-dark-blue !important;
+  border-color: $osrd-dark-blue !important;
 }
 
 /* SWAGGER OVERRIDE */
@@ -42,6 +46,15 @@ $secondary: $pink-dark;
 .td-overlay--dark::after {
   background-color: unset !important;
   background: none !important;
+}
+
+/* VIDEO SECTION */
+.video-section {
+  width: 100%;
+  padding: 5vw;
+  video {
+    width: 100%;
+  }
 }
 
 /* NAVBAR OVERRIDE */

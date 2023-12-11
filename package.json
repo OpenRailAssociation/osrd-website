@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
-    "hugo-bin-extended": "^0.100.2",
+    "hugo-bin-extended": "^0.111.3",
     "postcss": "^8.3.7",
     "postcss-cli": "^10.0.0"
   }
