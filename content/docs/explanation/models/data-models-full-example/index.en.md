@@ -336,9 +336,11 @@ For more details about the model see the [dedicated page](../neutral_sections).
 
 #### Operational points
 
-`OperationalPoints` are collections of points (`OperationalPointParts`) of interest.
+Operational point is also known in French as "Point Remarquable" (PR).
+One `OperationalPoint` is a **collection** of points (`OperationalPointParts`) of interest.
 
-For example, it may be convenient to store the location of platforms as parts and group them by station in operational points.
+For example, it may be convenient (reference point for train operation) to store the location of platforms as parts and group them by station in operational points.
+In the same way, a bridge over tracks will be **one** OperationalPoint, but it will have **several** OperationPointParts, one at the intersection of each track.
 
 In the example infrastructure, we only used operational points to represent stations. Operational point parts are displayed as purple diamonds. Keep in mind a single operational point may contain multiple parts.
 

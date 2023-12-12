@@ -92,6 +92,8 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 - **PL** : Pleine ligne
 - **PLD** : Point limite de domaine : point où une transition entre ETCS et un autre système de signalisation a lieu
 - **PN** : Passage à niveau
+- **PO** : Point opérationnel : collection de points représentant un lieu d'intérêt, voir [exemple](../../explanation/models/data-models-full-example/#points-opérationnels-operationalpoints).
+- **PR** : Point remarquable : voir [PO](#p)
 
 ### R
 
