@@ -224,8 +224,10 @@ Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;
 &lt;h3 id="divers">Divers&lt;/h3>
 &lt;/font>
 &lt;h4 id="points-opérationnels-operationalpoints">Points opérationnels (&lt;code>OperationalPoints&lt;/code>)&lt;/h4>
-&lt;p>Les &lt;code>OperationalPoints&lt;/code> sont des collections de points (&lt;code>OperationalPointParts&lt;/code>) d&amp;rsquo;intérêt.&lt;/p>
-&lt;p>Par exemple, il peut être pratique de stocker l&amp;rsquo;emplacement des plateformes en tant que parties et de les regrouper par station dans des points opérationnels.&lt;/p>
+&lt;p>Le &lt;em>point operationnel&lt;/em> est aussi connu sous le nom de &lt;em>Point Remarquable&lt;/em> (PR).
+Un &lt;code>OperationalPoint&lt;/code> est une &lt;strong>collection&lt;/strong> de points (&lt;code>OperationalPointParts&lt;/code>) d&amp;rsquo;intérêt.&lt;/p>
+&lt;p>Par exemple, il peut être pratique (repère de conduite) de stocker l&amp;rsquo;emplacement des plateformes en tant que parties et de les regrouper par station dans des points opérationnels.
+De la même manière, un pont au-dessus des voies sera &lt;strong>un&lt;/strong> OperationalPoint, mais il comportera &lt;strong>plusieurs&lt;/strong> OperationPointParts, une à l&amp;rsquo;intersection de chaque voie.&lt;/p>
 &lt;p>Dans l&amp;rsquo;exemple de l&amp;rsquo;infrastructure, nous n&amp;rsquo;avons utilisé que des points opérationnels pour représenter les stations. Les parties de points opérationnels sont représentées par des diamants violets. Gardez à l&amp;rsquo;esprit qu&amp;rsquo;un seul point opérationnel peut contenir plusieurs parties.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Exemples de points opérationnels">&lt;/p>
 &lt;h4 id="limites-de-gabarit-loading-gauge-limits">Limites de gabarit (&lt;code>Loading Gauge Limits&lt;/code>)&lt;/h4>

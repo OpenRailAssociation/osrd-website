@@ -592,8 +592,10 @@ On &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;
 &lt;h3 id="miscellaneous">Miscellaneous&lt;/h3>
 &lt;/font>
 &lt;h4 id="operational-points">Operational points&lt;/h4>
-&lt;p>&lt;code>OperationalPoints&lt;/code> are collections of points (&lt;code>OperationalPointParts&lt;/code>) of interest.&lt;/p>
-&lt;p>For example, it may be convenient to store the location of platforms as parts and group them by station in operational points.&lt;/p>
+&lt;p>Operational point is also known in French as &amp;ldquo;Point Remarquable&amp;rdquo; (PR).
+One &lt;code>OperationalPoint&lt;/code> is a &lt;strong>collection&lt;/strong> of points (&lt;code>OperationalPointParts&lt;/code>) of interest.&lt;/p>
+&lt;p>For example, it may be convenient (reference point for train operation) to store the location of platforms as parts and group them by station in operational points.
+In the same way, a bridge over tracks will be &lt;strong>one&lt;/strong> OperationalPoint, but it will have &lt;strong>several&lt;/strong> OperationPointParts, one at the intersection of each track.&lt;/p>
 &lt;p>In the example infrastructure, we only used operational points to represent stations. Operational point parts are displayed as purple diamonds. Keep in mind a single operational point may contain multiple parts.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_op_points.drawio.en.svg" alt="Operational points examples">&lt;/p>
 &lt;h4 id="loading-gauge-limits">Loading Gauge Limits&lt;/h4>

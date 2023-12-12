@@ -85,6 +85,8 @@
 &lt;li>&lt;strong>PL&lt;/strong> : Pleine ligne&lt;/li>
 &lt;li>&lt;strong>PLD&lt;/strong> : Point limite de domaine : point où une transition entre ETCS et un autre système de signalisation a lieu&lt;/li>
 &lt;li>&lt;strong>PN&lt;/strong> : Passage à niveau&lt;/li>
+&lt;li>&lt;strong>PO&lt;/strong> : Point opérationnel : collection de points représentant un lieu d&amp;rsquo;intérêt, voir &lt;a href="../../explanation/models/data-models-full-example/#points-op%C3%A9rationnels-operationalpoints">exemple&lt;/a>.&lt;/li>
+&lt;li>&lt;strong>PR&lt;/strong> : Point remarquable : voir &lt;a href="#p">PO&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="r">R&lt;/h3>
 &lt;ul>
