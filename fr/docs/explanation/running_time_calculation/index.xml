@@ -223,8 +223,7 @@ img[src$="method"] {
 height: 50%;
 width: 50%;
 }
-&lt;/style>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>Docs: Le système d'enveloppes</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
+&lt;/style></description></item><item><title>Docs: Le système d'enveloppes</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>
 &lt;p>Le système d&amp;rsquo;enveloppes est une interface créée spécifiquement pour le calcul de marche d&amp;rsquo;OSRD. Il permet de manipuler différentes courbes espace/vitesse, de les découper, de les mettre bout à bout, d&amp;rsquo;interpoler des points spécifiques, et d&amp;rsquo;adresser beaucoup d&amp;rsquo;autres besoins nécessaires au calcul de marche.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="une-interface-spécifique-dans-le-service-osrd-core">Une interface spécifique dans le service OSRD Core&lt;/h3>

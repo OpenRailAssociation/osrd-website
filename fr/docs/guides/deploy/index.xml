@@ -51,7 +51,7 @@
 &lt;h2 id="le-serveur-de-tuiles">Le serveur de tuiles&lt;/h2>
 &lt;p>Le serveur de tuiles est le composant responsable de la génération des tuiles cartographiques vectorielles. Il est recommandé de le séparer du Editoast standard lors de l&amp;rsquo;exécution d&amp;rsquo;une configuration de production, car Editoast ne peut pas être mis à l&amp;rsquo;échelle horizontalement (il est stateful).&lt;/p>
 &lt;p>Vous pouvez visualiser le déploiement recommandé ici :&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
+&lt;pre class="mermaid">flowchart TD
 gw[&amp;#34;gateway&amp;#34;]
 front[&amp;#34;fichier statiques front-end&amp;#34;]
 gw -- fichier local --&amp;gt; front
@@ -60,8 +60,8 @@ gw -- HTTP --&amp;gt; editoast
 gw -- HTTP --&amp;gt; tileserver-1
 gw -- HTTP --&amp;gt; tileserver-2
 gw -- HTTP --&amp;gt; tileserver-n...
-editoast -- HTTP --&amp;gt; core
-&lt;/code>&lt;/pre>&lt;p>Le Helm Chart utilise le&lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">HorizontalPodAutoscaler&lt;/a> de Kubernetes pour lancer autant de serveurs de tuiles que nécessaire en fonction de la charge de travail.&lt;/p>
+editoast -- HTTP --&amp;gt; core&lt;/pre>
+&lt;p>Le Helm Chart utilise le&lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">HorizontalPodAutoscaler&lt;/a> de Kubernetes pour lancer autant de serveurs de tuiles que nécessaire en fonction de la charge de travail.&lt;/p>
 &lt;h2 id="configuration-de-la-helm-chart-values">Configuration de la Helm Chart (values)&lt;/h2>
 &lt;p>Le Helm Chart est configurable à travers les valeurs suivantes :&lt;/p>
 &lt;h3 id="service-core">Service Core&lt;/h3>

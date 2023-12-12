@@ -528,32 +528,32 @@ or &lt;strong>conflicting&lt;/strong> with other requirements, depending on comp
 &lt;p>Requirements A and B are compatible if and only if their &lt;code>[begin_time, end_time]&lt;/code> ranges do not overlap.&lt;/p>
 &lt;h2 id="incremental-requirement-generation">Incremental requirement generation&lt;/h2>
 &lt;h3 id="routing-requirements">Routing requirements&lt;/h3>
-&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+&lt;pre class="mermaid">sequenceDiagram
 participant client as Client
 participant gen as Routing resource generator
-client -&amp;gt;&amp;gt; gen: initial path + train movement
+client -&amp;gt;&amp;gt; gen: initial path &amp;#43; train movement
 loop
 gen -&amp;gt;&amp;gt; client: prefix path extension needed
-client -&amp;gt;&amp;gt; gen: extra prefix path + train movement
+client -&amp;gt;&amp;gt; gen: extra prefix path &amp;#43; train movement
 end
-gen -&amp;gt;&amp;gt; client: resource requirements
-&lt;/code>&lt;/pre>&lt;p>After an initial path is given, the requirement generator can ask for more &lt;strong>prefix&lt;/strong> path (before the start of the route). The client responds with:&lt;/p>
+gen -&amp;gt;&amp;gt; client: resource requirements&lt;/pre>
+&lt;p>After an initial path is given, the requirement generator can ask for more &lt;strong>prefix&lt;/strong> path (before the start of the route). The client responds with:&lt;/p>
 &lt;ul>
 &lt;li>the extra prefix path&lt;/li>
 &lt;li>the movement of the train over time on the given prefix path&lt;/li>
 &lt;/ul>
 &lt;p>If the initial path has multiple routes, the last route is the one resource requirements are emitted for.&lt;/p>
 &lt;h3 id="spacing-requirements">Spacing requirements&lt;/h3>
-&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+&lt;pre class="mermaid">sequenceDiagram
 participant client as Client
 participant gen as Spacing resource generator
-client -&amp;gt;&amp;gt; gen: initial path + train movement
+client -&amp;gt;&amp;gt; gen: initial path &amp;#43; train movement
 loop
 gen -&amp;gt;&amp;gt; client: postfix path extension needed
 client -&amp;gt;&amp;gt; gen: extra postfix path
 end
-gen -&amp;gt;&amp;gt; client: resource requirements
-&lt;/code>&lt;/pre>&lt;p>After an initial path is given, the requirement generator can ask for more &lt;strong>postfix&lt;/strong> path (before the start of the route).&lt;/p>
+gen -&amp;gt;&amp;gt; client: resource requirements&lt;/pre>
+&lt;p>After an initial path is given, the requirement generator can ask for more &lt;strong>postfix&lt;/strong> path (before the start of the route).&lt;/p>
 &lt;h2 id="visualizing-requirements">Visualizing requirements&lt;/h2>
 &lt;script type="application/javascript" src="mkt.js">&lt;/script>
 &lt;p>&lt;object style="width: 100%" onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="requirements-diagram.svg">&lt;/object>&lt;/p>

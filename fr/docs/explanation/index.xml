@@ -7,14 +7,14 @@
 &lt;/ul>
 &lt;h2 id="déploiement-standard">Déploiement standard&lt;/h2>
 &lt;p>Le déploiement standard peut être représenté par le diagramme suivant.&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
+&lt;pre class="mermaid">flowchart TD
 gw[&amp;#34;gateway&amp;#34;]
 front[&amp;#34;fichiers statiques front-end&amp;#34;]
 gw -- fichier local --&amp;gt; front
 navigateur --&amp;gt; gw
 gw -- HTTP --&amp;gt; editoast
-editoast -- HTTP --&amp;gt; core
-&lt;/code>&lt;/pre>&lt;p>Les requêtes externes sont reçues par le gateway. Si le chemin demandé commence par &lt;code>/api&lt;/code>, il sera transféré en utilisant HTTP vers editoast, sinon il servira un fichier avec le chemin demandé. Editoast atteint le core en utilisant HTTP si nécessaire.&lt;/p>
+editoast -- HTTP --&amp;gt; core&lt;/pre>
+&lt;p>Les requêtes externes sont reçues par le gateway. Si le chemin demandé commence par &lt;code>/api&lt;/code>, il sera transféré en utilisant HTTP vers editoast, sinon il servira un fichier avec le chemin demandé. Editoast atteint le core en utilisant HTTP si nécessaire.&lt;/p>
 &lt;p>Le gateway n&amp;rsquo;est pas seulement un proxy inverse avec le bundle front-end inclus, il fournit également tous les mécanismes d&amp;rsquo;authentification : utilisant OIDC ou des tokens.&lt;/p></description></item><item><title>Docs: Modèles</title><link>https://osrd.fr/fr/docs/explanation/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/models/</guid><description/></item><item><title>Docs: Calcul de marche</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/</guid><description>
 &lt;p>OSRD peut être utilisé pour effectuer deux types de calculs :&lt;/p>
 &lt;ul>

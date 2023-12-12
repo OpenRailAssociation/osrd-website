@@ -20,7 +20,7 @@ Des changements y sont apportés au fil de l&amp;rsquo;évolution du projet.&lt;
 &lt;p>Ce modèle est en cours d&amp;rsquo;implémentation&lt;/p>
 &lt;/div>
 &lt;h2 id="architecture">Architecture&lt;/h2>
-&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart TD
+&lt;pre class="mermaid">flowchart TD
 %%%% NODES
 train[Train]
 %% ↓
@@ -49,8 +49,7 @@ click signaling href &amp;#34;./signaling/&amp;#34; _self
 click routing href &amp;#34;./routing/&amp;#34; _self
 click reservation href &amp;#34;./reservation/&amp;#34; _self
 click location href &amp;#34;./location/&amp;#34; _self
-click movable-elements href &amp;#34;./movable-elements/&amp;#34; _self
-&lt;/code>&lt;/pre>
+click movable-elements href &amp;#34;./movable-elements/&amp;#34; _self&lt;/pre>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Pistes d'évolution&lt;/h4>
 &lt;ul>

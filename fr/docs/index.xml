@@ -349,8 +349,7 @@ img[src$="method"] {
 height: 50%;
 width: 50%;
 }
-&lt;/style>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>Docs: Représentation de l'espace de solutions</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
+&lt;/style></description></item><item><title>Docs: Représentation de l'espace de solutions</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
 &lt;h4 id="principe-général">Principe général&lt;/h4>
 &lt;p>Le problème reste une recherche de graphe. En représentant
 l&amp;rsquo;espace de solution sous forme de graphe, il est possible de réutiliser
