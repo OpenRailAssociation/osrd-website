@@ -1911,6 +1911,37 @@ En plus de contenir les fichiers de &lt;strong>vues&lt;/strong> des applications
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ainsi, on a la garantie que l&amp;rsquo;image contenue dans la carte de matériel roulant héritera bien des bonnes propriétés css &lt;code>.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg&lt;/code>.&lt;/p>
+&lt;h4 id="css-modules">CSS Modules&lt;/h4>
+&lt;p>CSS modules allow scoping CSS styles to a specific component, thereby avoiding conflicts with global class names.&lt;/p>
+&lt;p>Vite natively supports CSS modules. Ensure that your CSS file has the &lt;code>.module.css&lt;/code> extension, for example, &lt;code>styles.module.css&lt;/code>.&lt;/p>
+&lt;h5 id="using-css-modules-in-components">Using CSS Modules in Components&lt;/h5>
+&lt;ol>
+&lt;li>&lt;strong>Create an SCSS file with the &lt;code>.module.scss&lt;/code> extension&lt;/strong>:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">/* MyComponent.module.scss */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">container&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">background-color&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">white&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">title&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">font-size&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">24&lt;/span>&lt;span style="color:#204a87;font-weight:bold">px&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">color&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">#333&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>&lt;strong>Use the classes in your React component&lt;/strong>:&lt;/li>
+&lt;/ol>
+&lt;p>Vite transforms classes into objects that contain hashed classes (e.g., &lt;code>_container_h3d8bg&lt;/code>) and uses them during bundle generation, making the classes unique.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">React&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;react&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">styles&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;./MyComponent.module.scss&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">export&lt;/span> &lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000">MyComponent() {&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#000;font-weight:bold">}&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">h1&lt;/span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;title&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]}&amp;gt;&lt;/span>&lt;span style="color:#000">My&lt;/span> &lt;span style="color:#000">Title&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">h1&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For more information, you can refer to the &lt;a href="https://vitejs.dev/guide/features.html#css-modules">Vite.js documentation&lt;/a>.&lt;/p>
 &lt;h4 id="noms-de-classes-utilisation-de-cx">Noms de classes, utilisation de &lt;code>cx()&lt;/code>&lt;/h4>
 &lt;p>Les classes sont ajoutées les unes à la suite des autres, normalement, dans la propriété &lt;code>className=&amp;quot;&amp;quot;&lt;/code>.&lt;/p>
 &lt;p>Cependant, quand cela est nécessaire — tests pour l&amp;rsquo;utilisation d&amp;rsquo;une classe, concaténation, etc. — nous utilisons la librairie &lt;a href="https://github.com/JedWatson/classnames">classnames&lt;/a> qui préconise l&amp;rsquo;usage suivant :&lt;/p>
