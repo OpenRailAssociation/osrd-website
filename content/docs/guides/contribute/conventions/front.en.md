@@ -61,6 +61,46 @@ Si par exemple nous avons un composant `rollingStockSelector` qui propose une li
 
 Ainsi, on a la garantie que l'image contenue dans la carte de matériel roulant héritera bien des bonnes propriétés css `.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg`.
 
+#### CSS Modules
+CSS modules allow scoping CSS styles to a specific component, thereby avoiding conflicts with global class names.
+
+Vite natively supports CSS modules. Ensure that your CSS file has the `.module.css` extension, for example, `styles.module.css`.
+
+##### Using CSS Modules in Components
+
+1. **Create an SCSS file with the `.module.scss` extension**:
+
+```css
+/* MyComponent.module.scss */
+.container {
+  background-color: white;
+}
+
+.title {
+  font-size: 24px;
+  color: #333;
+}
+```
+
+2. **Use the classes in your React component**:
+
+Vite transforms classes into objects that contain hashed classes (e.g., `_container_h3d8bg`) and uses them during bundle generation, making the classes unique.
+
+```tsx
+import React from 'react';
+import styles from './MyComponent.module.scss';
+
+export function MyComponent() {
+  return (
+    <div className={styles.container}>
+      <h1 className={styles["title"]}>My Title</h1>
+    </div>
+  );
+};
+```
+
+For more information, you can refer to the [Vite.js documentation](https://vitejs.dev/guide/features.html#css-modules).
+
 #### Noms de classes, utilisation de `cx()`
 Les classes sont ajoutées les unes à la suite des autres, normalement, dans la propriété `className=""`.
 
