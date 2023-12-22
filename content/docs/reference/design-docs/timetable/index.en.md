@@ -100,6 +100,12 @@ What we can do about outdated trains:
 
 Note: The outdated status is a nice to have feature (it won't be implemented right now).
 
+### Separating stops and time constraints
+
+This is a side effect of unifying margins with arrival times: as arrival times now
+are just another way to give time constraints, it makes little sense to bundle stops
+with arrival times.
+
 ## Creation fields
 
 These fields are required at creation time, but cannot be changed afterwards.
@@ -131,19 +137,37 @@ path:
  - {id: c, deleted: true, waypoint: true, trigram: ABC}
  - {id: d, waypoint: true, track: toto, offset: 42}
 
-# the algorithm used for computing the standard margins AND scheduled points
-distribution_margins: MARECO
+stops:
+ - {at: a, for: PT5M}
 
-standard_margins:
-  # the begin and end waypoints are always implicitly added
-  intermediate_waypoints: [b]
-  values: ["5%", "2%"]
+# time constraints are optional
+time_constraints:
+  # algorithm used to distribute time over space
+  distribution: MARECO
 
-# all durations and times are specified using ISO 8601
-scheduled_points:
- - {at: a, arrival: PT0M, stop_for: PT5M}
- - {at: b, arrival: PT10M}
- - {at: c, arrival: PT25M}
+  # time constraints apply on the entire path. boundaries delimit
+  # zones which can be configured with distinct time constraints.
+  boundaries: [b, c]
+
+  # there are two interchangeable ways of adding constraints:
+  # margins and arrival times. there has to be as many constraints
+  # as zones: if there are N boundaries, there are be N + 1 zones,
+  # and thus there must be N + 1 constraints
+  # the following margin time units are supported:
+  #  - %: a percentage of the time it normaly takes to pass though the zone
+  #  - s/km or min/km: seconds or minutes per kilometer in the zone
+  #  - s or min: seconds or minutes
+  constraints:
+   # applies from a to b
+   - margin: "10min"
+
+   # applies from b to c. arrival time takes precedence over the
+   # percentage margin, but there still must be at least 5% margin
+   # the arrival time is ISO 8601 seconds since departure
+   - {arrival_time: PT25M, margin: "5%"}
+
+   # applies from c to d
+   - margin: "30s/km"
 
 
 # train speed at departure, in meters per second
