@@ -44,6 +44,13 @@ This decision was hard to make, as there are little factors influencing this dec
 - when deleting a waypoint, the end user may want to preserve the associated stop. Making the separation clear in the data model helps with implementing this behavior correctly, if deemed relevant
 - bundling stops into the path makes it harder to describe what fields `path` waypoints should have, and what should have a separate object and reference. It was decided that keeping `path` a simple list of `Location`, with no strings attached, made things a little clearer.
 
+
+### No more engineering margins?
+
+In the legacy model, we had engineering margins. These margins had the property of being able to overlap. It was also possible to choose the distribution algorithm for each margin individually.
+
+We asked users to comment on the difference and the usefulness of retaining these margins with scheduled points. The answer is that there is no fundamental difference, and that the additional flexibility offered by engineering margins makes no pratical sense (overlap and choice of distribution...).
+
 ### Arrival times are durations since departure time
 
 - this allows shifting the departure time without having to change arrival times
@@ -86,12 +93,11 @@ path:
  - {id: c, deleted: true, waypoint: true, trigram: ABC}
  - {id: d, waypoint: true, track: toto, offset: 42}
 
-engineering_margins:
- - {from: b, to: c, value: "2%", distribution: MARECO}
+# the algorithm used for computing the standard margins AND scheduled points
+distribution_margins: MARECO
 
 standard_margins:
   # the begin and end waypoints are always implicitly added
-  distribution: MARECO
   intermediate_waypoints: [b]
   values: ["5%", "2%"]
 
