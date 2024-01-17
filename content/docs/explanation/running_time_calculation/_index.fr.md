@@ -6,7 +6,7 @@ weight: 30
 
 OSRD peut être utilisé pour effectuer deux types de calculs :
 
-- **Calcul de marche** (standalone train simulation) : calcul du temps de parcours d'un train sur un trajet donné,effectué sans interaction entre le train et le système de signalisation.
+- **Calcul de marche** (standalone train simulation) : calcul du temps de parcours d'un train sur un trajet donné, effectué sans interaction entre le train et le système de signalisation.
 - **Simulation** : calcul "dynamique" de plusieurs trains interagissant entre eux via le système de signalisation.
 
 #### 1 - Les données d'entrée
@@ -56,7 +56,7 @@ Les résultats d'un calcul de marche peuvent se représenter sous différentes f
 >
 > Les rectangles pleins entourant les trajets représentent les portions de la voie successivement reservées au passage du train (appelées cantons).
 
-- **Le graphique espace/vitesse (GEV) :** représente le parcours d'un seul train, cette fois-ci en terme de vitesse. Les arrêts apparaissent donc sous forme de décrochages de la courbe jusqu'à zéro, suivis d'un réaccélération.
+- **Le graphique espace/vitesse (GEV) :** représente le parcours d'un seul train, cette fois-ci en termes de vitesse. Les arrêts apparaissent donc sous forme de décrochages de la courbe jusqu'à zéro, suivis d'un réaccélération.
 
 ![Graphique Espace/Vitesse](graph_espace_vitesse.png)
 
