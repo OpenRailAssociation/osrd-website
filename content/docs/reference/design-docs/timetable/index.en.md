@@ -75,6 +75,29 @@ We also discussed whether to use seconds or ISO 8601 durations. In the end, ISO 
 - it interfaces nicely with the ISO 8601 departure time
 - it does not suffer from potential integer-float serialization related precision loss
 
+
+### Invalid and outdated train schedules
+
+Reasons for a train schedule to be **invalid**:
+
+- Inconsitent train schedule (contains deleted waypoint)
+- Rolling stock not found
+- Path waypoint not found
+- The path cannot be found
+
+Reasons for a train schedule to be **outdated**:
+
+- The train path changed
+- The train running time changed
+
+What we can do about outdated trains:
+
+1. Nothing, they're updated without notification
+2. We can notify the user that a train schedule is outdated:
+    - Nothing can be done except acknoledge the change
+    - We can not check what changed between the old and new version
+    - We can not know the cause of this change (RS, Infra, Algorithms...)
+
 ## Creation fields
 
 These fields are required at creation time, but cannot be changed afterwards.
@@ -143,67 +166,64 @@ GET /v2/timetable/ID/conflicts
 # Projects the space time curves and paths of a number of train schedules onto the path of another one
 GET /v2/timetable/ID/project_path?onto=X&ids[]=Y&ids[]=Z
 
-POST /v2/train_schedule
+POST /v2/train_schedule # Can be a batch creation
 GET /v2/train_schedule/ID
 GET /v2/train_schedule/ID/path
-PATCH /v2/train_schedule/ID
+PATCH /v2/train_schedule/ID # TODO what operation is allowed
 DELETE /v2/train_schedule/ID
 
-POST /v2/infra/ID/pathfinding/topo
+POST /v2/infra/ID/pathfinding/topo # Not required now can be move later
 POST /v2/infra/ID/pathfinding/blocks
-
-# takes a path (the output of pathfinding/blocks) and a list of properties that need extracting
-POST /v2/infra/ID/path_properties?properties=slopes,gradients,electrification,neutral_sections
 ```
 
+## Missing things TODO
+
+- Adapt import train schedules from open data
+- Patch train schedule ?
+- Train validity ?
+- Scenario change the front behavior using the new timetable endpoint
 
 ## Migration plan
 
-### Phase 0
-
-- Start the redesign the margin / power restrictions UI
-
 ### Phase 1
 
-- core: Implement v2 pathfinding endpoints in core, without removing the old ones
-- editoast: Implement the timetable v2 endpoints, and patch v1 endpoints to use the new model. As timetables currently are created automatically with scenarios, we can use this API to create new style timetables all the time.
-- editoast: implement v2 pathfinding endpoints, without removing the old ones
-- editoast: Implement v2 train schedule endpoints, extending existing tables: v1 endpoints still always work, and v2 endpoints work as long as the train schedule was created using v2 endpoints (we need to have the new-style path description). All train schedules still have a path ID, which can only be seen with the v1 API. For margins and power restrictions, a temporary unordered `path_offset` location type is used, and converted on the fly to a `track_offset` location type.
+Front:
 
-About 1 month
+- Design margin interface and scheduled points
+
+Back:
+
+- Create new tables and associated models (using ModelV2)
+- Implement GET / DELETE / POST / PATCH endpoints for these new models
 
 ### Phase 2
 
-- editoast: implement the new projection API (2 weeks)
-- front: call train schedule v2 endpoints, but still use the old pathfinding endpoints (1 week)
-- editoast: implement the new path properties electrification endpoints (1 week)
-- front: migrate the power restriction selector to use the new path electrification properties endpoint, which does not need path IDs (1 week)
-- editoast: implement path properties extractors, either in editoast directly or via core (decision needed) (2 weeks)
+Front (using legacy train schedules):
 
-About 1 month
+- Adapt margin interface to the new design
+- Handle scheduled points
+
+Back:
+
+- Implement pathfinding endpoint
+- Implement path endpoint of a `train_schedule`
 
 ### Phase 3
 
-- front: migrate the opendata import (2 weeks)
-- front: use the new pathfinding call, which means there is no more path ID (2 weeks parallel)
-- front: use the new projections API, which don't need path IDs (2 weeks parallel)
-- front: use the new path properties API, which don't need path IDs either (2 weeks parallel)
-- front: ensure all path IDs are gone (2 weeks parallel)
-- editoast: remove the old style pathfinding result
+Front (start using the new train schedule model):
 
-About 1 month
+- Handle pathfinding separated from the train schedule
+- Handle invalid rolling stocks
+
+Back:
+
+- Move and adapt `project_path` endpoint
+- Move `conflicts` endpoint
+- Move and adapt STDCM endpoint
+- Adapt timetable import with new endpoints
 
 ### Phase 4
 
-- front: implement the new margin / power restrictions UI (1 month)
-- front: migrate away from path_offset locations
-- editoast: remove the code which converts `path_offset` locations to `track_offset` locations
+Back:
 
-About 1 month
-
-### Phase 5
-
-- front: ensure no more v1 calls are left
-- editoast: remove all v1 calls
-
-About 2 weeks, very low intensity
+- Remove legacy endpoints and tables and models
