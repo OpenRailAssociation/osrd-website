@@ -1,9 +1,22 @@
 ---
-title: "Train schedule v2"
-linkTitle: "Train schedule v2"
+title: "Timetable v2"
+linkTitle: "Timetable v2"
 weight: 60
-description: "Describes evolutions to the train schedule model"
+description: "Describes evolutions to the new **timetable** and **train schedule** models"
 ---
+
+![Test](timetable.svg)
+
+##  Design decisions
+
+Some major changes were made between our first version of the timetable and the new one:
+
+- Isolate the timetable table. It can be used in a scenario or in other contexts
+- Have a soft reference from train schedule to rolling stock (to be able to create a train schedule with unknown rolling stock)
+- Consider path and simulation output as cache (that don't require to be stored in DB)
+- We can compute pathfinding without having to store data
+- All input needed to compute a path is stored in the train schedule (we can recompute it if needed)
+- All input needed to run a simulation is stored in the train schedule (we can recompute it if needed)
 
 # Train schedule v2
 
