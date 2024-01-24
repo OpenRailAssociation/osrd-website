@@ -139,39 +139,6 @@
             "title": "BufferStopSncfExtension",
             "type": "object"
         },
-        "Catenary": {
-            "description": "\n    A catenary corresponds to a set of cables designed to power electric trains by capturing the current through the use\n    of a pantograph. Catenary is identified by its identifier.\n    ",
-            "properties": {
-                "id": {
-                    "description": "Unique identifier of the object",
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "title": "Id",
-                    "type": "string"
-                },
-                "track_ranges": {
-                    "description": "List of locations where the voltage is applied",
-                    "items": {
-                        "$ref": "#/$defs/ApplicableDirectionsTrackRange"
-                    },
-                    "title": "Track Ranges",
-                    "type": "array"
-                },
-                "voltage": {
-                    "description": "Type of power supply (in Volts) used for electrification",
-                    "minLength": 1,
-                    "title": "Voltage",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "voltage",
-                "track_ranges"
-            ],
-            "title": "Catenary",
-            "type": "object"
-        },
         "Curve": {
             "description": "This class is used to define the curve object.\n    A curve correspond at radius of curvature in the part of corresponding track section.",
             "properties": {
@@ -204,14 +171,6 @@
         "Detector": {
             "description": "This class defines detector object.\n    A detector is characterized by its id and its corresponding track.\n    A detector is used to locate a train\n    in order to consider the section as occupied when there is a train.\n    ",
             "properties": {
-                "applicable_directions": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/ApplicableDirections"
-                        }
-                    ],
-                    "description": "Direction of the application of the detector"
-                },
                 "extensions": {
                     "allOf": [
                         {
@@ -244,8 +203,7 @@
             "required": [
                 "track",
                 "position",
-                "id",
-                "applicable_directions"
+                "id"
             ],
             "title": "Detector",
             "type": "object"
@@ -346,6 +304,39 @@
                 "direction"
             ],
             "title": "DirectionalTrackRange",
+            "type": "object"
+        },
+        "Electrification": {
+            "description": "\n    An electrification corresponds to a set of cables designed to power\n    electric trains by capturing the current through the use\n    of a pantograph. Electrification is identified by its identifier.\n    ",
+            "properties": {
+                "id": {
+                    "description": "Unique identifier of the object",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "title": "Id",
+                    "type": "string"
+                },
+                "track_ranges": {
+                    "description": "List of locations where the voltage is applied",
+                    "items": {
+                        "$ref": "#/$defs/ApplicableDirectionsTrackRange"
+                    },
+                    "title": "Track Ranges",
+                    "type": "array"
+                },
+                "voltage": {
+                    "description": "Type of power supply (in Volts) used for electrification",
+                    "minLength": 1,
+                    "title": "Voltage",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "voltage",
+                "track_ranges"
+            ],
+            "title": "Electrification",
             "type": "object"
         },
         "Endpoint": {
@@ -545,7 +536,7 @@
             "type": "object"
         },
         "NeutralSection": {
-            "description": "\n    Neutral sections are portions of track where trains aren't allowed to pull power from catenaries.\n    They have to rely on inertia to cross such sections.\n\n    In practice, neutral sections are delimited by signs. In OSRD, neutral sections are directional\n    to allow accounting for different sign placement depending on the direction.\n\n    For more details see [the documentation](https://osrd.fr/en/docs/explanation/neutral_sections/).\n    ",
+            "description": "\n    Neutral sections are portions of track where trains aren't allowed to pull power from electrifications.\n    They have to rely on inertia to cross such sections.\n\n    In practice, neutral sections are delimited by signs. In OSRD, neutral sections are directional\n    to allow accounting for different sign placement depending on the direction.\n\n    For more details see [the documentation](https://osrd.fr/en/docs/explanation/neutral_sections/).\n    ",
             "properties": {
                 "announcement_track_ranges": {
                     "description": "List of locations where the upcoming neutral section is announced but not yet crossed",
@@ -568,7 +559,7 @@
                     "type": "boolean"
                 },
                 "track_ranges": {
-                    "description": "List of locations where the train cannot pull power from catenaries",
+                    "description": "List of locations where the train cannot pull power from electrifications",
                     "items": {
                         "$ref": "#/$defs/DirectionalTrackRange"
                     },
@@ -1472,20 +1463,20 @@
             "title": "Buffer Stops",
             "type": "array"
         },
-        "catenaries": {
-            "description": "Catenaries of the infra",
-            "items": {
-                "$ref": "#/$defs/Catenary"
-            },
-            "title": "Catenaries",
-            "type": "array"
-        },
         "detectors": {
             "description": "Detectors of the infra",
             "items": {
                 "$ref": "#/$defs/Detector"
             },
             "title": "Detectors",
+            "type": "array"
+        },
+        "electrifications": {
+            "description": "Electrifications of the infra",
+            "items": {
+                "$ref": "#/$defs/Electrification"
+            },
+            "title": "Electrifications",
             "type": "array"
         },
         "extended_switch_types": {
@@ -1554,8 +1545,8 @@
             "type": "array"
         },
         "version": {
-            "const": "3.4.6",
-            "default": "3.4.6",
+            "const": "3.4.8",
+            "default": "3.4.8",
             "description": "Version of the schema",
             "title": "Version"
         }
@@ -1566,7 +1557,7 @@
         "switches",
         "track_sections",
         "speed_sections",
-        "catenaries",
+        "electrifications",
         "signals",
         "buffer_stops",
         "detectors",

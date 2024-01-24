@@ -91,7 +91,7 @@ This is because a node is a physical object, and changing active branch can invo
 &lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB1.svg" alt="Diagram of double crossing switch positions"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB2.svg" alt="Diagram of double crossing switch positions">&lt;/p>
 &lt;p>&lt;strong>5) The Single slip switch&lt;/strong>&lt;/p>
 &lt;p>This one looks more like a cross between a single needle and a crossover. It has four ports: &lt;em>A1&lt;/em>, &lt;em>A2&lt;/em>, &lt;em>B1&lt;/em> and &lt;em>B2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB1.svg" alt="Single slip switch diagram">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/single_slip_crossing.svg" alt="Single slip switch diagram">&lt;/p>
 &lt;p>Here are the three connections that can be made by this switch:&lt;/p>
 &lt;ul>
 &lt;li>&lt;em>A1&lt;/em> to &lt;em>B1&lt;/em>&lt;/li>

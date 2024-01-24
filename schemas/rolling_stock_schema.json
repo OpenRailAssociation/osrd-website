@@ -35,37 +35,6 @@
             "title": "Battery",
             "type": "object"
         },
-        "Catenary": {
-            "additionalProperties": false,
-            "description": "Catenary used when simulating qualesi trains",
-            "properties": {
-                "efficiency": {
-                    "description": "Efficiency of catenary and pantograph transmission",
-                    "maximum": 1,
-                    "minimum": 0,
-                    "title": "Efficiency",
-                    "type": "number"
-                },
-                "energy_source_type": {
-                    "const": "Catenary",
-                    "default": "Catenary",
-                    "title": "Energy Source Type"
-                },
-                "max_input_power": {
-                    "$ref": "#/$defs/SpeedDependantPower"
-                },
-                "max_output_power": {
-                    "$ref": "#/$defs/SpeedDependantPower"
-                }
-            },
-            "required": [
-                "max_input_power",
-                "max_output_power",
-                "efficiency"
-            ],
-            "title": "Catenary",
-            "type": "object"
-        },
         "ComfortType": {
             "description": "This enum defines the comfort type that can take a train.",
             "enum": [
@@ -204,20 +173,51 @@
             "title": "EffortCurves",
             "type": "object"
         },
+        "Electrification": {
+            "additionalProperties": false,
+            "description": "Electrification used when simulating qualesi trains",
+            "properties": {
+                "efficiency": {
+                    "description": "Efficiency of electrification and pantograph transmission",
+                    "maximum": 1,
+                    "minimum": 0,
+                    "title": "Efficiency",
+                    "type": "number"
+                },
+                "energy_source_type": {
+                    "const": "Electrification",
+                    "default": "Electrification",
+                    "title": "Energy Source Type"
+                },
+                "max_input_power": {
+                    "$ref": "#/$defs/SpeedDependantPower"
+                },
+                "max_output_power": {
+                    "$ref": "#/$defs/SpeedDependantPower"
+                }
+            },
+            "required": [
+                "max_input_power",
+                "max_output_power",
+                "efficiency"
+            ],
+            "title": "Electrification",
+            "type": "object"
+        },
         "EnergySource": {
             "additionalProperties": false,
             "description": "Energy sources used when simulating qualesi trains",
             "discriminator": {
                 "mapping": {
                     "Battery": "#/$defs/Battery",
-                    "Catenary": "#/$defs/Catenary",
+                    "Electrification": "#/$defs/Electrification",
                     "PowerPack": "#/$defs/PowerPack"
                 },
                 "propertyName": "energy_source_type"
             },
             "oneOf": [
                 {
-                    "$ref": "#/$defs/Catenary"
+                    "$ref": "#/$defs/Electrification"
                 },
                 {
                     "$ref": "#/$defs/PowerPack"
@@ -458,7 +458,7 @@
         },
         "SpeedDependantPower": {
             "additionalProperties": false,
-            "description": "\n    A curve that account for speed-related power (output/availability) behavior of specific energy sources,\n    - the pantograph power is lowered at low speed to avoid welding the pantograph to the catenary\n    - the power outputted by Hydrogen fuel cells increases with speed\n    ",
+            "description": "\n    A curve that account for speed-related power (output/availability) behavior of specific energy sources,\n    - the pantograph power is lowered at low speed to avoid welding the pantograph to the electrification\n    - the power outputted by Hydrogen fuel cells increases with speed\n    ",
             "properties": {
                 "powers": {
                     "description": "power values",
@@ -490,7 +490,7 @@
         }
     },
     "additionalProperties": false,
-    "description": "Electrical profiles and power classes are used to model the power loss along a catenary:\n    * Rolling stocks are attributed a power class depending on their power usage.\n    * Electrical profiles are then computed for each power class along all catenaries.\n    The electrical profile's value along the catenary is akin to an \"actual available power\" value.\n    * Then, speed-effort curves can be computed for all electrical profile values.\n\n    To prevent power grid overloads, infrastructure managers can enforce power restrictions on some parts of their\n    infrastructure for some trains. These train-specific restrictions are given a code.\n    To respect the prescribed power restrictions, the driver has to change the power notch used in the train, which\n    changes the power consumption of the train, akin to a car's gear.\n    In our model, we consider that trains' power notches and the associated power restriction codes are equivalent.\n    Thus power restrictions affect the effort curves, and change the power class of the rolling stock.\n    ",
+    "description": "Electrical profiles and power classes are used to model the power loss along a electrification:\n    * Rolling stocks are attributed a power class depending on their power usage.\n    * Electrical profiles are then computed for each power class along all electrifications.\n    The electrical profile's value along the electrification is akin to an \"actual available power\" value.\n    * Then, speed-effort curves can be computed for all electrical profile values.\n\n    To prevent power grid overloads, infrastructure managers can enforce power restrictions on some parts of their\n    infrastructure for some trains. These train-specific restrictions are given a code.\n    To respect the prescribed power restrictions, the driver has to change the power notch used in the train, which\n    changes the power consumption of the train, akin to a car's gear.\n    In our model, we consider that trains' power notches and the associated power restriction codes are equivalent.\n    Thus power restrictions affect the effort curves, and change the power class of the rolling stock.\n    ",
     "properties": {
         "base_power_class": {
             "anyOf": [
