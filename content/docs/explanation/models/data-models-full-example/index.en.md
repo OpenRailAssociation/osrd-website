@@ -150,7 +150,7 @@ However, it has four groups, each with one connection. The four groups are repre
 
 This one looks more like a cross between a single needle and a crossover. It has four ports: *A1*, *A2*, *B1* and *B2*.
 
-![Single slip switch diagram](svg_diagrams/DoubleSlipCrossing_A1toB1.svg)
+![Single slip switch diagram](svg_diagrams/single_slip_crossing.svg)
 
 Here are the three connections that can be made by this switch:
 
