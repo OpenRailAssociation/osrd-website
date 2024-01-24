@@ -165,7 +165,7 @@ Cependant, il comporte quatre groupes, chacun avec une connexion. Les quatre con
 
 Celui-ci ressemble plus à un mélange entre une aiguille simple et un croisement. Il possède quatre ports : *A1*, *A2*, *B1* et *B2*.
 
-![Diagramme d'un aiguillage de croisement simple](svg_diagrams/DoubleSlipCrossing_A1toB1.svg)
+![Diagramme d'un aiguillage de croisement simple](svg_diagrams/single_slip_crossing.svg)
 
 Voici les trois connexions que peut réaliser cet aiguillage :
 
