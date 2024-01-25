@@ -98,6 +98,8 @@ What we can do about outdated trains:
     - We can not check what changed between the old and new version
     - We can not know the cause of this change (RS, Infra, Algorithms...)
 
+Note: The outdated status is a nice to have feature (it won't be implemented right now).
+
 ## Creation fields
 
 These fields are required at creation time, but cannot be changed afterwards.
@@ -168,20 +170,16 @@ GET /v2/timetable/ID/project_path?onto=X&ids[]=Y&ids[]=Z
 
 POST /v2/train_schedule # Can be a batch creation
 GET /v2/train_schedule/ID
-GET /v2/train_schedule/ID/path
-PATCH /v2/train_schedule/ID # TODO what operation is allowed
+GET /v2/train_schedule/ID/path?infra_id=42
+PATCH /v2/train_schedule/ID
 DELETE /v2/train_schedule/ID
 
 POST /v2/infra/ID/pathfinding/topo # Not required now can be move later
 POST /v2/infra/ID/pathfinding/blocks
+
+# takes a path (the output of pathfinding/blocks) and a list of properties that need extracting
+POST /v2/infra/ID/path_properties?properties=slopes,gradients,electrification,neutral_sections,geometry
 ```
-
-## Missing things TODO
-
-- Adapt import train schedules from open data
-- Patch train schedule ?
-- Train validity ?
-- Scenario change the front behavior using the new timetable endpoint
 
 ## Migration plan
 
