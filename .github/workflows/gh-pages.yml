@@ -32,9 +32,6 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Install docsy dependencies
-        run: cd themes/docsy && npm install
-
       - name: Build
         run: npm run build
 
@@ -45,7 +42,7 @@ jobs:
 
       - name: Clone OSRD repository
         run: |
-          git clone https://github.com/DGEXSolutions/osrd.git /tmp/osrd
+          git clone https://github.com/osrd-project/osrd.git /tmp/osrd
           mv /tmp/osrd/python/osrd_schemas ./
 
       - name: Install poetry
