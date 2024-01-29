@@ -21,4 +21,97 @@ Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;exista
 &lt;li>&lt;a href="https://osrd.fr/fr/docs/guides/deploy/docker-compose/">Utiliser docker compose&lt;/a> sur un seul nœud.&lt;/li>
 &lt;li>&lt;a href="https://osrd.fr/fr/docs/guides/deploy/docker-compose/">Utiliser helm&lt;/a> sur un cluster kubernetes.&lt;/li>
 &lt;/ul>
-&lt;p>Il est également possible de déployer manuellement chaque service d&amp;rsquo;OSRD sur un système, mais nous ne couvrirons pas ce sujet dans ce guide.&lt;/p></description></item></channel></rss>
+&lt;p>Il est également possible de déployer manuellement chaque service d&amp;rsquo;OSRD sur un système, mais nous ne couvrirons pas ce sujet dans ce guide.&lt;/p></description></item><item><title>Docs: Le design d'OSRD</title><link>https://osrd.fr/fr/docs/guides/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/design/</guid><description>
+&lt;p>Tout est présenté dans un site dédié &lt;a href="https://design.osrd.fr">https://design.osrd.fr&lt;/a>&lt;/p>
+&lt;p>Un « design system » est en cours d&amp;rsquo;élaboration.&lt;/p>
+&lt;figure>&lt;a href="https://design.osrd.fr">
+&lt;img src="https://osrd.fr/fr/docs/guides/design/images/design.webp"/> &lt;/a>
+&lt;/figure></description></item><item><title>Docs: Le logo</title><link>https://osrd.fr/fr/docs/guides/logo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/logo/</guid><description>
+&lt;p>Vous pouvez télécharger chaque logo indépendamment en cliquant directement dessus, ou &lt;a href="pictures/logo-osrd.zip">tous les logos compressés dans un fichier zip&lt;/a>.&lt;/p>
+&lt;p>Il est conseillé de bien choisir le logo à utiliser en fonction du fond sur lequel vous voulez l&amp;rsquo;afficher.&lt;/p>
+&lt;p>La modification, ajout ou suppression de l&amp;rsquo;&lt;strong>ombrage&lt;/strong> autre que tel que présenté dans les logos &lt;strong>ne sont pas autorisés&lt;/strong> (cela est valable plus globalement dans tout le design, le choix de mettre des ombres portées fait partie des réflexions de design, ce n&amp;rsquo;est pas un élément variable).&lt;/p>
+&lt;h3 id="officiel">Officiel&lt;/h3>
+&lt;div style="display:inline-block;padding:16px;background-color:white">
+&lt;a target="_blank" href="pictures/logo-osrd-color-black.svg">
+&lt;img src="pictures/logo-osrd-color-black.svg" width=256>
+&lt;/a>
+&lt;/div>
+&lt;h3 id="officiel-pour-les-fonds-sombres">Officiel pour les fonds sombres&lt;/h3>
+&lt;div style="display:inline-block;padding:16px;background-color:#333">
+&lt;a target="_blank" href="pictures/logo-osrd-color-white.svg">
+&lt;img src="pictures/logo-osrd-color-white.svg" width=256>
+&lt;/a>
+&lt;/div>
+&lt;h3 id="blanc">Blanc&lt;/h3>
+&lt;div style="display:inline-block;padding:16px;background-color:#333">
+&lt;a target="_blank" href="pictures/logo-osrd-white.svg">
+&lt;img src="pictures/logo-osrd-white.svg" width=256>
+&lt;/a>
+&lt;/div>
+&lt;h3 id="noir">Noir&lt;/h3>
+&lt;div style="display:inline-block;padding:16px;background-color:white">
+&lt;a target="_blank" href="pictures/logo-osrd-black.svg">
+&lt;img src="pictures/logo-osrd-black.svg" width=256>
+&lt;/a>
+&lt;/div>
+&lt;h3 id="favicons-logos-seuls">Favicons, logos seuls&lt;/h3>
+&lt;div style="display:inline-block;padding:16px;background-color:white">
+&lt;a target="_blank" href="pictures/fav-osrd-color.svg">
+&lt;img src="pictures/fav-osrd-color.svg" width=64>
+&lt;/a>
+&lt;/div>
+&lt;div style="display:inline-block;padding:16px;background-color:white;margin-left:16px">
+&lt;a target="_blank" href="pictures/fav-osrd-black.svg">
+&lt;img src="pictures/fav-osrd-black.svg" width=64>
+&lt;/a>
+&lt;/div>
+&lt;div style="display:inline-block;padding:16px;background-color:#333;margin-left:16px">
+&lt;a target="_blank" href="pictures/fav-osrd-white.svg">
+&lt;img src="pictures/fav-osrd-white.svg" width=64>
+&lt;/a>
+&lt;/div>
+&lt;h2 id="-ce-quon-ne-doit-pas-faire">🚫 Ce qu&amp;rsquo;on ne doit &lt;strong>pas&lt;/strong> faire&lt;/h2>
+&lt;h4 id="trop-petit--16px-de-hauteur">Trop petit (&amp;lt; 16px de hauteur)&lt;/h4>
+&lt;img src="pictures/dont/dont5.svg" style="height:32px">
+&lt;h4 id="disproportion">Disproportion&lt;/h4>
+&lt;img src="pictures/dont/dont1.svg" style="margin-left:16px;height:64px">
+&lt;h4 id="changer-la-couleur-du-texte-ou-lombre-portée">Changer la couleur du texte ou l&amp;rsquo;ombre portée&lt;/h4>
+&lt;img src="pictures/dont/dont2.svg" style="height:64px">
+&lt;h4 id="changer-le-sens">Changer le sens&lt;/h4>
+&lt;img src="pictures/dont/dont3.svg" style="margin-left:16px;height:64px">
+&lt;h4 id="déformation">Déformation&lt;/h4>
+&lt;img src="pictures/dont/dont4.svg" style="height:64px">
+&lt;h2 id="-ce-quon-peut-faire">✅ Ce qu&amp;rsquo;on peut faire&lt;/h2>
+&lt;h4 id="modification-de-la-couleur-interne-pour-un-évènement">Modification de la couleur interne pour un évènement&lt;/h4>
+&lt;div>
+&lt;a style="display:inline-block;padding:8px;background-color:white;" href="pictures/events/xmas-fav-osrd-color.svg" target="_blank">
+&lt;img src="pictures/events/xmas-fav-osrd-color.svg" style="height:32px">
+&lt;/a>
+&lt;a style="display:inline-block;margin-left:8px;padding:8px;background-color:white;" href="pictures/events/xmas-logo-osrd-color-black.svg" target="_blank">
+&lt;img src="pictures/events/xmas-logo-osrd-color-black.svg" style="height:32px">
+&lt;/a>
+&lt;a style="display:inline-block;margin-left:8px;padding:8px;background-color:#333" href="pictures/events/xmas-logo-osrd-color-white.svg">
+&lt;img src="pictures/events/xmas-logo-osrd-color-white.svg" style="height:32px">
+&lt;/a>
+&lt;/div>
+&lt;div style="margin-top:8px">
+&lt;a style="display:inline-block;padding:8px;background-color:white;" href="pictures/events/proud-fav-osrd-color.svg" target="_blank">
+&lt;img src="pictures/events/proud-fav-osrd-color.svg" style="height:32px">
+&lt;/a>
+&lt;a style="display:inline-block;margin-left:8px;padding:8px;background-color:white;" href="pictures/events/proud-logo-osrd-color-black.svg" target="_blank">
+&lt;img src="pictures/events/proud-logo-osrd-color-black.svg" style="height:32px">
+&lt;/a>
+&lt;a style="display:inline-block;margin-left:8px;padding:8px;background-color:#333" href="pictures/events/proud-logo-osrd-color-white.svg">
+&lt;img src="pictures/events/proud-logo-osrd-color-white.svg" style="height:32px">
+&lt;/a>
+&lt;/div>
+&lt;h4 id="utilisation-seule-du-logo-sans-le-texte">Utilisation seule du logo (sans le texte)&lt;/h4>
+&lt;div style="display:inline-block">
+&lt;img src="pictures/fav-osrd-color.svg" style="height:64px">
+&lt;/div>
+&lt;h2 id="les-couleurs">Les couleurs&lt;/h2>
+&lt;blockquote>
+&lt;p>Ces couleurs sont &lt;strong>celles du logo&lt;/strong>, elles ne sont pas à confondre avec celles du design global de l&amp;rsquo;interface d&amp;rsquo;OSRD.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;span style="display:inline-block;background-color:#786abf;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px">#786ABF&lt;/span>
+&lt;span style="display:inline-block;background-color:#c7b2de;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px;margin-left:16px">#C7B2DE&lt;/span>&lt;/p></description></item></channel></rss>
