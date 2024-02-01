@@ -1,10 +1,10 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Modèles</title><link>https://osrd.fr/fr/docs/explanation/models/</link><description>Recent content in Modèles on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/explanation/models/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Exemple d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Modèles</title><link>https://osrd.fr/fr/docs/explanation/models/</link><description>Recent content in Modèles on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/explanation/models/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Exemple d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="introduction">Introduction&lt;/h3>
 &lt;/font>
 &lt;p>Cette page donne un exemple de la manière dont les formats de données sont utilisés pour décrire une infrastructure dans &lt;strong>OSRD&lt;/strong>.&lt;/p>
 &lt;p>À cette fin, prenons comme exemple l&amp;rsquo;infrastructure-jouet suivante :&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/small_infra_diagram.drawio.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_diagram.drawio.svg" alt="Diagramme de l&amp;rsquo;Infrastructure">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Conseil&lt;/h4>
 Pour zoomer sur un diagramme, cliquez sur le bouton d&amp;rsquo;édition qui apparaît au survol de celui-ci.
@@ -60,12 +60,12 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un obje
 &lt;p>Nos exemples utilisent actuellement cinq &lt;code>NodeTypes&lt;/code>. Il est possible d&amp;rsquo;ajouter un type de noeud si nécessaire via le champ &lt;code>extended_node_type&lt;/code>.&lt;/p>
 &lt;p>&lt;strong>1) Le lien entre deux sectionx de voies&lt;/strong>&lt;/p>
 &lt;p>Celui-ci représente le lien entre deux sections de voies. Il possède deux ports : &lt;em>A&lt;/em> et &lt;em>B&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/link.svg" alt="Diagramme d&amp;amp;rsquo;un lien">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/link.svg" alt="Diagramme d&amp;rsquo;un lien">&lt;/p>
 &lt;p>Il permet de créer un lien entre deux sections de voies tel que définis dans OSRD. Ce n&amp;rsquo;est pas un objet physique.&lt;/p>
 &lt;p>&lt;strong>2) L&amp;rsquo;aiguille&lt;/strong>&lt;/p>
 &lt;p>L&amp;rsquo;omniprésent aiguillage en Y, qui peut être considéré comme la fusion de deux voies ou la séparation d&amp;rsquo;une voie.&lt;/p>
 &lt;p>Ce type d&amp;rsquo;aiguillage possède trois ports : &lt;em>A&lt;/em>, &lt;em>B1&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/point_switch.svg" alt="Diagramme d&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/point_switch.svg" alt="Diagramme d&amp;rsquo;aiguillage">&lt;/p>
 &lt;p>Il y a deux groupes, chacun avec une connexion dans leur liste : &lt;code>A_B1&lt;/code>, qui connecte &lt;em>A&lt;/em> à &lt;em>B1&lt;/em>, et &lt;code>A_B2&lt;/code> qui connecte &lt;em>A&lt;/em> à &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>Ainsi, à tout moment (sauf lorsque l&amp;rsquo;aiguille bouge pour changer de groupe), un train peut aller de &lt;em>A&lt;/em> à &lt;em>B1&lt;/em> ou de &lt;em>A&lt;/em> à &lt;em>B2&lt;/em> mais jamais aux deux en même temps. Un train ne peut pas aller de &lt;em>B1&lt;/em> à &lt;em>B2&lt;/em>.&lt;/p>
 &lt;p>Une aiguille n&amp;rsquo;a que deux positions :&lt;/p>
@@ -73,11 +73,11 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un obje
 &lt;li>&lt;em>A&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
 &lt;li>&lt;em>A&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="svg_diagrams/PointSwitch_AtoB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage"> &lt;img src="svg_diagrams/PointSwitch_AtoB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/PointSwitch_AtoB1.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage"> &lt;img src="svg_diagrams/PointSwitch_AtoB2.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage">&lt;/p>
 &lt;p>&lt;strong>3) L&amp;rsquo;aiguillage de croisement&lt;/strong>&lt;/p>
 &lt;p>Il s&amp;rsquo;agit simplement de deux voies qui se croisent.&lt;/p>
 &lt;p>Ce type a quatre ports : &lt;em>A1&lt;/em>, &lt;em>B1&lt;/em>, &lt;em>A2&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/crossing.svg" alt="Diagramme de l&amp;amp;rsquo;aiguillage croisé">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/crossing.svg" alt="Diagramme de l&amp;rsquo;aiguillage croisé">&lt;/p>
 &lt;p>Il ne comporte qu&amp;rsquo;un seul groupe contenant deux connexions : &lt;em>A1&lt;/em> vers &lt;em>B1&lt;/em> et &lt;em>A2&lt;/em> vers &lt;em>B2&lt;/em>. En effet, ce type d&amp;rsquo;aiguillage est &lt;em>passif&lt;/em> : il n&amp;rsquo;a pas de pièces mobiles. Bien qu&amp;rsquo;il n&amp;rsquo;ait qu&amp;rsquo;un seul groupe, il est tout de même utilisé par la simulation pour faire respecter les réservations de route.&lt;/p>
 &lt;p>Voici les deux connexions différentes que ce type d&amp;rsquo;aiguillage possède :&lt;/p>
 &lt;ul>
@@ -87,7 +87,7 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un obje
 &lt;p>&lt;img src="svg_diagrams/Crossing_A1toB1.svg" alt="Diagramme des positions des aiguillages croisés"> &lt;img src="svg_diagrams/Crossing_A2toB2.svg" alt="Diagramme des positions des aiguillages croisés">&lt;/p>
 &lt;p>&lt;strong>4) L&amp;rsquo;aiguillage de croisement double&lt;/strong>&lt;/p>
 &lt;p>Celui-ci ressemble plus à deux aiguilles dos à dos. Il possède quatre ports : &lt;em>A1&lt;/em>, &lt;em>A2&lt;/em>, &lt;em>B1&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/double_slip_crossing.svg" alt="Diagramme d&amp;amp;rsquo;un aiguillage de croisement double">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/double_slip_crossing.svg" alt="Diagramme d&amp;rsquo;un aiguillage de croisement double">&lt;/p>
 &lt;p>Cependant, il comporte quatre groupes, chacun avec une connexion. Les quatre connexions possibles sont les suivantes :&lt;/p>
 &lt;ul>
 &lt;li>&lt;em>A1&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
@@ -95,19 +95,19 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un obje
 &lt;li>&lt;em>A2&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
 &lt;li>&lt;em>A2&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double">&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement double">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB1.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement double"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A1toB2.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement double">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB1.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement double"> &lt;img src="svg_diagrams/DoubleSlipCrossing_A2toB2.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement double">&lt;/p>
 &lt;p>&lt;strong>5) L&amp;rsquo;aiguillage de croisement simple&lt;/strong>&lt;/p>
 &lt;p>Celui-ci ressemble plus à un mélange entre une aiguille simple et un croisement. Il possède quatre ports : &lt;em>A1&lt;/em>, &lt;em>A2&lt;/em>, &lt;em>B1&lt;/em> et &lt;em>B2&lt;/em>.&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/single_slip_crossing.svg" alt="Diagramme d&amp;amp;rsquo;un aiguillage de croisement simple">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/single_slip_crossing.svg" alt="Diagramme d&amp;rsquo;un aiguillage de croisement simple">&lt;/p>
 &lt;p>Voici les trois connexions que peut réaliser cet aiguillage :&lt;/p>
 &lt;ul>
 &lt;li>&lt;em>A1&lt;/em> vers &lt;em>B1&lt;/em>&lt;/li>
 &lt;li>&lt;em>A1&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
 &lt;li>&lt;em>A2&lt;/em> vers &lt;em>B2&lt;/em>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="svg_diagrams/SingleSlipCrossing_A1toB1.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement simple"> &lt;img src="svg_diagrams/SingleSlipCrossing_A1toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement simple">
-&lt;img src="svg_diagrams/SingleSlipCrossing_A2toB2.svg" alt="Diagramme des positions de l&amp;amp;rsquo;aiguillage de croisement simple">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/SingleSlipCrossing_A1toB1.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement simple"> &lt;img src="svg_diagrams/SingleSlipCrossing_A1toB2.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement simple">
+&lt;img src="svg_diagrams/SingleSlipCrossing_A2toB2.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement simple">&lt;/p>
 &lt;h5 id="retour-aux-noeuds">Retour aux noeuds&lt;/h5>
 &lt;p>Un &lt;code>Node&lt;/code> possède trois attributs :&lt;/p>
 &lt;ul>
@@ -145,7 +145,7 @@ N&amp;rsquo;oubliez pas que la valeur &lt;code>begin&lt;/code> doit toujours êt
 Prenons l&amp;rsquo;exemple d&amp;rsquo;un aiguillage de croisement : si le train A le franchit du &lt;em>nord&lt;/em> au &lt;em>sud&lt;/em> et que le train B arrive pour le franchir de l&amp;rsquo;&lt;em>ouest&lt;/em> à l&amp;rsquo;&lt;em>est&lt;/em>, dès que le dernier wagon du train A a franchi l&amp;rsquo;aiguillage, B devrait pouvoir partir, puisque A se trouve maintenant sur une section de voie complètement indépendante.
 &lt;/div>
 &lt;p>Dans &lt;em>OSRD&lt;/em>, les détecteurs sont des objets ponctuels. Les attributs dont ils ont besoin sont leur &lt;code>id&lt;/code> et leur localisation sur la voie (&lt;code>track&lt;/code> et &lt;code>offset&lt;/code>).&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Diagramme d&amp;amp;rsquo;infra avec tous les détecteurs">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_detectors.drawio.en.svg" alt="Diagramme d&amp;rsquo;infra avec tous les détecteurs">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet, certains tronçons de voie n&amp;rsquo;étant pas représentés sur toute leur longueur, nous n&amp;rsquo;avons pas pu représenter tous les détecteurs du tronçon de voie correspondant.
 &lt;/div>
@@ -190,7 +190,7 @@ Les carrés agglutinés représentent plusieurs détecteurs à la fois. En effet
 &lt;/ul>
 &lt;p>Notez que les détecteurs liés à au moins un signal ne sont pas représentés, car il n&amp;rsquo;y a pas de signaux sans détecteurs associés dans cet exemple.&lt;/p>
 &lt;p>Pour obtenir le &lt;code>id&lt;/code> d&amp;rsquo;un détecteur lié à un signal, prenez le &lt;code>id&lt;/code> du signal et remplacez &lt;em>S&lt;/em> par &lt;em>D&lt;/em> (par exemple SA0 -&amp;gt; DA0).&lt;/p>
-&lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Diagramme d&amp;amp;rsquo;infra avec tous les signaux">&lt;/p>
+&lt;p>&lt;img src="svg_diagrams/small_infra_signals.drawio.en.svg" alt="Diagramme d&amp;rsquo;infra avec tous les signaux">&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 Sur &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> nous n&amp;rsquo;avons pas pu représenter tous les signaux car ces sections de voie sont très longues et comportent de nombreux détecteurs, donc de nombreux signaux.
 &lt;/div>

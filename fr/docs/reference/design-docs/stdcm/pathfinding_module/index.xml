@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Module de recherche de sillons</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/</link><description>Recent content in Module de recherche de sillons on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Description du format d'entrée</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Module de recherche de sillons</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/</link><description>Recent content in Module de recherche de sillons on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Description du format d'entrée</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</guid><description>
 &lt;p>Ce module prend plusieurs entrées pour effectuer une recherche de chemin :&lt;/p>
 &lt;ul>
 &lt;li>Un graphe décrivant l&amp;rsquo;infrastructure physique&lt;/li>
@@ -92,7 +92,7 @@ Les ralentissements sont ajoutés seulement quand ils sont nécessaires.&lt;/li>
 &lt;h4 id="exemple">Exemple&lt;/h4>
 &lt;p>Par exemple, avec l&amp;rsquo;infrastructure suivante en se basant sur
 le graphe des voies :
-&lt;img src="example_infra.svg" alt="Infra d&amp;amp;rsquo;exemple">&lt;/p>
+&lt;img src="example_infra.svg" alt="Infra d&amp;rsquo;exemple">&lt;/p>
 &lt;p>Explorer le graphe des sillons possibles peut donner ce
 type de résultat :
 &lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Discontinuités et retours en arrière</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>

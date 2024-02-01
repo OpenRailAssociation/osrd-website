@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Recherche de sillons de dernière minute (STDCM)</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/</link><description>Recent content in Recherche de sillons de dernière minute (STDCM) on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/fr/docs/reference/design-docs/stdcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Contexte métier</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Recherche de sillons de dernière minute (STDCM)</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/</link><description>Recent content in Recherche de sillons de dernière minute (STDCM) on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/reference/design-docs/stdcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Contexte métier</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</guid><description>
 &lt;p>Quelques définitions :&lt;/p>
 &lt;h3 id="la-capacité">La capacité&lt;/h3>
 &lt;p>La &lt;strong>capacité&lt;/strong>, dans ce contexte, correspond à la possibilité de
@@ -103,7 +103,7 @@ est intégrée. Elle fait alors partie de l&amp;rsquo;arête suivante,
 car à ce moment davantage d&amp;rsquo;informations sont disponibles sur le
 trajet du train.&lt;/p>
 &lt;p>Par exemple :&lt;/p>
-&lt;p>&lt;img src="example_interface_signaling_1.svg" alt="Configuration nécessitant d&amp;amp;rsquo;anticiper">&lt;/p>
+&lt;p>&lt;img src="example_interface_signaling_1.svg" alt="Configuration nécessitant d&amp;rsquo;anticiper">&lt;/p>
 &lt;p>Dans cette configuration en BAL3, il est possible de déterminer
 l&amp;rsquo;absence de conflit des signaux 1 à 4. Mais l&amp;rsquo;état du signal
 5 dépend de l&amp;rsquo;itinéraire emprunté par le train : s&amp;rsquo;il va vers

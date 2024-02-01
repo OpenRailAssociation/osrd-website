@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Style guide</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/</link><description>Recent content in Style guide on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/guides/contribute/conventions/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Back-end</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/back/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/conventions/back/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Style guide</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/</link><description>Recent content in Style guide on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/contribute/conventions/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Back-end</title><link>https://osrd.fr/en/docs/guides/contribute/conventions/back/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/conventions/back/</guid><description>
 &lt;h1 id="python">Python&lt;/h1>
 &lt;p>Python code is used for some packages and integration testing.&lt;/p>
 &lt;ul>
@@ -34,7 +34,7 @@ Generally, these should be followed.&lt;/li>
 &lt;p>Nous utilisons &lt;strong>ReactJS&lt;/strong> et tous les fichiers doivent être écrits en &lt;strong>Typescript&lt;/strong>.&lt;/p>
 &lt;p>Le code est &lt;strong>linté&lt;/strong> avec &lt;a href="https://eslint.org/">eslint&lt;/a>, et &lt;strong>formaté&lt;/strong> avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/p>
 &lt;h2 id="nomenclature">Nomenclature&lt;/h2>
-&lt;p>&lt;img src="../nomenclature-front-end.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
+&lt;p>&lt;img src="../nomenclature-front-end.svg" alt="Diagramme de l&amp;rsquo;Infrastructure">&lt;/p>
 &lt;p>Les &lt;strong>applications&lt;/strong> (osrd eex, osrd stdcm, éditeur infra, éditeur matériel) proposent des &lt;strong>vues&lt;/strong> (gestion des projets, gestions des études, etc.) liées à des &lt;strong>modules&lt;/strong> (projet, étude, etc.) qui contiennent les composants.&lt;/p>
 &lt;p>Ces &lt;strong>vues&lt;/strong> sont constituées de &lt;strong>composants&lt;/strong> et sous-composants &lt;u>tous issus des modules&lt;/u>.
 En plus de contenir les fichiers de &lt;strong>vues&lt;/strong> des applications, elles peuvent contenir un répertoire &lt;strong>scripts&lt;/strong> qui propose des scripts liés à ces vues. Les &lt;strong>vues&lt;/strong> déterminent la logique et l&amp;rsquo;&lt;u>accès au store&lt;/u>.&lt;/p>

@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://osrd.fr/en/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Business context</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Documentation</title><link>https://osrd.fr/en/docs/</link><description>Recent content in Documentation on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Business context</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</guid><description>
 &lt;p>Some definitions:&lt;/p>
 &lt;h3 id="capacity">Capacity&lt;/h3>
 &lt;p>&lt;strong>Capacity&lt;/strong>, in this context, is the ability to
@@ -373,7 +373,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;p>$$v(t+dt) = a(v(t), x(t))dt + v(t)$$&lt;/p>
 &lt;p>$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$&lt;/p>
 &lt;center>
-&lt;p>&lt;img src="../euler.png?style=method" alt="Euler&amp;amp;rsquo;s method">&lt;/p>
+&lt;p>&lt;img src="../euler.png?style=method" alt="Euler&amp;rsquo;s method">&lt;/p>
 &lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="advantages-of-eulers-method">&lt;strong>Advantages of Euler&amp;rsquo;s method&lt;/strong>&lt;/h4>
@@ -396,7 +396,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;p>$$k_3 = a\Big(v(t+k_2\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_2\frac{dt^2}{8}\Big)$$&lt;/p>
 &lt;p>$$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$&lt;/p>
 &lt;center>
-&lt;p>&lt;img src="../rk4.png?style=method" alt="Runge-Kutta 4&amp;amp;rsquo;s method">&lt;/p>
+&lt;p>&lt;img src="../rk4.png?style=method" alt="Runge-Kutta 4&amp;rsquo;s method">&lt;/p>
 &lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="advantages-of-runge-kuttas-4-method">&lt;strong>Advantages of Runge Kutta&amp;rsquo;s 4 method&lt;/strong>&lt;/h4>
@@ -1097,7 +1097,7 @@ The implementation hasn&amp;rsquo;t been started.&lt;/p></description></item><it
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcodes0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode127s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -1108,11 +1108,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcodes1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode127s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcodes2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode127s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -1131,14 +1131,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcodes3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode127s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcodes4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode127s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcodes5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode127s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -1150,7 +1150,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcodes6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode127s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -1185,7 +1185,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcodes7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode127s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -2054,7 +2054,7 @@ Generally, these should be followed.&lt;/li>
 &lt;p>Nous utilisons &lt;strong>ReactJS&lt;/strong> et tous les fichiers doivent être écrits en &lt;strong>Typescript&lt;/strong>.&lt;/p>
 &lt;p>Le code est &lt;strong>linté&lt;/strong> avec &lt;a href="https://eslint.org/">eslint&lt;/a>, et &lt;strong>formaté&lt;/strong> avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/p>
 &lt;h2 id="nomenclature">Nomenclature&lt;/h2>
-&lt;p>&lt;img src="../nomenclature-front-end.svg" alt="Diagramme de l&amp;amp;rsquo;Infrastructure">&lt;/p>
+&lt;p>&lt;img src="../nomenclature-front-end.svg" alt="Diagramme de l&amp;rsquo;Infrastructure">&lt;/p>
 &lt;p>Les &lt;strong>applications&lt;/strong> (osrd eex, osrd stdcm, éditeur infra, éditeur matériel) proposent des &lt;strong>vues&lt;/strong> (gestion des projets, gestions des études, etc.) liées à des &lt;strong>modules&lt;/strong> (projet, étude, etc.) qui contiennent les composants.&lt;/p>
 &lt;p>Ces &lt;strong>vues&lt;/strong> sont constituées de &lt;strong>composants&lt;/strong> et sous-composants &lt;u>tous issus des modules&lt;/u>.
 En plus de contenir les fichiers de &lt;strong>vues&lt;/strong> des applications, elles peuvent contenir un répertoire &lt;strong>scripts&lt;/strong> qui propose des scripts liés à ces vues. Les &lt;strong>vues&lt;/strong> déterminent la logique et l&amp;rsquo;&lt;u>accès au store&lt;/u>.&lt;/p>

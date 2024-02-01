@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Running time calculation</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/</link><description>Recent content in Running time calculation on OSRD</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://osrd.fr/en/docs/explanation/running_time_calculation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Physical modeling</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Running time calculation</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/</link><description>Recent content in Running time calculation on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/explanation/running_time_calculation/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Physical modeling</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</guid><description>
 &lt;!-- script to auto-render KaTeX extension $$..$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -93,7 +93,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;p>$$v(t+dt) = a(v(t), x(t))dt + v(t)$$&lt;/p>
 &lt;p>$$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$&lt;/p>
 &lt;center>
-&lt;p>&lt;img src="../euler.png?style=method" alt="Euler&amp;amp;rsquo;s method">&lt;/p>
+&lt;p>&lt;img src="../euler.png?style=method" alt="Euler&amp;rsquo;s method">&lt;/p>
 &lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="advantages-of-eulers-method">&lt;strong>Advantages of Euler&amp;rsquo;s method&lt;/strong>&lt;/h4>
@@ -116,7 +116,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;p>$$k_3 = a\Big(v(t+k_2\frac{dt}{2}), x(t) + v(t)\frac{dt}{2} + k_2\frac{dt^2}{8}\Big)$$&lt;/p>
 &lt;p>$$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$&lt;/p>
 &lt;center>
-&lt;p>&lt;img src="../rk4.png?style=method" alt="Runge-Kutta 4&amp;amp;rsquo;s method">&lt;/p>
+&lt;p>&lt;img src="../rk4.png?style=method" alt="Runge-Kutta 4&amp;rsquo;s method">&lt;/p>
 &lt;/center>
 &lt;p>&amp;nbsp;&lt;/p>
 &lt;h4 id="advantages-of-runge-kuttas-4-method">&lt;strong>Advantages of Runge Kutta&amp;rsquo;s 4 method&lt;/strong>&lt;/h4>
