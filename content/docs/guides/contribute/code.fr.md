@@ -102,6 +102,11 @@ Idéalement :
 
 ### Contre-exemples de commits
 
+A éviter absolument :
 - `component: update ./lol/mdr.rs` : préciser la mise à jour en question plutôt que le fichier
 - `component: fix #42` : préciser le problème corrigé
 - `wip` : décrire le travail (et le finir)
+
+Bienvenus pour faciliter la relecture, mais ne pas merger:
+- `fixup! previous commit` : un autosquash devra être lancé avant le merge
+- `Revert "previous commit of the same PR"` : les deux commits devront être retirés avant merge

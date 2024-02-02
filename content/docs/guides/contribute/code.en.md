@@ -107,6 +107,11 @@ Ideally:
 
 ### Commit counter-examples
 
+To be avoided entirely:
 - `component: update ./lol/mdr.rs`: specify the update itself rather than the file.
 - `component: fix #42`: specify the problem fixed
 - `wip`: describe the work (and finish it)
+
+Welcome to ease review, but do not merge:
+- `fixup! previous commit`: an autosquash must be run before the merge
+- `Revert "previous commit of the same PR"` : both commits must be removed before merging
