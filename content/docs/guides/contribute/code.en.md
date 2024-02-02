@@ -87,13 +87,26 @@ This chapter is about the process of integrating changes into the common code ba
 The overall format for git commits is as follows:
 
 ```
-component: imperative description of the change
+component1, component2: imperative description of the change
 
-Detailed description of the change and what motivates it,
+Detailed or technical description of the change and what motivates it,
 if it is not entirely obvious from the title.
 ```
 
 - **the commit message, just like the code, must be in english**
-- all lowercase
 - there can be multiple components separated by `:` in case of hierarchical relationships, with `,` otherwise
-- the body of the commit should probably contain a detailed description of the change
+- components are lower-case, using `-`, `_` or `.` if necessary
+- the imperative description of the change begins with a lower-case verb
+
+Ideally:
+
+- the title should be self-explanatory: no need to read anything else to understand it
+- the commit title is all lower-case
+- the title is clear to a reader not familiar with the code
+- the body of the commit contains a detailled description of the change
+
+### Commit counter-examples
+
+- `component: update ./lol/mdr.rs`: specify the update itself rather than the file.
+- `component: fix #42`: specify the problem fixed
+- `wip`: describe the work (and finish it)

@@ -83,13 +83,25 @@ Ce chapitre décrit le processus aboutissant à l'intégration de code au sein d
 Le format général des commits est le suivant :
 
 ```
-composant: description du changement à l'impératif
+composant1, composant2: description du changement à l'impératif
 
-Description détaillée du contenu et de la motivation du changement,
-si le titre n'est pas complètement évident.
+Description détaillée ou technique du contenu et de la motivation du
+changement, si le titre n'est pas complètement évident.
 ```
 
 - **le message comme le code doit être en anglais**
-- tout en minuscule
 - il peut y avoir plusieurs composants, séparés par des `:` quand il y a une relation hiérarchique, ou des `,` sinon
-- dans l'idéal, le corps du commit contient une description du changement.
+- les composants sont en minuscule, avec éventuellement `-`, `_` ou `.`
+- la description du changement à l'impératif commence par un verbe en minuscule
+
+Idéalement :
+- le titre doit être autonome : pas besoin de lire autre chose pour le comprendre
+- le titre du commit est entièrement en minuscule
+- le titre est clair pour une personne étrangère au code
+- le corps du commit contient une description du changement
+
+### Contre-exemples de commits
+
+- `component: update ./lol/mdr.rs` : préciser la mise à jour en question plutôt que le fichier
+- `component: fix #42` : préciser le problème corrigé
+- `wip` : décrire le travail (et le finir)
