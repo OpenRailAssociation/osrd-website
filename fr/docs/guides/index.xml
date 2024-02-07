@@ -1,20 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Guides pratiques</title><link>https://osrd.fr/fr/docs/guides/</link><description>Recent content in Guides pratiques on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/guides/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/</guid><description>
-&lt;p>Déjà, merci d&amp;rsquo;avoir pris le temps de contribuer !&lt;/p>
-&lt;p>Si les sections suivantes forment un guide du contributeur, ce n&amp;rsquo;est pas pour autant un ensemble de règles strictes. En fait, si vous avez déjà contribué à des gros projets opensource, la suite ne sera pas surprenante. Dans le cas contraire, elle vous sera probablement très utile !&lt;/p>
-&lt;h3 id="communiquer">Communiquer&lt;/h3>
-&lt;p>Vous pouvez gagner du temps en discutant de votre projet de contribution avec les autres contributeurs :&lt;/p>
-&lt;ul>
-&lt;li>Rejoignez le salon de messagerie instantanée sur IRC à &lt;a href="https://web.libera.chat/#osrd">libera.chat#osrd&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">&lt;strong>Créez une issue&lt;/strong>&lt;/a> pour avoir un endroit un discuter de votre contribution&lt;/li>
-&lt;/ul>
-&lt;h3 id="se-renseigner">Se renseigner&lt;/h3>
-&lt;p>Comme dans tout projet, chaque changement se repose sur ce qui a été fait par le passé.
-Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;existant :&lt;/p>
-&lt;ul>
-&lt;li>Vous pouvez &lt;a href="https://osrd.fr/fr/docs/">lire la documentation technique&lt;/a>&lt;/li>
-&lt;li>Il est préférable de lire le code source de l&amp;rsquo;application en rapport avec votre projet&lt;/li>
-&lt;li>Vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Déployer OSRD</title><link>https://osrd.fr/fr/docs/guides/deploy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/deploy/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Guides pratiques</title><link>https://osrd.fr/fr/docs/guides/</link><description>Recent content in Guides pratiques on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/guides/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/</guid><description/></item><item><title>Docs: Déployer OSRD</title><link>https://osrd.fr/fr/docs/guides/deploy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/deploy/</guid><description>
 &lt;p>Tout d&amp;rsquo;abord, nous recommandons de se familiariser sur &lt;a href="https://osrd.fr/fr/docs/explanation/containers-architecture/">l&amp;rsquo;architecture des conteneurs d&amp;rsquo;OSRD&lt;/a>.&lt;/p>
 &lt;p>Nous allons couvrir comment déployer OSRD dans les configurations suivantes :&lt;/p>
 &lt;ul>

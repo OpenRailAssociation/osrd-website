@@ -1,5 +1,43 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Mise à jour groupée des dépendances</title><link>https://osrd.fr/fr/docs/guides/contribute/batch-updating-dependencies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/batch-updating-dependencies/</guid><description>
-&lt;h2 id="pour-editoast">Pour editoast&lt;/h2>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Avant toutes choses</title><link>https://osrd.fr/fr/docs/guides/contribute/preamble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/preamble/</guid><description>
+&lt;p>Déjà, merci de prendre le temps de contribuer !&lt;/p>
+&lt;p>Si les sections suivantes forment un guide du contributeur, ce n&amp;rsquo;est pas pour autant un ensemble de règles strictes. En fait, si vous avez déjà contribué à des gros projets opensource, la suite ne sera pas surprenante. Dans le cas contraire, elle vous sera probablement très utile !&lt;/p>
+&lt;h3 id="communiquer">Communiquer&lt;/h3>
+&lt;p>Vous pouvez gagner du temps en discutant de votre projet de contribution avec les autres contributeurs :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">&lt;strong>Créez une issue&lt;/strong>&lt;/a> pour avoir un endroit un discuter de votre contribution.&lt;/li>
+&lt;/ul>
+&lt;h3 id="se-renseigner">Se renseigner&lt;/h3>
+&lt;p>Comme dans tout projet, chaque changement se repose sur ce qui a été fait par le passé.
+Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;existant :&lt;/p>
+&lt;ul>
+&lt;li>Vous pouvez &lt;a href="https://osrd.fr/fr/docs/">lire la documentation technique&lt;/a>&lt;/li>
+&lt;li>Il est préférable de lire le code source de l&amp;rsquo;application en rapport avec votre projet&lt;/li>
+&lt;li>Vous pouvez contacter les derniers développeurs à avoir travaillé sur les zones du code en rapport avec votre projet&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/">Continuer vers la mise en place ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Licence et mise en place</title><link>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</guid><description>
+&lt;h2 id="la-licence-des-contributions-de-code">La licence des contributions de code&lt;/h2>
+&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
+En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
+&lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée : profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
+&lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API : Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
+&lt;h2 id="mise-en-place">Mise en place&lt;/h2>
+&lt;div class="alert alert-info" role="alert">
+La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/">WSL&lt;/a>). Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
+&lt;/div>
+&lt;h3 id="obtenir-le-code-source">Obtenir le code source&lt;/h3>
+&lt;ul>
+&lt;li>Installer &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
+&lt;li>&lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="lancer-lapplication">Lancer l&amp;rsquo;application&lt;/h3>
+&lt;p>Grâce à &lt;code>docker&lt;/code>, on peut facilement compiler, configurer, et lancer les différents composants après un changement. On peut aussi choisir de lancer seulement une partie des composants.&lt;/p>
+&lt;ul>
+&lt;li>Installer &lt;code>docker&lt;/code> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> &lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>.&lt;/li>
+&lt;li>Suivre le &lt;a href="https://github.com/osrd-project/osrd#getting-started">README d&amp;rsquo;OSRD&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/">Continuer vers la contribution au code ‣&lt;/a>&lt;/em>&lt;/p>
+&lt;h4 id="spécifique-editoast--mise-à-jour-groupée-des-dépendances">Spécifique &lt;code>editoast&lt;/code> : mise à jour groupée des dépendances&lt;/h4>
 &lt;p>Nous utilisons dependabot sur le projet pour signaler quand les dépendances sont obsolètes. Nous ne nous en servons pas pour mettre à jour automatiquement les dépendances, pour intégrer toutes les mises à jour en une seule fois et relire les modifications.&lt;/p>
 &lt;p>Pour mettre à jour les dépendances :&lt;/p>
 &lt;ol>
@@ -12,10 +50,57 @@ Assurez-vous que la nouvelle version choisie est stable, et que les contraintes 
 &lt;/ul>
 &lt;/li>
 &lt;li>Exécutez &lt;code>cargo update&lt;/code> pour mettre à jour le fichier Cargo.lock (y compris les sous-dépendances).&lt;/li>
-&lt;li>Vérifiez que tous les &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">PRs dependabot editoast&lt;/a> sont inclus dans votre commit.&lt;/li>
+&lt;li>Vérifiez que toutes les &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">PRs dependabot editoast&lt;/a> sont inclus dans votre commit.&lt;/li>
 &lt;li>Adaptez le code aux nouvelles versions, si nécessaire.&lt;/li>
-&lt;li>Créez un PR avec vos modifications, et reliez-y tous les PRs dependabot en description.&lt;/li>
-&lt;/ol></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
+&lt;li>Créez une PR avec vos modifications, et reliez-y tous les PRs dependabot en description.&lt;/li>
+&lt;/ol>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Sous Linux, suivez les guides pour votre distribution dans la &lt;a href="https://docs.docker.com/engine/install/">documentation de Docker&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>Sous Windows/&lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/tutorials/wsl-containers">WSL&lt;/a>, &lt;a href="https://www.docker.com/products/docker-desktop/">Docker Desktop&lt;/a> est recommandé&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Docs: Contribuer au code</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/</guid><description>
+&lt;p>Ce chapitre décrit le processus aboutissant à l&amp;rsquo;intégration de code au sein du projet. &lt;strong>Si vous avez besoin d&amp;rsquo;aide, ouvrez une issue ou envoyez un message instantané.&lt;/strong>&lt;/p>
+&lt;p>L&amp;rsquo;application OSRD est divisée en plusieurs services écrits dans plusieurs langues. Nous essayons de suivre les bonnes pratiques générales en matière de code et de respecter les spécificités de chaque langage lorsque cela est nécessaire.&lt;/p></description></item><item><title>Docs: Revue de code</title><link>https://osrd.fr/fr/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-review/</guid><description>
+&lt;p>Le reviewer/mainteneur s&amp;rsquo;engage à effectuer la revue de code rapidement, c&amp;rsquo;est aussi à lui qu&amp;rsquo;appartient de fermer les « &lt;em>request changes&lt;/em> », de bien vérifier l&amp;rsquo;historique des commits, et de fusionner la « &lt;em>pull request&lt;/em> » s&amp;rsquo;il en a les droits.&lt;/p>
+&lt;p>Nous vous soumettons quelques conseils et recommandations qui nous semblent pertinentes pour une revue de code humaine, pertinente et enrichissante pour tous ses contributeurs :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> par Michael Lynch.&lt;/li>
+&lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> par Michael Lynch.&lt;/li>
+&lt;/ul>
+&lt;p>Voici une proposition de flux de travail.&lt;/p>
+&lt;p>&lt;strong>Il est nécessaire de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
+&lt;pre class="mermaid">sequenceDiagram
+actor A as Auteur PR
+actor R as Reviewer/mainteneur
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
+loop Boucle entre auteur et reviewer
+R--&amp;gt;&amp;gt;A: Commente, demande des changements
+A--&amp;gt;&amp;gt;R: Répond à chaque commentaire/requested changes
+A--&amp;gt;&amp;gt;R: Corrige le code si nécessaire dans des « fixups » dédiés
+R--&amp;gt;&amp;gt;A: Vérifie et commente à nouveau le code
+R--&amp;gt;&amp;gt;A: Résoud les conversations/requested changes le cas échéant
+end
+A-&amp;gt;&amp;gt;R: Rebase si nécessaire
+R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
+R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
+Note left of R: Et fusionne si mainteneur&lt;/pre>
+&lt;blockquote>
+&lt;p>Si la personne qui fait la revue de code n&amp;rsquo;est pas mainteneur, c&amp;rsquo;est à l&amp;rsquo;auteur de PR de trouver un mainteneur pour pouvoir fusionner sa PR avec le code. Dans certains cas particuliers (notamment juste avant le gel des fusions en fin d&amp;rsquo;itération), le mainteneur doit être averti plus tôt.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="la-pyramide-de-la-revue-de-code">La pyramide de la revue de code&lt;/h2>
+&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
+&lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
+&lt;/figure></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
 &lt;p>Notre outil de suivi des bugs est &lt;a href="https://github.com/osrd-project/osrd/issues">github&lt;/a>. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
 &lt;p>Suivez &lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p>
@@ -39,115 +124,22 @@ Assurez-vous que la nouvelle version choisie est stable, et que les contraintes 
 Vous pouvez laisser un commentaire pour expliquer les changements.&lt;/li>
 &lt;li>Si vous travaillez sur un bug ou planifiez de travailler sur un bug, assignez vous au bug.&lt;/li>
 &lt;li>Les PRs qui résolvent des bugs doivent ajouter des tests de régression pour s&amp;rsquo;assurer que le bug ne reviendra pas dans le futur.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Contribuer du code</title><link>https://osrd.fr/fr/docs/guides/contribute/code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code/</guid><description>
-&lt;div class="alert alert-warning" role="alert">
-&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
-En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
-&lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée: profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
-&lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API: Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
-&lt;/div>
-&lt;h2 id="mise-en-place">Mise en place&lt;/h2>
-&lt;div class="alert alert-info" role="alert">
-La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/">WSL&lt;/a>). Vous pouvez utiliser Windows ou MacOS, mais pourriez rencontrer quelques problèmes.
-&lt;/div>
-&lt;h3 id="obtenir-le-code-source">Obtenir le code source&lt;/h3>
-&lt;ul>
-&lt;li>Installer &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Ouvrir un terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> dans le dossier qui contiendra le code source d&amp;rsquo;OSRD&lt;/li>
-&lt;li>&lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h3 id="lancer-lapplication">Lancer l&amp;rsquo;application&lt;/h3>
-&lt;p>Grâce à &lt;code>docker&lt;/code>, on peut facilement compiler, configurer, et lancer les différents composants après un changement. On peut aussi choisir de lancer seulement une partie des composants.&lt;/p>
-&lt;ul>
-&lt;li>Installer &lt;code>docker&lt;/code> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>.&lt;/li>
-&lt;li>Suivre le &lt;a href="https://github.com/osrd-project/osrd#getting-started">README d&amp;rsquo;OSRD&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h2 id="partager-vos-changements">Partager vos changements&lt;/h2>
-&lt;p>Ce chapitre décrit le processus aboutissant à l&amp;rsquo;intégration de code au sein du projet. &lt;strong>Si vous avez besoin d&amp;rsquo;aide, ouvrez une issue ou envoyez un message instantané.&lt;/strong>&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Si vous n&amp;rsquo;être pas un habitué de Git, &lt;a href="https://learngitbranching.js.org/">suivez ce tutoriel&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Créez une branche&lt;/strong>&lt;br>
-Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/osrd-project/osrd">dépot principal&lt;/a>. Sinon, &lt;a href="https://github.com/osrd-project/osrd/fork">créez un fork&lt;/a>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Ajoutez des changements sur votre branche&lt;/strong>&lt;br>
-Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre &lt;a href="../conventions/">les conventions du projet&lt;/a>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Conservez votre branche à jour&lt;/strong>&lt;/p>
-&lt;pre tabindex="0">&lt;code>git switch &amp;lt;your_branch&amp;gt;
-git fetch
-git rebase origin/dev
-&lt;/code>&lt;/pre>&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Ouvrez une pull request&lt;/strong>&lt;br>
-Une fois que vos changements sont prêts, il est temps de proposer de les intégrer à la branche &lt;code>dev&lt;/code>. Cela se fait &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">dans l&amp;rsquo;interface web de Github&lt;/a>.
-Si possible, faites des PRs d&amp;rsquo;unités logiques et atomiques également (évitez de mélanger le refactoring, les nouvelles fonctionnalités et la correction de bugs en même temps).
-Ajoutez une description aux PR pour expliquer ce qu&amp;rsquo;elles font et pourquoi.
-Aidez le relecteur en suivant les conseils donnés dans &lt;a href="https://mtlynch.io/code-review-love/">l&amp;rsquo;article de mtlynch&lt;/a>.
-Ajouter les balises &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> pour montrer quelle partie de l&amp;rsquo;application a été impactée.
-Cela peut être fait via &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">l&amp;rsquo;interface web&lt;/a>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Prennez en compte les retours&lt;/strong>&lt;br>
-Une fois que votre pull request est ouverte, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">d&amp;rsquo;autres contributeurs doivent donner leur avis sur votre proposition&lt;/a>:&lt;/p>
-&lt;ul>
-&lt;li>N&amp;rsquo;importe qui peut donner son avis&lt;/li>
-&lt;li>Il est nécessaire d&amp;rsquo;obtenir l&amp;rsquo;approbation d&amp;rsquo;un &lt;a href="https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS">code owner&lt;/a> pour pouvoir intégrer le changement.&lt;/li>
-&lt;li>Il est d&amp;rsquo;usage de prendre en compte tous les commentaires critiques&lt;/li>
-&lt;li>Les commentaires sont souvent écrits dans un style plutôt direct, dans le soucis de collaborer efficacement vers une solution acceptable par tous.&lt;/li>
-&lt;li>Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.&lt;/li>
-&lt;/ul>
-&lt;p>En tant que reviewer tentez de suivre les recommandations de &lt;a href="https://mtlynch.io/human-code-reviews-1/">mtlynch&lt;/a>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>N&amp;rsquo;hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin.&lt;/strong>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="style-des-commits">Style des commits&lt;/h2>
-&lt;p>Le format général des commits est le suivant :&lt;/p>
-&lt;pre tabindex="0">&lt;code>composant: description du changement à l&amp;#39;impératif
-Description détaillée du contenu et de la motivation du changement,
-si le titre n&amp;#39;est pas complètement évident.
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong>&lt;/li>
-&lt;li>tout en minuscule&lt;/li>
-&lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>:&lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
-&lt;li>dans l&amp;rsquo;idéal, le corps du commit contient une description du changement.&lt;/li>
-&lt;/ul>
-&lt;div class="footnotes" role="doc-endnotes">
-&lt;hr>
-&lt;ol>
-&lt;li id="fn:1">
-&lt;p>Sous Linux, utilisez le gestionnaire de packet de votre distribution, comme par exemple &lt;code>apt-get&lt;/code>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:2">
-&lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:3">
-&lt;p>Sous Windows/&lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/tutorials/wsl-containers">WSL&lt;/a>, &lt;a href="https://www.docker.com/products/docker-desktop/">Docker Desktop&lt;/a> est recommandé&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;/div></description></item><item><title>Docs: Conventions</title><link>https://osrd.fr/fr/docs/guides/contribute/conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/conventions/</guid><description>
-&lt;p>L&amp;rsquo;application OSRD est divisée en plusieurs services écrits dans plusieurs langues. Nous essayons de suivre les bonnes pratiques générales en matière de code et de respecter les spécificités de chaque langue lorsque cela est nécessaire.&lt;/p>
-&lt;h2 id="règles-générales">Règles générales&lt;/h2>
-&lt;ul>
-&lt;li>Expliquez ce que vous faites et pourquoi.&lt;/li>
-&lt;li>Documentez le nouveau code.&lt;/li>
-&lt;li>Ajoutez des tests clairs et simples.&lt;/li>
-&lt;li>Décomposez le travail en morceaux intelligibles.&lt;/li>
-&lt;li>Prenez le temps de choisir de bons noms.&lt;/li>
-&lt;li>Évitez les abréviations peu connues.&lt;/li>
-&lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : une dépendance est ajoutée seulement si elle est absolument nécessaire.&lt;/li>
-&lt;li>Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
-&lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : En opposition au point précédent, ne réinventez pas tout à tout prix.&lt;/li>
-&lt;li>S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard &amp;ldquo;de-facto&amp;rdquo;, nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
-&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/osrd-project/osrd">CONTRIBUTING.md&lt;/a>.&lt;/li>
-&lt;li>Demandez toute l&amp;rsquo;aide dont vous avez besoin !&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Passer du code en revue</title><link>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-reviews/</guid><description>
-&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://osrd.fr/fr/docs/guides/contribute/code-reviews/images/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Docs:</title><link>https://osrd.fr/fr/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/review-process/</guid><description>
+&lt;p>Voici une proposition de flux de travail.&lt;/p>
+&lt;p>&lt;strong>Il est nécessaire de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
+&lt;pre class="mermaid">sequenceDiagram
+actor A as Auteur PR
+actor R as Reviewer/mainteneur
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
+loop Boucle entre auteur et reviewer
+R--&amp;gt;&amp;gt;A: Commente, demande des changements
+A--&amp;gt;&amp;gt;R: Répond à chaque commentaire/requested changes
+A--&amp;gt;&amp;gt;R: Corrige le code si nécessaire dans des « fixups » dédiés
+R--&amp;gt;&amp;gt;A: Vérifie et commente à nouveau le code
+R--&amp;gt;&amp;gt;A: Résoud les conversations/requested changes le cas échéant
+end
+A-&amp;gt;&amp;gt;R: Rebase si nécessaire
+R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
+R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
+Note left of R: Et fusionne si mainteneur&lt;/pre></description></item></channel></rss>
