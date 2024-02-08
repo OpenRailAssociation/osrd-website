@@ -119,7 +119,7 @@ rolling_stock_name: R2D2
 labels: ["INOUI", "TCHOU"]
 
 # used to select speed limits for simulation
-speed_limit_tags: ["MA100"]
+speed_limit_tag: "MA100"
 
 # the start time is an ISO 8601 datetime with timezone. it is not always the
 # same at the departure time, as there may be a stop at the starting point
@@ -132,7 +132,7 @@ path:
  - {id: d, operational_point: X}
 
 # the algorithm used for distributing margins and scheduled times
-constraint_distribution: MARECO
+constraint_distribution: MARECO # or LINEAR
 
 # all durations and times are specified using ISO 8601
 # times are defined as time elapsed since start. Even if the attribute is omitted,
@@ -140,7 +140,7 @@ constraint_distribution: MARECO
 # the "locked" flag is ignored by the backend.
 schedule:
  - {at: a, stop_for: PT5M, locked: true} # infered arrival to be equal to start_time
- - {at: b, arrival: PT10M, departure: PT15M} # equivalent to a 5m stop
+ - {at: b, arrival: PT10M, stop_for: PT5M}
  - {at: c, stop_for: PT5M}
  - {at: d, arrival: PT50M, locked: true}
 
@@ -166,9 +166,10 @@ initial_speed: 2.5
 power_restrictions:
  - {from: b, to: c, value: "M1C1"}
 
-comfort: AIR_CONDITIONING # or NONE
+comfort: AIR_CONDITIONING # or HEATING, default STANDARD
 
 options:
+  # Should we use electrical profiles to select rolling stock speed effort curves
   use_electrical_profiles: true
 ```
 
