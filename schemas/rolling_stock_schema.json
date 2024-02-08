@@ -456,16 +456,6 @@
             "title": "RollingResistance",
             "type": "object"
         },
-        "SignalingSystem": {
-            "enum": [
-                "BAL",
-                "BAPR",
-                "TVM300",
-                "TVM430"
-            ],
-            "title": "SignalingSystem",
-            "type": "string"
-        },
         "SpeedDependantPower": {
             "additionalProperties": false,
             "description": "\n    A curve that account for speed-related power (output/availability) behavior of specific energy sources,\n    - the pantograph power is lowered at low speed to avoid welding the pantograph to the electrification\n    - the power outputted by Hydrogen fuel cells increases with speed\n    ",
@@ -548,15 +538,6 @@
                 "$ref": "#/$defs/EnergySource"
             },
             "title": "Energy Sources",
-            "type": "array"
-        },
-        "features": {
-            "description": "A list of features the train exhibits",
-            "items": {
-                "maxLength": 255,
-                "type": "string"
-            },
-            "title": "Features",
             "type": "array"
         },
         "gamma": {
@@ -665,7 +646,7 @@
         },
         "supported_signaling_systems": {
             "items": {
-                "$ref": "#/$defs/SignalingSystem"
+                "type": "string"
             },
             "title": "Supported Signaling Systems",
             "type": "array"
@@ -681,7 +662,6 @@
         "comfort_acceleration",
         "gamma",
         "inertia_coefficient",
-        "features",
         "mass",
         "rolling_resistance",
         "loading_gauge",
