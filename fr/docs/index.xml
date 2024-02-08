@@ -386,14 +386,33 @@ Note left of R: Et fusionne si mainteneur&lt;/pre>
 &lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure></description></item><item><title>Docs: Style des commits</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-style/</guid><description>
 &lt;p>Le format général des commits est le suivant :&lt;/p>
-&lt;pre tabindex="0">&lt;code>composant: description du changement à l&amp;#39;impératif
-Description détaillée du contenu et de la motivation du changement,
-si le titre n&amp;#39;est pas complètement évident.
+&lt;pre tabindex="0">&lt;code>composant1, composant2: description du changement à l&amp;#39;impératif
+Description détaillée ou technique du contenu et de la motivation du
+changement, si le titre n&amp;#39;est pas complètement évident.
 &lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong>&lt;/li>
-&lt;li>tout en minuscule&lt;/li>
+&lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong> (seulement des caractères ASCII pour le titre)&lt;/li>
 &lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>:&lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
-&lt;li>dans l&amp;rsquo;idéal, le corps du commit contient une description du changement.&lt;/li>
+&lt;li>les composants sont en minuscule, avec éventuellement &lt;code>-&lt;/code>, &lt;code>_&lt;/code> ou &lt;code>.&lt;/code>&lt;/li>
+&lt;li>la description du changement à l&amp;rsquo;impératif commence par un verbe en minuscule&lt;/li>
+&lt;li>le titre ne doit pas comporter de lien (&lt;code>#&lt;/code> est interdit)&lt;/li>
+&lt;/ul>
+&lt;p>Idéalement :&lt;/p>
+&lt;ul>
+&lt;li>le titre doit être autonome : pas besoin de lire autre chose pour le comprendre&lt;/li>
+&lt;li>le titre du commit est entièrement en minuscule&lt;/li>
+&lt;li>le titre est clair pour une personne étrangère au code&lt;/li>
+&lt;li>le corps du commit contient une description du changement&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-info" role="alert">
+Une vérification automatique est effectuée pour vérifier autant que possible ce formatage.
+&lt;/div>
+&lt;h3 id="contre-exemples-de-titres-de-commit">Contre-exemples de titres de commit&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>component: update ./some/file.ext&lt;/code> : préciser la mise à jour en question plutôt que le fichier,
+les fichiers sont des éléments techniques bienvenus dans le &lt;em>corps&lt;/em> du commit&lt;/li>
+&lt;li>&lt;code>component: fix #42&lt;/code> : préciser le problème corrigé, les liens (vers l&amp;rsquo;issue, etc.) sont
+encouragés dans le &lt;em>corps&lt;/em> du commit&lt;/li>
+&lt;li>&lt;code>wip&lt;/code> : décrire le travail (et le finir)&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/">Continuer vers le partage des changements ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Partagez vos changements</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</guid><description>
 &lt;p>L&amp;rsquo;auteur d&amp;rsquo;une &lt;em>pull request (PR)&lt;/em> est responsable de son « cycle de vie ». Il se charge de contacter les différents acteurs, de suivre la revue de code, répondre aux commentaires et corriger le code suite à la revue de code (vous pouvez également consulter la &lt;a href="https://osrd.fr/fr/docs/guides/contribute/code-review/">page dédiée à la revue de code&lt;/a>).&lt;/p>

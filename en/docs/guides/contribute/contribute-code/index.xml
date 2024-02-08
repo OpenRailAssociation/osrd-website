@@ -288,14 +288,33 @@ git rebase origin/dev
 &lt;/ol>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/">Continue towards commit style ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Commit style</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/</guid><description>
 &lt;p>The overall format for git commits is as follows:&lt;/p>
-&lt;pre tabindex="0">&lt;code>component: imperative description of the change
-Detailed description of the change and what motivates it,
+&lt;pre tabindex="0">&lt;code>component1, component2: imperative description of the change
+Detailed or technical description of the change and what motivates it,
 if it is not entirely obvious from the title.
 &lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong>&lt;/li>
-&lt;li>all lowercase&lt;/li>
+&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong> (only ASCII characters for the title)&lt;/li>
 &lt;li>there can be multiple components separated by &lt;code>:&lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
-&lt;li>the body of the commit should probably contain a detailed description of the change&lt;/li>
+&lt;li>components are lower-case, using &lt;code>-&lt;/code>, &lt;code>_&lt;/code> or &lt;code>.&lt;/code> if necessary&lt;/li>
+&lt;li>the imperative description of the change begins with a lower-case verb&lt;/li>
+&lt;li>the title must not contain any link (&lt;code>#&lt;/code> is forbidden)&lt;/li>
+&lt;/ul>
+&lt;p>Ideally:&lt;/p>
+&lt;ul>
+&lt;li>the title should be self-explanatory: no need to read anything else to understand it&lt;/li>
+&lt;li>the commit title is all lower-case&lt;/li>
+&lt;li>the title is clear to a reader not familiar with the code&lt;/li>
+&lt;li>the body of the commit contains a detailled description of the change&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-info" role="alert">
+An automated check is performed to enforce as much as possible this formating.
+&lt;/div>
+&lt;h3 id="counter-examples-of-commit-titles">Counter-examples of commit titles&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>component: update ./some/file.ext&lt;/code>: specify the update itself rather than the file, the files
+are technical elements welcome in the &lt;em>body&lt;/em> of the commit&lt;/li>
+&lt;li>&lt;code>component: fix #42&lt;/code>: specify the problem fixed in the title, links (to issue, etc.) are very
+welcome in commit&amp;rsquo;s &lt;em>body&lt;/em>&lt;/li>
+&lt;li>&lt;code>wip&lt;/code>: describe the work (and finish it)&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/">Continue towards sharing your changes ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Share your changes</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</guid><description>
 &lt;p>The author of a &lt;em>pull request (PR)&lt;/em> is responsible for its &amp;ldquo;life cycle&amp;rdquo;. He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check &lt;a href="https://osrd.fr/en/docs/guides/contribute/code-review/">dedicated page about code review&lt;/a>).&lt;/p>
