@@ -10,21 +10,23 @@ One of the ambitions of OSRD is to help with **timetabling on a European scale**
 To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure operators.
 
 And by contributing to OSRD, these companies:
- - Profit from all the common development efforts
- - Can freely build on the common effort to achieve their own goals[^license]
- - Participate in the roadmap and technical direction of the project to the extent of their contribution
+
+- Profit from all the common development efforts
+- Can freely build on the common effort to achieve their own goals[^license]
+- Participate in the roadmap and technical direction of the project to the extent of their contribution
 
 [^license]: As long as they don't modify the common tools without sharing their improvements. See the details of the [LGPLv3](https://www.gnu.org/licenses/lgpl-3.0.en.html) license.
 
 OSRD is currently developped by:
+
 - A team of full-time developpers at SNCF Réseau, financed by SNCF Réseau, the French state and the European Union
 - Individual contributors
 
-## The Open Rail Foundation
+## The OpenRail association
 
-The [Open Rail Foundation](https://openrailfoundation.gitlab.io/) is an upcoming non-profit commited to organizing cooperative work around railway software tools.
+The [OpenRail association](https://openrailassociation.org/) is an upcoming non-profit commited to organizing cooperative work around railway software tools.
 
-<a href="https://openrailfoundation.gitlab.io/"><img class="marginauto" src="openrail_foundation_vector.png" alt="OpenRail Foundation"></a>
+<a href="https://openrailassociation.org/"><img class="marginauto" src="logo-openrail-association.png" alt="OpenRail association"></a>
 
 <style>
 .marginauto {
