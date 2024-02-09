@@ -1589,7 +1589,7 @@ The implementation hasn&amp;rsquo;t been started.&lt;/p></description></item><it
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode141s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode135s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -1600,11 +1600,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode141s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode135s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode141s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode135s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -1623,14 +1623,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode141s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode135s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode141s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode135s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode141s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode135s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -1642,7 +1642,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode141s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode135s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -1677,7 +1677,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode141s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode135s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -2306,47 +2306,48 @@ They are returned when the train schedule is queried.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="combining-margins-and-schedule">Combining margins and schedule&lt;/h1>
 &lt;p>Margins and scheduled points are two ways to add time constraints to a train&amp;rsquo;s schedule.
 Therefore, there most be a clear set of rules to figure out how these two interfaces interact.&lt;/p>
-&lt;p>Their interaction is defined as follows:&lt;/p>
+&lt;p>The end goal is to make the target schedule and margins consistent with each other. This is achieved by:&lt;/p>
 &lt;ul>
-&lt;li>The path is subdivided into &lt;strong>known time sections&lt;/strong>, which are separated by locations where
-an arrival or departure time is known. If the is no known arrival time at destination, a
-&lt;strong>relaxed time section&lt;/strong> is created between the end of the last known time section and the arrival
-location.&lt;/li>
-&lt;li>Margin boundaries separate margin section. Margin sections cover the entire path.&lt;/li>
-&lt;li>Margin sections are grouped by known time section. It can only be done because
-&lt;strong>margins are not allowed to cross known time section boundaries&lt;/strong>.&lt;/li>
+&lt;li>computing what the schedule would look like if only margins were applied&lt;/li>
+&lt;li>compare that to the target schedule&lt;/li>
+&lt;li>correct the margin schedule so that it matches the target schedule&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>The end goal is to compute a target time loss per margin section&lt;/strong>.&lt;/p>
-&lt;h2 id="computing-a-target-time-loss-per-margin-section">Computing a target time loss per margin section&lt;/h2>
-&lt;p>The target time loss is computed as follows:&lt;/p>
+&lt;p>The path is partitionned as follows:&lt;/p>
 &lt;ul>
-&lt;li>A &lt;strong>base simulation&lt;/strong> is computed, without any time constraint whatsoever.&lt;/li>
-&lt;li>For each margin section, a provisional target time loss is computed based on the margin value and the base simulation.
-The timetable that would be achieved if a train were to achieve these targets is called the &lt;strong>standard working&lt;/strong>.&lt;/li>
-&lt;li>For each known time section:
-&lt;ul>
-&lt;li>compute the standard working trip duration for each margin section&lt;/li>
-&lt;li>compute the total standard working trip duration for the known time section&lt;/li>
-&lt;li>compute the difference between the standard working trip duration and the expected trip duration for the known time section.
-This value is known as the schedule point impact.&lt;/li>
-&lt;li>correct the provisional target time loss of margin sections by distributing the schedule point impact proportionally
-to the standard working trip duration of each margin sections. The result is the target time loss.&lt;/li>
-&lt;li>at this point, if the target time loss is negative on any section, it cannot be computed, and an
-error is returned&lt;/li>
+&lt;li>&lt;strong>known time sections&lt;/strong> span between locations where the arrival time is known.
+If there are &lt;code>N&lt;/code> such locations, there are &lt;code>N - 1&lt;/code> known time sections.
+In these sections, margins need to be adjusted to match the target schedule.&lt;/li>
+&lt;li>If the arrival time at destination is unknown, the section from the last known
+arrival time point and the destination is called the &lt;strong>relaxed time section&lt;/strong> has no bound.
+Margins can be applied directly.&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="impossible-margins">Impossible margins&lt;/h2>
-&lt;p>It may occur that a target time loss cannot be achieved:&lt;/p>
+&lt;p>As &lt;strong>margins cannot span known time section boundaries&lt;/strong>, each known time section can be
+further subdivided into margin sections. Margins cover the entire path.&lt;/p>
+&lt;p>&lt;strong>The end goal is to find the target arrival time at the end of each margin section&lt;/strong>.
+This needs to be done while preserving consistency with the input schedule.&lt;/p>
+&lt;p>&lt;img src="schedule.svg" alt="Schedule building algorithm">&lt;/p>
+&lt;p>The final schedule is computed as follows:&lt;/p>
 &lt;ul>
-&lt;li>it can be too low, as transitions from high density margin to low margin section force the train to loose
+&lt;li>A &lt;strong>base simulation&lt;/strong> is computed, without any time constraint (other than stops). It&amp;rsquo;s used to compute provisional margin values.&lt;/li>
+&lt;li>Make a &lt;strong>provisional time table&lt;/strong>, which ignores target arrival times but includes provisional margin values.&lt;/li>
+&lt;li>For each &lt;strong>known time section&lt;/strong>, compute the adjustment required to make the provisional schedule match the target schedule.&lt;/li>
+&lt;li>Distribute this difference into the known time section&amp;rsquo;s margin sections, proportionally to margin section running time.
+After distributing the adjustment into margin sections, the &lt;strong>final schedule&lt;/strong> should be compatible with the target schedule.&lt;/li>
+&lt;/ul>
+&lt;h2 id="error-handling">Error handling&lt;/h2>
+&lt;p>Some errors may happen while building the timetable:&lt;/p>
+&lt;ul>
+&lt;li>if a known time section&amp;rsquo;s required adjustment is negative, a warning must be raised, as margins will have to be lowered&lt;/li>
+&lt;li>if a margin section&amp;rsquo;s final running time is tighter than the base simulation, it cannot be achieved, and a warning should be raised&lt;/li>
+&lt;/ul>
+&lt;p>Other errors can happen at runtime:&lt;/p>
+&lt;ul>
+&lt;li>target margin values can be too low, as transitions from high density margin to low margin section force the train to loose
 time after it has exited to high density margin section.&lt;/li>
-&lt;li>it can also be too high, as the train may not have time to slow down enough, or drive so slow as to be
+&lt;li>target margin values can also be too high, as the train may not have time to slow down enough, or drive so slow as to be
 unacceptable.&lt;/li>
 &lt;/ul>
-&lt;p>During simulation, if a target time loss cannot be achieved, the error value is added to the target time loss
-of the following section. This is a best effort measure to preserve scheduled points time targets despite failing
-margins.&lt;/p>
+&lt;p>During simulation, &lt;strong>if a target arrival time cannot be achieved, the rest of the schedule still stands&lt;/strong>.&lt;/p>
 &lt;h2 id="endpoints">Endpoints&lt;/h2>
 &lt;pre tabindex="0">&lt;code>POST /v2/timetable
 DELETE /v2/timetable/ID
