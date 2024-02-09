@@ -179,49 +179,52 @@ options:
 Margins and scheduled points are two ways to add time constraints to a train's schedule.
 Therefore, there most be a clear set of rules to figure out how these two interfaces interact.
 
-Their interaction is defined as follows:
+The end goal is to make the target schedule and margins consistent with each other. This is achieved by:
 
- - The path is subdivided into **known time sections**, which are separated by locations where
-   an arrival or departure time is known. If the is no known arrival time at destination, a
-   **relaxed time section** is created between the end of the last known time section and the arrival
-   location.
- - Margin boundaries separate margin section. Margin sections cover the entire path.
- - Margin sections are grouped by known time section. It can only be done because
-   **margins are not allowed to cross known time section boundaries**.
+ - computing what the schedule would look like if only margins were applied
+ - compare that to the target schedule
+ - correct the margin schedule so that it matches the target schedule
 
-**The end goal is to compute a target time loss per margin section**.
+The path is partitionned as follows:
 
+ - **known time sections** span between locations where the arrival time is known.
+   If there are `N` such locations, there are `N - 1` known time sections.
+   In these sections, margins need to be adjusted to match the target schedule.
+ - If the arrival time at destination is unknown, the section from the last known
+   arrival time point and the destination is called the **relaxed time section** has no bound.
+   Margins can be applied directly.
 
-## Computing a target time loss per margin section
+As **margins cannot span known time section boundaries**, each known time section can be
+further subdivided into margin sections. Margins cover the entire path.
 
-The target time loss is computed as follows:
+**The end goal is to find the target arrival time at the end of each margin section**.
+This needs to be done while preserving consistency with the input schedule.
 
- - A **base simulation** is computed, without any time constraint whatsoever.
- - For each margin section, a provisional target time loss is computed based on the margin value and the base simulation.
-   The timetable that would be achieved if a train were to achieve these targets is called the **standard working**.
- - For each known time section:
-    - compute the standard working trip duration for each margin section
-    - compute the total standard working trip duration for the known time section
-    - compute the difference between the standard working trip duration and the expected trip duration for the known time section.
-      This value is known as the schedule point impact.
-    - correct the provisional target time loss of margin sections by distributing the schedule point impact proportionally
-      to the standard working trip duration of each margin sections. The result is the target time loss.
-    - at this point, if the target time loss is negative on any section, it cannot be computed, and an
-      error is returned
+![Schedule building algorithm](schedule.svg)
 
+The final schedule is computed as follows:
 
-## Impossible margins
+ - A **base simulation** is computed, without any time constraint (other than stops). It's used to compute provisional margin values.
+ - Make a **provisional time table**, which ignores target arrival times but includes provisional margin values.
+ - For each **known time section**, compute the adjustment required to make the provisional schedule match the target schedule.
+ - Distribute this difference into the known time section's margin sections, proportionally to margin section running time.
+   After distributing the adjustment into margin sections, the **final schedule** should be compatible with the target schedule.
 
-It may occur that a target time loss cannot be achieved:
+## Error handling
 
-- it can be too low, as transitions from high density margin to low margin section force the train to loose
+Some errors may happen while building the timetable:
+
+ - if a known time section's required adjustment is negative, a warning must be raised, as margins will have to be lowered
+ - if a margin section's final running time is tighter than the base simulation, it cannot be achieved, and a warning should be raised
+
+Other errors can happen at runtime:
+
+- target margin values can be too low, as transitions from high density margin to low margin section force the train to loose
   time after it has exited to high density margin section.
-- it can also be too high, as the train may not have time to slow down enough, or drive so slow as to be
+- target margin values can also be too high, as the train may not have time to slow down enough, or drive so slow as to be
   unacceptable.
 
-During simulation, if a target time loss cannot be achieved, the error value is added to the target time loss
-of the following section. This is a best effort measure to preserve scheduled points time targets despite failing
-margins.
+During simulation, **if a target arrival time cannot be achieved, the rest of the schedule still stands**.
 
 
 ## Endpoints
