@@ -136,11 +136,13 @@ It's a high-level primitive: an abstract order, not a curve.
 flowchart TD
 
 subgraph disabled
+    skipped
     retired
     overriden
 end
 
-inactive --> received
+pending --> received
+pending --> skipped
 received --> enforced
 received --> overriden
 enforced --> retired
