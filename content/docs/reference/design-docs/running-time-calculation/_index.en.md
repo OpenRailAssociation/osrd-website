@@ -124,3 +124,91 @@ end
 ConstraintCurves --> TrainSim
 TrainSim --> ResultCurve
 ```
+
+
+## Driving instructions
+
+Driving instructions model what the train has to do, and under what conditions.
+It's a high-level primitive: an abstract order, not a curve.
+
+
+```mermaid
+flowchart TD
+
+subgraph disabled
+    retired
+    overriden
+end
+
+inactive --> received
+received --> enforced
+received --> overriden
+enforced --> retired
+enforced --> overriden
+```
+
+
+```rust
+struct DrivingInstruction {
+    // state transitions
+    received_when: ReceivedCond,
+    enforced_when: EnforcedCond,
+    retired_when: RetiredCond,
+
+    // behavior specification
+    behavior: Behavior,
+
+    // instruction metadata, used by override filters. if an instruction
+    // has no metadata nor retiring condition, it cannot be overriden.
+    kind: Option<InstructionKindId>,  // could be SPACING, SPEED_LIMIT
+    rank: Option<usize>,
+
+    // when the instruction transitions to a given state,
+    // instructions matching any filter are overriden
+    override_on_received: Vec<OverrideFilter>,
+    override_on_enforced: Vec<OverrideFilter>,
+}
+
+struct ReceivedCond {
+    position_in: Option<PosRange>,
+    time_in: Option<TimeRange>,
+}
+
+struct EnforcedCond {
+    position_past: Pos,
+}
+
+struct RetiredCond {
+    position_past: Option<Pos>,
+}
+
+struct OverrideFilter {
+    kind: InstructionKindId,
+    rank: Option<(RankRelation, usize)>,
+}
+
+enum RankRelation {
+    LT, LE, EQ, GE, GT
+}
+```
+
+
+# Design decisions
+
+## Driving instruction overrides
+
+Overrides are a way of modelling instructions which disable previous ones. Here are some examples:
+
+- if a driver watches a signal change state, it's new aspect's instruction might take precedence over the previous one
+- as block signaling slows a train down, new signals can override instructions from previous signals, as they encode information that is more up to date
+
+We identified multiple filtering needs:
+
+- overrides happen as a given kind of restriction is updated: SPACING instructions might override other SPACING instructions, but wish to leave other speed restrictions unaffected
+- as multiple block signals can be visible at once, there's a need to avoid overriding instructions of downstream signals with updates to upstream signals
+
+We quickly settled on adding a kind field, but had a lengthy discussion over how to discriminate upstream and downstream signals. We explored the following options:
+
+- adding `source` metadata, which was rejected as it does not address the issue of upstream / downstream
+- adding identifiers to instructions, and overriding specific instructions, which was rejected as it makes instruction generation and processing more complex
+- adding some kind of priority / rank field, which was adopted
