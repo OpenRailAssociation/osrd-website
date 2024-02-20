@@ -151,14 +151,13 @@ enforced --> overriden
 
 
 ```rust
-struct DrivingInstruction {
+
+
+struct InstructionMetadata {
     // state transitions
     received_when: ReceivedCond,
-    enforced_when: EnforcedCond,
-    retired_when: RetiredCond,
-
-    // behavior specification
-    behavior: Behavior,
+    enforced_at: Position,
+    retired_at: Option<Position>,
 
     // instruction metadata, used by override filters. if an instruction
     // has no metadata nor retiring condition, it cannot be overriden.
@@ -171,17 +170,26 @@ struct DrivingInstruction {
     override_on_enforced: Vec<OverrideFilter>,
 }
 
+enum AbstractInstruction {
+    NeutralZone,
+    SpeedTarget {
+        enforcement: Enforcement,
+        at: Position,
+        speed: Speed,
+    }
+}
+
+enum ConcreteInstruction {
+    NeutralZone,
+    SpeedTarget {
+        enforcement: Enforcement,
+        braking_curve: SpeedPosCurve,
+    },
+}
+
 struct ReceivedCond {
     position_in: Option<PosRange>,
     time_in: Option<TimeRange>,
-}
-
-struct EnforcedCond {
-    position_past: Pos,
-}
-
-struct RetiredCond {
-    position_past: Option<Pos>,
 }
 
 struct OverrideFilter {
@@ -193,6 +201,8 @@ enum RankRelation {
     LT, LE, EQ, GE, GT
 }
 ```
+
+## 
 
 
 # Design decisions
