@@ -95,34 +95,42 @@ The output is fine, but the input is troublesome:
 ```mermaid
 flowchart TD
 subgraph Input
-    PathPhysicsProps([path physics properties])
-    DrivingInstructions([driving instructions])
-    TargetSchedule([target schedule])
+    InitTrainState[initial train state]
+    PathPhysicsProps[path physics properties]
+    AbstractDrivingInstructions[abstract driving instructions]
+    TargetSchedule[target schedule]
 end
 
-subgraph Preprocessing
-    MarginDriver[margin driver]
-    MarginAlgorithm[margin algorithm]
-    DrivingInstructionCompiler[driving instruction compiler]
-    ConstraintCurves([constraint curves])
-end
+DrivingInstructionCompiler([driving instruction compiler])
+ConcreteDrivingInstructions[concrete driving instructions]
+MarginController([margin controller])
+MarginDriver([margin driver])
+MarginDrivingInstructions[margin concrete driving instructions]
+DrivingInstructionsMerge([set merge])
+FinalDrivingInstructions[final concrete driving instructions]
 
-TargetSchedule --> MarginDriver
-MarginDriver -- adjusts speed ceiling --> MarginAlgorithm
-MarginAlgorithm -- "coasting floor" --> DrivingInstructionCompiler
-DrivingInstructions --> DrivingInstructionCompiler
+TargetSchedule --> MarginController
+MarginController -- adjusts margin speed ceiling --> MarginDriver
+AbstractDrivingInstructions --> DrivingInstructionCompiler
 PathPhysicsProps --> DrivingInstructionCompiler
 
-MarginAlgorithm -- produces --> ConstraintCurves
-DrivingInstructionCompiler -- produces --> ConstraintCurves
+MarginDriver ---> MarginDrivingInstructions
+ConcreteDrivingInstructions -- "filter by margin section range" --> MarginDriver
+DrivingInstructionCompiler ---> ConcreteDrivingInstructions
 
-subgraph simulation
-    TrainSim[train simulator]
-    ResultCurve([result curve])
-end
+MarginDrivingInstructions ---> DrivingInstructionsMerge
+ConcreteDrivingInstructions ---> DrivingInstructionsMerge
+DrivingInstructionsMerge ---> FinalDrivingInstructions
 
-ConstraintCurves --> TrainSim
-TrainSim --> ResultCurve
+InitTrainState ---> MarginController
+MarginController -- tracks train state --> TrainSim
+FinalDrivingInstructions --> TrainSim
+
+TrainSim --> SimResults
+
+TrainSim([train simulator])
+SimResults[simulation result curve]
+
 ```
 
 
