@@ -33,10 +33,17 @@ An automated check is performed to enforce as much as possible this formating.
 
 ### Counter-examples of commit titles
 
+To be avoided entirely:
+
 - `component: update ./some/file.ext`: specify the update itself rather than the file, the files
   are technical elements welcome in the _body_ of the commit
 - `component: fix #42`: specify the problem fixed in the title, links (to issue, etc.) are very
   welcome in commit's _body_
 - `wip`: describe the work (and finish it)
+
+Welcome to ease review, but do not merge:
+
+- `fixup! previous commit`: an [autosquash](../share-changes) must be run before the merge
+- `Revert "previous commit of the same PR"`: both commits must be dropped before merging
 
 *[Continue towards sharing your changes ‣]({{< ref "share-changes">}})*
