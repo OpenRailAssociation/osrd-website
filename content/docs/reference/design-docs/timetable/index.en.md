@@ -116,7 +116,7 @@ train_name: "ABC3615"
 rolling_stock_name: R2D2
 
 # labels are metadata. They're only used for display filtering
-labels: ["INOUI", "TCHOU"]
+labels: ["tchou-tchou", "choo-choo"]
 
 # used to select speed limits for simulation
 speed_limit_tag: "MA100"
@@ -126,15 +126,16 @@ speed_limit_tag: "MA100"
 start_time: "2023-12-21T08:51:11.914897+00:00"
 
 path:
- - {id: a, uic: 87210}
- - {id: b, track: foo, offset: 10}
- - {id: c, deleted: true, trigram: ABC}
- - {id: d, operational_point: X}
+ - {id: a, uic: 87210} # Any operational point matching the given uic
+ - {id: b, track: foo, offset: 1000} # 10m on track foo
+ - {id: c, deleted: true, trigram: ABC} # Any operational point matching the trigram ABC
+ - {id: d, operational_point: X} # A specified operational point
 
 # the algorithm used for distributing margins and scheduled times
 constraint_distribution: MARECO # or LINEAR
 
 # all durations and times are specified using ISO 8601
+# we don't supports months and years duration since it's ambiguous
 # times are defined as time elapsed since start. Even if the attribute is omitted,
 # a scheduled point at the starting point is infered to have departure=start_time
 # the "locked" flag is ignored by the backend.
@@ -154,7 +155,7 @@ margins:
   boundaries: [b]
 
   # the following units are supported:
-  #  - 0 is a special value which indicates no margin. It's the default
+  #  - none is a special value which indicates no margin. It's the default
   #  - % means added percentage of the base simulation time
   #  - min/km means minutes per kilometers
   values: ["5%", "3%"]
@@ -231,18 +232,19 @@ During simulation, **if a target arrival time cannot be achieved, the rest of th
 
 ```
 POST /v2/timetable
+GET /v2/timetable/ # Paginated list timetable
+PUT /v2/timetable/ID
 DELETE /v2/timetable/ID
-GET /v2/timetable/ID
-GET /v2/timetable/
+GET /v2/timetable/ID # Timetable with list of train schedule ids attached to it
 GET /v2/timetable/ID/conflicts
 # Projects the space time curves and paths of a number of train schedules onto the path of another one
 GET /v2/timetable/ID/project_path?infra=N&onto=X&ids[]=Y&ids[]=Z
 
-POST /v2/train_schedule # Can be a batch creation
+POST /v2/train_schedule # A batch creation
 GET /v2/train_schedule/ID
 GET /v2/train_schedule/ID/path?infra_id=42
-PATCH /v2/train_schedule/ID
-DELETE /v2/train_schedule/ID
+PUT /v2/train_schedule/ID # Update a specific train schedule
+DELETE /v2/train_schedule # A batch deletion
 
 POST /v2/infra/ID/pathfinding/topo # Not required now can be move later
 POST /v2/infra/ID/pathfinding/blocks
