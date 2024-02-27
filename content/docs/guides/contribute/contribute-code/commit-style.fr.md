@@ -32,10 +32,17 @@ Une vérification automatique est effectuée pour vérifier autant que possible 
 
 ### Contre-exemples de titres de commit
 
+A éviter absolument:
+
 - `component: update ./some/file.ext` : préciser la mise à jour en question plutôt que le fichier,
   les fichiers sont des éléments techniques bienvenus dans le _corps_ du commit
 - `component: fix #42` : préciser le problème corrigé, les liens (vers l'issue, etc.) sont
   encouragés dans le _corps_ du commit
 - `wip` : décrire le travail (et le finir)
+
+Bienvenus pour faciliter la relecture, mais ne pas merger:
+
+- `fixup! previous commit` : un [autosquash](../share-changes) devra être lancé avant le merge
+- `Revert "previous commit of the same PR"` : les deux commits devront être retirés avant merge
 
 *[Continuer vers le partage des changements ‣]({{< ref "share-changes">}})*
