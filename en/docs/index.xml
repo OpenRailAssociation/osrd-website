@@ -377,12 +377,18 @@ if it is not entirely obvious from the title.
 An automated check is performed to enforce as much as possible this formating.
 &lt;/div>
 &lt;h3 id="counter-examples-of-commit-titles">Counter-examples of commit titles&lt;/h3>
+&lt;p>To be avoided entirely:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>component: update ./some/file.ext&lt;/code>: specify the update itself rather than the file, the files
 are technical elements welcome in the &lt;em>body&lt;/em> of the commit&lt;/li>
 &lt;li>&lt;code>component: fix #42&lt;/code>: specify the problem fixed in the title, links (to issue, etc.) are very
 welcome in commit&amp;rsquo;s &lt;em>body&lt;/em>&lt;/li>
 &lt;li>&lt;code>wip&lt;/code>: describe the work (and finish it)&lt;/li>
+&lt;/ul>
+&lt;p>Welcome to ease review, but do not merge:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>fixup! previous commit&lt;/code>: an &lt;a href="../share-changes">autosquash&lt;/a> must be run before the merge&lt;/li>
+&lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code>: both commits must be dropped before merging&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/">Continue towards sharing your changes ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Review process</title><link>https://osrd.fr/en/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-review/</guid><description>
 &lt;p>The reviewer/maintainer undertakes to carry out the review quickly, and is also responsible for closing &lt;em>request changes&lt;/em>, check commit history and quickly merge the &lt;em>pull request&lt;/em> if allowed.&lt;/p>
@@ -446,7 +452,7 @@ You may leave a comment to explain changes.&lt;/li>
 &lt;/blockquote>
 &lt;ol>
 &lt;li>
-&lt;p>&lt;strong>Open a &lt;em>pull request&lt;/em>&lt;/strong>&lt;br>
+&lt;p>&lt;strong>Open a &lt;em>pull request&lt;/em>&lt;/strong> &lt;br>
 Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch.&lt;/p>
 &lt;p>If possible:&lt;/p>
 &lt;ul>
@@ -457,7 +463,7 @@ Once your changes are ready, you have to request integration with the &lt;code>d
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Take feedback into account&lt;/strong>&lt;br>
+&lt;p>&lt;strong>Take feedback into account&lt;/strong> &lt;br>
 Once your PR is open, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">other contributors can review your changes&lt;/a>:&lt;/p>
 &lt;ul>
 &lt;li>Any user can review your changes.&lt;/li>
@@ -468,9 +474,24 @@ The intent is to efficiently collaborate towards a solution we all agree on.&lt;
 &lt;li>Once all discussions are resolved, a maintainer integrates the change.&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>
-&lt;p>&lt;strong>If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.&lt;/strong>&lt;/p>
-&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>For large PRs that are bound to evolve over time, keeping &lt;em>corrections&lt;/em> during review in separate
+&lt;em>commits&lt;/em> helps reviewers. In the case of multiple reviews by the same person, this can save full
+re-review (ask for help if necessary):&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Add fixup&lt;/em>, amend, squash or reword commits using the
+&lt;a href="https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt">git commit documentation&lt;/a>.&lt;/li>
+&lt;li>&lt;em>Automatically merge corrections&lt;/em> into the original commits of your PR and check the result, using
+&lt;a href="https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash">&lt;code>git rebase -i --autosquash origin/dev&lt;/code>&lt;/a>
+(just before the merge and once review process is complete).&lt;/li>
+&lt;li>&lt;em>Push your changes&lt;/em> with
+&lt;a href="https://git-scm.com/docs/git-push#Documentation/git-push.txt---no-force-with-lease">&lt;code>git push --force-with-lease&lt;/code>&lt;/a>
+because you are not just pushing new commits, you are pushing changes to existing commits.&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>&lt;strong>If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.&lt;/strong>&lt;/li>
 &lt;/ol>
 &lt;h2 id="suggested-workflow">Suggested workflow&lt;/h2>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
@@ -1589,7 +1610,7 @@ The implementation hasn&amp;rsquo;t been started.&lt;/p></description></item><it
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode135s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode140s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -1600,11 +1621,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode135s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode140s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode135s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode140s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -1623,14 +1644,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode135s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode140s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode135s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode140s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode135s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode140s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -1642,7 +1663,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode135s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode140s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -1677,7 +1698,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode135s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode140s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">

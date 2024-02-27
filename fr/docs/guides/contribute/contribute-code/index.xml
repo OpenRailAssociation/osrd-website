@@ -307,12 +307,18 @@ changement, si le titre n&amp;#39;est pas complètement évident.
 Une vérification automatique est effectuée pour vérifier autant que possible ce formatage.
 &lt;/div>
 &lt;h3 id="contre-exemples-de-titres-de-commit">Contre-exemples de titres de commit&lt;/h3>
+&lt;p>A éviter absolument:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>component: update ./some/file.ext&lt;/code> : préciser la mise à jour en question plutôt que le fichier,
 les fichiers sont des éléments techniques bienvenus dans le &lt;em>corps&lt;/em> du commit&lt;/li>
 &lt;li>&lt;code>component: fix #42&lt;/code> : préciser le problème corrigé, les liens (vers l&amp;rsquo;issue, etc.) sont
 encouragés dans le &lt;em>corps&lt;/em> du commit&lt;/li>
 &lt;li>&lt;code>wip&lt;/code> : décrire le travail (et le finir)&lt;/li>
+&lt;/ul>
+&lt;p>Bienvenus pour faciliter la relecture, mais ne pas merger:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>fixup! previous commit&lt;/code> : un &lt;a href="../share-changes">autosquash&lt;/a> devra être lancé avant le merge&lt;/li>
+&lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code> : les deux commits devront être retirés avant merge&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/">Continuer vers le partage des changements ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Partagez vos changements</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</guid><description>
 &lt;p>L&amp;rsquo;auteur d&amp;rsquo;une &lt;em>pull request (PR)&lt;/em> est responsable de son « cycle de vie ». Il se charge de contacter les différents acteurs, de suivre la revue de code, répondre aux commentaires et corriger le code suite à la revue de code (vous pouvez également consulter la &lt;a href="https://osrd.fr/fr/docs/guides/contribute/code-review/">page dédiée à la revue de code&lt;/a>).&lt;/p>
@@ -321,7 +327,7 @@ encouragés dans le &lt;em>corps&lt;/em> du commit&lt;/li>
 &lt;/blockquote>
 &lt;ol>
 &lt;li>
-&lt;p>&lt;strong>Ouvrez une &lt;em>pull request&lt;/em>&lt;/strong>&lt;br>
+&lt;p>&lt;strong>Ouvrez une &lt;em>pull request&lt;/em>&lt;/strong> &lt;br>
 Une fois que vos changements sont prêts, il est temps de proposer de les intégrer à la branche &lt;code>dev&lt;/code>.
 Cela se fait &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">dans l&amp;rsquo;interface web de Github&lt;/a>.&lt;/p>
 &lt;p>Si possible :&lt;/p>
@@ -333,7 +339,7 @@ Cela se fait &lt;a href="https://docs.github.com/en/pull-requests/collaborating-
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Prennez en compte les retours&lt;/strong>&lt;br>
+&lt;p>&lt;strong>Prenez en compte les retours&lt;/strong> &lt;br>
 Une fois que votre PR est ouverte, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">d&amp;rsquo;autres contributeurs doivent donner leur avis sur votre proposition&lt;/a> :&lt;/p>
 &lt;ul>
 &lt;li>N&amp;rsquo;importe qui peut donner son avis.&lt;/li>
@@ -343,9 +349,25 @@ Une fois que votre PR est ouverte, &lt;a href="https://docs.github.com/en/pull-r
 &lt;li>Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>
-&lt;p>&lt;strong>N&amp;rsquo;hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin : vous êtes responsable de la vie de votre &lt;em>pull request&lt;/em>&lt;/strong>.&lt;/p>
-&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>Sur les PR conséquentes et vouées à évoluer dans le temps, conserver les &lt;em>corrections&lt;/em> suite à la
+relecture dans des &lt;em>commits séparés&lt;/em> facilite le travail de relecture. En cas de &lt;code>rebase&lt;/code> et de
+relectures multiples par la même personne ils sont le moyen d&amp;rsquo;économiser une nouvelle relecture
+complète (demandez de l&amp;rsquo;aide au besoin) :&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Ajoutez des commits de fixup&lt;/em>, amend, squash ou reword à l&amp;rsquo;aide de la
+&lt;a href="https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt">documentation dédiée à git commit&lt;/a>.&lt;/li>
+&lt;li>&lt;em>Fusionnez automatiquement les corrections&lt;/em> dans les commits originaux de votre PR et vérifier le résultat , à l&amp;rsquo;aide de
+&lt;a href="https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash">&lt;code>git rebase -i --autosquash origin/dev&lt;/code>&lt;/a>
+(juste avant le merge et une fois les relectures terminées).&lt;/li>
+&lt;li>&lt;em>Poussez vos changements&lt;/em> avec
+&lt;a href="https://git-scm.com/docs/git-push#Documentation/git-push.txt---no-force-with-lease">&lt;code>git push --force-with-lease&lt;/code>&lt;/a>
+car vous ne poussez pas seulement de nouveaux commits, mais bien un changement des commits existants.&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>&lt;strong>N&amp;rsquo;hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin : vous êtes responsable de la vie de votre &lt;em>pull request&lt;/em>&lt;/strong>.&lt;/li>
 &lt;/ol>
 &lt;h2 id="proposition-de-fonctionnement">Proposition de fonctionnement&lt;/h2>
 &lt;p>Voici une proposition de flux de travail.&lt;/p>
