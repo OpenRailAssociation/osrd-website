@@ -13,6 +13,9 @@ description: "À lire en premier !"
 - Évitez les abréviations peu connues.
 - **Contrôle et cohérence de la réutilisation du code de tiers** : une dépendance est ajoutée seulement si elle est absolument nécessaire.
 - Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.
+- Nous essayons de limiter à un petit nombre les PRs de mise à jour des dépendances chaque semaine
+dans chaque composant, donc regrouper les montées de version dans une même PR est une bonne option
+(reportez-vous au `README.md` de chaque composant).
 - **Ne pas réinventer la roue** : en opposition au point précédent, ne réinventez pas tout à tout prix.
 - S'il existe une dépendance dans l'écosystème qui est le standard « de facto », nous devrions fortement envisager de l'utiliser.
 - Plus de code et de recommandations générales dans le dépôt principal [CONTRIBUTING.md](https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md).
