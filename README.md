@@ -1,6 +1,5 @@
 # OSRD WEBSITE
 
-
 ## What is OSRD?
 
 OSRD is a work in progress tool meant to help design and operate railway infrastructure.
@@ -31,13 +30,15 @@ docker run --rm -it \
 #### Development server
 
 ```
-docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:ext-alpine server
+# starts hugo using the klakegg/hugo:ext-alpine docker image
+./hugo.sh server
 ```
 
 #### Build
 
 ```
-docker run --rm -it -v $(pwd):/src klakegg/hugo:ext-alpine
+# by default, it just builds the site
+./hugo.sh
 ```
 
 ## Contributing
