@@ -37,22 +37,6 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;li>Follow &lt;a href="https://github.com/osrd-project/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/">Continue towards code contribution ‣&lt;/a>&lt;/em>&lt;/p>
-&lt;h4 id="editoast-specific-batch-dependency-updates">&lt;code>editoast&lt;/code> specific: batch dependency updates&lt;/h4>
-&lt;p>We use dependabot on the project to signal when dependencies are outdated. We do not use dependabot to automatically update dependencies, as we want to merge all updates at once and review the changes.&lt;/p>
-&lt;p>Here is the process to update dependencies:&lt;/p>
-&lt;ol>
-&lt;li>Change the versions.
-&lt;ul>
-&lt;li>&lt;em>If you&amp;rsquo;re using VSCode&lt;/em> you can install the &lt;a href="https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates">&lt;code>serayuzgur.crates&lt;/code>&lt;/a> extension and run the &amp;ldquo;update all dependencies&amp;rdquo; command.&lt;br>
-Make sure that the new version chosen is stable, and that loose constraints are not overwritten in your commit.&lt;/li>
-&lt;li>&lt;em>If you&amp;rsquo;re not&lt;/em>, you can go check the versions used by dependabot in &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">its PRs&lt;/a> and update the versions manually.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Run &lt;code>cargo update&lt;/code> to update the Cargo.lock file (even sub-dependencies).&lt;/li>
-&lt;li>Check that all &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">dependabot editoast PRs&lt;/a> are included in your update.&lt;/li>
-&lt;li>Adapt the code to the new versions, if needed.&lt;/li>
-&lt;li>Create a PR with your changes, and link all dependabot PRs in the description.&lt;/li>
-&lt;/ol>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>

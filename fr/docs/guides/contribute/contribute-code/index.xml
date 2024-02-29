@@ -8,6 +8,9 @@
 &lt;li>Évitez les abréviations peu connues.&lt;/li>
 &lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : une dépendance est ajoutée seulement si elle est absolument nécessaire.&lt;/li>
 &lt;li>Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
+&lt;li>Nous essayons de limiter à un petit nombre les PRs de mise à jour des dépendances chaque semaine
+dans chaque composant, donc regrouper les montées de version dans une même PR est une bonne option
+(reportez-vous au &lt;code>README.md&lt;/code> de chaque composant).&lt;/li>
 &lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : en opposition au point précédent, ne réinventez pas tout à tout prix.&lt;/li>
 &lt;li>S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard « de facto », nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
 &lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>

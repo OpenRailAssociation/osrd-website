@@ -24,6 +24,9 @@ Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;exista
 &lt;li>Évitez les abréviations peu connues.&lt;/li>
 &lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : une dépendance est ajoutée seulement si elle est absolument nécessaire.&lt;/li>
 &lt;li>Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
+&lt;li>Nous essayons de limiter à un petit nombre les PRs de mise à jour des dépendances chaque semaine
+dans chaque composant, donc regrouper les montées de version dans une même PR est une bonne option
+(reportez-vous au &lt;code>README.md&lt;/code> de chaque composant).&lt;/li>
 &lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : en opposition au point précédent, ne réinventez pas tout à tout prix.&lt;/li>
 &lt;li>S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard « de facto », nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
 &lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
@@ -303,23 +306,6 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;li>Suivre le &lt;a href="https://github.com/osrd-project/osrd#getting-started">README d&amp;rsquo;OSRD&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/">Continuer vers la contribution au code ‣&lt;/a>&lt;/em>&lt;/p>
-&lt;h4 id="spécifique-editoast--mise-à-jour-groupée-des-dépendances">Spécifique &lt;code>editoast&lt;/code> : mise à jour groupée des dépendances&lt;/h4>
-&lt;p>Nous utilisons dependabot sur le projet pour signaler quand les dépendances sont obsolètes. Nous ne nous en servons pas pour mettre à jour automatiquement les dépendances, pour intégrer toutes les mises à jour en une seule fois et relire les modifications.&lt;/p>
-&lt;p>Pour mettre à jour les dépendances :&lt;/p>
-&lt;ol>
-&lt;li>Changez les versions.
-&lt;ul>
-&lt;li>&lt;em>Si vous utilisez VSCode&lt;/em> vous pouvez installer l&amp;rsquo;extension &lt;a href="https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates">&lt;code>serayuzgur.crates&lt;/code>&lt;/a> et exécuter la commande &amp;ldquo;update all dependencies&amp;rdquo;.&lt;br>
-Cela mettra à jour toutes les dépendances vers leur dernière version, et écrasera les contraintes de version trop larges.&lt;br>
-Assurez-vous que la nouvelle version choisie est stable, et que les contraintes volontairement larges ne sont pas écrasées par votre commit.&lt;/li>
-&lt;li>&lt;em>Sinon&lt;/em> vous pouvez vérifier les versions utilisées par dependabot dans &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">ses PRs&lt;/a> et mettre à jour les versions manuellement.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Exécutez &lt;code>cargo update&lt;/code> pour mettre à jour le fichier Cargo.lock (y compris les sous-dépendances).&lt;/li>
-&lt;li>Vérifiez que toutes les &lt;a href="https://github.com/osrd-project/osrd/pulls?q=is%3Aopen+label%3Aarea%3Aeditoast+label%3Adependencies">PRs dependabot editoast&lt;/a> sont inclus dans votre commit.&lt;/li>
-&lt;li>Adaptez le code aux nouvelles versions, si nécessaire.&lt;/li>
-&lt;li>Créez une PR avec vos modifications, et reliez-y tous les PRs dependabot en description.&lt;/li>
-&lt;/ol>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>

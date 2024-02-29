@@ -8,6 +8,8 @@
 &lt;li>Avoid non well-known abbreviations.&lt;/li>
 &lt;li>&lt;strong>Control and consistency over 3rd party code reuse&lt;/strong>: Only add a dependency if it is absolutely necessary.&lt;/li>
 &lt;li>Every dependency we add decreases our autonomy and consistency.&lt;/li>
+&lt;li>We try to keep PRs bumping dependencies to a low number each week in each component, so grouping
+dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;code>README.md&lt;/code>).&lt;/li>
 &lt;li>&lt;strong>Don&amp;rsquo;t reinvent every wheel&lt;/strong>: as a counter to the previous point, don&amp;rsquo;t reinvent everything at all costs.&lt;/li>
 &lt;li>If there is a dependency in the ecosystem that is the &amp;ldquo;de facto&amp;rdquo; standard, we should heavily consider using it.&lt;/li>
 &lt;li>More code general recommendations in main repository &lt;a href="https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
