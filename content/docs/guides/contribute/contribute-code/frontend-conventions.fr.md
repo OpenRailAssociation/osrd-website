@@ -260,6 +260,11 @@ Tant qu’il existe au moins un composant react monté, qui appelle le hook `osr
 
 Dès que le dernier composant est démonté, la donnée est supprimée du cache au bout de 60 secondes (valeur par défaut).
 
+### Traduction de l'application
+
+La traduction de l'application est effectuée sur [Transifex](https://explore.transifex.com/osrd/osrd/). La langue par défaut est le français.
+A noter que si l'on doit corriger une traduction, il est recommandé de passer par Transifex. En revanche, si on ajoute une nouvelle clé de traduction, celle-ci peut être ajoutée dans le code directement, dans toutes les langues disponibles.
+
 ## Lois et éléments importants
 
 #### Aucun composant ne doit détenir la responsabilité de mise à jour de la donnée qu'il utilise
