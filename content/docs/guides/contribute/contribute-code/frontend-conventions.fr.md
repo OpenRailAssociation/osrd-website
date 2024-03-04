@@ -19,28 +19,32 @@ Ces **vues** sont constituées de **composants** et sous-composants <u>tous issu
 En plus de contenir les fichiers de **vues** des applications, elles peuvent contenir un répertoire **scripts** qui propose des scripts liés à ces vues. Les **vues** déterminent la logique et l'<u>accès au store</u>.
 
 Les **modules** sont des collections de **composants** rattachés à un **objet** (un scénario, un matériel roulant, un TrainSchedule). Ils contiennent :
-  - un répertoire *components* qui héberge <u>tous</u> les composants
-  - un répertoire *styles* optionnel <u>par module</u> pour le style des composants en scss
-  - un répertoire *assets* optionnel <u>par module</u> (qui contient les assets, de jeux de données par défaut par ex, spécifiques au module)
-  - un fichier *reducers* optionnel <u>par module</u>
-  - un fichier *types* optionnel <u>par module</u>
-  - un fichier *consts* optionnel <u>par module</u>
+
+- un répertoire _components_ qui héberge <u>tous</u> les composants
+- un répertoire _styles_ optionnel <u>par module</u> pour le style des composants en scss
+- un répertoire _assets_ optionnel <u>par module</u> (qui contient les assets, de jeux de données par défaut par ex, spécifiques au module)
+- un fichier _reducers_ optionnel <u>par module</u>
+- un fichier _types_ optionnel <u>par module</u>
+- un fichier _consts_ optionnel <u>par module</u>
 
 Un répertoire **assets** (qui contient les images et autre fichiers).
 
 Enfin, un répertoire **common** qui propose :
-  - un répertoire *utils* pour les fonctions utilitaires communes à l'ensemble du projet
-  - un fichier *types* pour les types communs à l'ensemble du projet
-  - un fichier *consts* pour les constantes communes à l'ensemble du projet
 
+- un répertoire _utils_ pour les fonctions utilitaires communes à l'ensemble du projet
+- un fichier _types_ pour les types communs à l'ensemble du projet
+- un fichier _consts_ pour les constantes communes à l'ensemble du projet
 
 ## Principes d'implémentation
+
 ### Routage & SLUG
+
 _Rédaction en cours_
 
 `projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}`
 
 ### Styles & SCSS
+
 > ATTENTION : en CSS/React, le scope d'une classe ne dépend pas de l'endroit où le fichier est importé mais est valide pour toute l'application. Si vous importez un fichier `scss` au fin fond d'un composant (ce que nous déconseillons fortement par ailleurs), ses classes seront disponibles pour toute l'application et peuvent donc provoquer des effets de bord. Vous pouvez utiliser les CSS modules pour éviter les conflits.
 
 Il est donc très recommandé de pouvoir facilement suivre l'arborescence des applications, vues, modules et composants également au sein du code SCSS, et notamment imbriquer les noms de classes pour éviter les effets de bord, le compilateur se chargera de fabriquer la hiérarchie nécessaire.
@@ -63,6 +67,7 @@ Si par exemple nous avons un composant `rollingStockSelector` qui propose une li
 Ainsi, on a la garantie que l'image contenue dans la carte de matériel roulant héritera bien des bonnes propriétés css `.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg`.
 
 #### CSS Modules
+
 Les CSS modules permettent de scoper les styles CSS à un composant spécifique, évitant ainsi les conflits de noms de classe globaux.
 
 Vite prend en charge nativement les CSS modules. Assurez-vous que votre fichier CSS a l'extension `.module.css`. Par exemple, `styles.module.css`.
@@ -74,7 +79,7 @@ Vite prend en charge nativement les CSS modules. Assurez-vous que votre fichier 
 ```css
 /* MyComponent.module.scss */
 .container {
-  background-color: white
+  background-color: white;
 }
 
 .title {
@@ -88,8 +93,8 @@ Vite prend en charge nativement les CSS modules. Assurez-vous que votre fichier 
 Vite transforme les classes en objets qui contiennent les classes hashées (exemple `_container_h3d8bg`) et les utilise au moment de la génération du bundle, rendant ainsi les classes uniques.
 
 ```tsx
-import React from 'react';
-import styles from './MyComponent.module.scss';
+import React from "react";
+import styles from "./MyComponent.module.scss";
 
 export function MyComponent() {
   return (
@@ -97,12 +102,13 @@ export function MyComponent() {
       <h1 className={styles["title"]}>Mon Titre</h1>
     </div>
   );
-};
+}
 ```
 
 Pour plus d'information, vous pouvez regarder la [documentation](https://vitejs.dev/guide/features.html#css-modules) de vite.js
 
 #### Noms de classes, utilisation de `cx()`
+
 Les classes sont ajoutées les unes à la suite des autres, normalement, dans la propriété `className=""`.
 
 Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une classe, concaténation, etc.&nbsp;— nous utilisons la bibliothèque [classnames](https://github.com/JedWatson/classnames) qui préconise l'usage suivant :
@@ -112,7 +118,7 @@ Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une cl
   <div className="rollingStockList">
     <div className="rollingStockCard w-100 my-2">
       <img
-        className={cx('rollingStockImg', 'm-2', 'p-1', 'bg-white', {
+        className={cx("rollingStockImg", "m-2", "p-1", "bg-white", {
           valid: isValid(),
           selected: rollingStockID === selectedRollingStockID,
         })}
@@ -125,7 +131,8 @@ Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une cl
 Les classes sont **séparées** chacune dans un `string` et les opérations booléennes ou autres sont réalisées dans un objet qui retournera —&nbsp;ou pas&nbsp;— le nom de propriété comme nom de classe à utiliser dans le CSS.
 
 ### Store/Redux
-Tout ce qui est *selector* est géré par la **vue** et passé en props aux composants et sous-composants.
+
+Tout ce qui est _selector_ est géré par la **vue** et passé en props aux composants et sous-composants.
 
 Par conséquent les appels au store en lecture et en écriture doivent être passés un niveau de la vue, en irrigant par des _props_ et _states_ les composants proposées par la vue.
 
@@ -157,7 +164,7 @@ RTK stocke le nom de l’endpoint, ainsi que les paramètres d’appel, pour for
 }
 ```
 
-Dans ce deuxième exemple, le même endpoint a été appelé avec le même paramètre `projectId`, mais un paramètre `studyId` différent. 
+Dans ce deuxième exemple, le même endpoint a été appelé avec le même paramètre `projectId`, mais un paramètre `studyId` différent.
 
 ##### Sérialisation des clés dans le cache
 
@@ -172,37 +179,37 @@ Pour voir le fonctionnement en détail, voici le code de cette fonction de séri
 <details>
   <summary>Fonction de sérialisation RTK</summary>
 
-  ```js
-  const defaultSerializeQueryArgs: SerializeQueryArgs<any> = ({
-      endpointName,
-      queryArgs,
-    }) => {
-      let serialized = ''
+```js
+const defaultSerializeQueryArgs: SerializeQueryArgs<any> = ({
+    endpointName,
+    queryArgs,
+  }) => {
+    let serialized = ''
 
-      const cached = cache?.get(queryArgs)
+    const cached = cache?.get(queryArgs)
 
-      if (typeof cached === 'string') {
-        serialized = cached
-      } else {
-        const stringified = JSON.stringify(queryArgs, (key, value) =>
-          isPlainObject(value)
-            ? Object.keys(value)
-                .sort() // les clés sont remises dans l’ordre ici
-                .reduce<any>((acc, key) => {
-                  acc[key] = (value as any)[key]
-                  return acc
-                }, {})
-            : value
-        )
-        if (isPlainObject(queryArgs)) {
-          cache?.set(queryArgs, stringified)
-        }
-        serialized = stringified
+    if (typeof cached === 'string') {
+      serialized = cached
+    } else {
+      const stringified = JSON.stringify(queryArgs, (key, value) =>
+        isPlainObject(value)
+          ? Object.keys(value)
+              .sort() // les clés sont remises dans l’ordre ici
+              .reduce<any>((acc, key) => {
+                acc[key] = (value as any)[key]
+                return acc
+              }, {})
+          : value
+      )
+      if (isPlainObject(queryArgs)) {
+        cache?.set(queryArgs, stringified)
       }
-      // Sort the object keys before stringifying, to prevent useQuery({ a: 1, b: 2 }) having a different cache key than useQuery({ b: 2, a: 1 })
-      return `${endpointName}(${serialized})`
+      serialized = stringified
     }
-  ```
+    // Sort the object keys before stringifying, to prevent useQuery({ a: 1, b: 2 }) having a different cache key than useQuery({ b: 2, a: 1 })
+    return `${endpointName}(${serialized})`
+  }
+```
 
 </details>
 
@@ -213,39 +220,39 @@ Dans la terminologie de RTK query, Lorsqu’un composant react appelle un endpoi
 RTK compte le nombre de référence à la même paire (endpoint,{paramètres}). Lorsque deux composants souscrivent à la même donnée. Ils partagent la même clé dans le cache.
 
 ```ts
-import { osrdEditoastApi } from './api.ts'  
-  
-function Component1() {  
-  // component subscribes to the data  
-  const { data } = osrdEditoastApi.useGetXQuery(1)
-  
-  return <div>...</div>  
-}  
-  
-function Component2() {  
-  // component subscribes to the data  
-  const { data } = osrdEditoastApi.useGetXQuery(2)
-  
-  return <div>...</div>  
-}  
-  
-function Component3() {  
-  // component subscribes to the data  
-  const { data } = osrdEditoastApi.useGetXQuery(3)  
-  
-  return <div>...</div>  
-}  
-  
-function Component4() {  
-  // component subscribes to the *same* data as ComponentThree,  
-  // as it has the same query parameters  
-  const { data } = osrdEditoastApi.useGetXQuery(3)  
-  
-  return <div>...</div>  
+import { osrdEditoastApi } from "./api.ts";
+
+function Component1() {
+  // component subscribes to the data
+  const { data } = osrdEditoastApi.useGetXQuery(1);
+
+  return <div>...</div>;
+}
+
+function Component2() {
+  // component subscribes to the data
+  const { data } = osrdEditoastApi.useGetXQuery(2);
+
+  return <div>...</div>;
+}
+
+function Component3() {
+  // component subscribes to the data
+  const { data } = osrdEditoastApi.useGetXQuery(3);
+
+  return <div>...</div>;
+}
+
+function Component4() {
+  // component subscribes to the *same* data as ComponentThree,
+  // as it has the same query parameters
+  const { data } = osrdEditoastApi.useGetXQuery(3);
+
+  return <div>...</div>;
 }
 ```
 
-Ici `Component3` et `Component4` ne vont générer qu’un seul appel vers le back. Ils souscrivent à la même donnée (même endpoint et même paramètre `3`). Ils vont partager la même clé dans le cache. 
+Ici `Component3` et `Component4` ne vont générer qu’un seul appel vers le back. Ils souscrivent à la même donnée (même endpoint et même paramètre `3`). Ils vont partager la même clé dans le cache.
 
 Au total ici il y aura trois appels vers le back, avec les paramètres `1`, `2`, `3`.
 
@@ -256,15 +263,19 @@ Dès que le dernier composant est démonté, la donnée est supprimée du cache 
 ## Lois et éléments importants
 
 #### Aucun composant ne doit détenir la responsabilité de mise à jour de la donnée qu'il utilise
+
 Seules <u>les vues</u> contiennent les sélecteurs du store, donnés ensuite en props aux composants du module lié à la vue.
 
 #### Le SCSS n'est pas scopé
+
 Un fichier `.scss` enfoui dans l'arborescence ne vous garantit pas que les classes contenues soient seulement accessibles à cet endroit, y compris par import react (formellement interdit au passage : vous devez utiliser l'import SCSS), toutes les classes déclarées sont accessibles partout.
 
 Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l'arborescence possible dans le fichier SCSS.
 
 #### Les liens des imports doivent être absolus
+
 Vous devez utiliser le <u>chemin complet</u> pour tous vos imports.
+
 > Le chemin peut être relatif seulement si le fichier à importer est dans le même répertoire.
 
 ## TypeScript
@@ -273,24 +284,26 @@ Vous devez utiliser le <u>chemin complet</u> pour tous vos imports.
 
 Nous recommendons d’utiliser les imports et export typés.
 
-Lorsque qu’un `import` ou un `export` ne comporte que des types, l’indiquer par le mot clé `type`. 
+Lorsque qu’un `import` ou un `export` ne comporte que des types, l’indiquer par le mot clé `type`.
 
 ```typescript
 export type { Direction, DirectionalTrackRange as TrackRange };
 ```
+
 ```typescript
-import type { typedEntries, ValueOf } from 'utils/types';
+import type { typedEntries, ValueOf } from "utils/types";
 ```
 
 Cette pratique permet de&nbsp;:
+
 - Améliorer les performances et le travail d’analyse du compilateur et du linter.
 - Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.
 - Éviter des cycles de dépendances&nbsp;:
 
- ![dependency cyle](/images/docs/contribute/dependency-cycle.png)
+![dependency cyle](/images/docs/contribute/dependency-cycle.png)
 
 L’erreur disparaît avec le mot clé `type`
 
- ![dependency cyle](/images/docs/contribute/dependency-cycle-gone.png)
+![dependency cyle](/images/docs/contribute/dependency-cycle-gone.png)
 
 - Alléger le bundle final (tous les types disparaissent à la compilation).
