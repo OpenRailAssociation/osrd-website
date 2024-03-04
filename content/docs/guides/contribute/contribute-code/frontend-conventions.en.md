@@ -260,6 +260,11 @@ As long as at least one mounted React component calls the `osrdEditoastApi.endpo
 
 Once the last component is unmounted, the data is removed from the cache after 60 seconds (default value).
 
+### Translation
+
+Application translation is performed on [Transifex](https://explore.transifex.com/osrd/osrd/). The default language is French.
+If you add a new translation key, it can be added directly to the code, in all available languages. Please note that if you need to correct a translation, we recommend that you use Transifex, to avoid any conflict.
+
 ## Rules and important elements
 
 #### No component should be responsible for updating the data it uses
