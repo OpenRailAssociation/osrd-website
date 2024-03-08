@@ -230,25 +230,44 @@ During simulation, **if a target arrival time cannot be achieved, the rest of th
 
 ## Endpoints
 
+### Timetable
+
 ```
 POST /v2/timetable
 GET /v2/timetable/ # Paginated list timetable
 PUT /v2/timetable/ID
 DELETE /v2/timetable/ID
 GET /v2/timetable/ID # Timetable with list of train schedule ids attached to it
-GET /v2/timetable/ID/conflicts
-# Projects the space time curves and paths of a number of train schedules onto the path of another one
-GET /v2/timetable/ID/project_path?infra=N&onto=X&ids[]=Y&ids[]=Z
+```
 
+### Train Schedule
+
+```
 POST /v2/train_schedule # A batch creation
 GET /v2/train_schedule/ID
-GET /v2/train_schedule/ID/path?infra_id=42
 PUT /v2/train_schedule/ID # Update a specific train schedule
 DELETE /v2/train_schedule # A batch deletion
+```
 
+### Path
+
+```
 POST /v2/infra/ID/pathfinding/topo # Not required now can be move later
 POST /v2/infra/ID/pathfinding/blocks
+# takes a pathfinding result and a list of properties to extract
+POST /v2/infra/ID/path_properties?props[]=slopes&props[]=gradients&props[]=electrifications&props[]=geometry&props[]=operational_points
+GET /v2/train_schedule/ID/path?infra_id=42 # Retrieve the path from a train schedule
+```
 
-# takes a path (the output of pathfinding/blocks) and a list of properties that need extracting
-POST /v2/infra/ID/path_properties?properties=slopes,gradients,electrification,neutral_sections,geometry
+### Simulation results
+
+```
+# Retrieve the list of conflict of the timetable (invalid trains are ignored)
+GET /v2/timetable/ID/conflicts?infra=N
+# Retrieve the space, speed and time curve of a given train
+GET /v2/train_schedule/ID/simulation?infa=N
+# Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.
+GET /v2/train_schedule/simulations_sumary?infa=N&ids[]=X&ids[]=Y
+# Projects the space time curves and paths of a number of train schedules onto a given path
+POST /v2/train_schedule/project_path?infra=N&ids[]=X&ids[]=Y
 ```
