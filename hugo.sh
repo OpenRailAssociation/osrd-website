@@ -1,8 +1,13 @@
 #!/bin/sh
 
+case "$(uname -s)" in
+    Darwin*) stat_flag=-f;;
+    *) stat_flag=-c;;
+esac
+
 root_dir=$(realpath "$(dirname "$0")")
-new_uid=$(stat -c %u "$root_dir")
-new_gid=$(stat -c %g "$root_dir")
+new_uid=$(stat $stat_flag %u "$root_dir")
+new_gid=$(stat $stat_flag %g "$root_dir")
 
 exec docker run --rm -it \
      -u "${new_uid}:${new_gid}" \
