@@ -1,4 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Architecture</title><link>https://osrd.fr/en/docs/reference/architecture/</link><description>Recent content in Architecture on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Data-flow</title><link>https://osrd.fr/en/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/data_flow/</guid><description>
 &lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Docs: Services</title><link>https://osrd.fr/en/docs/reference/architecture/services/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/services/</guid><description>
 &lt;p>It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.&lt;/p>
-&lt;p>&lt;img src="services.en.svg" alt="Services architecture">&lt;/p></description></item></channel></rss>
+&lt;h2 id="current">Current&lt;/h2>
+&lt;p>&lt;img src="services.en.svg" alt="Services architecture">&lt;/p>
+&lt;h2 id="target">Target&lt;/h2>
+&lt;p>Mutiple things are planned to be done in the future, including:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add an authenticating reverse proxy service (gateway)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Deploy &lt;code>editoast&lt;/code> as a scalable map tile service&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Make the &lt;code>core&lt;/code> service scalable
+&lt;ul>
+&lt;li>Core services will handle only one infrastructure (on a given version) at a time&lt;/li>
+&lt;li>Add a message broker (RabbitMQ) to dispatch queries to the right instance&lt;/li>
+&lt;li>Create a &lt;code>core-controller&lt;/code> service that will spawn / kill / scale &lt;code>core&lt;/code> services (k8s and docker support)&lt;/li>
+&lt;li>Responsibility for infrastructures loading is moved from the front to the &lt;code>core-controller&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="services_target.en.svg" alt="Services architecture">&lt;/p></description></item></channel></rss>
