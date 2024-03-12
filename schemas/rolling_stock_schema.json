@@ -6,8 +6,8 @@
             "properties": {
                 "efficiency": {
                     "description": "Battery efficiency",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "title": "Efficiency",
                     "type": "number"
                 },
@@ -81,7 +81,7 @@
             "properties": {
                 "max_efforts": {
                     "items": {
-                        "minimum": 0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "minItems": 2,
@@ -91,7 +91,7 @@
                 "speeds": {
                     "description": "Curves mapping speed (in m/s) to maximum traction (in newtons)",
                     "items": {
-                        "minimum": 0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "minItems": 2,
@@ -150,7 +150,7 @@
         },
         "EffortCurves": {
             "additionalProperties": false,
-            "description": "\n    Effort curves for a given rolling stock.\n    This schema handle multiple modes and conditions such as comfort, power restrictions, etc.\n    ",
+            "description": "Effort curves for a given rolling stock.\nThis schema handle multiple modes and conditions such as comfort, power restrictions, etc.",
             "properties": {
                 "default_mode": {
                     "description": "The default profile to use",
@@ -179,8 +179,8 @@
             "properties": {
                 "efficiency": {
                     "description": "Efficiency of electrification and pantograph transmission",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "title": "Efficiency",
                     "type": "number"
                 },
@@ -205,7 +205,6 @@
             "type": "object"
         },
         "EnergySource": {
-            "additionalProperties": false,
             "description": "Energy sources used when simulating qualesi trains",
             "discriminator": {
                 "mapping": {
@@ -234,7 +233,7 @@
             "properties": {
                 "capacity": {
                     "description": "How much energy the source can store (in Joules)",
-                    "minimum": 0,
+                    "minimum": 0.0,
                     "title": "Capacity",
                     "type": "number"
                 },
@@ -251,22 +250,22 @@
                 },
                 "soc": {
                     "description": "The state of charge, SoC\u00b7capacity = actual stock of energy",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "title": "Soc",
                     "type": "number"
                 },
                 "soc_max": {
                     "description": "The maximum SoC, where the available energy is capacity",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "title": "Soc Max",
                     "type": "number"
                 },
                 "soc_min": {
                     "description": "The minimum SoC, where the available energy is zero",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "title": "Soc Min",
                     "type": "number"
                 }
@@ -287,7 +286,7 @@
                     "$ref": "#/$defs/GammaType"
                 },
                 "value": {
-                    "exclusiveMinimum": 0,
+                    "exclusiveMinimum": 0.0,
                     "title": "Value",
                     "type": "number"
                 }
@@ -363,8 +362,8 @@
             "properties": {
                 "efficiency": {
                     "description": "Efficiency of the power pack",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "title": "Efficiency",
                     "type": "number"
                 },
@@ -405,14 +404,14 @@
             "properties": {
                 "soc_ref": {
                     "description": "Reference (target) value of state of charge",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "title": "Soc Ref",
                     "type": "number"
                 },
                 "tau": {
                     "description": "Time constant of the refill behavior (in seconds)",
-                    "minimum": 0,
+                    "minimum": 0.0,
                     "title": "Tau",
                     "type": "number"
                 }
@@ -428,17 +427,17 @@
             "additionalProperties": false,
             "properties": {
                 "A": {
-                    "minimum": 0,
+                    "minimum": 0.0,
                     "title": "A",
                     "type": "number"
                 },
                 "B": {
-                    "minimum": 0,
+                    "minimum": 0.0,
                     "title": "B",
                     "type": "number"
                 },
                 "C": {
-                    "minimum": 0,
+                    "minimum": 0.0,
                     "title": "C",
                     "type": "number"
                 },
@@ -458,12 +457,12 @@
         },
         "SpeedDependantPower": {
             "additionalProperties": false,
-            "description": "\n    A curve that account for speed-related power (output/availability) behavior of specific energy sources,\n    - the pantograph power is lowered at low speed to avoid welding the pantograph to the electrification\n    - the power outputted by Hydrogen fuel cells increases with speed\n    ",
+            "description": "A curve that account for speed-related power (output/availability) behavior of specific energy sources,\n- the pantograph power is lowered at low speed to avoid welding the pantograph to the electrification\n- the power outputted by Hydrogen fuel cells increases with speed",
             "properties": {
                 "powers": {
                     "description": "power values",
                     "items": {
-                        "minimum": 0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "minItems": 1,
@@ -473,7 +472,7 @@
                 "speeds": {
                     "description": "speed values",
                     "items": {
-                        "minimum": 0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "minItems": 1,
@@ -490,7 +489,7 @@
         }
     },
     "additionalProperties": false,
-    "description": "Electrical profiles and power classes are used to model the power loss along a electrification:\n    * Rolling stocks are attributed a power class depending on their power usage.\n    * Electrical profiles are then computed for each power class along all electrifications.\n    The electrical profile's value along the electrification is akin to an \"actual available power\" value.\n    * Then, speed-effort curves can be computed for all electrical profile values.\n\n    To prevent power grid overloads, infrastructure managers can enforce power restrictions on some parts of their\n    infrastructure for some trains. These train-specific restrictions are given a code.\n    To respect the prescribed power restrictions, the driver has to change the power notch used in the train, which\n    changes the power consumption of the train, akin to a car's gear.\n    In our model, we consider that trains' power notches and the associated power restriction codes are equivalent.\n    Thus power restrictions affect the effort curves, and change the power class of the rolling stock.\n    ",
+    "description": "Electrical profiles and power classes are used to model the power loss along a electrification:\n* Rolling stocks are attributed a power class depending on their power usage.\n* Electrical profiles are then computed for each power class along all electrifications.\nThe electrical profile's value along the electrification is akin to an \"actual available power\" value.\n* Then, speed-effort curves can be computed for all electrical profile values.\n\nTo prevent power grid overloads, infrastructure managers can enforce power restrictions on some parts of their\ninfrastructure for some trains. These train-specific restrictions are given a code.\nTo respect the prescribed power restrictions, the driver has to change the power notch used in the train, which\nchanges the power consumption of the train, akin to a car's gear.\nIn our model, we consider that trains' power notches and the associated power restriction codes are equivalent.\nThus power restrictions affect the effort curves, and change the power class of the rolling stock.",
     "properties": {
         "base_power_class": {
             "anyOf": [
@@ -507,7 +506,7 @@
         },
         "comfort_acceleration": {
             "description": "The maximum operational acceleration in m/s^2",
-            "exclusiveMinimum": 0,
+            "exclusiveMinimum": 0.0,
             "title": "Comfort Acceleration",
             "type": "number"
         },
@@ -522,7 +521,7 @@
         "electrical_power_startup_time": {
             "anyOf": [
                 {
-                    "minimum": 0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 {
@@ -549,13 +548,13 @@
             "description": "The max or const braking coefficient in m/s^2"
         },
         "inertia_coefficient": {
-            "exclusiveMinimum": 0,
+            "exclusiveMinimum": 0.0,
             "title": "Inertia Coefficient",
             "type": "number"
         },
         "length": {
             "description": "The length of the train, in m",
-            "exclusiveMinimum": 0,
+            "exclusiveMinimum": 0.0,
             "title": "Length",
             "type": "number"
         },
@@ -570,13 +569,13 @@
         },
         "mass": {
             "description": "The mass of the train, in kg",
-            "exclusiveMinimum": 0,
+            "exclusiveMinimum": 0.0,
             "title": "Mass",
             "type": "number"
         },
         "max_speed": {
             "description": "Maximum speed in m/s",
-            "exclusiveMinimum": 0,
+            "exclusiveMinimum": 0.0,
             "title": "Max Speed",
             "type": "number"
         },
@@ -613,7 +612,7 @@
         "raise_pantograph_time": {
             "anyOf": [
                 {
-                    "minimum": 0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 {
@@ -634,13 +633,13 @@
         },
         "startup_acceleration": {
             "description": "The maximum acceleration during startup in m/s^2",
-            "minimum": 0,
+            "minimum": 0.0,
             "title": "Startup Acceleration",
             "type": "number"
         },
         "startup_time": {
             "description": "The time the train takes before it can start accelerating in s",
-            "minimum": 0,
+            "minimum": 0.0,
             "title": "Startup Time",
             "type": "number"
         },
