@@ -277,6 +277,19 @@ Un fichier `.scss` enfoui dans l'arborescence ne vous garantit pas que les class
 
 Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l'arborescence possible dans le fichier SCSS.
 
+#### Les imports doivent être triés d'une certaine manière
+
+ESLint est configuré pour trier automatiquement les imports en 4 groupes, chacun trié alphabétiquement :
+
+- React
+- Librairies externes
+- Fichiers internes en chemin absolu
+- Fichiers internes en chemin relatif
+
+Chacun de ces groupes est séparé par une ligne vide.
+
+ESLint déclenchera un avertissement si ces recommandations ne sont pas respectées.
+
 #### Les liens des imports doivent être absolus
 
 Vous devez utiliser le <u>chemin complet</u> pour tous vos imports.
@@ -287,9 +300,14 @@ Vous devez utiliser le <u>chemin complet</u> pour tous vos imports.
 
 ### import & export
 
-Nous recommendons d’utiliser les imports et export typés.
+ESLint et Typescript sont configurés pour imposer l'`import type` pour un import de type.
 
-Lorsque qu’un `import` ou un `export` ne comporte que des types, l’indiquer par le mot clé `type`.
+Ceci permet de :
+
+- Automatiquement ajouter `type` devant l'import quand on ajoute un type avec l'autocomplétion dans un fichier.
+- Afficher 2 erreurs de chacun de ces packages demandant d'ajouter `type` devant l'import si vous ne l'avez pas fait.
+
+Lorsque qu’un `import` ou un `export` ne comporte que des types, il faut l’indiquer par le mot clé `type`.
 
 ```typescript
 export type { Direction, DirectionalTrackRange as TrackRange };
@@ -299,16 +317,25 @@ export type { Direction, DirectionalTrackRange as TrackRange };
 import type { typedEntries, ValueOf } from "utils/types";
 ```
 
+Quand un import ne contient pas que des types, il sera agencé de cette manière, par ordre alphabétique.
+
+```typescript
+import {
+  osrdEditoastApi,
+  type ScenarioCreateForm,
+} from "common/api/osrdEditoastApi";
+```
+
 Cette pratique permet de&nbsp;:
 
 - Améliorer les performances et le travail d’analyse du compilateur et du linter.
 - Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.
 - Éviter des cycles de dépendances&nbsp;:
 
-![dependency cyle](/images/docs/contribute/dependency-cycle.png)
+![dependency cycle](/images/docs/contribute/dependency-cycle.png)
 
 L’erreur disparaît avec le mot clé `type`
 
-![dependency cyle](/images/docs/contribute/dependency-cycle-gone.png)
+![dependency cycle](/images/docs/contribute/dependency-cycle-gone.png)
 
 - Alléger le bundle final (tous les types disparaissent à la compilation).
