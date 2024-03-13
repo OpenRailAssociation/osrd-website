@@ -246,6 +246,16 @@ If you add a new translation key, it can be added directly to the code, in all a
 &lt;h4 id="scss-is-not-scoped">SCSS is not scoped&lt;/h4>
 &lt;p>A &lt;code>.scss&lt;/code> file buried in the tree structure doesn&amp;rsquo;t guarantee that the classes it contains can only be accessed there, even by importing react (formally forbidden by the way: you must use SCSS import), all declared classes are accessible everywhere.&lt;/p>
 &lt;p>Prefer a judicious choice of root class name for a given module, and use the tree structure available in the SCSS file.&lt;/p>
+&lt;h4 id="imports-must-follow-a-specific-order">Imports must follow a specific order&lt;/h4>
+&lt;p>ESLint is setup to automatically sort imports in four import groups, each of them sorted in alphabetical order :&lt;/p>
+&lt;ul>
+&lt;li>React&lt;/li>
+&lt;li>External libraries&lt;/li>
+&lt;li>Internal absolute path files&lt;/li>
+&lt;li>Internal relative path files&lt;/li>
+&lt;/ul>
+&lt;p>Each of these groups will be separated by an empty line.&lt;/p>
+&lt;p>ESLint will trigger a warning if you don&amp;rsquo;t follow these guidelines.&lt;/p>
 &lt;h4 id="import-links-must-be-absolute">Import links must be absolute&lt;/h4>
 &lt;p>You must use the &lt;u>full path&lt;/u> for all your imports.&lt;/p>
 &lt;blockquote>
@@ -253,19 +263,29 @@ If you add a new translation key, it can be added directly to the code, in all a
 &lt;/blockquote>
 &lt;h2 id="typescript">TypeScript&lt;/h2>
 &lt;h3 id="import--export">import &amp;amp; export&lt;/h3>
-&lt;p>We recommend using typed imports and exports.&lt;/p>
+&lt;p>ESLint and Typescript are setup to enforce typed imports for an exported type.&lt;/p>
+&lt;p>This current setup allows to :&lt;/p>
+&lt;ul>
+&lt;li>Auto typing the import when using a type in a file with autocompletion.&lt;/li>
+&lt;li>Getting 2 errors from each package asking to use type import if you didn&amp;rsquo;t.&lt;/li>
+&lt;/ul>
 &lt;p>When an &lt;code>import&lt;/code> or &lt;code>export&lt;/code> contains only types, indicate it with the &lt;code>type&lt;/code> keyword.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">export&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">Direction&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">DirectionalTrackRange&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">TrackRange&lt;/span> &lt;span style="color:#000;font-weight:bold">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">typedEntries&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ValueOf&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;utils/types&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When an &lt;code>import&lt;/code> contains not only types, it will be structured like below, in alphabetical order.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">osrdEditoastApi&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">ScenarioCreateForm&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;common/api/osrdEditoastApi&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This allows to:&lt;/p>
 &lt;ul>
 &lt;li>Improve the performance and analysis process of the compiler and the linter.&lt;/li>
 &lt;li>Make these declarations more readable; we can clearly see what we are importing.&lt;/li>
 &lt;li>Avoid dependency cycles:&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle.png" alt="dependency cyle">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle.png" alt="dependency cycle">&lt;/p>
 &lt;p>The error disappears with the &lt;code>type&lt;/code> keyword&lt;/p>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle-gone.png" alt="dependency cyle">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle-gone.png" alt="dependency cycle">&lt;/p>
 &lt;ul>
 &lt;li>Make final bundle lighter (all types disappear at compilation)&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Write code</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</guid><description>

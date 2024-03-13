@@ -248,6 +248,16 @@ A noter que si l&amp;rsquo;on doit corriger une traduction, il est recommandé d
 &lt;h4 id="le-scss-nest-pas-scopé">Le SCSS n&amp;rsquo;est pas scopé&lt;/h4>
 &lt;p>Un fichier &lt;code>.scss&lt;/code> enfoui dans l&amp;rsquo;arborescence ne vous garantit pas que les classes contenues soient seulement accessibles à cet endroit, y compris par import react (formellement interdit au passage : vous devez utiliser l&amp;rsquo;import SCSS), toutes les classes déclarées sont accessibles partout.&lt;/p>
 &lt;p>Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l&amp;rsquo;arborescence possible dans le fichier SCSS.&lt;/p>
+&lt;h4 id="les-imports-doivent-être-triés-dune-certaine-manière">Les imports doivent être triés d&amp;rsquo;une certaine manière&lt;/h4>
+&lt;p>ESLint est configuré pour trier automatiquement les imports en 4 groupes, chacun trié alphabétiquement :&lt;/p>
+&lt;ul>
+&lt;li>React&lt;/li>
+&lt;li>Librairies externes&lt;/li>
+&lt;li>Fichiers internes en chemin absolu&lt;/li>
+&lt;li>Fichiers internes en chemin relatif&lt;/li>
+&lt;/ul>
+&lt;p>Chacun de ces groupes est séparé par une ligne vide.&lt;/p>
+&lt;p>ESLint déclenchera un avertissement si ces recommandations ne sont pas respectées.&lt;/p>
 &lt;h4 id="les-liens-des-imports-doivent-être-absolus">Les liens des imports doivent être absolus&lt;/h4>
 &lt;p>Vous devez utiliser le &lt;u>chemin complet&lt;/u> pour tous vos imports.&lt;/p>
 &lt;blockquote>
@@ -255,19 +265,29 @@ A noter que si l&amp;rsquo;on doit corriger une traduction, il est recommandé d
 &lt;/blockquote>
 &lt;h2 id="typescript">TypeScript&lt;/h2>
 &lt;h3 id="import--export">import &amp;amp; export&lt;/h3>
-&lt;p>Nous recommendons d’utiliser les imports et export typés.&lt;/p>
-&lt;p>Lorsque qu’un &lt;code>import&lt;/code> ou un &lt;code>export&lt;/code> ne comporte que des types, l’indiquer par le mot clé &lt;code>type&lt;/code>.&lt;/p>
+&lt;p>ESLint et Typescript sont configurés pour imposer l&amp;rsquo;&lt;code>import type&lt;/code> pour un import de type.&lt;/p>
+&lt;p>Ceci permet de :&lt;/p>
+&lt;ul>
+&lt;li>Automatiquement ajouter &lt;code>type&lt;/code> devant l&amp;rsquo;import quand on ajoute un type avec l&amp;rsquo;autocomplétion dans un fichier.&lt;/li>
+&lt;li>Afficher 2 erreurs de chacun de ces packages demandant d&amp;rsquo;ajouter &lt;code>type&lt;/code> devant l&amp;rsquo;import si vous ne l&amp;rsquo;avez pas fait.&lt;/li>
+&lt;/ul>
+&lt;p>Lorsque qu’un &lt;code>import&lt;/code> ou un &lt;code>export&lt;/code> ne comporte que des types, il faut l’indiquer par le mot clé &lt;code>type&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">export&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">Direction&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">DirectionalTrackRange&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">TrackRange&lt;/span> &lt;span style="color:#000;font-weight:bold">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">typedEntries&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ValueOf&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;utils/types&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Quand un import ne contient pas que des types, il sera agencé de cette manière, par ordre alphabétique.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">osrdEditoastApi&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">ScenarioCreateForm&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;common/api/osrdEditoastApi&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette pratique permet de :&lt;/p>
 &lt;ul>
 &lt;li>Améliorer les performances et le travail d’analyse du compilateur et du linter.&lt;/li>
 &lt;li>Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.&lt;/li>
 &lt;li>Éviter des cycles de dépendances :&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle.png" alt="dependency cyle">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle.png" alt="dependency cycle">&lt;/p>
 &lt;p>L’erreur disparaît avec le mot clé &lt;code>type&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle-gone.png" alt="dependency cyle">&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle-gone.png" alt="dependency cycle">&lt;/p>
 &lt;ul>
 &lt;li>Alléger le bundle final (tous les types disparaissent à la compilation).&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Écrire du code</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</guid><description>
