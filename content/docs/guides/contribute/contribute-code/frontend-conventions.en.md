@@ -277,6 +277,19 @@ A `.scss` file buried in the tree structure doesn't guarantee that the classes i
 
 Prefer a judicious choice of root class name for a given module, and use the tree structure available in the SCSS file.
 
+#### Imports must follow a specific order
+
+ESLint is setup to automatically sort imports in four import groups, each of them sorted in alphabetical order :
+
+- React
+- External libraries
+- Internal absolute path files
+- Internal relative path files
+
+Each of these groups will be separated by an empty line.
+
+ESLint will trigger a warning if you don't follow these guidelines.
+
 #### Import links must be absolute
 
 You must use the <u>full path</u> for all your imports.
@@ -287,7 +300,12 @@ You must use the <u>full path</u> for all your imports.
 
 ### import & export
 
-We recommend using typed imports and exports.
+ESLint and Typescript are setup to enforce typed imports for an exported type.
+
+This current setup allows to :
+
+- Auto typing the import when using a type in a file with autocompletion.
+- Getting 2 errors from each package asking to use type import if you didn't.
 
 When an `import` or `export` contains only types, indicate it with the `type` keyword.
 
@@ -299,16 +317,25 @@ export type { Direction, DirectionalTrackRange as TrackRange };
 import type { typedEntries, ValueOf } from "utils/types";
 ```
 
+When an `import` contains not only types, it will be structured like below, in alphabetical order.
+
+```typescript
+import {
+  osrdEditoastApi,
+  type ScenarioCreateForm,
+} from "common/api/osrdEditoastApi";
+```
+
 This allows to:
 
 - Improve the performance and analysis process of the compiler and the linter.
 - Make these declarations more readable; we can clearly see what we are importing.
 - Avoid dependency cycles:
 
-![dependency cyle](/images/docs/contribute/dependency-cycle.png)
+![dependency cycle](/images/docs/contribute/dependency-cycle.png)
 
 The error disappears with the `type` keyword
 
-![dependency cyle](/images/docs/contribute/dependency-cycle-gone.png)
+![dependency cycle](/images/docs/contribute/dependency-cycle-gone.png)
 
 - Make final bundle lighter (all types disappear at compilation)
