@@ -237,6 +237,9 @@ In addition to containing the &lt;strong>views&lt;/strong> files for the applica
 &lt;p>In total, there will be three calls to the backend here, with parameters &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, and &lt;code>3&lt;/code>.&lt;/p>
 &lt;p>As long as at least one mounted React component calls the &lt;code>osrdEditoastApi.endpoints.getProjectsByProjectId.useQuery&lt;/code> hook, for example, the data will be retained in the cache.&lt;/p>
 &lt;p>Once the last component is unmounted, the data is removed from the cache after 60 seconds (default value).&lt;/p>
+&lt;h3 id="translation">Translation&lt;/h3>
+&lt;p>Application translation is performed on &lt;a href="https://explore.transifex.com/osrd/osrd/">Transifex&lt;/a>. The default language is French.
+If you add a new translation key, it can be added directly to the code, in all available languages. Please note that if you need to correct a translation, we recommend that you use Transifex, to avoid any conflict.&lt;/p>
 &lt;h2 id="rules-and-important-elements">Rules and important elements&lt;/h2>
 &lt;h4 id="no-component-should-be-responsible-for-updating-the-data-it-uses">No component should be responsible for updating the data it uses&lt;/h4>
 &lt;p>Only &lt;u>views&lt;/u> contain the store selectors, which are then given as props to the components of the module linked to the view.&lt;/p>
