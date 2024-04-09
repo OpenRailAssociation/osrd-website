@@ -139,6 +139,32 @@
             "title": "BufferStopSncfExtension",
             "type": "object"
         },
+        "ConditionalParameter": {
+            "properties": {
+                "on_route": {
+                    "description": "Route on which the parameters are applied",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "title": "On Route",
+                    "type": "string"
+                },
+                "parameters": {
+                    "additionalProperties": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "description": "List of key value parameters, which are defined per signaling system",
+                    "title": "Parameters",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "on_route",
+                "parameters"
+            ],
+            "title": "ConditionalParameter",
+            "type": "object"
+        },
         "Curve": {
             "description": "This class is used to define the curve object.\nA curve correspond at radius of curvature in the part of corresponding track section.",
             "properties": {
@@ -504,6 +530,23 @@
         "LogicalSignal": {
             "description": "A logical signal is what displays something, whereas a physical signal is a group of logical signals",
             "properties": {
+                "conditional_parameters": {
+                    "description": "A list of conditional parameters, which are defined per signaling system",
+                    "items": {
+                        "$ref": "#/$defs/ConditionalParameter"
+                    },
+                    "title": "Conditional Parameters",
+                    "type": "array"
+                },
+                "default_parameters": {
+                    "additionalProperties": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "description": "A list of default parameters (in regards to routes), which are defined per signaling system",
+                    "title": "Default Parameters",
+                    "type": "object"
+                },
                 "next_signaling_systems": {
                     "description": "The list of allowed input signaling systems",
                     "items": {
@@ -530,7 +573,9 @@
             "required": [
                 "signaling_system",
                 "next_signaling_systems",
-                "settings"
+                "settings",
+                "default_parameters",
+                "conditional_parameters"
             ],
             "title": "LogicalSignal",
             "type": "object"
@@ -1021,7 +1066,7 @@
                 },
                 "sight_distance": {
                     "description": "Visibility distance of the signal in meters",
-                    "exclusiveMinimum": 0.0,
+                    "minimum": 0.0,
                     "title": "Sight Distance",
                     "type": "number"
                 },
@@ -1626,8 +1671,8 @@
             "type": "array"
         },
         "version": {
-            "const": "3.4.10",
-            "default": "3.4.10",
+            "const": "3.4.11",
+            "default": "3.4.11",
             "description": "Version of the schema",
             "title": "Version"
         }
