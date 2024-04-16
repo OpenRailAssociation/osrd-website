@@ -58,3 +58,27 @@ computing an
 is a feature of the running-time
 calculation module. It adds a given delay between two points of
 a path, without affecting the speeds on the rest of the path.
+
+
+## Post-processing
+
+We **used to** compute the engineering allowances during the graph
+exploration, but that process was far too expensive. We used to
+run binary searches on full simulations, which would sometimes
+go back for a long distance in the path.
+
+What we *actually need* is to know whether an engineering allowance
+is *possible* without causing any conflict. We can use heuristics
+here, as long as we're on the conservative side: we can't
+say that it's possible if it isn't, but missing solutions with
+extremely tight allowances isn't a bad thing in our use cases.
+
+
+But this change means that, once the solution is found, we can't
+simply concatenate the simulation results. We need to run
+a full simulation, with actual engineering allowances,
+that avoid any conflict. This step has been merged
+with the one described on the
+[standard allowance]({{< ref "docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance" >}} "standard allowance")
+page, which is now run even when no standard allowance
+have been set.
