@@ -26,49 +26,50 @@ Pour plus de difficulté, la marge doit suivre le modèle
 La marge n'est pas répartie uniformément sur le trajet, mais selon
 un calcul qui nécessite de connaître l'ensemble du trajet.
 
-#### Marge linéaire exprimée en fonction du temps de parcours
+### Pendant l'exploration
 
-Pour commencer, le problème est résolu avec une marge linéaire,
-c'est-à-dire répartie uniformément sur le parcours du train.
-La vitesse est simplement multipliée par un facteur constant.
 
-Les [enveloppes]({{< ref "docs/explanation/running_time_calculation/envelopes_system" >}} "enveloppes").
-calculées pendant l'exploration du graphe ne sont
-pas modifiées, celles-ci sont toujours à vitesse maximale.
-Mais elles sont accompagnées du facteur de vitesse, qui est utilisé
-pour calculer les temps de parcours et les conflits.
+La principale implication de la marge de régularité est pendant
+l'exploration du graphe, quand on identifie les conflits.
+Les temps et les vitesses doivent être baissés linéairement
+pour prendre en compte les conflits au bon moment.
+La simulation au plus rapide doit tout de même être calculée
+car elle peut définir le temp supplémentaire.
 
-C'est seulement quand le chemin est trouvé que la marge est appliquée à
-l'enveloppe finale. Parce qu'il s'agit uniquement de multiplication par un
-facteur, les conflits ne peuvent pas apparaître ici.
+Ce procédé *n'est pas exact* car il ignore la manière dont
+la marge est appliquée (en particulier pour MARECO).
+Mais à cette étape les temps exacts ne sont pas nécessaires,
+il est seulement nécessaire de savoir si une solution existe
+à ce temps approximatif.
 
-#### Marge linéaire exprimée en fonction de la distance
+{{% alert color="info" %}}
 
-Le principe ici est généralement similaire, mais avec une difficulté
-supplémentaire : le facteur n'est pas constant au long du trajet.
-En effet, un train roulant à faible vitesse parcours moins de distance
-dans un même intervalle de temps qu'un train à pleine vitesse.
-La vitesse est réduite d'un facteur plus faible quand le train
-roule moins vite.
+Ce procédé inexact peut sembler être un problème, mais en
+pratique (pour la SNCF) les marges de régularités ont en
+fait une tolérance entre deux points arbitraires
+du chemin. Par exemple pour une marge indiquée à 5 minutes
+par 100km, une solution avec la marge entre 3 et 7 minutes
+entre deux PR serait acceptable. Cette tolérance ne sera
+pas encodée explicitement, mais elle
+permet de faire des approximations de quelques
+secondes pendant la recherche.
 
-Comme le train ne roule pas à vitesse constante pendant son trajet,
-le facteur de vitesse évolue d'une arête à l'autre.
-Cela provoque des courbes de vitesse irrégulières.
+{{% /alert %}}
 
-#### Marge mareco
 
-Il s'agit ici exclusivement d'un post-traitement, car il est impossible
-de calculer une courbe mareco sans connaître l'intégralité du trajet.
-La détection de conflit pendant l'exploration se base exclusivement
-sur la courbe avec une marge linéaire.
+#### Post-processing
 
-Cela implique que des conflits peuvent apparaître pendant cette étape.
-Pour les éviter, la procédure suivante est appliquée :
- 1. Une marge est appliquée à la courbe sur l'ensemble du trajet
-avec l'algorithme mareco
- 1. Le premier conflit provoqué par le changement est recherché
- 1. S'il existe, *l'application de mareco sera séparée en deux
-intervalles*. Le point à la position du conflit est alors fixé
-dans l'espace-temps par rapport à la courbe avec une marge linéaire,
-qui elle ne génère pas de conflit.
- 1. Le procédé est répété itérativement jusqu'à une absence de conflit.
+
+Une fois que le chemin est trouvé, il est nécessaire
+de faire une simulation finale pour appliquer correctement
+les marges. Le procédé est le suivant :
+
+1. Pour certains points du chemin, le temps est fixé.
+   C'est un paramètre d'entrée de la simulation qui appelle
+   le module de marge. À l'initialisation, le temps est fixé
+   à chaque point d'arrêt.
+2. Une simulation est réalisée. En cas de conflit, on
+   s'intéresse au premier
+3. Un point est fixé à la position de ce conflit.
+   Le temps de référence est celui considéré pendant l'exploration.
+4. Ce procédé est répété itérativement jusqu'à une absence de conflit

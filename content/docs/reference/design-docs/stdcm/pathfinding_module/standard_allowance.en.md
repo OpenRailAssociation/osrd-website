@@ -26,44 +26,41 @@ the extra time isn't added evenly over the whole path,
 it is computed in a way that requires knowing the whole path.
 This is done to optimize the energy used by the train.
 
-#### Linear margin expressed as a function of time
+#### During the exploration
 
-As a first step, the problem is solved with a linear margin,
-i.e. added evenly over the whole path.
-The speed is simply modified by a constant factor.
+The main implication of the standard allowance is during
+the graph exploration, when we identify conflicts.
+It means that we need to scale down the speeds. We still need
+to compute the maximum speed simulations (as they define
+the extra time), but when identifying at which time we see
+a given signal, all speeds and times are scaled.
 
-The [envelopes]({{< ref "docs/explanation/running_time_calculation/envelopes_system" >}} "envelopes").
-computed during the graph traversal are not modified, they are always
-at maximum speed. But they are paired with a speed factor, which is used
-to compute running time and to evaluate conflicts.
+This process *is not exact*. It doesn't properly account for
+the way the allowance is applied (especially for MARECO).
+But at this point we don't need exact times, we just need
+to identify whether a solution would exist at this approximate time.
 
-The final envelope, with the allowance, is only computed once a path
-is found.
 
-#### Linear margin expressed as a function of distance
+{{% alert color="info" %}}
+This slightly inexact process may seem like a problem, but in
+reality (for SNCF) standard allowances actually have some
+tolerance between arbitrary points on the path. e.g. if
+we should aim for 5 minutes per 100km, any value between
+3 and 7 would be valid. The actual tolerance is not something
+we can or want to encode as they're too many specificities,
+but it means we can be off by a few seconds.
+{{% /alert %}}
 
-The principle is generally the same, but with an extra difficulty:
-the speed factor isn't constant over the path.
-When a train goes faster, it travels more distance in the same time,
-which increases the allowance time and the speed factor.
+#### Post-processing
 
-Because the train speed changes over the path, the speed factor
-changes from one edge to another. This causes irregular speed curves.
 
-#### MARECO Allowances
+The process to find the actual train simulation is as follows:
 
-This is exclusively a post-processing step,
-because it isn't possible to compute the MARECO envelope
-without knowing the full train path.
-When looking for a path, linear allowances are used.
-
-This means that conflicts may appear at this step.
-To avoid them, the following procedure is applied:
-
-1. A mareco allowance is applied over the whole path.
-1. If there are conflict, the first one is considered.
-1. The mareco allowance is *split in two intervals*.
-The point where the first conflict appeared is set
-to be at the same time as the envelope with a linear allowance,
-removing the conflict at this point.
-1. This process is repeated iteratively until no conflict is found.
+1. We define points at which the time is fixed, initialized
+   at first with the time of each train stop. This is an input
+   of the simulation and indirectly calls the standard allowance.
+2. If there are conflict, we try to remove the first one.
+3. We add a fixed time point *at the location where that conflict
+   happened*. We use the time considered during the exploration
+   (with linear scaling) as reference time.
+4. This process is repeated iteratively until no conflict is found.

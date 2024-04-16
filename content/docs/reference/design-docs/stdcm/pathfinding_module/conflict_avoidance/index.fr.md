@@ -56,4 +56,30 @@ le graphe est parcouru en arrière pour créer de nouvelles arêtes.
 
 La [marge de construction]({{< ref "docs/explanation/running_time_calculation/allowances" >}} "marges")
 est une fonctionnalité du calcul de marche
-permettant d'ajouter un délai donné entre deux point du parcours.
+permettant d'ajouter un délai donné entre deux points du parcours.
+
+
+## Post-processing
+
+Les marges de constructions *étaient* calculées pendant
+l'exploration du graph, mais ce procédé était trop
+couteux en temps de calcul. On effectuait des dichotomies
+sur des simulations qui pouvaient s'étendre sur des
+portions importantes du chemin.
+
+On a seulement besoin de savoir si la marge de construction
+*peut* être réalisée sans provoquer de conflit.
+Des heuristiques peuvent être utilisées ici tant qu'on est
+plus restrictif que permissif : une marge impossible
+doit être identifiée comme telle, mais manquer une solution
+avec une marge extrêmement serrée n'est pas une mauvaise chose.
+
+Mais avec ce changement, une fois qu'une solution est trouvée,
+il ne suffit plus de concaténer les résultats de simulation
+pour obtenir la simulation finale. On doit réaliser une
+simulation complète avec les vraies marges de construction
+qui évitent tout conflit. Cette étape se rejoint avec celle
+décrite pour les
+[marges de régularité]({{< ref "docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance" >}} "marges de régularité"),
+qui est maintenant réalisée même sans marge de régularité
+spécifiée.
