@@ -57,8 +57,4 @@ testing, inputs and outputs are strongly simplified and abstracted.&lt;/p>
 the solution space is described as a graph that encodes locations,
 time, and speed. A pathfinding is run on this graph to find a solution.&lt;/p>
 &lt;p>This graph could, in a way, be seen as a decision tree,
-but different paths can lead to the same node.&lt;/p></description></item><item><title>Docs: Signaling interface</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/signaling_interface/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/signaling_interface/</guid><description>
-&lt;p>WIP&lt;/p>
-&lt;p>There&amp;rsquo;s a draft of what we intend to do on the French page,
-but it&amp;rsquo;s still a work in progress.
-The implementation hasn&amp;rsquo;t been started.&lt;/p></description></item></channel></rss>
+but different paths can lead to the same node.&lt;/p></description></item></channel></rss>

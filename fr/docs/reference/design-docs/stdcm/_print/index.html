@@ -1,6 +1,6 @@
 <!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=fr class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=canonical type=text/html href=https://osrd.fr/fr/docs/reference/design-docs/stdcm/><link rel=alternate type=application/rss+xml href=https://osrd.fr/fr/docs/reference/design-docs/stdcm/index.xml><meta name=robots content="noindex, nofollow"><link rel="shortcut icon" href=/favicons/favicon.ico><link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192><title>Recherche de sillons de dernière minute (STDCM) | OSRD</title>
-<meta name=description content="Open Source Railway Designer"><meta property="og:title" content="Recherche de sillons de dernière minute (STDCM)"><meta property="og:description" content="Open Source Railway Designer"><meta property="og:type" content="website"><meta property="og:url" content="https://osrd.fr/fr/docs/reference/design-docs/stdcm/"><meta itemprop=name content="Recherche de sillons de dernière minute (STDCM)"><meta itemprop=description content="Open Source Railway Designer"><meta name=twitter:card content="summary"><meta name=twitter:title content="Recherche de sillons de dernière minute (STDCM)"><meta name=twitter:description content="Open Source Railway Designer"><link rel=preload href=/scss/main.min.6a97a232111e8c01d1eed2c4b5cf2d0b180718f96d5c7e5aec2f7e997230ba06.css as=style><link href=/scss/main.min.6a97a232111e8c01d1eed2c4b5cf2d0b180718f96d5c7e5aec2f7e997230ba06.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.6.3.min.js integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin=anonymous></script><script defer src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script></head><body class=td-section><header><nav class="td-navbar navbar-dark js-navbar-scroll"><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/fr/><span class="navbar-brand__logo navbar-logo"><svg xmlns="http://www.w3.org/2000/svg" id="svg36" width="110.767" height="22"><style id="style1">.st9{fill:#fff}</style><g id="ok" transform="scale(.1918)"><g id="g36"><g id="g29"><path id="path23" d="M38.5 83.4c-1.9 8.2-2.9 17-2.9 26.5v4.8h16.6c-2.8-13.2-7.8-23.4-13.7-31.3z" class="st9"/><path id="path24" d="M0 57.5v19.9c3.1 1.2 6.3 2.7 9.5 4.6 8.5 5.2 15 12.6 19.4 21.8v-31c-3.4-3-6.9-5.5-10.3-7.5-6.5-3.7-13-6.2-18.6-7.8z" class="st9"/><path id="path25" d="M35.6 69.9c4.3-11.3 10.6-21.1 18.9-29.4V0H35.6z" class="st9"/><path id="path26" d="M40.8 75.4c5.3 6.2 10.1 13.8 13.7 23.3V50.6C48.6 57.8 44 66.1 40.8 75.4z" class="st9"/><path id="path27" d="M100.7.0H61.3v34.5C73.1 25.2 86 20 96.9 17.2c1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-11.4 2.9-25.3 8.6-37.2 19.7v31.8c2.9-6.3 6.7-11.7 11.4-16.4 9.4-9.3 21-14.1 30.5-16.6 1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-4.7 1.2-10.1 3.1-15.3 6-19 10.3-28.2 28.4-28.2 55.2v4.8h39.3c7.8.0 14.1-6.3 14.1-14.1V14.1C114.7 6.3 108.4.0 100.7.0z" class="st9"/><path id="path28" d="M22 59.6c2.2 1.3 4.5 2.8 6.8 4.6V0H14.1C6.3.0.0 6.3.0 14.1v36.4c6.5 1.7 14.2 4.5 22 9.1z" class="st9"/><path id="path29" d="M5.4 87.5c-1.8-1.1-3.6-2-5.4-2.8v15.9c0 7.8 6.3 14.1 14.1 14.1h11.6c-3.6-12.2-10.4-21.3-20.3-27.2z" class="st9"/></g><g id="g30"><path id="path30" d="M201.7 109c-30.8.0-53.7-21.2-53.7-52.5.0-31.7 22.9-51.6 53.7-51.6 31 0 53.9 20 53.9 51.6-.1 31.3-23 52.5-53.9 52.5zm0-82.6c-16.7.0-28.2 12.8-28.2 30.1.0 17.9 11.6 30.7 28.2 30.7S230 74.4 230 56.6c0-17.3-11.6-30.2-28.3-30.2z" class="st9"/></g><g id="g32"><g id="g31"><path id="path31" d="M334.3 33.3c-4-5.2-11.4-8.5-17.6-8.5-6.2.0-13.8 2.1-13.8 9.9.0 6.6 5.9 8.7 15.2 11.6 13.4 4.3 30.7 10 30.7 29.7.0 22.7-18.3 32.9-37.8 32.9-14.1.0-28.3-5.2-37-14.2l15.6-15.9c4.7 6 13.5 10.5 21.3 10.5 7.3.0 13.7-2.8 13.7-10.7.0-7.5-7.5-9.9-20.5-14.1C291.6 60.3 279 53.9 279 36c0-21.9 19.8-31 38.2-31 11.2.0 23.7 4.2 32.4 12.1z" class="st9"/></g></g><g id="g34"><g id="g33"><path id="path32" d="m433.1 106.4-21.3-39.2h-8.1v39.2h-23.4V7.6H418c19 0 37.8 7.3 37.8 29.9.0 13.3-7.8 22.7-20.5 26.6l25.8 42.3zm-16.9-79.6h-12.7v23h11.3c7.7.0 17.3-2 17.3-12 0-9.2-8.7-11-15.9-11z" class="st9"/></g></g><g id="g35"><path id="path34" d="M522.2 106.4h-36.8V7.6H521c28 0 56.5 11.7 56.5 49.1.0 34.7-28.1 49.7-55.3 49.7zm-1.7-78.5h-11.9v57.8h11.3c17 0 32.8-7 32.8-29 0-22.2-15.8-28.8-32.2-28.8z" class="st9"/></g></g></g></svg></span><span class=navbar-brand__name>OSRD</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/fr/about/><span>À propos</span></a></li><li class=nav-item><a class="nav-link active" href=/fr/docs/><span>Documentation</span></a></li><li class=nav-item><a class=nav-link href=/fr/blog/><span>Blog</span></a></li><li class="nav-item dropdown d-none d-lg-block"><div class=dropdown><a class="nav-link dropdown-toggle" href=# role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>Français</a><ul class=dropdown-menu><li><a class=dropdown-item href=/en/docs/reference/design-docs/stdcm/>English</a></li></ul></div></li></ul></div><div class="d-none d-lg-block"><div class="td-search td-search--offline"><div class=td-search__icon></div><input type=search class="td-search__input form-control" placeholder=Rechercher aria-label=Rechercher autocomplete=off data-offline-search-index-json-src=/offline-search-index.d21a9af2aeb02db92b443fc7a12c8309.json data-offline-search-base-href=/ data-offline-search-max-results=10></div></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><div class=td-content><div class="pageinfo pageinfo-primary d-print-none"><p>Version imprimable multipages.
-<a href=# onclick="return print(),!1">Cliquer ici pour imprimer</a>.</p><p><a href=/fr/docs/reference/design-docs/stdcm/>Retour à la version par défaut</a>.</p></div><h1 class=title>Recherche de sillons de dernière minute (STDCM)</h1><ul><li>1: <a href=#pg-5e6a8c58f44ec33565becd41e00148ef>Contexte métier</a></li><li>2: <a href=#pg-43ea4c19a1c68f9d3854a75420fe7d2b>Module de recherche de sillons</a></li><ul><li>2.1: <a href=#pg-00f3695c563557ce911133a4e0d319ff>Description du format d'entrée</a></li><li>2.2: <a href=#pg-0b86147cbfa958e9f4364f4ce2ba795b>Représentation de l'espace de solutions</a></li><li>2.3: <a href=#pg-4cbbf502b73f6a39d1784fb6ef5fc8bf>Discontinuités et retours en arrière</a></li><li>2.4: <a href=#pg-86a0f2f4d5cb5405bb586c1fba4d4c0a>Contourner les conflits</a></li><li>2.5: <a href=#pg-878a5654bd8bd9fb14457386180665c4>Marge de régularité</a></li><li>2.6: <a href=#pg-9789474a8d15fe1be9951465d5eb1361>Détails d'implémentation</a></li></ul><li>3: <a href=#pg-0b00093315849c9bfa952c90dbea33c0>Interface avec la signalisation</a></li></ul><div class=content><p>OSRD permet d&rsquo;ajouter un nouveau train dans une grille horaire déjà établie,
+<meta name=description content="Open Source Railway Designer"><meta property="og:title" content="Recherche de sillons de dernière minute (STDCM)"><meta property="og:description" content="Open Source Railway Designer"><meta property="og:type" content="website"><meta property="og:url" content="https://osrd.fr/fr/docs/reference/design-docs/stdcm/"><meta itemprop=name content="Recherche de sillons de dernière minute (STDCM)"><meta itemprop=description content="Open Source Railway Designer"><meta name=twitter:card content="summary"><meta name=twitter:title content="Recherche de sillons de dernière minute (STDCM)"><meta name=twitter:description content="Open Source Railway Designer"><link rel=preload href=/scss/main.min.6a97a232111e8c01d1eed2c4b5cf2d0b180718f96d5c7e5aec2f7e997230ba06.css as=style><link href=/scss/main.min.6a97a232111e8c01d1eed2c4b5cf2d0b180718f96d5c7e5aec2f7e997230ba06.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.6.3.min.js integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin=anonymous></script><script defer src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script></head><body class=td-section><header><nav class="td-navbar navbar-dark js-navbar-scroll"><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/fr/><span class="navbar-brand__logo navbar-logo"><svg xmlns="http://www.w3.org/2000/svg" id="svg36" width="110.767" height="22"><style id="style1">.st9{fill:#fff}</style><g id="ok" transform="scale(.1918)"><g id="g36"><g id="g29"><path id="path23" d="M38.5 83.4c-1.9 8.2-2.9 17-2.9 26.5v4.8h16.6c-2.8-13.2-7.8-23.4-13.7-31.3z" class="st9"/><path id="path24" d="M0 57.5v19.9c3.1 1.2 6.3 2.7 9.5 4.6 8.5 5.2 15 12.6 19.4 21.8v-31c-3.4-3-6.9-5.5-10.3-7.5-6.5-3.7-13-6.2-18.6-7.8z" class="st9"/><path id="path25" d="M35.6 69.9c4.3-11.3 10.6-21.1 18.9-29.4V0H35.6z" class="st9"/><path id="path26" d="M40.8 75.4c5.3 6.2 10.1 13.8 13.7 23.3V50.6C48.6 57.8 44 66.1 40.8 75.4z" class="st9"/><path id="path27" d="M100.7.0H61.3v34.5C73.1 25.2 86 20 96.9 17.2c1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-11.4 2.9-25.3 8.6-37.2 19.7v31.8c2.9-6.3 6.7-11.7 11.4-16.4 9.4-9.3 21-14.1 30.5-16.6 1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-4.7 1.2-10.1 3.1-15.3 6-19 10.3-28.2 28.4-28.2 55.2v4.8h39.3c7.8.0 14.1-6.3 14.1-14.1V14.1C114.7 6.3 108.4.0 100.7.0z" class="st9"/><path id="path28" d="M22 59.6c2.2 1.3 4.5 2.8 6.8 4.6V0H14.1C6.3.0.0 6.3.0 14.1v36.4c6.5 1.7 14.2 4.5 22 9.1z" class="st9"/><path id="path29" d="M5.4 87.5c-1.8-1.1-3.6-2-5.4-2.8v15.9c0 7.8 6.3 14.1 14.1 14.1h11.6c-3.6-12.2-10.4-21.3-20.3-27.2z" class="st9"/></g><g id="g30"><path id="path30" d="M201.7 109c-30.8.0-53.7-21.2-53.7-52.5.0-31.7 22.9-51.6 53.7-51.6 31 0 53.9 20 53.9 51.6-.1 31.3-23 52.5-53.9 52.5zm0-82.6c-16.7.0-28.2 12.8-28.2 30.1.0 17.9 11.6 30.7 28.2 30.7S230 74.4 230 56.6c0-17.3-11.6-30.2-28.3-30.2z" class="st9"/></g><g id="g32"><g id="g31"><path id="path31" d="M334.3 33.3c-4-5.2-11.4-8.5-17.6-8.5-6.2.0-13.8 2.1-13.8 9.9.0 6.6 5.9 8.7 15.2 11.6 13.4 4.3 30.7 10 30.7 29.7.0 22.7-18.3 32.9-37.8 32.9-14.1.0-28.3-5.2-37-14.2l15.6-15.9c4.7 6 13.5 10.5 21.3 10.5 7.3.0 13.7-2.8 13.7-10.7.0-7.5-7.5-9.9-20.5-14.1C291.6 60.3 279 53.9 279 36c0-21.9 19.8-31 38.2-31 11.2.0 23.7 4.2 32.4 12.1z" class="st9"/></g></g><g id="g34"><g id="g33"><path id="path32" d="m433.1 106.4-21.3-39.2h-8.1v39.2h-23.4V7.6H418c19 0 37.8 7.3 37.8 29.9.0 13.3-7.8 22.7-20.5 26.6l25.8 42.3zm-16.9-79.6h-12.7v23h11.3c7.7.0 17.3-2 17.3-12 0-9.2-8.7-11-15.9-11z" class="st9"/></g></g><g id="g35"><path id="path34" d="M522.2 106.4h-36.8V7.6H521c28 0 56.5 11.7 56.5 49.1.0 34.7-28.1 49.7-55.3 49.7zm-1.7-78.5h-11.9v57.8h11.3c17 0 32.8-7 32.8-29 0-22.2-15.8-28.8-32.2-28.8z" class="st9"/></g></g></g></svg></span><span class=navbar-brand__name>OSRD</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/fr/about/><span>À propos</span></a></li><li class=nav-item><a class="nav-link active" href=/fr/docs/><span>Documentation</span></a></li><li class=nav-item><a class=nav-link href=/fr/blog/><span>Blog</span></a></li><li class="nav-item dropdown d-none d-lg-block"><div class=dropdown><a class="nav-link dropdown-toggle" href=# role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>Français</a><ul class=dropdown-menu><li><a class=dropdown-item href=/en/docs/reference/design-docs/stdcm/>English</a></li></ul></div></li></ul></div><div class="d-none d-lg-block"><div class="td-search td-search--offline"><div class=td-search__icon></div><input type=search class="td-search__input form-control" placeholder=Rechercher aria-label=Rechercher autocomplete=off data-offline-search-index-json-src=/offline-search-index.2cb13e7bbc127ab9b72dd046e8708004.json data-offline-search-base-href=/ data-offline-search-max-results=10></div></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><div class=td-content><div class="pageinfo pageinfo-primary d-print-none"><p>Version imprimable multipages.
+<a href=# onclick="return print(),!1">Cliquer ici pour imprimer</a>.</p><p><a href=/fr/docs/reference/design-docs/stdcm/>Retour à la version par défaut</a>.</p></div><h1 class=title>Recherche de sillons de dernière minute (STDCM)</h1><ul><li>1: <a href=#pg-5e6a8c58f44ec33565becd41e00148ef>Contexte métier</a></li><li>2: <a href=#pg-43ea4c19a1c68f9d3854a75420fe7d2b>Module de recherche de sillons</a></li><ul><li>2.1: <a href=#pg-4b08bb54f5d63f53d5513a974bbf1597>Parcours de l'infrastructure</a></li><li>2.2: <a href=#pg-dd3ee9974c77fa971af65f7002bc8aa5>Détection de conflits</a></li><li>2.3: <a href=#pg-0b86147cbfa958e9f4364f4ce2ba795b>Représentation de l'espace de solutions</a></li><li>2.4: <a href=#pg-4cbbf502b73f6a39d1784fb6ef5fc8bf>Discontinuités et retours en arrière</a></li><li>2.5: <a href=#pg-86a0f2f4d5cb5405bb586c1fba4d4c0a>Contourner les conflits</a></li><li>2.6: <a href=#pg-878a5654bd8bd9fb14457386180665c4>Marge de régularité</a></li><li>2.7: <a href=#pg-9789474a8d15fe1be9951465d5eb1361>Détails d'implémentation</a></li></ul></ul><div class=content><p>OSRD permet d&rsquo;ajouter un nouveau train dans une grille horaire déjà établie,
 sans générer aucun conflit avec les autres trains. L&rsquo;application directe de cette fonctionnalité
 est appelée la <strong>recherche de sillon de dernière minute</strong>.</p><p>L&rsquo;acronyme STDCM (Short Term Digital Capacity Management) est utilisé
 pour parler du concept en général.</p></div></div><div class=td-content><h1 id=pg-5e6a8c58f44ec33565becd41e00148ef>1 - Contexte métier</h1><p>Quelques définitions :</p><h3 id=la-capacité>La capacité</h3><p>La <strong>capacité</strong>, dans ce contexte, correspond à la possibilité de
@@ -39,31 +39,48 @@ l&rsquo;espace de solutions est représenté sous forme d&rsquo;un graphe qui en
 la position et la vitesse. Une recherche de chemin est ensuite effectuée
 dans ce graphe pour trouver une solution. Le graphe est calculé
 au fil de son exploration.</p><p>Ce graphe peut d&rsquo;une certaine manière être vu comme une forme
-d&rsquo;arbre de décision, si différents chemins peuvent mener au même noeud.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-00f3695c563557ce911133a4e0d319ff>2.1 - Description du format d'entrée</h1><p>Ce module prend plusieurs entrées pour effectuer une recherche de chemin :</p><ul><li>Un graphe décrivant l&rsquo;infrastructure physique</li><li>Des zones non disponibles selon des intervalles de temps</li><li>Des points de départ et d&rsquo;arrivée</li><li>Une fenêtre de départ</li><li>Un temps de parcours maximal</li><li>Des données de simulation (matériel roulant, time step, marges, etc)</li></ul><p>Parmi ces entrées, les deux premières méritent d&rsquo;être détaillées.</p><h4 id=graphe-dinfrastructure>Graphe d&rsquo;infrastructure</h4><p>Aujourd&rsquo;hui, le graphe donné en entrée correspond au graphe
-des <code>SignalingRoutes</code>. Mais il peut s&rsquo;agir de n&rsquo;importe quel graphe
-orienté permettant de naviguer l&rsquo;infrastructure physique.</p><p>Les seules contraintes sont : les arêtes doivent avoir une longueur,
-et il doit être possible d&rsquo;effectuer un calcul de marche sur des
-sections d&rsquo;arêtes.</p><h4 id=zones-non-disponibles>Zones non disponibles</h4><p>Cette entrée représente les zones inaccessibles à cause de contraintes
-de capacité.</p><p>À chaque arête du graphe est associé un ensemble de &ldquo;bloc d&rsquo;occupation&rdquo;.
-Un bloc est composé d&rsquo;une distance de début et de fin (relative
-au début de l&rsquo;arête), et un temps de début et de fin.
-Il est considéré que la <em>tête</em> du train ne peut pas se trouver dans cette
-zone dans l&rsquo;intervalle de temps donné.</p><p>Ces blocs encodent également la marge de grille : s&rsquo;il faut rajouter
-<code>x</code> secondes de marges avant le train, chaque bloc est agrandi de
-<code>x</code> secondes dans un sens.</p><p>Pour donner un exemple, avec la grille horaire suivante, en
-supposant une arête par canton, un train de 42m et
-une distance de visibilité de 10m :</p><p><img src=unavailable_sections.svg alt="Exemple de sections non disponibles"></p><ul><li><p>L&rsquo;occupation du canton 1 de t=0 à t=300 le rend non disponible
-dans sa globalité pendant cette période.</p></li><li><p>Les 10 derniers mètres du canton 1 sont non disponibles de t=300 à t=360,
-car le signal en début de canton 2 doit être vert quand le conducteur le voit.
-Il est possible de considérer que ce bloc-ci commence à t=130
-(quand le canton du signal suivant n&rsquo;affiche plus de vert),
-une superposition
-de blocs n&rsquo;étant pas problématique.</p></li><li><p>L&rsquo;occupation du canton 2 de t=130 à t=360 le rend non disponible
-pendant cette période. Il est également non disponible à partir de
-t=0, car la présence d&rsquo;un train provoquerait un avertissement sur
-le canton 1 quand il est utilisé par le train déjà planifié.</p></li><li><p>Les 42 premiers mètres du canton 3 sont non disponibles de t=0 à t=360,
-car la queue du train doit avoir libéré le second canton.</p></li><li><p>Le reste du canton 3 est non disponible dans sa globalité
-de t=280 à t=360.</p></li></ul></div><div class=td-content style=page-break-before:always><h1 id=pg-0b86147cbfa958e9f4364f4ce2ba795b>2.2 - Représentation de l'espace de solutions</h1><h4 id=principe-général>Principe général</h4><p>Le problème reste une recherche de graphe. En représentant
+d&rsquo;arbre de décision, si différents chemins peuvent mener au même noeud.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-4b08bb54f5d63f53d5513a974bbf1597>2.1 - Parcours de l'infrastructure</h1><p>La première chose à définir est <em>comment un train se déplace sur l&rsquo;infrastructure</em>,
+sans prendre en compte les conflits pour l&rsquo;instant.</p><p>On a besoin d&rsquo;une manière de définir et d&rsquo;énumérer les différents chemins
+possibles et de parcourir l&rsquo;infrastructure, avec plusieurs contraintes :</p><ol><li>Le chemin doit être compatible avec le matériel roulant donné
+(électrification, gabarit, systèmes de signalisation)</li><li>À n&rsquo;importe quel point, on doit être en mesure d&rsquo;accéder aux propriétés
+du chemin depuis le point de départ jusqu&rsquo;au point considéré.
+Cela inclus les routes et les cantons.</li><li>Dans certains cas, on doit savoir où le train ira <em>après</em>
+le point actuellement évalué (pour une détection de conflits correcte).</li></ol><p>Pour répondre à ce besoin, une classe <code>InfraExplorer</code> a été implémentée.
+Elle utilise les cantons (section de signal en signal) comme subdivision
+principale.
+Elle est composée de 3 sections : le canton courant, les prédécesseurs,
+et les cantons suivants.</p><p><img src=infra_explorer.svg alt="InfraExplorer structure"></p><p>Dans cet exemple, les flèches vertes sont les cantons précédents.
+Ce qui se produit dessus est considéré comme immuable.</p><p>La flèche rouge est le canton actuellement exploré.
+C&rsquo;est à cet endroit que les simulations du train et de la
+signalisation sont effectuées, et que les conflits
+sont évités.</p><p>Les flèches bleues sont les cantons suivants. Cette section
+n&rsquo;est pas encore simulée, elle existe seulement pour savoir
+où le train ira ensuite. Dans cet exemple, elle indique
+que le signal en bas à droite peut être ignoré, seul
+le chemin du haut sera utilisé.
+Le chemin du bas sera évalué dans une autre instance de
+<code>InfraExplorer</code>.</p><p>Plus de détails sur la classe et son interface sont
+présents sur la version anglaise de la page.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-dd3ee9974c77fa971af65f7002bc8aa5>2.2 - Détection de conflits</h1><p>Maintenant qu&rsquo;on sait quels chemins peuvent être utilisés,
+on doit déterminer à quel moment ces chemins sont libres.</p><p>La documentation (en anglais seulement)
+de la détection de conflits explique comment elle est réalisée
+en interne. Pour résumer, un train est en conflit avec un autre
+quand il observe un signal lui indiquant de ralentir.
+Dans notre cas, une solution où cette situation se produit
+est considérée comme invalide, le train doit arriver
+au signal donné plus tard (ou plus tôt) quand le signal
+n&rsquo;est plus contraignant.</p><p>Cependant, la détection de conflit doit être réalisée de
+manière <em>incrémentale</em>, ce qui veut dire que :</p><ol><li>Quand une simulation est effectuée jusqu&rsquo;à t=x, tous les conflits
+qui arrivent avant t=x doivent être connus, <em>même s&rsquo;ils sont
+indirectement provoqués par un signal vu à t > x</em> plus loin sur le chemin.</li><li>Les conflits et utilisations de ressources doivent être identifiés
+dès qu&rsquo;ils se produisent, même si le temps de fin d&rsquo;utilisation n&rsquo;est
+pas encore défini.</li></ol><p>Pour que ce soit possible, on doit être en mesure de savoir où
+le train ira <em>après</em> la section actuellement simulée (cf
+<a href=https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/ title="exploration de l'infrastructure">exploration de l&rsquo;infrastructure</a>
+)</p><p>Pour gérer ce cas, le module de détection de conflit
+peut renvoyer une erreur quand il est nécessaire d&rsquo;avoir
+plus d&rsquo;information sur la suite du chemin. Quand ce cas
+se produit, les objets <code>InfraExplorer</code> sont clonés
+pour étendre les chemins.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-0b86147cbfa958e9f4364f4ce2ba795b>2.3 - Représentation de l'espace de solutions</h1><h4 id=principe-général>Principe général</h4><p>Le problème reste une recherche de graphe. En représentant
 l&rsquo;espace de solution sous forme de graphe, il est possible de réutiliser
 nos outils déjà existants de recherche de chemin.</p><p>Le <em>graphe produit</em> de la position, du temps, et de la vitesse est utilisé.
 Autrement dit, chaque élément du graphe contient (entre autres) ces
@@ -78,7 +95,7 @@ Les ralentissements sont ajoutés seulement quand ils sont nécessaires.</li></u
 le graphe des voies :
 <img src=example_infra.svg alt="Infra d&rsquo;exemple"></p><p>Explorer le graphe des sillons possibles peut donner ce
 type de résultat :
-<img src=example_graph.svg alt="Représentation du graphe"></p></div><div class=td-content style=page-break-before:always><h1 id=pg-4cbbf502b73f6a39d1784fb6ef5fc8bf>2.3 - Discontinuités et retours en arrière</h1><h4 id=le-problème-des-discontinuités>Le problème des discontinuités</h4><p>Au moment d&rsquo;explorer une arête du graphe, on effectue un calcul de
+<img src=example_graph.svg alt="Représentation du graphe"></p></div><div class=td-content style=page-break-before:always><h1 id=pg-4cbbf502b73f6a39d1784fb6ef5fc8bf>2.4 - Discontinuités et retours en arrière</h1><h4 id=le-problème-des-discontinuités>Le problème des discontinuités</h4><p>Au moment d&rsquo;explorer une arête du graphe, on effectue un calcul de
 marche pour connaître l&rsquo;évolution de la vitesse.
 Mais il n&rsquo;est pas possible de voir plus loin que l&rsquo;arête en question,
 ce qui est gênant pour calculer les courbes de freinages qui peuvent
@@ -95,7 +112,7 @@ vers le début, jusqu&rsquo;à retrouver la courbe d&rsquo;origine (ou le début
 de l&rsquo;arrête).</p><p>Dans cet exemple, la discontinuité a seulement été déplacée vers la
 transition entre les routes 2 et 3. Le procédé est ensuite réitéré
 sur la route 2, ce qui donne le résultat suivant :</p><p><img src=backtracking_2.png alt="Discontinuité (version arêtes, 2/2)"></p><p>Les anciennes arêtes sont toujours présentes dans le graphe, elles
-peuvent mener à d&rsquo;autres solutions.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-86a0f2f4d5cb5405bb586c1fba4d4c0a>2.4 - Contourner les conflits</h1><p>En explorant le graphe, il arrive souvent de tomber sur des situations
+peuvent mener à d&rsquo;autres solutions.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-86a0f2f4d5cb5405bb586c1fba4d4c0a>2.5 - Contourner les conflits</h1><p>En explorant le graphe, il arrive souvent de tomber sur des situations
 qui mèneraient à des conflits. Il faut être en mesure de rajouter du délai
 pour les éviter.</p><h4 id=décalage-du-temps-de-départ>Décalage du temps de départ</h4><p>Dans les paramètres de l&rsquo;algorithme, le temps de départ est donné
 sous la forme d&rsquo;une fenêtre : un temps de départ au plus tôt et au plus tard.
@@ -116,7 +133,24 @@ jusqu&rsquo;au point où il faut ajouter plus de délai.</li></ul></blockquote><
 il faut rajouter du délai entre deux points du parcours du train.</p><p><img src=engineering_allowance.png alt="Marge de construction (1/2)"></p><p>Le principe est le même que pour régler les discontinuités de vitesse :
 le graphe est parcouru en arrière pour créer de nouvelles arêtes.</p><p><img src=engineering_allowance_edges.png alt="Marge de construction (2/2)"></p><p>La <a href=https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/ title=marges>marge de construction</a>
 est une fonctionnalité du calcul de marche
-permettant d&rsquo;ajouter un délai donné entre deux point du parcours.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-878a5654bd8bd9fb14457386180665c4>2.5 - Marge de régularité</h1><p>Une des fonctionnalités qui doit être supportée par STDCM est la
+permettant d&rsquo;ajouter un délai donné entre deux points du parcours.</p><h2 id=post-processing>Post-processing</h2><p>Les marges de constructions <em>étaient</em> calculées pendant
+l&rsquo;exploration du graph, mais ce procédé était trop
+couteux en temps de calcul. On effectuait des dichotomies
+sur des simulations qui pouvaient s&rsquo;étendre sur des
+portions importantes du chemin.</p><p>On a seulement besoin de savoir si la marge de construction
+<em>peut</em> être réalisée sans provoquer de conflit.
+Des heuristiques peuvent être utilisées ici tant qu&rsquo;on est
+plus restrictif que permissif : une marge impossible
+doit être identifiée comme telle, mais manquer une solution
+avec une marge extrêmement serrée n&rsquo;est pas une mauvaise chose.</p><p>Mais avec ce changement, une fois qu&rsquo;une solution est trouvée,
+il ne suffit plus de concaténer les résultats de simulation
+pour obtenir la simulation finale. On doit réaliser une
+simulation complète avec les vraies marges de construction
+qui évitent tout conflit. Cette étape se rejoint avec celle
+décrite pour les
+<a href=https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/ title="marges de régularité">marges de régularité</a>,
+qui est maintenant réalisée même sans marge de régularité
+spécifiée.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-878a5654bd8bd9fb14457386180665c4>2.6 - Marge de régularité</h1><p>Une des fonctionnalités qui doit être supportée par STDCM est la
 <a href=https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/ title="marge de régularité">marge de régularité</a>.
 L&rsquo;utilisateur doit pouvoir indiquer une valeur
 de marge, exprimée en fonction de la distance ou du temps de parcours,
@@ -129,30 +163,31 @@ La marge doit donc être prise en compte pendant l&rsquo;exploration
 pour détecter correctement les conflits.</p><p>Pour plus de difficulté, la marge doit suivre le modèle
 <a href=/pdf/MARECO.pdf>MARECO</a>.
 La marge n&rsquo;est pas répartie uniformément sur le trajet, mais selon
-un calcul qui nécessite de connaître l&rsquo;ensemble du trajet.</p><h4 id=marge-linéaire-exprimée-en-fonction-du-temps-de-parcours>Marge linéaire exprimée en fonction du temps de parcours</h4><p>Pour commencer, le problème est résolu avec une marge linéaire,
-c&rsquo;est-à-dire répartie uniformément sur le parcours du train.
-La vitesse est simplement multipliée par un facteur constant.</p><p>Les <a href=https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/ title=enveloppes>enveloppes</a>.
-calculées pendant l&rsquo;exploration du graphe ne sont
-pas modifiées, celles-ci sont toujours à vitesse maximale.
-Mais elles sont accompagnées du facteur de vitesse, qui est utilisé
-pour calculer les temps de parcours et les conflits.</p><p>C&rsquo;est seulement quand le chemin est trouvé que la marge est appliquée à
-l&rsquo;enveloppe finale. Parce qu&rsquo;il s&rsquo;agit uniquement de multiplication par un
-facteur, les conflits ne peuvent pas apparaître ici.</p><h4 id=marge-linéaire-exprimée-en-fonction-de-la-distance>Marge linéaire exprimée en fonction de la distance</h4><p>Le principe ici est généralement similaire, mais avec une difficulté
-supplémentaire : le facteur n&rsquo;est pas constant au long du trajet.
-En effet, un train roulant à faible vitesse parcours moins de distance
-dans un même intervalle de temps qu&rsquo;un train à pleine vitesse.
-La vitesse est réduite d&rsquo;un facteur plus faible quand le train
-roule moins vite.</p><p>Comme le train ne roule pas à vitesse constante pendant son trajet,
-le facteur de vitesse évolue d&rsquo;une arête à l&rsquo;autre.
-Cela provoque des courbes de vitesse irrégulières.</p><h4 id=marge-mareco>Marge mareco</h4><p>Il s&rsquo;agit ici exclusivement d&rsquo;un post-traitement, car il est impossible
-de calculer une courbe mareco sans connaître l&rsquo;intégralité du trajet.
-La détection de conflit pendant l&rsquo;exploration se base exclusivement
-sur la courbe avec une marge linéaire.</p><p>Cela implique que des conflits peuvent apparaître pendant cette étape.
-Pour les éviter, la procédure suivante est appliquée :</p><ol><li>Une marge est appliquée à la courbe sur l&rsquo;ensemble du trajet
-avec l&rsquo;algorithme mareco</li><li>Le premier conflit provoqué par le changement est recherché</li><li>S&rsquo;il existe, <em>l&rsquo;application de mareco sera séparée en deux
-intervalles</em>. Le point à la position du conflit est alors fixé
-dans l&rsquo;espace-temps par rapport à la courbe avec une marge linéaire,
-qui elle ne génère pas de conflit.</li><li>Le procédé est répété itérativement jusqu&rsquo;à une absence de conflit.</li></ol></div><div class=td-content style=page-break-before:always><h1 id=pg-9789474a8d15fe1be9951465d5eb1361>2.6 - Détails d'implémentation</h1><p>Cette page précise certains détails d&rsquo;implémentation.
+un calcul qui nécessite de connaître l&rsquo;ensemble du trajet.</p><h3 id=pendant-lexploration>Pendant l&rsquo;exploration</h3><p>La principale implication de la marge de régularité est pendant
+l&rsquo;exploration du graphe, quand on identifie les conflits.
+Les temps et les vitesses doivent être baissés linéairement
+pour prendre en compte les conflits au bon moment.
+La simulation au plus rapide doit tout de même être calculée
+car elle peut définir le temp supplémentaire.</p><p>Ce procédé <em>n&rsquo;est pas exact</em> car il ignore la manière dont
+la marge est appliquée (en particulier pour MARECO).
+Mais à cette étape les temps exacts ne sont pas nécessaires,
+il est seulement nécessaire de savoir si une solution existe
+à ce temps approximatif.</p><div class="alert alert-info" role=alert>Ce procédé inexact peut sembler être un problème, mais en
+pratique (pour la SNCF) les marges de régularités ont en
+fait une tolérance entre deux points arbitraires
+du chemin. Par exemple pour une marge indiquée à 5 minutes
+par 100km, une solution avec la marge entre 3 et 7 minutes
+entre deux PR serait acceptable. Cette tolérance ne sera
+pas encodée explicitement, mais elle
+permet de faire des approximations de quelques
+secondes pendant la recherche.</div><h4 id=post-processing>Post-processing</h4><p>Une fois que le chemin est trouvé, il est nécessaire
+de faire une simulation finale pour appliquer correctement
+les marges. Le procédé est le suivant :</p><ol><li>Pour certains points du chemin, le temps est fixé.
+C&rsquo;est un paramètre d&rsquo;entrée de la simulation qui appelle
+le module de marge. À l&rsquo;initialisation, le temps est fixé
+à chaque point d&rsquo;arrêt.</li><li>Une simulation est réalisée. En cas de conflit, on
+s&rsquo;intéresse au premier</li><li>Un point est fixé à la position de ce conflit.
+Le temps de référence est celui considéré pendant l&rsquo;exploration.</li><li>Ce procédé est répété itérativement jusqu&rsquo;à une absence de conflit</li></ol></div><div class=td-content style=page-break-before:always><h1 id=pg-9789474a8d15fe1be9951465d5eb1361>2.7 - Détails d'implémentation</h1><p>Cette page précise certains détails d&rsquo;implémentation.
 Sa lecture n&rsquo;est pas nécessaire pour comprendre les principes
 généraux, mais peut aider avant de se plonger dans le code.</p><h4 id=stdcmedgebuilder>STDCMEdgeBuilder</h4><p>Cette classe est utilisée pour simplifier la création d&rsquo;instances de <code>STDCMEdge</code>,
 les arêtes du graphe. Celles-ci contiennent de nombreux attributs,
@@ -185,41 +220,4 @@ solution dont le temps de parcours ne dépasse pas le maximum.
 Mais pour la même raison, ajouter ce critère rend STDCM
 inutilisable sur les infrastructures générées.
 Plus de détails dans
-<a href=https://github.com/osrd-project/osrd/issues/2818>cette issue</a>.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-0b00093315849c9bfa952c90dbea33c0>3 - Interface avec la signalisation</h1><p>Cette interface est encore en cours de conception.</p><h4 id=objectifs-et-contraintes>Objectifs et contraintes</h4><p>L&rsquo;interface doit respecter plusieurs critères :</p><ul><li>Les calculs se basent sur le nouveau modèle de signalisation,
-avec la notion de réservations d&rsquo;objets capacitaires</li><li>Les sillons générés ne doivent jamais générer de nouveaux conflits :
-l&rsquo;interface peut être pessimiste sur les possibilités, mais jamais
-plus permissive que la réalité.</li><li>Idéalement, le module de recherche de sillon devrait rester
-un bloc indépendant avec un minimum de changements (dans la mesure
-du possible).</li></ul><p>L&rsquo;objectif serait donc d&rsquo;interpréter le modèle de signalisation,
-pour générer des entrées valides pour le module de recherche
-de sillon : un graphe d&rsquo;infrastructure et des intervalles
-de disponibilités de sections.</p><h4 id=difficultés>Difficultés</h4><p>La plupart des contraintes établies par la signalisation peuvent
-facilement s&rsquo;exprimer sous la forme de sections non disponibles,
-sauf dans un cas : le comportement de la signalisation peut dépendre
-du chemin emprunté par le train. Pour être capable d&rsquo;exprimer les
-disponibilités sur une zone, il peut être nécessaire de devoir
-anticiper la direction du train.</p><h4 id=solution-proposée>Solution proposée</h4><p>La proposition est d&rsquo;écrire un nouveau module qui se brancherait au module
-de signalisation pour gérer les entrées pour la recherche
-de sillon. Il effectuerait un parcours du graphe des itinéraires
-pour construire progressivement un graphe avec occupations au bon
-format.</p><p>À chaque itinéraire visité, l&rsquo;algorithme regarde jusqu&rsquo;où il est possible
-de déterminer l&rsquo;ensemble des occupations, c&rsquo;est-à-dire quel
-est le premier signal dont l&rsquo;état dépend du prochain choix
-d&rsquo;itinéraire du train. Une arête est alors générée jusqu&rsquo;à ce point,
-avec les occupations.</p><p>La partie restante de l&rsquo;itinéraire n&rsquo;est pas encore considérée.
-C&rsquo;est seulement lorsque le graphe est exploré un niveau plus loin,
-avec l&rsquo;itinéraire suivant, que la fin de l&rsquo;itinéraire précédent
-est intégrée. Elle fait alors partie de l&rsquo;arête suivante,
-car à ce moment davantage d&rsquo;informations sont disponibles sur le
-trajet du train.</p><p>Par exemple :</p><p><img src=example_interface_signaling_1.svg alt="Configuration nécessitant d&rsquo;anticiper"></p><p>Dans cette configuration en BAL3, il est possible de déterminer
-l&rsquo;absence de conflit des signaux 1 à 4. Mais l&rsquo;état du signal
-5 dépend de l&rsquo;itinéraire emprunté par le train : s&rsquo;il va vers
-le haut, le signal 5 affiche un avertissement. Dans le cas
-contraire, il affiche un &ldquo;voie libre&rdquo;.</p><p><img src=example_interface_signaling_2.svg alt="Arêtes générées"></p><p>Dans cet exemple, une première arrête est alors générée, allant
-du premier signal jusqu&rsquo;à la première incertitude : le point
-où le signal 5 est visible.</p><p>Dans un second temps, une nouvelle arête est générée pour chaque itinéraire
-accessible depuis la fin du précédent : un vers A, l&rsquo;autre vers B.
-La zone entre le signal 5 et l&rsquo;aiguille sera donc dupliquée
-entre les deux arêtes, mais les occupations dans cette région seront
-différentes.</p><p>Ce graphe peut être généré au fil de l&rsquo;exploration, sans surcoût
-initial.</p></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-end text-xs-center order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/osrd-project/osrd aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__copyright-etc col-12 col-sm-4 text-center py-2 order-sm-2"><span>&copy; 2024 Contributeurs à OSRD. Tous droits réservés</span></div></div></div></footer></div><style>.markmap>svg{width:100%;height:300px}</style><script>window.markmap={autoLoader:{manual:!0,onReady(){const{autoLoader:e,builtInPlugins:t}=window.markmap;e.transformPlugins=t.filter(e=>e.name!=="prism")}}}</script><script src=https://cdn.jsdelivr.net/npm/markmap-autoloader></script><script src=https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js integrity="sha512-ku2nmBrzAXY5YwohzTqLYH1/lvyMrpTVxgQKrvTabd/b/uesqltLORdmpVapYv6QhZVCLUX6wkvFaKOAY4xpUA==" crossorigin=anonymous></script><script src=/js/main.min.4261519102c0270f3bdd4edcd2b45867ee7a584a0ea82c94f59e4f991c6337a1.js integrity="sha256-QmFRkQLAJw873U7c0rRYZ+56WEoOqCyU9Z5PmRxjN6E=" crossorigin=anonymous></script><script defer src=/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin=anonymous></script><script src=/js/tabpane-persist.js></script></body></html>
+<a href=https://github.com/osrd-project/osrd/issues/2818>cette issue</a>.</p></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-end text-xs-center order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/osrd-project/osrd aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__copyright-etc col-12 col-sm-4 text-center py-2 order-sm-2"><span>&copy; 2024 Contributeurs à OSRD. Tous droits réservés</span></div></div></div></footer></div><style>.markmap>svg{width:100%;height:300px}</style><script>window.markmap={autoLoader:{manual:!0,onReady(){const{autoLoader:e,builtInPlugins:t}=window.markmap;e.transformPlugins=t.filter(e=>e.name!=="prism")}}}</script><script src=https://cdn.jsdelivr.net/npm/markmap-autoloader></script><script src=https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js integrity="sha512-ku2nmBrzAXY5YwohzTqLYH1/lvyMrpTVxgQKrvTabd/b/uesqltLORdmpVapYv6QhZVCLUX6wkvFaKOAY4xpUA==" crossorigin=anonymous></script><script src=/js/main.min.4261519102c0270f3bdd4edcd2b45867ee7a584a0ea82c94f59e4f991c6337a1.js integrity="sha256-QmFRkQLAJw873U7c0rRYZ+56WEoOqCyU9Z5PmRxjN6E=" crossorigin=anonymous></script><script defer src=/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin=anonymous></script><script src=/js/tabpane-persist.js></script></body></html>

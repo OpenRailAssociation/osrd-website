@@ -1,53 +1,77 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Train slot search module</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/</link><description>Recent content in Train slot search module on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Input format</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/inputs/</guid><description>
-&lt;p>This module takes several parameters to find a path:&lt;/p>
-&lt;ul>
-&lt;li>A graph describing the physical infrastructure&lt;/li>
-&lt;li>Unavailable sections in time intervals&lt;/li>
-&lt;li>Origin and destination point(s)&lt;/li>
-&lt;li>Departure time interval&lt;/li>
-&lt;li>Maximum run time&lt;/li>
-&lt;li>Simulation parameters (rolling stock, time step, allowances, &amp;hellip;)&lt;/li>
-&lt;/ul>
-&lt;p>Among those, the first 3 require more explanations.&lt;/p>
-&lt;h4 id="infrastructure-graph">Infrastructure graph&lt;/h4>
-&lt;p>Today, the input graph is the &lt;code>SignalingRoutes&lt;/code> graph.
-But it can be any graph that represents the physical infrastructures
-and the paths that can be used.&lt;/p>
-&lt;p>The only constraints are: the edges must have a length, and it must
-be possible to compute running time on parts of an edge.&lt;/p>
-&lt;h4 id="unavailable-sections">Unavailable sections&lt;/h4>
-&lt;p>This input encodes the areas that are unavailable because of
-capacity constraints.&lt;/p>
-&lt;p>Every edge has a set of &amp;ldquo;occupancy block&amp;rdquo;. A block is made of these elements:&lt;/p>
-&lt;ul>
-&lt;li>Start offset&lt;/li>
-&lt;li>End offset&lt;/li>
-&lt;li>Start time&lt;/li>
-&lt;li>End time&lt;/li>
-&lt;/ul>
-&lt;p>Offsets are relative to the start of the edge. Each block means that
-the &lt;em>head&lt;/em> of the train cannot be located in the edge
-segment during the given interval.&lt;/p>
-&lt;p>These blocks include the grid margin. If the solution needs to have
-an &lt;code>x&lt;/code> seconds margin before the train passage, every block ends
-&lt;code>x&lt;/code> seconds later.&lt;/p>
-&lt;p>To give an example, with the following schedule, a 42m long train,
-and 10m sight distance:&lt;/p>
-&lt;p>&lt;img src="unavailable_sections.svg" alt="Unavailable section example">&lt;/p>
-&lt;ul>
-&lt;li>The occupancy of the block 1 from t=0 to t=300 makes it unavailable
-in its entirety during this time&lt;/li>
-&lt;li>The last 10 meters of block 1 are unavailable from t=300 to t=360,
-because the signal at the start of block 2 must be green when the
-conductor sees it. It is possible to consider that this unavailability block
-starts at t=130 (when the next signal isn&amp;rsquo;t green), as blocks can overlap.&lt;/li>
-&lt;li>The occupancy of block 2 from t=130 to t=360 makes it unavailable
-during this time. It is also unavailable from t=0, as the presence of a
-train in this block would cause a warning on block 1.&lt;/li>
-&lt;li>The first 42 meters of block 3 are unavailable from t=0 to t=360,
-because the tail of the train must have left the block 2 at this time.&lt;/li>
-&lt;li>The rest of block 3 is unavailable in its entirety from t=280 to t=360&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Train slot search module</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/</link><description>Recent content in Train slot search module on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Infrastructure exploration</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/</guid><description>
+&lt;p>The first thing we need to define is &lt;em>how we move through the infrastructure&lt;/em>,
+without dealing with conflicts yet.&lt;/p>
+&lt;p>We need a way to define and enumerate the different possible paths and
+explore the infrastructure graph, with several constraints:&lt;/p>
+&lt;ol>
+&lt;li>The path must be compatible with the given rolling stock
+(loading gauge / electrification / signaling system)&lt;/li>
+&lt;li>At any point, we need to access path properties from its start up to the
+considered point. This includes block and route lists.&lt;/li>
+&lt;li>We sometimes need to know where the train will go &lt;em>after&lt;/em> the
+point currently being evaluated, for proper conflict detection&lt;/li>
+&lt;/ol>
+&lt;p>To do this, we have defined the class &lt;code>InfraExplorer&lt;/code>. It uses blocks
+(sections from signal to signal) as a main subdivision.
+It has 3 sections: the current block, predecessors, and a &amp;ldquo;lookahead&amp;rdquo;.&lt;/p>
+&lt;p>&lt;img src="infra_explorer.svg" alt="InfraExplorer structure">&lt;/p>
+&lt;p>In this example, the green arrows are the predecessor blocks.
+What happens there is considered to be immutable.&lt;/p>
+&lt;p>The red arrow is the current block. This is where we run
+train and signaling simulations, and where we deal with conflicts.&lt;/p>
+&lt;p>The blue arrows are part of the lookahead. This section hasn&amp;rsquo;t
+been simulated yet, its only purpose is to know in advance
+where the train will go next. In this example, it would tell us
+that the bottom right signal can be ignored entirely.
+The top path is the path being currently evaluated.
+&lt;strong>The bottom section of the path will be evaluated in a different
+and already instanciated &lt;code>InfraExplorer&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>The &lt;code>InfraExplorer&lt;/code> is manipulated with two main functions
+(the accessors have been removed here for clarity):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000">InfraExplorer&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> * Clone the current object and extend the lookahead by one route, for each route starting at
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> * the current end of the lookahead section. The current instance is not modified.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">fun&lt;/span> &lt;span style="color:#000">cloneAndExtendLookahead&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span> &lt;span style="color:#000">Collection&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">InfraExplorer&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> * Move the current block by one, following the lookahead section. Can only be called when the
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> * lookahead isn&amp;#39;t empty.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">fun&lt;/span> &lt;span style="color:#000">moveForward&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span> &lt;span style="color:#000">InfraExplorer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>cloneAndExtendLookahead()&lt;/code> is the method that actually enumerates the
+different paths, returning clones for each possibility.
+It&amp;rsquo;s called when we need a more precise lookahead to properly identify
+conflicts, or when it&amp;rsquo;s empty and we need to move forward.&lt;/p>
+&lt;p>A variation of this class can also keep track of the train simulation
+and time information (called &lt;code>InfraExplorerWithEnvelope&lt;/code>).
+This is the version that is actually used to explore the infrastructure.&lt;/p></description></item><item><title>Docs: Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>
+&lt;p>Once we know what paths we can use, we need to know when they
+can actually be used.&lt;/p>
+&lt;p>The &lt;a href="https://osrd.fr/en/docs/reference/design-docs/conflict-detection/" title="documentation">documentation&lt;/a>
+of the conflict detection module explains how it&amp;rsquo;s done internally.
+Generally speaking, a train is in conflict when it has to slow down
+because of a signal. In our case, that means the solution would not
+be valid, we need to arrive later (or earlier) to see the signal
+when it&amp;rsquo;s not restrictive anymore.&lt;/p>
+&lt;p>The complex part is that we need to do the conflict detection &lt;em>incrementally&lt;/em>
+Which means that:&lt;/p>
+&lt;ol>
+&lt;li>When running simulations up to t=x, we need to know all of the conflicts
+that happen before x, &lt;em>even if they&amp;rsquo;re indirectly caused by a
+signal seen at t &amp;gt; x&lt;/em> down the path.&lt;/li>
+&lt;li>We need to know the conflicts and resource uses right as they start
+even if their end time can&amp;rsquo;t be defined yet.&lt;/li>
+&lt;/ol>
+&lt;p>For that to be possible, we need to know where the train will go
+&lt;em>after&lt;/em> the section that is being simulated (see
+&lt;a href="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/" title="infra exploration">infra exploration&lt;/a>:
+we need some elements in the lookahead section).&lt;/p>
+&lt;p>To handle it, the conflict detection module
+returns an error when more lookahead is required. When it happens
+we extend it by cloning the infra explorer objets.&lt;/p></description></item><item><title>Docs: Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
 &lt;h4 id="general-principle">General principle&lt;/h4>
 &lt;p>The problem is still a pathfinding problem in a given graph.
 Once the problem is encoded as a graph search, it is possible to reuse
@@ -157,7 +181,25 @@ it is possible.&lt;/p>
 &lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/" title="allowances">engineering allowance&lt;/a>
 is a feature of the running-time
 calculation module. It adds a given delay between two points of
-a path, without affecting the speeds on the rest of the path.&lt;/p></description></item><item><title>Docs: Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>
+a path, without affecting the speeds on the rest of the path.&lt;/p>
+&lt;h2 id="post-processing">Post-processing&lt;/h2>
+&lt;p>We &lt;strong>used to&lt;/strong> compute the engineering allowances during the graph
+exploration, but that process was far too expensive. We used to
+run binary searches on full simulations, which would sometimes
+go back for a long distance in the path.&lt;/p>
+&lt;p>What we &lt;em>actually need&lt;/em> is to know whether an engineering allowance
+is &lt;em>possible&lt;/em> without causing any conflict. We can use heuristics
+here, as long as we&amp;rsquo;re on the conservative side: we can&amp;rsquo;t
+say that it&amp;rsquo;s possible if it isn&amp;rsquo;t, but missing solutions with
+extremely tight allowances isn&amp;rsquo;t a bad thing in our use cases.&lt;/p>
+&lt;p>But this change means that, once the solution is found, we can&amp;rsquo;t
+simply concatenate the simulation results. We need to run
+a full simulation, with actual engineering allowances,
+that avoid any conflict. This step has been merged
+with the one described on the
+&lt;a href="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/" title="standard allowance">standard allowance&lt;/a>
+page, which is now run even when no standard allowance
+have been set.&lt;/p></description></item><item><title>Docs: Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>
 &lt;p>The STDCM module must be usable with
 &lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/" title="marge de régularité">standard allowances&lt;/a>.
 The user can set an allowance value, expressed either as a function of
@@ -177,37 +219,36 @@ the graph is explored.&lt;/p>
 the extra time isn&amp;rsquo;t added evenly over the whole path,
 it is computed in a way that requires knowing the whole path.
 This is done to optimize the energy used by the train.&lt;/p>
-&lt;h4 id="linear-margin-expressed-as-a-function-of-time">Linear margin expressed as a function of time&lt;/h4>
-&lt;p>As a first step, the problem is solved with a linear margin,
-i.e. added evenly over the whole path.
-The speed is simply modified by a constant factor.&lt;/p>
-&lt;p>The &lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/" title="envelopes">envelopes&lt;/a>.
-computed during the graph traversal are not modified, they are always
-at maximum speed. But they are paired with a speed factor, which is used
-to compute running time and to evaluate conflicts.&lt;/p>
-&lt;p>The final envelope, with the allowance, is only computed once a path
-is found.&lt;/p>
-&lt;h4 id="linear-margin-expressed-as-a-function-of-distance">Linear margin expressed as a function of distance&lt;/h4>
-&lt;p>The principle is generally the same, but with an extra difficulty:
-the speed factor isn&amp;rsquo;t constant over the path.
-When a train goes faster, it travels more distance in the same time,
-which increases the allowance time and the speed factor.&lt;/p>
-&lt;p>Because the train speed changes over the path, the speed factor
-changes from one edge to another. This causes irregular speed curves.&lt;/p>
-&lt;h4 id="mareco-allowances">MARECO Allowances&lt;/h4>
-&lt;p>This is exclusively a post-processing step,
-because it isn&amp;rsquo;t possible to compute the MARECO envelope
-without knowing the full train path.
-When looking for a path, linear allowances are used.&lt;/p>
-&lt;p>This means that conflicts may appear at this step.
-To avoid them, the following procedure is applied:&lt;/p>
+&lt;h4 id="during-the-exploration">During the exploration&lt;/h4>
+&lt;p>The main implication of the standard allowance is during
+the graph exploration, when we identify conflicts.
+It means that we need to scale down the speeds. We still need
+to compute the maximum speed simulations (as they define
+the extra time), but when identifying at which time we see
+a given signal, all speeds and times are scaled.&lt;/p>
+&lt;p>This process &lt;em>is not exact&lt;/em>. It doesn&amp;rsquo;t properly account for
+the way the allowance is applied (especially for MARECO).
+But at this point we don&amp;rsquo;t need exact times, we just need
+to identify whether a solution would exist at this approximate time.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+This slightly inexact process may seem like a problem, but in
+reality (for SNCF) standard allowances actually have some
+tolerance between arbitrary points on the path. e.g. if
+we should aim for 5 minutes per 100km, any value between
+3 and 7 would be valid. The actual tolerance is not something
+we can or want to encode as they&amp;rsquo;re too many specificities,
+but it means we can be off by a few seconds.
+&lt;/div>
+&lt;h4 id="post-processing">Post-processing&lt;/h4>
+&lt;p>The process to find the actual train simulation is as follows:&lt;/p>
 &lt;ol>
-&lt;li>A mareco allowance is applied over the whole path.&lt;/li>
-&lt;li>If there are conflict, the first one is considered.&lt;/li>
-&lt;li>The mareco allowance is &lt;em>split in two intervals&lt;/em>.
-The point where the first conflict appeared is set
-to be at the same time as the envelope with a linear allowance,
-removing the conflict at this point.&lt;/li>
+&lt;li>We define points at which the time is fixed, initialized
+at first with the time of each train stop. This is an input
+of the simulation and indirectly calls the standard allowance.&lt;/li>
+&lt;li>If there are conflict, we try to remove the first one.&lt;/li>
+&lt;li>We add a fixed time point &lt;em>at the location where that conflict
+happened&lt;/em>. We use the time considered during the exploration
+(with linear scaling) as reference time.&lt;/li>
 &lt;li>This process is repeated iteratively until no conflict is found.&lt;/li>
 &lt;/ol></description></item><item><title>Docs: Implementation details</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</guid><description>
 &lt;p>This page is about implementation details.
