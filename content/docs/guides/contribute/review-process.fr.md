@@ -1,6 +1,6 @@
 Voici une proposition de flux de travail.
 
-**Il est nécessaire de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d'une PR.**
+**Il peut être utile de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d'une PR.**
 
 ```mermaid
 sequenceDiagram
@@ -12,10 +12,10 @@ sequenceDiagram
   
   loop Boucle entre auteur et reviewer
     R-->>A: Commente, demande des changements
-    A-->>R: Répond à chaque commentaire/requested changes
+    A-->>R: Répond à chaque commentaire/demande de changement
     A-->>R: Corrige le code si nécessaire dans des « fixups » dédiés
-    R-->>A: Vérifie et commente à nouveau le code
-    R-->>A: Résoud les conversations/requested changes le cas échéant
+    R-->>A: Vérifie, teste, et commente à nouveau le code
+    R-->>A: Résout les conversations/demandes de changement le cas échéant
   end
  
   A->>R: Rebase si nécessaire
