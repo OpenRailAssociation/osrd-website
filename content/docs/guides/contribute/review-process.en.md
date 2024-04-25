@@ -1,6 +1,6 @@
 Here's a suggested workflow.
 
-**It is necessary to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.**
+**It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.**
 
 ```mermaid
 sequenceDiagram
@@ -11,10 +11,10 @@ sequenceDiagram
   R->>A: Answers yes or no
   
   loop Loop between author and reviewer
-    R-->>+A: Comments, asks for changes
+    R-->>A: Comments, asks for changes
     A-->>R: Answers to comments or requested changes
-    A-->>-R: Makes necessary changes in dedicated "fixups"
-    R-->>A: Reviews changes
+    A-->>R: Makes necessary changes in dedicated "fixups"
+    R-->>A: Reviews, tests changes, and comments again
     R-->>A: Resolves requested changes/conversations if ok
   end
  
