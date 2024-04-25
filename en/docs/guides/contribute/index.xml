@@ -60,17 +60,17 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> by Michael Lynch.&lt;/li>
 &lt;/ul>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It is necessary to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
 A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
 R-&amp;gt;&amp;gt;A: Answers yes or no
 loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;&amp;#43;A: Comments, asks for changes
+R--&amp;gt;&amp;gt;A: Comments, asks for changes
 A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;-R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews changes
+A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
+R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
 R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
 end
 A-&amp;gt;&amp;gt;R: Rebase and apply fixups
@@ -109,17 +109,17 @@ You may leave a comment to explain changes.&lt;/li>
 &lt;li>PRs solving bugs should add a regression tests to ensure that bug will not be back in the future.&lt;/li>
 &lt;/ul></description></item><item><title>Docs:</title><link>https://osrd.fr/en/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/review-process/</guid><description>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It is necessary to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
 A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
 R-&amp;gt;&amp;gt;A: Answers yes or no
 loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;&amp;#43;A: Comments, asks for changes
+R--&amp;gt;&amp;gt;A: Comments, asks for changes
 A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;-R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews changes
+A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
+R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
 R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
 end
 A-&amp;gt;&amp;gt;R: Rebase and apply fixups

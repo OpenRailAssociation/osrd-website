@@ -1538,6 +1538,14 @@
                         }
                     ],
                     "default": null
+                },
+                "source": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/TrackSectionSourceExtension"
+                        }
+                    ],
+                    "default": null
                 }
             },
             "title": "TrackSectionExtensions",
@@ -1576,6 +1584,26 @@
                 "track_name"
             ],
             "title": "TrackSectionSncfExtension",
+            "type": "object"
+        },
+        "TrackSectionSourceExtension": {
+            "properties": {
+                "id": {
+                    "description": "ID used for the line in the source",
+                    "title": "Id",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the source",
+                    "title": "Name",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "id"
+            ],
+            "title": "TrackSectionSourceExtension",
             "type": "object"
         }
     },

@@ -397,7 +397,7 @@ car vous ne poussez pas seulement de nouveaux commits, mais bien un changement d
 &lt;/ol>
 &lt;h2 id="proposition-de-fonctionnement">Proposition de fonctionnement&lt;/h2>
 &lt;p>Voici une proposition de flux de travail.&lt;/p>
-&lt;p>&lt;strong>Il est nécessaire de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Il peut être utile de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
@@ -405,10 +405,10 @@ A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques pers
 R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
 loop Boucle entre auteur et reviewer
 R--&amp;gt;&amp;gt;A: Commente, demande des changements
-A--&amp;gt;&amp;gt;R: Répond à chaque commentaire/requested changes
+A--&amp;gt;&amp;gt;R: Répond à chaque commentaire/demande de changement
 A--&amp;gt;&amp;gt;R: Corrige le code si nécessaire dans des « fixups » dédiés
-R--&amp;gt;&amp;gt;A: Vérifie et commente à nouveau le code
-R--&amp;gt;&amp;gt;A: Résoud les conversations/requested changes le cas échéant
+R--&amp;gt;&amp;gt;A: Vérifie, teste, et commente à nouveau le code
+R--&amp;gt;&amp;gt;A: Résout les conversations/demandes de changement le cas échéant
 end
 A-&amp;gt;&amp;gt;R: Rebase si nécessaire
 R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits

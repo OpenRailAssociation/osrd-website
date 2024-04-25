@@ -397,17 +397,17 @@ because you are not just pushing new commits, you are pushing changes to existin
 &lt;/ol>
 &lt;h2 id="suggested-workflow">Suggested workflow&lt;/h2>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It is necessary to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
 A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
 R-&amp;gt;&amp;gt;A: Answers yes or no
 loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;&amp;#43;A: Comments, asks for changes
+R--&amp;gt;&amp;gt;A: Comments, asks for changes
 A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;-R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews changes
+A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
+R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
 R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
 end
 A-&amp;gt;&amp;gt;R: Rebase and apply fixups

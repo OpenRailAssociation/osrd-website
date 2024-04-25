@@ -407,17 +407,17 @@ welcome in commit&amp;rsquo;s &lt;em>body&lt;/em>&lt;/li>
 &lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> by Michael Lynch.&lt;/li>
 &lt;/ul>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It is necessary to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
 A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
 R-&amp;gt;&amp;gt;A: Answers yes or no
 loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;&amp;#43;A: Comments, asks for changes
+R--&amp;gt;&amp;gt;A: Comments, asks for changes
 A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;-R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews changes
+A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
+R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
 R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
 end
 A-&amp;gt;&amp;gt;R: Rebase and apply fixups
@@ -504,17 +504,17 @@ because you are not just pushing new commits, you are pushing changes to existin
 &lt;/ol>
 &lt;h2 id="suggested-workflow">Suggested workflow&lt;/h2>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It is necessary to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
 A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
 R-&amp;gt;&amp;gt;A: Answers yes or no
 loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;&amp;#43;A: Comments, asks for changes
+R--&amp;gt;&amp;gt;A: Comments, asks for changes
 A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;-R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews changes
+A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
+R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
 R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
 end
 A-&amp;gt;&amp;gt;R: Rebase and apply fixups
@@ -1639,7 +1639,7 @@ on edge 2, which gives the following result:&lt;/p>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode136s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode139s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -1650,11 +1650,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode136s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode139s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode136s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode139s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -1673,14 +1673,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode136s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode139s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode136s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode139s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode136s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode139s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -1692,7 +1692,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode136s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode139s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -1727,7 +1727,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode136s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode139s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -2715,17 +2715,17 @@ Here is how it works:&lt;/p>
 &lt;li>&lt;code>INDICATION&lt;/code> is a shift of &lt;code>PS&lt;/code> by time &lt;code>Tindication&lt;/code>&lt;/li>
 &lt;/ul></description></item><item><title>Docs:</title><link>https://osrd.fr/en/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/review-process/</guid><description>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It is necessary to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
 A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
 R-&amp;gt;&amp;gt;A: Answers yes or no
 loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;&amp;#43;A: Comments, asks for changes
+R--&amp;gt;&amp;gt;A: Comments, asks for changes
 A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;-R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews changes
+A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
+R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
 R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
 end
 A-&amp;gt;&amp;gt;R: Rebase and apply fixups
