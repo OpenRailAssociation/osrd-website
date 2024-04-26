@@ -139,12 +139,12 @@ constraint_distribution: MARECO # or LINEAR
 # times are defined as time elapsed since start. Even if the attribute is omitted,
 # a scheduled point at the starting point is infered to have departure=start_time
 # the "locked" flag is ignored by the backend.
-# To force a stop signal, you can use the "arrival_on_stop_signal" flag.
+# To force stop-signal on stop's arrival, you can use the "on_stop_signal" flag.
 schedule:
  - {at: a, stop_for: PT5M, locked: true} # infered arrival to be equal to start_time
  - {at: b, arrival: PT10M, stop_for: PT5M}
  - {at: c, stop_for: PT5M}
- - {at: d, arrival: PT50M, locked: true, arrival_on_stop_signal: true}
+ - {at: d, arrival: PT50M, locked: true, on_stop_signal: true}
 
 margins:
   # This example encodes the following margins:
