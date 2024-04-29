@@ -244,7 +244,7 @@ GET /v2/timetable/ID # Timetable with list of train schedule ids attached to it
 ### Train Schedule
 
 ```
-POST /v2/train_schedule # A batch creation
+POST /v2/timetable/ID/train_schedule # A batch creation
 GET /v2/train_schedule/ID
 PUT /v2/train_schedule/ID # Update a specific train schedule
 DELETE /v2/train_schedule # A batch deletion
