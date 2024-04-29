@@ -28,13 +28,19 @@ La plupart des développeurs OSRD utilisent Linux  (y compris [WSL](https://lear
 
 ### Lancer l'application
 
-Grâce à `docker`, on peut facilement compiler, configurer, et lancer les différents composants après un changement. On peut aussi choisir de lancer seulement une partie des composants.
+Docker est un outil qui réduit considérablement la préparation nécessaire pour travailler sur OSRD:
+- télécharger le dernier build de développement : `docker compose pull`
+- démarrer OSRD : `docker compose up`
+- compiler et démarrer OSRD: `docker compose up --build`
+- review une PR avec les images compilées par la CI: `TAG=pr-XXXXX docker compose up --no-build --pull always`
 
-- Installer `docker` [^package-manager] [^docker-desktop].
+
+Pour commencer :
+- [Installer `docker`]({{< ref "install-docker">}})
 - Suivre le [README d'OSRD](https://github.com/osrd-project/osrd#getting-started).
 
-[^package-manager]: Sous Linux, suivez les guides pour votre distribution dans la [documentation de Docker](https://docs.docker.com/engine/install/)
-[^git-bash]: Sous Windows, ouvrez `Git Bash`
-[^docker-desktop]: Sous Windows/[WSL](https://learn.microsoft.com/fr-fr/windows/wsl/tutorials/wsl-containers), [Docker Desktop](https://www.docker.com/products/docker-desktop/) est recommandé
-
 *[Continuer vers la contribution au code ‣]({{< ref "contribute-code">}})*
+
+
+[^package-manager]: Sous Linux, utilisez le gestionnaire de packet (comme `apt`)
+[^git-bash]: Sous Windows, ouvrez `Git Bash`
