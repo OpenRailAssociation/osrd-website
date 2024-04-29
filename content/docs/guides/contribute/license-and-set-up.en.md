@@ -28,13 +28,18 @@ Most OSRD developers use Linux (incl. [WSL](https://learn.microsoft.com/en-us/wi
 
 ### Launch the application
 
-Thanks to `docker`, one can easily compile, configure, and run all services after making a change. One can also start only a subset of the services.
+Docker is a tool which greatly reduces the amount of setup required to work on OSRD:
+- download the latest development build: `docker compose pull`
+- start OSRD: `docker compose up`
+- build and start OSRD: `docker compose up --build`
+- review a PR using CI built images: `TAG=pr-XXXXX docker compose up --no-build --pull always`
 
-- Install `docker`. [^package-manager] [^docker-desktop]
+To get started:
+- [Install `docker`]({{< ref "install-docker">}})
 - Follow [OSRD's README](https://github.com/osrd-project/osrd#getting-started).
 
-[^package-manager]: Under Linux, follow installations steps for your distribution on [Docker's documentation](https://docs.docker.com/engine/install/)
-[^git-bash]: Under Windows, open `Git Bash`
-[^docker-desktop]: Under Windows/[WSL](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers), [Docker Desktop](https://www.docker.com/products/docker-desktop/) is recommended
-
 *[Continue towards code contribution ‣]({{< ref "contribute-code">}})*
+
+
+[^package-manager]: Under Linux, use the package manager (such as `apt`)
+[^git-bash]: Under Windows, open `Git Bash`
