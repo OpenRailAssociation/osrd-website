@@ -323,9 +323,16 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;li>&lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="lancer-lapplication">Lancer l&amp;rsquo;application&lt;/h3>
-&lt;p>Grâce à &lt;code>docker&lt;/code>, on peut facilement compiler, configurer, et lancer les différents composants après un changement. On peut aussi choisir de lancer seulement une partie des composants.&lt;/p>
+&lt;p>Docker est un outil qui réduit considérablement la préparation nécessaire pour travailler sur OSRD:&lt;/p>
 &lt;ul>
-&lt;li>Installer &lt;code>docker&lt;/code> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> &lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>.&lt;/li>
+&lt;li>télécharger le dernier build de développement : &lt;code>docker compose pull&lt;/code>&lt;/li>
+&lt;li>démarrer OSRD : &lt;code>docker compose up&lt;/code>&lt;/li>
+&lt;li>compiler et démarrer OSRD: &lt;code>docker compose up --build&lt;/code>&lt;/li>
+&lt;li>review une PR avec les images compilées par la CI: &lt;code>TAG=pr-XXXXX docker compose up --no-build --pull always&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Pour commencer :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/install-docker/">Installer &lt;code>docker&lt;/code>&lt;/a>&lt;/li>
 &lt;li>Suivre le &lt;a href="https://github.com/osrd-project/osrd#getting-started">README d&amp;rsquo;OSRD&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/">Continuer vers la contribution au code ‣&lt;/a>&lt;/em>&lt;/p>
@@ -333,13 +340,10 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>Sous Linux, suivez les guides pour votre distribution dans la &lt;a href="https://docs.docker.com/engine/install/">documentation de Docker&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Sous Linux, utilisez le gestionnaire de packet (comme &lt;code>apt&lt;/code>)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:3">
-&lt;p>Sous Windows/&lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/tutorials/wsl-containers">WSL&lt;/a>, &lt;a href="https://www.docker.com/products/docker-desktop/">Docker Desktop&lt;/a> est recommandé&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Docs: Écrire du code</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</guid><description>
@@ -829,7 +833,51 @@ Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;p>Ces couleurs sont &lt;strong>celles du logo&lt;/strong>, elles ne sont pas à confondre avec celles du design global de l&amp;rsquo;interface d&amp;rsquo;OSRD.&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;span style="display:inline-block;background-color:#786abf;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px">#786ABF&lt;/span>
-&lt;span style="display:inline-block;background-color:#c7b2de;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px;margin-left:16px">#C7B2DE&lt;/span>&lt;/p></description></item><item><title>Docs: Détection de conflits</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>
+&lt;span style="display:inline-block;background-color:#c7b2de;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px;margin-left:16px">#C7B2DE&lt;/span>&lt;/p></description></item><item><title>Docs: Installer docker</title><link>https://osrd.fr/fr/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/install-docker/</guid><description>
+&lt;p>Peu importe votre système d&amp;rsquo;exploitation, docker requiert linux pour fonctionner.
+Lorsqu&amp;rsquo;utilisé sous un autre système d&amp;rsquo;exploitation, docker a besoin de machines
+virtuelles linux pour build et exécuter des images.&lt;/p>
+&lt;p>Il y a deux types d&amp;rsquo;installation docker :&lt;/p>
+&lt;ul>
+&lt;li>docker engine est l&amp;rsquo;application en ligne de commande&lt;/li>
+&lt;li>docker desktop est une application graphique, qui gère aussi la virtualisation&lt;/li>
+&lt;/ul>
+&lt;p>Voici nos suggestions :&lt;/p>
+&lt;ul>
+&lt;li>Si vous êtes sous linux, installez docker engine &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">via votre gestionnaire de packet&lt;/a>&lt;/li>
+&lt;li>Si vous êtes sous MacOS / Windows, installez &lt;a href="https://www.docker.com/products/docker-desktop/">docker desktop&lt;/a> si vous y êtes autorisés&lt;/li>
+&lt;li>Si vous êtes sous windows, et voulez faire fonctionner docker sous WSL, ou ne pouvez pas utiliser docker desktop, suivez le &lt;a href="#docker-sous-wsl">guide docker sous WSL&lt;/a>&lt;/li>
+&lt;li>Si vous êtes sous MacOS, et vous ne pouvez pas utiliser docker desktop, suivez le &lt;a href="#macos-colima">guide colima pour MacOS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker-sous-wsl">Docker sous WSL&lt;/h2>
+&lt;p>Cette option d&amp;rsquo;installation est très utile, car elle permet de disposer d&amp;rsquo;une installation tout à fait normale de docker engine Linux à l&amp;rsquo;intérieur de WSL, qui reste accessible depuis Windows.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/install">Installez WSL&lt;/a> (Si vous avez une vieille version de WSL, lancez &lt;code>wsl --upgrade&lt;/code>)&lt;/li>
+&lt;li>Obtenez une image WSL depuis le store microsoft (par exemple, debian or ubuntu)&lt;/li>
+&lt;li>&lt;a href="https://learn.microsoft.com/fr-fr/windows/wsl/systemd">Activez le support systemd depuis la VM WSL&lt;/a>&lt;/li>
+&lt;li>Suivez le &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">tutoriel d&amp;rsquo;installation docker engine pour votre distribution WSL&lt;/a>&lt;/li>
+&lt;li>Si vous avez docker desktop installé, vous pouvez &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">le configurer pour qu&amp;rsquo;il utilise WSL&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="macos-colima">MacOS colima&lt;/h2>
+&lt;p>Cette procédure permet d&amp;rsquo;installer docker sans passer par docker desktop. Elle utilise colima comme solution de virtualisation.&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://brew.sh/">Installez homebrew&lt;/a>&lt;/li>
+&lt;li>&lt;code>brew install docker docker-compose colima&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm">Configurez colima&lt;/a> :&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>pour des macbooks apple silicon (M1/M2) : &lt;code>colima start --cpu 2 --memory 6 --arch aarch64 --vm-type=vz --vz-rosetta --mount-type=virtiofs&lt;/code>&lt;/li>
+&lt;li>pour de petites infrastructures: &lt;code>colima start --cpu 2 --memory 4&lt;/code>&lt;/li>
+&lt;li>pour de grosses infrastructures: &lt;code>colima start --cpu 2 --memory 6&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;ol start="4">
+&lt;li>&lt;code>brew services start colima&lt;/code> pour lancer automatiquement colima au démarrage&lt;/li>
+&lt;li>Quittez votre terminal, ouvrez-en un nouveau&lt;/li>
+&lt;li>Vous pouvez maintenant utiliser docker CLI&lt;/li>
+&lt;/ol>
+&lt;div class="alert alert-info" role="alert">
+En cas d&amp;rsquo;erreur au démarrage avec Rosetta 2, lancez &lt;code>colima delete&lt;/code> et réessayez (le format de disque n&amp;rsquo;est pas compatible). Les paramètres seront perdus.
+&lt;/div></description></item><item><title>Docs: Détection de conflits</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>
 &lt;p>Maintenant qu&amp;rsquo;on sait quels chemins peuvent être utilisés,
 on doit déterminer à quel moment ces chemins sont libres.&lt;/p>
 &lt;p>La documentation (en anglais seulement)
@@ -2404,58 +2452,4 @@ sont pas rappelées par des signaux sur le terrain.&lt;/p>
 &lt;p>Par principe, la vitesse de circulation ne dépasse généralement pas 50 km/h.&lt;/p>
 &lt;p>Aucun enclenchement n’est prévu. Chaque ligne dépend d&amp;rsquo;un agent de SNCF Réseau dénommé « chef de ligne ». La sécurité
 des circulations est assurée par le chef de ligne et par les agents des trains.&lt;/p>
-&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: FRMCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Docs: Mouvement à contre-voie</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</guid><description>
-&lt;h3 id="principe">Principe&lt;/h3>
-&lt;p>Lorsqu’une cause quelconque (incident, secours, travaux inopinés de courte durée, etc.), interdit l’utilisation d’une
-voie, en l’absence d’installation permettant la circulation dans les deux sens sur l’autre voie (ICS, voie banalisée) et
-qu’il n’est pas envisagé d’organiser une VUT (par exemple, du fait que très peu de circulations seront concernées), la
-circulation d’un train n’empruntant pas le sens normal se fait alors à contre-voie sur la voie non interceptée. Les
-trains devant circuler à contre-voie sont &lt;strong>arrêtés à l’entrée&lt;/strong>.&lt;/p>
-&lt;p>Le mouvement à contre-voie peut être effectué :&lt;/p>
-&lt;ul>
-&lt;li>d’un point quelconque vers un point situé en amont (ces points pouvant être un point de pleine voie, une gare, un
-évitement télécommandé) ;&lt;/li>
-&lt;li>à l’intérieur d’une gare.&lt;/li>
-&lt;/ul>
-&lt;h3 id="organisation">Organisation&lt;/h3>
-&lt;h4 id="mouvements-à-contre-voie-à-lintérieur-dune-gare">Mouvements à contre-voie à l’intérieur d’une gare&lt;/h4>
-&lt;p>Lorsqu’un mouvement à contre-voie doit être effectué à l’intérieur d’une gare, il est organisé à l’initiative de l’agent
-du service de gestion des circulations.&lt;/p>
-&lt;p>Le conducteur est avisé par l’agent du service de la gestion des circulations qu’il doit effectuer un mouvement à
-contre-voie et que le mouvement s’effectue :&lt;/p>
-&lt;ul>
-&lt;li>soit comme une manœuvre. Dans ce cas le conducteur sera renseigné et guidé par des signaux de manœuvre ;&lt;/li>
-&lt;li>soit par la transmission d’un ordre écrit ou d’une dépêche.&lt;/li>
-&lt;/ul>
-&lt;h4 id="autres-mouvements-à-contre-voie">Autres mouvements à contre-voie&lt;/h4>
-&lt;ul>
-&lt;li>d’une gare vers la gare en amont ou de la gare en avant vers un point de pleine voie
-L’agent chargé d’organiser ce mouvement à contre-voie est l’agent du service de gestion des circulations de la gare
-dans laquelle le mouvement a son origine.&lt;/li>
-&lt;li>d’un point de pleine voie vers la gare en arrière
-L’agent chargé d’organiser ce mouvement à contre-voie est l’agent du service de gestion des circulations de la gare
-dans laquelle le mouvement se termine.
-Dans ces deux cas, l’agent du service de la gestion des circulations, après avoir obtenu l’assurance que la partie de
-voie à parcourir est libre et le restera, remet un ordre écrit ou transmet une dépêche au conducteur pour circuler à contre-voie.&lt;/li>
-&lt;li>En pleine voie
-Le conducteur est responsable de ce mouvement, lorsqu’il prend l’initiative d’exécuter ce mouvement :
-&lt;ul>
-&lt;li>à la suite d’une rupture d’attelage lorsque le train peut être reconstitué ;&lt;/li>
-&lt;li>à la suite d’un léger dépassement du point d’arrêt habituel dans un établissement PL.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="circulation-à-contre-voie">Circulation à contre-voie&lt;/h3>
-&lt;p>Après arrêt du train, l’agent du service de la gestion des circulations, selon le cas, remet au conducteur un ordre
-écrit ou le transmet par dépêche. Cet ordre reprend les points ou zones du parcours sur lesquels le conducteur doit
-appliquer des prescriptions particulières.&lt;/p>
-&lt;p>En effet, les installations et la signalisation ne sont généralement pas prévues pour les circulations en sens inverse
-du sens normal (PN, limitations de vitesse, etc.).&lt;/p>
-&lt;p>Lorsque le conducteur est en tête du mouvement, la circulation s’effectue en &lt;strong>marche à vue&lt;/strong> sur tout le parcours effectué
-à contre-voie (le conducteur peut rencontrer un obstacle non protégé).&lt;/p>
-&lt;p>Lorsque le conducteur n’est pas en tête, la circulation est guidée par des signaux de manœuvre.&lt;/p>
-&lt;p>La fin du parcours à contre voie est généralement repérée soit :&lt;/p>
-&lt;ul>
-&lt;li>par un &lt;strong>signal carré&lt;/strong> ;&lt;/li>
-&lt;li>par un &lt;strong>signal d’arrêt à main&lt;/strong>.&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: FRMCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item></channel></rss>

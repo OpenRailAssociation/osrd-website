@@ -321,9 +321,16 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;li>Run &lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="launch-the-application">Launch the application&lt;/h3>
-&lt;p>Thanks to &lt;code>docker&lt;/code>, one can easily compile, configure, and run all services after making a change. One can also start only a subset of the services.&lt;/p>
+&lt;p>Docker is a tool which greatly reduces the amount of setup required to work on OSRD:&lt;/p>
 &lt;ul>
-&lt;li>Install &lt;code>docker&lt;/code>. &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> &lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>download the latest development build: &lt;code>docker compose pull&lt;/code>&lt;/li>
+&lt;li>start OSRD: &lt;code>docker compose up&lt;/code>&lt;/li>
+&lt;li>build and start OSRD: &lt;code>docker compose up --build&lt;/code>&lt;/li>
+&lt;li>review a PR using CI built images: &lt;code>TAG=pr-XXXXX docker compose up --no-build --pull always&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>To get started:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/">Install &lt;code>docker&lt;/code>&lt;/a>&lt;/li>
 &lt;li>Follow &lt;a href="https://github.com/osrd-project/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/">Continue towards code contribution ‣&lt;/a>&lt;/em>&lt;/p>
@@ -331,13 +338,10 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>Under Linux, follow installations steps for your distribution on &lt;a href="https://docs.docker.com/engine/install/">Docker&amp;rsquo;s documentation&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Under Linux, use the package manager (such as &lt;code>apt&lt;/code>)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>Under Windows, open &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:3">
-&lt;p>Under Windows/&lt;a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">WSL&lt;/a>, &lt;a href="https://www.docker.com/products/docker-desktop/">Docker Desktop&lt;/a> is recommended&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Docs: Write code</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</guid><description>
@@ -880,7 +884,51 @@ resistance.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># A predicate used evaluate whether a signal state can make a train slow down. Used for naive conflict detection.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;constraining_ma_when&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;aspect != VL&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>
+&lt;p>Regardless of your operating system, docker requires linux to operate. When used on a different
+operating system, docker relies on virtual machines to build and run images.&lt;/p>
+&lt;p>There are two main types of docker installations:&lt;/p>
+&lt;ul>
+&lt;li>docker engine is the usual docker command line application&lt;/li>
+&lt;li>docker desktop is a GUI app that also manages virtualization&lt;/li>
+&lt;/ul>
+&lt;p>Here&amp;rsquo;s what we suggest:&lt;/p>
+&lt;ul>
+&lt;li>If you&amp;rsquo;re on linux, install docker engine &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">using your package manager&lt;/a>&lt;/li>
+&lt;li>If you&amp;rsquo;re on MacOS / Windows, install &lt;a href="https://www.docker.com/products/docker-desktop/">docker desktop&lt;/a> if you are allowed to&lt;/li>
+&lt;li>If you&amp;rsquo;re on windows and want to get docker running within WSL, or can&amp;rsquo;t use docker desktop, follow the &lt;a href="#docker-on-wsl">docker on WSL tutorial&lt;/a>&lt;/li>
+&lt;li>If you&amp;rsquo;re on MacOS and can&amp;rsquo;t use docker desktop, follow the &lt;a href="#macos-colima">MacOS colima tutorial&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker-on-wsl">Docker on WSL&lt;/h2>
+&lt;p>This install option is very useful, as it allows having a perfectly normal linux install of docker engine inside WSL, which can still be reached from windows.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://learn.microsoft.com/en-us/windows/wsl/install">Install WSL&lt;/a> (If you had an old version of WSL, run &lt;code>wsl --upgrade&lt;/code>)&lt;/li>
+&lt;li>Get an operating system image from the microsoft store (for example, debian or ubuntu)&lt;/li>
+&lt;li>&lt;a href="https://learn.microsoft.com/en-us/windows/wsl/systemd">Enable systemd support within the WSL VM&lt;/a>&lt;/li>
+&lt;li>Follow the regular &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">linux install tutorial for docker&lt;/a>&lt;/li>
+&lt;li>If you have docker desktop installed, you can &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">configure it to use WSL&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="macos-colima">MacOS colima&lt;/h2>
+&lt;p>This procedure allows installing docker without relying on docker desktop.
+It uses colima for virtualizing linux.&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://brew.sh/">Install homebrew&lt;/a>&lt;/li>
+&lt;li>&lt;code>brew install docker docker-compose colima&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm">Configure colima&lt;/a>:&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>for apple silicon (M1/M2) macbooks: &lt;code>colima start --cpu 2 --memory 6 --arch aarch64 --vm-type=vz --vz-rosetta --mount-type=virtiofs&lt;/code>&lt;/li>
+&lt;li>for small infrastructures: &lt;code>colima start --cpu 2 --memory 4&lt;/code>&lt;/li>
+&lt;li>for big infrastructures: &lt;code>colima start --cpu 2 --memory 6&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;ol start="4">
+&lt;li>&lt;code>brew services start colima&lt;/code> to automatically start colima on startup&lt;/li>
+&lt;li>Exit your terminal, open a new one&lt;/li>
+&lt;li>You can now use docker CLI&lt;/li>
+&lt;/ol>
+&lt;div class="alert alert-info" role="alert">
+If you get an error at rosetta startup, run &lt;code>colima delete&lt;/code> and try again (the disk format is not compatible). Settings will be lost.
+&lt;/div></description></item><item><title>Docs: Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>
 &lt;p>Once we know what paths we can use, we need to know when they
 can actually be used.&lt;/p>
 &lt;p>The &lt;a href="https://osrd.fr/en/docs/reference/design-docs/conflict-detection/" title="documentation">documentation&lt;/a>
