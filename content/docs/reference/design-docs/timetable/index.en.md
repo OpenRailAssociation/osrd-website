@@ -158,8 +158,8 @@ margins:
   # the following units are supported:
   #  - none is a special value which indicates no margin. It's the default
   #  - % means added percentage of the base simulation time
-  #  - min/km means minutes per kilometers
-  values: ["5%", "3%"]
+  #  - min/100km means minutes per 100 kilometers
+  values: ["5%", "3%", "4.5min/100km"]
 
 # train speed at simulation start, in meters per second.
 # must be zero if the train starts at a stop
