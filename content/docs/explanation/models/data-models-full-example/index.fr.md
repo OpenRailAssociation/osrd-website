@@ -60,10 +60,9 @@ Ces attributs sont nécessaires pour que la section de voie soit complète :
 
 * `length` : la longueur de la section de voie en mètres.
 * `geo` : les coordonnées dans la réalité (geo pour géographique), au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
-* `sch` : les coordonnées dans la vue schématique (sch pour schématique, représentation simplifiée), également au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
 * attributs cosmétiques : `line_name`, `track_name`, `track_number` qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux voies / lignes dans la réalité.
 
-Pour toutes les sections de voies de notre infrastructure, les attributs `geo` et `sch` sont identiques, et se rapprochent beaucoup au schéma donné.
+Pour toutes les sections de voies de notre infrastructure, les attributs `geo` se rapprochent beaucoup au schéma donné.
 
 Pour la plupart des sections de voies, leur `length` est proportionnelle à ce que l'on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour *TA6*, *TA7*, *TD0* et *TD1* (qui font 10km et 25km).
 
