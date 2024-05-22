@@ -33,10 +33,9 @@ Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>length&lt;/code> : la longueur de la section de voie en mètres.&lt;/li>
 &lt;li>&lt;code>geo&lt;/code> : les coordonnées dans la réalité (geo pour géographique), au format &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a>.&lt;/li>
-&lt;li>&lt;code>sch&lt;/code> : les coordonnées dans la vue schématique (sch pour schématique, représentation simplifiée), également au format &lt;a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON&lt;/a>.&lt;/li>
 &lt;li>attributs cosmétiques : &lt;code>line_name&lt;/code>, &lt;code>track_name&lt;/code>, &lt;code>track_number&lt;/code> qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux voies / lignes dans la réalité.&lt;/li>
 &lt;/ul>
-&lt;p>Pour toutes les sections de voies de notre infrastructure, les attributs &lt;code>geo&lt;/code> et &lt;code>sch&lt;/code> sont identiques, et se rapprochent beaucoup au schéma donné.&lt;/p>
+&lt;p>Pour toutes les sections de voies de notre infrastructure, les attributs &lt;code>geo&lt;/code> se rapprochent beaucoup au schéma donné.&lt;/p>
 &lt;p>Pour la plupart des sections de voies, leur &lt;code>length&lt;/code> est proportionnelle à ce que l&amp;rsquo;on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> (qui font 10km et 25km).&lt;/p>
 &lt;h4 id="noeud">Noeud&lt;/h4>
 &lt;p>Un &lt;code>Node&lt;/code> représente un noeud dans l&amp;rsquo;infrastructure. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par un noeud.
