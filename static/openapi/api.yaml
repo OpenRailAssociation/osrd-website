@@ -931,11 +931,6 @@ components:
                   id: { type: string }
                   type: { enum: ["TrackSection"] }
               position: { type: number, format: float }
-              sch:
-                type: array
-                items: { type: number, format: float }
-                minItems: 2
-                maxItems: 2
               geo:
                 type: array
                 items: { type: number, format: float }

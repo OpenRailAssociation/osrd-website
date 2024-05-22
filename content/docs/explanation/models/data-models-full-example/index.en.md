@@ -60,10 +60,9 @@ These attributes are required for the track section to be complete:
 
 * `length`: the length of the track section in meters.
 * `geo`: the coordinates in real life (geo is for geographic), in the [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
-* `sch`: the coordinates in the schematic view (sch for schematic, simplified representation), also in [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
 * cosmetic attributes: `line_name`, `track_name`, `track_number` which are used to indicate the name and labels that were given to the tracks / lines in real life.
 
-For all track sections in our infrastructure, the `geo` and `sch` attributes are identical, and very much resemble the given diagram.
+For all track sections in our infrastructure, the `geo` attributes very much resemble the given diagram.
 
 For most track sections, their `length` is proportional to what can be seen in the diagram. To preserve readability, exceptions were made for *TA6*, *TA7*, *TD0* and *TD1* (which are 10km and 25km).
 
