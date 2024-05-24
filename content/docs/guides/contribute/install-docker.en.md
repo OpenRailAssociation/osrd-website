@@ -36,15 +36,28 @@ It uses colima for virtualizing linux.
 
 1) [Install homebrew](https://brew.sh/)
 2) `brew install docker docker-compose colima`
-3) [Configure colima](https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm):
+3) Install the compose plugin: `mkdir -p ~/.docker/cli-plugins && ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose`
+4) [Configure colima](https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm):
   - for apple silicon (M1/M2) macbooks: `colima start --cpu 2 --memory 6 --arch aarch64 --vm-type=vz --vz-rosetta --mount-type=virtiofs`
   - for small infrastructures: `colima start --cpu 2 --memory 4`
   - for big infrastructures: `colima start --cpu 2 --memory 6`
-4) `brew services start colima` to automatically start colima on startup
-5) Exit your terminal, open a new one
-6) You can now use docker CLI
+5) `brew services start colima` to automatically start colima on startup
+6) Exit your terminal, open a new one
+7) You can now use docker CLI
 
 
 {{% alert color="info" %}}
+If you're using rancher desktop, please either:
+- uninstall the application
+- select `Manual` in `Preferences` > `Application` > `Environement`
+{{% /alert %}}
+
+{{% alert color="info" %}}
 If you get an error at rosetta startup, run `colima delete` and try again (the disk format is not compatible). Settings will be lost.
+{{% /alert %}}
+
+{{% alert color="info" %}}
+If you get this error: `error getting credentials - err: exec: "docker-credential-osxkeychain": executable file not found in $PATH`
+
+Open `~/.docker/config.json`, and remove `"credsStore": "osxkeychain"`
 {{% /alert %}}
