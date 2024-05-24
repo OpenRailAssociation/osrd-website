@@ -863,6 +863,7 @@ virtuelles linux pour build et exécuter des images.&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://brew.sh/">Installez homebrew&lt;/a>&lt;/li>
 &lt;li>&lt;code>brew install docker docker-compose colima&lt;/code>&lt;/li>
+&lt;li>Installez le plugin compose : &lt;code>mkdir -p ~/.docker/cli-plugins &amp;amp;&amp;amp; ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose&lt;/code>&lt;/li>
 &lt;li>&lt;a href="https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm">Configurez colima&lt;/a> :&lt;/li>
 &lt;/ol>
 &lt;ul>
@@ -870,13 +871,24 @@ virtuelles linux pour build et exécuter des images.&lt;/p>
 &lt;li>pour de petites infrastructures: &lt;code>colima start --cpu 2 --memory 4&lt;/code>&lt;/li>
 &lt;li>pour de grosses infrastructures: &lt;code>colima start --cpu 2 --memory 6&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;ol start="4">
+&lt;ol start="5">
 &lt;li>&lt;code>brew services start colima&lt;/code> pour lancer automatiquement colima au démarrage&lt;/li>
 &lt;li>Quittez votre terminal, ouvrez-en un nouveau&lt;/li>
 &lt;li>Vous pouvez maintenant utiliser docker CLI&lt;/li>
 &lt;/ol>
 &lt;div class="alert alert-info" role="alert">
+&lt;p>Si vous utiliser rancher desktop, veuillez soit:&lt;/p>
+&lt;ul>
+&lt;li>déinstaller l&amp;rsquo;application&lt;/li>
+&lt;li>sélectioner &lt;code>Manuel&lt;/code> dans &lt;code>Préférences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environnement&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="alert alert-info" role="alert">
 En cas d&amp;rsquo;erreur au démarrage avec Rosetta 2, lancez &lt;code>colima delete&lt;/code> et réessayez (le format de disque n&amp;rsquo;est pas compatible). Les paramètres seront perdus.
+&lt;/div>
+&lt;div class="alert alert-info" role="alert">
+&lt;p>Si vous avez cette erreur: &lt;code>error getting credentials - err: exec: &amp;quot;docker-credential-osxkeychain&amp;quot;: executable file not found in $PATH&lt;/code>&lt;/p>
+&lt;p>Ouvrez &lt;code>~/.docker/config.json&lt;/code>, et enlevez &lt;code>&amp;quot;credsStore&amp;quot;: &amp;quot;osxkeychain&amp;quot;&lt;/code>&lt;/p>
 &lt;/div></description></item><item><title>Docs: Détection de conflits</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>
 &lt;p>Maintenant qu&amp;rsquo;on sait quels chemins peuvent être utilisés,
 on doit déterminer à quel moment ces chemins sont libres.&lt;/p>

@@ -141,6 +141,7 @@ It uses colima for virtualizing linux.&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://brew.sh/">Install homebrew&lt;/a>&lt;/li>
 &lt;li>&lt;code>brew install docker docker-compose colima&lt;/code>&lt;/li>
+&lt;li>Install the compose plugin: &lt;code>mkdir -p ~/.docker/cli-plugins &amp;amp;&amp;amp; ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose&lt;/code>&lt;/li>
 &lt;li>&lt;a href="https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm">Configure colima&lt;/a>:&lt;/li>
 &lt;/ol>
 &lt;ul>
@@ -148,13 +149,24 @@ It uses colima for virtualizing linux.&lt;/p>
 &lt;li>for small infrastructures: &lt;code>colima start --cpu 2 --memory 4&lt;/code>&lt;/li>
 &lt;li>for big infrastructures: &lt;code>colima start --cpu 2 --memory 6&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;ol start="4">
+&lt;ol start="5">
 &lt;li>&lt;code>brew services start colima&lt;/code> to automatically start colima on startup&lt;/li>
 &lt;li>Exit your terminal, open a new one&lt;/li>
 &lt;li>You can now use docker CLI&lt;/li>
 &lt;/ol>
 &lt;div class="alert alert-info" role="alert">
+&lt;p>If you&amp;rsquo;re using rancher desktop, please either:&lt;/p>
+&lt;ul>
+&lt;li>uninstall the application&lt;/li>
+&lt;li>select &lt;code>Manual&lt;/code> in &lt;code>Preferences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environement&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="alert alert-info" role="alert">
 If you get an error at rosetta startup, run &lt;code>colima delete&lt;/code> and try again (the disk format is not compatible). Settings will be lost.
+&lt;/div>
+&lt;div class="alert alert-info" role="alert">
+&lt;p>If you get this error: &lt;code>error getting credentials - err: exec: &amp;quot;docker-credential-osxkeychain&amp;quot;: executable file not found in $PATH&lt;/code>&lt;/p>
+&lt;p>Open &lt;code>~/.docker/config.json&lt;/code>, and remove &lt;code>&amp;quot;credsStore&amp;quot;: &amp;quot;osxkeychain&amp;quot;&lt;/code>&lt;/p>
 &lt;/div></description></item><item><title>Docs:</title><link>https://osrd.fr/en/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/review-process/</guid><description>
 &lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
 &lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
