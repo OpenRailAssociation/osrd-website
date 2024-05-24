@@ -36,15 +36,28 @@ Cette procédure permet d'installer docker sans passer par docker desktop. Elle 
 
 1) [Installez homebrew](https://brew.sh/)
 2) `brew install docker docker-compose colima`
-3) [Configurez colima](https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm) :
+3) Installez le plugin compose : `mkdir -p ~/.docker/cli-plugins && ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose`
+4) [Configurez colima](https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm) :
   - pour des macbooks apple silicon (M1/M2) : `colima start --cpu 2 --memory 6 --arch aarch64 --vm-type=vz --vz-rosetta --mount-type=virtiofs`
   - pour de petites infrastructures: `colima start --cpu 2 --memory 4`
   - pour de grosses infrastructures: `colima start --cpu 2 --memory 6`
-4) `brew services start colima` pour lancer automatiquement colima au démarrage
-5) Quittez votre terminal, ouvrez-en un nouveau
-6) Vous pouvez maintenant utiliser docker CLI
+5) `brew services start colima` pour lancer automatiquement colima au démarrage
+6) Quittez votre terminal, ouvrez-en un nouveau
+7) Vous pouvez maintenant utiliser docker CLI
 
 
 {{% alert color="info" %}}
+Si vous utiliser rancher desktop, veuillez soit:
+- déinstaller l'application
+- sélectioner `Manuel` dans `Préférences` > `Application` > `Environnement`
+{{% /alert %}}
+
+{{% alert color="info" %}}
 En cas d'erreur au démarrage avec Rosetta 2, lancez `colima delete` et réessayez (le format de disque n'est pas compatible). Les paramètres seront perdus.
+{{% /alert %}}
+
+{{% alert color="info" %}}
+Si vous avez cette erreur: `error getting credentials - err: exec: "docker-credential-osxkeychain": executable file not found in $PATH`
+
+Ouvrez `~/.docker/config.json`, et enlevez `"credsStore": "osxkeychain"`
 {{% /alert %}}
