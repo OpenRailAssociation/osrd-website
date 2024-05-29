@@ -464,4 +464,472 @@ GET /v2/train_schedule/ID/simulation?infa=N
 GET /v2/train_schedule/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
-&lt;/code>&lt;/pre></description></item></channel></rss>
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
+&lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
+&lt;ul>
+&lt;li>authentication (&lt;code>authn&lt;/code>) is the process of figuring out an user&amp;rsquo;s identity.&lt;/li>
+&lt;li>authorization (&lt;code>authz&lt;/code>) is the process of figuring out whether an user can do something.&lt;/li>
+&lt;/ul>
+&lt;p>This design project started as a result of a feature request coming from SNCF users
+and stakeholders. After some interviews, we believe the overall needs to be as follows:&lt;/p>
+&lt;ul>
+&lt;li>controlling access to features
+&lt;ul>
+&lt;li>some users are supposed to only view results of operational studies&lt;/li>
+&lt;li>some users only get access to part of the app&lt;/li>
+&lt;li>not everyone can have access to the admin panel&lt;/li>
+&lt;li>it could be nice to be able to roll experimental features out incrementaly&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>controlling access to data
+&lt;ul>
+&lt;li>some infrastructures shall only be changed by automated import jobs&lt;/li>
+&lt;li>users might want to control who can mess with what they&amp;rsquo;re currently working on&lt;/li>
+&lt;li>rolling stock, infrastructure and timetable data may be confidential&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="overall-architecture">Overall architecture&lt;/h2>
+&lt;pre class="mermaid">flowchart LR
+subgraph gateway
+auth([authentication])
+end
+subgraph editoast
+subgraph authorization
+roles([role check])
+permissions([permission check])
+end
+end
+subgraph decisions
+permit
+deny
+end
+request --&amp;gt; auth --&amp;gt; roles --&amp;gt; permissions
+auth --&amp;gt; deny
+roles --&amp;gt; deny
+permissions --&amp;gt; permit &amp;amp; deny&lt;/pre>
+&lt;h2 id="authentication">Authentication&lt;/h2>
+&lt;p>The app&amp;rsquo;s backend is not responsible for authenticating the user: it gets all required information
+from &lt;code>gateway&lt;/code>, the authenticating reverse proxy which stands between it and the front-end.&lt;/p>
+&lt;ul>
+&lt;li>at application start-up, the front-end redirects to the login page if the user is not logged in&lt;/li>
+&lt;li>if the user is already authenticated, the gateway returns user metadata&lt;/li>
+&lt;li>otherwise, the gateway initiates the authentication process, usually with OIDC.
+The implementation was designed to allow new backends to be added easily.&lt;/li>
+&lt;li>once the user is authenticated, all requests to the backend can expect the following headers to be set:
+&lt;ul>
+&lt;li>&lt;code>x-remote-user-identity-id&lt;/code> contain a unique identifier for this identity. It can be thought of as an opaque &lt;code>(auth_method, user_id)&lt;/code> tuple.&lt;/li>
+&lt;li>&lt;code>x-remote-user-name&lt;/code> contain an username&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>When editoast receives a request, it has to match the remote user ID with a
+database user, creating it as needed.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authn_subject&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">bigserial&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">generated&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">always&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">as&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">identity&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">primary&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">key&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authn_user&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">primary&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">key&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">auth_subject&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cascade&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">identity_id&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">text&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">text&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authn_group&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">primary&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">key&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">auth_subject&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cascade&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">text&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- add a trigger so that when a group is deleted, the associated authn_subject is deleted too
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- add a trigger so that when an user is deleted, the associated authn_subject is deleted too
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authn_group_membership&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">user&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">auth_user&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cascade&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">group&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">auth_group&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cascade&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">unique&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">user&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">group&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="group-and-role-management-api">Group and role management API&lt;/h3>
+&lt;div class="alert alert-warning" role="alert">
+Users cannot be directly created. The authenticating reverse proxy is in charge of user management.
+&lt;/div>
+&lt;ul>
+&lt;li>role management is protected by the &lt;code>role:admin&lt;/code> role.&lt;/li>
+&lt;li>groups management is subject to permissions.&lt;/li>
+&lt;/ul>
+&lt;h4 id="get-information-about-an-user">Get information about an user&lt;/h4>
+&lt;pre tabindex="0">&lt;code>GET /authn/me
+GET /authn/user/{user_id}
+&lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Foo Bar&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;groups&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;A&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;B&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;app_roles&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ops&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;builtin_roles&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;infra:read&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="#builtin-roles">Builtin roles&lt;/a> are deduced from app roles, and thus cannot be directly edited.&lt;/p>
+&lt;h4 id="add-roles-to-an-user-or-group">Add roles to an user or group&lt;/h4>
+&lt;p>This endpoint can only be called if the user has the &lt;code>role:admin&lt;/code> builtin role.&lt;/p>
+&lt;pre tabindex="0">&lt;code>POST /authn/user/{user_id}/roles/add
+POST /authn/group/{group_id}/roles/add
+&lt;/code>&lt;/pre>&lt;p>Takes a list of app roles:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ops&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;stdcm&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="remove-roles-from-an-user-or-group">Remove roles from an user or group&lt;/h4>
+&lt;p>This endpoint can only be called if the user has the &lt;code>role:admin&lt;/code> builtin role.&lt;/p>
+&lt;pre tabindex="0">&lt;code>POST /authn/user/{user_id}/roles/remove
+&lt;/code>&lt;/pre>&lt;p>Takes a list of app roles to remove:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ops&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="create-a-group">Create a group&lt;/h4>
+&lt;p>This endpoint can only be called if the user has the &lt;code>group:create&lt;/code> builtin role.
+When an user creates a group, it becomes its owner.&lt;/p>
+&lt;pre tabindex="0">&lt;code>POST /authn/group
+&lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Foo&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;app_roles&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ops&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Returns the group ID.&lt;/p>
+&lt;h4 id="add-users-to-a-group">Add users to a group&lt;/h4>
+&lt;p>Can only be called if the user has &lt;code>Writer&lt;/code> access to the group.&lt;/p>
+&lt;pre tabindex="0">&lt;code>POST /authn/group/{group_id}/add
+&lt;/code>&lt;/pre>&lt;p>Takes a list of user IDs&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="remove-users-from-a-group">Remove users from a group&lt;/h4>
+&lt;p>Can only be called if the user has &lt;code>Writer&lt;/code> access to the group.&lt;/p>
+&lt;pre tabindex="0">&lt;code>POST /authn/group/{group_id}/remove
+&lt;/code>&lt;/pre>&lt;p>Takes a list of user IDs&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="delete-a-group">Delete a group&lt;/h4>
+&lt;p>Can only be called if the user has &lt;code>Owner&lt;/code> access to the group.&lt;/p>
+&lt;pre tabindex="0">&lt;code>DELETE /authn/group/{group_id}
+&lt;/code>&lt;/pre>&lt;h2 id="authorization">Authorization&lt;/h2>
+&lt;p>As shown in the overall architecture section, to determine if a subject is
+allowed to conduct an action on a ressource, two checks are performed:&lt;/p>
+&lt;ol>
+&lt;li>We check that the &lt;strong>roles&lt;/strong> of the subject allows the action.&lt;/li>
+&lt;li>We check that the subject has the &lt;strong>minimum privileges&lt;/strong> on the ressource(s) that are required to perform the action.&lt;/li>
+&lt;/ol>
+&lt;h3 id="roles">Roles&lt;/h3>
+&lt;p>Subject can have any number of roles. Roles allow access to features. Roles do not give rights on specific objects.&lt;/p>
+&lt;p>Both the frontend and backend require some roles to be set to allow access to parts of the app.
+In the frontend, roles guard features, in the backend, roles guard endpoints or group of endpoints.&lt;/p>
+&lt;p>There are two types of roles:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Builtin roles&lt;/strong> are bundled with OSRD. Only builtin roles can be required by endpoints. These roles &lt;strong>cannot&lt;/strong> directly be assigned to users.&lt;/li>
+&lt;li>&lt;strong>Application roles&lt;/strong> can be assigned to users. These roles are defined in a configuration file that editoast reads at startup.&lt;/li>
+&lt;/ul>
+&lt;p>Here is an example of what builtin roles might look like:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>role:admin&lt;/code> allows assigning roles to users and groups&lt;/li>
+&lt;li>&lt;code>group:create&lt;/code> allows creating user groups&lt;/li>
+&lt;li>&lt;code>infra:read&lt;/code> allows access to the map viewer module&lt;/li>
+&lt;li>&lt;code>infra:write&lt;/code> implies &lt;code>infra:read&lt;/code>. it allows access to the infrastructure editor.&lt;/li>
+&lt;li>&lt;code>rolling-stock:read&lt;/code>&lt;/li>
+&lt;li>&lt;code>rolling-stock:write&lt;/code> implies &lt;code>rolling-stock:read&lt;/code>. Allows access to the rolling stock editor.&lt;/li>
+&lt;li>&lt;code>timetable:read&lt;/code>&lt;/li>
+&lt;li>&lt;code>timetable:write&lt;/code> implies &lt;code>timetable:read&lt;/code>&lt;/li>
+&lt;li>&lt;code>operational-studies:read&lt;/code> allows read only access to operational studies. it implies &lt;code>infra:read&lt;/code>, &lt;code>timetable:read&lt;/code> and &lt;code>rolling-stock:read&lt;/code>&lt;/li>
+&lt;li>&lt;code>operational-studies:write&lt;/code> allows write access to operational studies. it implies &lt;code>operational-studies:read&lt;/code> and &lt;code>timetable:write&lt;/code>&lt;/li>
+&lt;li>&lt;code>stdcm&lt;/code> implies &lt;code>infra:read&lt;/code>, &lt;code>timetable:read&lt;/code> and &lt;code>rolling-stock:read&lt;/code>. it allows access to the short term path request module.&lt;/li>
+&lt;li>&lt;code>admin&lt;/code> gives access to the admin panel, and implies all other roles&lt;/li>
+&lt;/ul>
+&lt;p>Given these builtin roles, application roles may look like:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>operational-studies-customer&lt;/code> implies &lt;code>operational-studies:read&lt;/code>&lt;/li>
+&lt;li>&lt;code>operational-studies-analyst&lt;/code> implies &lt;code>operational-studies:write&lt;/code>&lt;/li>
+&lt;li>&lt;code>stdcm-customer&lt;/code> implies &lt;code>stdcm&lt;/code>&lt;/li>
+&lt;li>&lt;code>ops&lt;/code> implies &lt;code>admin&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Roles are &lt;em>hierarchical&lt;/em>. This is a necessity to ensure that, for example, if we are to introduce a new action related to scenarios, each subject with the role &amp;ldquo;exploitation studies&amp;rdquo; gets that new role automatically.
+We&amp;rsquo;d otherwise need to edit the appropriate existing roles.&lt;/p>
+&lt;p>Their hierarchy could ressemble:&lt;/p>
+&lt;pre class="mermaid">%%{init: {&amp;#34;flowchart&amp;#34;: {&amp;#34;defaultRenderer&amp;#34;: &amp;#34;elk&amp;#34;}} }%%
+flowchart TD
+subgraph application roles
+operational-studies-analyst
+operational-studies-customer
+end
+subgraph builtin roles
+rolling-stock:read
+rolling-stock:write
+infra:read
+infra:write
+timetable:read
+timetable:write
+operational-studies:read
+operational-studies:write
+end
+operational-studies-analyst --&amp;gt; operational-studies:write
+operational-studies-customer --&amp;gt; operational-studies:read
+infra:write --&amp;gt; infra:read
+rolling-stock:write --&amp;gt; rolling-stock:read
+operational-studies:read --&amp;gt; infra:read &amp;amp; timetable:read &amp;amp; rolling-stock:read
+operational-studies:write --&amp;gt; operational-studies:read &amp;amp; timetable:write
+timetable:write --&amp;gt; timetable:read
+classDef app fill:#333,color:white,font-style:italic
+classDef builtin fill:#992233,color:white,font-style:bold
+class stdcm,exploitation,infra,project,study,scenario app
+class infra_read,infra_edit,infra_delete,project_create,study_delete,scenario_create,scenario_update builtin&lt;/pre>
+&lt;h3 id="permissions">Permissions&lt;/h3>
+&lt;p>Permission checks are done by the backend, even though the frontend may use the effective privilege level
+of an user to decide whether to allow modifying / changing permissions for a given object.&lt;/p>
+&lt;p>Permissions are checked per resource, after checking roles.
+A single request may involve multiple resources, and as such involve multiple permission checks.&lt;/p>
+&lt;p>Permission checks are performed as follows:&lt;/p>
+&lt;ul>
+&lt;li>for each request, before any resource is accessed, compute which resources need access and required privilege levels&lt;/li>
+&lt;li>figure out, for the request&amp;rsquo;s user, its effective privilege level for every involved resource&lt;/li>
+&lt;li>if the user&amp;rsquo;s privilege level does not meet expectations, raise an error &lt;strong>before any change is made&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">enum&lt;/span> &lt;span style="color:#000">EffectivePrivLvl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Owner&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// all operations allowed, including granting access and deleting the resource
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Writer&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// can change the resource
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Creator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// can create new subresources
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Reader&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// can read the resource
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">MinimalMetadata&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// is indirectly aware that the resource exists
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">trait&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Resource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#[must_use]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">get_privlvl&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">resource_pk&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">u64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">user&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">UserIdentity&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">EffectivePrivLvl&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The backend may therefore perform one or more privilege check per request:&lt;/p>
+&lt;ul>
+&lt;li>pathfinding:
+&lt;ul>
+&lt;li>&lt;code>Reader&lt;/code> on the infrastructure&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>displaying a timetable:
+&lt;ul>
+&lt;li>&lt;code>Reader&lt;/code> on each rolling stock&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>batch train creation:
+&lt;ul>
+&lt;li>&lt;code>Creator&lt;/code> on the timetable&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>conflict detection:
+&lt;ul>
+&lt;li>&lt;code>Reader&lt;/code> on the infrastructure&lt;/li>
+&lt;li>&lt;code>Reader&lt;/code> on the timetable&lt;/li>
+&lt;li>&lt;code>Reader&lt;/code> on every involved rolling stock&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>simulation results:
+&lt;ul>
+&lt;li>&lt;code>Reader&lt;/code> on the infrastructure&lt;/li>
+&lt;li>&lt;code>Reader&lt;/code> on the rolling stock&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>A grant is a right, given to an user or group on a specific resource.
+Users get privileges through grants. There are two types of grants:&lt;/p>
+&lt;ul>
+&lt;li>explicit grants are explicitly attached to resources&lt;/li>
+&lt;li>implicit grants automatically propagate explicit grants for objects which belong to a hierarchy:
+&lt;ul>
+&lt;li>if a subject owns a project, it also owns all studies and scenarios&lt;/li>
+&lt;li>if a subject can read a scenario, it knows the parent study and project exist&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="explicit-grants">Explicit grants&lt;/h4>
+&lt;ul>
+&lt;li>can be edited from the frontend&lt;/li>
+&lt;li>any user holding grants over a resource can add new ones&lt;/li>
+&lt;li>when a resource is created, &lt;code>Owner&lt;/code> is granted to the current user&lt;/li>
+&lt;li>not all objects type can have explicit grants: train schedule inherit their timetable&amp;rsquo;s grants&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- this type is the same as EffectivePrivLvl, except that MinimalMetadata is absent,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- as it cannot be granted directly. mere knowledge that an object exist can only be
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- granted using implicit grants.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">grant_privlvl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">as&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">enum&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Owner&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Writer&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Creator&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Reader&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- this table is a template, which other grant tables are
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- designed to be created from. it must be kept empty.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_template_grant&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- if subject is null, this grant applies to any subject
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">subject&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authn_subject&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cascade&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">grant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">grant_privlvl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">granted_by&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authn_user&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">set&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">granted_at&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">timestamp&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">CURRENT_TIMESTAMP&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- these indices speed up cascade deletes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">index&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_template_grant&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">subject&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">index&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_template_grant&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">granted_by&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- create a new grant table for infrastructures
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_grant_EXAMPLE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">like&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_template_grant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">including&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">all&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">resource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">EXAMPLE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cascade&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">unique&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">nulls&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">distinct&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">resource&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">subject&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- raise an error if grants are inserted into the template
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_grant_insert_error&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">RETURNS&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">AS&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000">err$&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">BEGIN&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">RAISE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXCEPTION&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;authz_grant is a template, which other grant &amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;tables are designed to inherit from. it must be kept empty.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">END&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000">err$&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">LANGUAGE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">plpgsql&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">before&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">insert&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_template_grant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">execute&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authz_grant_insert_error&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="implicit-grants">Implicit grants&lt;/h4>
+&lt;div class="alert alert-info" role="alert">
+Implicit grants only apply to the operational studies module, &lt;strong>not&lt;/strong> timetables, infrastructures and rolling stocks.
+&lt;/div>
+&lt;p>Implicit grants propagate explicit grants to related objects. There are two types of implicit grants:&lt;/p>
+&lt;ul>
+&lt;li>explicit grants propagate downwards within hierarchies: &lt;code>Owner&lt;/code>, &lt;code>Reader&lt;/code>, &lt;code>Writer&lt;/code> propagate as is, &lt;code>Creator&lt;/code> is reduced to &lt;code>Reader&lt;/code>&lt;/li>
+&lt;li>&lt;code>MinimalMetadata&lt;/code> propagates up within project hierarchies, so that read access to a study or scenario allows having the name and description of the parent project&lt;/li>
+&lt;/ul>
+&lt;p>The following objects have implicit grants:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>project&lt;/code> gets &lt;code>MinimalMetadata&lt;/code> if the user has any right on a child study or scenario&lt;/li>
+&lt;li>&lt;code>study&lt;/code> gets:
+&lt;ul>
+&lt;li>&lt;code>MinimalMetadata&lt;/code> if the user has any right on a child scenario&lt;/li>
+&lt;li>&lt;code>Owner&lt;/code>, &lt;code>Reader&lt;/code>, &lt;code>Writer&lt;/code> if the user has such right on the parent study. &lt;code>Creator&lt;/code> is reduced to &lt;code>Reader&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>scenario&lt;/code> gets &lt;code>Owner&lt;/code>, &lt;code>Reader&lt;/code>, &lt;code>Writer&lt;/code> if the user has such right on the parent study or project. &lt;code>Creator&lt;/code> is reduced to &lt;code>Reader&lt;/code>.&lt;/li>
+&lt;li>&lt;code>train-schedule&lt;/code>s have the same grants as their timetable&lt;/li>
+&lt;/ul>
+&lt;h3 id="permission-meta-model">Permission meta-model&lt;/h3>
+&lt;h4 id="get-the-privilege-level-of-the-current-user">Get the privilege level of the current user&lt;/h4>
+&lt;pre tabindex="0">&lt;code>GET /authz/{resource_type}/{resource_id}/privlvl
+&lt;/code>&lt;/pre>&lt;h4 id="get-all-grants-for-a-resource">Get all grants for a resource&lt;/h4>
+&lt;pre tabindex="0">&lt;code>GET /authz/{resource_type}/{resource_id}/grants
+&lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;subject&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;group&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Bar&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;implicit_grant&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Owner&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;implicit_grant_source&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;project&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;subject&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;user&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Foo&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;grant&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Writer&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;subject&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;user&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Foo&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;grant&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Writer&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;implicit_grant&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;MinimalMetadata&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;implicit_grant_source&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;project&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Implicit grants cannot be edited, and are only displayed to inform the end user.&lt;/p>
+&lt;h4 id="add-a-new-grant">Add a new grant&lt;/h4>
+&lt;pre tabindex="0">&lt;code>POST /authz/{resource_type}/{resource_id}/grants
+&lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;subject_id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;grant&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Writer&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="change-a-grant">Change a grant&lt;/h4>
+&lt;pre tabindex="0">&lt;code>PATCH /authz/{resource_type}/{resource_id}/grants/{grant_id}
+&lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;grant&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Reader&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="revoke-a-grant">Revoke a grant&lt;/h4>
+&lt;pre tabindex="0">&lt;code>DELETE /authz/{resource_type}/{resource_id}/grants/{grant_id}
+&lt;/code>&lt;/pre>&lt;h2 id="implementation-plan">Implementation plan&lt;/h2>
+&lt;h3 id="phase-1-ground-work">Phase 1: ground work&lt;/h3>
+&lt;p>Back-end:&lt;/p>
+&lt;ul>
+&lt;li>pass the proper headers from the reverse proxy to editoast&lt;/li>
+&lt;li>implement the authn / authz model into the database&lt;/li>
+&lt;li>get / create users on the fly using reverse proxy headers&lt;/li>
+&lt;li>implement the role parsing and book-keeping (it can be parsed on startup and leaked into a static lifetime)&lt;/li>
+&lt;li>implement a proof of concept for roles using &lt;code>role:admin&lt;/code> and role management&lt;/li>
+&lt;li>implement a proof of concept for permissions by implementing group management&lt;/li>
+&lt;li>implement a middleware within editoast which:
+&lt;ul>
+&lt;li>attaches a UserInfo object to each request&lt;/li>
+&lt;li>ensures that role / permission checks were performed. Implement two modules: log on missing check, abort on missing check.&lt;/li>
+&lt;li>injects which checks were performed into response headers so it can be tested&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>introduce the concept of rolling stock collections to enable easier rolling stock permission checking&lt;/li>
+&lt;li>write a migration guide to help OSRD developpers navigate the authorization APIs&lt;/li>
+&lt;/ul>
+&lt;p>Front-end:&lt;/p>
+&lt;ul>
+&lt;li>take into account builtin roles to decide which features to unlock&lt;/li>
+&lt;li>design, validate and build a permission editor&lt;/li>
+&lt;li>prepare graceful handling of 403s&lt;/li>
+&lt;/ul>
+&lt;h3 id="phase-2-migration">Phase 2: migration&lt;/h3>
+&lt;p>Back-end:&lt;/p>
+&lt;ul>
+&lt;li>incrementally migrate all endpoints, using the middleware to find missing checks&lt;/li>
+&lt;li>switch the default action on missing permission check to abort&lt;/li>
+&lt;/ul>
+&lt;p>Front-end:&lt;/p>
+&lt;ul>
+&lt;li>add the permission editor to all relevant objects&lt;/li>
+&lt;li>handle 403s, especially on scenarios, where read access on the timetable, infra, rolling stock collections and electrical profile is required&lt;/li>
+&lt;/ul>
+&lt;h2 id="design-decisions">Design decisions&lt;/h2>
+&lt;h3 id="simultaneous-rbac-and-abac">Simultaneous RBAC and ABAC&lt;/h3>
+&lt;p>RBAC: role based access control (users have roles, actions require roles)
+ABAC: attribute based access control (resources have attributes, user + actions require attributes). ACLs are a kind of ABAC.&lt;/p>
+&lt;p>After staring at what users asked for and established authorization models allow,
+we figured out that while no one model is a good fit on its own:&lt;/p>
+&lt;ul>
+&lt;li>just RBAC would not allow fine grained, per object access control&lt;/li>
+&lt;li>just ABAC would not allow guarding off access to entire features&lt;/li>
+&lt;/ul>
+&lt;p>We decided that each authorization model could be used where it shows its strength:&lt;/p>
+&lt;ul>
+&lt;li>RBAC is used to authorize access to frontend features and backend endpoints&lt;/li>
+&lt;li>ABAC is used to authorize actions on specific objects&lt;/li>
+&lt;/ul>
+&lt;p>We found no success in our attempts to find a unifying model.&lt;/p>
+&lt;h3 id="not-using-any-policy-language">Not using any policy language&lt;/h3>
+&lt;p>At first, we assumed that using a policy language would assist with correctly implementing authorization. After further consideration, we concluded that:&lt;/p>
+&lt;ul>
+&lt;li>no user asked for policy flexibility nor policy as code, and there does not seem to be any obvious use case not already covered by RBAC + ABAC&lt;/li>
+&lt;li>the main policy language considered, cedar, makes it very awkward to implement single pass RBAC + ABAC&lt;/li>
+&lt;li>the primary benefit of policy languages, policy flexibility, is still very much constrained by the data the policy engine is fed: for OSRD,
+feeding all grants, all users, all groups and all roles to the policy engine is not practical. we thus need filtering and careful modeling,
+which almost guarantees changes will be required if a new authz rule type were to be requested by a customer. Worse yet, these changes seem
+to require more effort than adapting the authz system if there were not policy language at all.&lt;/li>
+&lt;li>as policy languages only deal with evaluating the policy, one can be introduced later if so desired&lt;/li>
+&lt;/ul>
+&lt;h3 id="no-implicit-grants-for-infra-timetable-and-rolling-stock">No implicit grants for infra, timetable and rolling stock&lt;/h3>
+&lt;p>We felt like this feature would be hard to implement, and be likely to introduce confidentiality and performance issues:&lt;/p>
+&lt;ul>
+&lt;li>these objects may not be part of any operational studies, or multiple operational studies&lt;/li>
+&lt;li>implicit grants are hard to implement, and risk introducing vulnerabilities&lt;/li>
+&lt;li>infra, timetable and rolling stock are likely to be confidential&lt;/li>
+&lt;/ul>
+&lt;p>Instead, we plan to:&lt;/p>
+&lt;ul>
+&lt;li>delay implementing this feature until we figure out if the lack thereof is an UX issue&lt;/li>
+&lt;li>if deemed required, implement it by checking, within the permission editor, whether all
+users having access to a scenario can access associated data, and suggesting associated
+permission changes&lt;/li>
+&lt;/ul>
+&lt;h3 id="all-resource-types-share-the-same-permission-management-endpoints">All resource types share the same permission management endpoints&lt;/h3>
+&lt;p>We considered two patterns for permission management endpoints:&lt;/p>
+&lt;ul>
+&lt;li>a single set of endpoints for all resource types: &lt;code>/authz/{resource_type}/{resource_id}/grants/...&lt;/code>&lt;/li>
+&lt;li>separate set of endpoints per resource type: &lt;code>/v2/infra/{infra_id}/grants/...&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>We found that:&lt;/p>
+&lt;ul>
+&lt;li>having separate set of endpoints per resource types brought extra back-end and front-end complexity&lt;/li>
+&lt;li>the only constraint of unified permission management endpoints is that all resource types need globaly unique IDs&lt;/li>
+&lt;li>the globaly unique ID constraint is less costly than the extra complexity of separate endpoints&lt;/li>
+&lt;/ul>
+&lt;h3 id="dynamically-enforce-permission-checks">Dynamically enforce permission checks&lt;/h3>
+&lt;p>Ideally, there would be static checks enforcing permission checks.
+However, we found no completly fool proof way to statically do so.&lt;/p>
+&lt;p>Instead, we decided that all permission checks will be registered
+with a middleware, which will either log or raise an error when a
+handler performs no check.&lt;/p>
+&lt;ul>
+&lt;li>during local development, the middleware logs missing permission checks as errors&lt;/li>
+&lt;li>during continuous integration checks and production deployments, the middleware aborts on missing checks&lt;/li>
+&lt;/ul></description></item></channel></rss>
