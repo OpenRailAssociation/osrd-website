@@ -10,7 +10,7 @@ description:
 Pour transmettre au conducteur des ordres et informations liées à la sécurité des circulations, il est fait usage de
 signaux. Ces signaux peuvent indiquer des informations relatives aux limites de vitesse, peuvent servir à garantir
 l'espacement des trains ou donner des indications diverses telles que l'accès à des voies de service, des ouvrages
-d'art à gabarits réduit, etc.
+d'art à gabarit réduit, etc.
 
 ### La signalisation à main
 
@@ -54,7 +54,7 @@ gares en impasse.
 
 ![](/images/docs/railway-wiki/signalling/image-013.png)
 
-Le feu vert indique au conducteur que la circulation en marche normale est autorisée, s’y rien ne s’y oppose.
+Le feu vert indique au conducteur que la circulation en marche normale est autorisée, si rien ne s’y oppose.
 
 Sur les sections de ligne où la vitesse des trains est supérieure à 160 km/h, un **feu vert clignotant** précède
 généralement l’avertissement ou le feu jaune clignotant.
