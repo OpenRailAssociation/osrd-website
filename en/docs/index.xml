@@ -2301,7 +2301,7 @@ on edge 2, which gives the following result:&lt;/p>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode140s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode145s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2312,11 +2312,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode140s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode145s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode140s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode145s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -2335,14 +2335,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode140s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode145s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode140s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode145s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode140s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode145s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2354,7 +2354,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode140s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode145s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2389,7 +2389,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode140s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode145s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3241,7 +3241,687 @@ regardless of which signals are in use.&lt;/p>
 &lt;ul>
 &lt;li>if a signal starts blocks which have differing paths, it is simulated as if it were at the end of a route&lt;/li>
 &lt;li>if a signal starts blocks which all start the same path, it is simulated in the same view as the next signals in this path&lt;/li>
-&lt;/ul></description></item><item><title>About: Open Source</title><link>https://osrd.fr/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opensource/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Scalable async RPC</title><link>https://osrd.fr/en/docs/reference/design-docs/scalable-async-rpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/scalable-async-rpc/</guid><description>
+&lt;p>TODO: create another document describing RPC interactions between core and editoast&lt;/p>
+&lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
+&lt;p>Without this proposal, editoast directly makes calls to core using http.
+Using k8s, if multiple core workers are started, requests are randomly
+distributed to core workers.&lt;/p>
+&lt;p>This architecture brings a number of issues:&lt;/p>
+&lt;ul>
+&lt;li>To respond to a request, the core worker need to hold the request&amp;rsquo;s full infrastructure in memory.
+Workers do not have enough memory to hold all infrastructures in memory.
+Requests thus need to be routed to core workers specialized by infrastructure, which cannot be easily done using http.&lt;/li>
+&lt;li>If too many requests are dispatched to a busy core worker, they will just time out.&lt;/li>
+&lt;li>There is no easy way to scale up the number of workers to react to increased load.&lt;/li>
+&lt;li>Because calls need to complete within the timeout of the client&amp;rsquo;s http requests,
+the system falls appart when latency increases due to load.&lt;/li>
+&lt;/ul>
+&lt;p>This proposal intends to address these issues by introducing an RPC system which:&lt;/p>
+&lt;ul>
+&lt;li>manages &lt;a href="#worker-key">specialized&lt;/a> workers&lt;/li>
+&lt;li>automatically scales specialized workers&lt;/li>
+&lt;/ul>
+&lt;h3 id="goals">Goals&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>high priority&lt;/code> the RPC protocol between editoast and core should be the same for development and production setups&lt;/li>
+&lt;li>&lt;code>high priority&lt;/code> requests are dispatched to specialized workers&lt;/li>
+&lt;li>&lt;code>high priority&lt;/code> the RPC system should be stateless and failure-resilient&lt;/li>
+&lt;li>&lt;code>low priority&lt;/code> the complexity of the local development setup should not increase&lt;/li>
+&lt;/ul>
+&lt;h3 id="non-goals">Non-goals&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>not a goal&lt;/code> streaming events to the front-end&lt;/li>
+&lt;li>&lt;code>not a goal&lt;/code> reliable response processing&lt;/li>
+&lt;li>&lt;code>not a goal&lt;/code> caching&lt;/li>
+&lt;/ul>
+&lt;h2 id="concepts">Concepts&lt;/h2>
+&lt;pre class="mermaid">flowchart TD
+client
+osrdyne
+worker-pool
+worker-group
+worker-group-queue
+worker
+worker-pool -- contains --&amp;gt; worker-group
+worker-group -- contains and manages --&amp;gt; worker
+client -- pub --&amp;gt; worker-group-queue
+worker-group -- has a --&amp;gt; worker-group-queue
+worker -- sub --&amp;gt; worker-group-queue
+osrdyne -- manages --&amp;gt; worker-pool
+osrdyne -- manages --&amp;gt; worker-group
+osrdyne -- manages --&amp;gt; worker-group-queue&lt;/pre>
+&lt;h3 id="client">Client&lt;/h3>
+&lt;p>Clients submit RPC &lt;a href="#client-protocol">requests&lt;/a> to the message queue. RPC requests are published using AMQP 0.9.1.&lt;/p>
+&lt;p>For example, &lt;code>editoast&lt;/code> would be a client.&lt;/p>
+&lt;h3 id="worker-key">Worker key&lt;/h3>
+&lt;p>Every submitted request includes a requested &lt;code>worker-key&lt;/code>, as the message&amp;rsquo;s &lt;code>routing-key&lt;/code>.&lt;/p>
+&lt;p>&lt;strong>The key is what identifies which worker group will process the request&lt;/strong>.&lt;/p>
+&lt;p>Workers known their worker key at startup. All workers in a worker group have the same worker key.
+It is an arbitrary utf-8 string set by the client, whose meaning is not defined by the RPC protocol:&lt;/p>
+&lt;ul>
+&lt;li>It could just be a way to have separate processing queues. In this case, workers may not care about what their is.&lt;/li>
+&lt;li>There could be an extra layer of protocol between client and worker about how the key is meant to be interpreted&lt;/li>
+&lt;/ul>
+&lt;p>Here are some &lt;strong>examples&lt;/strong> of how such protocols may work:&lt;/p>
+&lt;ul>
+&lt;li>it could be the identifier of a resource to act upon: &lt;code>42&lt;/code>&lt;/li>
+&lt;li>it could be the identifiers of multiple resources: &lt;code>infra=42,timetable=24&lt;/code>&lt;/li>
+&lt;li>it could even be, even though that&amp;rsquo;s probably &lt;strong>not a good idea&lt;/strong>, random worker settings:
+&lt;code>log_level=debug&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="worker-pools">Worker pools&lt;/h3>
+&lt;p>Worker pools are collections of workers of the same type, which can be specialized by key.
+osrdyne creates an exchange for each worker pool, where clients can submit requests.&lt;/p>
+&lt;p>For example, &lt;code>core&lt;/code> would be a worker pool.&lt;/p>
+&lt;h3 id="worker-group">Worker group&lt;/h3>
+&lt;p>Worker groups are collections of workers of the same pool and key, processing messages from the same queue.
+&lt;strong>Worker groups are responsible for scaling the number of workers depending on queue length and processing rate.&lt;/strong>&lt;/p>
+&lt;p>Worker groups are managed by osrdyne. osrdyne should support multiple worker group drivers:&lt;/p>
+&lt;ul>
+&lt;li>a &lt;a href="https://keda.sh">keda&lt;/a> k8s driver&lt;/li>
+&lt;li>a k8s autoscaler driver&lt;/li>
+&lt;li>a docker driver&lt;/li>
+&lt;li>a subprocess driver, where a single worker is started as a subprocess for each worker group&lt;/li>
+&lt;li>a systemd template unit driver&lt;/li>
+&lt;li>a noop driver, where workers have to be started manually&lt;/li>
+&lt;/ul>
+&lt;p>For example, each &lt;code>core&lt;/code> worker group handles a given infrastructure.&lt;/p>
+&lt;h3 id="worker">Worker&lt;/h3>
+&lt;p>A worker is a server processing requests from its worker group queue. Worker have a key.
+For example, &lt;code>core&lt;/code> workers are keyed by infrastructure.&lt;/p>
+&lt;h3 id="osrdyne">osrdyne&lt;/h3>
+&lt;ul>
+&lt;li>manages all exchanges, policies, queues and bindings&lt;/li>
+&lt;li>starts and stops worker groups as needed&lt;/li>
+&lt;li>generates error responses if the worker group fails to respond&lt;/li>
+&lt;/ul>
+&lt;p>Each osrdyne instance manages a worker pool. See the &lt;a href="#osrdyne-architecture">dedicated section&lt;/a>.&lt;/p>
+&lt;h2 id="rpc-protocol">RPC protocol&lt;/h2>
+&lt;h3 id="client-protocol">Client protocol&lt;/h3>
+&lt;p>Requests are submitted using AMQP 0.9.1&amp;rsquo;s &lt;code>basic.publish&lt;/code>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AMQP field&lt;/th>
+&lt;th>semantics&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>exchange&lt;/code>&lt;/td>
+&lt;td>&lt;a href="#worker-pools">worker pool&lt;/a> identifier&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>routing-key&lt;/code>&lt;/td>
+&lt;td>&lt;a href="#worker-key">requested key&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>correlation-id&lt;/code>&lt;/td>
+&lt;td>an optional request id. The response will copy this field.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>reply-to&lt;/code> property&lt;/td>
+&lt;td>optional response queue&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>mandatory&lt;/code>&lt;/td>
+&lt;td>&lt;code>true&lt;/code> to ensure an error is returned if the message cannot be routed&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>The body of the request will be dispatched to a worker of the requested pool and key.
+The request is guaranteed to be dispatched &lt;strong>at least once&lt;/strong>&lt;/p>
+&lt;p>The response format is as follows:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AMQP field&lt;/th>
+&lt;th>semantics&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>correlation-id&lt;/code>&lt;/td>
+&lt;td>the correlation ID from the request&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>x-status&lt;/code> property&lt;/td>
+&lt;td>either &lt;code>ok&lt;/code>, &lt;a href="https://www.rabbitmq.com/docs/dlx#effects">or the reason for dead lettering&lt;/a>, taken from the request&amp;rsquo;s &lt;code>x-first-death-reason&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>body&lt;/td>
+&lt;td>optional response data&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="worker-protocol">Worker protocol&lt;/h3>
+&lt;p>When starting workers, the worker group driver provides:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Variable name&lt;/th>
+&lt;th>semantics&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>WORKER_ID&lt;/code>&lt;/td>
+&lt;td>a unique identifier for this worker&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>WORKER_KEY&lt;/code>&lt;/td>
+&lt;td>the &lt;a href="#worker-key">worker key&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>WORKER_POOL&lt;/code>&lt;/td>
+&lt;td>the name of the worker pool&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>WORKER_REQUESTS_QUEUE&lt;/code>&lt;/td>
+&lt;td>the queue to consume work from&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>WORKER_ACTIVITY_EXCHANGE&lt;/code>&lt;/td>
+&lt;td>the exchange to publish events to&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Workers then have to:&lt;/p>
+&lt;ul>
+&lt;li>publish a &lt;code>started&lt;/code> &lt;a href="#worker-activity-reports">activity report message&lt;/a>&lt;/li>
+&lt;li>subcribe to &lt;code>WORKER_REQUESTS_QUEUE&lt;/code> using &lt;code>basic.consume&lt;/code>&lt;/li>
+&lt;li>for each request message:
+&lt;ul>
+&lt;li>publish a &lt;code>request-received&lt;/code> &lt;a href="#worker-activity-reports">activity report message&lt;/a>&lt;/li>
+&lt;li>if the worker cannot process the request, it can request a requeue using &lt;code>basic.reject&lt;/code> with &lt;code>requeue=true&lt;/code>&lt;/li>
+&lt;li>build and publish a response to the &lt;a href="https://www.rabbitmq.com/tutorials/amqp-concepts#exchange-default">default exchange&lt;/a>&lt;/li>
+&lt;li>&lt;code>basic.ack&lt;/code> the request&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="worker-response-protocol">Worker response protocol&lt;/h4>
+&lt;p>Responses are submitted using AMQP 0.9.1&amp;rsquo;s &lt;code>basic.publish&lt;/code>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AMQP field&lt;/th>
+&lt;th>semantics&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>exchange&lt;/code>&lt;/td>
+&lt;td>&lt;a href="#worker-pools">worker pool&lt;/a> identifier&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>routing-key&lt;/code>&lt;/td>
+&lt;td>&lt;a href="#worker-key">requested key&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>reply-to&lt;/code> property&lt;/td>
+&lt;td>optional response queue&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="worker-activity-reports">Worker activity reports&lt;/h4>
+&lt;p>Workers report the following activity events:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>started&lt;/code>: the worker is about to start processing requests&lt;/li>
+&lt;li>&lt;code>request-received&lt;/code>: a request was received&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AMQP field&lt;/th>
+&lt;th>value&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>exchange&lt;/code>&lt;/td>
+&lt;td>&lt;code>WORKER_ACTIVITY_EXCHANGE&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>routing-key&lt;/code>&lt;/td>
+&lt;td>&lt;code>WORKER_KEY&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>x-event&lt;/code> property&lt;/td>
+&lt;td>the event type&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="message-passing-architecture">Message passing architecture&lt;/h2>
+&lt;p>&lt;img src="message-passing-architecture.svg" alt="Message passing architecture">&lt;/p>
+&lt;p>For a full reference of all exchanges and queues, see the &lt;a href="#exchange-and-queues">exchanges and queues&lt;/a> section&lt;/p>
+&lt;h2 id="message-lifetime">Message lifetime&lt;/h2>
+&lt;pre class="mermaid">flowchart TD
+received
+processed
+received --&amp;gt; requests
+received -- alternate exchange --&amp;gt; orphans
+orphans -- controller starts worker group --&amp;gt; requests
+requests -- dead letter --&amp;gt; dlx
+dlx -- controller generates error --&amp;gt; processed
+requests -- worker responds --&amp;gt; processed&lt;/pre>
+&lt;h2 id="service-architecture">Service architecture&lt;/h2>
+&lt;pre class="mermaid">flowchart TD
+client
+subgraph RPC layer
+rabbitmq[RabbitMQ]
+osrdyne[osrdyne]
+end
+subgraph worker-group[worker group]
+worker
+end
+client -- enqueues --&amp;gt; rabbitmq
+osrdyne -- sub orphan messages --&amp;gt; rabbitmq
+osrdyne -- manages queues --&amp;gt; rabbitmq
+osrdyne -- starts and stops --&amp;gt; worker-group
+osrdyne -- sub activity events --&amp;gt; rabbitmq
+worker -- sub requests --&amp;gt; rabbitmq
+worker -- pub responses --&amp;gt; rabbitmq
+worker -- pub activity events --&amp;gt; rabbitmq&lt;/pre>
+&lt;ul>
+&lt;li>&lt;code>osrdyne&lt;/code> stops and starts worker groups following demand&lt;/li>
+&lt;li>&lt;code>worker&lt;/code> processes requests dequeued from rabbitmq&lt;/li>
+&lt;/ul>
+&lt;h2 id="life-of-an-rpc-call">Life of an RPC call&lt;/h2>
+&lt;p>In this example:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>editoast&lt;/code> is the client&lt;/li>
+&lt;li>it makes a request to the &lt;code>core&lt;/code> worker pool&lt;/li>
+&lt;li>the &lt;code>core&lt;/code> worker pool is keyed on infrastructures&lt;/li>
+&lt;/ul>
+&lt;h3 id="fast-path">Fast path&lt;/h3>
+&lt;ul>
+&lt;li>Editoast publishes a request message to &lt;code>exchange=core&lt;/code> with &lt;code>routing_key=42&lt;/code>. If the message expects a reply, &lt;code>reply-to&lt;/code> is set.&lt;/li>
+&lt;li>If the &lt;code>core&lt;/code> exchange already has binding for worker group &lt;code>42&lt;/code>, a worker picks up the request&lt;/li>
+&lt;li>The worker processes the request, and uses the &lt;code>reply-to&lt;/code> field to submit a response.&lt;/li>
+&lt;li>The worker ACKs the request.&lt;/li>
+&lt;/ul>
+&lt;h3 id="worker-group-startup">Worker group startup&lt;/h3>
+&lt;p>These steps only occur if the worker group / queue has not yet started:&lt;/p>
+&lt;ul>
+&lt;li>If there is no queue bound to routing key &lt;code>42&lt;/code>, the message is routed to the &lt;code>core-orphan-xchg&lt;/code> exchange.
+This exchange is a fanout exchange with a single queue, where &lt;code>osrdyne&lt;/code> processes messages.&lt;/li>
+&lt;li>&lt;code>osrdyne&lt;/code> processes the message:
+&lt;ul>
+&lt;li>creates queue &lt;code>core-req-42&lt;/code>, binds it to the &lt;code>core&lt;/code> exchange on routing key &lt;code>42&lt;/code>&lt;/li>
+&lt;li>forward the message to exchange &lt;code>core&lt;/code>&lt;/li>
+&lt;li>ACK the original message once the original is forwarded&lt;/li>
+&lt;li>start worker group &lt;code>core&lt;/code> key &lt;code>42&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>the worker group starts up and processes the request&lt;/li>
+&lt;/ul>
+&lt;h2 id="osrdyne-architecture">osrdyne architecture&lt;/h2>
+&lt;pre class="mermaid">flowchart TD
+%% inputs
+activity-queue([activity queue])
+orphan-queue([orphan queue])
+dead-letter-queue([dead letter queue])
+rabbitmq-api[RabbitMQ HTTP API]
+%% components
+orphan-processor[orphan processor]
+dead-letter-responder[dead letter responder]
+subgraph pool manager
+pool-state-tracker[pool state tracker]
+wgs-control-loop[worker groups control loop]
+req-queues-control-loop[request queues control loop]
+end
+wg-driver[worker group driver]
+%% outputs
+request-xchg([request exchange])
+poison-inventory([poison request inventory])
+response([response queue])
+%% relations
+dead-letter-queue -- sub --&amp;gt; dead-letter-responder --&amp;gt; response &amp;amp; poison-inventory
+orphan-queue -- sub --&amp;gt; orphan-processor -- forward --&amp;gt; request-xchg
+orphan-processor -- request worker group start --&amp;gt; pool-state-tracker
+orphan-processor -- wait for execution --&amp;gt; req-queues-control-loop
+rabbitmq-api -- initial queue list --&amp;gt; pool-state-tracker
+activity-queue -- worker activity --&amp;gt; pool-state-tracker
+pool-state-tracker -- expected state --&amp;gt; wgs-control-loop &amp;amp; req-queues-control-loop
+wgs-control-loop -- start / stop --&amp;gt; wg-driver&lt;/pre>
+&lt;ul>
+&lt;li>
+&lt;p>the &lt;strong>pool manager&lt;/strong> is the most complex component of osrdyne. It is in charge of creating,
+deleting request queues, and deciding which worker groups should be running at any given time. To make such decisions, it needs:&lt;/p>
+&lt;ul>
+&lt;li>the ability to list existing queues at startup, which is done using the RabbitMQ HTTP API&lt;/li>
+&lt;li>worker activity events, to know which queues are active&lt;/li>
+&lt;li>queue creation commands from the orphan processor&lt;/li>
+&lt;/ul>
+&lt;p>The pool manager runs two control loops:&lt;/p>
+&lt;ul>
+&lt;li>the &lt;strong>worker groups control loop&lt;/strong> starts and stops worker groups using the &lt;strong>worker group driver&lt;/strong>&lt;/li>
+&lt;li>the &lt;strong>request queues control loop&lt;/strong> creates and deletes request queues&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>the &lt;strong>orphan processor&lt;/strong> reacts to orphan messages by sending worker group start commands to the worker group manager&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>the &lt;strong>dead letter responder&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>responds errors to dead lettered messages following the &lt;a href="#worker-protocol">worker protocol&lt;/a>&lt;/li>
+&lt;li>if a message is deemed to have caused repeated worker crashes, publish to the poison inventory&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>On worker pool startup:&lt;/p>
+&lt;ul>
+&lt;li>create and bind all &lt;a href="#exchanges-and-queues">exchanges and queues&lt;/a>&lt;/li>
+&lt;li>configure the TTL, delivery timeout and delivery limit policies using the HTTP API&lt;/li>
+&lt;li>start the &lt;strong>orphan processsor&lt;/strong>, &lt;strong>dead letter responder&lt;/strong> and &lt;strong>worker group manager&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="exchanges-and-queues">Exchanges and queues&lt;/h3>
+&lt;p>osrdyne creates a number of exchanges and queues. Most of the setup is done
+per worker pool, except for worker group request queues.&lt;/p>
+&lt;p>Worker pool exchanges:&lt;/p>
+&lt;ul>
+&lt;li>pool requests exchange &lt;code>{pool}-req-xchg&lt;/code>, type &lt;code>direct&lt;/code>:
+&lt;ul>
+&lt;li>alternate exchange is &lt;code>{pool}-orphan-xchg&lt;/code>&lt;/li>
+&lt;li>dead letter exchange is &lt;code>{pool}-dl-xchg&lt;/code>&lt;/li>
+&lt;li>worker group request queues are bound to this exchange&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>orphan exchange &lt;code>{pool}-orphan-xchg&lt;/code>, type &lt;code>fanout&lt;/code>&lt;/li>
+&lt;li>dead letter exchange &lt;code>{pool}-dl-xchg&lt;/code>, type &lt;code>fanout&lt;/code>&lt;/li>
+&lt;li>activity queue &lt;code>{pool}-activity-xchg&lt;/code>, type &lt;code>fanout&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Worker pool queues:&lt;/p>
+&lt;ul>
+&lt;li>dead letter queue &lt;code>{pool}-dl&lt;/code>, bound to &lt;code>{pool}-dl-xchg&lt;/code> (&lt;strong>exclusive&lt;/strong>)&lt;/li>
+&lt;li>orphan queue &lt;code>{pool}-orphan&lt;/code>, bound to &lt;code>{pool}-orphan-xchg&lt;/code> (&lt;strong>exclusive&lt;/strong>)&lt;/li>
+&lt;li>worker activity queue &lt;code>{pool}-activity&lt;/code>, bound to &lt;code>{pool}-activity-xchg&lt;/code>&lt;/li>
+&lt;li>poison queue &lt;code>{pool}-poison&lt;/code>. Used to collect messages which could not be processed, supposedly due to worker crash&lt;/li>
+&lt;/ul>
+&lt;p>Worker group queues:&lt;/p>
+&lt;ul>
+&lt;li>request queue &lt;code>{pool}-req-{key}&lt;/code>, bound by key to &lt;code>{pool}-req-xchg&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="worker-group-manager">Worker group manager&lt;/h3>
+&lt;p>The worker group manager has three internal components:&lt;/p>
+&lt;ul>
+&lt;li>the &lt;strong>pool state tracker&lt;/strong> tracks the expected status of worker groups&lt;/li>
+&lt;li>the &lt;strong>request queues control loop&lt;/strong> applies changes to worker group request queues&lt;/li>
+&lt;li>the &lt;strong>worker groups control loop&lt;/strong> applies changes to worker groups&lt;/li>
+&lt;/ul>
+&lt;p>The state tracker assigns a 64 bit generation identifier to each expected state.
+The two control loops report the last synchronized state.&lt;/p>
+&lt;p>When the orphan processor wants to start a worker group, it has to:&lt;/p>
+&lt;ul>
+&lt;li>tell the &lt;strong>state tracker&lt;/strong>, which gives a generation identifier for the new expected state&lt;/li>
+&lt;li>wait until the &lt;strong>request queue control loop&lt;/strong> has caught up to this generation &lt;strong>and&lt;/strong> has
+created the queue (which may be delayed due to networking issues)&lt;/li>
+&lt;/ul>
+&lt;h4 id="pool-state-tracker">Pool state tracker&lt;/h4>
+&lt;pre class="mermaid">stateDiagram-v2
+Inactive --&amp;gt; Active: received request
+Active --&amp;gt; Unbound: unbind delay elapsed
+Unbound --&amp;gt; Inactive: stop delay elapsed
+Unbound --&amp;gt; Active: received request&lt;/pre>
+&lt;p>Two time constants govern how the expected state of worker groups evolves:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>UNBIND_DELAY&lt;/code> delay until the queue transitions from &lt;code>Active&lt;/code> to &lt;code>Unbound&lt;/code>&lt;/li>
+&lt;li>&lt;code>STOP_DELAY&lt;/code> delay until the worker group is stopped&lt;/li>
+&lt;/ul>
+&lt;p>The state tracker has the following API:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">enum&lt;/span> &lt;span style="color:#000">WGStatus&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Active&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Unbound&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">Generation&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">u64&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">PoolState&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">generation&lt;/span>: &lt;span style="color:#000">Generation&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">wgs&lt;/span>: &lt;span style="color:#000">im&lt;/span>::&lt;span style="color:#000">OrdMap&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87">String&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">WGStatus&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">trait&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">PoolStateTracker&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">initial_worker_groups&lt;/span>: &lt;span style="color:#204a87">Vec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87">String&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Self&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Require some worker group to be active. The extra lifetime adds active duration compared to the configured spooldown schedule.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// This allows the worker activity processor to debounce activity events without lowering the active time of worker groups.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Returns the state generation where this worker group starts being active.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">async&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">require_worker_group&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">key&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">extra_lifetime&lt;/span>: &lt;span style="color:#000">Duration&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Generation&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Subscribe to a stream of target pool state updates
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">async&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">subscribe&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">tokio&lt;/span>::&lt;span style="color:#000">sync&lt;/span>::&lt;span style="color:#000">watch&lt;/span>::&lt;span style="color:#000">Receiver&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">PoolState&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="request-queues-control-loop">Request queues control loop&lt;/h3>
+&lt;p>The request queue control loop takes care of creating, binding, unbinding and stopping request queues.
+It subscribes to the pool state tracker, and reacts to state changes.&lt;/p>
+&lt;p>It exposes the following API, which is used by the orphan processor to wait for updates to propagate:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">ReqQueueStatus&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">expected&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">WGStatus&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">actual&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">WGStatus&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">ReqQueuesState&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">generation&lt;/span>: &lt;span style="color:#000">Generation&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">queues&lt;/span>: &lt;span style="color:#000">im&lt;/span>::&lt;span style="color:#000">OrdMap&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87">String&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ReqQueueStatus&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">trait&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">RequestQueueControlLoop&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">target&lt;/span>: &lt;span style="color:#000">tokio&lt;/span>::&lt;span style="color:#000">sync&lt;/span>::&lt;span style="color:#000">watch&lt;/span>::&lt;span style="color:#000">Receiver&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">PoolState&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Self&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">subscribe&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">tokio&lt;/span>::&lt;span style="color:#000">sync&lt;/span>::&lt;span style="color:#000">watch&lt;/span>::&lt;span style="color:#000">Receiver&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">ReqQueuesState&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>it runs the following control loop:&lt;/p>
+&lt;ul>
+&lt;li>fetch the set of &lt;code>current&lt;/code>ly active request queues&lt;/li>
+&lt;li>control loop:
+&lt;ul>
+&lt;li>for each queue in &lt;code>expected&lt;/code> and not in &lt;code>current&lt;/code>:
+&lt;ul>
+&lt;li>attempt to create the queue&lt;/li>
+&lt;li>if successful, update the current set&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>for each queue in &lt;code>current&lt;/code> and not in &lt;code>expected&lt;/code>:
+&lt;ul>
+&lt;li>attempt to remove the queue, if empty and unused&lt;/li>
+&lt;li>if successful, update the current set&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>for each waiting orphan processor, release if the condition is met&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>The control loop runs when &lt;code>current&lt;/code> != &lt;code>expected&lt;/code>, or when &lt;code>expected&lt;/code> changes.&lt;/p>
+&lt;h3 id="worker-groups-control-loop">Worker groups control loop&lt;/h3>
+&lt;p>osrdyne is responsible for starting and stopping worker groups following demand.
+&lt;strong>It it NOT responsible for scaling the number of workers per worker group&lt;/strong>.&lt;/p>
+&lt;p>osrdyne runs the following control loop:&lt;/p>
+&lt;ul>
+&lt;li>receive the set of &lt;code>expected&lt;/code> worker groups from the &lt;strong>pool state tracker&lt;/strong>&lt;/li>
+&lt;li>build the set of &lt;code>running&lt;/code> worker groups: query running worker groups from the &lt;strong>worker group driver&lt;/strong>. If this fails, log and continue to the next iteration of the control loop.&lt;/li>
+&lt;li>make both sets converge:
+&lt;ul>
+&lt;li>for each worker group in &lt;code>expected&lt;/code> and not in &lt;code>running&lt;/code>:
+&lt;ul>
+&lt;li>use the docker / kubernetes API to start the worker group. This must be idempotent. &lt;strong>do not retry&lt;/strong> &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>for each worker group in &lt;code>running&lt;/code> and not in &lt;code>expected&lt;/code>:
+&lt;ul>
+&lt;li>use the docker / kubernetes API to attemps to stop the worker group. This must be idempotent. &lt;strong>do not retry&lt;/strong> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="worker-activity-processor">Worker activity processor&lt;/h3>
+&lt;p>As the number of worker activity events could be very high, we may not want to forward all of these to the pool state tracker:
+if multiple messages are received within a short time span, only the first one is relevant. A separate actor can be used to receive
+and dedup activity messages, and forward a low bandwidth summary to the pool state tracker.&lt;/p>
+&lt;h2 id="failure-mode-analysis">Failure mode analysis&lt;/h2>
+&lt;h3 id="the-worker-fails-to-parse-a-message">The worker fails to parse a message&lt;/h3>
+&lt;p>This is an application layer error:
+the worker must respond, and indicate that something went wrong&lt;/p>
+&lt;h3 id="the-worker-dies-or-stalls-when-processing-a-message">The worker dies or stalls when processing a message&lt;/h3>
+&lt;p>RabbitMQ will wait until the message TTL expires, and re-queues it.
+A limit must be set on the number of times a message can be re-queued using a &lt;a href="https://www.rabbitmq.com/docs/quorum-queues#poison-message-handling">&lt;code>delivery-limit&lt;/code>&lt;/a>.
+When this limit is reached, the poison message is sent to the dead letter exchange, and the client times out.&lt;/p>
+&lt;h3 id="osrdyne-fails-to-start">osrdyne fails to start&lt;/h3>
+&lt;ul>
+&lt;li>If exchanges are not setup, the client cannot publish messages&lt;/li>
+&lt;li>If the appropriate work group is operational, the &lt;a href="#fast-path">fast path&lt;/a> can proceed&lt;/li>
+&lt;li>Otherwise, requests pile up in the orphan queue, and the client ends up timing out&lt;/li>
+&lt;/ul>
+&lt;h3 id="invalid-worker-key">Invalid worker key&lt;/h3>
+&lt;p>Because the key is an arbitrary string set by the client, it has to be processed carefully:&lt;/p>
+&lt;ul>
+&lt;li>the format is defined as a convention between the client and workers. If the format isn&amp;rsquo;t right,
+it is up to the worker to publish a response to the client.&lt;/li>
+&lt;li>key validity conditions is also up to the worker: if the key is supposed to be some
+object ID, but the object does not exist, the worker needs to start up and respond&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Even if the key does not conform to the convention established between the client and the
+worker, the worker needs to start and respond to all requests.&lt;/strong>&lt;/p>
+&lt;h3 id="workers-fails-to-start">Workers fails to start&lt;/h3>
+&lt;p>&lt;strong>A &lt;a href="https://www.rabbitmq.com/blog/2014/01/23/preventing-unbounded-buffers-with-rabbitmq#per-queue-message-ttl">per-queue message TTL&lt;/a>
+should be set to avoid requests accumulating indefinitly.&lt;/strong>&lt;/p>
+&lt;p>Workers failing to start will cause:&lt;/p>
+&lt;ul>
+&lt;li>messages to accumulate in the queue.&lt;/li>
+&lt;li>when message TTL is reached, it will get transfered to the dead letter queue&lt;/li>
+&lt;li>the client will time out awaiting a response&lt;/li>
+&lt;/ul>
+&lt;h3 id="multiple-ordyne-daemons-are-started-on-the-same-pool">Multiple ordyne daemons are started on the same pool&lt;/h3>
+&lt;p>It shouldn&amp;rsquo;t be an issue, as:&lt;/p>
+&lt;ul>
+&lt;li>all operations done on startup are idempotent&lt;/li>
+&lt;li>before doing anything, the daemon has to start listening as an &lt;strong>exclusive consumer of the dead letter and orphan queues&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="known-limitations">Known limitations&lt;/h2>
+&lt;h3 id="latency-publisher-confirms-and-reliability">Latency, publisher confirms and reliability&lt;/h3>
+&lt;p>Without publisher confirms, networker or broken failure can result in message loss.
+However, publisher confirms add quite a bit of latency (about 200ms), as it ensures messages are persisted to disk if the queue is durable.&lt;/p>
+&lt;p>&lt;strong>We should use publisher confirms for responses and orphan transfers, and leave the decision of whether to do it for requests to the client.&lt;/strong>&lt;/p>
+&lt;h3 id="at-least-once-semantics">At least once semantics&lt;/h3>
+&lt;p>Most things in this protocol have at least once semantics if publisher confirms are used:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>request delivery to workers&lt;/code>: if osrdyne is restarted while transfering an orphan to its destination, the orphan may be transfered twice&lt;/li>
+&lt;li>&lt;code>response delivery to clients&lt;/code>: if a worker takes slightly too long to ACK a message, but still responds, it may be requeued and re-processed, and thus responded to twice&lt;/li>
+&lt;/ul>
+&lt;h2 id="design-decisions">Design decisions&lt;/h2>
+&lt;h3 id="using-rabbitmq">Using RabbitMQ&lt;/h3>
+&lt;p>To implement this solution, we rely on a combination of &lt;a href="https://www.rabbitmq.com/docs/extensions">features unique to RabbitMQ&lt;/a>:&lt;/p>
+&lt;ul>
+&lt;li>each worker type needs a separate &lt;strong>exchange&lt;/strong> and configuration&lt;/li>
+&lt;li>when a message cannot be routed within a worker type&amp;rsquo;s exchange, it is redirected to an &lt;strong>alternate exchange&lt;/strong> managed by the worker manager&lt;/li>
+&lt;li>&lt;strong>dead lettering&lt;/strong> is leveraged to generate protocol errors&lt;/li>
+&lt;li>the worker manager uses the &lt;strong>RabbitMQ HTTP API&lt;/strong> to list queues&lt;/li>
+&lt;/ul>
+&lt;p>In addition to its attractive feature set, RabbitMQ has:&lt;/p>
+&lt;ul>
+&lt;li>various useful quality of life features, such as direct reply and per-message TTL&lt;/li>
+&lt;li>long demonstrated its &lt;strong>reliability&lt;/strong>&lt;/li>
+&lt;li>multiple engineers on staff &lt;strong>experience&lt;/strong>d with the tool&lt;/li>
+&lt;/ul>
+&lt;h3 id="queues-are-created-by-osrdyne">Queues are created by osrdyne&lt;/h3>
+&lt;p>At some point, we explored the possibility of RPC clients creating queues.
+osrdyne would react to queue creation by starting workers. If the
+queue were to be unused for a while, osrdyne would stop workers and
+delete the queue.&lt;/p>
+&lt;p>This creates a race condition on queue deletion:&lt;/p>
+&lt;ul>
+&lt;li>osrdyne sees that the queue is empty&lt;/li>
+&lt;li>the client ensures the queue is created&lt;/li>
+&lt;li>osrdyne deletes the queue&lt;/li>
+&lt;li>the client attempts to publish a message to the now deleted queue&lt;/li>
+&lt;/ul>
+&lt;p>We thus decided to move the responsibility of queue management to the
+osrdyne, and implement a mechanism to ensure messages cannot be
+dropped due to a missing queue.&lt;/p>
+&lt;h3 id="osrdyne-republishes-orphan-messages">osrdyne republishes orphan messages&lt;/h3>
+&lt;p>Initially, we though of a solution whereby osrdyne&amp;rsquo;s orphan processor uses &lt;a href="https://www.rabbitmq.com/docs/dlx">dead lettering&lt;/a>
+to send messages back to their original exchange. This is in fact a bad idea, as dead lettering &lt;a href="https://www.rabbitmq.com/docs/dlx#effects">inhibits per message TTL&lt;/a>.&lt;/p>
+&lt;p>Instead, the orphan processor has to proxy messages back to their original exchange.
+&lt;strong>This proxying process can cause requests to get delivered multiple times to the target queue&lt;/strong>.&lt;/p>
+&lt;h3 id="osrdyne-responds-to-dead-lettered-messages">osrdyne responds to dead lettered messages&lt;/h3>
+&lt;p>If a message is dead lettered for some reason (expired TTL, delivery limit, max queue length),
+we figured it would be best to give the client some idea that something went wrong.&lt;/p>
+&lt;p>The &lt;a href="#worker-protocol">worker protocol&lt;/a> thus has to allow the client to distinguish protocol errors from worker responses.&lt;/p>
+&lt;h3 id="messages-are-only-acked-by-workers-once-processed">Messages are only ACKed by workers once processed&lt;/h3>
+&lt;p>If messages are ACKed on reception:&lt;/p>
+&lt;ul>
+&lt;li>processing time is not limited by message timeout (which is arguably not a feature)&lt;/li>
+&lt;li>the broker does not attempt re-delivery if the worker were to stop and not respond for some reason&lt;/li>
+&lt;/ul>
+&lt;p>If messages are ACKed once processed:&lt;/p>
+&lt;ul>
+&lt;li>messages whose processing time exceeds TTL will be re-queued, even if the worker is still processing the message. &lt;strong>This can result in multiple responses being delivered&lt;/strong>.&lt;/li>
+&lt;li>if the worker crashes or is stopped, the message will be re-queued&lt;/li>
+&lt;/ul>
+&lt;p>We decided to rely on a &lt;a href="https://www.rabbitmq.com/docs/quorum-queues#poison-message-handling">&lt;code>delivery-limit&lt;/code> policy&lt;/a> to handle poison messages, and ACK messages once processed.&lt;/p>
+&lt;h3 id="report-worker-activity-using-amqp">Report worker activity using AMQP&lt;/h3>
+&lt;p>osrdyne needs to maintain queue usage statistics in order to know when worker groups can be stopped.
+At first, we considered having workers use redis to store the timestamp of the last processed message for the queue.
+We decided against it as:&lt;/p>
+&lt;ul>
+&lt;li>it would mean the workers store a timestamp directly in database, read by a supervisor process. it&amp;rsquo;s a pretty bad design&lt;/li>
+&lt;li>it adds an additional database to the RPC architecture, for little to no benefit compared to just using rabbitmq&lt;/li>
+&lt;li>if one of the workers has its clock drift by more than the worker group expiration time compared to osrdyne, the worker group will get stopped&lt;/li>
+&lt;li>any worker can get the pool deleted by forcing the timestamp to an old value&lt;/li>
+&lt;li>it adds a failure mode: if osrdyne / workers are unable to reach redis, weird bugs may ensue&lt;/li>
+&lt;/ul>
+&lt;p>Instead, we decided to require worker to publish activity updates to a dedicated queue.
+This queue can be watched by osrdyne, which can use these events to know when to stop a worker group.&lt;/p>
+&lt;h3 id="make-worker-group-lifetime-decisions-in-a-separate-actor">Make worker group lifetime decisions in a separate actor&lt;/h3>
+&lt;p>The lifetime of worker groups is influenced by three types of asynchronous events:&lt;/p>
+&lt;ul>
+&lt;li>worker activity&lt;/li>
+&lt;li>orphan requests&lt;/li>
+&lt;li>worker group spooldown deadlines&lt;/li>
+&lt;/ul>
+&lt;p>When the orphan processor gets a request, it needs to create the worker group&amp;rsquo;s request
+queue before it can proceed to forward the message.&lt;/p>
+&lt;p>If queues were created and deleted asynchronously when these events are received, it would introduce a race condition:&lt;/p>
+&lt;ul>
+&lt;li>the orphan processor creates the queue&lt;/li>
+&lt;li>the queue gets deleted because it expired at the same time&lt;/li>
+&lt;li>the orphan processor forwards the message, which gets lost&lt;/li>
+&lt;/ul>
+&lt;p>We found multiple solutions for this issue:&lt;/p>
+&lt;ul>
+&lt;li>process all asynchronous events in a single actor. This was not deemed viable because worker activity processing is work intensive, and orphan request processing is latency sensitive.&lt;/li>
+&lt;li>having a single actor create and delete queues (the &lt;a href="#request-queues-control-loop">&lt;strong>request queues control loop&lt;/strong>&lt;/a>) and making the orphan processor wait until the control loop creates the queue&lt;/li>
+&lt;/ul>
+&lt;h3 id="unbind-the-queue-and-wait-before-stopping-workers">Unbind the queue and wait before stopping workers&lt;/h3>
+&lt;p>In a previous design, we tried to delete work queue in one go. It created a race condition issue on queue deletion,
+caused by the fact ordyne does not get direct notifications of when messages are received on a work queue:&lt;/p>
+&lt;ul>
+&lt;li>we decide to stop the worker group&lt;/li>
+&lt;li>work is received on the queue, but we aren&amp;rsquo;t made aware as no worker is up&lt;/li>
+&lt;li>we try to delete the queue, but cannot do so without loosing messages&lt;/li>
+&lt;/ul>
+&lt;p>We could think of two fixes for this issue:&lt;/p>
+&lt;ul>
+&lt;li>implement a two stage shutdown, where no work can get to the queue for a while before workers are stopped&lt;/li>
+&lt;li>detect that the queue still has messages after workers have stopped, and start workers back up&lt;/li>
+&lt;/ul>
+&lt;p>We decided to implement two stage worker group shutdown:&lt;/p>
+&lt;ul>
+&lt;li>if no activity is register for &lt;code>UNBIND_DELAY&lt;/code>, unbind the work queue&lt;/li>
+&lt;li>wait for a while to see if any worker picks up work from the queue and notifies osrdyne, which would rebind the queue&lt;/li>
+&lt;li>if no orphan nor worker activity is registered for &lt;code>STOP_DELAY&lt;/code>, stop workers and delete the queue&lt;/li>
+&lt;/ul>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>The control loop is designed to make the state of all worker groups converge at once.
+Retrying convergence for one worker group adds latency to convergence for all worker groups.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>About: Open Source</title><link>https://osrd.fr/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opensource/</guid><description>
 &lt;p>Open source is a &lt;strong>software development practice&lt;/strong>, where the software&amp;rsquo;s source code&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> :&lt;/p>
 &lt;ul>
 &lt;li>usually developped by multiple actors, in an open and transparent way&lt;/li>
