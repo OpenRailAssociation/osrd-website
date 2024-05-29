@@ -27,7 +27,7 @@ changes are required to meet our needs. This document goes into:
 The new system is expected to:
 
 - be easy to integrate with [timetable v2](../timetable/)
-- handle simulations of a full trip, with a complete known path, following a schedule
+- handle simulations of a full trip, with a complete known path, possibly following a schedule
 - handle simulations where the path is discovered incrementaly
 - handle rich train state (pantograph position, battery state)
 - handle reactions to signaling
@@ -59,8 +59,8 @@ These limitations are the primary reasons for this redesign.
 
 - are defined as post-processing filter passes on simulation results. This has a number of undesirable side effects:
 
-  - margin algorithms produce the final simulation results. They may produce bogus (physically unrealistic) simulations results
-  - because margins are applied after the simulation, the simulation can't adjust to impossible margin values
+  - margin algorithms produce the final simulation results. They may produce physically unrealistic simulations results
+  - because margins are applied after the simulation, the simulation can't adjust to impossible margin values. Thus the simulation fails instead of giving a "best effort" result.
   - margin algorithms have no choice but to piece together results of different simulations:
 
     - engineering margins are defined such that their effect has to be entirely contained within their bounds.
@@ -69,7 +69,7 @@ These limitations are the primary reasons for this redesign.
     - this can only be done if the train state is entirely described by its location and speed,
       otherwise simulation results cannot be pieced together.
     - piecing together simulation results is very hard to execute reliably, as there are many corner cases to be considered.
-      the end result is quite brittle.
+      the algorithm is quite brittle.
 
 - how much time should be lost and where isn't defined in a way that makes scheduled points implementation easy
 - when a transition between two margin values occurs, slow downs occur before value changes, and speed ups
