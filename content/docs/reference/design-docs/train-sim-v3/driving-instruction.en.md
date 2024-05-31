@@ -198,3 +198,37 @@ We found that doing so:
 - reduces the API surface of the train simulation module
 - decouples behavior from constraint types: if a new constraint type needs to be added, the simulation
   API only needs expansion if the expected behavior expected for this constraint isn't part of the API.
+
+
+### Interpreting driving instructions
+
+As the train progresses through the simulation, it reacts according to driving instructions
+which depend on more than the bare train physics state (position, time, and speed):
+
+- the behavior of a train on each block depends on the state of the last passed block signal
+- if a train encounters a yellow light, then a red light, stops before the red light, and the
+  red light turns green, the train may have to keep applying the driving instruction from the
+  yellow signal until the green light is passed
+
+Thus, given:
+
+- set of all possible driving instructions (alongside applicability metadata)
+- the result of previous integration steps (which may be extended to hold metadata)
+
+There is a need to know what driving instructions are applicable to the current integration step.
+
+Overrides are a way of modeling instructions which disable previous ones. Here are some examples:
+
+- if a driver watches a signal change state, its new aspect's instruction might take precedence over the previous one
+- as block signaling slows a train down, new signals can override instructions from previous signals, as they encode information that is more up to date
+
+We identified multiple filtering needs:
+
+- overrides happen as a given kind of restriction is updated: SPACING instructions might override other SPACING instructions, but wish to leave other speed restrictions unaffected
+- as multiple block signals can be visible at once, there's a need to avoid overriding instructions of downstream signals with updates to upstream signals
+
+We quickly settled on adding a kind field, but had a lengthy discussion over how to discriminate upstream and downstream signals. We explored the following options:
+
+- {{< rejected >}} adding `source` metadata, which was rejected as it does not address the issue of upstream / downstream
+- {{< rejected >}} adding identifiers to instructions, and overriding specific instructions, which was rejected as it makes instruction generation and processing more complex
+- {{< adopted >}} adding some kind of priority / rank field, which was adopted
