@@ -127,7 +127,7 @@ start_time: "2023-12-21T08:51:11.914897+00:00"
 
 path:
  - {id: a, uic: 87210} # Any operational point matching the given uic
- - {id: b, track: foo, offset: 1000} # 10m on track foo
+ - {id: b, track: foo, offset: 10000} # 10m on track foo
  - {id: c, deleted: true, trigram: ABC} # Any operational point matching the trigram ABC
  - {id: d, operational_point: X} # A specified operational point
 
