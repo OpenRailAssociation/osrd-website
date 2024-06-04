@@ -17,28 +17,10 @@ Driving instructions are generated using domain constraints such as:
 - stops
 - margins
 
+Examples of driving instructions include:
 
-There are two types of driving instructions:
-
-- **Abstract driving instructions** model the high-level, rolling stock independent
-range of acceptable behavior: reach 30km/h at this location
-- **Concrete driving instructions** model the specific range of acceptable behavior
-for a specific rolling stock, using limit curves: don't go faster than this curve
-
-```mermaid
-flowchart TD
-Constraint[constraint]
-AbstractDrivingInstruction[abstract driving instruction]
-ConcreteDrivingInstruction[concrete driving instruction]
-RollingStockIntegrator[rolling stock integrator]
-Compiler([compiler])
-
-Constraint -- generates one or more --> AbstractDrivingInstruction
-AbstractDrivingInstruction --> Compiler
-RollingStockIntegrator --> Compiler
-Compiler --> ConcreteDrivingInstruction
-```
-
+- Limit speed at a given location
+- Lower pantographs
 
 ## Interpreting driving instructions
 
@@ -124,19 +106,12 @@ struct InstructionMetadata {
     override_on_enforced: Vec<OverrideFilter>,
 }
 
-enum AbstractInstruction {
+enum Instruction {
     NeutralZone,
     SpeedTarget {
         at: Position,
         speed: Speed,
     }
-}
-
-enum ConcreteInstruction {
-    NeutralZone,
-    SpeedTarget {
-        braking_curve: SpeedPosCurve,
-    },
 }
 
 struct OverrideFilter {
