@@ -138,6 +138,17 @@ To understand how this algorithm is designed, we need to consider two example ca
 - For step 1 and 2: if a neutral zone and a breaking instruction overlap, both are most constraining to different state properties: the neutral zone affects pantograph state, and the breaking instruction affects speed. The final state has to be a combination of both.
 - For step 3: We need to truncate integration steps to avoid overshoots, and thus avoid the neeed for feedback loops. Idealy, we want to truncate to the exact overshoot location. This overshoot location is not the same as the initial `dt` for the overshot constraint.
 
+#### Why do we need to reconcile candidates?
+
+Here is an example of a numerical integration with two driving instructions (in red) resulting in two candidate curves (in solid black). The first driving instruction represents a braking curve, the second one is a speed limit.
+
+![](../reconcile.svg)
+
+The lower curve is more constraining than the upper one, however it has a greater Δt and overshoots one of the driving instructions. Another choice would be to pick the smallest Δt of all driving instructions, however we risk entering an infinite loop: the same situation is repeated on all following numerical integration steps.
+
+As a result, we need to put a bit more effort into the Δt choice by computing the intersection between the more constraining candidate curve and the driving instructions.
+
+TODO: is this something we really care about in practice? If not, we should probably turn that into an assert.
 
 #### Conclusion
 
