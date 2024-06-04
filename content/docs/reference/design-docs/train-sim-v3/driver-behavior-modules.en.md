@@ -3,8 +3,6 @@ title: "Driver behavior modules"
 weight: 30
 ---
 
-### Driver behavior modules
-
 ```mermaid
 flowchart TD
 

@@ -3,8 +3,6 @@ title: "Prior art"
 weight: 10
 ---
 
-## Previous implementation
-
 The current implementation has a number of shortcomings making it pretty much impossible to evolve to
 meet current system requirements. It also has a number of less severe flaws, such as the over-reliance
 on floating point, especially for input and output.

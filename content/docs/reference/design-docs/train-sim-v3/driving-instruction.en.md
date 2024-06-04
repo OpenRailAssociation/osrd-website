@@ -3,7 +3,6 @@ title: "Driving instructions"
 weight: 20
 ---
 
-
 Driving instructions model what the train has to do, and under what conditions.
 Driving instructions are generated using domain constraints such as:
 
