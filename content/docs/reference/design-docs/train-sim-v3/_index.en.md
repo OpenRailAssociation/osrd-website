@@ -14,20 +14,6 @@ After two years of extending a fairly simple simulation engine, it appeared that
 changes are required to meet expectations.
 
 
-TODO:
-- add non goals
-- better goals
-- prioritize goals
-- translate diagrams from the slideshow to english, add these here https://docs.google.com/presentation/d/1DWYU3K9as4w3O-XBFdCLxrB9miYzUEh1m_Baqqs8Tp4/edit#slide=id.g2c31b302dee_0_1
-- explain how driver behavior modules work exactly
-- give examples of driving instruction sequences for each kind of constraint
-- describe what APIs driver behavior modules need to simulate samples
-- give high level APIs for driver behavior modules and driving instructions
-- describe how driver behavior modules would use the slowdown coefficient to monotonically generate decisions
-- give examples of corner cases for driver behavior modules
-- describe the exact external FFI api, and its differences from the rust library API
-- add a short description of concepts, actors and who does what
-
 ## System requirements
 
 The new system is expected to:
@@ -47,7 +33,7 @@ In the long-term, this system is expected to:
 - integrate driver behavior properties
 
 
-## Design specification
+## Concepts
 
 ```mermaid
 flowchart TD
@@ -81,6 +67,54 @@ TrainSim([train simulator])
 SimResults[simulation result curve]
 ```
 
+### Target schedule
+The target schedule is a list of target arrival times at points specified along the path.
+To respect the schedule, the train may have to not use its maximum traction.
+
+### Train state
+The train state is a vector of properties describing the train at a given point in time.
+- position
+- speed
+- position of pantographs 
+- driver reaction times ?
+- battery state ?
+- time elapsed since the last update
+
+### Driving instructions
+
+Driving instructions model what the train has to do along its path.
+They are linked to conditions on their application, and can interact with each other.
+They are generated using domain constraints such as speed limits or stops. 
+
+See [the dedicated page]({{< ref "driving-instruction" >}}) for more details.
+
+### Path properties
+
+Path properties are the physical properties of the path, namely elevation, curves and electrification.
+
+### Driver behavior module
+
+The driver behavior module updates the train state based on:
+- the current train state
+- the path properties
+- the driving instructions
+- a slowdown coefficient (1 = no slowdown, 0 = full stop)
+
+The train state changes should be physically realistic. 
+
+See [the dedicated page]({{< ref "driver-behavior-modules" >}}) for more details.
+
+### Schedule controller
+
+The schedule controller manages the slowdown coefficient given to the driver behavior module in order 
+to respect the target schedule.
+
+It adjusts the slowdown coefficient iteratively, using a dichotomic search, re-simulating the train behavior 
+between two time-targeted points.
+
+### Simulation results
+
+The output of the simulation is the list of train states at each time step.
 
 ## Design limits
 
