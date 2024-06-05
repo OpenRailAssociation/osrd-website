@@ -2,7 +2,7 @@
 title: "Netzgrafik-Editor"
 linkTitle: "Netzgrafik-Editor"
 weight: 40
-description: "Open-source software developped by SBB and its integration in OSRD"
+description: "Open-source software developped by SBB CFF FFS and its integration in OSRD"
 ---
 
 Netzgrafik-Editor (NGE) is an open-source software that enables the creation, modification, and analysis of regular-interval timetable, at a macroscopic level of details, developped by [Swiss Federal Railways (SBB CFF FFS)](https://www.sbb.ch/). See [front-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend) and [back-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-backend) repositories.
@@ -20,7 +20,7 @@ Therefore, NGE is integrated in the operational studies section of OSRD, in an [
 - a `standalone` flag:
   - to tell NGE to disable all back-end interactions (no database on NGE side)
   - to tell NGE to disable some UI components (authentication, project managment, versionning system view, etc...)
-- implementation of a communication interface between OSRD ([`eventListener`](https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener) and [`postMessage`](https://developer.mozilla.org/fr/docs/Web/API/Window/postMessage)) and NGE
+- implementation of a communication interface between OSRD and NGE ([`eventListener`](https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener) and [`postMessage`](https://developer.mozilla.org/fr/docs/Web/API/Window/postMessage)).
 
 NGE is then able to get the OSRD timetable as soon as a change is made on OSRD side, and OSRD is able to get the changes made on NGE side.
 
