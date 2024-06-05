@@ -3,36 +3,84 @@ title: "Driver behavior modules"
 weight: 30
 ---
 
-### Driver behavior modules
 
-```mermaid
-flowchart TD
+## Design specs
 
-subgraph BuilderInputs["builder inputs"]
-    SlowdownCoefficient[slowdown coefficient]
-    PathProps[path properties]
-end
+### General pitch
 
-subgraph CallInputs["call inputs"]
-    ConcreteDrivingInstructions[concrete driving instruction]
-    CurrentTrainState[current train state]
-end
+Driver behavior modules are responsible for making driving decisions. 
+Its main responsibility, given the state of the train and an instruction, is to react to the instruction.
+This reaction is expressed as a new train state.
 
-DriverBehaviorModule[driver behavior module]
-Decision[decision]
+To perform this critical task, it needs access to additional context:
 
-BuilderInputs --> DriverBehaviorModule
-CallInputs --> DriverBehaviorModule --> Decision
+- the physical properties of the path, which are used to make coasting decisions, and to model natural forces.
+- a slowdown coefficient, which is used to adjust how much the train is slowed down compared to a 
+full power simulation.
 
-```
+The driver behavior modules are supposed to have different implementations, which would interpret the slow down coefficient differently.
 
-Driver behavior modules are responsible for making driving decisions. It's main responsibility, given the state of the train,
-is to provide a driving instruction (a braking or traction force). To perform this critical task, it needs access to additional context:
 
-- the physical properties of the path, which are used to make coasting decisions
-- driving instructions
+### API
 
-## Design decisions
+One driver behavior module is instantiated per driving instruction.
+It takes at initialization:
+- a slowdown coefficient
+- the driving instruction
+- the path properties
+
+It has two public methods:
+- `enact_decision(current_state: TrainState, t: float) -> (TrainState, float)`
+
+  Which returns what the next train state would be if there was only this one instruction to follow, and the time delta
+  to reach this state.
+
+- `truncate_integration_step(current_state: TrainState, potential_state: TrainState, t: float, dt: float) -> (TrainState, float)`
+
+  Which returns a state and time delta which respects the instruction, and is as close as possible to the potential state. 
+
+
+### Loop
+At a given train state, we know which driving instructions are enforced.
+
+For each enforced driving instruction, we query the corresponding driver behavior module.
+
+This gives a set of different train states. From this, we coalesce a single train state which respects all instructions.
+
+To do so, we:
+1. Find the states which are most constraining for "constraining properties" (speed and pantograph state).
+  - Most constraining state regarding speed is the one with the lowest acceleration (taking sign into account).
+  - Most constraining state regarding pantograph state is the one which sets the pantograph down the earliest.
+2. Interpolate the **constraining** states to the smallest `dt` they are associated with.
+3. Merge the **constraining** states into a single **potential state**: 
+  - for speed, we take the lowest acceleration
+  - for pantograph state, we take the earliest pantograph state
+  - other properties should be identical
+4. Submit the **potential state** for truncation to all driver behavior modules, chaining the outputs of `truncate_integration_step`. 
+
+{{% pageinfo color="warning" %}}
+There is a heavy underlying assumption that "constraining properties" can be combined in a new state which
+is valid.
+This underlies the step 3. It is not yet clear if this assumption will always be valid in the future.
+
+Also: what component should be in charge of instantiating all the driver behavior modules with the right implementation ?
+{{% /pageinfo %}}
+
+Here is a schema summarizing the process:
+
+![Driver behavior modules](../reconciliation.svg)
+
+### A short case for why step 4 is needed.
+
+![most constraining state overshoots](../overshoot.svg)
+
+
+Here the constraints are in red, and the next state chosen by the driver behavior modules are in black.
+
+In this example, the most constraining state is A, since it's the one which accelerates the least.
+However, it overshoots constraint B, thus we need to select the state which respects both constraints.
+
+## Decision process
 
 
 ### Unifying driver behavior and margin distribution algorithms
@@ -63,7 +111,7 @@ Let's say we want to loosen the timetable by 1 minute on a given section. It cou
 - lowering the speed ceiling a little, and making driving behavior a little more conservative
 - any other combination of the two factors
 
-This is an issue, as it might make simulation results unstable: because there possible are many ways
+This is an issue, as it might make simulation results unstable: because there possibly are many ways
 to achieve the requested schedule, it would be very challenging to reliably choose a solution which
 matches expectations.
 
@@ -138,21 +186,8 @@ To understand how this algorithm is designed, we need to consider two example ca
 - For step 1 and 2: if a neutral zone and a breaking instruction overlap, both are most constraining to different state properties: the neutral zone affects pantograph state, and the breaking instruction affects speed. The final state has to be a combination of both.
 - For step 3: We need to truncate integration steps to avoid overshoots, and thus avoid the neeed for feedback loops. Idealy, we want to truncate to the exact overshoot location. This overshoot location is not the same as the initial `dt` for the overshot constraint.
 
+### Should `truncate_integration_step` depend on the driver behavior module?
 
-#### Conclusion
-
-We decided to model driver behavior modules as follows:
-- numerical integration is performed within driver behavior modules
-- each driver behavior module reacts to a specific driving instruction
-- each driver behavior module is created ahead of time with:
-  - a slowdown coefficient
-  - a specific driving instruction
-  - path properties
-  - a simulator object
-- when queried:
-  - they take the current train state
-  - they return a new train state (including time, possibly smaller than `input_state.time + dt`)
-- driver behavior modules are queried for each driving instruction, and the decision with the lowest
-  acceleration is choosen
-- this decision is submitted for truncation to all driver behavior modules. The final decision is the one
-  with the smallest `dt`
+Yes: DBMs may use internal representations that the new state should not overshoot.
+For instance, when passed a driving instruction with a speed limit of 60km/h, 
+a DBM wishing to loose time may reduce the speed to 50 km/h.
