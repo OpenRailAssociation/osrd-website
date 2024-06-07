@@ -1,6 +1,6 @@
 ---
 title: "Prior art"
-weight: 10
+weight: 20
 ---
 
 ## Previous implementation
