@@ -116,6 +116,10 @@ between two time-targeted points.
 
 The output of the simulation is the list of train states at each time step.
 
+## Design overview
+
+![Algorithm flow chart](overview.svg)
+
 ## Design limits
 
 - trains do not anticipate margin transitions: only the next target arrival time matters for finding the slowdown factor

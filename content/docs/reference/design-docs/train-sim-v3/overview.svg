@@ -1,2711 +1,474 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   version="1.1"
-   fill-rule="evenodd"
-   fill="none"
-   stroke="none"
-   stroke-linecap="square"
-   stroke-miterlimit="10"
-   overflow="hidden"
-   viewBox="80010 762 419100 235458"
-   id="svg367"
-   sodipodi:docname="3.svg"
-   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs367" />
-  <sodipodi:namedview
-     id="namedview367"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.01"
-     inkscape:cx="382050"
-     inkscape:cy="46750"
-     inkscape:window-width="1916"
-     inkscape:window-height="1039"
-     inkscape:window-x="0"
-     inkscape:window-y="39"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="editor-g2c31b302dee_0_1" />
-  <rect
-     fill="#1a73e8"
-     fill-opacity="0"
-     width="100%"
-     height="100%"
-     id="rect1" />
-  <g
-     transform="translate(107442 762) scale(1)"
-     id="g367">
-    <defs
-       cursor="default"
-       id="defs1" />
-    <g
-       id="editor-g2c31b302dee_0_1">
-      <path
-         fill="#fff"
-         fill-opacity="1"
-         d="M 0 0 L 365760 0 365760 205740 0 205740 Z"
-         id="path1" />
-      <g
-         id="g3">
-        <g
-           id="g2">
-          <path
-             fill="#ffffff"
-             fill-opacity="1"
-             d="M 0,0 H 365760 V 205740 H 0 Z"
-             id="path2" />
-        </g>
+<svg fill-rule="evenodd" stroke-linejoin="round" stroke-width="28.222"
+   preserveAspectRatio="xMidYMid" version="1.2" viewBox="1738 1397 22559 11375"
+   xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export">
+   <g class="prefix__prefix__Page" ooo:name="page1">
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M1849 9345h3609v1138H1849z" fill="none" />
+         <path d="M3653 10469H1862V9358h3582v1111H3653z" fill="#EEE" />
+         <path d="M3653 10469H1862V9358h3582v1111H3653z" fill="none" stroke="#B7B7B7"
+            stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_115">
-        <g
-           id="g5">
-          <g
-             id="g4">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 26818.6688 134771.026 L 78418.6688 134771.026 78418.6688 150779.026 26818.6688 150779.026 Z"
-               id="path3" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M2072 3589h3609v1432H2072z" fill="none" />
+         <path d="M3876 5007H2085V3602h3582v1405H3876z" fill="#EEE" />
+         <path d="M3876 5007H2085V3602h3582v1405H3876z" fill="none" stroke="#CCC"
+            stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_112">
-        <g
-           id="g7">
-          <g
-             id="g6">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#CCCCCC"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 30024.8376 51881.7236 L 81624.8376 51881.7236 81624.8376 72125.7236 30024.8376 72125.7236 Z"
-               id="path5" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M1961 3700h3609v1432H1961z" fill="none" />
+         <path d="M3765 5118H1974V3713h3582v1405H3765z" fill="#EEE" />
+         <path d="M3765 5118H1974V3713h3582v1405H3765z" fill="none" stroke="#CCC"
+            stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_111">
-        <g
-           id="g9">
-          <g
-             id="g8">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#CCCCCC"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 28421.6688 53484.8924 L 80021.6688 53484.8924 80021.6688 73728.8924 28421.6688 73728.8924 Z"
-               id="path7" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M2449 5762h2854v1432H2449z" fill="none" />
+         <path d="M3876 7180H2462V5775h2827v1405H3876z" fill="#F3F3F3" />
+         <path d="M3876 7180H2462V5775h2827v1405H3876z" fill="none" stroke="#D9D9D9"
+            stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_110">
-        <g
-           id="g11">
-          <g
-             id="g10">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#D9D9D9"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               stroke-dasharray="1524,1143"
-               d="M 35467.2137 83176.6624 L 76183.2137 83176.6624 76183.2137 103420.6624 35467.2137 103420.6624 Z"
-               id="path9" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M2338 5873h2854v1432H2338z" fill="none" />
+         <path d="M3765 7291H2351V5886h2827v1405H3765z" fill="#F3F3F3" />
+         <path d="M3765 7291H2351V5886h2827v1405H3765z" fill="none" stroke="#D9D9D9"
+            stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_109">
-        <g
-           id="g13">
-          <g
-             id="g12">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#D9D9D9"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               stroke-dasharray="1524,1143"
-               d="M 33864.0449 84779.8312 L 74580.04490000001 84779.8312 74580.04490000001 105023.8312 33864.0449 105023.8312 Z"
-               id="path11" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M5981 1397h18316v11375H5981z" fill="none" />
+         <path
+            d="M5995 2034c0-109 29-217 83-312 55-94 134-173 229-228 94-54 202-83 311-83h17041c109 0 217 29 312 83 94 55 173 134 228 229 54 94 83 202 83 311l1 10100c0 109-29 217-83 312-55 94-134 173-229 228-94 54-202 83-311 83l-17042 1c-109 0-217-29-312-83-94-55-173-134-228-229-54-94-83-202-83-311V2034z"
+            fill="#F3F3F3" />
+         <path
+            d="M5995 2034c0-109 29-217 83-312 55-94 134-173 229-228 94-54 202-83 311-83h17041c109 0 217 29 312 83 94 55 173 134 228 229 54 94 83 202 83 311l1 10100c0 109-29 217-83 312-55 94-134 173-229 228-94 54-202 83-311 83l-17042 1c-109 0-217-29-312-83-94-55-173-134-228-229-54-94-83-202-83-311V2034z"
+            fill="none" stroke="#B7B7B7" stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_54">
-        <g
-           id="g15">
-          <g
-             id="g14">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 86348 29291.85472 C 86348 24336.836180446575 90364.83618044658 20320 95319.85472 20320 L 340716.14528 20320 C 343095.6290961887 20320 345377.6554501818 21265.24626551676 347060.20459233253 22947.795407667465 348742.75373448327 24630.344549818168 349688 26912.370903811254 349688 29291.85472 L 349688 174740.14527999997 C 349688 179695.16381955342 345671.16381955345 183712 340716.14528 183712 L 95319.85472 183712 C 90364.83618044658 183712 86348 179695.16381955342 86348 174740.14527999997 Z"
-               id="path13" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M7526 2598h15816v6300H7526z" fill="none" />
+         <path
+            d="M7540 2956c0-60 16-120 46-172 30-53 74-96 126-126 53-30 112-46 172-46h15099c60 0 120 16 172 46 53 30 96 74 126 126 30 53 46 112 46 172l1 5583c0 60-16 120-46 172-30 53-74 96-126 126-53 30-112 46-172 46l-15100 1c-60 0-120-16-172-46-53-30-96-74-126-126-30-53-46-112-46-172V2956z"
+            fill="#F3F3F3" />
+         <path
+            d="M7540 2956c0-60 16-120 46-172 30-53 74-96 126-126 53-30 112-46 172-46h15099c60 0 120 16 172 46 53 30 96 74 126 126 30 53 46 112 46 172l1 5583c0 60-16 120-46 172-30 53-74 96-126 126-53 30-112 46-172 46l-15100 1c-60 0-120-16-172-46-53-30-96-74-126-126-30-53-46-112-46-172V2956z"
+            fill="none" stroke="#CCC" stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_108">
-        <g
-           id="g17">
-          <g
-             id="g16">
+      <g class="prefix__prefix__Group">
+         <g class="prefix__prefix__com_sun_star_drawing_PolyPolygonShape">
+            <path class="prefix__prefix__BoundingBox" d="M7428 2724h15789v6273H7428z"
+               fill="none" />
             <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#CCCCCC"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 108587 42591.03192 C 108587 39852.23421665988 110807.23421665988 37632 113546.03192 37632 L 330967.96808 37632 C 332283.1851188247 37632 333544.5342918675 38154.46793436245 334474.5331787525 39084.46682124746 335404.5320656375 40014.465708132455 335927 41275.81488117535 335927 42591.03192 L 335927 122984.96808 C 335927 125723.76578334013 333706.7657833401 127944 330967.96808 127944 L 113546.03192 127944 C 110807.23421665988 127944 108587 125723.76578334013 108587 122984.96808 Z"
-               id="path15" />
-          </g>
-        </g>
+               d="M7428 3068l1-22 2-23 4-22 5-22 7-21 8-21 9-21 11-20 11-19 28-36 15-16 34-30 18-13 20-12 20-11 20-9 21-8 22-6 22-5 22-4 22-2 23-1h15098l23 1 22 2 23 4 22 5 21 7 21 8 21 9 20 11 19 11 36 28 16 15 30 34 13 18 12 20 20 40 8 21 6 22 5 22 4 22 2 22 1 23v5605l-3 22-3 23-5 22-7 21-8 21-9 21-11 20-12 19-13 18-14 18-15 16-34 30-19 13-19 12-40 20-21 8-22 6-22 5-22 4-22 2-23 1H7750l-23-3-22-3-22-5-21-7-21-8-21-9-20-11-19-12-18-13-18-14-16-15-30-34-13-19-12-19-11-20-9-20-8-21-6-22-5-22-4-22-2-22-1-23V3068z"
+               fill="#F3F3F3" />
+         </g>
+         <g class="prefix__prefix__com_sun_star_drawing_PolyPolygonShape" fill="none">
+            <path class="prefix__prefix__BoundingBox" d="M7415 2711h15815v6299H7415z" />
+            <path
+               d="M7428 3068l1-22 2-23 4-22 5-22 7-21 8-21 9-21 11-20 11-19 28-36 15-16 34-30 18-13 20-12 20-11 20-9 21-8 22-6 22-5 22-4 22-2 23-1h15098l23 1 22 2 23 4 22 5 21 7 21 8 21 9 20 11 19 11 36 28 16 15 30 34 13 18 12 20 20 40 8 21 6 22 5 22 4 22 2 22 1 23v5605l-3 22-3 23-5 22-7 21-8 21-9 21-11 20-12 19-13 18-14 18-15 16-34 30-19 13-19 12-40 20-21 8-22 6-22 5-22 4-22 2-23 1H7750l-23-3-22-3-22-5-21-7-21-8-21-9-20-11-19-12-18-13-18-14-16-15-30-34-13-19-12-19-11-20-9-20-8-21-6-22-5-22-4-22-2-22-1-23V3068z"
+               stroke="#B7B7B7" stroke-width="26" />
+         </g>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_68">
-        <g
-           id="g19">
-          <g
-             id="g18">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 106981 44194.03192 C 106981 41455.23421665988 109201.23421665988 39235 111940.03192 39235 L 329361.96808 39235 C 330677.1851188247 39235 331938.5342918675 39757.46793436245 332868.5331787525 40687.46682124746 333798.5320656375 41617.465708132455 334321 42878.81488117535 334321 44194.03192 L 334321 124587.96808 C 334321 127326.76578334013 332100.7657833401 129547 329361.96808 129547 L 111940.03192 129547 C 109201.23421665988 129547 106981 127326.76578334013 106981 124587.96808 Z"
-               id="path17" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M10524 6694h10516v2046H10524z" fill="none" />
+         <path
+            d="M10538 6818c0-19 5-39 15-55 10-17 24-31 40-41 17-10 36-15 56-15l10266 1c19 0 39 5 55 15 17 10 31 24 41 40 10 17 15 36 15 56v1796c0 19-5 39-15 55-10 17-24 31-40 41-17 10-36 15-56 15H10648c-19 0-39-5-55-15-17-10-31-24-41-40-10-17-15-36-15-56l1-1797z"
+            fill="#F3F3F3" />
+         <path
+            d="M10538 6818c0-19 5-39 15-55 10-17 24-31 40-41 17-10 36-15 56-15l10266 1c19 0 39 5 55 15 17 10 31 24 41 40 10 17 15 36 15 56v1796c0 19-5 39-15 55-10 17-24 31-40 41-17 10-36 15-56 15H10648c-19 0-39-5-55-15-17-10-31-24-41-40-10-17-15-36-15-56l1-1797z"
+            fill="none" stroke="#B7B7B7" stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_89">
-        <g
-           id="g21">
-          <g
-             id="g20">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 151766 98202.90424 C 151766 97321.5106660577 152480.5106660577 96607 153361.90424 96607 L 301190.09576 96607 C 301613.35588065285 96607 302019.2803687089 96775.13942825218 302318.5704702283 97074.42952977163 302617.8605717478 97373.7196312911 302786 97779.64411934715 302786 98202.90424 L 302786 124075.09576 C 302786 124956.4893339423 302071.4893339423 125671 301190.09576 125671 L 153361.90424 125671 C 152480.5106660577 125671 151766 124956.4893339423 151766 124075.09576 Z"
-               id="path19" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M1849 3830h3609v1432H1849z" fill="none" />
+         <path d="M3653 5248H1862V3843h3582v1405H3653z" fill="#EEE" />
+         <path d="M3653 5248H1862V3843h3582v1405H3653z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="2979" y="4475">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">driving </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="2496" y="4899">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">instructions</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_7">
-        <g
-           id="g39">
-          <g
-             id="g22">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 26818.5 55355.256 L 78418.5 55355.256 78418.5 75599.256 26818.5 75599.256 Z"
-               id="path21" />
-          </g>
-          <g
-             id="g38">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g37">
-              <g
-                 transform="matrix(381,0,0,380.99999999999994,30475.5,59381.255999999994)"
-                 id="g34">
-                <g
-                   pointer-events="none"
-                   id="g33">
-                  <g
-                     id="editor-g2c31b302dee_0_7-paragraph-0">
-                    <g
-                       id="g27">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g23" />
-                      <g
-                         id="g24" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g26">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g25">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="32.459220465712654"
-                             id="text24">Driving</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 16)"
-                       id="g32">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g28" />
-                      <g
-                         id="g29" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g31">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g30">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="14.131442603163826"
-                             id="text29">Instructions</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect33" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect34" />
-              </g>
-              <g
-                 id="g35">
-                <path
-                   d="M 35859.57963180542 59381.255999999994 L 69377.42036819458 59381.255999999994 69377.42036819458 71573.256 35859.57963180542 71573.256 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path34" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,380.99999999999994,30475.5,59381.255999999994)"
-                 id="g36" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M6294 1410h8333v934H6294z" fill="none" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="6548" y="2017">
+                  <tspan fill="#B7B7B7" font-family="Arial, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">Train simulation</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_60">
-        <g
-           id="g54">
-          <g
-             id="g40">
-            <path
-               d="M 90636.5 20319.5 L 210636.5 20319.5 210636.5 33867.5 90636.5 33867.5 Z"
-               id="path39" />
-          </g>
-          <g
-             id="g41">
-            <path
-               fill="#000"
-               fill-opacity="0"
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 90636.5 20319.5 L 210636.5 20319.5 210636.5 33867.5 90636.5 33867.5 Z"
-               id="path40" />
-          </g>
-          <g
-             id="g53">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g52">
-              <g
-                 transform="matrix(381,0,0,381,94293.5,23976.5)"
-                 id="g49">
-                <g
-                   pointer-events="none"
-                   id="g48">
-                  <g
-                     id="editor-g2c31b302dee_0_60-paragraph-0">
-                    <g
-                       id="g47">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g42" />
-                      <g
-                         id="g43" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g46">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g45">
-                          <text
-                             style="font-family:Arial;font-size:13.333333333333332px;fill:#B7B7B7;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             id="text43">Running</text>
-                          <text
-                             style="font-family:Arial;font-size:13.333333333333332px;fill:#B7B7B7;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="53.373332500457764"
-                             id="text44">time</text>
-                          <text
-                             style="font-family:Arial;font-size:13.333333333333332px;fill:#B7B7B7;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="82.2666654586792"
-                             id="text45">calculation</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect48" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect49" />
-              </g>
-              <g
-                 id="g50">
-                <path
-                   d="M 94293.5 23976.5 L 149640.9468717575 23976.5 149640.9468717575 30072.5 94293.5 30072.5 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path49" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,94293.5,23976.5)"
-                 id="g51" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M2226 5985h2854v1432H2226z" fill="none" />
+         <path d="M3653 7403H2239V5998h2827v1405H3653z" fill="#EEE" />
+         <path d="M3653 7403H2239V5998h2827v1405H3653z" fill="none" stroke="#B7B7B7"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="2593" y="6842">
+                  <tspan fill="#666" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">constraints</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_64">
-        <g
-           id="g67">
-          <g
-             id="g55">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               stroke-dasharray="1524,1143"
-               d="M 32260.8761 86383 L 72976.8761 86383 72976.8761 106627 32260.8761 106627 Z"
-               id="path54" />
-          </g>
-          <g
-             id="g66">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g65">
-              <g
-                 transform="matrix(381,0,0,381,35917.8761,93457)"
-                 id="g62">
-                <g
-                   pointer-events="none"
-                   id="g61">
-                  <g
-                     id="editor-g2c31b302dee_0_64-paragraph-0">
-                    <g
-                       id="g60">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g56" />
-                      <g
-                         id="g57" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g59">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g58">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#666666;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="3.513532082865545"
-                             id="text57">Constraints</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect61" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect62" />
-              </g>
-              <g
-                 id="g63">
-                <path
-                   d="M 37256.53182357177 93457 L 67981.22037642822 93457 67981.22037642822 99553 37256.53182357177 99553 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path62" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,35917.8761,93457)"
-                 id="g64" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M3549 5250h212v763h-212z" fill="none" />
+         <path d="M3653 5999c0-187 0-374 1-374 0 0 0-75 1-179" fill="none" stroke="#B7B7B7"
+            stroke-width="26" />
+         <path d="M3655 5250l105 210h-210l105-210z" fill="#B7B7B7" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_65">
-        <g
-           id="g70">
-          <g
-             id="g68">
-            <path
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               stroke-dasharray="1524,1143"
-               d="M 52618.8761 86383 C 52618.8761 83687.0788 52624.8761 82339.6576 52630.8761 80991.1576 L 52635.03887607804 79119.24128578378"
-               id="path67" />
-            <path
-               fill="#B7B7B7"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 53715.1088194778 79121.64315027358 L 52641.637404896166 76152.01616655367 51554.96893267828 79116.83942129397 Z"
-               id="path68" />
-          </g>
-          <g
-             id="g69">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 52618.8761 86383 C 52618.8761 83687.0788 52624.8761 82339.6576 52630.8761 80991.1576 L 52635.03887607804 79119.24128578378"
-               id="path69" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M1738 9456h3609v1138H1738z" fill="none" />
+         <path d="M3542 10580H1751V9469h3582v1111H3542z" fill="#EEE" />
+         <path d="M3542 10580H1751V9469h3582v1111H3542z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="2770" y="10166">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">schedule</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_66">
-        <g
-           id="g83">
-          <g
-             id="g71">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 25215.5 136374.1948 L 76815.5 136374.1948 76815.5 152382.1948 25215.5 152382.1948 Z"
-               id="path70" />
-          </g>
-          <g
-             id="g82">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g81">
-              <g
-                 transform="matrix(381,0,0,381,28872.5,141330.1948)"
-                 id="g78">
-                <g
-                   pointer-events="none"
-                   id="g77">
-                  <g
-                     id="editor-g2c31b302dee_0_66-paragraph-0">
-                    <g
-                       id="g76">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g72" />
-                      <g
-                         id="g73" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g75">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g74">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="3.134774979643929"
-                             id="text73">Target</text>
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="54.452554043822396"
-                             id="text74">Schedule</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect77" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect78" />
-              </g>
-              <g
-                 id="g79">
-                <path
-                   d="M 30066.849267244335 141330.1948 L 71964.15073275566 141330.1948 71964.15073275566 147426.1948 30066.849267244335 147426.1948 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path78" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,28872.5,141330.1948)"
-                 id="g80" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M7621 2724h8333v934H7621z" fill="none" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="7875" y="3331">
+                  <tspan fill="#B7B7B7" font-family="Arial, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">Time-bound section</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_69">
-        <g
-           id="g97">
-          <g
-             id="g84">
-            <path
-               d="M 109735.9094 39234.5 L 229735.9094 39234.5 229735.9094 52782.5 109735.9094 52782.5 Z"
-               id="path83" />
-          </g>
-          <g
-             id="g85">
-            <path
-               fill="#000"
-               fill-opacity="0"
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 109735.9094 39234.5 L 229735.9094 39234.5 229735.9094 52782.5 109735.9094 52782.5 Z"
-               id="path84" />
-          </g>
-          <g
-             id="g96">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g95">
-              <g
-                 transform="matrix(381,0,0,381,113392.9094,42891.5)"
-                 id="g92">
-                <g
-                   pointer-events="none"
-                   id="g91">
-                  <g
-                     id="editor-g2c31b302dee_0_69-paragraph-0">
-                    <g
-                       id="g90">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g86" />
-                      <g
-                         id="g87" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g89">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g88">
-                          <text
-                             style="font-family:Arial;font-size:13.333333333333332px;fill:#B7B7B7;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             id="text87">Scheduled</text>
-                          <text
-                             style="font-family:Arial;font-size:13.333333333333332px;fill:#B7B7B7;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="66.72000074386597"
-                             id="text88">section</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect91" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect92" />
-              </g>
-              <g
-                 id="g93">
-                <path
-                   d="M 113392.9094 42891.5 L 154909.20941211167 42891.5 154909.20941211167 48987.5 113392.9094 48987.5 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path92" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,113392.9094,42891.5)"
-                 id="g94" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M12562 3958h7055v2192h-7055z" fill="none" />
+         <path
+            d="M12576 4090c0-21 5-41 16-59 10-18 25-33 43-44 18-10 39-16 60-16l6789 1c21 0 41 5 59 16 18 10 33 25 44 43 10 18 16 39 16 60v1926c0 21-5 41-16 59-10 18-25 33-43 44-18 10-39 16-60 16h-6790c-21 0-41-5-59-16-18-10-33-25-44-43-10-18-16-39-16-60l1-1927z"
+            fill="#F3F3F3" />
+         <path
+            d="M12576 4090c0-21 5-41 16-59 10-18 25-33 43-44 18-10 39-16 60-16l6789 1c21 0 41 5 59 16 18 10 33 25 44 43 10 18 16 39 16 60v1926c0 21-5 41-16 59-10 18-25 33-43 44-18 10-39 16-60 16h-6790c-21 0-41-5-59-16-18-10-33-25-44-43-10-18-16-39-16-60l1-1927z"
+            fill="none" stroke="#D9D9D9" stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_187">
-        <g
-           id="g99">
-          <g
-             id="g98">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#D9D9D9"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 181099.1681 58919.57724 C 181099.1681 57974.49915926996 181865.30525926998 57208.362 182810.38334 57208.362 L 280571.95286 57208.362 C 281025.79535931273 57208.362 281461.04965141905 57388.65023087155 281781.96476027375 57709.565339726236 282102.87986912846 58030.48044858092 282283.1681 58465.734740687265 282283.1681 58919.57724 L 282283.1681 86661.14676 C 282283.1681 87606.22484073004 281517.03094073007 88372.362 280571.95286 88372.362 L 182810.38334 88372.362 C 181865.30525926998 88372.362 181099.1681 87606.22484073004 181099.1681 86661.14676 Z"
-               id="path97" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M12456 4064h7055v2192h-7055z" fill="none" />
+         <path
+            d="M12470 4196c0-21 5-41 16-59 10-18 25-33 43-44 18-10 39-16 60-16l6789 1c21 0 41 5 59 16 18 10 33 25 44 43 10 18 16 39 16 60v1926c0 21-5 41-16 59-10 18-25 33-43 44-18 10-39 16-60 16h-6790c-21 0-41-5-59-16-18-10-33-25-44-43-10-18-16-39-16-60l1-1927z"
+            fill="#F3F3F3" />
+         <path
+            d="M12470 4196c0-21 5-41 16-59 10-18 25-33 43-44 18-10 39-16 60-16l6789 1c21 0 41 5 59 16 18 10 33 25 44 43 10 18 16 39 16 60v1926c0 21-5 41-16 59-10 18-25 33-43 44-18 10-39 16-60 16h-6790c-21 0-41-5-59-16-18-10-33-25-44-43-10-18-16-39-16-60l1-1927z"
+            fill="none" stroke="#D9D9D9" stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_186">
-        <g
-           id="g101">
-          <g
-             id="g100">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#D9D9D9"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 179565.1681 60453.57724 C 179565.1681 59508.49915926996 180331.30525926998 58742.362 181276.38334 58742.362 L 279037.95286 58742.362 C 279491.79535931273 58742.362 279927.04965141905 58922.65023087155 280247.96476027375 59243.565339726236 280568.87986912846 59564.48044858092 280749.1681 59999.734740687265 280749.1681 60453.57724 L 280749.1681 88195.14676 C 280749.1681 89140.22484073004 279983.03094073007 89906.362 279037.95286 89906.362 L 181276.38334 89906.362 C 180331.30525926998 89906.362 179565.1681 89140.22484073004 179565.1681 88195.14676 Z"
-               id="path99" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M12349 4171h7055v2192h-7055z" fill="none" />
+         <path
+            d="M12363 4303c0-21 5-41 16-59 10-18 25-33 43-44 18-10 39-16 60-16l6789 1c21 0 41 5 59 16 18 10 33 25 44 43 10 18 16 39 16 60v1926c0 21-5 41-16 59-10 18-25 33-43 44-18 10-39 16-60 16h-6790c-21 0-41-5-59-16-18-10-33-25-44-43-10-18-16-39-16-60l1-1927z"
+            fill="#F3F3F3" />
+         <path
+            d="M12363 4303c0-21 5-41 16-59 10-18 25-33 43-44 18-10 39-16 60-16l6789 1c21 0 41 5 59 16 18 10 33 25 44 43 10 18 16 39 16 60v1926c0 21-5 41-16 59-10 18-25 33-43 44-18 10-39 16-60 16h-6790c-21 0-41-5-59-16-18-10-33-25-44-43-10-18-16-39-16-60l1-1927z"
+            fill="none" stroke="#B7B7B7" stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_184">
-        <g
-           id="g103">
-          <g
-             id="g102">
-            <path
-               fill="#F3F3F3"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 178027.1681 61987.57724 C 178027.1681 61042.49915926996 178793.30525926998 60276.362 179738.38334 60276.362 L 277499.95286 60276.362 C 277953.79535931273 60276.362 278389.04965141905 60456.65023087155 278709.96476027375 60777.565339726236 279030.87986912846 61098.48044858092 279211.1681 61533.734740687265 279211.1681 61987.57724 L 279211.1681 89729.14676 C 279211.1681 90674.22484073004 278445.03094073007 91440.362 277499.95286 91440.362 L 179738.38334 91440.362 C 178793.30525926998 91440.362 178027.1681 90674.22484073004 178027.1681 89729.14676 Z"
-               id="path101" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M5432 4442h6932v212H5432z" fill="none" />
+         <path d="M5445 4546c1729 0 3458 0 3458 1 0 0 1601 1 3263 1" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <path d="M12363 4548l-210 105v-210l210 105z" fill="#595959" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_55">
-        <g
-           id="g106">
-          <g
-             id="g104">
-            <path
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 78418.5 65477.256 C 103320.50388 65477.256 115771.00776 65561.256 128222.50776 65645.256 L 174506.27004719013 65801.36893920021"
-               id="path103" />
-            <path
-               fill="#595959"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 174502.62703411467 66881.43540939745 L 177473.48562465506 65811.37721688006 174509.9130602656 64721.30246900298 Z"
-               id="path104" />
-          </g>
-          <g
-             id="g105">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 78418.5 65477.256 C 103320.50388 65477.256 115771.00776 65561.256 128222.50776 65645.256 L 174506.27004719013 65801.36893920021"
-               id="path105" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M11015 7331h2713v982h-2713z" fill="none" />
+         <path d="M12371 8299h-1343v-955h2686v955h-1343z" fill="#EEE" />
+         <path d="M12371 8299h-1343v-955h2686v955h-1343z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="11697" y="7751">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">current </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="11889" y="8175">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">state</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_71">
-        <g
-           id="g124">
-          <g
-             id="g107">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 158800.5 105762 L 197488.5 105762 197488.5 119526 158800.5 119526 Z"
-               id="path106" />
-          </g>
-          <g
-             id="g123">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g122">
-              <g
-                 transform="matrix(381,0,0,381,162457.5,106548)"
-                 id="g119">
-                <g
-                   pointer-events="none"
-                   id="g118">
-                  <g
-                     id="editor-g2c31b302dee_0_71-paragraph-0">
-                    <g
-                       id="g112">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g108" />
-                      <g
-                         id="g109" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g111">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g110">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="15.514338575948877"
-                             id="text109">Current</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 16)"
-                       id="g117">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g113" />
-                      <g
-                         id="g114" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g116">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g115">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="22.84545048390786"
-                             id="text114">State</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect118" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect119" />
-              </g>
-              <g
-                 id="g120">
-                <path
-                   d="M 168368.46299743652 106548 L 187920.53700256348 106548 187920.53700256348 118740 168368.46299743652 118740 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path119" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,162457.5,106548)"
-                 id="g121" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M1921 11050h3242v1432H1921z" fill="none" />
+         <path d="M3542 12468H1934v-1405h3215v1405H3542z" fill="#EEE" />
+         <path d="M3542 12468H1934v-1405h3215v1405H3542z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="2287" y="11695">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">initial train </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="3060" y="12119">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">state</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_72">
-        <g
-           id="g142">
-          <g
-             id="g125">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 27861.5 159327.3488 L 74169.5 159327.3488 74169.5 179571.3488 27861.5 179571.3488 Z"
-               id="path124" />
-          </g>
-          <g
-             id="g141">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g140">
-              <g
-                 transform="matrix(380.99999999999994,0,0,381,31518.5,163353.3488)"
-                 id="g137">
-                <g
-                   pointer-events="none"
-                   id="g136">
-                  <g
-                     id="editor-g2c31b302dee_0_72-paragraph-0">
-                    <g
-                       id="g130">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g126" />
-                      <g
-                         id="g127" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g129">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g128">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="3.5210049978391353"
-                             id="text127">Initial</text>
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="62.16989596997659"
-                             id="text128">Train</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 16)"
-                       id="g135">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g131" />
-                      <g
-                         id="g132" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g134">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g133">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="32.84545048390786"
-                             id="text132">State</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect136" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect137" />
-              </g>
-              <g
-                 id="g138">
-                <path
-                   d="M 32860.00290417671 163353.3488 L 69170.99709582329 163353.3488 69170.99709582329 175545.3488 32860.00290417671 175545.3488 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path137" />
-              </g>
-              <g
-                 transform="matrix(380.99999999999994,0,0,381,31518.5,163353.3488)"
-                 id="g139" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M12357 5507h2212v1852h-2212z" fill="none" />
+         <path d="M12370 7345c0-871 974-1641 2005-1734" fill="none" stroke="red"
+            stroke-width="26" />
+         <path d="M14568 5602l-205 115-10-210 215 95z" fill="red" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_75">
-        <g
-           id="g145">
-          <g
-             id="g143">
-            <path
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 178144.5 105762 C 178144.5 99489 182101.5 93216 188037 88511.25 191004.75 86158.875 194467.125 84198.5625 198176.8125 82826.34375 200031.65625 82140.234375 201948.328125 81601.1484375 203895.9140625 81233.58984375 L 206292.1951620781 81004.86598321388"
-               id="path142" />
-            <path
-               fill="#FF0000"
-               fill-opacity="1"
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 206394.82113294885 82080.05190280706 L 209246.00263348792 80722.92650279973 206189.56919120735 79929.6800636207 Z"
-               id="path143" />
-          </g>
-          <g
-             id="g144">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 178144.5 105762 C 178144.5 99489 182101.5 93216 188037 88511.25 191004.75 86158.875 194467.125 84198.5625 198176.8125 82826.34375 200031.65625 82140.234375 201948.328125 81601.1484375 203895.9140625 81233.58984375 L 206292.1951620781 81004.86598321388"
-               id="path144" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M14134 7330h3449v984h-3449z" fill="none" />
+         <path
+            d="M14148 7503c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h3102c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-3103 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+            fill="#EFEFEF" />
+         <path
+            d="M14148 7503c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h3102c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-3103 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+            fill="none" stroke="#666" stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="14508" y="7962">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">reconciliation</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_76">
-        <g
-           id="g158">
-          <g
-             id="g146">
-            <path
-               fill="#EFEFEF"
-               fill-opacity="1"
-               stroke="#666666"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 203732.5 108056.04588 C 203732.5 106789.07932506384 204759.57932506382 105762 206026.54588 105762 L 250698.45412 105762 C 251306.87291582447 105762 251890.37246177223 106003.6934255701 252320.58951810107 106433.91048189894 252750.8065744299 106864.12753822777 252992.5 107447.62708417553 252992.5 108056.04588 L 252992.5 117231.95412 C 252992.5 118498.92067493616 251965.42067493615 119526 250698.45412 119526 L 206026.54588 119526 C 204759.57932506385 119526 203732.5 118498.92067493616 203732.5 117231.95412 Z"
-               id="path145" />
-          </g>
-          <g
-             id="g157">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g156">
-              <g
-                 transform="matrix(380.99999999999994,0,0,380.99999999999994,208061.4030977932,109596)"
-                 id="g153">
-                <g
-                   pointer-events="none"
-                   id="g152">
-                  <g
-                     id="editor-g2c31b302dee_0_76-paragraph-0">
-                    <g
-                       id="g151">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g147" />
-                      <g
-                         id="g148" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g150">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g149">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="1.9659393624142965"
-                             id="text148">Reconciliation</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect152" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect153" />
-              </g>
-              <g
-                 id="g154">
-                <path
-                   d="M 208810.42599487305 109596 L 247914.57400512695 109596 247914.57400512695 115692 208810.42599487305 115692 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path153" />
-              </g>
-              <g
-                 transform="matrix(380.99999999999994,0,0,380.99999999999994,208061.4030977932,109596)"
-                 id="g155" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M13714 7718h448v212h-448z" fill="none" />
+         <path d="M14147 7822c-108 0-216 0-216 1h-20" fill="none" stroke="red" stroke-width="26" />
+         <path d="M13714 7824l210-106v210l-210-104z" fill="red" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_78">
-        <g
-           id="g161">
-          <g
-             id="g159">
-            <path
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 203732.5 112644 L 201016.72390765033 112654.43861195123"
-               id="path158" />
-            <path
-               fill="#FF0000"
-               fill-opacity="1"
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 201012.56776553788 111574.37399440684 L 198049.51341989098 112665.85658478762 201020.88004976278 113734.50322949563 Z"
-               id="path159" />
-          </g>
-          <g
-             id="g160">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 203732.5 112644 L 201016.72390765033 112654.43861195123"
-               id="path160" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M10244 7718h786v212h-786z" fill="none" />
+         <path d="M10258 7842c192 0 385-5 385-10s81-6 190-8" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <path d="M11029 7822l-209 107-2-210 211 103z" fill="#595959" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_90">
-        <g
-           id="g164">
-          <g
-             id="g162">
-            <path
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 147697.4058 112931.431 C 150473.1828 112931.431 151861.4598 112859.431 153248.9598 112787.431 L 155274.34211396103 112734.86582171217"
-               id="path161" />
-            <path
-               fill="#595959"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 155302.3640326389 113814.57486754915 L 158240.57575637032 112657.88252864112 155246.32019528316 111655.15677587519 Z"
-               id="path162" />
-          </g>
-          <g
-             id="g163">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 147697.4058 112931.431 C 150473.1828 112931.431 151861.4598 112859.431 153248.9598 112787.431 L 155274.34211396103 112734.86582171217"
-               id="path163" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M21014 7625h385v209h-385z" fill="none" />
+         <path d="M21027 7717c92 0 161 8 181 17" fill="none" stroke="#595959" stroke-width="26" />
+         <path d="M21398 7759l-223 74 30-208 193 134z" fill="#595959" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_93">
-        <g
-           id="g167">
-          <g
-             id="g165">
-            <path
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 302786 111139 C 304733.50622 111139 305707.51244 111289 306681.01244 111439 L 307060.1679949636 111468.21834830858"
-               id="path164" />
-            <path
-               fill="#595959"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 306977.1818712848 112545.09817208901 L 310018.6290493054 111696.20220456898 307143.1541186424 110391.33852452815 Z"
-               id="path165" />
-          </g>
-          <g
-             id="g166">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 302786 111139 C 304733.50622 111139 305707.51244 111289 306681.01244 111439 L 307060.1679949636 111468.21834830858"
-               id="path166" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M17569 7718h427v212h-427z" fill="none" />
+         <path d="M17982 7824c-103 0-206 0-206-1h-11" fill="none" stroke="red" stroke-width="26" />
+         <path d="M17569 7822l211-104-2 210-209-106z" fill="red" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_100">
-        <g
-           id="g170">
-          <g
-             id="g168">
-            <path
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 258945.5 112668 L 256517.7213434588 112658.21213599155"
-               id="path167" />
-            <path
-               fill="#FF0000"
-               fill-opacity="1"
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 256522.07691950235 111578.14830429181 L 253550.5130146134 112646.24626774009 256513.36576741526 113738.27596769128 Z"
-               id="path168" />
-          </g>
-          <g
-             id="g169">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 258945.5 112668 L 256517.7213434588 112658.21213599155"
-               id="path169" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M21384 7089h1827v1343h-1827z" fill="none" />
+         <path d="M22297 8418h-900V7102h1800v1316h-900z" fill="#EEE" />
+         <path d="M22297 8418h-900V7102h1800v1316h-900z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="21596" y="7704">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="282"
+                     font-weight="400" style="white-space:pre">section’s </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="21439" y="8042">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="282"
+                     font-weight="400" style="white-space:pre">final state</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_101">
-        <g
-           id="g193">
-          <g
-             id="g171">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 310576 102253 L 334324 102253 334324 121213 310576 121213 Z"
-               id="path170" />
-          </g>
-          <g
-             id="g192">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g191">
-              <g
-                 transform="matrix(381,0,0,381,314233,104303.5)"
-                 id="g188">
-                <g
-                   pointer-events="none"
-                   id="g187">
-                  <g
-                     id="editor-g2c31b302dee_0_101-paragraph-0">
-                    <g
-                       id="g176">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g172" />
-                      <g
-                         id="g173" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g175">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 10.239999999999998)"
-                           id="g174">
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="1.0398180803914698"
-                             id="text173">Section</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 13)"
-                       id="g181">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g177" />
-                      <g
-                         id="g178" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g180">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 10.239999999999998)"
-                           id="g179">
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="6.904706271614614"
-                             id="text178">final</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 26)"
-                       id="g186">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g182" />
-                      <g
-                         id="g183" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g185">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 10.239999999999998)"
-                           id="g184">
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="6.904706271614614"
-                             id="text183">state</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect187" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect188" />
-              </g>
-              <g
-                 id="g189">
-                <path
-                   d="M 314629.17068862915 104303.5 L 330270.82931137085 104303.5 330270.82931137085 119086.3 314629.17068862915 119086.3 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path188" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,314233,104303.5)"
-                 id="g190" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M13068 9402h3244v1309h-3244z" fill="none" />
+         <path
+            d="M13082 9629c0-37 10-74 29-107 18-32 45-59 78-78 32-18 69-28 106-28h2789c37 0 74 10 107 29 32 18 59 45 78 78 18 32 28 69 28 106l1 853c0 37-10 74-29 107-18 32-45 59-78 78-32 18-69 28-106 28l-2790 1c-37 0-74-10-107-29-32-18-59-45-78-78-18-32-28-69-28-106v-854z"
+            fill="#EFEFEF" />
+         <path
+            d="M13082 9629c0-37 10-74 29-107 18-32 45-59 78-78 32-18 69-28 106-28h2789c37 0 74 10 107 29 32 18 59 45 78 78 18 32 28 69 28 106l1 853c0 37-10 74-29 107-18 32-45 59-78 78-32 18-69 28-106 28l-2790 1c-37 0-74-10-107-29-32-18-59-45-78-78-18-32-28-69-28-106v-854z"
+            fill="none" stroke="#666" stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="13917" y="9984">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">Schedule </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="13725" y="10408">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">controller</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_61">
-        <g
-           id="g211">
-          <g
-             id="g194">
-            <path
-               fill="#EFEFEF"
-               fill-opacity="1"
-               stroke="#666666"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 188393.5 138680.25624 C 188393.5 136983.60355614478 189768.90875614478 135608.1948 191465.56144 135608.1948 L 231629.43856 135608.1948 C 232444.19991168822 135608.1948 233225.59075961827 135931.85748672683 233801.71403644572 136507.98076355428 234377.83731327316 137084.10404038173 234701.5 137865.49488831178 234701.5 138680.25624 L 234701.5 150968.13336 C 234701.5 152664.78604385522 233326.09124385525 154040.1948 231629.43856 154040.1948 L 191465.56144 154040.1948 C 189768.90875614478 154040.1948 188393.5 152664.78604385522 188393.5 150968.13336 Z"
-               id="path193" />
-          </g>
-          <g
-             id="g210">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g209">
-              <g
-                 transform="matrix(381,0,0,381,192950.2760751616,138728.1948)"
-                 id="g206">
-                <g
-                   pointer-events="none"
-                   id="g205">
-                  <g
-                     id="editor-g2c31b302dee_0_61-paragraph-0">
-                    <g
-                       id="g199">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g195" />
-                      <g
-                         id="g196" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g198">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g197">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="19.48716562679462"
-                             id="text196">Schedule</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 16)"
-                       id="g204">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g200" />
-                      <g
-                         id="g201" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g203">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g202">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="15.821609672815129"
-                             id="text201">Controler</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect205" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect206" />
-              </g>
-              <g
-                 id="g207">
-                <path
-                   d="M 198978.30936050415 138728.1948 L 224116.69063949585 138728.1948 224116.69063949585 150920.1948 198978.30936050415 150920.1948 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path206" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,192950.2760751616,138728.1948)"
-                 id="g208" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M6766 6791h6331v3280H6766z" fill="none" />
+         <path d="M13083 10057c-3152 0-6304-813-6304-1627s223-1338 486-1555" fill="none"
+            stroke="#6AA84F" stroke-width="26" />
+         <path d="M7440 6802l-149 181-86-192 235 11z" fill="#6AA84F" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_79">
-        <g
-           id="g214">
-          <g
-             id="g212">
-            <path
-               stroke="#6AA84F"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 188393.5 144824.1948 C 143002.88272 144824.1948 107768.76543999999 133106.1948 97612.26543999999 121388.1948 92534.01543999999 115529.1948 93725.16975999999 109670.1948 96781.46373999999 105275.9448 98309.61072999999 103078.8198 100304.04263499999 101247.8823 102214.2263725 99966.22605 L 103808.827728474 99098.3333575512"
-               id="path211" />
-            <path
-               fill="#6AA84F"
-               fill-opacity="1"
-               stroke="#6AA84F"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 104160.08341916012 100119.69337798924 L 106614.76185055655 98133.34519632561 103457.57203778789 98076.97333711314 Z"
-               id="path212" />
-          </g>
-          <g
-             id="g213">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 188393.5 144824.1948 C 143002.88272 144824.1948 107768.76543999999 133106.1948 97612.26543999999 121388.1948 92534.01543999999 115529.1948 93725.16975999999 109670.1948 96781.46373999999 105275.9448 98309.61072999999 103078.8198 100304.04263499999 101247.8823 102214.2263725 99966.22605 L 103808.827728474 99098.3333575512"
-               id="path213" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M18191 7120h2494v982h-2494z" fill="none" />
+         <path d="M19438 8088h-1234v-955h2467v955h-1233z" fill="#EEE" />
+         <path d="M19438 8088h-1234v-955h2467v955h-1233z" fill="none" stroke="#B7B7B7"
+            stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_107">
-        <g
-           id="g216">
-          <g
-             id="g215">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 262151.8376 102722.6624 L 297683.8376 102722.6624 297683.8376 116486.6624 262151.8376 116486.6624 Z"
-               id="path214" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M18080 7221h2494v982h-2494z" fill="none" />
+         <path d="M19327 8189h-1234v-955h2467v955h-1233z" fill="#EEE" />
+         <path d="M19327 8189h-1234v-955h2467v955h-1233z" fill="none" stroke="#B7B7B7"
+            stroke-width="26" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_106">
-        <g
-           id="g218">
-          <g
-             id="g217">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#B7B7B7"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 260548.6688 104182.8312 L 296080.6688 104182.8312 296080.6688 117946.8312 260548.6688 117946.8312 Z"
-               id="path216" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M17968 7332h2494v982h-2494z" fill="none" />
+         <path d="M19215 8300h-1234v-955h2467v955h-1233z" fill="#EEE" />
+         <path d="M19215 8300h-1234v-955h2467v955h-1233z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="18347" y="7752">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">potential </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="18637" y="8176">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">states</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_99">
-        <g
-           id="g236">
-          <g
-             id="g219">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 258945.5 105786 L 294477.5 105786 294477.5 119550 258945.5 119550 Z"
-               id="path218" />
-          </g>
-          <g
-             id="g235">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g234">
-              <g
-                 transform="matrix(381,0,0,381,262602.5,106572)"
-                 id="g231">
-                <g
-                   pointer-events="none"
-                   id="g230">
-                  <g
-                     id="editor-g2c31b302dee_0_99-paragraph-0">
-                    <g
-                       id="g224">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g220" />
-                      <g
-                         id="g221" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g223">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g222">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="4.041494384525329"
-                             id="text221">Candidate</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 16)"
-                       id="g229">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g225" />
-                      <g
-                         id="g226" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g228">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g227">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="15.038162246463806"
-                             id="text226">States</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect230" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect231" />
-              </g>
-              <g
-                 id="g232">
-                <path
-                   d="M 264142.30936050415 106572 L 289280.69063949585 106572 289280.69063949585 118764 264142.30936050415 118764 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path231" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,262602.5,106572)"
-                 id="g233" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M17384 5588h1921v1759h-1921z" fill="none" />
+         <path d="M17397 5601c909 0 1685 748 1805 1552" fill="none" stroke="red"
+            stroke-width="26" />
+         <path d="M19216 7345l-122-201 210-17-88 218z" fill="red" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_77">
-        <g
-           id="g239">
-          <g
-             id="g237">
-            <path
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 250514.6681 80668.6372 C 257063.6681 80668.6372 263612.6681 83808.1372 268524.4181 88517.3872 270980.2931 90872.0122 273026.8556 93619.0747 274459.44935 96562.35595 275175.746225 98033.996575 275738.5509125 99554.6918875 276122.28138125 101099.91454375 L 276271.48359093565 102287.85939329024"
-               id="path236" />
-            <path
-               fill="#FF0000"
-               fill-opacity="1"
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 275199.8303465878 102422.45573598695 L 276641.25376317935 105231.96171292718 277343.1368352835 102153.26305059354 Z"
-               id="path237" />
-          </g>
-          <g
-             id="g238">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 250514.6681 80668.6372 C 257063.6681 80668.6372 263612.6681 83808.1372 268524.4181 88517.3872 270980.2931 90872.0122 273026.8556 93619.0747 274459.44935 96562.35595 275175.746225 98033.996575 275738.5509125 99554.6918875 276122.28138125 101099.91454375 L 276271.48359093565 102287.85939329024"
-               id="path238" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M7427 7299h2843v1087H7427z" fill="none" />
+         <path d="M8848 8372H7440V7312h2816v1060H8848z" fill="#EEE" />
+         <path d="M8848 8372H7440V7312h2816v1060H8848z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="7694" y="7786">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="282"
+                     font-weight="400" style="white-space:pre">section’s </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="7694" y="8124">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="282"
+                     font-weight="400" style="white-space:pre">initial state</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_8">
-        <g
-           id="g257">
-          <g
-             id="g240">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 107137.4058 105293.431 L 147697.4058 105293.431 147697.4058 120569.431 107137.4058 120569.431 Z"
-               id="path239" />
-          </g>
-          <g
-             id="g256">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g255">
-              <g
-                 transform="matrix(380.99999999999994,0,0,381,110794.4058,107978.431)"
-                 id="g252">
-                <g
-                   pointer-events="none"
-                   id="g251">
-                  <g
-                     id="editor-g2c31b302dee_0_8-paragraph-0">
-                    <g
-                       id="g245">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g241" />
-                      <g
-                         id="g242" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g244">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 10.239999999999998)"
-                           id="g243">
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             id="text242">Section</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 13)"
-                       id="g250">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g246" />
-                      <g
-                         id="g247" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g249">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 10.239999999999998)"
-                           id="g248">
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             id="text247">initial</text>
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="46.919111251831055"
-                             id="text248">state</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect251" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect252" />
-              </g>
-              <g
-                 id="g253">
-                <path
-                   d="M 110794.4058 107978.431 L 139843.20100797727 107978.431 139843.20100797727 117808.231 110794.4058 117808.231 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path252" />
-              </g>
-              <g
-                 transform="matrix(380.99999999999994,0,0,381,110794.4058,107978.431)"
-                 id="g254" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M10244 5182h2121v1634h-2121z" fill="none" />
+         <path d="M10257 6802c526 0 1053-383 1053-767 0-383 405-672 860-750" fill="none"
+            stroke="#595959" stroke-width="26" />
+         <path d="M12364 5268l-199 124-20-209 219 85z" fill="#595959" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_185">
-        <g
-           id="g260">
-          <g
-             id="g258">
-            <path
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 147697 97949.9793 C 155279.4832 97949.9793 159069.9664 92426.9793 162861.9664 86903.9793 164757.9664 84142.4793 166654.3456 81380.9793 169024.9144 79309.8543 170210.1988 78274.2918 171514.0306 77411.32305 172995.6361 76807.244925 L 174569.70689737517 76510.6192833098"
-               id="path257" />
-            <path
-               fill="#595959"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 174769.72067982453 77572.01051109478 L 177485.6168638174 75961.1308699874 174369.69311492582 75449.22805552483 Z"
-               id="path258" />
-          </g>
-          <g
-             id="g259">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 147697 97949.9793 C 155279.4832 97949.9793 159069.9664 92426.9793 162861.9664 86903.9793 164757.9664 84142.4793 166654.3456 81380.9793 169024.9144 79309.8543 170210.1988 78274.2918 171514.0306 77411.32305 172995.6361 76807.244925 L 174569.70689737517 76510.6192833098"
-               id="path259" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M12363 4099h7027v934h-7027z" fill="none" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="14061" y="4706">
+                  <tspan fill="#B7B7B7" font-family="Arial, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">Driver behavior module</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_188">
-        <g
-           id="g274">
-          <g
-             id="g261">
-            <path
-               d="M 178025.6655 59034.362 L 279209.6655 59034.362 279209.6655 72582.362 178025.6655 72582.362 Z"
-               id="path260" />
-          </g>
-          <g
-             id="g262">
-            <path
-               fill="#000"
-               fill-opacity="0"
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 178025.6655 59034.362 L 279209.6655 59034.362 279209.6655 72582.362 178025.6655 72582.362 Z"
-               id="path261" />
-          </g>
-          <g
-             id="g273">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g272">
-              <g
-                 transform="matrix(381,0,0,381,181682.6655,62691.362)"
-                 id="g269">
-                <g
-                   pointer-events="none"
-                   id="g268">
-                  <g
-                     id="editor-g2c31b302dee_0_188-paragraph-0">
-                    <g
-                       id="g267">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g263" />
-                      <g
-                         id="g264" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g266">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g265">
-                          <text
-                             style="font-family:Arial;font-size:13.333333333333332px;fill:#B7B7B7;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="74.27897486161059"
-                             id="text264">Driver</text>
-                          <text
-                             style="font-family:Arial;font-size:13.333333333333332px;fill:#B7B7B7;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="113.53675255249804"
-                             id="text265">behaviour</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect268" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect269" />
-              </g>
-              <g
-                 id="g270">
-                <path
-                   d="M 209982.95492227364 62691.362 L 247252.37607772637 62691.362 247252.37607772637 68787.362 209982.95492227364 68787.362 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path269" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,181682.6655,62691.362)"
-                 id="g271" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M14554 5109h2856v985h-2856z" fill="none" />
+         <path
+            d="M14568 5282c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+            fill="#EFEFEF" />
+         <path
+            d="M14568 5282c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+            fill="none" stroke="#666" stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="15209" y="5741">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">reaction</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_189">
-        <g
-           id="g289">
-          <g
-             id="g275">
-            <path
-               fill="#EFEFEF"
-               fill-opacity="1"
-               stroke="#666666"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 209798.6681 76080.68308 C 209798.6681 74813.71652506384 210825.74742506383 73786.6372 212092.71398 73786.6372 L 248220.62222000002 73786.6372 C 248829.04101582448 73786.6372 249412.54056177224 74028.3306255701 249842.75761810108 74458.54768189894 250272.97467442992 74888.76473822776 250514.6681 75472.26428417553 250514.6681 76080.68308 L 250514.6681 85256.59131999999 C 250514.6681 86523.55787493616 249487.58877493616 87550.6372 248220.62222000002 87550.6372 L 212092.71398 87550.6372 C 210825.74742506386 87550.6372 209798.6681 86523.55787493616 209798.6681 85256.59131999999 Z"
-               id="path274" />
-          </g>
-          <g
-             id="g288">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g287">
-              <g
-                 transform="matrix(381,0,0,380.99999999999994,214127.5711977932,77620.6372)"
-                 id="g284">
-                <g
-                   pointer-events="none"
-                   id="g283">
-                  <g
-                     id="editor-g2c31b302dee_0_189-paragraph-0">
-                    <g
-                       id="g282">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g276" />
-                      <g
-                         id="g279">
-                        <g
-                           id="g278">
-                          <g
-                             id="g277">
-                            <path
-                               d="M 12.746674753745765 14.499999999999998 L 12.746674753745765 14.499999999999998 14.746674753745765 16.5 16.746674753745765 14.5 18.746674753745765 16.5 20.746674753745765 14.5 22.746674753745765 16.5 24.746674753745765 14.5 26.746674753745765 16.5 28.746674753745765 14.5 30.746674753745765 16.5 32.746674753745765 14.5 34.746674753745765 16.5 36.746674753745765 14.5 38.746674753745765 16.5 40.746674753745765 14.5 42.746674753745765 16.5 44.746674753745765 14.5 46.746674753745765 16.5 48.746674753745765 14.5 50.746674753745765 16.5 52.746674753745765 14.5 54.746674753745765 16.5 56.746674753745765 14.5 58.746674753745765 16.5 60.746674753745765 14.5 62.746674753745765 16.5 64.74667475374576 14.5 66.74667475374576 16.5 68.74667475374576 14.5 70.74667475374576 16.5"
-                               class="sketchy-text-spelling-error-highlight-overlay"
-                               id="path276" />
-                            <path
-                               d="M 12.746674753745765 14.999999999999998 L 12.746674753745765 14.999999999999998 14.746674753745765 17 16.746674753745765 15 18.746674753745765 17 20.746674753745765 15 22.746674753745765 17 24.746674753745765 15 26.746674753745765 17 28.746674753745765 15 30.746674753745765 17 32.746674753745765 15 34.746674753745765 17 36.746674753745765 15 38.746674753745765 17 40.746674753745765 15 42.746674753745765 17 44.746674753745765 15 46.746674753745765 17 48.746674753745765 15 50.746674753745765 17 52.746674753745765 15 54.746674753745765 17 56.746674753745765 15 58.746674753745765 17 60.746674753745765 15 62.746674753745765 17 64.74667475374576 15 66.74667475374576 17 68.74667475374576 15 70.74667475374576 17"
-                               class="sketchy-text-spelling-error-underline-overlay"
-                               id="path277" />
-                          </g>
-                        </g>
-                      </g>
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g281">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g280">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="12.746674753745765"
-                             id="text279">Reaction</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect283" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect284" />
-              </g>
-              <g
-                 id="g285">
-                <path
-                   d="M 218984.05427897035 77620.6372 L 241329.28192102967 77620.6372 241329.28192102967 83716.6372 218984.05427897035 83716.6372 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path284" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,380.99999999999994,214127.5711977932,77620.6372)"
-                 id="g286" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M15753 6351h228v995h-228z" fill="none" />
+         <path d="M15859 7149c1-168 3-301 8-301 4 0 6-133 8-302" fill="none" stroke="red"
+            stroke-width="26" />
+         <path d="M15858 7345l-104-210h210l-106 210zm18-994l104 211-210-2 106-209z" fill="red" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_191">
-        <g
-           id="g293">
-          <g
-             id="g291">
-            <path
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 228424.50185121273 102238.29543903847 L 228488.5 98601.13680000001 228552.44854283452 94969.70368776505"
-               id="path289" />
-            <path
-               fill="#FF0000"
-               fill-opacity="1"
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 227344.5963972166 102219.29380705596 L 228372.2995655465 105205.06866430257 229504.40730520885 102257.29707102098 Z"
-               id="path290" />
-            <path
-               fill="#FF0000"
-               fill-opacity="1"
-               stroke="#FF0000"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 229632.35372922273 94988.7205224236 L 228604.69259409426 92002.93119768755 227472.54335644632 94950.68685310651 Z"
-               id="path291" />
-          </g>
-          <g
-             id="g292">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 228424.50185121273 102238.29543903847 L 228488.5 98601.13680000001 228552.44854283452 94969.70368776505"
-               id="path292" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M16298 8404h6023v1758h-6023z" fill="none" />
+         <path d="M22307 8417c0 820-2879 1606-5819 1639" fill="none" stroke="#6AA84F"
+            stroke-width="26" />
+         <path d="M16299 10057l209-106 2 210-211-104z" fill="#6AA84F" />
       </g>
-      <g
-         id="editor-g2c3cf88d5c1_0_4">
-        <g
-           id="g315">
-          <g
-             id="g313">
-            <path
-               stroke="#6AA84F"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 322450 121213 C 322450 127117 311482 133021 295030 137449 286804 139663 277207 141508 266924.5 142799.5 261783.25 143445.25 256470.625 143952.625 251072.3125 144298.5625 L 238228.40046952793 144714.837857547"
-               id="path312" />
-            <path
-               fill="#6AA84F"
-               fill-opacity="1"
-               stroke="#6AA84F"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 238193.413336486 143635.33206686773 L 235262.72522040905 144810.95635491496 238263.38760256986 145794.3436482263 Z"
-               id="path313" />
-          </g>
-          <g
-             id="g314">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 322450 121213 C 322450 127117 311482 133021 295030 137449 286804 139663 277207 141508 266924.5 142799.5 261783.25 143445.25 256470.625 143952.625 251072.3125 144298.5625 L 238228.40046952793 144714.837857547"
-               id="path314" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M7427 6259h2843v1087H7427z" fill="none" />
+         <path d="M8848 7332H7440V6272h2816v1060H8848z" fill="#EEE" />
+         <path d="M8848 7332H7440V6272h2816v1060H8848z" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="7694" y="6915">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="282"
+                     font-weight="400" style="white-space:pre">slowdown ratio</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c31b302dee_0_88">
-        <g
-           id="g333">
-          <g
-             id="g316">
-            <path
-               fill="#EEEEEE"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 107137 90311.9793 L 147697 90311.9793 147697 105587.9793 107137 105587.9793 Z"
-               id="path315" />
-          </g>
-          <g
-             id="g332">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g331">
-              <g
-                 transform="matrix(381,0,0,381,110794,92996.9793)"
-                 id="g328">
-                <g
-                   pointer-events="none"
-                   id="g327">
-                  <g
-                     id="editor-g2c31b302dee_0_88-paragraph-0">
-                    <g
-                       id="g321">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g317" />
-                      <g
-                         id="g318" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g320">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 10.239999999999998)"
-                           id="g319">
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             id="text318">Slowdown</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 13)"
-                       id="g326">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g322" />
-                      <g
-                         id="g323" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g325">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 10.239999999999998)"
-                           id="g324">
-                          <text
-                             style="font-family:docs-Consolas;font-size:10.666666666666666px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             id="text323">coefficient</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect327" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect328" />
-              </g>
-              <g
-                 id="g329">
-                <path
-                   d="M 110794 92996.9793 L 135373.74967956543 92996.9793 135373.74967956543 102826.77930000001 110794 102826.77930000001 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path328" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,110794,92996.9793)"
-                 id="g330" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M12414 11103h4555v1309h-4555z" fill="none" />
+         <path
+            d="M12428 11330c0-37 10-74 29-107 18-32 45-59 78-78 32-18 69-28 106-28h4100c37 0 74 10 107 29 32 18 59 45 78 78 18 32 28 69 28 106l1 853c0 37-10 74-29 107-18 32-45 59-78 78-32 18-69 28-106 28l-4101 1c-37 0-74-10-107-29-32-18-59-45-78-78-18-32-28-69-28-106v-854z"
+            fill="#EFEFEF" />
+         <path
+            d="M12428 11330c0-37 10-74 29-107 18-32 45-59 78-78 32-18 69-28 106-28h4100c37 0 74 10 107 29 32 18 59 45 78 78 18 32 28 69 28 106l1 853c0 37-10 74-29 107-18 32-45 59-78 78-32 18-69 28-106 28l-4101 1c-37 0-74-10-107-29-32-18-59-45-78-78-18-32-28-69-28-106v-854z"
+            fill="none" stroke="#666" stroke-width="26" />
+         <text class="prefix__prefix__SVGTextShape">
+            <tspan class="prefix__prefix__TextParagraph">
+               <tspan class="prefix__prefix__TextPosition" x="12953" y="11685">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">Time bound section </tspan>
+               </tspan>
+               <tspan class="prefix__prefix__TextPosition" x="13726" y="12109">
+                  <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                     font-weight="400" style="white-space:pre">iterations</tspan>
+               </tspan>
+            </tspan>
+         </text>
       </g>
-      <g
-         id="editor-g2c3cf88d5c1_0_5">
-        <g
-           id="g351">
-          <g
-             id="g334">
-            <path
-               fill="#EFEFEF"
-               fill-opacity="1"
-               stroke="#666666"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 178959 163168.06144 C 178959 161471.40875614478 180334.40875614478 160096 182031.06144 160096 L 241070.93856 160096 C 241885.69991168822 160096 242667.09075961827 160419.66268672684 243243.21403644572 160995.78596355428 243819.33731327316 161571.90924038173 244143 162353.30008831178 244143 163168.06144 L 244143 175455.93856 C 244143 177152.59124385522 242767.59124385522 178528 241070.93856 178528 L 182031.06144 178528 C 180334.40875614478 178528 178959 177152.59124385522 178959 175455.93856 Z"
-               id="path333" />
-          </g>
-          <g
-             id="g350">
-            <g
-               direction="ltr"
-               style="opacity: 1;"
-               id="g349">
-              <g
-                 transform="matrix(381,0,0,381,183515.7760751616,163216)"
-                 id="g346">
-                <g
-                   pointer-events="none"
-                   id="g345">
-                  <g
-                     id="editor-g2c3cf88d5c1_0_5-paragraph-0">
-                    <g
-                       id="g339">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g335" />
-                      <g
-                         id="g336" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g338">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g337">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="11.268817730053485"
-                             id="text336">Scheduled</text>
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="84.5799325181089"
-                             id="text337">Section</text>
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       transform="translate(0 16)"
-                       id="g344">
-                      <g
-                         class="sketchy-text-background"
-                         visibility="visible"
-                         id="g340" />
-                      <g
-                         id="g341" />
-                      <g
-                         class="sketchy-text-content"
-                         visibility="visible"
-                         id="g343">
-                        <g
-                           class="sketchy-text-content-text"
-                           transform="translate(0 12.799999999999999)"
-                           id="g342">
-                          <text
-                             style="font-family:docs-Consolas;font-size:13.333333333333332px;fill:#434343;white-space:pre;"
-                             text-rendering="geometricPrecision"
-                             x="40.59326321612221"
-                             id="text341">iteration</text>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <rect
-                   style="opacity: 0;"
-                   id="rect345" />
-                <rect
-                   style="opacity: 1;"
-                   id="rect346" />
-              </g>
-              <g
-                 id="g347">
-                <path
-                   d="M 187809.19563031197 163216 L 235292.80436968803 163216 235292.80436968803 175408 187809.19563031197 175408 Z"
-                   pointer-events="visiblePainted"
-                   fill="#000000"
-                   stroke="#000000"
-                   opacity="0"
-                   id="path346" />
-              </g>
-              <g
-                 transform="matrix(381,0,0,381,183515.7760751616,163216)"
-                 id="g348" />
-            </g>
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M16954 8404h5367v3456h-5367z" fill="none" />
+         <path d="M22307 8417c0 1670-2551 3261-5164 3337" fill="none" stroke="#15C"
+            stroke-width="26" />
+         <path d="M16954 11757l208-108 4 210-212-102z" fill="#15C" />
       </g>
-      <g
-         id="editor-g2c3cf88d5c1_0_6">
-        <g
-           id="g354">
-          <g
-             id="g352">
-            <path
-               stroke="#1155CC"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 322450 121213 C 322450 133237 312661 145261 297977.5 154279 290635.75 158788 282070.375 162545.5 272893.1875 165175.75 268304.59375 166490.875 263563.046875 167524.1875 258745.0234375 168228.71875 L 247652.6513568356 169049.0694277433"
-               id="path351" />
-            <path
-               fill="#1155CC"
-               fill-opacity="1"
-               stroke="#1155CC"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 247572.99075028245 167971.93849821234 L 244693.50045153082 169267.91724794425 247732.31196338873 170126.20035727424 Z"
-               id="path352" />
-          </g>
-          <g
-             id="g353">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 322450 121213 C 322450 133237 312661 145261 297977.5 154279 290635.75 158788 282070.375 162545.5 272893.1875 165175.75 268304.59375 166490.875 263563.046875 167524.1875 258745.0234375 168228.71875 L 247652.6513568356 169049.0694277433"
-               id="path353" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M6766 7842h5676v3930H6766z" fill="none" />
+         <path d="M12428 11758c-2824 0-5649-978-5649-1957s227-1621 492-1876" fill="none"
+            stroke="#15C" stroke-width="26" />
+         <path d="M7440 7843l-139 190-96-187 235-3z" fill="#15C" />
       </g>
-      <g
-         id="editor-g2c3cf88d5c1_0_7">
-        <g
-           id="g357">
-          <g
-             id="g355">
-            <path
-               stroke="#1155CC"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 178959 169312 C 138285.5385 169312 106589.57699999999 155218 97612.07699999999 141124 93123.32699999999 134077 94314.19237499998 127030 97222.67793749999 121744.75 98676.92071874999 119102.125 100560.56854687499 116899.9375 102378.37202343749 115358.40625 L 103897.50369075802 114319.12679811672"
-               id="path354" />
-            <path
-               fill="#1155CC"
-               fill-opacity="1"
-               stroke="#1155CC"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 104321.38887948869 115312.54423221145 L 106626.67246574356 113154.60704885666 103473.61850202736 113325.70936402198 Z"
-               id="path355" />
-          </g>
-          <g
-             id="g356">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 178959 169312 C 138285.5385 169312 106589.57699999999 155218 97612.07699999999 141124 93123.32699999999 134077 94314.19237499998 127030 97222.67793749999 121744.75 98676.92071874999 119102.125 100560.56854687499 116899.9375 102378.37202343749 115358.40625 L 103897.50369075802 114319.12679811672"
-               id="path356" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M14585 10698h211v434h-211z" fill="none" />
+         <path d="M14691 11118l-1-224" fill="none" stroke="#595959" stroke-width="26" />
+         <path d="M14689 10698l106 209-210 1 104-210z" fill="#595959" />
       </g>
-      <g
-         id="editor-g2c3cf88d5c1_0_8">
-        <g
-           id="g360">
-          <g
-             id="g358">
-            <path
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 211551 160096 L 211551 157560.25"
-               id="path357" />
-            <path
-               fill="#595959"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 212631.07261403507 157560.25 L 211551 154593.01754385966 210470.92738596493 157560.25 Z"
-               id="path358" />
-          </g>
-          <g
-             id="g359">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 211551 160096 L 211551 157560.25"
-               id="path359" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M5322 9951h7762v212H5322z" fill="none" />
+         <path d="M5335 10055c1937 0 3874 0 3874 1 0 0 1808 1 3677 1" fill="none"
+            stroke="#595959" stroke-width="26" />
+         <path d="M13083 10057l-210 105v-210l210 105z" fill="#595959" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_67">
-        <g
-           id="g363">
-          <g
-             id="g361">
-            <path
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 76815.5 144378.1948 C 104710.05788 144378.1948 118657.61575999999 144489.1948 132604.61576 144600.1948 L 184867.2779044375 144808.17040491372"
-               id="path360" />
-            <path
-               fill="#595959"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 184862.97986512101 145888.2344671094 L 187834.48686651353 144819.9782052337 184871.575943754 143728.10634271803 Z"
-               id="path361" />
-          </g>
-          <g
-             id="g362">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 76815.5 144378.1948 C 104710.05788 144378.1948 118657.61575999999 144489.1948 132604.61576 144600.1948 L 184867.2779044375 144808.17040491372"
-               id="path362" />
-          </g>
-        </g>
+      <g class="prefix__prefix__com_sun_star_drawing_CustomShape">
+         <path class="prefix__prefix__BoundingBox" d="M5138 11653h7291v212H5138z" fill="none" />
+         <path d="M5151 11767c1819 0 3638-2 3638-4s1691-5 3443-5" fill="none" stroke="#595959"
+            stroke-width="26" />
+         <path d="M12428 11758l-210 105v-210l210 105z" fill="#595959" />
       </g>
-      <g
-         id="editor-g2c31b302dee_0_73">
-        <g
-           id="g366">
-          <g
-             id="g364">
-            <path
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="round"
-               stroke-miterlimit="8"
-               d="M 74169.5 169449.3488 C 100367.07175999999 169449.3488 113466.64352 169416.3488 126564.64352 169383.3488 L 175429.252796703 169321.78868151386"
-               id="path363" />
-            <path
-               fill="#595959"
-               fill-opacity="1"
-               stroke="#595959"
-               stroke-opacity="1"
-               stroke-width="381"
-               stroke-linecap="butt"
-               stroke-linejoin="miter"
-               stroke-miterlimit="10"
-               d="M 175430.6134817942 170401.860438447 L 178396.48289816768 169318.0505356589 175427.89211161179 168241.71692458072 Z"
-               id="path364" />
-          </g>
-          <g
-             id="g365">
-            <path
-               stroke="#000"
-               stroke-opacity="0"
-               stroke-width="3810"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               stroke-miterlimit="10"
-               pointer-events="visiblePainted"
-               d="M 74169.5 169449.3488 C 100367.07175999999 169449.3488 113466.64352 169416.3488 126564.64352 169383.3488 L 175429.252796703 169321.78868151386"
-               id="path365" />
-          </g>
-        </g>
-      </g>
-    </g>
-  </g>
+   </g>
 </svg>

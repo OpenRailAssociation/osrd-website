@@ -1,2390 +1,316 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   version="1.1"
-   fill-rule="evenodd"
-   fill="none"
-   stroke="none"
-   stroke-linecap="square"
-   stroke-miterlimit="10"
-   overflow="hidden"
-   viewBox="80010 762 419100 235458"
-   id="svg323"
-   sodipodi:docname="2.svg"
-   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs323">
-    <defs
-       cursor="default"
-       id="defs1" />
-  </defs>
-  <sodipodi:namedview
-     id="namedview323"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.01"
-     inkscape:cx="103450"
-     inkscape:cy="91450"
-     inkscape:window-width="1916"
-     inkscape:window-height="1039"
-     inkscape:window-x="0"
-     inkscape:window-y="39"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="editor-g2c4466e21ec_0_8" />
-  <rect
-     fill="#1a73e8"
-     fill-opacity="0"
-     width="100%"
-     height="100%"
-     id="rect1" />
-  <g
-     id="editor-g2c4466e21ec_0_8"
-     transform="translate(107442,762)">
-    <path
-       fill="#ffffff"
-       fill-opacity="1"
-       d="M 0,0 H 365760 V 205740 H 0 Z"
-       id="path1" />
-    <g
-       id="editor-g2c4466e21ec_0_8-bg">
-      <g
-         id="g3">
-        <g
-           id="g2">
-          <path
-             fill="#ffffff"
-             fill-opacity="1"
-             d="M 0,0 H 365760 V 205740 H 0 Z"
-             id="path2" />
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill-rule="evenodd" stroke-linejoin="round" stroke-width="28.222"
+    preserveAspectRatio="xMidYMid" version="1.2" viewBox="5977 3572 14433 8880"
+    xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export">
+    <g class="prefix__Page" ooo:name="Intégration_numérique">
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M9972 3658h4620v6156H9972z" fill="none" />
+            <path
+                d="M9986 4437c0-134 35-266 103-383 67-116 163-213 280-280 116-67 248-102 382-102h3061c134 0 266 35 383 103 116 67 213 163 280 280 67 116 102 248 102 382l1 4597c0 134-35 266-103 383-67 116-163 213-280 280-116 67-248 102-382 102l-3062 1c-134 0-266-35-383-103-116-67-213-163-280-280-67-116-102-248-102-382V4437z"
+                fill="#F3F3F3" />
+            <path
+                d="m9986 4437c0-134 35-266 103-383 67-116 163-213 280-280 116-67 248-102 382-102h3061c134 0 266 35 383 103 116 67 213 163 280 280 67 116 102 248 102 382l1 4597c0 134-35 266-103 383-67 116-163 213-280 280-116 67-248 102-382 102l-3062 1c-134 0-266-35-383-103-116-67-213-163-280-280-67-116-102-248-102-382v-4598z"
+                fill="none" stroke="#666" stroke-width="26" />
         </g>
-      </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M9985 3572h4592v934H9985z" fill="none" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="11130" y="4179">
+                        <tspan fill="#999" font-family="Arial, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Merging states</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6146 5984h2856v985H6146z" fill="none" />
+            <path
+                d="m6160 6157c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="#EFEFEF" />
+            <path
+                d="m6160 6157c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6056 4456h2713v982H6056z" fill="none" />
+            <path d="M7412 5424H6069v-955h2686v955H7412z" fill="#EEE" />
+            <path d="M7412 5424H6069v-955h2686v955H7412z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="6738" y="4876">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Current </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="6930" y="5300">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">state</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10346 4720h3947v1452h-3947z" fill="none" />
+            <path
+                d="m10360 4971c0-42 11-83 32-119s51-66 87-86c36-21 77-32 118-32h3444c42 0 83 11 119 32s66 51 86 87c21 36 32 77 32 118l1 948c0 42-11 83-32 119s-51 66-87 86c-36 21-77 32-118 32l-3445 1c-42 0-83-11-119-32s-66-51-86-87c-21-36-32-77-32-118v-949z"
+                fill="#EFEFEF" />
+            <path
+                d="m10360 4971c0-42 11-83 32-119s51-66 87-86c36-21 77-32 118-32h3444c42 0 83 11 119 32s66 51 86 87c21 36 32 77 32 118l1 948c0 42-11 83-32 119s-51 66-87 86c-36 21-77 32-118 32l-3445 1c-42 0-83-11-119-32s-66-51-86-87c-21-36-32-77-32-118v-949z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="11741" y="5162">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Select </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="11161" y="5586">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">constraining </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="10774" y="6010">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">(parameter, Δt)</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6387 7625h2494v1399H6387z" fill="none" />
+            <path d="M7634 9010H6400V7638h2467v1372H7634z" fill="#EEE" />
+            <path d="M7634 9010H6400V7638h2467v1372H7634z" fill="none" stroke="#B7B7B7"
+                stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6276 7726h2494v1399H6276z" fill="none" />
+            <path d="M7523 9111H6289V7739h2467v1372H7523z" fill="#EEE" />
+            <path d="M7523 9111H6289V7739h2467v1372H7523z" fill="none" stroke="#B7B7B7"
+                stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6062 6069h2856v984H6062z" fill="none" />
+            <path
+                d="m6076 6242c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="#EFEFEF" />
+            <path
+                d="m6076 6242c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6164 7838h2494v1399H6164z" fill="none" />
+            <path d="M7411 9223H6177V7851h2467v1372H7411z" fill="#EEE" />
+            <path d="M7411 9223H6177V7851h2467v1372H7411z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="7026" y="8466">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Next </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="6833" y="8890">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">states</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M5977 6154h2856v985H5977z" fill="none" />
+            <path
+                d="m5991 6327c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="#C9DAF8" />
+            <path
+                d="m5991 6327c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="6537" y="6786">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">reactions</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m7300 5413h212v757h-212z" fill="none" />
+            <path d="m7411 5426-5 547" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m7404 6169-103-211 210 2-107 209z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m7304 7111h212v741h-212z" fill="none" />
+            <path d="m7405 7124 5 531" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m7412 7851-107-209 210-2-103 211z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m11072 10315h2494v1259h-2494z" fill="none" />
+            <path d="m12319 11560h-1234v-1232h2467v1232h-1233z" fill="#EEE" />
+            <path d="m12319 11560h-1234v-1232h2467v1232h-1233z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="11451" y="10873">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Potential </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="11837" y="11297">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">state</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16663 4795h2856v1261h-2856z" fill="none" />
+            <path
+                d="m16677 5014c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#EFEFEF" />
+            <path
+                d="m16677 5014c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16578 4879h2856v1261h-2856z" fill="none" />
+            <path
+                d="m16592 5098c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#EFEFEF" />
+            <path
+                d="m16592 5098c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16493 4964h2857v1262h-2857z" fill="none" />
+            <path
+                d="m16507 5183c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#C9DAF8" />
+            <path
+                d="m16507 5183c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="17148" y="5523">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Truncate </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="17536" y="5947">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">step</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16686 8486h2494v982h-2494z" fill="none" />
+            <path d="m17933 9454h-1234v-955h2467v955h-1233z" fill="#EEE" />
+            <path d="m17933 9454h-1234v-955h2467v955h-1233z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="17451" y="8906">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Final </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="17451" y="9330">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">state</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m17814 6197h212v2305h-212z" fill="none" />
+            <path d="m17921 6210-2 2095" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m17919 8501-105-210h210l-105 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m15499 11296h949v483h-949z" fill="none" />
+            <path
+                d="m15500 11377c0-14 4-28 11-40s17-22 29-29 26-11 40-11h786c14 0 28 4 40 11s22 17 29 29 11 26 11 40l1 320c0 14-4 28-11 40s-17 22-29 29-26 11-40 11l-787 1c-14 0-28-4-40-11s-22-17-29-29-11-26-11-40v-321z"
+                fill="#C9DAF8" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16447 11066h3963v934h-3963z" fill="none" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="16701" y="11673">
+                        <tspan fill="#595959" font-family="Arial, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Repeat per instruction</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10613 6603h3639v982h-3639z" fill="none" />
+            <path d="m12432 7571h-1806v-955h3612v955h-1806z" fill="#EEE" />
+            <path d="m12432 7571h-1806v-955h3612v955h-1806z" fill="none" stroke="#B7B7B7"
+                stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10499 6717h3639v982h-3639z" fill="none" />
+            <path d="m12318 7685h-1806v-955h3612v955h-1806z" fill="#EEE" />
+            <path d="m12318 7685h-1806v-955h3612v955h-1806z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="10871" y="7349">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">(parameter, Δt)</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m12210 6143h212v588h-212z" fill="none" />
+            <path d="m12317 6156-1 378" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m12315 6730-104-210h210l-106 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10346 8253h3947v1262h-3947z" fill="none" />
+            <path
+                d="m10360 8472c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l3507 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-3508c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#EFEFEF" />
+            <path
+                d="m10360 8472c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l3507 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-3508c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="10969" y="8812">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Interpolate to </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="11259" y="9236">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">smallest Δt</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m12214 7673h212v594h-212z" fill="none" />
+            <path d="m12318 7686 1 384" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m12320 8266-106-210h210l-104 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m12214 9486h212v843h-212z" fill="none" />
+            <path d="m12318 9499 2 633" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m12320 10328-106-210h210l-104 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_ConnectorShape">
+            <path class="prefix__BoundingBox" d="m17910 5466h2332v1418h-2332z" fill="none" />
+            <path d="m17921 6210c0 891 1110 743 1766 366s822-887-89-971" fill="none"
+                stroke="#595959" stroke-width="21" />
+            <path d="m19609 5747-274-153 287-128-13 281z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_ConnectorShape">
+            <path class="prefix__BoundingBox" d="m12308 5508h4201v6944h-4201z" fill="none" />
+            <path d="m12319 11560c0 1369 1620 1142 2312-692s478-4887 1649-5241" fill="none"
+                stroke="#595959" stroke-width="21" />
+            <path d="m16242 5509 266 85-228 162-38-247z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_ConnectorShape">
+            <path class="prefix__BoundingBox" d="M7400 5445h2961v4385H7400z" fill="none" />
+            <path d="m7411 9223c0 919 1271 766 1855-408s497-2789 879-3255" fill="none"
+                stroke="#595959" stroke-width="21" />
+            <path d="m10047 5463 313-18-174 261-139-243z" fill="#595959" />
+        </g>
     </g>
-    <g
-       id="editor-g2c4466e21ec_0_48">
-      <g
-         id="g5">
-        <g
-           id="g4">
-          <path
-             fill="#f3f3f3"
-             fill-opacity="1"
-             stroke="#666666"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 143807.5,63916.72 c 0,-6086.299 4933.92,-11020.22 11020.22,-11020.22 h 44079.56 c 2922.74,0 5725.78,1161.056 7792.47,3227.748 2066.69,2066.692 3227.75,4869.728 3227.75,7792.472 v 66207.56 c 0,6086.3 -4933.92,11020.22 -11020.22,11020.22 h -44079.56 c -6086.3,0 -11020.22,-4933.92 -11020.22,-11020.22 z"
-             id="path3" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_49">
-      <g
-         id="g19">
-        <g
-           id="g6">
-          <path
-             d="m 143805.51,51447.795 h 66120 v 13548 h -66120 z"
-             id="path5" />
-        </g>
-        <g
-           id="g7">
-          <path
-             fill="#000000"
-             fill-opacity="0"
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 143805.51,51447.795 h 66120 v 13548 h -66120 z"
-             id="path6" />
-        </g>
-        <g
-           id="g18">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g17">
-            <g
-               transform="matrix(381,0,0,381,147462.51,55104.795)"
-               id="g14">
-              <g
-                 pointer-events="none"
-                 id="g13">
-                <g
-                   id="editor-g2c4466e21ec_0_49-paragraph-0">
-                  <g
-                     id="g12">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g8" />
-                    <g
-                       id="g9" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g11">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g10">
-                        <text
-                           style="font-size:13.3333px;font-family:Arial;white-space:pre;fill:#999999"
-                           text-rendering="geometricPrecision"
-                           x="20.841005"
-                           id="text9">Candidate</text>
-                        <text
-                           style="font-size:13.3333px;font-family:Arial;white-space:pre;fill:#999999"
-                           text-rendering="geometricPrecision"
-                           x="85.334343"
-                           id="text10">merging</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect13"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect14"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g15">
-              <path
-                 d="m 155402.93,55104.795 h 42925.15 v 6096 h -42925.15 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path14" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,147462.51,55104.795)"
-               id="g16" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_43">
-      <g
-         id="g21">
-        <g
-           id="g20">
-          <path
-             fill="#f3f3f3"
-             fill-opacity="1"
-             stroke="#666666"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 225247,68165.221 c 0,-6086.3 4933.92,-11020.221 11020.22,-11020.221 h 44079.56 c 2922.74,0 5725.78,1161.056 7792.47,3227.748 2066.69,2066.692 3227.75,4869.729 3227.75,7792.473 v 59415.559 c 0,6086.3 -4933.92,11020.22 -11020.22,11020.22 h -44079.56 c -6086.3,0 -11020.22,-4933.92 -11020.22,-11020.22 z"
-             id="path19" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_37">
-      <g
-         id="g23">
-        <g
-           id="g22">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#b7b7b7"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 246159.05,92782.5 h 29688 v 13764 h -29688 z"
-             id="path21" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_22">
-      <g
-         id="g25">
-        <g
-           id="g24">
-          <path
-             fill="#efefef"
-             fill-opacity="1"
-             stroke="#c9daf8"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 88722.976,88678.875 c 0,-1266.966 1027.079,-2294.046 2294.046,-2294.046 h 36127.908 c 608.42,0 1191.92,241.694 1622.14,671.911 430.21,430.217 671.91,1013.716 671.91,1622.135 v 9175.908 c 0,1266.967 -1027.08,2294.047 -2294.05,2294.047 H 91017.022 c -1266.967,0 -2294.046,-1027.08 -2294.046,-2294.047 z"
-             id="path23" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_13">
-      <g
-         id="g57">
-        <g
-           id="g40">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 87388.5,64369.5 h 38688 v 13764 h -38688 z"
-             id="path39" />
-        </g>
-        <g
-           id="g56">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g55">
-            <g
-               transform="matrix(381,0,0,381,91045.5,65155.5)"
-               id="g52">
-              <g
-                 pointer-events="none"
-                 id="g51">
-                <g
-                   id="editor-g2c4466e21ec_0_13-paragraph-0">
-                  <g
-                     id="g45">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g41" />
-                    <g
-                       id="g42" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g44">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g43">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="15.514338"
-                           id="text42">current</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,16)"
-                     id="g50">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g46" />
-                    <g
-                       id="g47" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g49">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g48">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="22.845451"
-                           id="text47">state</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect51"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect52"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g53">
-              <path
-                 d="m 96956.463,65155.5 h 19552.077 v 12192 H 96956.463 Z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path52" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,91045.5,65155.5)"
-               id="g54" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_14">
-      <g
-         id="g80">
-        <g
-           id="g58">
-          <path
-             fill="#efefef"
-             fill-opacity="1"
-             stroke="#666666"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 149181.5,71590.568 c 0,-1885.538 1528.53,-3414.068 3414.07,-3414.068 h 49607.86 c 905.47,0 1773.85,359.695 2414.11,999.957 640.26,640.262 999.96,1508.644 999.96,2414.111 v 13655.864 c 0,1885.538 -1528.53,3414.068 -3414.07,3414.068 h -49607.86 c -1885.54,0 -3414.07,-1528.53 -3414.07,-3414.068 z"
-             id="path57" />
-        </g>
-        <g
-           id="g79">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g78">
-            <g
-               transform="matrix(381,0,0,381,153838.45,69274.5)"
-               id="g75">
-              <g
-                 pointer-events="none"
-                 id="g74">
-                <g
-                   id="editor-g2c4466e21ec_0_14-paragraph-0">
-                  <g
-                     id="g63">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g59" />
-                    <g
-                       id="g60" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g62">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g61">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="17.853367"
-                           id="text60">selection</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="91.164482"
-                           id="text61">of</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,16)"
-                     id="g68">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g64" />
-                    <g
-                       id="g65" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g67">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g66">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="17.853369"
-                           id="text65">constraining</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,32)"
-                     id="g73">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g69" />
-                    <g
-                       id="g70" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g72">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g71">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="3.1911452"
-                           id="text70">(parameters,</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="98.49559"
-                           id="text71">Δt)</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect74"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect75"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g76">
-              <path
-                 d="m 155054.27,69274.5 h 44690.46 v 18288 h -44690.46 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path75" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,153838.45,69274.5)"
-               id="g77" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_15">
-      <g
-         id="g82">
-        <g
-           id="g81">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#b7b7b7"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 92173,109987.44 h 35532 v 19776 H 92173 Z"
-             id="path80" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_16">
-      <g
-         id="g84">
-        <g
-           id="g83">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#b7b7b7"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 90570,111447.36 h 35532 v 19776 H 90570 Z"
-             id="path82" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_21">
-      <g
-         id="g86">
-        <g
-           id="g85">
-          <path
-             fill="#efefef"
-             fill-opacity="1"
-             stroke="#c9daf8"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 87501.822,89900.029 c 0,-1266.966 1027.079,-2294.046 2294.046,-2294.046 h 36127.912 c 608.42,0 1191.91,241.694 1622.13,671.911 430.22,430.217 671.91,1013.716 671.91,1622.135 v 9175.908 c 0,1266.963 -1027.08,2294.043 -2294.04,2294.043 H 89795.868 c -1266.967,0 -2294.046,-1027.08 -2294.046,-2294.043 z"
-             id="path84" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_17">
-      <g
-         id="g104">
-        <g
-           id="g87">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 88967,113051.48 h 35532 v 19776 H 88967 Z"
-             id="path86" />
-        </g>
-        <g
-           id="g103">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g102">
-            <g
-               transform="matrix(381,0,0,381,92624,116843.48)"
-               id="g99">
-              <g
-                 pointer-events="none"
-                 id="g98">
-                <g
-                   id="editor-g2c4466e21ec_0_17-paragraph-0">
-                  <g
-                     id="g92">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g88" />
-                    <g
-                       id="g89" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g91">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g90">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="4.0414944"
-                           id="text89">candidate</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,16)"
-                     id="g97">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g93" />
-                    <g
-                       id="g94" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g96">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g95">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="15.038162"
-                           id="text94">states</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect98"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect99"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g100">
-              <path
-                 d="m 94163.809,116843.48 h 25138.381 v 12192 H 94163.809 Z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path99" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,92624,116843.48)"
-               id="g101" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_18">
-      <g
-         id="g119">
-        <g
-           id="g105">
-          <path
-             fill="#c9daf8"
-             fill-opacity="1"
-             stroke="#666666"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 86280.668,91121.183 c 0,-1266.966 1027.079,-2294.046 2294.046,-2294.046 h 36127.906 c 608.42,0 1191.92,241.694 1622.14,671.911 430.21,430.217 671.91,1013.716 671.91,1622.135 v 9175.907 c 0,1266.97 -1027.08,2294.05 -2294.05,2294.05 H 88574.714 c -1266.967,0 -2294.046,-1027.08 -2294.046,-2294.05 z"
-             id="path104" />
-        </g>
-        <g
-           id="g118">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g117">
-            <g
-               transform="matrix(381,0,0,381,90609.571,92661.137)"
-               id="g114">
-              <g
-                 pointer-events="none"
-                 id="g113">
-                <g
-                   id="editor-g2c4466e21ec_0_18-paragraph-0">
-                  <g
-                     id="g112">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g106" />
-                    <g
-                       id="g109">
-                      <g
-                         id="g108">
-                        <g
-                           id="g107">
-                          <path
-                             d="m 12.746675,14.5 v 0 l 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2"
-                             class="sketchy-text-spelling-error-highlight-overlay"
-                             id="path106" />
-                          <path
-                             d="m 12.746675,15 v 0 l 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2 2,-2 2,2"
-                             class="sketchy-text-spelling-error-underline-overlay"
-                             id="path107" />
-                        </g>
-                      </g>
-                    </g>
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g111">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g110">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="12.746675"
-                           id="text109">reaction</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect113"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect114"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g115">
-              <path
-                 d="m 95466.054,92661.137 h 22345.226 v 6096 H 95466.054 Z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path114" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,90609.571,92661.137)"
-               id="g116" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_19">
-      <g
-         id="g122">
-        <g
-           id="g120">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 106732.5,78133.5 -64.36,7167.892"
-             id="path119" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 105588.11,85291.695 1053.39,2976.81 1106.67,-2957.416 z"
-             id="path120" />
-        </g>
-        <g
-           id="g121">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 106732.5,78133.5 -64.36,7167.892"
-             id="path121" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_20">
-      <g
-         id="g125">
-        <g
-           id="g123">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 106638.67,102591.14 63.67,6939.9"
-             id="path122" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 105622.31,109540.94 1107.25,2957.2 1052.8,-2977.01 z"
-             id="path123" />
-        </g>
-        <g
-           id="g124">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 106638.67,102591.14 63.67,6939.9"
-             id="path124" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_23">
-      <g
-         id="g156">
-        <g
-           id="g126">
-          <path
-             fill="#efefef"
-             fill-opacity="1"
-             stroke="#666666"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 229853,118849.07 c 0,-1885.54 1528.53,-3414.07 3414.07,-3414.07 h 49607.86 c 905.47,0 1773.85,359.7 2414.11,999.96 640.26,640.26 999.96,1508.64 999.96,2414.11 v 13655.86 c 0,1885.54 -1528.53,3414.07 -3414.07,3414.07 h -49607.86 c -1885.54,0 -3414.07,-1528.53 -3414.07,-3414.07 z"
-             id="path125" />
-        </g>
-        <g
-           id="g155">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g154">
-            <g
-               transform="matrix(381,0,0,381,234509.95,110437)"
-               id="g151">
-              <g
-                 pointer-events="none"
-                 id="g150">
-                <g
-                   id="editor-g2c4466e21ec_0_23-paragraph-0">
-                  <g
-                     id="g130">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g127" />
-                    <g
-                       id="g128" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g129" />
-                  </g>
-                </g>
-                <g
-                   transform="translate(0,16)"
-                   id="editor-g2c4466e21ec_0_23-paragraph-1">
-                  <g
-                     id="g135">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g131" />
-                    <g
-                       id="g132" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g134">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g133">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="14.187814"
-                           id="text132">interpolation</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,16)"
-                     id="g140">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g136" />
-                    <g
-                       id="g137" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g139">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g138">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="28.850035"
-                           id="text137">using</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="72.8367"
-                           id="text138">the</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,32)"
-                     id="g145">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g141" />
-                    <g
-                       id="g142" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g144">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g143">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="21.518923"
-                           id="text142">smallest</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="87.498924"
-                           id="text143">Δt</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <g
-                   transform="translate(0,64)"
-                   id="editor-g2c4466e21ec_0_23-paragraph-2">
-                  <g
-                     id="g149">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g146" />
-                    <g
-                       id="g147" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g148" />
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect150"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect151"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g152">
-              <path
-                 d="m 239915.5,110437 h 36311 v 30480 h -36311 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path151" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,234509.95,110437)"
-               id="g153" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_24">
-      <g
-         id="g174">
-        <g
-           id="g157">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 159633.5,148729.67 h 35532 v 17748 h -35532 z"
-             id="path156" />
-        </g>
-        <g
-           id="g173">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g172">
-            <g
-               transform="matrix(381,0,0,381,163290.5,151507.67)"
-               id="g169">
-              <g
-                 pointer-events="none"
-                 id="g168">
-                <g
-                   id="editor-g2c4466e21ec_0_24-paragraph-0">
-                  <g
-                     id="g162">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g158" />
-                    <g
-                       id="g159" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g161">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g160">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="4.0414944"
-                           id="text159">temporary</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,16)"
-                     id="g167">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g163" />
-                    <g
-                       id="g164" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g166">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g165">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="18.703718"
-                           id="text164">state</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect168"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect169"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g170">
-              <path
-                 d="m 164830.31,151507.67 h 25138.38 v 12192 h -25138.38 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path169" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,163290.5,151507.67)"
-               id="g171" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_29">
-      <g
-         id="g177">
-        <g
-           id="g175">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 106733,132827.48 c 0,4762.61 8439.82,12517.4 15053.61,9525.21 6613.8,-2992.19 11401.57,-16731.35 15053.62,-31966.6 1826.02,-7617.63 3368.12,-15609.283 5224.76,-21696.527 928.32,-3043.622 1935.27,-5611.142 3095.67,-7417.757 l 965.15,-1088.634"
-             id="path174" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 146666.33,81118.265 2028.42,-2420.027 -3109.45,549.841 z"
-             id="path175" />
-        </g>
-        <g
-           id="g176">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 106733,132827.48 c 0,4762.61 8439.82,12517.4 15053.61,9525.21 6613.8,-2992.19 11401.57,-16731.35 15053.62,-31966.6 1826.02,-7617.63 3368.12,-15609.283 5224.76,-21696.527 928.32,-3043.622 1935.27,-5611.142 3095.67,-7417.757 l 965.15,-1088.634"
-             id="path176" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_30">
-      <g
-         id="g179">
-        <g
-           id="g178">
-          <path
-             fill="#efefef"
-             fill-opacity="1"
-             stroke="#c9daf8"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 240156,72201.609 c 0,-1633.691 1324.37,-2958.059 2958.06,-2958.059 h 34799.88 c 784.53,0 1536.92,311.652 2091.66,866.395 554.75,554.744 866.4,1307.138 866.4,2091.664 v 11831.882 c 0,1633.691 -1324.37,2958.059 -2958.06,2958.059 h -34799.88 c -1633.69,0 -2958.06,-1324.368 -2958.06,-2958.059 z"
-             id="path177" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_31">
-      <g
-         id="g181">
-        <g
-           id="g180">
-          <path
-             fill="#efefef"
-             fill-opacity="1"
-             stroke="#c9daf8"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 238935,73422.565 c 0,-1633.691 1324.37,-2958.059 2958.06,-2958.059 h 34799.88 c 784.53,0 1536.92,311.652 2091.66,866.396 554.75,554.743 866.4,1307.137 866.4,2091.663 v 11831.882 c 0,1633.691 -1324.37,2958.059 -2958.06,2958.059 h -34799.88 c -1633.69,0 -2958.06,-1324.368 -2958.06,-2958.059 z"
-             id="path179" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_32">
-      <g
-         id="g204">
-        <g
-           id="g182">
-          <path
-             fill="#c9daf8"
-             fill-opacity="1"
-             stroke="#666666"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 237714,74643.511 c 0,-1633.691 1324.37,-2958.06 2958.06,-2958.06 h 34799.88 c 784.53,0 1536.92,311.652 2091.66,866.396 554.75,554.744 866.4,1307.138 866.4,2091.664 v 11831.881 c 0,1633.691 -1324.37,2958.059 -2958.06,2958.059 h -34799.88 c -1633.69,0 -2958.06,-1324.368 -2958.06,-2958.059 z"
-             id="path181" />
-        </g>
-        <g
-           id="g203">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g202">
-            <g
-               transform="matrix(381,0,0,381,242237.39,71415.451)"
-               id="g199">
-              <g
-                 pointer-events="none"
-                 id="g198">
-                <g
-                   id="editor-g2c4466e21ec_0_32-paragraph-0">
-                  <g
-                     id="g187">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g183" />
-                    <g
-                       id="g184" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g186">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g185">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="15.901777"
-                           id="text184">maximal</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,16)"
-                     id="g192">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g188" />
-                    <g
-                       id="g189" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g191">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g190">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="26.898443"
-                           id="text189">step</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,32)"
-                     id="g197">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g193" />
-                    <g
-                       id="g194" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g196">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g195">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="8.5706654"
-                           id="text194">selection</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect198"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect199"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g200">
-              <path
-                 d="m 245502.81,71415.451 h 25138.38 v 18288 h -25138.38 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path199" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,242237.39,71415.451)"
-               id="g201" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_36">
-      <g
-         id="g206">
-        <g
-           id="g205">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#b7b7b7"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 244693.52,94247.5 h 29688 v 13764 h -29688 z"
-             id="path204" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_33">
-      <g
-         id="g209">
-        <g
-           id="g207">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 177399.5,166477.67 c 0,4762.54 11119.72,14618.08 19519.98,9525.09 8400.25,-5092.99 14081.04,-25134.52 19519.98,-47722.55 2719.47,-11294.01 5378.47,-23224.64 8687.11,-32331.777 1654.32,-4553.567 3471.05,-8401.258 5538.95,-11110.557 1033.95,-1354.65 2130.7,-2424.702 3301.33,-3156.091 l 353.91,-163.28"
-             id="path206" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 234615.22,82557.662 2560.36,-1848.13 -3149.29,-230.184 z"
-             id="path207" />
-        </g>
-        <g
-           id="g208">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 177399.5,166477.67 c 0,4762.54 11119.72,14618.08 19519.98,9525.09 8400.25,-5092.99 14081.04,-25134.52 19519.98,-47722.55 2719.47,-11294.01 5378.47,-23224.64 8687.11,-32331.777 1654.32,-4553.567 3471.05,-8401.258 5538.95,-11110.557 1033.95,-1354.65 2130.7,-2424.702 3301.33,-3156.091 l 353.91,-163.28"
-             id="path208" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_35">
-      <g
-         id="g222">
-        <g
-           id="g210">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 243227,95469.5 h 29688 v 13764 h -29688 z"
-             id="path209" />
-        </g>
-        <g
-           id="g221">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g220">
-            <g
-               transform="matrix(381,0,0,381,246884,99303.5)"
-               id="g217">
-              <g
-                 pointer-events="none"
-                 id="g216">
-                <g
-                   id="editor-g2c4466e21ec_0_35-paragraph-0">
-                  <g
-                     id="g215">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g211" />
-                    <g
-                       id="g212" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g214">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g213">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="6.6357598"
-                           id="text212">Δt</text>
-                        <text
-                           style="font-size:8px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="21.297983"
-                           y="5.3333335"
-                           id="text213">ceiling</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect216"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect217"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g218">
-              <path
-                 d="m 249412.22,99303.5 h 17317.56 v 6096 h -17317.56 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path217" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,246884,99303.5)"
-               id="g219" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_38">
-      <g
-         id="g225">
-        <g
-           id="g223">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 258072,89433.451 v 2511.75"
-             id="path222" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 256991.93,91945.201 1080.07,2967.233 1080.07,-2967.233 z"
-             id="path223" />
-        </g>
-        <g
-           id="g224">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 258072,89433.451 v 2511.75"
-             id="path224" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_39">
-      <g
-         id="g228">
-        <g
-           id="g226">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 258071,109233.5 10.37,2679.78"
-             id="path225" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 257001.31,111917.45 1091.54,2963.04 1068.59,-2971.39 z"
-             id="path226" />
-        </g>
-        <g
-           id="g227">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 258071,109233.5 10.37,2679.78"
-             id="path227" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_40">
-      <g
-         id="g241">
-        <g
-           id="g229">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 240305,148527 h 35532 v 13764 h -35532 z"
-             id="path228" />
-        </g>
-        <g
-           id="g240">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g239">
-            <g
-               transform="matrix(381,0,0,381,243962,152361)"
-               id="g236">
-              <g
-                 pointer-events="none"
-                 id="g235">
-                <g
-                   id="editor-g2c4466e21ec_0_40-paragraph-0">
-                  <g
-                     id="g234">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g230" />
-                    <g
-                       id="g231" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g233">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g232">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="0.37593964"
-                           id="text231">final</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="44.362606"
-                           id="text232">step</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect235"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect236"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g237">
-              <path
-                 d="m 244105.23,152361 h 27931.54 v 6096 h -27931.54 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path236" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,243962,152361)"
-               id="g238" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_41">
-      <g
-         id="g244">
-        <g
-           id="g242">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 258071,135919 v 9087.75"
-             id="path241" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 256990.93,145006.75 1080.07,2967.23 1080.07,-2967.23 z"
-             id="path242" />
-        </g>
-        <g
-           id="g243">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 258071,135919 v 9087.75"
-             id="path243" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_45">
-      <g
-         id="g258">
-        <g
-           id="g245">
-          <path
-             d="m 225245.01,55695.5 h 66120 v 13548 h -66120 z"
-             id="path244" />
-        </g>
-        <g
-           id="g246">
-          <path
-             fill="#000000"
-             fill-opacity="0"
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 225245.01,55695.5 h 66120 v 13548 h -66120 z"
-             id="path245" />
-        </g>
-        <g
-           id="g257">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g256">
-            <g
-               transform="matrix(381,0,0,381,228902.01,59352.5)"
-               id="g253">
-              <g
-                 pointer-events="none"
-                 id="g252">
-                <g
-                   id="editor-g2c4466e21ec_0_45-paragraph-0">
-                  <g
-                     id="g251">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g247" />
-                    <g
-                       id="g248" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g250">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g249">
-                        <text
-                           style="font-size:13.3333px;font-family:Arial;white-space:pre;fill:#999999"
-                           text-rendering="geometricPrecision"
-                           x="35.668785"
-                           id="text248">Reconciliation</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect252"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect253"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g254">
-              <path
-                 d="m 242491.81,59352.5 h 31626.39 v 6096 h -31626.39 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path253" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,228902.01,59352.5)"
-               id="g255" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_46">
-      <g
-         id="g260">
-        <g
-           id="g259">
-          <path
-             fill="#c9daf8"
-             fill-opacity="1"
-             d="m 279034.86,189208.02 c 0,-637.35 516.67,-1154.02 1154.02,-1154.02 h 11323.96 c 306.06,0 599.59,121.58 816.02,338.01 216.42,216.42 338,509.95 338,816.01 v 4615.96 c 0,637.35 -516.67,1154.02 -1154.02,1154.02 h -11323.96 c -637.35,0 -1154.02,-516.67 -1154.02,-1154.02 z"
-             id="path258" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_47">
-      <g
-         id="g275">
-        <g
-           id="g261">
-          <path
-             d="m 292670,184742 h 71460 v 13548 h -71460 z"
-             id="path260" />
-        </g>
-        <g
-           id="g262">
-          <path
-             fill="#000000"
-             fill-opacity="0"
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 292670,184742 h 71460 v 13548 h -71460 z"
-             id="path261" />
-        </g>
-        <g
-           id="g274">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g273">
-            <g
-               transform="matrix(381,0,0,381,296327,188399)"
-               id="g270">
-              <g
-                 pointer-events="none"
-                 id="g269">
-                <g
-                   id="editor-g2c4466e21ec_0_47-paragraph-0">
-                  <g
-                     id="g268">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g263" />
-                    <g
-                       id="g264" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g267">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g266">
-                        <text
-                           style="font-size:13.3333px;font-family:Arial;white-space:pre;fill:#595959"
-                           text-rendering="geometricPrecision"
-                           id="text264">per</text>
-                        <text
-                           style="font-size:13.3333px;font-family:Arial;white-space:pre;fill:#595959"
-                           text-rendering="geometricPrecision"
-                           x="22.975557"
-                           id="text265">instruction</text>
-                        <text
-                           style="font-size:13.3333px;font-family:Arial;white-space:pre;fill:#595959"
-                           text-rendering="geometricPrecision"
-                           x="87.448891"
-                           id="text266">operation</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect269"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect270"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g271">
-              <path
-                 d="m 296327,188399 h 54501.63 v 6096 H 296327 Z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path270" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,296327,188399)"
-               id="g272" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_57">
-      <g
-         id="g277">
-        <g
-           id="g276">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#b7b7b7"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 153019.6,95277.896 h 52032 V 109041.9 h -52032 z"
-             id="path275" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_52">
-      <g
-         id="g290">
-        <g
-           id="g278">
-          <path
-             fill="#eeeeee"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 151375,96922.5 h 52032 v 13764 h -52032 z"
-             id="path277" />
-        </g>
-        <g
-           id="g289">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g288">
-            <g
-               transform="matrix(381,0,0,381,155032,100756.5)"
-               id="g285">
-              <g
-                 pointer-events="none"
-                 id="g284">
-                <g
-                   id="editor-g2c4466e21ec_0_52-paragraph-0">
-                  <g
-                     id="g283">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g279" />
-                    <g
-                       id="g280" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g282">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g281">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="0.036149114"
-                           id="text280">(parameters,</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="95.340599"
-                           id="text281">Δt)</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect284"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect285"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g286">
-              <path
-                 d="m 155045.77,100756.5 h 44690.46 v 6096 h -44690.46 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path285" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,155032,100756.5)"
-               id="g287" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_53">
-      <g
-         id="g293">
-        <g
-           id="g291">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 177399.5,88660.5 -6.88,4743.754"
-             id="path290" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 176312.54,93402.686 1075.77,2968.797 1084.38,-2965.662 z"
-             id="path291" />
-        </g>
-        <g
-           id="g292">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 177399.5,88660.5 -6.88,4743.754"
-             id="path292" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_54">
-      <g
-         id="g316">
-        <g
-           id="g294">
-          <path
-             fill="#efefef"
-             fill-opacity="1"
-             stroke="#666666"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 149182,120308.09 c 0,-1820.37 1475.7,-3296.06 3296.07,-3296.06 h 49843.86 c 874.18,0 1712.54,347.26 2330.67,965.39 618.14,618.13 965.4,1456.5 965.4,2330.67 v 13183.87 c 0,1820.37 -1475.7,3296.07 -3296.07,3296.07 h -49843.86 c -1820.37,0 -3296.07,-1475.7 -3296.07,-3296.07 z"
-             id="path293" />
-        </g>
-        <g
-           id="g315">
-          <g
-             direction="ltr"
-             style="opacity:1"
-             id="g314">
-            <g
-               transform="matrix(381,0,0,381,153804.38,117756.03)"
-               id="g311">
-              <g
-                 pointer-events="none"
-                 id="g310">
-                <g
-                   id="editor-g2c4466e21ec_0_54-paragraph-0">
-                  <g
-                     id="g299">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g295" />
-                    <g
-                       id="g296" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g298">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g297">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="14.278527"
-                           id="text296">interpolation</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,16)"
-                     id="g304">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g300" />
-                    <g
-                       id="g301" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g303">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g302">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="28.940748"
-                           id="text301">using</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="72.927414"
-                           id="text302">the</text>
-                      </g>
-                    </g>
-                  </g>
-                  <g
-                     transform="translate(0,32)"
-                     id="g309">
-                    <g
-                       class="sketchy-text-background"
-                       visibility="visible"
-                       id="g305" />
-                    <g
-                       id="g306" />
-                    <g
-                       class="sketchy-text-content"
-                       visibility="visible"
-                       id="g308">
-                      <g
-                         class="sketchy-text-content-text"
-                         transform="translate(0,12.8)"
-                         id="g307">
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="21.609636"
-                           id="text306">smallest</text>
-                        <text
-                           style="font-size:13.3333px;font-family:docs-Consolas;white-space:pre;fill:#434343"
-                           text-rendering="geometricPrecision"
-                           x="87.589638"
-                           id="text307">Δt</text>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-              <rect
-                 style="opacity:0"
-                 id="rect310"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-              <rect
-                 style="opacity:1"
-                 id="rect311"
-                 width="0"
-                 height="0"
-                 x="0"
-                 y="0" />
-            </g>
-            <g
-               id="g312">
-              <path
-                 d="m 159244.5,117756.03 h 36311 v 18288 h -36311 z"
-                 pointer-events="visiblePainted"
-                 fill="#000000"
-                 stroke="#000000"
-                 opacity="0"
-                 id="path311" />
-            </g>
-            <g
-               transform="matrix(381,0,0,381,153804.38,117756.03)"
-               id="g313" />
-          </g>
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_55">
-      <g
-         id="g319">
-        <g
-           id="g317">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 177391,110686.5 5.31,2799.76"
-             id="path316" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 176316.24,113488.31 1085.7,2965.17 1074.44,-2969.27 z"
-             id="path317" />
-        </g>
-        <g
-           id="g318">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 177391,110686.5 5.31,2799.76"
-             id="path318" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="editor-g2c4466e21ec_0_56">
-      <g
-         id="g322">
-        <g
-           id="g320">
-          <path
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="round"
-             stroke-miterlimit="8"
-             d="m 177400,136788.03 v 8415.75"
-             id="path319" />
-          <path
-             fill="#595959"
-             fill-opacity="1"
-             stroke="#595959"
-             stroke-opacity="1"
-             stroke-width="381"
-             stroke-linecap="butt"
-             stroke-linejoin="miter"
-             stroke-miterlimit="10"
-             d="m 176319.93,145203.78 1080.07,2967.23 1080.07,-2967.23 z"
-             id="path320" />
-        </g>
-        <g
-           id="g321">
-          <path
-             stroke="#000000"
-             stroke-opacity="0"
-             stroke-width="3810"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             stroke-miterlimit="10"
-             pointer-events="visiblePainted"
-             d="m 177400,136788.03 v 8415.75"
-             id="path321" />
-        </g>
-      </g>
-    </g>
-  </g>
 </svg>
