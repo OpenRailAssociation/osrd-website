@@ -95,7 +95,7 @@ Worse yet, different use cases for OSRD have different needs:
 
 - some users might want to reproduce existing timetables, which exhibit naive driver behavior:
   aggressive accelerations, aggressive breaking behavior.
-- some users want to evaluate the feasability of timetables, and thus want somewhat realistic driver
+- some users want to evaluate the feasibility of timetables, and thus want somewhat realistic driver
   behavior, with less aggressive acceleration and cautious breaking behavior.
 
 To resolve this tension, we thought of adding support for pluggable driver behavior.
@@ -128,7 +128,9 @@ matches expectations.
 Driver behavior can be formally modeled as a local decision function `f`, which takes the state of the
 train as an input, including position and speed, and returns an acceleration.
 
-To best integrate this acceleration over the given time step, it is best not to use only the acceleration at (t). Since it may vary a lot along [t, t+dt]. To approximate the acceleration within this interval, we would need a better estimator, using a numerical method such as
+To best integrate this acceleration over the given time step, it is best not to use only the acceleration at (t). 
+Since it may vary a lot along [t, t+dt]. To approximate the acceleration within this interval, 
+we would need a better estimator, using a numerical method such as
 [RK4](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods). Such estimator then needs to call `f` multiple times.
 
 A number of questions came up:
@@ -143,7 +145,9 @@ A number of questions came up:
 
 #### Do we have a single DBM for all driving instructions, or one per driving instruction?
 
-We identified that this API choice shouldn't constrain the implementation. We decided to go the conservative route and have *one DBM per driving instructions* as it reduces the API surface and relieves DBM from the responsibility of finding the most restrictive instruction.
+We identified that this API choice shouldn't constrain the implementation. 
+We decided to go the conservative route and have *one DBM per driving instructions* as it reduces the API surface 
+and relieves DBM from the responsibility of finding the most restrictive instruction.
 
 #### How do we prevent overshooting?
 
@@ -165,7 +169,8 @@ Then the DBM would not be aware of the time step it is called with, and would re
 * One for taking decisions, akin to `f`.  
 Called several times depending on the integration method.
 
-* One for correcting an integration step (i.e. a time step and a new state), if it happened to overshoot its internal goal curves (for example MARECO which sets it's own speed limits).  
+* One for correcting an integration step (i.e. a time step and a new state), if it happened to overshoot its internal goal curves 
+(for example MARECO which sets it's own speed limits).  
 Called on the integration step results from this DBM, and the other DBMs integration step results.
 
 ##### {{< adopted >}} The DBM returns a new state
@@ -173,7 +178,8 @@ Called on the integration step results from this DBM, and the other DBMs integra
 The module would then expose two methods:
 * One for taking decisions, which, given a train state and a desired/maximum time step, returns a new state (which does not overshoot) and a new current time.
 
-* One for correcting an integration step (i.e. a time step and a new state), if it happened to overshoot its internal goal curves (for example MARECO which sets it's own speed limits).  
+* One for correcting an integration step (i.e. a time step and a new state), if it happened to overshoot its internal goal curves 
+(for example MARECO which sets it's own speed limits).  
 Called only on other DBMs integration step results.
 
 #### How do we combine the decisions from all DBMs?
@@ -183,8 +189,10 @@ Called only on other DBMs integration step results.
 2. Submit this provisional state for truncation to all DBMs and take the truncation with the smallest `dt`.
 
 To understand how this algorithm is designed, we need to consider two example cases:
-- For step 1 and 2: if a neutral zone and a breaking instruction overlap, both are most constraining to different state properties: the neutral zone affects pantograph state, and the breaking instruction affects speed. The final state has to be a combination of both.
-- For step 3: We need to truncate integration steps to avoid overshoots, and thus avoid the neeed for feedback loops. Idealy, we want to truncate to the exact overshoot location. This overshoot location is not the same as the initial `dt` for the overshot constraint.
+- For step 1 and 2: if a neutral zone and a breaking instruction overlap, both are most constraining to different state properties: 
+the neutral zone affects pantograph state, and the breaking instruction affects speed. The final state has to be a combination of both.
+- For step 3: We need to truncate integration steps to avoid overshoots, and thus avoid the need for feedback loops. 
+Ideally, we want to truncate to the exact overshoot location. This overshoot location is not the same as the initial `dt` for the overshot constraint.
 
 ### Should `truncate_integration_step` depend on the driver behavior module?
 

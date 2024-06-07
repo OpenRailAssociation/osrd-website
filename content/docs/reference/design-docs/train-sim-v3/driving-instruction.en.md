@@ -42,7 +42,7 @@ Compiler --> ConcreteDrivingInstruction
 
 ## Interpreting driving instructions
 
-During the simulation, driving instructions are partitionned into 4 sets:
+During the simulation, driving instructions are partitioned into 4 sets:
 
 - `PENDING` instructions may apply at some point in the future
 - `RECEIVED` instructions aren't enforced yet, but will be unless overridden
@@ -50,7 +50,7 @@ During the simulation, driving instructions are partitionned into 4 sets:
 - `DISABLED` instructions don't ever have to be considered anymore. There are multiple ways instructions can be disabled:
   - `SKIPPED` instructions were not received
   - `RETIRED` instructions expired by themselves
-  - `OVERRIDEN` instructions were removed by another instruction
+  - `OVERRIDDEN` instructions were removed by another instruction
 
 ```mermaid
 flowchart TD
@@ -58,7 +58,7 @@ flowchart TD
 subgraph disabled
     skipped
     retired
-    overriden
+    overridden
 end
 
 subgraph active
@@ -69,18 +69,18 @@ end
 pending --> received
 pending --> skipped
 received --> enforced
-received --> overriden
+received --> overridden
 enforced --> retired
-enforced --> overriden
+enforced --> overridden
 ```
 
 These sets evolve as follows:
 
 - when an integration steps overlaps a `PENDING` instruction's received condition, it is `RECEIVED` and becomes a candidate to execution
-  - existing instructions may be `OVERRIDEN` due to an `override_on_received` operation
+  - existing instructions may be `OVERRIDDEN` due to an `override_on_received` operation
 - if an instruction cannot ever be received at any future simulation state, it transitions to the `SKIPPED` state
 - when simulation state exceeds an instruction's enforcement position, it becomes `ENFORCED`. Only enforced instructions influence train behavior.
-  - existing instructions may be `OVERRIDEN` due to an `override_on_enforced` operation
+  - existing instructions may be `OVERRIDDEN` due to an `override_on_enforced` operation
 - when simulation state exceeds an instruction's retirement position, it becomes `RETIRED`
 
 
@@ -93,7 +93,7 @@ which match some metadata predicate. There are two metadata attributes which can
 - the `rank` can be used as a "freshness" or "priority" field. If two instructions overriding each other are received
   (such as when a train sees two signals), the rank allows deciding which instruction should be prioritized.
 
-This is required to implement a number of signaling features, as well as stops, where the stop instruction is overriden
+This is required to implement a number of signaling features, as well as stops, where the stop instruction is overridden
 by the restart instruction.
 
 
@@ -114,12 +114,12 @@ struct InstructionMetadata {
     retired_at: Option<Position>,
 
     // instruction metadata, used by override filters. if an instruction
-    // has no metadata nor retiring condition, it cannot be overriden.
+    // has no metadata nor retiring condition, it cannot be overridden.
     kind: Option<InstructionKindId>,  // could be SPACING, SPEED_LIMIT
     rank: Option<usize>,
 
     // when the instruction transitions to a given state,
-    // instructions matching any filter are overriden
+    // instructions matching any filter are overridden
     override_on_received: Vec<OverrideFilter>,
     override_on_enforced: Vec<OverrideFilter>,
 }
@@ -178,10 +178,11 @@ We then realized that abstracting over constraint types during simulation had im
 
 - it allows expressing requirements on what constraints need to be enforceable
 - it greatly simplifies the process of validating constraint semantics: instead of having to validate interactions between
-  every possible type of constraints, we only have to validate that the semantics of each constraint type can be transfered
+  every possible type of constraints, we only have to validate that the semantics of each constraint type can be transferred
   to the abstract constraint type
 
-We decided to explore the possibility of keeping constraint types distinct in the external API, but lowering these constraints into an intermediary representation internally. We found a number of downsides:
+We decided to explore the possibility of keeping constraint types distinct in the external API, 
+but lowering these constraints into an intermediary representation internally. We found a number of downsides:
 
 - the public simulation API would still bear the complexity of dealing with many constraint types
 - there would be a need to incrementally generate internal abstracted constraints to support the incremental API
@@ -224,11 +225,14 @@ Overrides are a way of modeling instructions which disable previous ones. Here a
 
 We identified multiple filtering needs:
 
-- overrides happen as a given kind of restriction is updated: SPACING instructions might override other SPACING instructions, but wish to leave other speed restrictions unaffected
+- overrides happen as a given kind of restriction is updated: SPACING instructions might override other SPACING instructions, 
+but wish to leave other speed restrictions unaffected
 - as multiple block signals can be visible at once, there's a need to avoid overriding instructions of downstream signals with updates to upstream signals
 
-We quickly settled on adding a kind field, but had a lengthy discussion over how to discriminate upstream and downstream signals. We explored the following options:
+We quickly settled on adding a kind field, but had a lengthy discussion over how to discriminate upstream and downstream signals. 
+We explored the following options:
 
 - {{< rejected >}} adding `source` metadata, which was rejected as it does not address the issue of upstream / downstream
-- {{< rejected >}} adding identifiers to instructions, and overriding specific instructions, which was rejected as it makes instruction generation and processing more complex
+- {{< rejected >}} adding identifiers to instructions, and overriding specific instructions, which was rejected as it makes
+ instruction generation and processing more complex
 - {{< adopted >}} adding some kind of priority / rank field, which was adopted

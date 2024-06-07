@@ -25,7 +25,7 @@ These limitations are the primary reasons for this redesign.
 
     - engineering margins are defined such that their effect has to be entirely contained within their bounds.
       even though it's a desirable property, it means that simulations become a multi-pass affair, with no obvious
-      way of keeping train behavior consistent accross passes and boundaries.
+      way of keeping train behavior consistent across passes and boundaries.
     - this can only be done if the train state is entirely described by its location and speed,
       otherwise simulation results cannot be pieced together.
     - piecing together simulation results is very hard to execute reliably, as there are many corner cases to be considered.

@@ -11,5 +11,6 @@ reflect potential required adjustments.
 {{% /pageinfo %}}
 
 These articles describe the design of the new train simulation system.
+
 This system should be simpler and more stable than the current one, 
 and should enable more advanced features in the future. 

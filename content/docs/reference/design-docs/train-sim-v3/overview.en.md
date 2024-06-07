@@ -19,7 +19,7 @@ The new system is expected to:
 
 - be easy to integrate with [timetable v2](../timetable/)
 - handle simulations of a full trip, with a complete known path, possibly following a schedule
-- handle simulations where the path is discovered incrementaly
+- handle simulations where the path is discovered incrementally
 - handle rich train state (pantograph position, battery state)
 - handle reactions to signaling
 - provide a low-level API, usable independently
@@ -108,7 +108,7 @@ See [the dedicated page]({{< ref "driver-behavior-modules" >}}) for more details
 The schedule controller manages the slowdown coefficient given to the driver behavior module in order 
 to respect the target schedule.
 
-It adjusts the slowdown coefficient iteratively, using a dichotomic search, re-simulating the train behavior 
+It adjusts the slowdown coefficient iteratively, using a dichotomous search, re-simulating the train behavior 
 between two time-targeted points.
 
 ### Simulation results
