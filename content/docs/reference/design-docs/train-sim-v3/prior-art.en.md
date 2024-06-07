@@ -3,8 +3,6 @@ title: "Prior art"
 weight: 20
 ---
 
-## Previous implementation
-
 The current implementation has a number of shortcomings making it pretty much impossible to evolve to
 meet current system requirements. It also has a number of less severe flaws, such as the over-reliance
 on floating point, especially for input and output.
@@ -17,7 +15,7 @@ The previous implementation cannot be changed to:
 
 These limitations are the primary reasons for this redesign.
 
-### Margins
+## Margins
 
 - are defined as post-processing filter passes on simulation results. This has a number of undesirable side effects:
 
@@ -40,7 +38,7 @@ These limitations are the primary reasons for this redesign.
   in the section.
 
 
-### Input modeling
+## Input modeling
 
 With the previous implementation, the simulation takes sequence of constraint position and speed curves as an input
 (continuous in position, can be discontinuous in speed), and produces a continuous curve.
