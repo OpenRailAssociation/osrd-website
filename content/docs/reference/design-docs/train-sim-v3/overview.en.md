@@ -55,10 +55,10 @@ PathPhysicsProps --> DrivingInstructionCompiler
 ScheduleController -- tracks train state --> TrainSim
 
 DriverBehaviorModule -- makes decisions --> TrainSim
-ConcreteDrivingInstructions ---> DriverBehaviorModule
-DrivingInstructionCompiler ---> ConcreteDrivingInstructions
+ConcreteDrivingInstructions --> DriverBehaviorModule
+DrivingInstructionCompiler --> ConcreteDrivingInstructions
 
-InitTrainState ---> ScheduleController
+InitTrainState --> ScheduleController
 
 TrainSim --> SimResults
 
@@ -93,7 +93,7 @@ Path properties are the physical properties of the path, namely elevation, curve
 
 ### Driver behavior module
 
-The driver behavior module updates the train state based on:
+The driver behavior modules update the train state based on:
 - the current train state
 - the path properties
 - the driving instructions
@@ -116,6 +116,21 @@ between two time-targeted points.
 The output of the simulation is the list of train states at each time step.
 
 ## Design overview
+
+The main idea of the new train simulator is to have a simulation which is computed step by step and not post-processed.
+This would ensure the physical consistency of the simulation.
+
+The challenge is then to add ways to lose some time, in order to respect the target schedule.  
+This is done by iterating over the sections between two scheduled points, while adjusting a slowdown factor.
+This slowdown factor would be used to control how the driver behavior module would lose time while still being
+physically realistic.  
+See [the driver behavior module dedicated page]({{< ref "driver-behavior-modules" >}}) for more details.
+
+In order to accommodate an infrastructure which could change with time (like signals), we introduce driving instructions.
+These instructions are generated from the path properties and the target schedule, and are used to update the train state.
+Instructions can be conditional, and can interact with each other.  
+The algorithm is described in detail in the [dedicated page]({{< ref "driving-instruction" >}}).
+
 
 ![Algorithm flow chart](../overview.svg)
 
