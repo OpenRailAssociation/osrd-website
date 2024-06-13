@@ -8,7 +8,7 @@ description: "Logiciel open-source développé par SBB CFF FFS et son intégrati
 Netzgrafik-Editor (NGE) est un logiciel open-source qui permet la création, la modification et l'analyse d'horaires à intervalles réguliers, à un niveau de détail macroscopique, développé par les Chemins de Fer Fédéraux suisses (SBB CFF FFS). Voir les dépôts [front-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend) et [back-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-backend)
 
 OSRD (niveau de détail microscopique, trains à occurence unique, basé sur une infrastructure définie, représente une grille horaire) et NGE (niveau de détail macroscopique, courses de trains à intervalles réguliers, sans infrastructure, représente un plan de transport) sont sémantiquement différents, mais suffisamment proches pour fonctionner ensemble.
-La compatibilité entre NGE et OSRD a été testée à travers une preuve de concept, en exécutant les deux logiciels comme services distincts sans synchronisation automatisée.
+La compatibilité entre NGE et OSRD a été testée à travers une preuve de concept, en exécutant les deux applications comme services distincts sans synchronisation automatisée.
 
 L'idée est de fournir à OSRD un outil graphique pour éditer (créer, mettre à jour et supprimer les horaires des trains) un horaire à partir d'un scénario d'étude opérationnelle, et obtenir en même temps des informations analytiques. Le deuxième avantage de l'utilisation des niveaux de détail microscopique et macroscopique est que les calculs microscopiques d'OSRD peuvent être propagés dans NGE pour améliorer son niveau de détail.
 
@@ -16,12 +16,12 @@ L'objectif transversal de cette fonctionnalité est de faire collaborer deux pro
 
 #### 1 - Intégration dans OSRD
 
-Ainsi, NGE est intégré dans la section des études opérationnelles d'OSRD, dans un [`iframe`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe). Cet `iframe` pointe vers `osrd-nge`, une application Angular minimaliste qui intègre l'application NGE réelle. Il peut également être vu comme un conteneur de l'application NGE réelle. `osrd-nge` personnalise ensuite l'application NGE réelle avec des paramètres et des fonctionnalités spécifiques :
+Ainsi, NGE est intégré dans la section des études opérationnelles d'OSRD, dans un [`iframe`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe). Une alternative pour répondre au problème d'intégration aurait été de refacto NGE en [`web-components`](https://developer.mozilla.org/fr/docs/Web/API/Web_components), pour les importer facilement dans OSRD, mais cette solution a été abandonnée compte tenu de la quantité de refacto que cela représenterait. Cet `iframe` pointe vers `osrd-nge`, une application Angular minimaliste qui intègre l'application NGE réelle. Il peut également être vu comme un conteneur de l'application NGE réelle. `osrd-nge` personnalise ensuite l'application NGE réelle avec des paramètres et des fonctionnalités spécifiques :
 
 - un drapeau `standalone` :
   - pour indiquer à NGE de désactiver toutes les interactions back-end (pas de base de données côté NGE)
   - pour indiquer à NGE de désactiver certains composants de l'interface utilisateur (authentification, gestion de projet, vue du système de versionnage, etc...)
-- implémentation d'une interface de communication entre OSRD et NGE ([`eventListener`](https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener) and [`postMessage`](https://developer.mozilla.org/fr/docs/Web/API/Window/postMessage)).
+- implémentation d'une interface de communication entre OSRD et NGE ([`message_event`](https://developer.mozilla.org/fr/docs/Web/API/Window/message_event), [`eventListener`](https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener) and [`postMessage`](https://developer.mozilla.org/fr/docs/Web/API/Window/postMessage)).
 
 NGE est alors capable d'obtenir la grille horaire OSRD dès qu'un changement est effectué du côté d'OSRD, et OSRD est capable d'obtenir les modifications effectuées du côté de NGE.
 
