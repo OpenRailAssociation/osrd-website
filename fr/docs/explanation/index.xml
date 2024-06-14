@@ -84,4 +84,68 @@ img[src$="time"] {
 height: 70%;
 width: 70%;
 }
-&lt;/style></description></item></channel></rss>
+&lt;/style></description></item><item><title>Docs: Netzgrafik-Editor</title><link>https://osrd.fr/fr/docs/explanation/netzgrafik-editor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/netzgrafik-editor/</guid><description>
+&lt;p>Netzgrafik-Editor (NGE) est un logiciel open-source qui permet la création, la modification et l&amp;rsquo;analyse d&amp;rsquo;horaires à intervalles réguliers, à un niveau de détail macroscopique, développé par les Chemins de Fer Fédéraux suisses (SBB CFF FFS). Voir les dépôts &lt;a href="https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend">front-end&lt;/a> et &lt;a href="https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-backend">back-end&lt;/a>&lt;/p>
+&lt;p>OSRD (niveau de détail microscopique, trains à occurence unique, basé sur une infrastructure définie, représente une grille horaire) et NGE (niveau de détail macroscopique, courses de trains à intervalles réguliers, sans infrastructure, représente un plan de transport) sont sémantiquement différents, mais suffisamment proches pour fonctionner ensemble.
+La compatibilité entre NGE et OSRD a été testée à travers une preuve de concept, en exécutant les deux applications comme services distincts sans synchronisation automatisée.&lt;/p>
+&lt;p>L&amp;rsquo;idée est de fournir à OSRD un outil graphique pour éditer (créer, mettre à jour et supprimer les horaires des trains) un horaire à partir d&amp;rsquo;un scénario d&amp;rsquo;étude opérationnelle, et obtenir en même temps des informations analytiques. Le deuxième avantage de l&amp;rsquo;utilisation des niveaux de détail microscopique et macroscopique est que les calculs microscopiques d&amp;rsquo;OSRD peuvent être propagés dans NGE pour améliorer son niveau de détail.&lt;/p>
+&lt;p>L&amp;rsquo;objectif transversal de cette fonctionnalité est de faire collaborer deux projets open-source de deux grands gestionnaires d&amp;rsquo;infrastructure pour atteindre des objectifs communs.&lt;/p>
+&lt;h4 id="1---intégration-dans-osrd">1 - Intégration dans OSRD&lt;/h4>
+&lt;p>Ainsi, NGE est intégré dans la section des études opérationnelles d&amp;rsquo;OSRD, dans un &lt;a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe">&lt;code>iframe&lt;/code>&lt;/a>. Une alternative pour répondre au problème d&amp;rsquo;intégration aurait été de refacto NGE en &lt;a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components">&lt;code>web-components&lt;/code>&lt;/a>, pour les importer facilement dans OSRD, mais cette solution a été abandonnée compte tenu de la quantité de refacto que cela représenterait. Cet &lt;code>iframe&lt;/code> pointe vers &lt;code>osrd-nge&lt;/code>, une application Angular minimaliste qui intègre l&amp;rsquo;application NGE réelle. Il peut également être vu comme un conteneur de l&amp;rsquo;application NGE réelle. &lt;code>osrd-nge&lt;/code> personnalise ensuite l&amp;rsquo;application NGE réelle avec des paramètres et des fonctionnalités spécifiques :&lt;/p>
+&lt;ul>
+&lt;li>un drapeau &lt;code>standalone&lt;/code> :
+&lt;ul>
+&lt;li>pour indiquer à NGE de désactiver toutes les interactions back-end (pas de base de données côté NGE)&lt;/li>
+&lt;li>pour indiquer à NGE de désactiver certains composants de l&amp;rsquo;interface utilisateur (authentification, gestion de projet, vue du système de versionnage, etc&amp;hellip;)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>implémentation d&amp;rsquo;une interface de communication entre OSRD et NGE (&lt;a href="https://developer.mozilla.org/fr/docs/Web/API/Window/message_event">&lt;code>message_event&lt;/code>&lt;/a>, &lt;a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener">&lt;code>eventListener&lt;/code>&lt;/a> and &lt;a href="https://developer.mozilla.org/fr/docs/Web/API/Window/postMessage">&lt;code>postMessage&lt;/code>&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;p>NGE est alors capable d&amp;rsquo;obtenir la grille horaire OSRD dès qu&amp;rsquo;un changement est effectué du côté d&amp;rsquo;OSRD, et OSRD est capable d&amp;rsquo;obtenir les modifications effectuées du côté de NGE.&lt;/p>
+&lt;p>Les diagrammes suivants montrent workflow entre les composants.&lt;/p>
+&lt;p>&lt;img src="osrd_nge_concept_diagram.jpg" alt="Diagramme conceptuel">&lt;/p>
+&lt;pre class="mermaid">---
+title: OSRD - NGE Sequence diagram
+---
+sequenceDiagram
+autonumber
+OSRD (parent window)--&amp;gt;&amp;gt;OSRD (parent window): initialisation de la page web
+OSRD (parent window)-&amp;gt;&amp;gt;NGE (osrd-nge iframe): iframe.contentWindow.postMessage(nge_light_model, &amp;#34;*&amp;#34;)
+loop while synchronization is ON
+alt any modification in OSRD (parent window)
+OSRD (parent window)--&amp;gt;&amp;gt;OSRD (parent window): modification
+OSRD (parent window)-&amp;gt;&amp;gt;NGE (osrd-nge iframe): iframe.contentWindow.postMessage(nge_light_model, &amp;#34;*&amp;#34;)
+else any modification in NGE (osrd-nge iframe)
+NGE (osrd-nge iframe)--&amp;gt;&amp;gt;NGE (osrd-nge iframe): modification &amp;lt;br&amp;gt;(hooks)
+NGE (osrd-nge iframe)-&amp;gt;&amp;gt;OSRD (parent window): parent.window.postMessage(nge_action, &amp;#34;*&amp;#34;)
+OSRD (parent window)--&amp;gt;&amp;gt;OSRD (parent window): convertion d&amp;#39;une action NGE en &amp;lt;br/&amp;gt;modification de la grille horaire
+OSRD (parent window)-&amp;gt;&amp;gt;NGE (osrd-nge iframe): iframe.contentWindow.postMessage(nge_light_model, &amp;#34;*&amp;#34;)
+end
+end&lt;/pre>
+&lt;p>Étant donné qu&amp;rsquo;OSRD est la seule source de vérité (= source de données), NGE doit être mis à jour en dernière action, pour être aligné avec l&amp;rsquo;état actuel de la grille horaire et obtenir les calculs microscopiques mis à jour d&amp;rsquo;OSRD.&lt;/p>
+&lt;p>Plus précisément, lorsqu&amp;rsquo;un changement est effectué dans NGE :&lt;/p>
+&lt;pre class="mermaid">---
+title: OSRD - NGE Communication when modification in NGE
+---
+sequenceDiagram
+autonumber
+NGE (nge-app)--&amp;gt;NGE (osrd-nge): osrd-nge écoute sur les hooks &amp;lt;br&amp;gt;de nge-app
+NGE (osrd-nge)-&amp;gt;&amp;gt;NGE (osrd-nge): (eventListeners) &amp;lt;br&amp;gt; callback déclenché
+NGE (osrd-nge)-&amp;gt;&amp;gt;OSRD (front-end): (callback functions) &amp;lt;br&amp;gt;parent.window.postMessage(nge_action, &amp;#34;*&amp;#34;)
+OSRD (front-end)-&amp;gt;&amp;gt;OSRD (front-end): (eventListeners) &amp;lt;br&amp;gt; converti nge_action &amp;lt;br&amp;gt; en modification de la grille horaire
+OSRD (front-end)-&amp;gt;&amp;gt;OSRD (back-end): appel pour modifier la grille horaire
+OSRD (back-end)-&amp;gt;&amp;gt;OSRD (front-end): modifie la grille horaire
+OSRD (front-end)-&amp;gt;&amp;gt; OSRD (front-end): converti la grille horaire en&amp;lt;br&amp;gt; nge_light_model
+OSRD (front-end)-&amp;gt;&amp;gt;NGE (osrd-nge): iframe.contentWindow.postMessage(nge_light_model, &amp;#34;*&amp;#34;)
+NGE (osrd-nge)-&amp;gt;&amp;gt;NGE (osrd-nge): (eventListener) &amp;lt;br&amp;gt; onLoad déclenché
+NGE (osrd-nge)-&amp;gt;&amp;gt;NGE (nge-app): (callback function) &amp;lt;br&amp;gt; onLoad(nge_light_model, ...)&lt;/pre>
+&lt;h4 id="2---convertisseurs">2 - Convertisseurs&lt;/h4>
+&lt;p>Pour surpasser les différences sémantiques et adapter les modèles de données, deux convertisseurs doivent être implémentés :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>[OSRD -&amp;gt; NGE]&lt;/strong> un convertisseur qui transforme une grille horaire OSRD en un modèle NGE&lt;/li>
+&lt;li>&lt;strong>[OSRD &amp;lt;- NGE]&lt;/strong> un gestionnaire d&amp;rsquo;événements, qui transforme une action NGE en mise à jour de la base de données OSRD sur la grille horaire&lt;/li>
+&lt;/ul>
+&lt;h4 id="3---open-source-coopération--contribution">3 - Open-source (coopération / contribution)&lt;/h4>
+&lt;p>Pour rendre NGE compatible avec OSRD, certaines modifications ont été demandées (désactivation du back-end, création de hooks sur les événements) et directement implémentées dans le &lt;a href="https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend">répertoire officiel de NGE&lt;/a>, avec l&amp;rsquo;accord et l&amp;rsquo;aide de l&amp;rsquo;équipe NGE.&lt;/p>
+&lt;p>Les contributions d&amp;rsquo;un projet à l&amp;rsquo;autre, de part et d&amp;rsquo;autre, sont précieuses et seront encouragées à l&amp;rsquo;avenir.&lt;/p>
+&lt;p>Cette fonctionnalité montre également que la coopération open-source est puissante et constitue un gain de temps considérable dans le développement de logiciels.&lt;/p></description></item></channel></rss>
