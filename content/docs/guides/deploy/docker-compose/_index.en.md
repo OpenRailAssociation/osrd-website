@@ -30,7 +30,9 @@ Each service is configured with health checks, volume mounts and necessary envir
 ## Deployment Steps
 
 1. **Clone the Repository**: First, clone the OSRD repository to your local machine.
-2. **Environment Variables** (optional): Set necessary environment variables if you need to adjust some configurations.
+2. **Configuration**: The default configuration requires setting an environment variable for the Editoast service: `ROOT_URL`.
+    It should be set to the URL pointing to the Editoast service through the gateway. For example, "http://your-domain.com/api".  
+    You can also adjust other environment variables if needed.
 3. **Build and Run**: Navigate to the directory containing `docker-compose.yml` and run:
 
 ```bash
