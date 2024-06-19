@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill-rule="evenodd" stroke-linejoin="round" stroke-width="28.222"
+    preserveAspectRatio="xMidYMid" version="1.2" viewBox="5977 3572 14433 8880"
+    xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export">
+    <g class="prefix__Page" ooo:name="Intégration_numérique">
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M9972 3658h4620v6156H9972z" fill="none" />
+            <path
+                d="M9986 4437c0-134 35-266 103-383 67-116 163-213 280-280 116-67 248-102 382-102h3061c134 0 266 35 383 103 116 67 213 163 280 280 67 116 102 248 102 382l1 4597c0 134-35 266-103 383-67 116-163 213-280 280-116 67-248 102-382 102l-3062 1c-134 0-266-35-383-103-116-67-213-163-280-280-67-116-102-248-102-382V4437z"
+                fill="#F3F3F3" />
+            <path
+                d="m9986 4437c0-134 35-266 103-383 67-116 163-213 280-280 116-67 248-102 382-102h3061c134 0 266 35 383 103 116 67 213 163 280 280 67 116 102 248 102 382l1 4597c0 134-35 266-103 383-67 116-163 213-280 280-116 67-248 102-382 102l-3062 1c-134 0-266-35-383-103-116-67-213-163-280-280-67-116-102-248-102-382v-4598z"
+                fill="none" stroke="#666" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M9985 3572h4592v934H9985z" fill="none" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="11130" y="4179">
+                        <tspan fill="#999" font-family="Arial, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Merging states</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6146 5984h2856v985H6146z" fill="none" />
+            <path
+                d="m6160 6157c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="#EFEFEF" />
+            <path
+                d="m6160 6157c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6056 4456h2713v982H6056z" fill="none" />
+            <path d="M7412 5424H6069v-955h2686v955H7412z" fill="#EEE" />
+            <path d="M7412 5424H6069v-955h2686v955H7412z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="6738" y="4876">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Current </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="6930" y="5300">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">state</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10346 4720h3947v1452h-3947z" fill="none" />
+            <path
+                d="m10360 4971c0-42 11-83 32-119s51-66 87-86c36-21 77-32 118-32h3444c42 0 83 11 119 32s66 51 86 87c21 36 32 77 32 118l1 948c0 42-11 83-32 119s-51 66-87 86c-36 21-77 32-118 32l-3445 1c-42 0-83-11-119-32s-66-51-86-87c-21-36-32-77-32-118v-949z"
+                fill="#EFEFEF" />
+            <path
+                d="m10360 4971c0-42 11-83 32-119s51-66 87-86c36-21 77-32 118-32h3444c42 0 83 11 119 32s66 51 86 87c21 36 32 77 32 118l1 948c0 42-11 83-32 119s-51 66-87 86c-36 21-77 32-118 32l-3445 1c-42 0-83-11-119-32s-66-51-86-87c-21-36-32-77-32-118v-949z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="11741" y="5162">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Select </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="11161" y="5586">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">constraining </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="10774" y="6010">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">(parameter, Δt)</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6387 7625h2494v1399H6387z" fill="none" />
+            <path d="M7634 9010H6400V7638h2467v1372H7634z" fill="#EEE" />
+            <path d="M7634 9010H6400V7638h2467v1372H7634z" fill="none" stroke="#B7B7B7"
+                stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6276 7726h2494v1399H6276z" fill="none" />
+            <path d="M7523 9111H6289V7739h2467v1372H7523z" fill="#EEE" />
+            <path d="M7523 9111H6289V7739h2467v1372H7523z" fill="none" stroke="#B7B7B7"
+                stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6062 6069h2856v984H6062z" fill="none" />
+            <path
+                d="m6076 6242c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="#EFEFEF" />
+            <path
+                d="m6076 6242c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M6164 7838h2494v1399H6164z" fill="none" />
+            <path d="M7411 9223H6177V7851h2467v1372H7411z" fill="#EEE" />
+            <path d="M7411 9223H6177V7851h2467v1372H7411z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="7026" y="8466">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Next </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="6833" y="8890">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">states</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="M5977 6154h2856v985H5977z" fill="none" />
+            <path
+                d="m5991 6327c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="#C9DAF8" />
+            <path
+                d="m5991 6327c0-28 7-55 21-80 14-24 34-44 59-58 24-14 51-21 79-21h2509c28 0 55 7 80 21 24 14 44 34 58 59 14 24 21 51 21 79l1 637c0 28-7 55-21 80-14 24-34 44-59 58-24 14-51 21-79 21l-2510 1c-28 0-55-7-80-21-24-14-44-34-58-59-14-24-21-51-21-79v-638z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="6537" y="6786">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">reactions</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m7300 5413h212v757h-212z" fill="none" />
+            <path d="m7411 5426-5 547" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m7404 6169-103-211 210 2-107 209z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m7304 7111h212v741h-212z" fill="none" />
+            <path d="m7405 7124 5 531" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m7412 7851-107-209 210-2-103 211z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m11072 10315h2494v1259h-2494z" fill="none" />
+            <path d="m12319 11560h-1234v-1232h2467v1232h-1233z" fill="#EEE" />
+            <path d="m12319 11560h-1234v-1232h2467v1232h-1233z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="11451" y="10873">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Potential </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="11837" y="11297">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">state</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16663 4795h2856v1261h-2856z" fill="none" />
+            <path
+                d="m16677 5014c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#EFEFEF" />
+            <path
+                d="m16677 5014c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16578 4879h2856v1261h-2856z" fill="none" />
+            <path
+                d="m16592 5098c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#EFEFEF" />
+            <path
+                d="m16592 5098c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#C9DAF8" stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16493 4964h2857v1262h-2857z" fill="none" />
+            <path
+                d="m16507 5183c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#C9DAF8" />
+            <path
+                d="m16507 5183c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l2416 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-2417c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="17148" y="5523">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Truncate </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="17536" y="5947">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">step</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16686 8486h2494v982h-2494z" fill="none" />
+            <path d="m17933 9454h-1234v-955h2467v955h-1233z" fill="#EEE" />
+            <path d="m17933 9454h-1234v-955h2467v955h-1233z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="17451" y="8906">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Final </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="17451" y="9330">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">state</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m17814 6197h212v2305h-212z" fill="none" />
+            <path d="m17921 6210-2 2095" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m17919 8501-105-210h210l-105 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m15499 11296h949v483h-949z" fill="none" />
+            <path
+                d="m15500 11377c0-14 4-28 11-40s17-22 29-29 26-11 40-11h786c14 0 28 4 40 11s22 17 29 29 11 26 11 40l1 320c0 14-4 28-11 40s-17 22-29 29-26 11-40 11l-787 1c-14 0-28-4-40-11s-22-17-29-29-11-26-11-40v-321z"
+                fill="#C9DAF8" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m16447 11066h3963v934h-3963z" fill="none" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="16701" y="11673">
+                        <tspan fill="#595959" font-family="Arial, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Repeat per instruction</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10613 6603h3639v982h-3639z" fill="none" />
+            <path d="m12432 7571h-1806v-955h3612v955h-1806z" fill="#EEE" />
+            <path d="m12432 7571h-1806v-955h3612v955h-1806z" fill="none" stroke="#B7B7B7"
+                stroke-width="26" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10499 6717h3639v982h-3639z" fill="none" />
+            <path d="m12318 7685h-1806v-955h3612v955h-1806z" fill="#EEE" />
+            <path d="m12318 7685h-1806v-955h3612v955h-1806z" fill="none" stroke="#595959"
+                stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="10871" y="7349">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">(parameter, Δt)</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m12210 6143h212v588h-212z" fill="none" />
+            <path d="m12317 6156-1 378" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m12315 6730-104-210h210l-106 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m10346 8253h3947v1262h-3947z" fill="none" />
+            <path
+                d="m10360 8472c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l3507 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-3508c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="#EFEFEF" />
+            <path
+                d="m10360 8472c0-36 9-72 28-103 18-31 44-57 75-75s66-28 103-28l3507 1c36 0 72 9 103 28 31 18 57 44 75 75s28 66 28 103v821c0 36-9 72-28 103-18 31-44 57-75 75s-66 28-103 28h-3508c-36 0-72-9-103-28-31-18-57-44-75-75s-28-66-28-103l1-822z"
+                fill="none" stroke="#666" stroke-width="26" />
+            <text class="prefix__SVGTextShape">
+                <tspan class="prefix__TextParagraph">
+                    <tspan class="prefix__TextPosition" x="10969" y="8812">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">Interpolate to </tspan>
+                    </tspan>
+                    <tspan class="prefix__TextPosition" x="11259" y="9236">
+                        <tspan fill="#434343" font-family="Consolas, sans-serif" font-size="353"
+                            font-weight="400" style="white-space:pre">smallest Δt</tspan>
+                    </tspan>
+                </tspan>
+            </text>
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m12214 7673h212v594h-212z" fill="none" />
+            <path d="m12318 7686 1 384" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m12320 8266-106-210h210l-104 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_CustomShape">
+            <path class="prefix__BoundingBox" d="m12214 9486h212v843h-212z" fill="none" />
+            <path d="m12318 9499 2 633" fill="none" stroke="#595959" stroke-width="26" />
+            <path d="m12320 10328-106-210h210l-104 210z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_ConnectorShape">
+            <path class="prefix__BoundingBox" d="m17910 5466h2332v1418h-2332z" fill="none" />
+            <path d="m17921 6210c0 891 1110 743 1766 366s822-887-89-971" fill="none"
+                stroke="#595959" stroke-width="21" />
+            <path d="m19609 5747-274-153 287-128-13 281z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_ConnectorShape">
+            <path class="prefix__BoundingBox" d="m12308 5508h4201v6944h-4201z" fill="none" />
+            <path d="m12319 11560c0 1369 1620 1142 2312-692s478-4887 1649-5241" fill="none"
+                stroke="#595959" stroke-width="21" />
+            <path d="m16242 5509 266 85-228 162-38-247z" fill="#595959" />
+        </g>
+        <g class="prefix__com_sun_star_drawing_ConnectorShape">
+            <path class="prefix__BoundingBox" d="M7400 5445h2961v4385H7400z" fill="none" />
+            <path d="m7411 9223c0 919 1271 766 1855-408s497-2789 879-3255" fill="none"
+                stroke="#595959" stroke-width="21" />
+            <path d="m10047 5463 313-18-174 261-139-243z" fill="#595959" />
+        </g>
+    </g>
+</svg>

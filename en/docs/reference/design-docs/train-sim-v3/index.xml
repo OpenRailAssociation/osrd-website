@@ -1,0 +1,567 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Train simulation v3</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/</link><description>Recent content in Train simulation v3 on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Overview</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/overview/</guid><description>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>This work is pending implementation, and has not yet been adjusted to
+reflect potential required adjustments.&lt;/p>
+&lt;/div>
+&lt;p>After two years of extending a fairly simple simulation engine, it appeared that fundamental
+changes are required to meet expectations.&lt;/p>
+&lt;h2 id="system-requirements">System requirements&lt;/h2>
+&lt;p>The new system is expected to:&lt;/p>
+&lt;ol>
+&lt;li>handle reactions to signaling&lt;/li>
+&lt;li>handle rich train state (pantograph position, battery state)&lt;/li>
+&lt;li>allow for different margin algorithms&lt;/li>
+&lt;li>integrate driver behavior properties&lt;/li>
+&lt;li>be easy to integrate with &lt;a href="../timetable/">timetable v2&lt;/a>&lt;/li>
+&lt;li>handle both:
+&lt;ul>
+&lt;li>simulations of a full trip, with a complete known path, possibly following a schedule&lt;/li>
+&lt;li>simulations where the path is discovered incrementally&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>provide a low-level API, usable independently&lt;/li>
+&lt;/ol>
+&lt;p>In the long-term, this system is also expected to:&lt;/p>
+&lt;ul>
+&lt;li>be used to drive multi-train simulations&lt;/li>
+&lt;li>handling switching rolling stock at stops&lt;/li>
+&lt;/ul>
+&lt;h2 id="concepts">Concepts&lt;/h2>
+&lt;pre class="mermaid">flowchart TD
+subgraph Input
+InitTrainState[initial train state]
+PathPhysicsProps[path physics properties]
+AbstractDrivingInstructions[abstract driving instructions]
+TargetSchedule[target schedule]
+end
+DrivingInstructionCompiler([driving instruction compiler])
+ConcreteDrivingInstructions[driving instructions &amp;#43; limits]
+ScheduleController([schedule controller])
+DriverBehaviorModule([driver behavior module])
+TargetSchedule --&amp;gt; ScheduleController
+ScheduleController -- adjusts slowdown coefficient --&amp;gt; DriverBehaviorModule
+AbstractDrivingInstructions --&amp;gt; DrivingInstructionCompiler
+PathPhysicsProps --&amp;gt; DrivingInstructionCompiler
+ScheduleController -- tracks train state --&amp;gt; TrainSim
+DriverBehaviorModule -- makes decisions --&amp;gt; TrainSim
+ConcreteDrivingInstructions --&amp;gt; DriverBehaviorModule
+DrivingInstructionCompiler --&amp;gt; ConcreteDrivingInstructions
+InitTrainState --&amp;gt; ScheduleController
+TrainSim --&amp;gt; SimResults
+TrainSim([train simulator])
+SimResults[simulation result curve]&lt;/pre>
+&lt;h3 id="target-schedule">Target schedule&lt;/h3>
+&lt;p>The target schedule is a list of target arrival times at points specified along the path.
+To respect the schedule, the train may have to not use its maximum traction.&lt;/p>
+&lt;h3 id="train-state">Train state&lt;/h3>
+&lt;p>The train state is a vector of properties describing the train at a given point in time.&lt;/p>
+&lt;ul>
+&lt;li>position&lt;/li>
+&lt;li>speed&lt;/li>
+&lt;li>position of pantographs&lt;/li>
+&lt;li>driver reaction times ?&lt;/li>
+&lt;li>battery state ?&lt;/li>
+&lt;li>time elapsed since the last update&lt;/li>
+&lt;/ul>
+&lt;h3 id="driving-instructions">Driving instructions&lt;/h3>
+&lt;p>Driving instructions model what the train has to do along its path.
+They are linked to conditions on their application, and can interact with each other.
+They are generated using domain constraints such as speed limits or stops.&lt;/p>
+&lt;p>See &lt;a href="https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/">the dedicated page&lt;/a> for more details.&lt;/p>
+&lt;h3 id="path-properties">Path properties&lt;/h3>
+&lt;p>Path properties are the physical properties of the path, namely elevation, curves and electrification.&lt;/p>
+&lt;h3 id="driver-behavior-module">Driver behavior module&lt;/h3>
+&lt;p>The driver behavior modules update the train state based on:&lt;/p>
+&lt;ul>
+&lt;li>the current train state&lt;/li>
+&lt;li>the path properties&lt;/li>
+&lt;li>the driving instructions&lt;/li>
+&lt;li>a slowdown coefficient (1 = no slowdown, 0 = full stop)&lt;/li>
+&lt;/ul>
+&lt;p>The train state changes should be physically realistic.&lt;/p>
+&lt;p>See &lt;a href="https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driver-behavior-modules/">the dedicated page&lt;/a> for more details.&lt;/p>
+&lt;h3 id="schedule-controller">Schedule controller&lt;/h3>
+&lt;p>The schedule controller manages the slowdown coefficient given to the driver behavior module in order
+to respect the target schedule.&lt;/p>
+&lt;p>It adjusts the slowdown coefficient iteratively, using a dichotomous search, re-simulating the train behavior
+between two time-targeted points.&lt;/p>
+&lt;h3 id="simulation-results">Simulation results&lt;/h3>
+&lt;p>The output of the simulation is the list of train states at each time step.&lt;/p>
+&lt;h2 id="design-overview">Design overview&lt;/h2>
+&lt;p>The main idea of the new train simulator is to have a simulation which is computed step by step and not post-processed.
+This would ensure the physical consistency of the simulation.&lt;/p>
+&lt;p>The challenge is then to add ways to lose some time, in order to respect the target schedule.&lt;br>
+This is done by iterating over the sections between two scheduled points, while adjusting a slowdown factor.
+This slowdown factor would be used to control how the driver behavior module would lose time while still being
+physically realistic.&lt;br>
+See &lt;a href="https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driver-behavior-modules/">the driver behavior module dedicated page&lt;/a> for more details.&lt;/p>
+&lt;p>In order to accommodate an infrastructure which could change with time (like signals), we introduce driving instructions.
+These instructions are generated from the path properties and the target schedule, and are used to update the train state.
+Instructions can be conditional, and can interact with each other.&lt;br>
+The algorithm is described in detail in the &lt;a href="https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/">dedicated page&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="../overview.svg" alt="Algorithm flow chart">&lt;/p>
+&lt;h2 id="design-limits">Design limits&lt;/h2>
+&lt;ul>
+&lt;li>trains do not anticipate margin transitions: only the next target arrival time matters for finding the slowdown factor&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Prior art</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/prior-art/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/prior-art/</guid><description>
+&lt;p>The current implementation has a number of shortcomings making it pretty much impossible to evolve to
+meet current system requirements. It also has a number of less severe flaws, such as the over-reliance
+on floating point, especially for input and output.&lt;/p>
+&lt;p>The previous implementation cannot be changed to:&lt;/p>
+&lt;ul>
+&lt;li>react to signaling, as constraints stay the same as the simulation evolves&lt;/li>
+&lt;li>handle rich train state vectors, due to the way margins are implemented&lt;/li>
+&lt;li>be usable for both incremental simulation and batch&lt;/li>
+&lt;/ul>
+&lt;p>These limitations are the primary reasons for this redesign.&lt;/p>
+&lt;h2 id="margins">Margins&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>are defined as post-processing filter passes on simulation results. This has a number of undesirable side effects:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>margin algorithms produce the final simulation results. They may produce physically unrealistic simulations results&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>because margins are applied after the simulation, the simulation can&amp;rsquo;t adjust to impossible margin values. Thus the simulation fails instead of giving a &amp;ldquo;best effort&amp;rdquo; result.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>margin algorithms have no choice but to piece together results of different simulations:&lt;/p>
+&lt;ul>
+&lt;li>engineering margins are defined such that their effect has to be entirely contained within their bounds.
+even though it&amp;rsquo;s a desirable property, it means that simulations become a multi-pass affair, with no obvious
+way of keeping train behavior consistent across passes and boundaries.&lt;/li>
+&lt;li>this can only be done if the train state is entirely described by its location and speed,
+otherwise simulation results cannot be pieced together.&lt;/li>
+&lt;li>piecing together simulation results is very hard to execute reliably, as there are many corner cases to be considered.
+the algorithm is quite brittle.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>how much time should be lost and where isn&amp;rsquo;t defined in a way that makes scheduled points implementation easy&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>when a transition between two margin values occurs, slow downs occur before value changes, and speed ups
+after value changes. This is nice in theory, because it makes the graphs look nicer. The downside is that it
+makes margin values interdependent at each slow-down, as how much speed needs to be lost affects the time lost
+in the section.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="input-modeling">Input modeling&lt;/h2>
+&lt;p>With the previous implementation, the simulation takes sequence of constraint position and speed curves as an input
+(continuous in position, can be discontinuous in speed), and produces a continuous curve.&lt;/p>
+&lt;p>The output is fine, but the input is troublesome:&lt;/p>
+&lt;ul>
+&lt;li>braking curves have to be part of constraint curves&lt;/li>
+&lt;li>these constraint curves don&amp;rsquo;t have a direct match with actual constraints, such as speed limits, stops, or reaction to signal&lt;/li>
+&lt;li>constraints cannot evolve over time, and cannot be interpreted differently depending on when the train reached these constraints&lt;/li>
+&lt;li>constraints cannot overlap. the input is pre-processed to filter out obscured constraints&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Driving instructions</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/</guid><description>
+&lt;p>Driving instructions model what the train has to do, and under what conditions.
+Driving instructions are generated using domain constraints such as:&lt;/p>
+&lt;ul>
+&lt;li>unsignaled line speed limits&lt;/li>
+&lt;li>permanent signaled speed limits&lt;/li>
+&lt;li>temporary speed limits&lt;/li>
+&lt;li>dynamic signaling:
+&lt;ul>
+&lt;li>block / moving block&lt;/li>
+&lt;li>dynamically signaled speed restrictions&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>neutral zones&lt;/li>
+&lt;li>stops&lt;/li>
+&lt;li>margins&lt;/li>
+&lt;/ul>
+&lt;p>There are two types of driving instructions:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Abstract driving instructions&lt;/strong> model the high-level, rolling stock independent
+range of acceptable behavior: reach 30km/h at this location&lt;/li>
+&lt;li>&lt;strong>Concrete driving instructions&lt;/strong> model the specific range of acceptable behavior
+for a specific rolling stock, using limit curves: don&amp;rsquo;t go faster than this curve&lt;/li>
+&lt;/ul>
+&lt;pre class="mermaid">flowchart TD
+Constraint[constraint]
+AbstractDrivingInstruction[abstract driving instruction]
+ConcreteDrivingInstruction[concrete driving instruction]
+RollingStockIntegrator[rolling stock integrator]
+Compiler([compiler])
+Constraint -- generates one or more --&amp;gt; AbstractDrivingInstruction
+AbstractDrivingInstruction --&amp;gt; Compiler
+RollingStockIntegrator --&amp;gt; Compiler
+Compiler --&amp;gt; ConcreteDrivingInstruction&lt;/pre>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>After reviewing the design document, the necessity to distinguish between abstract and concrete driving instructions was questioned.&lt;/p>
+&lt;p>Indeed, it isn&amp;rsquo;t clear whether the limit curves are used for the driving instructions interpretation algorithm.
+If it isn&amp;rsquo;t, the computation of limit curves could be moved inside the &lt;a href="https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driver-behavior-modules/">driver behavior module&lt;/a>.&lt;/p>
+&lt;p>TODO: remove this message or fix the design document after implementation.&lt;/p>
+&lt;/div>
+&lt;h2 id="interpreting-driving-instructions">Interpreting driving instructions&lt;/h2>
+&lt;p>During the simulation, driving instructions are partitioned into 4 sets:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>PENDING&lt;/code> instructions may apply at some point in the future&lt;/li>
+&lt;li>&lt;code>RECEIVED&lt;/code> instructions aren&amp;rsquo;t enforced yet, but will be unless overridden&lt;/li>
+&lt;li>&lt;code>ENFORCED&lt;/code> instructions influence train behavior&lt;/li>
+&lt;li>&lt;code>DISABLED&lt;/code> instructions don&amp;rsquo;t ever have to be considered anymore. There are multiple ways instructions can be disabled:
+&lt;ul>
+&lt;li>&lt;code>SKIPPED&lt;/code> instructions were not received&lt;/li>
+&lt;li>&lt;code>RETIRED&lt;/code> instructions expired by themselves&lt;/li>
+&lt;li>&lt;code>OVERRIDDEN&lt;/code> instructions were removed by another instruction&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;pre class="mermaid">flowchart TD
+subgraph disabled
+skipped
+retired
+overridden
+end
+subgraph active
+received
+enforced
+end
+pending --&amp;gt; received
+pending --&amp;gt; skipped
+received --&amp;gt; enforced
+received --&amp;gt; overridden
+enforced --&amp;gt; retired
+enforced --&amp;gt; overridden&lt;/pre>
+&lt;p>These sets evolve as follows:&lt;/p>
+&lt;ul>
+&lt;li>when an integration steps overlaps a &lt;code>PENDING&lt;/code> instruction&amp;rsquo;s received condition, it is &lt;code>RECEIVED&lt;/code> and becomes a candidate to execution
+&lt;ul>
+&lt;li>existing instructions may be &lt;code>OVERRIDDEN&lt;/code> due to an &lt;code>override_on_received&lt;/code> operation&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>if an instruction cannot ever be received at any future simulation state, it transitions to the &lt;code>SKIPPED&lt;/code> state&lt;/li>
+&lt;li>when simulation state exceeds an instruction&amp;rsquo;s enforcement position, it becomes &lt;code>ENFORCED&lt;/code>. Only enforced instructions influence train behavior.
+&lt;ul>
+&lt;li>existing instructions may be &lt;code>OVERRIDDEN&lt;/code> due to an &lt;code>override_on_enforced&lt;/code> operation&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>when simulation state exceeds an instruction&amp;rsquo;s retirement position, it becomes &lt;code>RETIRED&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="overrides">Overrides&lt;/h3>
+&lt;p>When an instruction transitions to the &lt;code>RECEIVED&lt;/code> or &lt;code>ENFORCED&lt;/code> state, it can disable active instructions
+which match some metadata predicate. There are two metadata attributes which can be relied on for overrides:&lt;/p>
+&lt;ul>
+&lt;li>the &lt;code>kind&lt;/code> allows overriding previous instructions for a given domain, such as spacing or block signaled speed limits&lt;/li>
+&lt;li>the &lt;code>rank&lt;/code> can be used as a &amp;ldquo;freshness&amp;rdquo; or &amp;ldquo;priority&amp;rdquo; field. If two instructions overriding each other are received
+(such as when a train sees two signals), the rank allows deciding which instruction should be prioritized.&lt;/li>
+&lt;/ul>
+&lt;p>This is required to implement a number of signaling features, as well as stops, where the stop instruction is overridden
+by the restart instruction.&lt;/p>
+&lt;h3 id="data-model">Data model&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">ReceivedCond&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">position_in&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">PosRange&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">time_in&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">TimeRange&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">InstructionMetadata&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// state transitions
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">received_when&lt;/span>: &lt;span style="color:#000">ReceivedCond&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">enforced_at&lt;/span>: &lt;span style="color:#000">Position&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">retired_at&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Position&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// instruction metadata, used by override filters. if an instruction
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// has no metadata nor retiring condition, it cannot be overridden.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">kind&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">InstructionKindId&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// could be SPACING, SPEED_LIMIT
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">rank&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">usize&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// when the instruction transitions to a given state,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// instructions matching any filter are overridden
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">override_on_received&lt;/span>: &lt;span style="color:#204a87">Vec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">OverrideFilter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">override_on_enforced&lt;/span>: &lt;span style="color:#204a87">Vec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">OverrideFilter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">enum&lt;/span> &lt;span style="color:#000">AbstractInstruction&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">NeutralZone&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">SpeedTarget&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">at&lt;/span>: &lt;span style="color:#000">Position&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">speed&lt;/span>: &lt;span style="color:#000">Speed&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">enum&lt;/span> &lt;span style="color:#000">ConcreteInstruction&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">NeutralZone&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">SpeedTarget&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">braking_curve&lt;/span>: &lt;span style="color:#000">SpeedPosCurve&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">OverrideFilter&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">kind&lt;/span>: &lt;span style="color:#000">InstructionKindId&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">rank&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">RankRelation&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">usize&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">enum&lt;/span> &lt;span style="color:#000">RankRelation&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">LT&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">LE&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">EQ&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">GE&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">GT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="design-decisions">Design decisions&lt;/h2>
+&lt;h3 id="lowering-constraints-to-an-intermediate-representation">Lowering constraints to an intermediate representation&lt;/h3>
+&lt;p>Early on, we started making lists of what domain constraints can have an impact on train behavior.
+Meanwhile, to simulate train behavior, we figured out that we need to know which constraints apply at any given time.&lt;/p>
+&lt;p>There&amp;rsquo;s a fundamental tension between these two design constraints, which can be resolved in one of two ways:&lt;/p>
+&lt;ul>
+&lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
+&lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
+&lt;/ul>
+&lt;h4 id="hahahugoshortcode179s1hbhb-distinct-constraint-types">❌
+Distinct constraint types&lt;/h4>
+&lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
+a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
+&lt;ul>
+&lt;li>the high diversity of constraint types makes it almost impossible to describe all interactions between all constraint types&lt;/li>
+&lt;li>the domain of some of these interactions is very complex (block signaling)&lt;/li>
+&lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
+&lt;/ul>
+&lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
+&lt;h4 id="hahahugoshortcode179s2hbhb-internal-constraint-types-abstraction">❌
+Internal constraint types abstraction&lt;/h4>
+&lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
+&lt;ul>
+&lt;li>it allows expressing requirements on what constraints need to be enforceable&lt;/li>
+&lt;li>it greatly simplifies the process of validating constraint semantics: instead of having to validate interactions between
+every possible type of constraints, we only have to validate that the semantics of each constraint type can be transferred
+to the abstract constraint type&lt;/li>
+&lt;/ul>
+&lt;p>We decided to explore the possibility of keeping constraint types distinct in the external API,
+but lowering these constraints into an intermediary representation internally. We found a number of downsides:&lt;/p>
+&lt;ul>
+&lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
+&lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
+&lt;/ul>
+&lt;h4 id="hahahugoshortcode179s3hbhb-external-constraint-types-abstraction">✅
+External constraint types abstraction&lt;/h4>
+&lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
+&lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
+domain constraints to abstract driving instructions is left to the API user.&lt;/p>
+&lt;p>We found that doing so:&lt;/p>
+&lt;ul>
+&lt;li>reduces the API surface of the train simulation module&lt;/li>
+&lt;li>decouples behavior from constraint types: if a new constraint type needs to be added, the simulation
+API only needs expansion if the expected behavior expected for this constraint isn&amp;rsquo;t part of the API.&lt;/li>
+&lt;/ul>
+&lt;h3 id="interpreting-driving-instructions-1">Interpreting driving instructions&lt;/h3>
+&lt;p>As the train progresses through the simulation, it reacts according to driving instructions
+which depend on more than the bare train physics state (position, time, and speed):&lt;/p>
+&lt;ul>
+&lt;li>the behavior of a train on each block depends on the state of the last passed block signal&lt;/li>
+&lt;li>if a train encounters a yellow light, then a red light, stops before the red light, and the
+red light turns green, the train may have to keep applying the driving instruction from the
+yellow signal until the green light is passed&lt;/li>
+&lt;/ul>
+&lt;p>Thus, given:&lt;/p>
+&lt;ul>
+&lt;li>set of all possible driving instructions (alongside applicability metadata)&lt;/li>
+&lt;li>the result of previous integration steps (which may be extended to hold metadata)&lt;/li>
+&lt;/ul>
+&lt;p>There is a need to know what driving instructions are applicable to the current integration step.&lt;/p>
+&lt;p>Overrides are a way of modeling instructions which disable previous ones. Here are some examples:&lt;/p>
+&lt;ul>
+&lt;li>if a driver watches a signal change state, its new aspect&amp;rsquo;s instruction might take precedence over the previous one&lt;/li>
+&lt;li>as block signaling slows a train down, new signals can override instructions from previous signals, as they encode information that is more up to date&lt;/li>
+&lt;/ul>
+&lt;p>We identified multiple filtering needs:&lt;/p>
+&lt;ul>
+&lt;li>overrides happen as a given kind of restriction is updated: SPACING instructions might override other SPACING instructions,
+but wish to leave other speed restrictions unaffected&lt;/li>
+&lt;li>as multiple block signals can be visible at once, there&amp;rsquo;s a need to avoid overriding instructions of downstream signals with updates to upstream signals&lt;/li>
+&lt;/ul>
+&lt;p>We quickly settled on adding a kind field, but had a lengthy discussion over how to discriminate upstream and downstream signals.
+We explored the following options:&lt;/p>
+&lt;ul>
+&lt;li>❌
+adding &lt;code>source&lt;/code> metadata, which was rejected as it does not address the issue of upstream / downstream&lt;/li>
+&lt;li>❌
+adding identifiers to instructions, and overriding specific instructions, which was rejected as it makes
+instruction generation and processing more complex&lt;/li>
+&lt;li>✅
+adding some kind of priority / rank field, which was adopted&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Driver behavior modules</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driver-behavior-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driver-behavior-modules/</guid><description>
+&lt;h2 id="design-specs">Design specs&lt;/h2>
+&lt;h3 id="general-pitch">General pitch&lt;/h3>
+&lt;p>Driver behavior modules are responsible for making driving decisions.
+Its main responsibility, given the state of the train and an instruction, is to react to the instruction.
+This reaction is expressed as a new train state.&lt;/p>
+&lt;p>To perform this critical task, it needs access to additional context:&lt;/p>
+&lt;ul>
+&lt;li>the physical properties of the path, which are used to make coasting decisions, and to model natural forces.&lt;/li>
+&lt;li>a slowdown coefficient, which is used to adjust how much the train is slowed down compared to a
+full power simulation.&lt;/li>
+&lt;/ul>
+&lt;p>The driver behavior modules are supposed to have different implementations, which would interpret the slow down coefficient differently.&lt;/p>
+&lt;h3 id="api">API&lt;/h3>
+&lt;p>One driver behavior module is instantiated per driving instruction.
+It takes at initialization:&lt;/p>
+&lt;ul>
+&lt;li>a slowdown coefficient&lt;/li>
+&lt;li>the driving instruction&lt;/li>
+&lt;li>the path properties&lt;/li>
+&lt;/ul>
+&lt;p>It has two public methods:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>enact_decision(current_state: TrainState, t: float) -&amp;gt; (TrainState, float)&lt;/code>&lt;/p>
+&lt;p>Which returns what the next train state would be if there was only this one instruction to follow, and the time delta
+to reach this state.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>truncate_integration_step(current_state: TrainState, potential_state: TrainState, t: float, dt: float) -&amp;gt; (TrainState, float)&lt;/code>&lt;/p>
+&lt;p>Which returns a state and time delta which respects the instruction, and is as close as possible to the potential state.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="loop">Loop&lt;/h3>
+&lt;p>At a given train state, we know which driving instructions are enforced.&lt;/p>
+&lt;p>For each enforced driving instruction, we query the corresponding driver behavior module.&lt;/p>
+&lt;p>This gives a set of different train states. From this, we coalesce a single train state which respects all instructions.&lt;/p>
+&lt;p>To do so, we:&lt;/p>
+&lt;ol>
+&lt;li>Find the states which are most constraining for &amp;ldquo;constraining properties&amp;rdquo; (speed and pantograph state).&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Most constraining state regarding speed is the one with the lowest acceleration (taking sign into account).&lt;/li>
+&lt;li>Most constraining state regarding pantograph state is the one which sets the pantograph down the earliest.&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>Interpolate the &lt;strong>constraining&lt;/strong> states to the smallest &lt;code>dt&lt;/code> they are associated with.&lt;/li>
+&lt;li>Merge the &lt;strong>constraining&lt;/strong> states into a single &lt;strong>potential state&lt;/strong>:&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>for speed, we take the lowest acceleration&lt;/li>
+&lt;li>for pantograph state, we take the earliest pantograph state&lt;/li>
+&lt;li>other properties should be identical&lt;/li>
+&lt;/ul>
+&lt;ol start="4">
+&lt;li>Submit the &lt;strong>potential state&lt;/strong> for truncation to all driver behavior modules, chaining the outputs of &lt;code>truncate_integration_step&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>There is a heavy underlying assumption that &amp;ldquo;constraining properties&amp;rdquo; can be combined in a new state which
+is valid.
+This underlies the step 3. It is not yet clear if this assumption will always be valid in the future.&lt;/p>
+&lt;p>Also: what component should be in charge of instantiating all the driver behavior modules with the right implementation ?&lt;/p>
+&lt;/div>
+&lt;p>Here is a schema summarizing the process:&lt;/p>
+&lt;p>&lt;img src="../reconciliation.svg" alt="Driver behavior modules">&lt;/p>
+&lt;h3 id="a-short-case-for-why-step-4-is-needed">A short case for why step 4 is needed.&lt;/h3>
+&lt;p>&lt;img src="../overshoot.svg" alt="most constraining state overshoots">&lt;/p>
+&lt;p>Here the constraints are in red, and the next state chosen by the driver behavior modules are in black.&lt;/p>
+&lt;p>In this example, the most constraining state is A, since it&amp;rsquo;s the one which accelerates the least.
+However, it overshoots constraint B, thus we need to select the state which respects both constraints.&lt;/p>
+&lt;h2 id="decision-process">Decision process&lt;/h2>
+&lt;h3 id="unifying-driver-behavior-and-margin-distribution-algorithms">Unifying driver behavior and margin distribution algorithms&lt;/h3>
+&lt;p>When this design project started, driver behavior was left completely undefined.
+We assumed that a set of driving instructions can be unambiguously interpreted given a starting point.
+This assumption was then decided to be relied on to search which margin speed ceiling yields expected
+arrival times.&lt;/p>
+&lt;p>We also knew this assumption to be false: there are many ways instructions can be interpreted.
+Worse yet, different use cases for OSRD have different needs:&lt;/p>
+&lt;ul>
+&lt;li>some users might want to reproduce existing timetables, which exhibit naive driver behavior:
+aggressive accelerations, aggressive breaking behavior.&lt;/li>
+&lt;li>some users want to evaluate the feasibility of timetables, and thus want somewhat realistic driver
+behavior, with less aggressive acceleration and cautious breaking behavior.&lt;/li>
+&lt;/ul>
+&lt;p>To resolve this tension, we thought of adding support for pluggable driver behavior.
+Doing so, however, would create two ways a timetable can be loosened (loose time):&lt;/p>
+&lt;ul>
+&lt;li>lowering the margin speed ceiling&lt;/li>
+&lt;li>making driver behavior less aggressive&lt;/li>
+&lt;/ul>
+&lt;p>Let&amp;rsquo;s say we want to loosen the timetable by 1 minute on a given section. It could be achieved by:&lt;/p>
+&lt;ul>
+&lt;li>lowering the speed ceiling using margins while keeping aggressive driver behavior&lt;/li>
+&lt;li>making driving behavior very conservative, but using no margins at all&lt;/li>
+&lt;li>lowering the speed ceiling a little, and making driving behavior a little more conservative&lt;/li>
+&lt;li>any other combination of the two factors&lt;/li>
+&lt;/ul>
+&lt;p>This is an issue, as it might make simulation results unstable: because there possibly are many ways
+to achieve the requested schedule, it would be very challenging to reliably choose a solution which
+matches expectations.&lt;/p>
+&lt;ul>
+&lt;li>❌
+We considered ignoring the issue, as driver behavior was initially out of the scope
+of this design project. We decided not to, as we expected the cost of making later changes to integrate
+driver behavior to be significant.&lt;/li>
+&lt;li>✅
+We decided to avoid this shortcoming by making margin distribution part of driver behavior.
+Driver behavior modules are controlled by a slowdown coefficient between 0 (loose as much time as shall
+be achieved) and 1 (loose no time).&lt;/li>
+&lt;/ul>
+&lt;h3 id="interfacing-driver-behavior-driving-instructions-and-numerical-integration">Interfacing driver behavior, driving instructions, and numerical integration&lt;/h3>
+&lt;p>Driver behavior can be formally modeled as a local decision function &lt;code>f&lt;/code>, which takes the state of the
+train as an input, including position and speed, and returns an acceleration.&lt;/p>
+&lt;p>To best integrate this acceleration over the given time step, it is best not to use only the acceleration at (t).
+Since it may vary a lot along [t, t+dt]. To approximate the acceleration within this interval,
+we would need a better estimator, using a numerical method such as
+&lt;a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">RK4&lt;/a>. Such estimator then needs to call &lt;code>f&lt;/code> multiple times.&lt;/p>
+&lt;p>A number of questions came up:&lt;/p>
+&lt;ul>
+&lt;li>should numerical integration within the driver behavior module, or outside&lt;/li>
+&lt;li>are driver behavior modules queried about their reaction to a specific instruction, or in general&lt;/li>
+&lt;li>does the driver behavior module return decisions, or parameters used to make decisions (such as curves)&lt;/li>
+&lt;li>if decisions are returned, is it a force, an acceleration, or a new state&lt;/li>
+&lt;li>if a new state is returned, how to deal with heterogenous time steps&lt;/li>
+&lt;li>do we check decisions for correctness? that is, if a decision causes the train to overshoot a limit curve,
+do we do anything?&lt;/li>
+&lt;/ul>
+&lt;h4 id="do-we-have-a-single-dbm-for-all-driving-instructions-or-one-per-driving-instruction">Do we have a single DBM for all driving instructions, or one per driving instruction?&lt;/h4>
+&lt;p>We identified that this API choice shouldn&amp;rsquo;t constrain the implementation.
+We decided to go the conservative route and have &lt;em>one DBM per driving instructions&lt;/em> as it reduces the API surface
+and relieves DBM from the responsibility of finding the most restrictive instruction.&lt;/p>
+&lt;h4 id="how-do-we-prevent-overshooting">How do we prevent overshooting?&lt;/h4>
+&lt;p>We identified that DBMs need the ability to follow internal target curves (distinct from limit curves).&lt;/p>
+&lt;p>To do so we could either:&lt;/p>
+&lt;ol>
+&lt;li>Have a way to short-circuit our integration scheme, to snap to target curves without overshooting.&lt;/li>
+&lt;li>Accept oscillations around target curves (and thus overshooting).&lt;/li>
+&lt;li>Setup a feedback loop mechanism to avoid overshooting.&lt;/li>
+&lt;/ol>
+&lt;p>We decided that only the first option was desirable.&lt;/p>
+&lt;p>The design choices then are:&lt;/p>
+&lt;h5 id="hahahugoshortcode178s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+Make the DBM as close as possible to a decision function&lt;/h5>
+&lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>One for taking decisions, akin to &lt;code>f&lt;/code>.&lt;br>
+Called several times depending on the integration method.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>One for correcting an integration step (i.e. a time step and a new state), if it happened to overshoot its internal goal curves
+(for example MARECO which sets it&amp;rsquo;s own speed limits).&lt;br>
+Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h5 id="hahahugoshortcode178s4hbhb-the-dbm-returns-a-new-state">✅
+The DBM returns a new state&lt;/h5>
+&lt;p>The module would then expose two methods:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>One for taking decisions, which, given a train state and a desired/maximum time step, returns a new state (which does not overshoot) and a new current time.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>One for correcting an integration step (i.e. a time step and a new state), if it happened to overshoot its internal goal curves
+(for example MARECO which sets it&amp;rsquo;s own speed limits).&lt;br>
+Called only on other DBMs integration step results.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="how-do-we-combine-the-decisions-from-all-dbms">How do we combine the decisions from all DBMs?&lt;/h4>
+&lt;ol>
+&lt;li>For each state property, find the most constraining value and &lt;code>dt&lt;/code>.&lt;/li>
+&lt;li>Find the smallest &lt;code>dt&lt;/code> amongst constraining properties. Interpolate remaining properties to this &lt;code>dt&lt;/code>, to build a provisional state.&lt;/li>
+&lt;li>Submit this provisional state for truncation to all DBMs and take the truncation with the smallest &lt;code>dt&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;p>To understand how this algorithm is designed, we need to consider two example cases:&lt;/p>
+&lt;ul>
+&lt;li>For steps 1 and 2: if a neutral zone and a breaking instruction overlap, both are most constraining to different state properties:
+the neutral zone affects pantograph state, and the breaking instruction affects speed. The final state has to be a combination of both.&lt;/li>
+&lt;li>For step 3: We need to truncate integration steps to avoid overshoots, and thus avoid the need for feedback loops.
+Ideally, we want to truncate to the exact overshoot location. This overshoot location is not the same as the initial &lt;code>dt&lt;/code> for the overshot constraint.&lt;/li>
+&lt;/ul>
+&lt;h3 id="should-truncate_integration_step-depend-on-the-driver-behavior-module">Should &lt;code>truncate_integration_step&lt;/code> depend on the driver behavior module?&lt;/h3>
+&lt;p>Yes: DBMs may use internal representations that the new state should not overshoot.
+For instance, when passed a driving instruction with a speed limit of 60km/h,
+a DBM wishing to lose time may reduce the speed to 50 km/h.&lt;/p></description></item></channel></rss>

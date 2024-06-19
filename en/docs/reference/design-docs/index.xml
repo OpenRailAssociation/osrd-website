@@ -241,7 +241,14 @@ gen -&amp;gt;&amp;gt; client: resource requirements&lt;/pre>
 &lt;h2 id="visualizing-requirements">Visualizing requirements&lt;/h2>
 &lt;script type="application/javascript" src="mkt.js">&lt;/script>
 &lt;p>&lt;object style="width: 100%" onload="mkt_hydrate(this.contentDocument.rootElement)" type="image/svg+xml" data="requirements-diagram.svg">&lt;/object>&lt;/p>
-&lt;p>&lt;a href="./requirements-diagram.html">Full-page requirements diagram&lt;/a>&lt;/p></description></item><item><title>Docs: Search for last-minute train slots (STDCM)</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/</guid><description>
+&lt;p>&lt;a href="./requirements-diagram.html">Full-page requirements diagram&lt;/a>&lt;/p></description></item><item><title>Docs: Train simulation v3</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/</guid><description>
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>This work is pending implementation, and has not yet been adjusted to
+reflect potential required adjustments.&lt;/p>
+&lt;/div>
+&lt;p>These articles describe the design of the new train simulation system.&lt;/p>
+&lt;p>This system should be simpler and more stable than the current one,
+and should enable more advanced features in the future.&lt;/p></description></item><item><title>Docs: Search for last-minute train slots (STDCM)</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/</guid><description>
 &lt;p>OSRD can be used to find a slot for a train in an already established
 timetable, without causing conflicts with other trains.&lt;/p>
 &lt;p>The acronym STDCM (Short Term Digital Capacity Management) is used
