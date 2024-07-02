@@ -7,4 +7,7 @@
 &lt;li>its constraints&lt;/li>
 &lt;li>how its inputs and outputs were modeled&lt;/li>
 &lt;li>how it works&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Docs: APIs</title><link>https://osrd.fr/en/docs/reference/apis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/apis/</guid><description>
+&lt;p>&lt;strong>RailJSON&lt;/strong> is the format used to describe a railway infrastructure, it&amp;rsquo;s
+described in its &lt;a href="https://json-schema.app/view/%23?url=https%3A%2F%2Fraw.githubusercontent.com%2FOpenRailAssociation%2Fosrd%2Fdev%2Ffront%2Fsrc%2Freducers%2Fosrdconf%2Finfra_schema.json">JSON schema&lt;/a>.&lt;/p>
+&lt;p>Below are a list of REST APIs implemented by OSRD.&lt;/p></description></item></channel></rss>
