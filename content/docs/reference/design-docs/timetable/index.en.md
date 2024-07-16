@@ -156,7 +156,6 @@ margins:
   boundaries: [b]
 
   # the following units are supported:
-  #  - none is a special value which indicates no margin. It's the default
   #  - % means added percentage of the base simulation time
   #  - min/100km means minutes per 100 kilometers
   values: ["5%", "3%", "4.5min/100km"]
@@ -271,4 +270,42 @@ GET /v2/train_schedule/ID/simulation?infa=N
 GET /v2/train_schedule/simulations_sumary?infa=N&ids[]=X&ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&ids[]=X&ids[]=Y
+```
+
+## Frontend workflow
+
+The frontend shouldn't wait minutes to display something to the user. When a timetable contains hundred of trains it can takes some time to simulate everything.
+The idea is to split requests into small batches.
+
+```mermaid
+flowchart TB
+    InfraLoaded[Check for infra to be loaded]
+    RetrieveTimetable[Retrieve Timetable]
+    RetrieveTrains[Retrieve TS2 payloads]
+    SummarySimulation[[Summary simulation batch N:N+10]]
+    TrainProjectionPath[Get selected train projection path]
+    Projection[[Projection batch N-10:N]]
+    TrainSimulation[Get selected train simulation]
+    TrainPath[Get selected train path]
+    TrainPathProperties[Get selected train path properties]
+    DisplayGev(Display: GEV / Map /\n Driver Schedule/ Linear / Output Table)
+    DisplayGet(Display Space Time Chart)
+    DisplayTrainList(Display train list)
+    Conflicts(Compute and display conflicts)
+
+    InfraLoaded -->|Wait| SummarySimulation
+    InfraLoaded -->|Wait| TrainProjectionPath
+    InfraLoaded -->|Wait| TrainPath
+    TrainPath -->|If found| TrainSimulation
+    TrainPath -->|If found| TrainPathProperties
+    RetrieveTimetable -->|Get train ids| RetrieveTrains
+    RetrieveTrains ==>|Sort trains and chunk it| SummarySimulation
+    SummarySimulation ==>|Wait for the previous batch| Projection
+    SummarySimulation -->|Gradually fill cards| DisplayTrainList
+    TrainPathProperties -->| | DisplayGev
+    TrainSimulation -->|If valid simulation| DisplayGev
+    TrainProjectionPath -->|Wait for the previous batch| Projection
+    SummarySimulation -..->|If no projection train id| TrainProjectionPath
+    Projection ==>|Gradually fill| DisplayGet
+    SummarySimulation -->|Once everything is simulated| Conflicts
 ```
