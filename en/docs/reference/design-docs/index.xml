@@ -382,7 +382,6 @@ They are returned when the train schedule is queried.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">boundaries&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">b]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># the following units are supported:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># - none is a special value which indicates no margin. It&amp;#39;s the default&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># - % means added percentage of the base simulation time&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># - min/100km means minutes per 100 kilometers&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">values&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;5%&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;3%&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;4.5min/100km&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -471,7 +470,38 @@ GET /v2/train_schedule/ID/simulation?infa=N
 GET /v2/train_schedule/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
+&lt;/code>&lt;/pre>&lt;h2 id="frontend-workflow">Frontend workflow&lt;/h2>
+&lt;p>The frontend shouldn&amp;rsquo;t wait minutes to display something to the user. When a timetable contains hundred of trains it can takes some time to simulate everything.
+The idea is to split requests into small batches.&lt;/p>
+&lt;pre class="mermaid">flowchart TB
+InfraLoaded[Check for infra to be loaded]
+RetrieveTimetable[Retrieve Timetable]
+RetrieveTrains[Retrieve TS2 payloads]
+SummarySimulation[[Summary simulation batch N:N&amp;#43;10]]
+TrainProjectionPath[Get selected train projection path]
+Projection[[Projection batch N-10:N]]
+TrainSimulation[Get selected train simulation]
+TrainPath[Get selected train path]
+TrainPathProperties[Get selected train path properties]
+DisplayGev(Display: GEV / Map /\n Driver Schedule/ Linear / Output Table)
+DisplayGet(Display Space Time Chart)
+DisplayTrainList(Display train list)
+Conflicts(Compute and display conflicts)
+InfraLoaded --&amp;gt;|Wait| SummarySimulation
+InfraLoaded --&amp;gt;|Wait| TrainProjectionPath
+InfraLoaded --&amp;gt;|Wait| TrainPath
+TrainPath --&amp;gt;|If found| TrainSimulation
+TrainPath --&amp;gt;|If found| TrainPathProperties
+RetrieveTimetable --&amp;gt;|Get train ids| RetrieveTrains
+RetrieveTrains ==&amp;gt;|Sort trains and chunk it| SummarySimulation
+SummarySimulation ==&amp;gt;|Wait for the previous batch| Projection
+SummarySimulation --&amp;gt;|Gradually fill cards| DisplayTrainList
+TrainPathProperties --&amp;gt;| | DisplayGev
+TrainSimulation --&amp;gt;|If valid simulation| DisplayGev
+TrainProjectionPath --&amp;gt;|Wait for the previous batch| Projection
+SummarySimulation -..-&amp;gt;|If no projection train id| TrainProjectionPath
+Projection ==&amp;gt;|Gradually fill| DisplayGet
+SummarySimulation --&amp;gt;|Once everything is simulated| Conflicts&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
 &lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
 &lt;ul>
 &lt;li>authentication (&lt;code>authn&lt;/code>) is the process of figuring out an user&amp;rsquo;s identity.&lt;/li>
