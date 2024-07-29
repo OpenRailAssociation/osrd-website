@@ -148,12 +148,12 @@ schedule:
 
 margins:
   # This example encodes the following margins:
-  #   a --- 5% --- b --- 3% --- d
+  #   a --- 5% --- b --- 3% --- c --- 4.5min/100km --- d
 
   # /!\ all schedule points with either an arrival or departure time must also be
   # margin boundaries. departure and arrival waypoints are implicit boundaries. /!\
   # boundaries delimit margin sections. A list of N boundaries yields N + 1 sections.
-  boundaries: [b]
+  boundaries: [b, c]
 
   # the following units are supported:
   #  - % means added percentage of the base simulation time
