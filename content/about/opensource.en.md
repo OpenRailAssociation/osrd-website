@@ -30,7 +30,7 @@ Using open source to enable industrial collaboration is not a new idea:
  - **Blender** is a modelling, rendering and 3D animation software, which has recently become [major point of industry collaboration](https://fund.blender.org/) for this industry
  - **Linux**, a Windows alternative used by Google, Microsoft, Amazon, Apple, most websites, cloud platforms, mobile phones, routers, and more. All these companies rely on and contribute to Linux tremendously
  - **Android** is the common base software for most phones. Phone manufacturers regularly contribute to android
- - **PostgreSQL**, **MySQL**, **SQLite** and other open-source databases collectively dominate the database market. Any actor with special needs can improve an existing open source tool rather than create a new one.
+ - **PostgreSQL**, **MySQL**, **SQLite** and other open-source databases collectively dominate the database market. Any actor with special needs can improve an existing open-source tool rather than create a new one.
  - Both **Firefox** and **Chrome** are Open Source
  - **Wordpress** is the CMS which runs 43% of all websites. A flock of companies contribute to Wordpress and make extensions
  - **Odoo** is a powerful modular ERP, which has a community not unlike Wordpress
