@@ -292,6 +292,8 @@ flowchart TB
     DisplayGet(Display Space Time Chart)
     DisplayTrainList(Display train list)
     Conflicts(Compute and display conflicts)
+    ProjectConflitcs(Display conflicts in GET)
+
 
     InfraLoaded -->|Wait| SummarySimulation
     InfraLoaded -->|Wait| TrainProjectionPath
@@ -308,4 +310,5 @@ flowchart TB
     SummarySimulation -..->|If no projection train id| TrainProjectionPath
     Projection ==>|Gradually fill| DisplayGet
     SummarySimulation -->|Once everything is simulated| Conflicts
+    Conflicts --> ProjectConflitcs
 ```
