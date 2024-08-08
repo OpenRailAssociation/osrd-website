@@ -487,6 +487,7 @@ DisplayGev(Display: GEV / Map /\n Driver Schedule/ Linear / Output Table)
 DisplayGet(Display Space Time Chart)
 DisplayTrainList(Display train list)
 Conflicts(Compute and display conflicts)
+ProjectConflitcs(Display conflicts in GET)
 InfraLoaded --&amp;gt;|Wait| SummarySimulation
 InfraLoaded --&amp;gt;|Wait| TrainProjectionPath
 InfraLoaded --&amp;gt;|Wait| TrainPath
@@ -501,7 +502,8 @@ TrainSimulation --&amp;gt;|If valid simulation| DisplayGev
 TrainProjectionPath --&amp;gt;|Wait for the previous batch| Projection
 SummarySimulation -..-&amp;gt;|If no projection train id| TrainProjectionPath
 Projection ==&amp;gt;|Gradually fill| DisplayGet
-SummarySimulation --&amp;gt;|Once everything is simulated| Conflicts&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
+SummarySimulation --&amp;gt;|Once everything is simulated| Conflicts
+Conflicts --&amp;gt; ProjectConflitcs&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
 &lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
 &lt;ul>
 &lt;li>authentication (&lt;code>authn&lt;/code>) is the process of figuring out an user&amp;rsquo;s identity.&lt;/li>
