@@ -2631,7 +2631,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode171s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode173s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2641,7 +2641,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode171s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode173s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2656,7 +2656,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode171s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode173s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -2745,7 +2745,7 @@ adding some kind of priority / rank field, which was adopted&lt;/li>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode149s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode152s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2756,11 +2756,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode149s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode152s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode149s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode152s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -2779,14 +2779,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode149s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode152s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode149s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode152s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode149s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode152s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2798,7 +2798,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode149s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode152s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2833,7 +2833,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode149s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode152s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3116,7 +3116,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode169s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode171s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3130,7 +3130,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode169s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode171s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>
