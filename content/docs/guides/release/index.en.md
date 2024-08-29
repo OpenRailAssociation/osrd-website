@@ -13,8 +13,8 @@ The process for creating a new release is as follows:
     - `git switch staging && git pull`
 1. Create a git **annotated** tag
     - We are using the [semantic versioning](https://semver.org/)
-    - `git tag -a vx.y.z` (most of the time use the latest version and increment the patch version)
-    - `git push --tags vx.y.z`
+    - `git tag -a vx.y.z` with the message `Release x.y.z` (most of the time use the latest version and increment the patch version)
+    - `git push --tags`
 1. Create a github release
     - Draft a new github release [here](https://github.com/OpenRailAssociation/osrd/releases/new)
     - Select the created tag
