@@ -89,7 +89,7 @@ Runge Kutta's method of integration 4 addresses the various problems raised by E
 - It allows the anticipation of directive changes within a calculation step, thus representing more accurately the reality of driving a train.
 - It is more accurate for the same calculation time (see [appendix](#the-choice-of-integration-method-for-osrd)), allowing for larger integration steps and therefore fewer data points.
 
-#### **Disavantages of Runge Kutta's 4 method**
+#### **Disadvantages of Runge Kutta's 4 method**
 
 The only notable drawback of the Runge Kutta 4 method encountered so far is its difficulty of implementation.
 
@@ -109,7 +109,7 @@ Different integration methods could have replaced the basic Euler integration in
 - Adams 2
 - Adams 3
 
-All explanations of these methods can be found (in french) in [this document](https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf), and the python code used for the simulation is [here](https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py).
+All explanations of these methods can be found (in French) in [this document](https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf), and the python code used for the simulation is [here](https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py).
 
 The simulation calculates the position and speed of a high-speed train accelerating on a flat straight line.
 
