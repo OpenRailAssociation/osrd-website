@@ -2631,7 +2631,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode173s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode161s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2641,7 +2641,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode173s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode161s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2656,7 +2656,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode173s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode161s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -2745,7 +2745,7 @@ adding some kind of priority / rank field, which was adopted&lt;/li>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode152s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode143s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2756,11 +2756,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode152s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode143s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode152s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode143s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -2779,14 +2779,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode152s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode143s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode152s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode143s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode152s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode143s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2798,7 +2798,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode152s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode143s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2833,7 +2833,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode152s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode143s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3116,7 +3116,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode171s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode159s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3130,7 +3130,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode171s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode159s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>
@@ -4584,7 +4584,7 @@ Retrying convergence for one worker group adds latency to convergence for all wo
 &lt;/div></description></item><item><title>About: Open Source</title><link>https://osrd.fr/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opensource/</guid><description>
 &lt;p>Open source is a &lt;strong>software development practice&lt;/strong>, where the software&amp;rsquo;s source code&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> :&lt;/p>
 &lt;ul>
-&lt;li>usually developped by multiple actors, in an open and transparent way&lt;/li>
+&lt;li>usually developed by multiple actors, in an open and transparent way&lt;/li>
 &lt;li>free and available for all&lt;/li>
 &lt;li>can be modified or used for derivative work by anyone&lt;/li>
 &lt;li>can be freely distributed&lt;/li>
@@ -4593,7 +4593,7 @@ Retrying convergence for one worker group adds latency to convergence for all wo
 &lt;h2 id="osrd-and-open-source">OSRD and Open Source&lt;/h2>
 &lt;p>Applied to OSRD, Open Source has &lt;strong>multiple avantages&lt;/strong> :&lt;/p>
 &lt;ul>
-&lt;li>the algorithms and know-how developped with the project are free for all&lt;/li>
+&lt;li>the algorithms and know-how developed with the project are free for all&lt;/li>
 &lt;li>development cost and results are shared between actors&lt;/li>
 &lt;li>it makes interoperability between software systems easier by helping make the landscape more homogeneous and standardized&lt;/li>
 &lt;li>helps focus collaboration around common interests&lt;/li>
@@ -4606,7 +4606,7 @@ Retrying convergence for one worker group adds latency to convergence for all wo
 &lt;li>&lt;strong>Blender&lt;/strong> is a modelling, rendering and 3D animation software, which has recently become &lt;a href="https://fund.blender.org/">major point of industry collaboration&lt;/a> for this industry&lt;/li>
 &lt;li>&lt;strong>Linux&lt;/strong>, a Windows alternative used by Google, Microsoft, Amazon, Apple, most websites, cloud platforms, mobile phones, routers, and more. All these companies rely on and contribute to Linux tremendously&lt;/li>
 &lt;li>&lt;strong>Android&lt;/strong> is the common base software for most phones. Phone manufacturers regularly contribute to android&lt;/li>
-&lt;li>&lt;strong>PostgreSQL&lt;/strong>, &lt;strong>MySQL&lt;/strong>, &lt;strong>SQLite&lt;/strong> and other open source data bases collectively dominate the database market. Any actor with special needs can improve an existing open source tool rather than create a new one.&lt;/li>
+&lt;li>&lt;strong>PostgreSQL&lt;/strong>, &lt;strong>MySQL&lt;/strong>, &lt;strong>SQLite&lt;/strong> and other open-source databases collectively dominate the database market. Any actor with special needs can improve an existing open-source tool rather than create a new one.&lt;/li>
 &lt;li>Both &lt;strong>Firefox&lt;/strong> and &lt;strong>Chrome&lt;/strong> are Open Source&lt;/li>
 &lt;li>&lt;strong>Wordpress&lt;/strong> is the CMS which runs 43% of all websites. A flock of companies contribute to Wordpress and make extensions&lt;/li>
 &lt;li>&lt;strong>Odoo&lt;/strong> is a powerful modular ERP, which has a community not unlike Wordpress&lt;/li>
@@ -4617,12 +4617,12 @@ Retrying convergence for one worker group adds latency to convergence for all wo
 &lt;div class="alert alert-info" role="alert">
 These processes are not specific to open source: many companies work in a similar way.
 &lt;/div>
-&lt;p>In practice, most open source software is developed using &lt;a href="https://github.com/osrd-project/osrd">a forge&lt;/a>. Through this forge, developers and users can access the source code, report bugs, plan tasks, and integrate new changes to the code.
+&lt;p>In practice, most open-source software is developed using &lt;a href="https://github.com/osrd-project/osrd">a forge&lt;/a>. Through this forge, developers and users can access the source code, report bugs, plan tasks, and integrate new changes to the code.
 Anyone can suggest a change, report a bug or plan a task.&lt;/p>
 &lt;p>All changes go through a &lt;strong>peer review&lt;/strong>, not unlike those used by the scientific community.
 Reviewers are software developers most familiar with components affected by the change.&lt;/p>
 &lt;p>Changes are integrated into the code base when everyone involved agrees to.
-Maintainers are responsible for keeping the project working and consistent. Maintainers are choosen among developers by developers.
+Maintainers are responsible for keeping the project working and consistent. Maintainers are chosen among developers by developers.
 What motivates whether to integrate a change or not is technical viability: the goal of everyone involved is to &lt;strong>maintain high level of service and quality standard&lt;/strong>.&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
