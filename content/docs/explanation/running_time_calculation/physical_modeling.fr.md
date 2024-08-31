@@ -50,7 +50,7 @@ Une seconde approche de la modélisation du freinage est l'approche dite horaire
 
 <br>
 
-- **Résistance à l'avancement** : Pour modéliser la résistance à l’avancement du train on utilise la formule de Davis qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à l'avancement dépend de la vitesse \\(v^{\prime}\_x\\). Les coefficients \\(A\\), \\(B\\), et \\(C\\) dépendent du matériel roulant.
+- **Résistance à l'avancement** : Pour modéliser la résistance à l’avancement du train on utilise la formule de Davis qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la résistance à l'avancement dépend de la vitesse \\(v^{\prime}\_x\\). Les coefficients \\(A\\), \\(B\\), et \\(C\\) dépendent du matériel roulant.
 
 $$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$
 
