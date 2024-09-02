@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribuer à OSRD</title><link>https://osrd.fr/fr/docs/guides/contribute/</link><description>Recent content in Contribuer à OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Avant toutes choses</title><link>https://osrd.fr/fr/docs/guides/contribute/preamble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/preamble/</guid><description>
 &lt;p>Déjà, merci de prendre le temps de contribuer !&lt;/p>
-&lt;p>Si les sections suivantes forment un guide du contributeur, ce n&amp;rsquo;est pas pour autant un ensemble de règles strictes. En fait, si vous avez déjà contribué à des gros projets opensource, la suite ne sera pas surprenante. Dans le cas contraire, elle vous sera probablement très utile !&lt;/p>
+&lt;p>Si les sections suivantes forment un guide du contributeur, ce n&amp;rsquo;est pas pour autant un ensemble de règles strictes. En fait, si vous avez déjà contribué à des gros projets open-source, la suite ne sera pas surprenante. Dans le cas contraire, elle vous sera probablement très utile !&lt;/p>
 &lt;h3 id="communiquer">Communiquer&lt;/h3>
 &lt;p>Vous pouvez gagner du temps en discutant de votre projet de contribution avec les autres contributeurs :&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">&lt;strong>Créez une issue&lt;/strong>&lt;/a> pour avoir un endroit un discuter de votre contribution.&lt;/li>
+&lt;li>&lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">&lt;strong>Créez une issue&lt;/strong>&lt;/a> pour avoir un endroit pour discuter de votre contribution.&lt;/li>
 &lt;/ul>
 &lt;h3 id="se-renseigner">Se renseigner&lt;/h3>
-&lt;p>Comme dans tout projet, chaque changement se repose sur ce qui a été fait par le passé.
+&lt;p>Comme dans tout projet, chaque changement repose sur ce qui a été fait par le passé.
 Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;existant :&lt;/p>
 &lt;ul>
 &lt;li>Vous pouvez &lt;a href="https://osrd.fr/fr/docs/">lire la documentation technique&lt;/a>&lt;/li>
