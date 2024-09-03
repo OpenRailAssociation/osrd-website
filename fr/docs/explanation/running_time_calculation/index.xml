@@ -40,7 +40,7 @@ des différentes forces qui lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$&l
 &lt;p>Une seconde approche de la modélisation du freinage est l&amp;rsquo;approche dite horaire, car utilisée pour la production horaire à la SNCF. Dans ce cas, la décélération est fixe et le freinage ne dépend plus des différentes forces appliquées au train. Les valeurs de décélération typiques vont de 0.4 à 0.7m/s².&lt;/p>
 &lt;br>
 &lt;ul>
-&lt;li>&lt;strong>Résistance à l&amp;rsquo;avancement&lt;/strong> : Pour modéliser la résistance à l’avancement du train on utilise la formule de Davis qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la resistance à l&amp;rsquo;avancement dépend de la vitesse \(v^{\prime}_x\). Les coefficients \(A\), \(B\), et \(C\) dépendent du matériel roulant.&lt;/li>
+&lt;li>&lt;strong>Résistance à l&amp;rsquo;avancement&lt;/strong> : Pour modéliser la résistance à l’avancement du train on utilise la formule de Davis qui prend en compte tous les frottements et la résistance aérodynamique de l’air. La valeur de la résistance à l&amp;rsquo;avancement dépend de la vitesse \(v^{\prime}_x\). Les coefficients \(A\), \(B\), et \(C\) dépendent du matériel roulant.&lt;/li>
 &lt;/ul>
 &lt;p>$$ {\vec{R}(v_{x^{\prime}})}=-(A+Bv_{x^{\prime}}+{Cv_{x^{\prime}}}^2){\vec{e_{x^{\prime}}}} $$&lt;/p>
 &lt;br>
