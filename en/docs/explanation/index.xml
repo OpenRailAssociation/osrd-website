@@ -84,24 +84,24 @@ height: 70%;
 width: 70%;
 }
 &lt;/style></description></item><item><title>Docs: Netzgrafik-Editor</title><link>https://osrd.fr/en/docs/explanation/netzgrafik-editor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/netzgrafik-editor/</guid><description>
-&lt;p>Netzgrafik-Editor (NGE) is an open-source software that enables the creation, modification, and analysis of regular-interval timetable, at a macroscopic level of details, developped by &lt;a href="https://www.sbb.ch/">Swiss Federal Railways (SBB CFF FFS)&lt;/a>. See &lt;a href="https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend">front-end&lt;/a> and &lt;a href="https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-backend">back-end&lt;/a> repositories.&lt;/p>
+&lt;p>Netzgrafik-Editor (NGE) is an open-source software that enables the creation, modification, and analysis of regular-interval timetable, at a macroscopic level of detail, developed by &lt;a href="https://www.sbb.ch/">Swiss Federal Railways (SBB CFF FFS)&lt;/a>. See &lt;a href="https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend">front-end&lt;/a> and &lt;a href="https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-backend">back-end&lt;/a> repositories.&lt;/p>
 &lt;p>OSRD (microscopic level of detail, trains scheduled once, based on a defined infrastructure, depicts a timetable) and NGE (macroscopic level of detail, regular-interval based train runs, no infrastructure, depicts a transportation plan) are semantically different, but close enough to make it work together.
-The compatibility between NGE and OSRD has been tested through by a proof of concept, by running both pieces of software as separate services and without automated synchronization.&lt;/p>
-&lt;p>The idea is to give to OSRD a graphical tool to edit (create, update and delete train schedules from) a timetable from a operational study scenario, and get some insights on analytics at the same time. The second benefit of using both microscopic and macroscopic level of detail is that OSRD microscopic calculations can be propagated in NGE to enhance the level of detail of it.&lt;/p>
+The compatibility between NGE and OSRD has been tested through a proof of concept, by running both pieces of software as separate services and without automated synchronization.&lt;/p>
+&lt;p>The idea is to give to OSRD a graphical tool to edit (create, update and delete train schedules from) a timetable from an operational study scenario, and get some insights on analytics at the same time. The second benefit of using both microscopic and macroscopic level of detail is that OSRD microscopic calculations can be propagated in NGE to enhance the level of detail of it.&lt;/p>
 &lt;p>The transversal objective of this feature is to make 2 open-source projects from 2 big infrastructure managers work along and cooperate with one another with the same goals.&lt;/p>
 &lt;h4 id="1---integration-in-osrd">1 - Integration in OSRD&lt;/h4>
-&lt;p>Therefore, NGE is integrated in the operational studies section of OSRD, in an &lt;a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe">&lt;code>iframe&lt;/code>&lt;/a>. An alternative way to deal with the integration would have been to refactor NGE as &lt;a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components">&lt;code>web-components&lt;/code>&lt;/a>, thus easy to import in OSRD, but this solution has been abandonned, because of the quantity of refactor that would have been needed. This &lt;code>iframe&lt;/code> points to &lt;code>osrd-nge&lt;/code>, a minimalist Angular app that embed the actual NGE app. It can also be seen as a wrapper of the actual NGE app. &lt;code>osrd-nge&lt;/code> then customizes the actual NGE app with specific parameters and functionnalities:&lt;/p>
+&lt;p>Therefore, NGE is integrated in the operational studies section of OSRD, in an &lt;a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe">&lt;code>iframe&lt;/code>&lt;/a>. An alternative way to deal with the integration would have been to refactor NGE as &lt;a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components">&lt;code>web-components&lt;/code>&lt;/a>, thus easy to import in OSRD, but this solution has been abandoned, because of the quantity of refactoring that would have been needed. This &lt;code>iframe&lt;/code> points to &lt;code>osrd-nge&lt;/code>, a minimalist Angular app that embed the actual NGE app. It can also be seen as a wrapper of the actual NGE app. &lt;code>osrd-nge&lt;/code> then customizes the actual NGE app with specific parameters and functionalities:&lt;/p>
 &lt;ul>
 &lt;li>a &lt;code>standalone&lt;/code> flag:
 &lt;ul>
 &lt;li>to tell NGE to disable all back-end interactions (no database on NGE side)&lt;/li>
-&lt;li>to tell NGE to disable some UI components (authentication, project managment, versionning system view, etc&amp;hellip;)&lt;/li>
+&lt;li>to tell NGE to disable some UI components (authentication, project management, versioning system view, etc.)&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>implementation of a communication interface between OSRD and NGE (&lt;a href="https://developer.mozilla.org/fr/docs/Web/API/Window/message_event">&lt;code>message_event&lt;/code>&lt;/a>, &lt;a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener">&lt;code>eventListener&lt;/code>&lt;/a> and &lt;a href="https://developer.mozilla.org/fr/docs/Web/API/Window/postMessage">&lt;code>postMessage&lt;/code>&lt;/a>).&lt;/li>
 &lt;/ul>
 &lt;p>NGE is then able to get the OSRD timetable as soon as a change is made on OSRD side, and OSRD is able to get the changes made on NGE side.&lt;/p>
-&lt;p>The following diagrams shows the workflow between the components.&lt;/p>
+&lt;p>The following diagram shows the workflow between the components.&lt;/p>
 &lt;p>&lt;img src="osrd_nge_concept_diagram.jpg" alt="Concept diagram">&lt;/p>
 &lt;pre class="mermaid">---
 title: OSRD - NGE Sequence diagram
@@ -121,7 +121,7 @@ OSRD (parent window)--&amp;gt;&amp;gt;OSRD (parent window): convert NGE action i
 OSRD (parent window)-&amp;gt;&amp;gt;NGE (osrd-nge iframe): iframe.contentWindow.postMessage(nge_light_model, &amp;#34;*&amp;#34;)
 end
 end&lt;/pre>
-&lt;p>Since OSRD is the only source of truth (= data source), NGE has to be updated as very last action, to be aligned with the timetable current state, and to get the updated microscopic calculations from OSRD.&lt;/p>
+&lt;p>Since OSRD is the only source of truth (= data source), NGE has to be updated as the very last action, to be aligned with the timetable current state, and to get the updated microscopic calculations from OSRD.&lt;/p>
 &lt;p>More precisely, when a change is made in NGE:&lt;/p>
 &lt;pre class="mermaid">---
 title: OSRD - NGE Communication when modification in NGE
@@ -141,7 +141,7 @@ NGE (osrd-nge)-&amp;gt;&amp;gt;NGE (nge-app): (callback function) &amp;lt;br&amp
 &lt;h4 id="2---converters">2 - Converters&lt;/h4>
 &lt;p>To overpass the semantic differences and make the data models fit, 2 converters have to be implemented:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>[OSRD -&amp;gt; NGE]&lt;/strong> a converter that tranforms an OSRD timetable into an NGE model&lt;/li>
+&lt;li>&lt;strong>[OSRD -&amp;gt; NGE]&lt;/strong> a converter that transforms an OSRD timetable into an NGE model&lt;/li>
 &lt;li>&lt;strong>[OSRD &amp;lt;- NGE]&lt;/strong> an event handler, that transforms NGE action into OSRD database update on timetable&lt;/li>
 &lt;/ul>
 &lt;h4 id="3---open-source-cooperation--contribution">3 - Open-source (cooperation / contribution)&lt;/h4>
