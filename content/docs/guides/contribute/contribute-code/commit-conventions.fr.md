@@ -1,9 +1,11 @@
 ---
-title: "Style des commits"
-linkTitle: "Style des commits"
+title: "Conventions de commits"
+linkTitle: "Conventions de commits"
 weight: 4
 description: "Quelques bonnes pratiques et règles pour les messages de commits"
 ---
+
+## Style de commits
 
 Le format général des commits est le suivant :
 
@@ -44,5 +46,34 @@ Bienvenus pour faciliter la relecture, mais ne pas merger:
 
 - `fixup! previous commit` : un [autosquash](../share-changes) devra être lancé avant le merge
 - `Revert "previous commit of the same PR"` : les deux commits devront être retirés avant merge
+
+## Le Developer Certificate of Origin (DCO)
+
+Tous les projets d'OSRD utilisent le DCO (certificat du développeur d'orgine)
+pour des raisons légales. Le DCO permet de confirmer que vous avez les droits
+sur le code que vous contribuez. Pour en savoir plus sur l'histoire et
+l'objectif du DCO, vous pouvez lire [The Developer Certificate of Origin](https://bssw.io/blog_posts/the-developer-certificate-of-origin)
+de Roscoe A. Bartlett.
+
+Pour se conformer au DCO, **tous les commits doivent inclure une ligne
+Signed-off-by**.
+
+### Comment signer un commit avec Git dans un terminal ?
+
+Pour signer un commit, il suffit d'ajouter l'option `-s` à votre commande `git
+commit`, comme ceci :
+
+```bash
+git commit -s -m "Your commit message"
+```
+Cela s'applique également lors de l'utilisation de la commande `git revert`.
+
+### Comment signer un commit avec Git dans Visual Studio Code (VS Code) ?
+
+Allez dans `Fichiers` -> `Préférences` -> `Paramètres`, puis recherchez et
+activez le paramètre **Always Sign Off**.
+
+Ensuite, lorsque vous ferez un commit via l'interface de VS Code, ils seront
+automatiquement signés.
 
 *[Continuer vers le partage des changements ‣]({{< ref "share-changes">}})*

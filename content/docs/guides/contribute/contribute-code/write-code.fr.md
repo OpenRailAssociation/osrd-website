@@ -21,4 +21,4 @@ description: "Apporter des modifications au code d'OSRD"
    git rebase origin/dev
    ```
 
-*[Continuer vers le style des commits ‣]({{< ref "commit-style">}})*
+*[Continuer vers le style des commits ‣]({{< ref "commit-conventions">}})*
