@@ -44,12 +44,13 @@ docker run --rm -it \
 ## Contributing
 
 If you think OSRD doesn't quite fit your needs yet, but still believe it could,
-please [tell us about your needs](https://github.com/osrd-project/osrd/issues/new).
+please [tell us about your needs](https://github.com/OpenRailAssociation/osrd/issues/new?labels=kind%3Aquestion&template=question.yaml).
 
 Please consider committing resources to help development if you'd like to use OSRD in production.
 Code contributions are very welcome, and we'd love to work together to make this project better.
 
+For more information on how to contribute, check out the [Contributing file](./CONTRIBUTING.md)
 
-## Contact
+## Get in touch
 
-You are interested in the project, and you want to know more? Contact us at <contact@osrd.fr>.
+Send an email at <contact@osrd.fr>, [open an issue](https://github.com/OpenRailAssociation/osrd-website/issues/new), or join the [#public-general:osrd.fr](https://matrix.to/#/#public-general:osrd.fr) matrix channel.
