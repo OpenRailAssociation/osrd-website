@@ -23,4 +23,4 @@ description: "Integrate changes into OSRD"
    git fetch
    git rebase origin/dev
    ```
-*[Continue towards commit style ‣]({{< ref "commit-style">}})*
+*[Continue towards commit style ‣]({{< ref "commit-conventions">}})*
