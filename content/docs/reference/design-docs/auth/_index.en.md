@@ -6,8 +6,8 @@ weight: 80
 
 ## Context and requirements
 
-- authentication (`authn`) is the process of figuring out an user's identity.
-- authorization (`authz`) is the process of figuring out whether an user can do something.
+- authentication (`authn`) is the process of figuring out a user's identity.
+- authorization (`authz`) is the process of figuring out whether a user can do something.
 
 This design project started as a result of a feature request coming from SNCF users
 and stakeholders. After some interviews, we believe the overall needs to be as follows:
@@ -59,7 +59,7 @@ from `gateway`, the authenticating reverse proxy which stands between it and the
   The implementation was designed to allow new backends to be added easily.
 - once the user is authenticated, all requests to the backend can expect the following headers to be set:
   - `x-remote-user-identity-id` contain a unique identifier for this identity. It can be thought of as an opaque `(auth_method, user_id)` tuple.
-  - `x-remote-user-name` contain an username
+  - `x-remote-user-name` contain a username
 
 When editoast receives a request, it has to match the remote user ID with a
 database user, creating it as needed.
@@ -81,7 +81,7 @@ create table authn_group(
 );
 
 -- add a trigger so that when a group is deleted, the associated authn_subject is deleted too
--- add a trigger so that when an user is deleted, the associated authn_subject is deleted too
+-- add a trigger so that when a user is deleted, the associated authn_subject is deleted too
 
 create table authn_group_membership(
   user   bigint references auth_user  on delete cascade not null,
@@ -99,7 +99,7 @@ Users cannot be directly created. The authenticating reverse proxy is in charge 
 - role management is protected by the `role:admin` role.
 - groups management is subject to permissions.
 
-#### Get information about an user
+#### Get information about a user
 
 ```
 GET /authn/me
@@ -121,7 +121,7 @@ GET /authn/user/{user_id}
 
 [Builtin roles](#builtin-roles) are deduced from app roles, and thus cannot be directly edited.
 
-#### Add roles to an user or group
+#### Add roles to a user or group
 
 This endpoint can only be called if the user has the `role:admin` builtin role.
 
@@ -136,7 +136,7 @@ Takes a list of app roles:
 ["ops", "stdcm"]
 ```
 
-#### Remove roles from an user or group
+#### Remove roles from a user or group
 
 This endpoint can only be called if the user has the `role:admin` builtin role.
 
@@ -153,7 +153,7 @@ Takes a list of app roles to remove:
 #### Create a group
 
 This endpoint can only be called if the user has the `group:create` builtin role.
-When an user creates a group, it becomes its owner.
+When a user creates a group, it becomes its owner.
 
 ```
 POST /authn/group
@@ -289,7 +289,7 @@ flowchart TD
 ### Permissions
 
 Permission checks are done by the backend, even though the frontend may use the effective privilege level
-of an user to decide whether to allow modifying / changing permissions for a given object.
+of a user to decide whether to allow modifying / changing permissions for a given object.
 
 Permissions are checked per resource, after checking roles.
 A single request may involve multiple resources, and as such involve multiple permission checks.
@@ -331,7 +331,7 @@ The backend may therefore perform one or more privilege check per request:
   - `Reader` on the infrastructure
   - `Reader` on the rolling stock
 
-A grant is a right, given to an user or group on a specific resource.
+A grant is a right, given to a user or group on a specific resource.
 Users get privileges through grants. There are two types of grants:
 
 - explicit grants are explicitly attached to resources
