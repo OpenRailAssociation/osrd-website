@@ -366,38 +366,8 @@ git fetch
 git rebase origin/dev
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ol>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-style/">Continuer vers le style des commits ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Revue de code</title><link>https://osrd.fr/fr/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-review/</guid><description>
-&lt;p>Le reviewer/mainteneur s&amp;rsquo;engage à effectuer la revue de code rapidement, c&amp;rsquo;est aussi à lui qu&amp;rsquo;appartient de fermer les « &lt;em>request changes&lt;/em> », de bien vérifier l&amp;rsquo;historique des commits, et de fusionner la « &lt;em>pull request&lt;/em> » s&amp;rsquo;il en a les droits.&lt;/p>
-&lt;p>Nous vous soumettons quelques conseils et recommandations qui nous semblent pertinentes pour une revue de code humaine, pertinente et enrichissante pour tous ses contributeurs :&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> par Michael Lynch.&lt;/li>
-&lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> par Michael Lynch.&lt;/li>
-&lt;/ul>
-&lt;p>Voici une proposition de flux de travail.&lt;/p>
-&lt;p>&lt;strong>Il peut être utile de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
-&lt;pre class="mermaid">sequenceDiagram
-actor A as Auteur PR
-actor R as Reviewer/mainteneur
-A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
-R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
-loop Boucle entre auteur et reviewer
-R--&amp;gt;&amp;gt;A: Commente, demande des changements
-A--&amp;gt;&amp;gt;R: Répond à chaque commentaire/demande de changement
-A--&amp;gt;&amp;gt;R: Corrige le code si nécessaire dans des « fixups » dédiés
-R--&amp;gt;&amp;gt;A: Vérifie, teste, et commente à nouveau le code
-R--&amp;gt;&amp;gt;A: Résout les conversations/demandes de changement le cas échéant
-end
-A-&amp;gt;&amp;gt;R: Rebase si nécessaire
-R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
-R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
-Note left of R: Et fusionne si mainteneur&lt;/pre>
-&lt;blockquote>
-&lt;p>Si la personne qui fait la revue de code n&amp;rsquo;est pas mainteneur, c&amp;rsquo;est à l&amp;rsquo;auteur de PR de trouver un mainteneur pour pouvoir fusionner sa PR avec le code. Dans certains cas particuliers (notamment juste avant le gel des fusions en fin d&amp;rsquo;itération), le mainteneur doit être averti plus tôt.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="la-pyramide-de-la-revue-de-code">La pyramide de la revue de code&lt;/h2>
-&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>Docs: Style des commits</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-style/</guid><description>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-conventions/">Continuer vers le style des commits ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Conventions de commits</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>
+&lt;h2 id="style-de-commits">Style de commits&lt;/h2>
 &lt;p>Le format général des commits est le suivant :&lt;/p>
 &lt;pre tabindex="0">&lt;code>composant1, composant2: description du changement à l&amp;#39;impératif
 Description détaillée ou technique du contenu et de la motivation du
@@ -433,7 +403,55 @@ encouragés dans le &lt;em>corps&lt;/em> du commit&lt;/li>
 &lt;li>&lt;code>fixup! previous commit&lt;/code> : un &lt;a href="../share-changes">autosquash&lt;/a> devra être lancé avant le merge&lt;/li>
 &lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code> : les deux commits devront être retirés avant merge&lt;/li>
 &lt;/ul>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/">Continuer vers le partage des changements ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Partagez vos changements</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</guid><description>
+&lt;h2 id="le-developer-certificate-of-origin-dco">Le Developer Certificate of Origin (DCO)&lt;/h2>
+&lt;p>Tous les projets d&amp;rsquo;OSRD utilisent le DCO (certificat du développeur d&amp;rsquo;orgine)
+pour des raisons légales. Le DCO permet de confirmer que vous avez les droits
+sur le code que vous contribuez. Pour en savoir plus sur l&amp;rsquo;histoire et
+l&amp;rsquo;objectif du DCO, vous pouvez lire &lt;a href="https://bssw.io/blog_posts/the-developer-certificate-of-origin">The Developer Certificate of Origin&lt;/a>
+de Roscoe A. Bartlett.&lt;/p>
+&lt;p>Pour se conformer au DCO, &lt;strong>tous les commits doivent inclure une ligne
+Signed-off-by&lt;/strong>.&lt;/p>
+&lt;h3 id="comment-signer-un-commit-avec-git-dans-un-terminal-">Comment signer un commit avec Git dans un terminal ?&lt;/h3>
+&lt;p>Pour signer un commit, il suffit d&amp;rsquo;ajouter l&amp;rsquo;option &lt;code>-s&lt;/code> à votre commande &lt;code>git commit&lt;/code>, comme ceci :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git commit -s -m &lt;span style="color:#4e9a06">&amp;#34;Your commit message&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cela s&amp;rsquo;applique également lors de l&amp;rsquo;utilisation de la commande &lt;code>git revert&lt;/code>.&lt;/p>
+&lt;h3 id="comment-signer-un-commit-avec-git-dans-visual-studio-code-vs-code-">Comment signer un commit avec Git dans Visual Studio Code (VS Code) ?&lt;/h3>
+&lt;p>Allez dans &lt;code>Fichiers&lt;/code> -&amp;gt; &lt;code>Préférences&lt;/code> -&amp;gt; &lt;code>Paramètres&lt;/code>, puis recherchez et
+activez le paramètre &lt;strong>Always Sign Off&lt;/strong>.&lt;/p>
+&lt;p>Ensuite, lorsque vous ferez un commit via l&amp;rsquo;interface de VS Code, ils seront
+automatiquement signés.&lt;/p>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/">Continuer vers le partage des changements ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Revue de code</title><link>https://osrd.fr/fr/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-review/</guid><description>
+&lt;p>Le reviewer/mainteneur s&amp;rsquo;engage à effectuer la revue de code rapidement, c&amp;rsquo;est aussi à lui qu&amp;rsquo;appartient de fermer les « &lt;em>request changes&lt;/em> », de bien vérifier l&amp;rsquo;historique des commits, et de fusionner la « &lt;em>pull request&lt;/em> » s&amp;rsquo;il en a les droits.&lt;/p>
+&lt;p>Nous vous soumettons quelques conseils et recommandations qui nous semblent pertinentes pour une revue de code humaine, pertinente et enrichissante pour tous ses contributeurs :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> par Michael Lynch.&lt;/li>
+&lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> par Michael Lynch.&lt;/li>
+&lt;/ul>
+&lt;p>Voici une proposition de flux de travail.&lt;/p>
+&lt;p>&lt;strong>Il peut être utile de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
+&lt;pre class="mermaid">sequenceDiagram
+actor A as Auteur PR
+actor R as Reviewer/mainteneur
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
+loop Boucle entre auteur et reviewer
+R--&amp;gt;&amp;gt;A: Commente, demande des changements
+A--&amp;gt;&amp;gt;R: Répond à chaque commentaire/demande de changement
+A--&amp;gt;&amp;gt;R: Corrige le code si nécessaire dans des « fixups » dédiés
+R--&amp;gt;&amp;gt;A: Vérifie, teste, et commente à nouveau le code
+R--&amp;gt;&amp;gt;A: Résout les conversations/demandes de changement le cas échéant
+end
+A-&amp;gt;&amp;gt;R: Rebase si nécessaire
+R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
+R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
+Note left of R: Et fusionne si mainteneur&lt;/pre>
+&lt;blockquote>
+&lt;p>Si la personne qui fait la revue de code n&amp;rsquo;est pas mainteneur, c&amp;rsquo;est à l&amp;rsquo;auteur de PR de trouver un mainteneur pour pouvoir fusionner sa PR avec le code. Dans certains cas particuliers (notamment juste avant le gel des fusions en fin d&amp;rsquo;itération), le mainteneur doit être averti plus tôt.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="la-pyramide-de-la-revue-de-code">La pyramide de la revue de code&lt;/h2>
+&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
+&lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
+&lt;/figure></description></item><item><title>Docs: Partagez vos changements</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</guid><description>
 &lt;p>L&amp;rsquo;auteur d&amp;rsquo;une &lt;em>pull request (PR)&lt;/em> est responsable de son « cycle de vie ». Il se charge de contacter les différents acteurs, de suivre la revue de code, répondre aux commentaires et corriger le code suite à la revue de code (vous pouvez également consulter la &lt;a href="https://osrd.fr/fr/docs/guides/contribute/code-review/">page dédiée à la revue de code&lt;/a>).&lt;/p>
 &lt;blockquote>
 &lt;p>En cas de PR conséquente, ne pas hésiter à solliciter plusieurs reviewers qui pourront s&amp;rsquo;organiser, voire de faire la review ensemble, reviewers et auteur.&lt;/p>

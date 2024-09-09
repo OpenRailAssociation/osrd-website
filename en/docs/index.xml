@@ -367,7 +367,8 @@ git fetch
 git rebase origin/dev
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ol>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/">Continue towards commit style ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Commit style</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/</guid><description>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/">Continue towards commit style ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>
+&lt;h2 id="commit-style">Commit style&lt;/h2>
 &lt;p>The overall format for git commits is as follows:&lt;/p>
 &lt;pre tabindex="0">&lt;code>component1, component2: imperative description of the change
 Detailed or technical description of the change and what motivates it,
@@ -403,6 +404,23 @@ welcome in commit&amp;rsquo;s &lt;em>body&lt;/em>&lt;/li>
 &lt;li>&lt;code>fixup! previous commit&lt;/code>: an &lt;a href="../share-changes">autosquash&lt;/a> must be run before the merge&lt;/li>
 &lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code>: both commits must be dropped before merging&lt;/li>
 &lt;/ul>
+&lt;h2 id="the-developer-certificate-of-origin-dco">The Developer Certificate of Origin (DCO)&lt;/h2>
+&lt;p>All of OSRD&amp;rsquo;s projects use the DCO (Developer Certificate of Origin) to address
+legal matters. The DCO helps confirm that you have the rights to the code you
+contribute. For more on the history and purpose of the DCO, you can read &lt;a href="https://bssw.io/blog_posts/the-developer-certificate-of-origin">The
+Developer Certificate of Origin&lt;/a>
+by Roscoe A. Bartlett.&lt;/p>
+&lt;p>To comply with the DCO, &lt;strong>all commits must include a Signed-off-by line&lt;/strong>.&lt;/p>
+&lt;h3 id="how-to-sign-a-commit-using-git-in-a-shell-">How to sign a commit using git in a shell ?&lt;/h3>
+&lt;p>To sign off a commit, simply add the &lt;code>-s&lt;/code> flags to your &lt;code>git commit&lt;/code> command,
+like so:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git commit -s -m &lt;span style="color:#4e9a06">&amp;#34;Your commit message&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This also applies when using the &lt;code>git revert&lt;/code> command.&lt;/p>
+&lt;h3 id="how-to-do-sign-a-commit-using-git-in-visual-studio-code-vs-code-">How to do sign a commit using git in Visual Studio Code (VS Code) ?&lt;/h3>
+&lt;p>Now, go in &lt;code>Files&lt;/code> -&amp;gt; &lt;code>Preferences&lt;/code> -&amp;gt; &lt;code>Settings&lt;/code>, search for and activate
+the &lt;strong>Always Sign Off&lt;/strong> setting.&lt;/p>
+&lt;p>Finally, when you&amp;rsquo;ll commit your changes via the VS Code interface, your commits
+will automaticaly be signed-off.&lt;/p>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/">Continue towards sharing your changes ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Review process</title><link>https://osrd.fr/en/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-review/</guid><description>
 &lt;p>The reviewer/maintainer undertakes to carry out the review quickly, and is also responsible for closing &lt;em>request changes&lt;/em>, check commit history and quickly merge the &lt;em>pull request&lt;/em> if allowed.&lt;/p>
 &lt;p>We propose you a few tips and recommendations that we think are relevant to a human, relevant and rewarding code review for all contributors:&lt;/p>
@@ -2631,7 +2649,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode178s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2641,7 +2659,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode178s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2656,7 +2674,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode178s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -2745,7 +2763,7 @@ adding some kind of priority / rank field, which was adopted&lt;/li>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode154s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode156s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2756,11 +2774,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode154s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode156s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode154s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode156s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -2779,14 +2797,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode154s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode156s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode154s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode156s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode154s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode156s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2798,7 +2816,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode154s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode156s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2833,7 +2851,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode154s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode156s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3116,7 +3134,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode163s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode175s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3130,7 +3148,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode163s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode175s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>

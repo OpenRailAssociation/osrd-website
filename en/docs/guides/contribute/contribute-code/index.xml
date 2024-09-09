@@ -311,7 +311,8 @@ git fetch
 git rebase origin/dev
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ol>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/">Continue towards commit style ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Commit style</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-style/</guid><description>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/">Continue towards commit style ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>
+&lt;h2 id="commit-style">Commit style&lt;/h2>
 &lt;p>The overall format for git commits is as follows:&lt;/p>
 &lt;pre tabindex="0">&lt;code>component1, component2: imperative description of the change
 Detailed or technical description of the change and what motivates it,
@@ -347,6 +348,23 @@ welcome in commit&amp;rsquo;s &lt;em>body&lt;/em>&lt;/li>
 &lt;li>&lt;code>fixup! previous commit&lt;/code>: an &lt;a href="../share-changes">autosquash&lt;/a> must be run before the merge&lt;/li>
 &lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code>: both commits must be dropped before merging&lt;/li>
 &lt;/ul>
+&lt;h2 id="the-developer-certificate-of-origin-dco">The Developer Certificate of Origin (DCO)&lt;/h2>
+&lt;p>All of OSRD&amp;rsquo;s projects use the DCO (Developer Certificate of Origin) to address
+legal matters. The DCO helps confirm that you have the rights to the code you
+contribute. For more on the history and purpose of the DCO, you can read &lt;a href="https://bssw.io/blog_posts/the-developer-certificate-of-origin">The
+Developer Certificate of Origin&lt;/a>
+by Roscoe A. Bartlett.&lt;/p>
+&lt;p>To comply with the DCO, &lt;strong>all commits must include a Signed-off-by line&lt;/strong>.&lt;/p>
+&lt;h3 id="how-to-sign-a-commit-using-git-in-a-shell-">How to sign a commit using git in a shell ?&lt;/h3>
+&lt;p>To sign off a commit, simply add the &lt;code>-s&lt;/code> flags to your &lt;code>git commit&lt;/code> command,
+like so:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git commit -s -m &lt;span style="color:#4e9a06">&amp;#34;Your commit message&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This also applies when using the &lt;code>git revert&lt;/code> command.&lt;/p>
+&lt;h3 id="how-to-do-sign-a-commit-using-git-in-visual-studio-code-vs-code-">How to do sign a commit using git in Visual Studio Code (VS Code) ?&lt;/h3>
+&lt;p>Now, go in &lt;code>Files&lt;/code> -&amp;gt; &lt;code>Preferences&lt;/code> -&amp;gt; &lt;code>Settings&lt;/code>, search for and activate
+the &lt;strong>Always Sign Off&lt;/strong> setting.&lt;/p>
+&lt;p>Finally, when you&amp;rsquo;ll commit your changes via the VS Code interface, your commits
+will automaticaly be signed-off.&lt;/p>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/">Continue towards sharing your changes ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Share your changes</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</guid><description>
 &lt;p>The author of a &lt;em>pull request (PR)&lt;/em> is responsible for its &amp;ldquo;life cycle&amp;rdquo;. He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check &lt;a href="https://osrd.fr/en/docs/guides/contribute/code-review/">dedicated page about code review&lt;/a>).&lt;/p>
 &lt;blockquote>
