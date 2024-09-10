@@ -61,7 +61,7 @@ Par exemple, une zone sans aiguille aura deux configurations :&lt;/p>
 &lt;p>&lt;strong>Chaque zone ne peut être réservée que pour une configuration donnée à la fois, mais peut être réservée simultanément par plusieurs routes&lt;/strong>.
 Une zone ne peut changer de configuration que lorsqu&amp;rsquo;elle n&amp;rsquo;est pas réservée.&lt;/p>
 &lt;div class="alert alert-info" role="alert">
-&lt;p>En discutant avec des experts métiers, vont entendrez parler d&amp;rsquo;&lt;a href="https://fr.wikipedia.org/wiki/Enclenchement">enclenchements&lt;/a>:
+&lt;p>En discutant avec des experts métiers, vous entendrez parler d&amp;rsquo;&lt;a href="https://fr.wikipedia.org/wiki/Enclenchement">enclenchements&lt;/a>:
 le terme viens de l&amp;rsquo;époque où les postes de signalisations étaient entièrement mécaniques.
 Les enclenchements étaient alors des objets physiques qui empêchaient certaines configurations.&lt;/p>
 &lt;p>Une conséquence de cet héritage historique et que beaucoup de règles ferroviaires sont exprimées par contraintes au lieu d&amp;rsquo;être exprimées par garanties.
@@ -136,7 +136,7 @@ Un enclenchement, c&amp;rsquo;est une garantie qu&amp;rsquo;une situation partic
 &lt;ul>
 &lt;li>Les routes ont pour responsabilité d&amp;rsquo;autoriser le déplacement des trains dans l&amp;rsquo;infrastructure. Elles doivent se terminer à un point où l&amp;rsquo;arrêt du train est prévu (en terme de signalisation, pas voyageur).&lt;/li>
 &lt;li>Les routes sont assimilables à des itinéraires, ou à des suites d&amp;rsquo;itinéraires et d&amp;rsquo;installations de pleine voie.&lt;/li>
-&lt;li>Les routes n&amp;rsquo;ont pas de lien direct avec le cantonnement et la signalisation. Elles nourissent des informations sur la disponibilité des voies qui sont utilisées par le cantonnement et la signalisation.&lt;/li>
+&lt;li>Les routes n&amp;rsquo;ont pas de lien direct avec le cantonnement et la signalisation. Elles nourrissent des informations sur la disponibilité des voies qui sont utilisées par le cantonnement et la signalisation.&lt;/li>
 &lt;li>Une route est un chemin de détecteur en détecteur. Elle représente une portion de chemin qu&amp;rsquo;il est sûr pour un train d&amp;rsquo;emprunter.&lt;/li>
 &lt;li>Les routes ont des points de libération, qui sont des détecteurs qui délimitent quand détruire l&amp;rsquo;itinéraire, ce qui permet d&amp;rsquo;implémenter transit souple, rigide, et entre-deux.&lt;/li>
 &lt;li>Une route peut être à nouveau formée alors qu&amp;rsquo;un train est déjà en train de la parcourir. Cela permet à plusieurs trains de se suivre sur la même route.&lt;/li>
@@ -281,7 +281,7 @@ Cette page est une ébauche, contribuez-y!
 &lt;/div>
 &lt;h2 id="définition">Définition&lt;/h2>
 &lt;p>La couche d&amp;rsquo;ordonnancement a pour responsabilité d&amp;rsquo;établir l&amp;rsquo;ordre de commande des itinéraires, et par conséquent, l&amp;rsquo;ordre de passage des trains.
-La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pas, du moment qu&amp;rsquo;elle garanti que la simulation se termine (elle ne doit pas amener de trains en nez-à-nez, ou créer d&amp;rsquo;autre cas de figure de blocage).&lt;/p>
+La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pas, du moment qu&amp;rsquo;elle garantit que la simulation se termine (elle ne doit pas amener de trains en nez-à-nez, ou créer d&amp;rsquo;autres cas de figure de blocage).&lt;/p>
 &lt;p>Il est possible d&amp;rsquo;implémenter un module d&amp;rsquo;ordonnancement via des tableaux d&amp;rsquo;ordre de succession des trains aux aiguilles.&lt;/p>
 &lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
 &lt;ul>
