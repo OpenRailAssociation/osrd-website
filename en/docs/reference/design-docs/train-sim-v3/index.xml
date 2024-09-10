@@ -521,7 +521,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode180s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode182s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -535,7 +535,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode180s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode182s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>
