@@ -1,5 +1,3 @@
-# --- CONTENT ---
-/content                                                 @DGEXSolutions/pm-team
-
-# --- CI ---
-/.github                                                 @flomonster @multun @nicolaswurtz
+# --- CI - CODEOWNERS ---
+/.github                                                 @openrailassociation/OSRD-DevOps
+/.github/CODEOWNERS                                      @openrailassociation/OSRD-Admins
