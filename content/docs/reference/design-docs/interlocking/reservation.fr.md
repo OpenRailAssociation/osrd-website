@@ -33,7 +33,7 @@ Une zone avec une aiguille aura 4 configurations possibles :
 Une zone ne peut changer de configuration que lorsqu'elle n'est pas réservée.
 
 {{% alert color="info" %}}
-En discutant avec des experts métiers, vont entendrez parler d'[enclenchements](https://fr.wikipedia.org/wiki/Enclenchement):
+En discutant avec des experts métiers, vous entendrez parler d'[enclenchements](https://fr.wikipedia.org/wiki/Enclenchement):
 le terme viens de l'époque où les postes de signalisations étaient entièrement mécaniques.
 Les enclenchements étaient alors des objets physiques qui empêchaient certaines configurations.
 

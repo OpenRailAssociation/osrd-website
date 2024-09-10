@@ -9,7 +9,7 @@ description: "Gère le cycle des routes"
 
 - Les routes ont pour responsabilité d'autoriser le déplacement des trains dans l'infrastructure. Elles doivent se terminer à un point où l'arrêt du train est prévu (en terme de signalisation, pas voyageur).
 - Les routes sont assimilables à des itinéraires, ou à des suites d'itinéraires et d'installations de pleine voie.
-- Les routes n'ont pas de lien direct avec le cantonnement et la signalisation. Elles nourissent des informations sur la disponibilité des voies qui sont utilisées par le cantonnement et la signalisation.
+- Les routes n'ont pas de lien direct avec le cantonnement et la signalisation. Elles nourrissent des informations sur la disponibilité des voies qui sont utilisées par le cantonnement et la signalisation.
 - Une route est un chemin de détecteur en détecteur. Elle représente une portion de chemin qu'il est sûr pour un train d'emprunter.
 - Les routes ont des points de libération, qui sont des détecteurs qui délimitent quand détruire l'itinéraire, ce qui permet d'implémenter transit souple, rigide, et entre-deux.
 - Une route peut être à nouveau formée alors qu'un train est déjà en train de la parcourir. Cela permet à plusieurs trains de se suivre sur la même route.
