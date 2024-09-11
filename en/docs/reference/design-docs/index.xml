@@ -285,7 +285,7 @@ to describe this concept in general.&lt;/p></description></item><item><title>Doc
 &lt;li>it makes keeping data consistent while editing easier, as all locations are kept in a single place&lt;/li>
 &lt;/ul>
 &lt;h3 id="invalid-train-schedules-and-soft-deletes">Invalid train schedules and soft deletes&lt;/h3>
-&lt;p>If an user deletes a waypoint, what happens? Is it the front-end&amp;rsquo;s responsibility to only save valid schedules, or can invalid schedules be represented in the data model? We decided that it wasn&amp;rsquo;t just the front-end&amp;rsquo;s responsibility, as we want to be able to model inconsistent states, until the user comes back to fix it.&lt;/p>
+&lt;p>If a user deletes a waypoint, what happens? Is it the front-end&amp;rsquo;s responsibility to only save valid schedules, or can invalid schedules be represented in the data model? We decided that it wasn&amp;rsquo;t just the front-end&amp;rsquo;s responsibility, as we want to be able to model inconsistent states, until the user comes back to fix it.&lt;/p>
 &lt;p>One key observation was that don&amp;rsquo;t want to loose the ability to locate within the path waypoints that were deleted, until all references are gone. How is the front-end supposed to display margin bounds or stops for a waypoint that&amp;rsquo;s gone, if it&amp;rsquo;s not there anymore?&lt;/p>
 &lt;p>We thus decided to add a &lt;code>deleted&lt;/code> soft-delete flag to waypoints. When this flag is set, the back-end run simulations on the path, but still allows saving it. Once all references to a deleted waypoint are gone, it can be removed from the path. The backend can deny train schedules with stale deleted waypoints.&lt;/p>
 &lt;h3 id="separating-path-and-stops">Separating path and stops&lt;/h3>
@@ -506,8 +506,8 @@ SummarySimulation --&amp;gt;|Once everything is simulated| Conflicts
 Conflicts --&amp;gt; ProjectConflitcs&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
 &lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
 &lt;ul>
-&lt;li>authentication (&lt;code>authn&lt;/code>) is the process of figuring out an user&amp;rsquo;s identity.&lt;/li>
-&lt;li>authorization (&lt;code>authz&lt;/code>) is the process of figuring out whether an user can do something.&lt;/li>
+&lt;li>authentication (&lt;code>authn&lt;/code>) is the process of figuring out a user&amp;rsquo;s identity.&lt;/li>
+&lt;li>authorization (&lt;code>authz&lt;/code>) is the process of figuring out whether a user can do something.&lt;/li>
 &lt;/ul>
 &lt;p>This design project started as a result of a feature request coming from SNCF users
 and stakeholders. After some interviews, we believe the overall needs to be as follows:&lt;/p>
@@ -558,7 +558,7 @@ The implementation was designed to allow new backends to be added easily.&lt;/li
 &lt;li>once the user is authenticated, all requests to the backend can expect the following headers to be set:
 &lt;ul>
 &lt;li>&lt;code>x-remote-user-identity-id&lt;/code> contain a unique identifier for this identity. It can be thought of as an opaque &lt;code>(auth_method, user_id)&lt;/code> tuple.&lt;/li>
-&lt;li>&lt;code>x-remote-user-name&lt;/code> contain an username&lt;/li>
+&lt;li>&lt;code>x-remote-user-name&lt;/code> contain a username&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -580,7 +580,7 @@ database user, creating it as needed.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- add a trigger so that when a group is deleted, the associated authn_subject is deleted too
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- add a trigger so that when an user is deleted, the associated authn_subject is deleted too
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- add a trigger so that when a user is deleted, the associated authn_subject is deleted too
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">create&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">authn_group_membership&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">user&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">bigint&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">references&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">auth_user&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">delete&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cascade&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">not&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">null&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -595,7 +595,7 @@ Users cannot be directly created. The authenticating reverse proxy is in charge 
 &lt;li>role management is protected by the &lt;code>role:admin&lt;/code> role.&lt;/li>
 &lt;li>groups management is subject to permissions.&lt;/li>
 &lt;/ul>
-&lt;h4 id="get-information-about-an-user">Get information about an user&lt;/h4>
+&lt;h4 id="get-information-about-a-user">Get information about a user&lt;/h4>
 &lt;pre tabindex="0">&lt;code>GET /authn/me
 GET /authn/user/{user_id}
 &lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -609,20 +609,20 @@ GET /authn/user/{user_id}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;builtin_roles&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;infra:read&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="#builtin-roles">Builtin roles&lt;/a> are deduced from app roles, and thus cannot be directly edited.&lt;/p>
-&lt;h4 id="add-roles-to-an-user-or-group">Add roles to an user or group&lt;/h4>
+&lt;h4 id="add-roles-to-a-user-or-group">Add roles to a user or group&lt;/h4>
 &lt;p>This endpoint can only be called if the user has the &lt;code>role:admin&lt;/code> builtin role.&lt;/p>
 &lt;pre tabindex="0">&lt;code>POST /authn/user/{user_id}/roles/add
 POST /authn/group/{group_id}/roles/add
 &lt;/code>&lt;/pre>&lt;p>Takes a list of app roles:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ops&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;stdcm&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="remove-roles-from-an-user-or-group">Remove roles from an user or group&lt;/h4>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="remove-roles-from-a-user-or-group">Remove roles from a user or group&lt;/h4>
 &lt;p>This endpoint can only be called if the user has the &lt;code>role:admin&lt;/code> builtin role.&lt;/p>
 &lt;pre tabindex="0">&lt;code>POST /authn/user/{user_id}/roles/remove
 &lt;/code>&lt;/pre>&lt;p>Takes a list of app roles to remove:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ops&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="create-a-group">Create a group&lt;/h4>
 &lt;p>This endpoint can only be called if the user has the &lt;code>group:create&lt;/code> builtin role.
-When an user creates a group, it becomes its owner.&lt;/p>
+When a user creates a group, it becomes its owner.&lt;/p>
 &lt;pre tabindex="0">&lt;code>POST /authn/group
 &lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Foo&amp;#34;&lt;/span>
@@ -712,7 +712,7 @@ class stdcm,exploitation,infra,project,study,scenario app
 class infra_read,infra_edit,infra_delete,project_create,study_delete,scenario_create,scenario_update builtin&lt;/pre>
 &lt;h3 id="permissions">Permissions&lt;/h3>
 &lt;p>Permission checks are done by the backend, even though the frontend may use the effective privilege level
-of an user to decide whether to allow modifying / changing permissions for a given object.&lt;/p>
+of a user to decide whether to allow modifying / changing permissions for a given object.&lt;/p>
 &lt;p>Permissions are checked per resource, after checking roles.
 A single request may involve multiple resources, and as such involve multiple permission checks.&lt;/p>
 &lt;p>Permission checks are performed as follows:&lt;/p>
@@ -764,7 +764,7 @@ A single request may involve multiple resources, and as such involve multiple pe
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>A grant is a right, given to an user or group on a specific resource.
+&lt;p>A grant is a right, given to a user or group on a specific resource.
 Users get privileges through grants. There are two types of grants:&lt;/p>
 &lt;ul>
 &lt;li>explicit grants are explicitly attached to resources&lt;/li>
