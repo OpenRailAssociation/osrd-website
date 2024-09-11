@@ -5,7 +5,14 @@ weight: 10
 description: Using docker compose for single node deployment
 ---
 
-The OSRD project includes a `docker-compose.yml` file designed to facilitate the deployment of a fully functional OSRD environment. Primarily intended for development purposes, this Docker Compose configuration can also be adapted for quick, single-node deployments.
+The OSRD project includes a `docker-compose.yml` file designed to facilitate the deployment of a fully functional OSRD environment. 
+Only intended for development purposes, this Docker Compose configuration could be adapted for quick, single-node deployments.
+
+{{% alert title="Disclaimer" color="warning"%}}
+This setup is designed for development only. 
+For example no authentication is supported and the front-end is served in development mode (rebuilt on the fly).
+If you mean to deploy a production ready version of OSRD, please follow the [Kubernetes-based deployment](../kubernetes/)
+{{% /alert %}}
 
 ## Prerequisites
 
@@ -30,7 +37,9 @@ Each service is configured with health checks, volume mounts and necessary envir
 ## Deployment Steps
 
 1. **Clone the Repository**: First, clone the OSRD repository to your local machine.
-2. **Environment Variables** (optional): Set necessary environment variables if you need to adjust some configurations.
+2. **Configuration**: The default configuration requires setting an environment variable for the Editoast service: `ROOT_URL`.
+    It should be set to the URL pointing to the Editoast service through the gateway. For example, "http://your-domain.com/api".  
+    You can also adjust other environment variables if needed.
 3. **Build and Run**: Navigate to the directory containing `docker-compose.yml` and run:
 
 ```bash
