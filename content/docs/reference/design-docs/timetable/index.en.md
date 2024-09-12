@@ -139,12 +139,21 @@ constraint_distribution: MARECO # or LINEAR
 # times are defined as time elapsed since start. Even if the attribute is omitted,
 # a scheduled point at the starting point is infered to have departure=start_time
 # the "locked" flag is ignored by the backend.
-# To force stop-signal on stop's arrival, you can use the "on_stop_signal" flag.
+#
+# To specify signal's state on stop's arrival, you can use the "reception_signal" enum:
+#   - OPEN: arrival on open signal, will reserve resource downstream of the signal.
+#   - STOP: arrival on stop signal, will not reserve resource downstream of the signal
+#      and will trigger safety speed on approach.
+#   - SHORT_SLIP_STOP: arrival on stop signal with a short slip distance,
+#      will not reserve resource downstream of the signal and will trigger safety
+#      speed on approach as well as short slip distance speed.
+#      This is used for cases were a movable element is placed shortly after the signal
+#      and going beyond the signal would cause major problems.
 schedule:
  - {at: a, stop_for: PT5M, locked: true} # infered arrival to be equal to start_time
  - {at: b, arrival: PT10M, stop_for: PT5M}
  - {at: c, stop_for: PT5M}
- - {at: d, arrival: PT50M, locked: true, on_stop_signal: true}
+ - {at: d, arrival: PT50M, locked: true, reception_signal: SHORT_SLIP_STOP}
 
 margins:
   # This example encodes the following margins:
