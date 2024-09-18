@@ -46,9 +46,9 @@ It was decided to add identifiers to path waypoints, and to reference those iden
 
 If a user deletes a waypoint, what happens? Is it the front-end's responsibility to only save valid schedules, or can invalid schedules be represented in the data model? We decided that it wasn't just the front-end's responsibility, as we want to be able to model inconsistent states, until the user comes back to fix it.
 
-One key observation was that don't want to loose the ability to locate within the path waypoints that were deleted, until all references are gone. How is the front-end supposed to display margin bounds or stops for a waypoint that's gone, if it's not there anymore?
+One key observation was that we do not want to lose the ability to locate within the path waypoints that were deleted, until all references are gone. How is the front-end supposed to display margin bounds or stops for a waypoint that's gone, if it's not there anymore?
 
-We thus decided to add a `deleted` soft-delete flag to waypoints. When this flag is set, the back-end run simulations on the path, but still allows saving it. Once all references to a deleted waypoint are gone, it can be removed from the path. The backend can deny train schedules with stale deleted waypoints.
+We thus decided to add a `deleted` soft-delete flag to waypoints. When this flag is set, the back-end runs simulations on the path, but still allows saving it. Once all references to a deleted waypoint are gone, it can be removed from the path. The backend can deny train schedules with stale deleted waypoints.
 
 ### Separating path and stops
 
@@ -62,14 +62,14 @@ This decision was hard to make, as there are little factors influencing this dec
 
 In the legacy model, we had engineering margins. These margins had the property of being able to overlap. It was also possible to choose the distribution algorithm for each margin individually.
 
-We asked users to comment on the difference and the usefulness of retaining these margins with scheduled points. The answer is that there is no fundamental difference, and that the additional flexibility offered by engineering margins makes no pratical sense (overlap and choice of distribution...).
+We asked users to comment on the difference and the usefulness of retaining these margins with scheduled points. The answer is that there is no fundamental difference, and that the additional flexibility offered by engineering margins makes no practical sense (overlap and choice of distribution...).
 
 ### Arrival times are durations since departure time
 
 - this allows shifting the departure time without having to change arrival times
 - we don't have to parse dates and compute date differences within a single trip
 
-We also discussed whether to use seconds or ISO 8601 durations. In the end, ISO 8601 was choosen, despite the simplicity of seconds:
+We also discussed whether to use seconds or ISO 8601 durations. In the end, ISO 8601 was chosen, despite the simplicity of seconds:
 
 - it preserves the user's choice unit for specifying duration
 - it interfaces nicely with the ISO 8601 departure time
@@ -80,7 +80,7 @@ We also discussed whether to use seconds or ISO 8601 durations. In the end, ISO 
 
 Reasons for a train schedule to be **invalid**:
 
-- Inconsitent train schedule (contains deleted waypoint)
+- Inconsistent train schedule (contains deleted waypoint)
 - Rolling stock not found
 - Path waypoint not found
 - The path cannot be found
@@ -94,7 +94,7 @@ What we can do about outdated trains:
 
 1. Nothing, they're updated without notification
 2. We can notify the user that a train schedule is outdated:
-    - Nothing can be done except acknoledge the change
+    - Nothing can be done except acknowledge the change
     - We can not check what changed between the old and new version
     - We can not know the cause of this change (RS, Infra, Algorithms...)
 
@@ -137,7 +137,7 @@ constraint_distribution: MARECO # or LINEAR
 # all durations and times are specified using ISO 8601
 # we don't supports months and years duration since it's ambiguous
 # times are defined as time elapsed since start. Even if the attribute is omitted,
-# a scheduled point at the starting point is infered to have departure=start_time
+# a scheduled point at the starting point is inferred to have departure=start_time
 # the "locked" flag is ignored by the backend.
 #
 # To specify signal's state on stop's arrival, you can use the "reception_signal" enum:
@@ -147,10 +147,10 @@ constraint_distribution: MARECO # or LINEAR
 #   - SHORT_SLIP_STOP: arrival on stop signal with a short slip distance,
 #      will not reserve resource downstream of the signal and will trigger safety
 #      speed on approach as well as short slip distance speed.
-#      This is used for cases were a movable element is placed shortly after the signal
+#      This is used for cases where a movable element is placed shortly after the signal
 #      and going beyond the signal would cause major problems.
 schedule:
- - {at: a, stop_for: PT5M, locked: true} # infered arrival to be equal to start_time
+ - {at: a, stop_for: PT5M, locked: true} # inferred arrival to be equal to start_time
  - {at: b, arrival: PT10M, stop_for: PT5M}
  - {at: c, stop_for: PT5M}
  - {at: d, arrival: PT50M, locked: true, reception_signal: SHORT_SLIP_STOP}
@@ -187,7 +187,7 @@ options:
 # Combining margins and schedule
 
 Margins and scheduled points are two ways to add time constraints to a train's schedule.
-Therefore, there most be a clear set of rules to figure out how these two interfaces interact.
+Therefore, there must be a clear set of rules to figure out how these two interfaces interact.
 
 The end goal is to make the target schedule and margins consistent with each other. This is achieved by:
 
@@ -195,7 +195,7 @@ The end goal is to make the target schedule and margins consistent with each oth
  - compare that to the target schedule
  - correct the margin schedule so that it matches the target schedule
 
-The path is partitionned as follows:
+The path is partitioned as follows:
 
  - **known time sections** span between locations where the arrival time is known.
    If there are `N` such locations, there are `N - 1` known time sections.
@@ -229,7 +229,7 @@ Some errors may happen while building the timetable:
 
 Other errors can happen at runtime:
 
-- target margin values can be too low, as transitions from high density margin to low margin section force the train to loose
+- target margin values can be too low, as transitions from high density margin to low margin section force the train to lose
   time after it has exited to high density margin section.
 - target margin values can also be too high, as the train may not have time to slow down enough, or drive so slow as to be
   unacceptable.
@@ -283,7 +283,7 @@ POST /v2/train_schedule/project_path?infra=N&ids[]=X&ids[]=Y
 
 ## Frontend workflow
 
-The frontend shouldn't wait minutes to display something to the user. When a timetable contains hundred of trains it can takes some time to simulate everything.
+The frontend shouldn't wait minutes to display something to the user. When a timetable contains hundreds of trains it can take some time to simulate everything.
 The idea is to split requests into small batches.
 
 ```mermaid
