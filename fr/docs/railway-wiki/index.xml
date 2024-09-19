@@ -65,6 +65,7 @@
 &lt;ul>
 &lt;li>&lt;strong>LEU&lt;/strong> : Line side electronic unit (codeur ERTMS)&lt;/li>
 &lt;li>&lt;strong>LGV&lt;/strong> : Ligne à grande vitesse&lt;/li>
+&lt;li>&lt;strong>LTV&lt;/strong> : Limitation temporaire de vitesse&lt;/li>
 &lt;/ul>
 &lt;h3 id="m">M&lt;/h3>
 &lt;ul>
@@ -82,6 +83,7 @@
 &lt;h3 id="p">P&lt;/h3>
 &lt;ul>
 &lt;li>&lt;strong>PI ETCS&lt;/strong> : Point d’information ETCS : constitué d’une ou plusieurs balises transmettant des informations vers le bord (par exemple PI avancé ou PI signal)&lt;/li>
+&lt;li>&lt;strong>PK&lt;/strong> : Point Kilométrique : position géographique basée sur un RK (Repère Kilométrique)&lt;/li>
 &lt;li>&lt;strong>PL&lt;/strong> : Pleine ligne&lt;/li>
 &lt;li>&lt;strong>PLD&lt;/strong> : Point limite de domaine : point où une transition entre ETCS et un autre système de signalisation a lieu&lt;/li>
 &lt;li>&lt;strong>PN&lt;/strong> : Passage à niveau&lt;/li>
@@ -92,22 +94,27 @@
 &lt;ul>
 &lt;li>&lt;strong>RBC&lt;/strong> : Radio block center : système centralisé fonctionnant avec les enclenchements afin d’établir et de contrôler l’espacement et le mouvement des trains en envoyant et recevant des informations par radio en ETCS2 ou 3&lt;/li>
 &lt;li>&lt;strong>RFN&lt;/strong> : Réseau Ferré National&lt;/li>
+&lt;li>&lt;strong>RK&lt;/strong> : Repère Kilométrique : bornes (physiques) placées sur une voie à distance régulière (environ un kilomètre les unes des autres mais pouvant varier) servant à se repérer sur une voie&lt;/li>
 &lt;li>&lt;strong>RST&lt;/strong> : Radio sol-train&lt;/li>
 &lt;li>&lt;strong>RT&lt;/strong> : Renseignement technique&lt;/li>
 &lt;li>&lt;strong>RV&lt;/strong> : Reversing (refoulement) : mode technique de circulation utilisé pour permettre au train de reculer d&amp;rsquo;urgence sans signaux ni ordre dans une zone prédéfinie. Ce mode n&amp;rsquo;est pas utilisé sur le RFN&lt;/li>
 &lt;/ul>
 &lt;h3 id="s">S&lt;/h3>
 &lt;ul>
+&lt;li>&lt;strong>SEL&lt;/strong> : Section d&amp;rsquo;électrification. La plus petite portion d&amp;rsquo;un caténaire pouvant être coupée pour travaux&lt;/li>
 &lt;li>&lt;strong>SGS&lt;/strong> : Système de gestion de la sécurité&lt;/li>
 &lt;li>&lt;strong>SH&lt;/strong> : Shunting (manoeuvre) : mode technique de circulation manoeuvre&lt;/li>
 &lt;li>&lt;strong>SN&lt;/strong> : System national : mode technique de circulation de niveau STM&lt;/li>
 &lt;li>&lt;strong>SR&lt;/strong> : Staff responsible (responsabilité agent) : mode technique de circulation utilisé dans les situations dégradées. Il est utilisable sous la responsabilité respective de l’agent-circulation et du conducteur&lt;/li>
+&lt;li>&lt;strong>SR&lt;/strong> : Système de repérage&lt;/li>
+&lt;li>&lt;strong>SRV&lt;/strong> : Système de repérage voie : métadonnées et anomalies (données correctives) permettant de faire des calculs de distance entre deux PKs sur une voie&lt;/li>
 &lt;li>&lt;strong>STM&lt;/strong> : Specific transmission module (Module spécifique de transmission) : ce dispositif permet à l’ETCS d’utiliser un système de signalisation national&lt;/li>
 &lt;/ul>
 &lt;h3 id="t">T&lt;/h3>
 &lt;ul>
 &lt;li>&lt;strong>TECS&lt;/strong> : Tableau lumineux d’entrée à contre sens&lt;/li>
 &lt;li>&lt;strong>TIV&lt;/strong> : Tableau indicateur de vitesse&lt;/li>
+&lt;li>&lt;strong>TIV&lt;/strong> : Tronçon d&amp;rsquo;itinéraire de voie (Track Section en anglais).&lt;/li>
 &lt;li>&lt;strong>TR&lt;/strong> : Trip : mode technique de circulation entraînant une application irréversible du freinage d’urgence par le système ETCS jusqu’à l’arrêt du train&lt;/li>
 &lt;li>&lt;strong>TSCS&lt;/strong> : Tableau lumineux de sortie à contre sens&lt;/li>
 &lt;li>&lt;strong>TVM&lt;/strong> : Transmission voie machine&lt;/li>
@@ -120,6 +127,10 @@
 &lt;li>&lt;strong>VU&lt;/strong> : Voie unique&lt;/li>
 &lt;li>&lt;strong>VUT&lt;/strong> : Voie unique temporaire&lt;/li>
 &lt;li>&lt;strong>VUTP&lt;/strong> : Voie unique temporaire à caractère permanent&lt;/li>
+&lt;/ul>
+&lt;h3 id="z">Z&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>ZEP&lt;/strong> : Zone élémentaire de protection : la plus petite portion de voie pouvant être fermée pour des travaux&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Signalisation</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/</guid><description>
 &lt;p>Cette section est destinée à exposer les principes généraux relatifs :&lt;/p>
 &lt;ul>
