@@ -72,6 +72,7 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 
 - **LEU** : Line side electronic unit (codeur ERTMS)
 - **LGV** : Ligne à grande vitesse
+- **LTV** : Limitation temporaire de vitesse
 
 ### M
 
@@ -89,6 +90,7 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 ### P
 
 - **PI ETCS** : Point d’information ETCS : constitué d’une ou plusieurs balises transmettant des informations vers le bord (par exemple PI avancé ou PI signal)
+- **PK** : Point Kilométrique : position géographique basée sur un RK (Repère Kilométrique)
 - **PL** : Pleine ligne
 - **PLD** : Point limite de domaine : point où une transition entre ETCS et un autre système de signalisation a lieu
 - **PN** : Passage à niveau
@@ -99,22 +101,27 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 
 - **RBC** : Radio block center : système centralisé fonctionnant avec les enclenchements afin d’établir et de contrôler l’espacement et le mouvement des trains en envoyant et recevant des informations par radio en ETCS2 ou 3
 - **RFN** : Réseau Ferré National
+- **RK** : Repère Kilométrique : bornes (physiques) placées sur une voie à distance régulière (environ un kilomètre les unes des autres mais pouvant varier) servant à se repérer sur une voie
 - **RST** : Radio sol-train
 - **RT** : Renseignement technique
 - **RV** : Reversing (refoulement) : mode technique de circulation utilisé pour permettre au train de reculer d'urgence sans signaux ni ordre dans une zone prédéfinie. Ce mode n'est pas utilisé sur le RFN
 
 ### S
 
+- **SEL** : Section d'électrification. La plus petite portion d'un caténaire pouvant être coupée pour travaux
 - **SGS** : Système de gestion de la sécurité
 - **SH** : Shunting (manoeuvre) : mode technique de circulation manoeuvre
 - **SN** : System national : mode technique de circulation de niveau STM
 - **SR** : Staff responsible (responsabilité agent) : mode technique de circulation utilisé dans les situations dégradées. Il est utilisable sous la responsabilité respective de l’agent-circulation et du conducteur
+- **SR** : Système de repérage
+- **SRV** : Système de repérage voie : métadonnées et anomalies (données correctives) permettant de faire des calculs de distance entre deux PKs sur une voie
 - **STM** : Specific transmission module (Module spécifique de transmission) : ce dispositif permet à l’ETCS d’utiliser un système de signalisation national
 
 ### T
 
 - **TECS** : Tableau lumineux d’entrée à contre sens
 - **TIV** : Tableau indicateur de vitesse
+- **TIV** : Tronçon d'itinéraire de voie (Track Section en anglais).
 - **TR** : Trip : mode technique de circulation entraînant une application irréversible du freinage d’urgence par le système ETCS jusqu’à l’arrêt du train
 - **TSCS** : Tableau lumineux de sortie à contre sens
 - **TVM** : Transmission voie machine
@@ -127,3 +134,7 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 - **VU** : Voie unique
 - **VUT** : Voie unique temporaire
 - **VUTP** : Voie unique temporaire à caractère permanent
+
+### Z
+
+- **ZEP** : Zone élémentaire de protection : la plus petite portion de voie pouvant être fermée pour des travaux
