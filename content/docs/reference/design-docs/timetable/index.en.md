@@ -149,6 +149,8 @@ constraint_distribution: MARECO # or LINEAR
 #      speed on approach as well as short slip distance speed.
 #      This is used for cases where a movable element is placed shortly after the signal
 #      and going beyond the signal would cause major problems.
+#      This is used automatically for any stop before a buffer-stop.
+#      This is also the default use for STDCM stops, as it is the most restrictive.
 schedule:
  - {at: a, stop_for: PT5M, locked: true} # inferred arrival to be equal to start_time
  - {at: b, arrival: PT10M, stop_for: PT5M}
