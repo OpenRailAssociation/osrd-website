@@ -286,8 +286,8 @@ to describe this concept in general.&lt;/p></description></item><item><title>Doc
 &lt;/ul>
 &lt;h3 id="invalid-train-schedules-and-soft-deletes">Invalid train schedules and soft deletes&lt;/h3>
 &lt;p>If a user deletes a waypoint, what happens? Is it the front-end&amp;rsquo;s responsibility to only save valid schedules, or can invalid schedules be represented in the data model? We decided that it wasn&amp;rsquo;t just the front-end&amp;rsquo;s responsibility, as we want to be able to model inconsistent states, until the user comes back to fix it.&lt;/p>
-&lt;p>One key observation was that don&amp;rsquo;t want to loose the ability to locate within the path waypoints that were deleted, until all references are gone. How is the front-end supposed to display margin bounds or stops for a waypoint that&amp;rsquo;s gone, if it&amp;rsquo;s not there anymore?&lt;/p>
-&lt;p>We thus decided to add a &lt;code>deleted&lt;/code> soft-delete flag to waypoints. When this flag is set, the back-end run simulations on the path, but still allows saving it. Once all references to a deleted waypoint are gone, it can be removed from the path. The backend can deny train schedules with stale deleted waypoints.&lt;/p>
+&lt;p>One key observation was that we do not want to lose the ability to locate within the path waypoints that were deleted, until all references are gone. How is the front-end supposed to display margin bounds or stops for a waypoint that&amp;rsquo;s gone, if it&amp;rsquo;s not there anymore?&lt;/p>
+&lt;p>We thus decided to add a &lt;code>deleted&lt;/code> soft-delete flag to waypoints. When this flag is set, the back-end runs simulations on the path, but still allows saving it. Once all references to a deleted waypoint are gone, it can be removed from the path. The backend can deny train schedules with stale deleted waypoints.&lt;/p>
 &lt;h3 id="separating-path-and-stops">Separating path and stops&lt;/h3>
 &lt;p>This decision was hard to make, as there are little factors influencing this decision. Two observations led us to this decision:&lt;/p>
 &lt;ul>
@@ -296,13 +296,13 @@ to describe this concept in general.&lt;/p></description></item><item><title>Doc
 &lt;/ul>
 &lt;h3 id="no-more-engineering-margins">No more engineering margins?&lt;/h3>
 &lt;p>In the legacy model, we had engineering margins. These margins had the property of being able to overlap. It was also possible to choose the distribution algorithm for each margin individually.&lt;/p>
-&lt;p>We asked users to comment on the difference and the usefulness of retaining these margins with scheduled points. The answer is that there is no fundamental difference, and that the additional flexibility offered by engineering margins makes no pratical sense (overlap and choice of distribution&amp;hellip;).&lt;/p>
+&lt;p>We asked users to comment on the difference and the usefulness of retaining these margins with scheduled points. The answer is that there is no fundamental difference, and that the additional flexibility offered by engineering margins makes no practical sense (overlap and choice of distribution&amp;hellip;).&lt;/p>
 &lt;h3 id="arrival-times-are-durations-since-departure-time">Arrival times are durations since departure time&lt;/h3>
 &lt;ul>
 &lt;li>this allows shifting the departure time without having to change arrival times&lt;/li>
 &lt;li>we don&amp;rsquo;t have to parse dates and compute date differences within a single trip&lt;/li>
 &lt;/ul>
-&lt;p>We also discussed whether to use seconds or ISO 8601 durations. In the end, ISO 8601 was choosen, despite the simplicity of seconds:&lt;/p>
+&lt;p>We also discussed whether to use seconds or ISO 8601 durations. In the end, ISO 8601 was chosen, despite the simplicity of seconds:&lt;/p>
 &lt;ul>
 &lt;li>it preserves the user&amp;rsquo;s choice unit for specifying duration&lt;/li>
 &lt;li>it interfaces nicely with the ISO 8601 departure time&lt;/li>
@@ -311,7 +311,7 @@ to describe this concept in general.&lt;/p></description></item><item><title>Doc
 &lt;h3 id="invalid-and-outdated-train-schedules">Invalid and outdated train schedules&lt;/h3>
 &lt;p>Reasons for a train schedule to be &lt;strong>invalid&lt;/strong>:&lt;/p>
 &lt;ul>
-&lt;li>Inconsitent train schedule (contains deleted waypoint)&lt;/li>
+&lt;li>Inconsistent train schedule (contains deleted waypoint)&lt;/li>
 &lt;li>Rolling stock not found&lt;/li>
 &lt;li>Path waypoint not found&lt;/li>
 &lt;li>The path cannot be found&lt;/li>
@@ -326,7 +326,7 @@ to describe this concept in general.&lt;/p></description></item><item><title>Doc
 &lt;li>Nothing, they&amp;rsquo;re updated without notification&lt;/li>
 &lt;li>We can notify the user that a train schedule is outdated:
 &lt;ul>
-&lt;li>Nothing can be done except acknoledge the change&lt;/li>
+&lt;li>Nothing can be done except acknowledge the change&lt;/li>
 &lt;li>We can not check what changed between the old and new version&lt;/li>
 &lt;li>We can not know the cause of this change (RS, Infra, Algorithms&amp;hellip;)&lt;/li>
 &lt;/ul>
@@ -363,7 +363,7 @@ They are returned when the train schedule is queried.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># all durations and times are specified using ISO 8601&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># we don&amp;#39;t supports months and years duration since it&amp;#39;s ambiguous&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># times are defined as time elapsed since start. Even if the attribute is omitted,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># a scheduled point at the starting point is infered to have departure=start_time&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># a scheduled point at the starting point is inferred to have departure=start_time&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># the &amp;#34;locked&amp;#34; flag is ignored by the backend.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">#&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># To specify signal&amp;#39;s state on stop&amp;#39;s arrival, you can use the &amp;#34;reception_signal&amp;#34; enum:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -373,10 +373,10 @@ They are returned when the train schedule is queried.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># - SHORT_SLIP_STOP: arrival on stop signal with a short slip distance,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># will not reserve resource downstream of the signal and will trigger safety&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># speed on approach as well as short slip distance speed.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># This is used for cases were a movable element is placed shortly after the signal&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># This is used for cases where a movable element is placed shortly after the signal&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># and going beyond the signal would cause major problems.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">schedule&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- {&lt;span style="color:#204a87;font-weight:bold">at: a, stop_for: PT5M, locked&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># infered arrival to be equal to start_time&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- {&lt;span style="color:#204a87;font-weight:bold">at: a, stop_for: PT5M, locked&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># inferred arrival to be equal to start_time&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- {&lt;span style="color:#204a87;font-weight:bold">at: b, arrival: PT10M, stop_for&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">PT5M}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- {&lt;span style="color:#204a87;font-weight:bold">at: c, stop_for&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">PT5M}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- {&lt;span style="color:#204a87;font-weight:bold">at: d, arrival: PT50M, locked: true, reception_signal&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">SHORT_SLIP_STOP}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -409,14 +409,14 @@ They are returned when the train schedule is queried.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">use_electrical_profiles&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="combining-margins-and-schedule">Combining margins and schedule&lt;/h1>
 &lt;p>Margins and scheduled points are two ways to add time constraints to a train&amp;rsquo;s schedule.
-Therefore, there most be a clear set of rules to figure out how these two interfaces interact.&lt;/p>
+Therefore, there must be a clear set of rules to figure out how these two interfaces interact.&lt;/p>
 &lt;p>The end goal is to make the target schedule and margins consistent with each other. This is achieved by:&lt;/p>
 &lt;ul>
 &lt;li>computing what the schedule would look like if only margins were applied&lt;/li>
 &lt;li>compare that to the target schedule&lt;/li>
 &lt;li>correct the margin schedule so that it matches the target schedule&lt;/li>
 &lt;/ul>
-&lt;p>The path is partitionned as follows:&lt;/p>
+&lt;p>The path is partitioned as follows:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>known time sections&lt;/strong> span between locations where the arrival time is known.
 If there are &lt;code>N&lt;/code> such locations, there are &lt;code>N - 1&lt;/code> known time sections.
@@ -446,7 +446,7 @@ After distributing the adjustment into margin sections, the &lt;strong>final sch
 &lt;/ul>
 &lt;p>Other errors can happen at runtime:&lt;/p>
 &lt;ul>
-&lt;li>target margin values can be too low, as transitions from high density margin to low margin section force the train to loose
+&lt;li>target margin values can be too low, as transitions from high density margin to low margin section force the train to lose
 time after it has exited to high density margin section.&lt;/li>
 &lt;li>target margin values can also be too high, as the train may not have time to slow down enough, or drive so slow as to be
 unacceptable.&lt;/li>
@@ -480,7 +480,7 @@ GET /v2/train_schedule/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
 &lt;/code>&lt;/pre>&lt;h2 id="frontend-workflow">Frontend workflow&lt;/h2>
-&lt;p>The frontend shouldn&amp;rsquo;t wait minutes to display something to the user. When a timetable contains hundred of trains it can takes some time to simulate everything.
+&lt;p>The frontend shouldn&amp;rsquo;t wait minutes to display something to the user. When a timetable contains hundreds of trains it can take some time to simulate everything.
 The idea is to split requests into small batches.&lt;/p>
 &lt;pre class="mermaid">flowchart TB
 InfraLoaded[Check for infra to be loaded]
