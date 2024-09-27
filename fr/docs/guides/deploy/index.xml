@@ -1,5 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Déployer OSRD</title><link>https://osrd.fr/fr/docs/guides/deploy/</link><description>Recent content in Déployer OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/guides/deploy/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Docker Compose</title><link>https://osrd.fr/fr/docs/guides/deploy/docker-compose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/deploy/docker-compose/</guid><description>
-&lt;p>Le projet OSRD inclut un fichier docker-compose.yml conçu pour faciliter le déploiement d&amp;rsquo;un environnement OSRD pleinement fonctionnel. Initialement destiné à des fins de développement, ce Docker Compose peut également être adapté pour des déploiements rapides sur un seul nœud.&lt;/p>
+&lt;p>Le projet OSRD inclut un fichier docker-compose.yml conçu pour faciliter le déploiement d&amp;rsquo;un environnement OSRD pleinement fonctionnel.
+Exclusivement destiné à des fins de développement, cette configuration Docker Compose pourrait être adaptée pour des déploiements rapides sur un seul nœud.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Avertissement&lt;/h4>
+Cette configuration est prévue seulement à des fins de développement.
+Par exemple, aucune authentification n&amp;rsquo;est prise en charge et le front-end est déployé en mode développement (reconstruit à la volée).
+Si vous souhaitez déployer une version d&amp;rsquo;OSRD dédiée à un environment de production, veuillez suivre le &lt;a href="../kubernetes/">déploiement via Kubernetes&lt;/a>
+&lt;/div>
 &lt;h2 id="prérequis">Prérequis&lt;/h2>
 &lt;p>Avant de procéder au déploiement, assurez-vous que vous avez installé :&lt;/p>
 &lt;ul>
@@ -21,7 +28,9 @@
 &lt;h2 id="étapes-du-déploiement">Étapes du déploiement&lt;/h2>
 &lt;ol>
 &lt;li>&lt;strong>Cloner le dépôt&lt;/strong> : Tout d&amp;rsquo;abord, clonez le dépôt OSRD sur votre machine locale.&lt;/li>
-&lt;li>&lt;strong>Variables d&amp;rsquo;environnement&lt;/strong> (facultatif) : Définissez les variables d&amp;rsquo;environnement nécessaires si vous devez ajuster certaines configurations.&lt;/li>
+&lt;li>&lt;strong>Configuration&lt;/strong> : La configuration par défaut nécessite le renseignement d&amp;rsquo;une variable d&amp;rsquo;environnement pour le service Editoast: ROOT_URL.
+Il faut lui donner la valeur de l&amp;rsquo;URL qui pointe vers le service Editoast par la gateway. Par exemple &amp;ldquo;&lt;a href="http://your-domain.com/api%22">http://your-domain.com/api&amp;quot;&lt;/a>.
+Vous pouvez également ajuster d&amp;rsquo;autres variables d&amp;rsquo;environnement si nécessaire.&lt;/li>
 &lt;li>&lt;strong>Construire et exécuter&lt;/strong> : Naviguez vers le répertoire contenant &lt;code>docker-compose.yml&lt;/code> et exécutez :&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker-compose up --build

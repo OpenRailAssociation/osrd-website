@@ -1,5 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Deploy OSRD</title><link>https://osrd.fr/en/docs/guides/deploy/</link><description>Recent content in Deploy OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/deploy/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Docker Compose</title><link>https://osrd.fr/en/docs/guides/deploy/docker-compose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/deploy/docker-compose/</guid><description>
-&lt;p>The OSRD project includes a &lt;code>docker-compose.yml&lt;/code> file designed to facilitate the deployment of a fully functional OSRD environment. Primarily intended for development purposes, this Docker Compose configuration can also be adapted for quick, single-node deployments.&lt;/p>
+&lt;p>The OSRD project includes a &lt;code>docker-compose.yml&lt;/code> file designed to facilitate the deployment of a fully functional OSRD environment.
+Only intended for development purposes, this Docker Compose configuration could be adapted for quick, single-node deployments.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Disclaimer&lt;/h4>
+This setup is designed for development only.
+For example no authentication is supported and the front-end is served in development mode (rebuilt on the fly).
+If you mean to deploy a production ready version of OSRD, please follow the &lt;a href="../kubernetes/">Kubernetes-based deployment&lt;/a>
+&lt;/div>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>Before proceeding with the deployment, ensure that you have the following installed:&lt;/p>
 &lt;ul>
@@ -21,7 +28,9 @@
 &lt;h2 id="deployment-steps">Deployment Steps&lt;/h2>
 &lt;ol>
 &lt;li>&lt;strong>Clone the Repository&lt;/strong>: First, clone the OSRD repository to your local machine.&lt;/li>
-&lt;li>&lt;strong>Environment Variables&lt;/strong> (optional): Set necessary environment variables if you need to adjust some configurations.&lt;/li>
+&lt;li>&lt;strong>Configuration&lt;/strong>: The default configuration requires setting an environment variable for the Editoast service: &lt;code>ROOT_URL&lt;/code>.
+It should be set to the URL pointing to the Editoast service through the gateway. For example, &amp;ldquo;&lt;a href="http://your-domain.com/api%22">http://your-domain.com/api&amp;quot;&lt;/a>.&lt;br>
+You can also adjust other environment variables if needed.&lt;/li>
 &lt;li>&lt;strong>Build and Run&lt;/strong>: Navigate to the directory containing &lt;code>docker-compose.yml&lt;/code> and run:&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker-compose up --build
