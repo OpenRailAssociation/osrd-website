@@ -16,3 +16,23 @@ Nous vous soumettons quelques conseils et recommandations qui nous semblent pert
 ## La pyramide de la revue de code
 
 {{< figure src="/images/docs/contribute/code_review_pyramid.svg" link="https://www.morling.dev/blog/the-code-review-pyramid/">}}
+
+## Script pour le test d'une PR
+
+Lors de la revue d'une PR, il est utile de tester les changements en démarrant une instance de l'application OSRD basée sur la branche de la PR.
+
+Un script est disponible pour lancer automatiquement une instance séparée et dédiée de l'application en utilisant le numéro de la PR. Le script utilise les images Docker déjà construites par la CI et lance l'application de manière isolée. Cela permet d'exécuter les deux instances en parallèle, sans conflits (idéal pour comparer les modifications, par exemple).
+
+De plus, vous pouvez fournir une sauvegarde de la base de données, que le script chargera directement dans l'application.
+
+### Commandes Disponibles :
+
+* `./scripts/pr-infra-compose.sh 8914 up` : Télécharge les images CI générées pour la PR #8914 et lance l'application.
+* `./scripts/pr-infra-compose.sh 8914 up-and-load-backup ./path_to_backup` : Télécharge les images pour la PR #8914, restaure les données à partir de la sauvegarde spécifiée, et démarre l'application.
+* `./scripts/pr-infra-compose.sh 8914 down` : Arrête l'instance de test de l'application pour la PR #8914.
+* `./scripts/pr-infra-compose.sh 8914 down-and-clean` : Arrête l'instance de test et nettoie l'ensemble des volumes docker de l'instance (base de donnée PG, cache Redis, RabbitMQ) pour éviter tout effet de bord.
+
+
+### Accès aux Services :
+
+À l'exception du serveur frontend, tous les services sont disponibles sur localhost, avec un léger ajustement de port (pour éviter les conflits avec l'environnement de développement) : pour la liste des ports, reportez-vous au [fichier docker compose dédié](https://github.com/OpenRailAssociation/osrd/blob/dev/docker/docker-compose.pr-test.yml).
