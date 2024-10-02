@@ -13,8 +13,6 @@ We propose you a few tips and recommendations that we think are relevant to a hu
 
 {{% include "./review-process.en.md" %}}
 
-> If the reviewer is not maintainer, the PR's author has the responsability to contact a maintainer to merge the PR. In special cases (especially near feature freeze), maintainer should be found early.
-
 ## The code review pyramid
 
 {{< figure src="/images/docs/contribute/code_review_pyramid.svg" link="https://www.morling.dev/blog/the-code-review-pyramid/">}}

@@ -25,7 +25,7 @@ L'auteur d'une _pull request (PR)_ est responsable de son « cycle de vie ». Il
    - N'importe qui peut donner son avis.
    - Il est nécessaire d'obtenir l'approbation d'un [contributeur familier avec le code](https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS).
    - Il est d'usage de prendre en compte tous les commentaires critiques.
-   - Les commentaires sont souvent écrits dans un style plutôt direct, dans le soucis de collaborer efficacement vers une solution acceptable par tous.
+   - Les commentaires sont souvent écrits dans un style plutôt direct, dans le souci de collaborer efficacement vers une solution acceptable par tous.
    - Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.
 
 > Sur les PR conséquentes et vouées à évoluer dans le temps, conserver les _corrections_ suite à la
@@ -41,9 +41,7 @@ complète (demandez de l'aide au besoin) :
 [`git push --force-with-lease`](https://git-scm.com/docs/git-push#Documentation/git-push.txt---no-force-with-lease)
 car vous ne poussez pas seulement de nouveaux commits, mais bien un changement des commits existants.
 
-3. **N'hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin : vous êtes responsable de la vie de votre _pull request_**.
-
-## Proposition de fonctionnement
+3. **N'hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin est : vous êtes responsable de la vie de votre _pull request_**.
 
 {{% include "../review-process.fr.md" %}}
 
