@@ -42,8 +42,6 @@ because you are not just pushing new commits, you are pushing changes to existin
 
 3. **If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.**
 
-## Suggested workflow
-
 {{% include "../review-process.en.md" %}}
 
 *[Finally continue towards tests ‣]({{< ref "tests">}})*

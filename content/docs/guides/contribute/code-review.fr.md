@@ -13,8 +13,6 @@ Nous vous soumettons quelques conseils et recommandations qui nous semblent pert
 
 {{% include "./review-process.fr.md" %}}
 
-> Si la personne qui fait la revue de code n'est pas mainteneur, c'est à l'auteur de PR de trouver un mainteneur pour pouvoir fusionner sa PR avec le code. Dans certains cas particuliers (notamment juste avant le gel des fusions en fin d'itération), le mainteneur doit être averti plus tôt.
-
 ## La pyramide de la revue de code
 
 {{< figure src="/images/docs/contribute/code_review_pyramid.svg" link="https://www.morling.dev/blog/the-code-review-pyramid/">}}
