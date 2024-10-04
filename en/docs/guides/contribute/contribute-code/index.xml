@@ -413,9 +413,13 @@ because you are not just pushing new commits, you are pushing changes to existin
 &lt;ol start="3">
 &lt;li>&lt;strong>If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.&lt;/strong>&lt;/li>
 &lt;/ol>
-&lt;h2 id="suggested-workflow">Suggested workflow&lt;/h2>
-&lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;h2 id="review-cycle">Review cycle&lt;/h2>
+&lt;p>A code review is an iterative process.
+For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p>
+&lt;p>It is advisable to configure OSRD repositories as &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. This allows you to be notified of activities only on issues and PRs in which you participate.&lt;/p>
+&lt;blockquote>
+&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p>
+&lt;/blockquote>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer

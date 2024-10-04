@@ -63,8 +63,10 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> par Michael Lynch.&lt;/li>
 &lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> par Michael Lynch.&lt;/li>
 &lt;/ul>
-&lt;p>Voici une proposition de flux de travail.&lt;/p>
-&lt;p>&lt;strong>Il peut être utile de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
+&lt;h2 id="cycle-de-review">Cycle de review&lt;/h2>
+&lt;p>Une revue de code est un processus itératif.
+Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">configurer correctement ses notifications github&lt;/a>.&lt;/p>
+&lt;p>Il est conseillé de configurer les dépôts OSRD en &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. Cela permet d&amp;rsquo;être notifié d&amp;rsquo;activités uniquement sur les issues et PR auxquelles vous participez.&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
@@ -82,7 +84,7 @@ R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
 R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
 Note left of R: Et fusionne si mainteneur&lt;/pre>
 &lt;blockquote>
-&lt;p>Si la personne qui fait la revue de code n&amp;rsquo;est pas mainteneur, c&amp;rsquo;est à l&amp;rsquo;auteur de PR de trouver un mainteneur pour pouvoir fusionner sa PR avec le code. Dans certains cas particuliers (notamment juste avant le gel des fusions en fin d&amp;rsquo;itération), le mainteneur doit être averti plus tôt.&lt;/p>
+&lt;p>Les mainteneurs sont automatiquement notifiés par le système de &lt;code>CODEOWNERS&lt;/code>. L&amp;rsquo;auteur d&amp;rsquo;une PR est responsable de faire avancer sa PR dans le processus de review (quitte à notifier manuellement un mainteneur).&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="la-pyramide-de-la-revue-de-code">La pyramide de la revue de code&lt;/h2>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
@@ -168,8 +170,10 @@ En cas d&amp;rsquo;erreur au démarrage avec Rosetta 2, lancez &lt;code>colima d
 &lt;p>Si vous avez cette erreur: &lt;code>error getting credentials - err: exec: &amp;quot;docker-credential-osxkeychain&amp;quot;: executable file not found in $PATH&lt;/code>&lt;/p>
 &lt;p>Ouvrez &lt;code>~/.docker/config.json&lt;/code>, et enlevez &lt;code>&amp;quot;credsStore&amp;quot;: &amp;quot;osxkeychain&amp;quot;&lt;/code>&lt;/p>
 &lt;/div></description></item><item><title>Docs:</title><link>https://osrd.fr/fr/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/review-process/</guid><description>
-&lt;p>Voici une proposition de flux de travail.&lt;/p>
-&lt;p>&lt;strong>Il peut être utile de communiquer par messagerie instantanée (Matrix, Slack, etc.) afin de garantir le fonctionnement du flux de la validation d&amp;rsquo;une PR.&lt;/strong>&lt;/p>
+&lt;h2 id="cycle-de-review">Cycle de review&lt;/h2>
+&lt;p>Une revue de code est un processus itératif.
+Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">configurer correctement ses notifications github&lt;/a>.&lt;/p>
+&lt;p>Il est conseillé de configurer les dépôts OSRD en &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. Cela permet d&amp;rsquo;être notifié d&amp;rsquo;activités uniquement sur les issues et PR auxquelles vous participez.&lt;/p>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
@@ -185,4 +189,7 @@ end
 A-&amp;gt;&amp;gt;R: Rebase si nécessaire
 R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
 R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
-Note left of R: Et fusionne si mainteneur&lt;/pre></description></item></channel></rss>
+Note left of R: Et fusionne si mainteneur&lt;/pre>
+&lt;blockquote>
+&lt;p>Les mainteneurs sont automatiquement notifiés par le système de &lt;code>CODEOWNERS&lt;/code>. L&amp;rsquo;auteur d&amp;rsquo;une PR est responsable de faire avancer sa PR dans le processus de review (quitte à notifier manuellement un mainteneur).&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

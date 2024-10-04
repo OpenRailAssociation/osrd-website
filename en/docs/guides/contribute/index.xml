@@ -63,8 +63,13 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> by Michael Lynch.&lt;/li>
 &lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> by Michael Lynch.&lt;/li>
 &lt;/ul>
-&lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;h2 id="review-cycle">Review cycle&lt;/h2>
+&lt;p>A code review is an iterative process.
+For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p>
+&lt;p>It is advisable to configure OSRD repositories as &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. This allows you to be notified of activities only on issues and PRs in which you participate.&lt;/p>
+&lt;blockquote>
+&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p>
+&lt;/blockquote>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
@@ -81,9 +86,6 @@ A-&amp;gt;&amp;gt;R: Rebase and apply fixups
 R-&amp;gt;&amp;gt;A: Checks commits history
 R-&amp;gt;&amp;gt;A: Approves or closes the PR
 Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
-&lt;blockquote>
-&lt;p>If the reviewer is not maintainer, the PR&amp;rsquo;s author has the responsability to contact a maintainer to merge the PR. In special cases (especially near feature freeze), maintainer should be found early.&lt;/p>
-&lt;/blockquote>
 &lt;h2 id="the-code-review-pyramid">The code review pyramid&lt;/h2>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
@@ -168,8 +170,13 @@ If you get an error at rosetta startup, run &lt;code>colima delete&lt;/code> and
 &lt;p>If you get this error: &lt;code>error getting credentials - err: exec: &amp;quot;docker-credential-osxkeychain&amp;quot;: executable file not found in $PATH&lt;/code>&lt;/p>
 &lt;p>Open &lt;code>~/.docker/config.json&lt;/code>, and remove &lt;code>&amp;quot;credsStore&amp;quot;: &amp;quot;osxkeychain&amp;quot;&lt;/code>&lt;/p>
 &lt;/div></description></item><item><title>Docs:</title><link>https://osrd.fr/en/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/review-process/</guid><description>
-&lt;p>Here&amp;rsquo;s a suggested workflow.&lt;/p>
-&lt;p>&lt;strong>It can be useful to communicate via instant messaging (Matrix, Slack, etc.) in order to guarantee the smooth flow of PR validation.&lt;/strong>&lt;/p>
+&lt;h2 id="review-cycle">Review cycle&lt;/h2>
+&lt;p>A code review is an iterative process.
+For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p>
+&lt;p>It is advisable to configure OSRD repositories as &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. This allows you to be notified of activities only on issues and PRs in which you participate.&lt;/p>
+&lt;blockquote>
+&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p>
+&lt;/blockquote>
 &lt;pre class="mermaid">sequenceDiagram
 actor A as PR author
 actor R as Reviewer/Maintainer
