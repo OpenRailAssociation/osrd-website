@@ -90,10 +90,6 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
 &lt;/figure>
-&lt;h2 id="the-code-review-pyramid-1">The code review pyramid&lt;/h2>
-&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure>
 &lt;h2 id="script-for-testing-a-pr">Script for testing a PR&lt;/h2>
 &lt;p>When reviewing a PR, it is useful to test the changes by starting an instance of the OSRD app based on the PR branch.&lt;/p>
 &lt;p>A script is available to spin up a separate and dedicated app instance using the PR number. The script uses the Docker images already built by the CI and launches the app, running in isolation. This allows you to run both instances simultaneously without conflicts (ideal for comparing changes, for example).&lt;/p>
