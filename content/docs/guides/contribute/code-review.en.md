@@ -17,10 +17,6 @@ We propose you a few tips and recommendations that we think are relevant to a hu
 
 {{< figure src="/images/docs/contribute/code_review_pyramid.svg" link="https://www.morling.dev/blog/the-code-review-pyramid/">}}
 
-## The code review pyramid
-
-{{< figure src="/images/docs/contribute/code_review_pyramid.svg" link="https://www.morling.dev/blog/the-code-review-pyramid/">}}
-
 ## Script for testing a PR
 
 When reviewing a PR, it is useful to test the changes by starting an instance of the OSRD app based on the PR branch.
