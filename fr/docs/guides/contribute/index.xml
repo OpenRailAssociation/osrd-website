@@ -89,7 +89,20 @@ Note left of R: Et fusionne si mainteneur&lt;/pre>
 &lt;h2 id="la-pyramide-de-la-revue-de-code">La pyramide de la revue de code&lt;/h2>
 &lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
 &lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
+&lt;/figure>
+&lt;h2 id="script-pour-le-test-dune-pr">Script pour le test d&amp;rsquo;une PR&lt;/h2>
+&lt;p>Lors de la revue d&amp;rsquo;une PR, il est utile de tester les changements en démarrant une instance de l&amp;rsquo;application OSRD basée sur la branche de la PR.&lt;/p>
+&lt;p>Un script est disponible pour lancer automatiquement une instance séparée et dédiée de l&amp;rsquo;application en utilisant le numéro de la PR. Le script utilise les images Docker déjà construites par la CI et lance l&amp;rsquo;application de manière isolée. Cela permet d&amp;rsquo;exécuter les deux instances en parallèle, sans conflits (idéal pour comparer les modifications, par exemple).&lt;/p>
+&lt;p>De plus, vous pouvez fournir une sauvegarde de la base de données, que le script chargera directement dans l&amp;rsquo;application.&lt;/p>
+&lt;h3 id="commandes-disponibles-">Commandes Disponibles :&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>./scripts/pr-infra-compose.sh 8914 up&lt;/code> : Télécharge les images CI générées pour la PR #8914 et lance l&amp;rsquo;application.&lt;/li>
+&lt;li>&lt;code>./scripts/pr-infra-compose.sh 8914 up-and-load-backup ./path_to_backup&lt;/code> : Télécharge les images pour la PR #8914, restaure les données à partir de la sauvegarde spécifiée, et démarre l&amp;rsquo;application.&lt;/li>
+&lt;li>&lt;code>./scripts/pr-infra-compose.sh 8914 down&lt;/code> : Arrête l&amp;rsquo;instance de test de l&amp;rsquo;application pour la PR #8914.&lt;/li>
+&lt;li>&lt;code>./scripts/pr-infra-compose.sh 8914 down-and-clean&lt;/code> : Arrête l&amp;rsquo;instance de test et nettoie l&amp;rsquo;ensemble des volumes docker de l&amp;rsquo;instance (base de donnée PG, cache Redis, RabbitMQ) pour éviter tout effet de bord.&lt;/li>
+&lt;/ul>
+&lt;h3 id="accès-aux-services-">Accès aux Services :&lt;/h3>
+&lt;p>À l&amp;rsquo;exception du serveur frontend, tous les services sont disponibles sur localhost, avec un léger ajustement de port (pour éviter les conflits avec l&amp;rsquo;environnement de développement) : pour la liste des ports, reportez-vous au &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/docker/docker-compose.pr-test.yml">fichier docker compose dédié&lt;/a>.&lt;/p></description></item><item><title>Docs: Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
 &lt;p>Notre outil de suivi des bugs est &lt;a href="https://github.com/osrd-project/osrd/issues">github&lt;/a>. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
 &lt;p>Suivez &lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p>
