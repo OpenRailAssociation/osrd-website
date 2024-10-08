@@ -25,6 +25,8 @@ Un script est disponible pour lancer automatiquement une instance séparée et d
 
 De plus, vous pouvez fournir une sauvegarde de la base de données, que le script chargera directement dans l'application.
 
+L'application sera lancée sur le port 4001. Vous pouvez y accéder en suivant : http://localhost:4001/
+
 ### Commandes Disponibles :
 
 * `./scripts/pr-infra-compose.sh 8914 up` : Télécharge les images CI générées pour la PR #8914 et lance l'application.
