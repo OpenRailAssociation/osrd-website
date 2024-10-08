@@ -25,6 +25,8 @@ A script is available to spin up a separate and dedicated app instance using the
 
 Additionally, you can specify a database backup, which the script will load directly into the app.
 
+The app will be launched on the 4001 port. You can access it at: http://localhost:4001/
+
 ### Available Commands:
 
 * `./scripts/pr-infra-compose.sh 8914 up`: Downloads the CI-generated images for PR #8914 and launches the application.
