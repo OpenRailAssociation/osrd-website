@@ -94,6 +94,7 @@ Note left of R: Et fusionne si mainteneur&lt;/pre>
 &lt;p>Lors de la revue d&amp;rsquo;une PR, il est utile de tester les changements en démarrant une instance de l&amp;rsquo;application OSRD basée sur la branche de la PR.&lt;/p>
 &lt;p>Un script est disponible pour lancer automatiquement une instance séparée et dédiée de l&amp;rsquo;application en utilisant le numéro de la PR. Le script utilise les images Docker déjà construites par la CI et lance l&amp;rsquo;application de manière isolée. Cela permet d&amp;rsquo;exécuter les deux instances en parallèle, sans conflits (idéal pour comparer les modifications, par exemple).&lt;/p>
 &lt;p>De plus, vous pouvez fournir une sauvegarde de la base de données, que le script chargera directement dans l&amp;rsquo;application.&lt;/p>
+&lt;p>L&amp;rsquo;application sera lancée sur le port 4001. Vous pouvez y accéder en suivant : http://localhost:4001/&lt;/p>
 &lt;h3 id="commandes-disponibles-">Commandes Disponibles :&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>./scripts/pr-infra-compose.sh 8914 up&lt;/code> : Télécharge les images CI générées pour la PR #8914 et lance l&amp;rsquo;application.&lt;/li>

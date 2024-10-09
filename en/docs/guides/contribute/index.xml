@@ -94,6 +94,7 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 &lt;p>When reviewing a PR, it is useful to test the changes by starting an instance of the OSRD app based on the PR branch.&lt;/p>
 &lt;p>A script is available to spin up a separate and dedicated app instance using the PR number. The script uses the Docker images already built by the CI and launches the app, running in isolation. This allows you to run both instances simultaneously without conflicts (ideal for comparing changes, for example).&lt;/p>
 &lt;p>Additionally, you can specify a database backup, which the script will load directly into the app.&lt;/p>
+&lt;p>The app will be launched on the 4001 port. You can access it at: http://localhost:4001/&lt;/p>
 &lt;h3 id="available-commands">Available Commands:&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>./scripts/pr-infra-compose.sh 8914 up&lt;/code>: Downloads the CI-generated images for PR #8914 and launches the application.&lt;/li>
