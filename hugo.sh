@@ -13,5 +13,6 @@ exec docker run --rm -it \
      -u "${new_uid}:${new_gid}" \
      -v "${root_dir}":/src \
      -e HUGO_CACHEDIR=/src/.hugo_cache \
-     -p 1313:1313 klakegg/hugo:ext-alpine \
+     --entrypoint hugo \
+     -p 1313:1313 hugomods/hugo:exts \
      "$@"
