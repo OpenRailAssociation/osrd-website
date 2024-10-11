@@ -432,6 +432,10 @@ further subdivided into margin sections. Margins cover the entire path.&lt;/p>
 &lt;p>&lt;strong>The end goal is to find the target arrival time at the end of each margin section&lt;/strong>.
 This needs to be done while preserving consistency with the input schedule.&lt;/p>
 &lt;p>&lt;img src="schedule.svg" alt="Schedule building algorithm">&lt;/p>
+&lt;div class="alert alert-primary" role="alert">
+&lt;p>Note that stops do not impact margin repartition. For example, the margin &lt;strong>does not need&lt;/strong> to be proportionally distributed on each side of &lt;code>b&lt;/code>.&lt;/p>
+&lt;p>The same goes for points with arrival time. They impact whether the margin is respected or not, but they do not force the margin to be proportionally distributed on each side of the point.&lt;/p>
+&lt;/div>
 &lt;p>The final schedule is computed as follows:&lt;/p>
 &lt;ul>
 &lt;li>A &lt;strong>base simulation&lt;/strong> is computed, without any time constraint (other than stops). It&amp;rsquo;s used to compute provisional margin values.&lt;/li>
@@ -476,9 +480,9 @@ GET /v2/train_schedule/ID/path?infra_id=42 # Retrieve the path from a train sche
 &lt;pre tabindex="0">&lt;code># Retrieve the list of conflict of the timetable (invalid trains are ignored)
 GET /v2/timetable/ID/conflicts?infra=N
 # Retrieve the space, speed and time curve of a given train
-GET /v2/train_schedule/ID/simulation?infa=N
+GET /v2/train_schedule/ID/simulation?infra=N
 # Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.
-GET /v2/train_schedule/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
+GET /v2/train_schedule/simulations_summary?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
 &lt;/code>&lt;/pre>&lt;h2 id="frontend-workflow">Frontend workflow&lt;/h2>
@@ -498,7 +502,7 @@ DisplayGev(Display: GEV / Map /\n Driver Schedule/ Linear / Output Table)
 DisplayGet(Display Space Time Chart)
 DisplayTrainList(Display train list)
 Conflicts(Compute and display conflicts)
-ProjectConflitcs(Display conflicts in GET)
+ProjectConflicts(Display conflicts in GET)
 InfraLoaded --&amp;gt;|Wait| SummarySimulation
 InfraLoaded --&amp;gt;|Wait| TrainProjectionPath
 InfraLoaded --&amp;gt;|Wait| TrainPath
@@ -514,7 +518,7 @@ TrainProjectionPath --&amp;gt;|Wait for the previous batch| Projection
 SummarySimulation -..-&amp;gt;|If no projection train id| TrainProjectionPath
 Projection ==&amp;gt;|Gradually fill| DisplayGet
 SummarySimulation --&amp;gt;|Once everything is simulated| Conflicts
-Conflicts --&amp;gt; ProjectConflitcs&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
+Conflicts --&amp;gt; ProjectConflicts&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
 &lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
 &lt;ul>
 &lt;li>authentication (&lt;code>authn&lt;/code>) is the process of figuring out a user&amp;rsquo;s identity.&lt;/li>
