@@ -214,6 +214,14 @@ This needs to be done while preserving consistency with the input schedule.
 
 ![Schedule building algorithm](schedule.svg)
 
+
+{{% alert severity="warning" %}}
+Note that stops do not impact margin repartition. For example, the margin **does not need** to be proportionally distributed on each side of `b`. 
+
+The same goes for points with arrival time. They impact whether the margin is respected or not, but they do not force the margin to be proportionally distributed on each side of the point. 
+{{% /alert %}}
+
+
 The final schedule is computed as follows:
 
  - A **base simulation** is computed, without any time constraint (other than stops). It's used to compute provisional margin values.
