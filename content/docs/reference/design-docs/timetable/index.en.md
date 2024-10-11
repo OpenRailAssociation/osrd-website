@@ -276,9 +276,9 @@ GET /v2/train_schedule/ID/path?infra_id=42 # Retrieve the path from a train sche
 # Retrieve the list of conflict of the timetable (invalid trains are ignored)
 GET /v2/timetable/ID/conflicts?infra=N
 # Retrieve the space, speed and time curve of a given train
-GET /v2/train_schedule/ID/simulation?infa=N
+GET /v2/train_schedule/ID/simulation?infra=N
 # Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.
-GET /v2/train_schedule/simulations_sumary?infa=N&ids[]=X&ids[]=Y
+GET /v2/train_schedule/simulations_summary?infra=N&ids[]=X&ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&ids[]=X&ids[]=Y
 ```
@@ -303,7 +303,7 @@ flowchart TB
     DisplayGet(Display Space Time Chart)
     DisplayTrainList(Display train list)
     Conflicts(Compute and display conflicts)
-    ProjectConflitcs(Display conflicts in GET)
+    ProjectConflicts(Display conflicts in GET)
 
 
     InfraLoaded -->|Wait| SummarySimulation
@@ -321,5 +321,5 @@ flowchart TB
     SummarySimulation -..->|If no projection train id| TrainProjectionPath
     Projection ==>|Gradually fill| DisplayGet
     SummarySimulation -->|Once everything is simulated| Conflicts
-    Conflicts --> ProjectConflitcs
+    Conflicts --> ProjectConflicts
 ```
