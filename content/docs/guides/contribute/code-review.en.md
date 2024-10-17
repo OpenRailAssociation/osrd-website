@@ -29,10 +29,10 @@ The app will be launched on the 4001 port. You can access it at: http://localhos
 
 ### Available Commands:
 
-* `./scripts/pr-infra-compose.sh 8914 up`: Downloads the CI-generated images for PR #8914 and launches the application.
-* `./scripts/pr-infra-compose.sh 8914 up-and-load-backup ./path_to_backup`: Downloads the images for PR #8914, restores data from the provided backup, and starts the application.
-* `./scripts/pr-infra-compose.sh 8914 down`: Shuts down the test application instance for PR #8914.
-* `./scripts/pr-infra-compose.sh 8914 down-and-clean`: Shuts down the test instance and cleans all the instance's docker volumes (PG data, Redis cache, RabbitMQ) to prevent any side-effects.
+* `./scripts/pr-tests-compose.sh 8914 up`: Downloads the CI-generated images for PR #8914 and launches the application.
+* `./scripts/pr-tests-compose.sh 8914 up-and-load-backup ./path_to_backup`: Downloads the images for PR #8914, restores data from the provided backup, and starts the application.
+* `./scripts/pr-tests-compose.sh down`: Shuts down the test application instance for PR #8914.
+* `./scripts/pr-tests-compose.sh down-and-clean`: Shuts down the test instance and cleans all the instance's docker volumes (PG data, Redis cache, RabbitMQ) to prevent any side-effects.
 
 ### Accessing Services:
 
