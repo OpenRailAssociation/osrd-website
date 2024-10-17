@@ -29,10 +29,10 @@ L'application sera lancée sur le port 4001. Vous pouvez y accéder en suivant :
 
 ### Commandes Disponibles :
 
-* `./scripts/pr-infra-compose.sh 8914 up` : Télécharge les images CI générées pour la PR #8914 et lance l'application.
-* `./scripts/pr-infra-compose.sh 8914 up-and-load-backup ./path_to_backup` : Télécharge les images pour la PR #8914, restaure les données à partir de la sauvegarde spécifiée, et démarre l'application.
-* `./scripts/pr-infra-compose.sh 8914 down` : Arrête l'instance de test de l'application pour la PR #8914.
-* `./scripts/pr-infra-compose.sh 8914 down-and-clean` : Arrête l'instance de test et nettoie l'ensemble des volumes docker de l'instance (base de donnée PG, cache Redis, RabbitMQ) pour éviter tout effet de bord.
+* `./scripts/pr-tests-compose.sh 8914 up` : Télécharge les images CI générées pour la PR #8914 et lance l'application.
+* `./scripts/pr-tests-compose.sh 8914 up-and-load-backup ./path_to_backup` : Télécharge les images pour la PR #8914, restaure les données à partir de la sauvegarde spécifiée, et démarre l'application.
+* `./scripts/pr-tests-compose.sh down` : Arrête l'instance de test de l'application pour la PR #8914.
+* `./scripts/pr-tests-compose.sh down-and-clean` : Arrête l'instance de test et nettoie l'ensemble des volumes docker de l'instance (base de donnée PG, cache Redis, RabbitMQ) pour éviter tout effet de bord.
 
 
 ### Accès aux Services :
