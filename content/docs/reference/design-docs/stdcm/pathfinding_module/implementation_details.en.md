@@ -12,7 +12,7 @@ but it helps before reading the code.
 #### STDCMEdgeBuilder
 
 This refers to
-[this class](https://github.com/osrd-project/osrd/blob/dev/core/src/main/java/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.java)
+[this class](https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt)
 in the project.
 
 This class is used to make it easier to create instances of
@@ -25,13 +25,13 @@ and automatically computes others.
 Once instantiated and parametrized, an `STDCMEdgeBuilder` has two methods:
 
 
-- `Collection<STDCMEdge> makeAllEdges()` can be used to create all
+- `makeAllEdges(): Collection<STDCMEdge>` can be used to create all
 the possible edges in the given context for a given route.
 If there are several "openings" between occupancy blocks, one edge
 is instantiated for each opening. Every conflict, their avoidance,
 and their related attributes are handled here.
 
-- `STDCMEdge findEdgeSameNextOccupancy(double timeNextOccupancy)`:
+- `findEdgeSameNextOccupancy(double timeNextOccupancy): STDCMEdge?`:
 This method is used to get the specific edges that uses a certain
 opening (when it exists), identified here with the time of the next
 occupancy block. It is called whenever a new edge must be re-created
@@ -41,7 +41,7 @@ to replace an old one. It calls the previous method.
 ### Pathfinding
 
 The methods mentioned here are defined in
-[this class](https://github.com/osrd-project/osrd/blob/dev/core/src/main/java/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.java).
+[this class](https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt).
 
 #### Cost function
 
