@@ -58,7 +58,7 @@ from `gateway`, the authenticating reverse proxy which stands between it and the
 - otherwise, the gateway initiates the authentication process, usually with OIDC.
   The implementation was designed to allow new backends to be added easily.
 - once the user is authenticated, all requests to the backend can expect the following headers to be set:
-  - `x-remote-user-identity-id` contain a unique identifier for this identity. It can be thought of as an opaque `(auth_method, user_id)` tuple.
+  - `x-remote-user-identity` contain a unique identifier for this identity. It can be thought of as an opaque `provider_id/user_id` tuple.
   - `x-remote-user-name` contain a username
 
 When editoast receives a request, it has to match the remote user ID with a
