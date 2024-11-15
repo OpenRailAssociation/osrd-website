@@ -572,7 +572,7 @@ from &lt;code>gateway&lt;/code>, the authenticating reverse proxy which stands b
 The implementation was designed to allow new backends to be added easily.&lt;/li>
 &lt;li>once the user is authenticated, all requests to the backend can expect the following headers to be set:
 &lt;ul>
-&lt;li>&lt;code>x-remote-user-identity-id&lt;/code> contain a unique identifier for this identity. It can be thought of as an opaque &lt;code>(auth_method, user_id)&lt;/code> tuple.&lt;/li>
+&lt;li>&lt;code>x-remote-user-identity&lt;/code> contain a unique identifier for this identity. It can be thought of as an opaque &lt;code>provider_id/user_id&lt;/code> tuple.&lt;/li>
 &lt;li>&lt;code>x-remote-user-name&lt;/code> contain a username&lt;/li>
 &lt;/ul>
 &lt;/li>
