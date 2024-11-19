@@ -256,7 +256,7 @@ It isn&amp;rsquo;t necessary to understand general principles,
 but it helps before reading the code.&lt;/p>
 &lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
 &lt;p>This refers to
-&lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/src/main/java/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.java">this class&lt;/a>
+&lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt">this class&lt;/a>
 in the project.&lt;/p>
 &lt;p>This class is used to make it easier to create instances of
 &lt;code>STDCMEdge&lt;/code>, the graph edges. Those contain many attributes,
@@ -267,14 +267,14 @@ and automatically computes others.&lt;/p>
 &lt;p>Once instantiated and parametrized, an &lt;code>STDCMEdgeBuilder&lt;/code> has two methods:&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;code>Collection&amp;lt;STDCMEdge&amp;gt; makeAllEdges()&lt;/code> can be used to create all
+&lt;p>&lt;code>makeAllEdges(): Collection&amp;lt;STDCMEdge&amp;gt;&lt;/code> can be used to create all
 the possible edges in the given context for a given route.
 If there are several &amp;ldquo;openings&amp;rdquo; between occupancy blocks, one edge
 is instantiated for each opening. Every conflict, their avoidance,
 and their related attributes are handled here.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;code>STDCMEdge findEdgeSameNextOccupancy(double timeNextOccupancy)&lt;/code>:
+&lt;p>&lt;code>findEdgeSameNextOccupancy(double timeNextOccupancy): STDCMEdge?&lt;/code>:
 This method is used to get the specific edges that uses a certain
 opening (when it exists), identified here with the time of the next
 occupancy block. It is called whenever a new edge must be re-created
@@ -283,7 +283,7 @@ to replace an old one. It calls the previous method.&lt;/p>
 &lt;/ul>
 &lt;h3 id="pathfinding">Pathfinding&lt;/h3>
 &lt;p>The methods mentioned here are defined in
-&lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/src/main/java/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.java">this class&lt;/a>.&lt;/p>
+&lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt">this class&lt;/a>.&lt;/p>
 &lt;h4 id="cost-function">Cost function&lt;/h4>
 &lt;p>The function used to define pathfinding cost sets which path
 is used over another. The result is always the one that minimizes
