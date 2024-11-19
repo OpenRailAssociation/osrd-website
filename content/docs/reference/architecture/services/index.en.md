@@ -7,20 +7,18 @@ description: OSRD's services architecture
 
 It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.
 
-## Current 
+- Valkey is configured as `maxmemory-policy=allkeys-lru` ([documentation](https://valkey.io/topics/lru-cache/))
+- Osrdyne has multiple drivers to support:
+    - k8s
+    - docker
+    - process compose
+- The gateway supports multiple authentication providers:
+    - OpenID Connect (OIDC)
+    - Bearer token
+    - Mock (for development purpose)
+- Some `editoast` endpoints requires an `InfraCache` object which make them stateful. These endpoints are only used in the `editoast-stateful` service. Doing so most endpoints are run by a scalable service.
+
+Coming soon:
+- [ ] Adapt `editoast-stateful` so editoast is fully scalable.
 
 ![Services architecture](services.en.svg)
-
-## Target 
-
-Mutiple things are planned to be done in the future, including:
-
-- [X] Add an authenticating reverse proxy service (gateway) 
-- [X] Deploy `editoast` as a scalable map tile service 
-- [ ] Make the `core` service scalable
-  - Core services will handle only one infrastructure (on a given version) at a time
-  - Add a message broker (RabbitMQ) to dispatch queries to the right instance
-  - Create a `core-controller` service that will spawn / kill / scale `core` services (k8s and docker support)
-  - Responsibility for infrastructures loading is moved from the front to the `core-controller`
-
-![Services architecture](services_target.en.svg)
