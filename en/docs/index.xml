@@ -12,7 +12,7 @@
 dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;code>README.md&lt;/code>).&lt;/li>
 &lt;li>&lt;strong>Don&amp;rsquo;t reinvent every wheel&lt;/strong>: as a counter to the previous point, don&amp;rsquo;t reinvent everything at all costs.&lt;/li>
 &lt;li>If there is a dependency in the ecosystem that is the &amp;ldquo;de facto&amp;rdquo; standard, we should heavily consider using it.&lt;/li>
-&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
 &lt;li>Ask for any help that you need!&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/">Consult back-end conventions ‣&lt;/a>&lt;/em>&lt;/p>
@@ -24,7 +24,7 @@ dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;
 &lt;h3 id="communicate">Communicate&lt;/h3>
 &lt;p>Chatting with other contributors is a great way to speed things up:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">&lt;strong>Create an issue&lt;/strong>&lt;/a> to discuss your contribution project.&lt;/li>
+&lt;li>&lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">&lt;strong>Create an issue&lt;/strong>&lt;/a> to discuss your contribution project.&lt;/li>
 &lt;/ul>
 &lt;h3 id="inquire">Inquire&lt;/h3>
 &lt;p>Just like with any project, changes rely on past work.
@@ -318,7 +318,7 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;ul>
 &lt;li>Install &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Open a terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in the folder where the source code of OSRD will be located&lt;/li>
-&lt;li>Run &lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
+&lt;li>Run &lt;code>git clone https://github.com/OpenRailAssociation/osrd.git&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="launch-the-application">Launch the application&lt;/h3>
 &lt;p>Docker is a tool which greatly reduces the amount of setup required to work on OSRD:&lt;/p>
@@ -331,7 +331,7 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;p>To get started:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/">Install &lt;code>docker&lt;/code>&lt;/a>&lt;/li>
-&lt;li>Follow &lt;a href="https://github.com/osrd-project/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
+&lt;li>Follow &lt;a href="https://github.com/OpenRailAssociation/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/">Continue towards code contribution ‣&lt;/a>&lt;/em>&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
@@ -351,7 +351,7 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Create a branch&lt;/strong>&lt;br>
-If you intend to contribute regularly, you can request access to the &lt;a href="https://github.com/osrd-project/osrd">main repository&lt;/a>. Otherwise, &lt;a href="https://github.com/osrd-project/osrd/fork">create a fork&lt;/a>.&lt;/p>
+If you intend to contribute regularly, you can request access to the &lt;a href="https://github.com/OpenRailAssociation/osrd">main repository&lt;/a>. Otherwise, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">create a fork&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Add changes to your branch&lt;/strong>&lt;br>
@@ -470,8 +470,8 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 &lt;h3 id="accessing-services">Accessing Services:&lt;/h3>
 &lt;p>Apart from the &lt;code>frontend&lt;/code> server, all localhost services are available on localhost, with a minor port adjustment (to avoid conflicts with the dev environment): for a list of common ports, have a look at the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/docker/docker-compose.pr-test.yml">dedicated docker-compose file&lt;/a>.&lt;/p></description></item><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
-&lt;p>Our bug tracking platform is &lt;a href="https://github.com/osrd-project/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
-&lt;p>Follow &lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
+&lt;p>Our bug tracking platform is &lt;a href="https://github.com/OpenRailAssociation/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
+&lt;p>Follow &lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
 &lt;h3 id="bugs">Bugs&lt;/h3>
 &lt;ul>
 &lt;li>Bug must have a correct description and the bug&amp;rsquo;s issue template must be filled carefully.&lt;/li>
@@ -514,7 +514,7 @@ Once your changes are ready, you have to request integration with the &lt;code>d
 Once your PR is open, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">other contributors can review your changes&lt;/a>:&lt;/p>
 &lt;ul>
 &lt;li>Any user can review your changes.&lt;/li>
-&lt;li>Your code has to be approved by &lt;a href="https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS">a contributor familiar with the code&lt;/a>.&lt;/li>
+&lt;li>Your code has to be approved by &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/.github/CODEOWNERS">a contributor familiar with the code&lt;/a>.&lt;/li>
 &lt;li>All users are expected to take comments into account.&lt;/li>
 &lt;li>Comments tend to be written in an open and direct manner.
 The intent is to efficiently collaborate towards a solution we all agree on.&lt;/li>
@@ -1873,7 +1873,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>Adams 2&lt;/li>
 &lt;li>Adams 3&lt;/li>
 &lt;/ul>
-&lt;p>All explanations of these methods can be found (in French) in &lt;a href="https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">this document&lt;/a>, and the python code used for the simulation is &lt;a href="https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py">here&lt;/a>.&lt;/p>
+&lt;p>All explanations of these methods can be found (in French) in &lt;a href="https://github.com/OpenRailAssociation/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">this document&lt;/a>, and the python code used for the simulation is &lt;a href="https://raw.githubusercontent.com/wiki/OpenRailAssociation/osrd/code/integration/Tests_precision.py">here&lt;/a>.&lt;/p>
 &lt;p>The simulation calculates the position and speed of a high-speed train accelerating on a flat straight line.&lt;/p>
 &lt;h4 id="equivalent-time-step-simulations">&lt;strong>Equivalent time step simulations&lt;/strong>&lt;/h4>
 &lt;p>A reference curve was simulated using the Euler method with a time step of 0.1s, then the same path was simulated using the other methods with a time step of 1s. It is then possible to simply compare each curve to the reference curve, by calculating the absolute value of the difference at each calculated point. The resulting absolute error of the train&amp;rsquo;s position over its distance travelled is as follows:&lt;/p>
@@ -2119,8 +2119,8 @@ To zoom in on diagrams, click on the edit button that appears when hovering over
 &lt;p>This infrastructure is not meant to be realistic, but rather meant to help illustrate OSRD&amp;rsquo;s data model.
 This example will be created step by step and explained along the way.&lt;/p>
 &lt;h4 id="the-infrastructure-generator">The infrastructure generator&lt;/h4>
-&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd">&lt;em>OSRD&lt;/em> repository&lt;/a> is a &lt;a href="https://github.com/osrd-project/osrd/tree/dev/python/railjson_generator">python library&lt;/a> designed to help generate infrastructures in a format understood by &lt;em>OSRD&lt;/em>.&lt;/p>
-&lt;p>The infrastructure discussed in this section can be generated thanks to &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file. To learn more about the generation scripts, you can check out the related &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/README.md">README&lt;/a>.&lt;/p>
+&lt;p>In the &lt;a href="https://github.com/OpenRailAssociation/osrd">&lt;em>OSRD&lt;/em> repository&lt;/a> is a &lt;a href="https://github.com/OpenRailAssociation/osrd/tree/dev/python/railjson_generator">python library&lt;/a> designed to help generate infrastructures in a format understood by &lt;em>OSRD&lt;/em>.&lt;/p>
+&lt;p>The infrastructure discussed in this section can be generated thanks to &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file. To learn more about the generation scripts, you can check out the related &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/README.md">README&lt;/a>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="tracks">Tracks&lt;/h3>
 &lt;/font>
@@ -2223,7 +2223,7 @@ This is because a node is a physical object, and changing active branch can invo
 &lt;div class="alert alert-primary" role="alert">
 Mind that the &lt;code>begin&lt;/code> value should always be smaller than the &lt;code>end&lt;/code> value. That is why the curve / slope values can be negative: an uphill slope of 1 going from offset 10 to 0 is the same as a downhill slope of -1 going from offsets 0 to 10.
 &lt;/div>
-&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file, we have slopes on the track sections &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>In the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file, we have slopes on the track sections &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em>.&lt;/p>
 &lt;p>There are curves as well, on the track sections &lt;em>TE0&lt;/em>, &lt;em>TE1&lt;/em>, &lt;em>TE3&lt;/em> and &lt;em>TF1&lt;/em>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="interlocking">Interlocking&lt;/h3>
@@ -2669,7 +2669,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode181s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode163s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2679,7 +2679,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode181s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode163s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2694,7 +2694,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode181s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode163s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -2783,7 +2783,7 @@ adding some kind of priority / rank field, which was adopted&lt;/li>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode161s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode149s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2794,11 +2794,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode161s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode149s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode161s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode149s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -2817,14 +2817,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode161s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode149s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode161s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode149s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode161s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode149s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2836,7 +2836,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode161s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode149s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2871,7 +2871,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode161s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode149s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3154,7 +3154,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode178s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode162s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3168,7 +3168,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode178s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode162s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>
@@ -3521,7 +3521,7 @@ It isn&amp;rsquo;t necessary to understand general principles,
 but it helps before reading the code.&lt;/p>
 &lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
 &lt;p>This refers to
-&lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt">this class&lt;/a>
+&lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt">this class&lt;/a>
 in the project.&lt;/p>
 &lt;p>This class is used to make it easier to create instances of
 &lt;code>STDCMEdge&lt;/code>, the graph edges. Those contain many attributes,
@@ -3548,7 +3548,7 @@ to replace an old one. It calls the previous method.&lt;/p>
 &lt;/ul>
 &lt;h3 id="pathfinding">Pathfinding&lt;/h3>
 &lt;p>The methods mentioned here are defined in
-&lt;a href="https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt">this class&lt;/a>.&lt;/p>
+&lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt">this class&lt;/a>.&lt;/p>
 &lt;h4 id="cost-function">Cost function&lt;/h4>
 &lt;p>The function used to define pathfinding cost sets which path
 is used over another. The result is always the one that minimizes
@@ -3569,7 +3569,7 @@ the current node can lead to a path that doesn&amp;rsquo;t take
 longer than the maximum allowed total run time. But for the same
 reason, adding this feature would break any STDCM test on generated
 infras. More details in
-&lt;a href="https://github.com/osrd-project/osrd/issues/2818">this issue&lt;/a>.&lt;/p></description></item><item><title>Docs: Timetable v2</title><link>https://osrd.fr/en/docs/reference/design-docs/timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/timetable/</guid><description>
+&lt;a href="https://github.com/OpenRailAssociation/osrd/issues/2818">this issue&lt;/a>.&lt;/p></description></item><item><title>Docs: Timetable v2</title><link>https://osrd.fr/en/docs/reference/design-docs/timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/timetable/</guid><description>
 &lt;p>&lt;img src="timetable.svg" alt="Test">&lt;/p>
 &lt;h2 id="design-decisions">Design decisions&lt;/h2>
 &lt;p>Some major changes were made between our first version of the timetable and the new one:&lt;/p>
@@ -4670,7 +4670,7 @@ Retrying convergence for one worker group adds latency to convergence for all wo
 &lt;div class="alert alert-info" role="alert">
 These processes are not specific to open source: many companies work in a similar way.
 &lt;/div>
-&lt;p>In practice, most open-source software is developed using &lt;a href="https://github.com/osrd-project/osrd">a forge&lt;/a>. Through this forge, developers and users can access the source code, report bugs, plan tasks, and integrate new changes to the code.
+&lt;p>In practice, most open-source software is developed using &lt;a href="https://github.com/OpenRailAssociation/osrd">a forge&lt;/a>. Through this forge, developers and users can access the source code, report bugs, plan tasks, and integrate new changes to the code.
 Anyone can suggest a change, report a bug or plan a task.&lt;/p>
 &lt;p>All changes go through a &lt;strong>peer review&lt;/strong>, not unlike those used by the scientific community.
 Reviewers are software developers most familiar with components affected by the change.&lt;/p>

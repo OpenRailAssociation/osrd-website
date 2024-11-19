@@ -119,8 +119,8 @@ editoast -- HTTP --&amp;gt; core&lt;/pre>
 &lt;h2 id="déploiement">Déploiement&lt;/h2>
 &lt;p>Le chart est disponible dans le dépôt OCI ghcr. Vous pouvez trouver 2 versions de la chart :&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/osrd-project/osrd-chart/pkgs/container/charts%2Fosrd">Charts stables&lt;/a> : &lt;code>oci://ghcr.io/osrd-project/charts/osrd&lt;/code>&lt;/li>
-&lt;li>&lt;a href="https://github.com/osrd-project/osrd-chart/pkgs/container/charts%2Fosrd-dev">Charts de développement&lt;/a> : &lt;code>oci://ghcr.io/osrd-project/charts/osrd-dev&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OpenRailAssociation/osrd-chart/pkgs/container/charts%2Fosrd">Charts stables&lt;/a> : &lt;code>oci://ghcr.io/OpenRailAssociation/charts/osrd&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OpenRailAssociation/osrd-chart/pkgs/container/charts%2Fosrd-dev">Charts de développement&lt;/a> : &lt;code>oci://ghcr.io/OpenRailAssociation/charts/osrd-dev&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;p>Pour déployer les services OSRD en utilisant Helm :&lt;/p>
 &lt;ol>
@@ -129,6 +129,6 @@ editoast -- HTTP --&amp;gt; core&lt;/pre>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Installer le Chart&lt;/strong> : Utilisez la commande &lt;code>helm install&lt;/code> pour installer la chart dans votre cluster Kubernetes.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>helm install osrd oci://ghcr.io/osrd-project/charts/osrd -f values.yml
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>helm install osrd oci://ghcr.io/OpenRailAssociation/charts/osrd -f values.yml
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol></description></item></channel></rss>

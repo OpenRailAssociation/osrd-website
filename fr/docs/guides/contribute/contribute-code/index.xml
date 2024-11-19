@@ -13,7 +13,7 @@ dans chaque composant, donc regrouper les montées de version dans une même PR 
 (reportez-vous au &lt;code>README.md&lt;/code> de chaque composant).&lt;/li>
 &lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : en opposition au point précédent, ne réinventez pas tout à tout prix.&lt;/li>
 &lt;li>S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard « de facto », nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
-&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
 &lt;li>Demandez toute l&amp;rsquo;aide dont vous avez besoin !&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/">Consulter les conventions pour le back-end ‣&lt;/a>&lt;/em>&lt;/p>
@@ -297,7 +297,7 @@ A noter que si l&amp;rsquo;on doit corriger une traduction, il est recommandé d
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Créez une branche&lt;/strong>&lt;br>
-Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/osrd-project/osrd">dépot principal&lt;/a>. Sinon, &lt;a href="https://github.com/osrd-project/osrd/fork">créez un fork&lt;/a>.&lt;/p>
+Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/OpenRailAssociation/osrd">dépot principal&lt;/a>. Sinon, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">créez un fork&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Ajoutez des changements sur votre branche&lt;/strong>&lt;br>
@@ -387,7 +387,7 @@ Cela se fait &lt;a href="https://docs.github.com/en/pull-requests/collaborating-
 Une fois que votre PR est ouverte, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">d&amp;rsquo;autres contributeurs doivent donner leur avis sur votre proposition&lt;/a> :&lt;/p>
 &lt;ul>
 &lt;li>N&amp;rsquo;importe qui peut donner son avis.&lt;/li>
-&lt;li>Il est nécessaire d&amp;rsquo;obtenir l&amp;rsquo;approbation d&amp;rsquo;un &lt;a href="https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS">contributeur familier avec le code&lt;/a>.&lt;/li>
+&lt;li>Il est nécessaire d&amp;rsquo;obtenir l&amp;rsquo;approbation d&amp;rsquo;un &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/.github/CODEOWNERS">contributeur familier avec le code&lt;/a>.&lt;/li>
 &lt;li>Il est d&amp;rsquo;usage de prendre en compte tous les commentaires critiques.&lt;/li>
 &lt;li>Les commentaires sont souvent écrits dans un style plutôt direct, dans le souci de collaborer efficacement vers une solution acceptable par tous.&lt;/li>
 &lt;li>Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.&lt;/li>

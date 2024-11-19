@@ -139,7 +139,7 @@ onload="renderMathInElement(document.body);">&lt;/script>
 &lt;li>Adams 2&lt;/li>
 &lt;li>Adams 3&lt;/li>
 &lt;/ul>
-&lt;p>All explanations of these methods can be found (in French) in &lt;a href="https://github.com/osrd-project/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">this document&lt;/a>, and the python code used for the simulation is &lt;a href="https://raw.githubusercontent.com/wiki/osrd-project/osrd/code/integration/Tests_precision.py">here&lt;/a>.&lt;/p>
+&lt;p>All explanations of these methods can be found (in French) in &lt;a href="https://github.com/OpenRailAssociation/osrd/wiki/documents/integration/MethodesNumeriques_EricGoncalves.pdf">this document&lt;/a>, and the python code used for the simulation is &lt;a href="https://raw.githubusercontent.com/wiki/OpenRailAssociation/osrd/code/integration/Tests_precision.py">here&lt;/a>.&lt;/p>
 &lt;p>The simulation calculates the position and speed of a high-speed train accelerating on a flat straight line.&lt;/p>
 &lt;h4 id="equivalent-time-step-simulations">&lt;strong>Equivalent time step simulations&lt;/strong>&lt;/h4>
 &lt;p>A reference curve was simulated using the Euler method with a time step of 0.1s, then the same path was simulated using the other methods with a time step of 1s. It is then possible to simply compare each curve to the reference curve, by calculating the absolute value of the difference at each calculated point. The resulting absolute error of the train&amp;rsquo;s position over its distance travelled is as follows:&lt;/p>

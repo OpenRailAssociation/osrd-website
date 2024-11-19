@@ -12,7 +12,7 @@
 dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;code>README.md&lt;/code>).&lt;/li>
 &lt;li>&lt;strong>Don&amp;rsquo;t reinvent every wheel&lt;/strong>: as a counter to the previous point, don&amp;rsquo;t reinvent everything at all costs.&lt;/li>
 &lt;li>If there is a dependency in the ecosystem that is the &amp;ldquo;de facto&amp;rdquo; standard, we should heavily consider using it.&lt;/li>
-&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
 &lt;li>Ask for any help that you need!&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/">Consult back-end conventions ‣&lt;/a>&lt;/em>&lt;/p>
@@ -295,7 +295,7 @@ If you add a new translation key, it can be added directly to the code, in all a
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Create a branch&lt;/strong>&lt;br>
-If you intend to contribute regularly, you can request access to the &lt;a href="https://github.com/osrd-project/osrd">main repository&lt;/a>. Otherwise, &lt;a href="https://github.com/osrd-project/osrd/fork">create a fork&lt;/a>.&lt;/p>
+If you intend to contribute regularly, you can request access to the &lt;a href="https://github.com/OpenRailAssociation/osrd">main repository&lt;/a>. Otherwise, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">create a fork&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Add changes to your branch&lt;/strong>&lt;br>
@@ -387,7 +387,7 @@ Once your changes are ready, you have to request integration with the &lt;code>d
 Once your PR is open, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">other contributors can review your changes&lt;/a>:&lt;/p>
 &lt;ul>
 &lt;li>Any user can review your changes.&lt;/li>
-&lt;li>Your code has to be approved by &lt;a href="https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS">a contributor familiar with the code&lt;/a>.&lt;/li>
+&lt;li>Your code has to be approved by &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/.github/CODEOWNERS">a contributor familiar with the code&lt;/a>.&lt;/li>
 &lt;li>All users are expected to take comments into account.&lt;/li>
 &lt;li>Comments tend to be written in an open and direct manner.
 The intent is to efficiently collaborate towards a solution we all agree on.&lt;/li>

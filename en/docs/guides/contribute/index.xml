@@ -4,7 +4,7 @@
 &lt;h3 id="communicate">Communicate&lt;/h3>
 &lt;p>Chatting with other contributors is a great way to speed things up:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">&lt;strong>Create an issue&lt;/strong>&lt;/a> to discuss your contribution project.&lt;/li>
+&lt;li>&lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">&lt;strong>Create an issue&lt;/strong>&lt;/a> to discuss your contribution project.&lt;/li>
 &lt;/ul>
 &lt;h3 id="inquire">Inquire&lt;/h3>
 &lt;p>Just like with any project, changes rely on past work.
@@ -28,7 +28,7 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;ul>
 &lt;li>Install &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;li>Open a terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in the folder where the source code of OSRD will be located&lt;/li>
-&lt;li>Run &lt;code>git clone git@github.com:osrd-project/osrd&lt;/code>&lt;/li>
+&lt;li>Run &lt;code>git clone https://github.com/OpenRailAssociation/osrd.git&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="launch-the-application">Launch the application&lt;/h3>
 &lt;p>Docker is a tool which greatly reduces the amount of setup required to work on OSRD:&lt;/p>
@@ -41,7 +41,7 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;p>To get started:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/">Install &lt;code>docker&lt;/code>&lt;/a>&lt;/li>
-&lt;li>Follow &lt;a href="https://github.com/osrd-project/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
+&lt;li>Follow &lt;a href="https://github.com/OpenRailAssociation/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/">Continue towards code contribution ‣&lt;/a>&lt;/em>&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
@@ -105,8 +105,8 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 &lt;h3 id="accessing-services">Accessing Services:&lt;/h3>
 &lt;p>Apart from the &lt;code>frontend&lt;/code> server, all localhost services are available on localhost, with a minor port adjustment (to avoid conflicts with the dev environment): for a list of common ports, have a look at the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/docker/docker-compose.pr-test.yml">dedicated docker-compose file&lt;/a>.&lt;/p></description></item><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>
 &lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
-&lt;p>Our bug tracking platform is &lt;a href="https://github.com/osrd-project/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
-&lt;p>Follow &lt;a href="https://github.com/osrd-project/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
+&lt;p>Our bug tracking platform is &lt;a href="https://github.com/OpenRailAssociation/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
+&lt;p>Follow &lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
 &lt;h3 id="bugs">Bugs&lt;/h3>
 &lt;ul>
 &lt;li>Bug must have a correct description and the bug&amp;rsquo;s issue template must be filled carefully.&lt;/li>

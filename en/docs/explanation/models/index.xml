@@ -13,8 +13,8 @@ To zoom in on diagrams, click on the edit button that appears when hovering over
 &lt;p>This infrastructure is not meant to be realistic, but rather meant to help illustrate OSRD&amp;rsquo;s data model.
 This example will be created step by step and explained along the way.&lt;/p>
 &lt;h4 id="the-infrastructure-generator">The infrastructure generator&lt;/h4>
-&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd">&lt;em>OSRD&lt;/em> repository&lt;/a> is a &lt;a href="https://github.com/osrd-project/osrd/tree/dev/python/railjson_generator">python library&lt;/a> designed to help generate infrastructures in a format understood by &lt;em>OSRD&lt;/em>.&lt;/p>
-&lt;p>The infrastructure discussed in this section can be generated thanks to &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file. To learn more about the generation scripts, you can check out the related &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/README.md">README&lt;/a>.&lt;/p>
+&lt;p>In the &lt;a href="https://github.com/OpenRailAssociation/osrd">&lt;em>OSRD&lt;/em> repository&lt;/a> is a &lt;a href="https://github.com/OpenRailAssociation/osrd/tree/dev/python/railjson_generator">python library&lt;/a> designed to help generate infrastructures in a format understood by &lt;em>OSRD&lt;/em>.&lt;/p>
+&lt;p>The infrastructure discussed in this section can be generated thanks to &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file. To learn more about the generation scripts, you can check out the related &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/README.md">README&lt;/a>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="tracks">Tracks&lt;/h3>
 &lt;/font>
@@ -117,7 +117,7 @@ This is because a node is a physical object, and changing active branch can invo
 &lt;div class="alert alert-primary" role="alert">
 Mind that the &lt;code>begin&lt;/code> value should always be smaller than the &lt;code>end&lt;/code> value. That is why the curve / slope values can be negative: an uphill slope of 1 going from offset 10 to 0 is the same as a downhill slope of -1 going from offsets 0 to 10.
 &lt;/div>
-&lt;p>In the &lt;a href="https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file, we have slopes on the track sections &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em>.&lt;/p>
+&lt;p>In the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py">small_infra.py&lt;/a> file, we have slopes on the track sections &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> and &lt;em>TD1&lt;/em>.&lt;/p>
 &lt;p>There are curves as well, on the track sections &lt;em>TE0&lt;/em>, &lt;em>TE1&lt;/em>, &lt;em>TE3&lt;/em> and &lt;em>TF1&lt;/em>.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="interlocking">Interlocking&lt;/h3>
