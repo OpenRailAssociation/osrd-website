@@ -24,7 +24,7 @@ Most OSRD developers use Linux (incl. [WSL](https://learn.microsoft.com/en-us/wi
 
 - Install [`git`](https://git-scm.com/).[^package-manager]
 - Open a terminal[^git-bash] in the folder where the source code of OSRD will be located
-- Run `git clone git@github.com:osrd-project/osrd`
+- Run `git clone https://github.com/OpenRailAssociation/osrd.git`
 
 ### Launch the application
 
@@ -36,7 +36,7 @@ Docker is a tool which greatly reduces the amount of setup required to work on O
 
 To get started:
 - [Install `docker`]({{< ref "install-docker">}})
-- Follow [OSRD's README](https://github.com/osrd-project/osrd#getting-started).
+- Follow [OSRD's README](https://github.com/OpenRailAssociation/osrd#getting-started).
 
 *[Continue towards code contribution ‣]({{< ref "contribute-code">}})*
 

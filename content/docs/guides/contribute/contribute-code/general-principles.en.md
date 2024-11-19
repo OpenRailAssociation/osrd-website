@@ -17,7 +17,7 @@ description: "Please read this first!"
 dependency bumps in a batch PR is a valid option (see component's `README.md`).
 - **Don't reinvent every wheel**: as a counter to the previous point, don't reinvent everything at all costs.
 - If there is a dependency in the ecosystem that is the "de facto" standard, we should heavily consider using it.
-- More code general recommendations in main repository [CONTRIBUTING.md](https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md).
+- More code general recommendations in main repository [CONTRIBUTING.md](https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md).
 - Ask for any help that you need!
 
 *[Consult back-end conventions ‣]({{< ref "backend-conventions">}})*

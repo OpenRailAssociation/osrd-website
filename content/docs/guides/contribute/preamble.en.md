@@ -13,7 +13,7 @@ The following chapters are a set of guidelines for contributing to OSRD. These g
 
 Chatting with other contributors is a great way to speed things up:
 
-- [**Create an issue**](https://github.com/osrd-project/osrd/issues/new/choose) to discuss your contribution project.
+- [**Create an issue**](https://github.com/OpenRailAssociation/osrd/issues/new/choose) to discuss your contribution project.
 
 ### Inquire
 

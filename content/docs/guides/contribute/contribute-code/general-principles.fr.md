@@ -18,7 +18,7 @@ dans chaque composant, donc regrouper les montées de version dans une même PR 
 (reportez-vous au `README.md` de chaque composant).
 - **Ne pas réinventer la roue** : en opposition au point précédent, ne réinventez pas tout à tout prix.
 - S'il existe une dépendance dans l'écosystème qui est le standard « de facto », nous devrions fortement envisager de l'utiliser.
-- Plus de code et de recommandations générales dans le dépôt principal [CONTRIBUTING.md](https://github.com/osrd-project/osrd/blob/dev/CONTRIBUTING.md).
+- Plus de code et de recommandations générales dans le dépôt principal [CONTRIBUTING.md](https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md).
 - Demandez toute l'aide dont vous avez besoin !
 
 *[Consulter les conventions pour le back-end ‣]({{< ref "backend-conventions">}})*
