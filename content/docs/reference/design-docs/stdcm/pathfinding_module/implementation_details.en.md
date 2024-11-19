@@ -12,7 +12,7 @@ but it helps before reading the code.
 #### STDCMEdgeBuilder
 
 This refers to
-[this class](https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt)
+[this class](https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt)
 in the project.
 
 This class is used to make it easier to create instances of
@@ -41,7 +41,7 @@ to replace an old one. It calls the previous method.
 ### Pathfinding
 
 The methods mentioned here are defined in
-[this class](https://github.com/osrd-project/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt).
+[this class](https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt).
 
 #### Cost function
 
@@ -71,5 +71,5 @@ the current node can lead to a path that doesn't take
 longer than the maximum allowed total run time. But for the same
 reason, adding this feature would break any STDCM test on generated
 infras. More details in
-[this issue](https://github.com/osrd-project/osrd/issues/2818).
+[this issue](https://github.com/OpenRailAssociation/osrd/issues/2818).
 

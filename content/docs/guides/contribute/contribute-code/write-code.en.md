@@ -8,7 +8,7 @@ description: "Integrate changes into OSRD"
 1. If you are not used to Git, [follow this tutorial](https://learngitbranching.js.org/)
 
 2. **Create a branch**  
-   If you intend to contribute regularly, you can request access to the [main repository](https://github.com/osrd-project/osrd). Otherwise, [create a fork](https://github.com/osrd-project/osrd/fork).
+   If you intend to contribute regularly, you can request access to the [main repository](https://github.com/OpenRailAssociation/osrd). Otherwise, [create a fork](https://github.com/OpenRailAssociation/osrd/fork).
 
 3. **Add changes to your branch**  
    Before you start working, try to split your work into macroscopic steps.

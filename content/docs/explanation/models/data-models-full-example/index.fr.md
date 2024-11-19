@@ -28,9 +28,9 @@ Cet exemple sera créé étape par étape et expliqué en cours de route.
 
 #### Le générateur d'infrastructures
 
-Dans le [dépôt *OSRD*](https://github.com/osrd-project/osrd) se trouve une [bibliothèque python](https://github.com/osrd-project/osrd/tree/dev/python/railjson_generator) conçue pour aider à générer des infrastructures dans un format compris par *OSRD*.
+Dans le [dépôt *OSRD*](https://github.com/OpenRailAssociation/osrd) se trouve une [bibliothèque python](https://github.com/OpenRailAssociation/osrd/tree/dev/python/railjson_generator) conçue pour aider à générer des infrastructures dans un format compris par *OSRD*.
 
-L'infrastructure discutée dans cette section peut être générée grâce au fichier [small_infra.py](https://github.com/osrd-project/osrd/blob/dev/tests/infra-scripts/small_infra.py). Pour en savoir plus sur les scripts de génération, vous pouvez consulter le [README](https://github.com/osrd-project/osrd/blob/dev/python/railjson_generator/README.md) correspondant.
+L'infrastructure discutée dans cette section peut être générée grâce au fichier [small_infra.py](https://github.com/OpenRailAssociation/osrd/blob/dev/tests/infra-scripts/small_infra.py). Pour en savoir plus sur les scripts de génération, vous pouvez consulter le [README](https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/README.md) correspondant.
 
 <font color=#aa026d>
 
@@ -203,7 +203,7 @@ Les valeurs de pente sont mesurées en *mètres par kilomètres*, et les valeurs
 N'oubliez pas que la valeur `begin` doit toujours être inférieure à la valeur `end`. C'est pourquoi les valeurs de courbe/pente peuvent être négatives : une pente ascendante de 1 allant du décalage 10 à 0 est identique à une pente descendante de -1 allant des décalages 0 à 10.
 {{% /alert %}}
 
-Dans le fichier [small_infra.py](https://github.com/osrd-project/osrd/blob/dev/tests/infra-scripts/small_infra.py), nous avons des pentes sur les sections de voie *TA6*, *TA7*, *TD0* et *TD1*.
+Dans le fichier [small_infra.py](https://github.com/OpenRailAssociation/osrd/blob/dev/tests/infra-scripts/small_infra.py), nous avons des pentes sur les sections de voie *TA6*, *TA7*, *TD0* et *TD1*.
 
 Il y a également des courbes sur les sections de voie *TE0*, *TE1*, *TE3* et *TF1*.
 

@@ -17,7 +17,7 @@ Ces demandes sont actuellement gérées par des guichets, et les sillons sont tr
 
 Le logiciel OSRD, en plus de disposer d’un simulateur ferroviaire pour la planification des horaires, va également permettre de traiter les demandes de sillon de dernière minute de façon automatisée ! Il sera possible en seulement quelques clics d’exprimer une demande de sillon de dernière minute et obtenir une réponse en quelques secondes (tout au plus 3min) !
 
-Si le projet #osrd vous intéresse, n’hésitez pas à consulter le site web [osrd](https://osrd.fr/en/) et le repo [GitHub](https://github.com/osrd-project/osrd), et le projet est #opensource.
+Si le projet #osrd vous intéresse, n’hésitez pas à consulter le site web [osrd](https://osrd.fr/en/) et le repo [GitHub](https://github.com/OpenRailAssociation/osrd), et le projet est #opensource.
 
 [Post LinkedIn de Morgane Senejko](https://www.linkedin.com/posts/morgane-senejko-526675172_osrd-opensource-activity-7052251905506340865-5Qeh?utm_source=share&utm_medium=member_desktop)
 

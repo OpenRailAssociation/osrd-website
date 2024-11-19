@@ -22,7 +22,7 @@ The author of a _pull request (PR)_ is responsible for its "life cycle". He is r
    Once your PR is open, [other contributors can review your changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews):
 
    - Any user can review your changes.
-   - Your code has to be approved by [a contributor familiar with the code](https://github.com/osrd-project/osrd/blob/dev/.github/CODEOWNERS).
+   - Your code has to be approved by [a contributor familiar with the code](https://github.com/OpenRailAssociation/osrd/blob/dev/.github/CODEOWNERS).
    - All users are expected to take comments into account.
    - Comments tend to be written in an open and direct manner.
      The intent is to efficiently collaborate towards a solution we all agree on.

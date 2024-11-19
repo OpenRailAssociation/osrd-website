@@ -13,7 +13,7 @@ Si les sections suivantes forment un guide du contributeur, ce n'est pas pour au
 
 Vous pouvez gagner du temps en discutant de votre projet de contribution avec les autres contributeurs :
 
-- [**Créez une issue**](https://github.com/osrd-project/osrd/issues/new/choose) pour avoir un endroit pour discuter de votre contribution.
+- [**Créez une issue**](https://github.com/OpenRailAssociation/osrd/issues/new/choose) pour avoir un endroit pour discuter de votre contribution.
 
 ### Se renseigner
 

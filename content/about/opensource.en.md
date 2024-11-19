@@ -46,7 +46,7 @@ These processes are not specific to open source: many companies work in a simila
 {{% /alert %}}
 
 
-In practice, most open-source software is developed using [a forge](https://github.com/osrd-project/osrd). Through this forge, developers and users can access the source code, report bugs, plan tasks, and integrate new changes to the code.
+In practice, most open-source software is developed using [a forge](https://github.com/OpenRailAssociation/osrd). Through this forge, developers and users can access the source code, report bugs, plan tasks, and integrate new changes to the code.
 Anyone can suggest a change, report a bug or plan a task.
 
 All changes go through a **peer review**, not unlike those used by the scientific community.
