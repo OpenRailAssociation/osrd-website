@@ -19,7 +19,7 @@ And by contributing to OSRD, these companies:
 
 OSRD is currently developped by:
 
-- A team of full-time developpers at SNCF Réseau, financed by SNCF Réseau, the French state and the European Union
+- A [team of full-time developpers at SNCF Réseau](../../join-us), financed by SNCF Réseau, the French state and the European Union
 - Individual contributors
 
 ## The OpenRail association
