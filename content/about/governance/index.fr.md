@@ -19,7 +19,7 @@ En échange de leur contribution, ces entreprises&nbsp;:
 
 OSRD est actuellement développé par:
 
-- une équipe de développeurs à plein temps au sein de SNCF Réseau, grâce à un financement de SNCF Réseau, de l'Etat Français et de l'Union Européenne&nbsp;;
+- une [équipe de développeurs à plein temps au sein de SNCF Réseau](../../join-us), grâce à un financement de SNCF Réseau, de l'Etat Français et de l'Union Européenne&nbsp;;
 - des contributeurs individuels.
 
 ## L'association Open Rail
