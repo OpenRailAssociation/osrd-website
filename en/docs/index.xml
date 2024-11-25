@@ -1692,7 +1692,25 @@ The algorithm is described in detail in the &lt;a href="https://osrd.fr/en/docs/
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># A predicate used evaluate whether a signal state can make a train slow down. Used for naive conflict detection.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;constraining_ma_when&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;aspect != VL&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: STDCM search environment configuration</title><link>https://osrd.fr/en/docs/guides/deploy/stdcm-search-env/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/deploy/stdcm-search-env/</guid><description>
+&lt;p>In order for the STDCM tool to function, you&amp;rsquo;ll need to setup the STDCM Search Environment, a configuration stored in database.&lt;/p>
+&lt;p>The configurable fields are as such:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">StdcmSearchEnvironment&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">infra_id&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">electrical_profile_set_id&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">work_schedule_group_id&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">timetable_id&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">search_window_begin&lt;/span>: &lt;span style="color:#000">NaiveDateTime&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">search_window_end&lt;/span>: &lt;span style="color:#000">NaiveDateTime&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This configuration is queried by the frontend.
+That way, the right objects and time bounds are used transparently by the user.&lt;/p>
+&lt;p>In order to setup this config, you can either&lt;/p>
+&lt;ul>
+&lt;li>Use the provided REST API (see &lt;a href="https://osrd.fr/en/docs/reference/apis/editoast/#operations-tag-stdcm_search_environment">the editoast openAPI&lt;/a>
+in the stdcm_search_environment section)&lt;/li>
+&lt;li>Use the provided editoast cli (run &lt;code>editoast stdcm-search-env help&lt;/code> for more information)&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>
 &lt;p>Regardless of your operating system, docker requires linux to operate. When used on a different
 operating system, docker relies on virtual machines to build and run images.&lt;/p>
 &lt;p>There are two main types of docker installations:&lt;/p>
@@ -2669,7 +2687,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode163s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode168s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2679,7 +2697,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode163s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode168s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2694,7 +2712,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode163s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode168s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -3154,7 +3172,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode162s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode166s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3168,7 +3186,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode162s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode166s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>

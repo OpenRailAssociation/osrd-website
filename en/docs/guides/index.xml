@@ -5,7 +5,12 @@
 &lt;li>&lt;a href="https://osrd.fr/en/docs/guides/deploy/docker-compose/">Using docker compose&lt;/a> on a single node.&lt;/li>
 &lt;li>&lt;a href="https://osrd.fr/en/docs/guides/deploy/docker-compose/">Using helm&lt;/a> on a kubernetes cluster.&lt;/li>
 &lt;/ul>
-&lt;p>It is also possible to deploy each service of OSRD manually on a system, but we will not cover this topic within this guide.&lt;/p></description></item><item><title>Docs: Logo</title><link>https://osrd.fr/en/docs/guides/logo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/logo/</guid><description>
+&lt;p>It is also possible to deploy each service of OSRD manually on a system, but we will not cover this topic within this guide.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">NB&lt;/h4>
+In order for the STDCM tool to function, you&amp;rsquo;ll need to setup the STDCM Search Environment, a configuration stored in database.
+See the &lt;a href="https://osrd.fr/en/docs/guides/deploy/stdcm-search-env/">dedicated page&lt;/a> for more information.
+&lt;/div></description></item><item><title>Docs: Logo</title><link>https://osrd.fr/en/docs/guides/logo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/logo/</guid><description>
 &lt;p>You can download each logo independently by clicking directly on it, or &lt;a href="pictures/logo-osrd.zip">all the logos compressed into a zip file&lt;/a>.&lt;/p>
 &lt;p>It is advisable to carefully choose the logo you want to use, depending on the background on which you want to display it.&lt;/p>
 &lt;p>Modification, addition or deletion of the &lt;strong>shading&lt;/strong> other than as presented in the logos &lt;strong>are not authorised&lt;/strong> (this applies more generally throughout the design, the choice to use &lt;em>drop shadows&lt;/em> is part of the design considerations, it is not a variable element).&lt;/p>

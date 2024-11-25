@@ -5,7 +5,12 @@
 &lt;li>&lt;a href="https://osrd.fr/fr/docs/guides/deploy/docker-compose/">Utiliser docker compose&lt;/a> sur un seul nœud.&lt;/li>
 &lt;li>&lt;a href="https://osrd.fr/fr/docs/guides/deploy/docker-compose/">Utiliser helm&lt;/a> sur un cluster kubernetes.&lt;/li>
 &lt;/ul>
-&lt;p>Il est également possible de déployer manuellement chaque service d&amp;rsquo;OSRD sur un système, mais nous ne couvrirons pas ce sujet dans ce guide.&lt;/p></description></item><item><title>Docs: Le design d'OSRD</title><link>https://osrd.fr/fr/docs/guides/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/design/</guid><description>
+&lt;p>Il est également possible de déployer manuellement chaque service d&amp;rsquo;OSRD sur un système, mais nous ne couvrirons pas ce sujet dans ce guide.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">NB&lt;/h4>
+Pour que l&amp;rsquo;outil STDCM fonctionne, il faut configurer l&amp;rsquo;environnement de recherche STDCM, une configuration stockée en base de données.
+Consultez la &lt;a href="https://osrd.fr/fr/docs/guides/deploy/stdcm-search-env/">page dédiée&lt;/a> pour plus d&amp;rsquo;informations.
+&lt;/div></description></item><item><title>Docs: Le design d'OSRD</title><link>https://osrd.fr/fr/docs/guides/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/design/</guid><description>
 &lt;p>Tout est présenté dans un site dédié &lt;a href="https://design.osrd.fr">https://design.osrd.fr&lt;/a>&lt;/p>
 &lt;p>Un « design system » est en cours d&amp;rsquo;élaboration.&lt;/p>
 &lt;figure>&lt;a href="https://design.osrd.fr">
