@@ -1,7 +1,7 @@
 ---
 title: Governance
 linkTitle: Governance
-description: Governance and organisation of OSRD
+description: Governance and organization of OSRD
 weight: 40
 ---
 
@@ -17,14 +17,14 @@ And by contributing to OSRD, these companies:
 
 [^license]: As long as they don't modify the common tools without sharing their improvements. See the details of the [LGPLv3](https://www.gnu.org/licenses/lgpl-3.0.en.html) license.
 
-OSRD is currently developped by:
+OSRD is currently developed by:
 
-- A [team of full-time developpers at SNCF Réseau](../../join-us), financed by SNCF Réseau, the French state and the European Union
+- A [team of full-time developers at SNCF Réseau](../../join-us), financed by SNCF Réseau, the French state and the European Union
 - Individual contributors
 
 ## The OpenRail association
 
-The [OpenRail association](https://openrailassociation.org/) is an upcoming non-profit commited to organizing cooperative work around railway software tools.
+The [OpenRail association](https://openrailassociation.org/) is an upcoming non-profit committed to organizing cooperative work around railway software tools.
 
 <a href="https://openrailassociation.org/"><img class="marginauto" src="logo-openrail-association.png" alt="OpenRail association"></a>
 
