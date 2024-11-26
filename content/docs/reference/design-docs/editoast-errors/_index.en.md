@@ -264,6 +264,40 @@ fn context_provider(error: Error) -> HashMap<String, serde_json::Value> {
 
 `(*)`: only if the mapping can be collected easily using `darling`.
 
+### About Core errors
+
+The Core service is a bit special as it already returns errors with the common OSRD format. Do we (editoast) decide to forward them without changing them or to wrap them in a `struct CoreError`?
+
+#### Forwarding Core errors
+
+Pros:
+
+* Easy to implement
+* Convenient for Core devs when debugging using the frontend
+
+Cons:
+
+* We can't list the errors in the OpenApi
+* The frontend has to know which Core errors to expect
+* They're untyped in editoast, so matching on them is cumbersome
+
+I (Léo) do not like this choice 😆
+
+#### Wrapping Core errors
+
+Pros:
+
+* Errors are typed
+* Core errors are listed in the OpenAPI
+* The frontend can start to consider editoast being "the backend" instead of half of it
+* Editoast can match on Core errors
+
+Cons:
+
+* We need to maintain some sync between the errors Core sends and which errors editoast expects (this can be done automatically in the CI, but it's probably fine to maintain the sync manually at first)
+* The implementors of an `AsCoreRequest` in the client also has to list all the expected errors (one might argue that it's part of the job...)
+* We need to make sure that we forward **all** information returned by Core otherwise it might degrade the debuggability when using the frontend.
+
 ### Rejected ideas
 
 #### Anonymous enums
