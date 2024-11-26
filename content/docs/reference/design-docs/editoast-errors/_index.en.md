@@ -298,6 +298,54 @@ Cons:
 * The implementors of an `AsCoreRequest` in the client also has to list all the expected errors (one might argue that it's part of the job...)
 * We need to make sure that we forward **all** information returned by Core otherwise it might degrade the debuggability when using the frontend.
 
+### Implementation plan
+
+We'll need a progressive migration as this implies too much change to fit in a single PR. `EditoastError` and `ViewError` will have to cohabit for some time.
+
+#### Setup
+
+1. Create the `trait views::ViewError`
+2. Implement an `axum::IntoResponse` for `ViewError` to generate a standard OSRD error response payload
+3. Add a post-processing step to the OpenAPI generation to ensure the consistency of error status codes. More details below.
+4. Create a derive macro `ViewError` that interfaces with `thiserror::Error` API and generates:
+  * `impl ViewError`
+  * `impl utoipa::ToSchema` that returns the schema of the generated OSRD error
+5. Adapt the frontend error keys collection script to also look for errors in the OpenAPI routes response section.
+
+We decide the status code of each `ViewError` at it's definition as it's a required data to generate the response (the status code is part of the payload). Duplicating it in the `utoipa::path` annotation is a bad idea, and extracting it from the generate `utoipa::Route` is tricky. Therefore the error has to stay the source of truth about its status code.
+
+```rust
+#[utoipa::path(
+    ...,
+    responses(
+        (status = 900, body = Computation),
+        (status = 901, body = EndpointError)
+    )
+)]
+```
+
+The trick proposed here is to set each error to a non-existent status code and hamonize everything while post-processing the OpenAPI. The information will be readily available from the error schema as a constant.
+
+#### Migration
+
+The easier way to proceed here would be, in my (Léo) opinion, to start by converting simple errors that occur deep in the stack (such as Postgres errors, Redis errors, Core errors, etc.). This way, we can rely on the Rust compiler to guide us through the process and ensure we don't forget any error. We'll need some kind of adapters to incorporate these errors into `EditoastError`s. We may find a generic way to do that, but that's more an implementation detail, especially since that would be temporary.
+
+A good starting place would be `editoast_search`[^1] because its internal errors do not implmeent `EditoastError` already. Valkey errors may also be a decent candidate.
+
+One large change that will have to be atomic will be the adaptation of `Model`'s errors.
+
+[^1]: Provided we start this migration before the rewrite of the search engine.
+
+#### Wrapping up things
+
+Eventually, when all errors are converted and views errors are attached to their endpoint(s) in the OpenAPI, we'll have to:
+
+1. Remove `trait EditoastError`, `derive(EditoastError)` and `struct InternalError` (at least its former version as the name may be reused in a different scope)
+2. Remove the error collection mechanism
+3. Remove the scanning of `components/schemas` by the frontend script collecting error keys for translation
+4. If not already done, try to ensure the sync between Core and editoast errors is maintained in the CI
+5. (Out of scope) Discuss with the frontend the level of visibility about internal errors we want to give the user
+
 ### Rejected ideas
 
 #### Anonymous enums
