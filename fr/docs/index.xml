@@ -1942,25 +1942,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Flux des données</title><link>https://osrd.fr/fr/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/data_flow/</guid><description>
-&lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Docs: Services</title><link>https://osrd.fr/fr/docs/reference/architecture/services/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/services/</guid><description>
-&lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
-&lt;h2 id="actuel">Actuel&lt;/h2>
-&lt;p>&lt;img src="services.fr.svg" alt="Schéma des services du projet">&lt;/p>
-&lt;h2 id="cible">Cible&lt;/h2>
-&lt;p>De nombreuses choses sont prévues dans le futur, notamment&lt;/p>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Ajouter un reverse proxy authentifiant (gateway)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Déployer &lt;code>editoast&lt;/code> en tant que service de tuiles cartographiques &amp;ldquo;scalable&amp;rdquo; horizontalement&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Rendre le service &lt;code>core&lt;/code> &amp;ldquo;scalable&amp;rdquo; horizontalement
-&lt;ul>
-&lt;li>Les services de base ne gèreront qu&amp;rsquo;une seule infrastructure (sur une version donnée) à la fois&lt;/li>
-&lt;li>Ajouter un service RabbitMQ pour distribuer les requêtes à la bonne instance de core&lt;/li>
-&lt;li>Créer un service &lt;code>core-controller&lt;/code> qui créera / tuera / mettra à l&amp;rsquo;échelle les services &lt;code>core&lt;/code> (avec le support de k8s et docker)&lt;/li>
-&lt;li>La responsabilité du chargement des infrastructures est déplacée du front vers le &lt;code>core-controler&lt;/code>.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="services_target.fr.svg" alt="Schéma des services du projet">&lt;/p></description></item><item><title>Docs: Les marges</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</guid><description>
+&lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Docs: Les marges</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</guid><description>
 &lt;font color=#aa026d>
 &lt;h3 id="la-raison-dêtre-des-marges">La raison d&amp;rsquo;être des marges&lt;/h3>
 &lt;/font>
@@ -2519,4 +2501,4 @@ sont pas rappelées par des signaux sur le terrain.&lt;/p>
 &lt;p>Par principe, la vitesse de circulation ne dépasse généralement pas 50 km/h.&lt;/p>
 &lt;p>Aucun enclenchement n’est prévu. Chaque ligne dépend d&amp;rsquo;un agent de SNCF Réseau dénommé « chef de ligne ». La sécurité
 des circulations est assurée par le chef de ligne et par les agents des trains.&lt;/p>
-&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item></channel></rss>
+&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: FRMCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item></channel></rss>

@@ -1,20 +1,2 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Architecture</title><link>https://osrd.fr/fr/docs/reference/architecture/</link><description>Recent content in Architecture on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/reference/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Flux des données</title><link>https://osrd.fr/fr/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/data_flow/</guid><description>
-&lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Docs: Services</title><link>https://osrd.fr/fr/docs/reference/architecture/services/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/services/</guid><description>
-&lt;p>Il s’agit d’une architecture multi-services où plusieurs composants logiciels interagissent entre eux. Ce choix a été fait pour assurer la modularité du code et pour garantir l’exploitabilité de certains services d’OSRD par des applications extérieures.&lt;/p>
-&lt;h2 id="actuel">Actuel&lt;/h2>
-&lt;p>&lt;img src="services.fr.svg" alt="Schéma des services du projet">&lt;/p>
-&lt;h2 id="cible">Cible&lt;/h2>
-&lt;p>De nombreuses choses sont prévues dans le futur, notamment&lt;/p>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Ajouter un reverse proxy authentifiant (gateway)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Déployer &lt;code>editoast&lt;/code> en tant que service de tuiles cartographiques &amp;ldquo;scalable&amp;rdquo; horizontalement&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Rendre le service &lt;code>core&lt;/code> &amp;ldquo;scalable&amp;rdquo; horizontalement
-&lt;ul>
-&lt;li>Les services de base ne gèreront qu&amp;rsquo;une seule infrastructure (sur une version donnée) à la fois&lt;/li>
-&lt;li>Ajouter un service RabbitMQ pour distribuer les requêtes à la bonne instance de core&lt;/li>
-&lt;li>Créer un service &lt;code>core-controller&lt;/code> qui créera / tuera / mettra à l&amp;rsquo;échelle les services &lt;code>core&lt;/code> (avec le support de k8s et docker)&lt;/li>
-&lt;li>La responsabilité du chargement des infrastructures est déplacée du front vers le &lt;code>core-controler&lt;/code>.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="services_target.fr.svg" alt="Schéma des services du projet">&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item></channel></rss>
