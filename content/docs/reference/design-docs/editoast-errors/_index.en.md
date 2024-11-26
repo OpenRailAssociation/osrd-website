@@ -298,6 +298,11 @@ Cons:
 * The implementors of an `AsCoreRequest` in the client also has to list all the expected errors (one might argue that it's part of the job...)
 * We need to make sure that we forward **all** information returned by Core otherwise it might degrade the debuggability when using the frontend.
 
+
+---
+
+We probably should organize a workshop on this topic to determine what's the target and how to maintain the sync between Core and editoast errors.
+
 ### Implementation plan
 
 We'll need a progressive migration as this implies too much change to fit in a single PR. `EditoastError` and `ViewError` will have to cohabit for some time.
