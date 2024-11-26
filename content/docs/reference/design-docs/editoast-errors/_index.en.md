@@ -189,50 +189,6 @@ enum EndpointError {
 }
 ```
 
-### Anonymous enums
-
-Since we now have to really manage errors happening in every function **as precisely as possible**, there will likely be a lot of error enums going around. This may be a hassle and wrongfully encourage returning `Option` as an error. To circumvent that, an easy (albeit opinionated) QoL feature would be to use anonymous enums.
-
-````rust
-fn get_resource(id: u64) -> Result<Resource, Enum3<DbError, RedisError, MissingResourceError>> {
-    todo!()
-}
-
-fn process_resource(resource: Resource) -> Result<Computation, Enum2<DbError, ProcessingError> {
-    todo!()
-}
-
-#[utoipa::path(
-    ...,
-    responses(
-        (status = 200, body = Computation),
-        (status = 400, body = EndpointError)
-    )
-)]
-async fn endpoint(Path(key): Path<Key>) -> Result<Json<Computation>, EndpointError> {
-    let resource = get_resource(key)?;
-    let value = process_resource(resource)?;
-    Ok(Json(value))
-}
-
-#[derive(Debug, thiserror::Error, ViewError)]
-pub enum EndpointError {
-    Db(#[from] DbError),
-
-    Redis(#[from] RedisError),
-
-    #[error(transparent)]
-    #[view_error(user)]
-    Missing(#[from] MissingResourceError)
-
-    #[error(transparent)]
-    #[view_error(user)]
-    Processing(#[from] ProcessingError)
-}
-````
-
-The implementation of the `EnumX` type would be rather easy to generate for many tuple sizes. The crate [anon_enum](https://docs.rs/anon_enum/1.1.0/anon_enum/) exists but if we choose to use this pattern, it's probably better to have our own type for greater flexibility and avoid another dependency.
-
 ## Full `derive(ViewError)` spec
 
 The macro supports enums, named structs and tuple structs (fixme correct naming).
@@ -308,7 +264,62 @@ fn context_provider(error: Error) -> HashMap<String, serde_json::Value> {
 
 `(*)`: only if the mapping can be collected easily using `darling`.
 
-### Incident reports
+### Rejected ideas
+
+#### Anonymous enums
+
+{{% pageinfo color="warning" %}}
+Rejected because it wouldn't be trivial to implement the multiple `From<T, U, ..> for EnumX<T, U, ..>` without negative type parameters or the fallback type (unstable). That's necessary to make the `EnumX` usage transparent and avoid using `T1`, ..., `Tn` variants explicitly. The crate `anon_enum` deals with this issue by not providing the feature, so it won't help either.
+{{% /pageinfo %}}
+
+Since we now have to really manage errors happening in every function **as precisely as possible**, there will likely be a lot of error enums going around. This may be a hassle and wrongfully encourage returning `Option` as an error. To circumvent that, an easy (albeit opinionated) QoL feature would be to use anonymous enums.
+
+````rust
+fn get_resource(id: u64) -> Result<Resource, Enum3<DbError, RedisError, MissingResourceError>> {
+    todo!()
+}
+
+fn process_resource(resource: Resource) -> Result<Computation, Enum2<DbError, ProcessingError> {
+    todo!()
+}
+
+#[utoipa::path(
+    ...,
+    responses(
+        (status = 200, body = Computation),
+        (status = 400, body = EndpointError)
+    )
+)]
+async fn endpoint(Path(key): Path<Key>) -> Result<Json<Computation>, EndpointError> {
+    let resource = get_resource(key)?;
+    let value = process_resource(resource)?;
+    Ok(Json(value))
+}
+
+#[derive(Debug, thiserror::Error, ViewError)]
+pub enum EndpointError {
+    Db(#[from] DbError),
+
+    Redis(#[from] RedisError),
+
+    #[error(transparent)]
+    #[view_error(user)]
+    Missing(#[from] MissingResourceError)
+
+    #[error(transparent)]
+    #[view_error(user)]
+    Processing(#[from] ProcessingError)
+}
+````
+
+The implementation of the `EnumX` type would be rather easy to generate for many tuple sizes. The crate [anon_enum](https://docs.rs/anon_enum/1.1.0/anon_enum/) exists but if we choose to use this pattern, it's probably better to have our own type for greater flexibility and avoid another dependency.
+
+
+#### Incident reports
+
+{{% pageinfo color="warning" %}}
+Rejected because it would be another mechanism to maintain with little benefits: errors are already persisted using opentelemetry, and for "internal server errors", it's up to the frontend to choose how much details is shown to the user.
+{{% /pageinfo %}}
 
 For `internal` errors that won't contain meaningful information for the end user, we substitute the error by:
 
