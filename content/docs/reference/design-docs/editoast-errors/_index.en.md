@@ -335,7 +335,7 @@ The trick proposed here is to set each error to a non-existent status code and h
 
 The easier way to proceed here would be, in my (Léo) opinion, to start by converting simple errors that occur deep in the stack (such as Postgres errors, Redis errors, Core errors, etc.). This way, we can rely on the Rust compiler to guide us through the process and ensure we don't forget any error. We'll need some kind of adapters to incorporate these errors into `EditoastError`s. We may find a generic way to do that, but that's more an implementation detail, especially since that would be temporary.
 
-A good starting place would be `editoast_search`[^1] because its internal errors do not implmeent `EditoastError` already. Valkey errors may also be a decent candidate.
+A good starting place would be `editoast_search`[^1] because its internal errors do not implement `EditoastError` already. Valkey errors may also be a decent candidate.
 
 One large change that will have to be atomic will be the adaptation of `Model`'s errors.
 
