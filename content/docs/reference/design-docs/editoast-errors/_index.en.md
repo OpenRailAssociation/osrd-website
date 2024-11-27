@@ -12,7 +12,7 @@ weight: 80
 - We can't track at compile-time which errors are returned by each function: that means that we don't know for sure which errors an endpoint can return (without careful manual investigation at least...)
 - Consequently, we hardly can declare in the OpenApi file what errors an endpoint precisely returns, degrading the editoast API quality
 - The frontend still requires editoast to declare all its errors though, to ensure they are translated properly. To achieve that we dynamically collect each `EditoastError` using the crate `inventory`. All the error descriptions collected are then transformed into OpenAPI schemas procedurally. On top of being a Rust antipattern (collecting state in proc-macros), this is complex to maintain on both editoast and frontend sides.
-  - Not having each endpoint linked to the list of errors it can raises also prevents the frontend easily handle errors properly.
+  - Not having each endpoint linked to the list of errors it can raise, also prevents the frontend easily handling errors properly.
 - It's still unclear how we should expose errors from Core.
 
 # Goals
