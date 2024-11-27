@@ -329,7 +329,7 @@ We decide the status code of each `ViewError` at it's definition as it's a requi
 )]
 ```
 
-The trick proposed here is to set each error to a non-existent status code and hamonize everything while post-processing the OpenAPI. The information will be readily available from the error schema as a constant.
+The trick proposed here is to set each error to a non-existent status code and harmonize everything while post-processing the OpenAPI. The information will be readily available from the error schema as a constant.
 
 #### Migration
 
