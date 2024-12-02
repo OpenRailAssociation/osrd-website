@@ -41,8 +41,7 @@ weight: 80
 - Rely on `thiserror` everywhere.
 - Keep the `trait EditoastError` but only implement it for errors defined in `views`.
   - Since it is only used in `views` now, let's rename it to `trait ViewError`.
-  - Let's rename the macro to `derive(ViewError)` as well.
-- Create a macro `derive(ViewError)` which interfaces with `derive(thiserror::Error)`. We can start from the former `derive(EditoastError)`.
+- Create a proc-macro `derive(ViewError)` which interfaces with `derive(thiserror::Error)`.
 - The `context` is empty by default but can be provided by the `impl ViewError`. The macro is also able to take context providers.
 - `ViewError`'s `#[source]`, `#[from]`, `source` and `backtrace` fields are never serialized, unless explicitly provided. This shouldn't be the case as it exposes editoast internals at the API level.
 - `derive(ViewError)` generates the `impl utoipa::ToSchema for T`.
