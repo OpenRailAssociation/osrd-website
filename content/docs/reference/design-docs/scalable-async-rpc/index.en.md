@@ -626,14 +626,14 @@ We decided to rely on a [`delivery-limit` policy](https://www.rabbitmq.com/docs/
 ### Report worker activity using AMQP
 
 osrdyne needs to maintain queue usage statistics in order to know when worker groups can be stopped.
-At first, we considered having workers use redis to store the timestamp of the last processed message for the queue.
+At first, we considered having workers use valkey to store the timestamp of the last processed message for the queue.
 We decided against it as:
 
 - it would mean the workers store a timestamp directly in database, read by a supervisor process. it's a pretty bad design
 - it adds an additional database to the RPC architecture, for little to no benefit compared to just using rabbitmq
 - if one of the workers has its clock drift by more than the worker group expiration time compared to osrdyne, the worker group will get stopped
 - any worker can get the pool deleted by forcing the timestamp to an old value
-- it adds a failure mode: if osrdyne / workers are unable to reach redis, weird bugs may ensue
+- it adds a failure mode: if osrdyne / workers are unable to reach valkey, weird bugs may ensue
 
 Instead, we decided to require worker to publish activity updates to a dedicated queue.
 This queue can be watched by osrdyne, which can use these events to know when to stop a worker group.
