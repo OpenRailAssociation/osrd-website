@@ -115,8 +115,8 @@ See the &lt;a href="https://osrd.fr/en/docs/guides/deploy/stdcm-search-env/">ded
 &lt;li>Create a git &lt;strong>annotated&lt;/strong> tag
 &lt;ul>
 &lt;li>We are using the &lt;a href="https://semver.org/">semantic versioning&lt;/a>&lt;/li>
-&lt;li>&lt;code>git tag -a vx.y.z&lt;/code> (most of the time use the latest version and increment the patch version)&lt;/li>
-&lt;li>&lt;code>git push --tags vx.y.z&lt;/code>&lt;/li>
+&lt;li>&lt;code>git tag -a vx.y.z&lt;/code> with the message &lt;code>Release x.y.z&lt;/code> (most of the time use the latest version and increment the patch version)&lt;/li>
+&lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>Create a github release
