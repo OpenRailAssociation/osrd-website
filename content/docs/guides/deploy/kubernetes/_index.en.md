@@ -12,7 +12,7 @@ The OSRD project's Helm Chart provides a flexible and efficient way to deploy OS
 Before proceeding with the deployment, ensure that you have the following installed:
 - A Kubernetes cluster up and running
 - A PostgreSQL database with PostGIS
-- A Redis server (used for caching)
+- A Valkey server (used for caching)
 
 ## The tileserver
 
@@ -25,7 +25,7 @@ flowchart TD
     gw["gateway"]
     front["front-end static files"]
     gw -- local file --> front
-    
+
     browser --> gw
     gw -- HTTP --> editoast
     gw -- HTTP --> tileserver-1
@@ -73,7 +73,7 @@ The Helm Chart is configurable through the following values:
 
 ## Deployment
 
-The chart is available at ghcr OCI repository. You can find 2 Helm charts: 
+The chart is available at ghcr OCI repository. You can find 2 Helm charts:
  - [Stable charts](https://github.com/OpenRailAssociation/osrd-chart/pkgs/container/charts%2Fosrd): `oci://ghcr.io/OpenRailAssociation/charts/osrd`
  - [Dev charts](https://github.com/OpenRailAssociation/osrd-chart/pkgs/container/charts%2Fosrd-dev): `oci://ghcr.io/OpenRailAssociation/charts/osrd-dev`
 

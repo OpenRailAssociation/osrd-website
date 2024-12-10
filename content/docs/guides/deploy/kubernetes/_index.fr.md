@@ -13,7 +13,7 @@ Avant de procéder au déploiement, assurez-vous que vous avez installé :
 
 - Un cluster Kubernetes opérationnel
 - Une base de données PostgreSQL avec PostGIS
-- Un serveur Redis (utilisé pour le cache)
+- Un serveur Valkey (utilisé pour le cache)
 
 ## Le serveur de tuiles
 
@@ -26,7 +26,7 @@ flowchart TD
     gw["gateway"]
     front["fichier statiques front-end"]
     gw -- fichier local --> front
-    
+
     navigateur --> gw
     gw -- HTTP --> editoast
     gw -- HTTP --> tileserver-1
