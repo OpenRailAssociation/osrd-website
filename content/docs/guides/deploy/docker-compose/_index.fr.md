@@ -5,7 +5,7 @@ weight: 10
 description: Utiliser docker compose pour un déploiement sur un seul nœud
 ---
 
-Le projet OSRD inclut un fichier docker-compose.yml conçu pour faciliter le déploiement d'un environnement OSRD pleinement fonctionnel. 
+Le projet OSRD inclut un fichier docker-compose.yml conçu pour faciliter le déploiement d'un environnement OSRD pleinement fonctionnel.
 Exclusivement destiné à des fins de développement, cette configuration Docker Compose pourrait être adaptée pour des déploiements rapides sur un seul nœud.
 
 {{% alert title="Avertissement" color="warning"%}}
@@ -26,7 +26,7 @@ Avant de procéder au déploiement, assurez-vous que vous avez installé :
 Le fichier `docker-compose.yml` définit les services suivants :
 
 1. **PostgreSQL** : Une base de données PostgreSQL avec l'extension PostGIS.
-2. **Redis** : Un serveur Redis pour le cache.
+2. **Valkey** : Un serveur Valkey pour le cache.
 3. **Core** : Le service central OSRD.
 4. **Front** : Le service front-end pour OSRD.
 5. **Editoast** : Un service OSRD responsable de diverses fonctions d'édition.
@@ -38,7 +38,7 @@ Chaque service est configuré avec des contrôles de santé, des montages de vol
 ## Étapes du déploiement
 
 1. **Cloner le dépôt** : Tout d'abord, clonez le dépôt OSRD sur votre machine locale.
-2. **Configuration** : La configuration par défaut nécessite le renseignement d'une variable d'environnement pour le service Editoast: ROOT_URL. 
+2. **Configuration** : La configuration par défaut nécessite le renseignement d'une variable d'environnement pour le service Editoast: ROOT_URL.
     Il faut lui donner la valeur de l'URL qui pointe vers le service Editoast par la gateway. Par exemple "http://your-domain.com/api".
     Vous pouvez également ajuster d'autres variables d'environnement si nécessaire.
 3. **Construire et exécuter** : Naviguez vers le répertoire contenant `docker-compose.yml` et exécutez :
@@ -54,7 +54,7 @@ Cette commande construit les images et démarre les services définis dans le fi
 Bien que tous les services HTTP soient utilisés via la passerelle (`http://localhost:4000`), vous pouvez accéder directement à chaque service en utilisant leurs ports exposés :
 
 - **PostgreSQL** : Accessible sur `localhost:5432`.
-- **Redis** : Accessible sur `localhost:6379`.
+- **Valkey** : Accessible sur `localhost:6379`.
 - **Service Core** : Accessible sur `localhost:8080`.
 - **Front-End** : Accessible sur `localhost:3000`.
 - **Editoast** : Accessible sur `localhost:8090`.
