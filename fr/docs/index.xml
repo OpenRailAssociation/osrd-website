@@ -2187,7 +2187,22 @@ C&amp;rsquo;est une pratique distincte de l&amp;rsquo;open source, qui ne s&amp;
 &lt;ul>
 &lt;li>&lt;strong>si&lt;/strong> les données de &lt;strong>matériel roulant&lt;/strong> et d&amp;rsquo;&lt;strong>infrastructure&lt;/strong> sont en open data, alors il est possible pour tous de &lt;strong>simuler des trajets&lt;/strong>, d&amp;rsquo;&lt;strong>étudier&lt;/strong> et &lt;strong>évaluer&lt;/strong> le réseau ferroviaire&lt;/li>
 &lt;li>&lt;strong>si&lt;/strong> les données de &lt;strong>grilles horaires&lt;/strong> sont accessibles en open data, alors il est possible pour tous d&amp;rsquo;étudier l&amp;rsquo;&lt;strong>usage&lt;/strong> du réseau&lt;/li>
-&lt;/ul></description></item><item><title>Docs: ETCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
+&lt;/ul></description></item><item><title>About: Roadmap</title><link>https://osrd.fr/fr/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/roadmap/</guid><description>
+&lt;p>Voici une liste des principales fonctionnalités que OSRD souhaite ajouter, par ordre de priorité.
+Cette feuille de route s&amp;rsquo;étale sur plusieurs années.&lt;/p>
+&lt;ul>
+&lt;li>Ajout du système de signalisation [ERTMS] (&lt;a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire)">https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire)&lt;/a>.&lt;/li>
+&lt;li>Système de permission fin.&lt;/li>
+&lt;li>Support du cadencement des trains. Améliorer l&amp;rsquo;intégration de Netzgrafik-Editor.&lt;/li>
+&lt;li>Envoyer des trains STDCM à des services externes pour stockage et traitement.&lt;/li>
+&lt;li>Création d&amp;rsquo;un plan de transport annuel.&lt;/li>
+&lt;li>Support d&amp;rsquo;un système de référencement linéaire &lt;a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_r%C3%A9f%C3%A9rence_lin%C3%A9aire">LRS&lt;/a> couramment utilisé dans l&amp;rsquo;industrie ferroviaire. Utilisation de &lt;a href="https://fr.wikipedia.org/wiki/Point_kilom%C3%A9trique#Voie_ferr%C3%A9e">point kilométrique&lt;/a>.&lt;/li>
+&lt;li>Refonte de l&amp;rsquo;éditeur d&amp;rsquo;infrastructure.&lt;/li>
+&lt;li>Ajout d&amp;rsquo;un simulateur dynamique. Simuler une grille horaire sur une infrastructure et observer les retards générés.&lt;/li>
+&lt;li>Gestion de version des infrastructures.&lt;/li>
+&lt;li>Refonte du calcul de marche.&lt;/li>
+&lt;/ul>
+&lt;p>Si vous souhaitez pousser l&amp;rsquo;une de ces fonctionnalités, ou si vous avez des idées sur ce que OSRD pourrait faire à l&amp;rsquo;avenir, n&amp;rsquo;hésitez pas à rejoindre le projet !&lt;/p></description></item><item><title>Docs: ETCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
 &lt;h3 id="généralités">Généralités&lt;/h3>
 &lt;p>ETCS est le système européen de contrôle commande des trains. La partie bord est interopérable. La partie sol peut être
 différente selon les pays tout en répondant aux mêmes objectifs de fonctionnalité.&lt;/p>
@@ -2501,4 +2516,4 @@ sont pas rappelées par des signaux sur le terrain.&lt;/p>
 &lt;p>Par principe, la vitesse de circulation ne dépasse généralement pas 50 km/h.&lt;/p>
 &lt;p>Aucun enclenchement n’est prévu. Chaque ligne dépend d&amp;rsquo;un agent de SNCF Réseau dénommé « chef de ligne ». La sécurité
 des circulations est assurée par le chef de ligne et par les agents des trains.&lt;/p>
-&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item><item><title>Docs: FRMCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item></channel></rss>
+&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item></channel></rss>
