@@ -35,7 +35,7 @@ Si vous souhaitez déployer une version d&amp;rsquo;OSRD dédiée à un environm
 &lt;p>Le fichier &lt;code>docker-compose.yml&lt;/code> définit les services suivants :&lt;/p>
 &lt;ol>
 &lt;li>&lt;strong>PostgreSQL&lt;/strong> : Une base de données PostgreSQL avec l&amp;rsquo;extension PostGIS.&lt;/li>
-&lt;li>&lt;strong>Redis&lt;/strong> : Un serveur Redis pour le cache.&lt;/li>
+&lt;li>&lt;strong>Valkey&lt;/strong> : Un serveur Valkey pour le cache.&lt;/li>
 &lt;li>&lt;strong>Core&lt;/strong> : Le service central OSRD.&lt;/li>
 &lt;li>&lt;strong>Front&lt;/strong> : Le service front-end pour OSRD.&lt;/li>
 &lt;li>&lt;strong>Editoast&lt;/strong> : Un service OSRD responsable de diverses fonctions d&amp;rsquo;édition.&lt;/li>
@@ -57,7 +57,7 @@ Vous pouvez également ajuster d&amp;rsquo;autres variables d&amp;rsquo;environn
 &lt;p>Bien que tous les services HTTP soient utilisés via la passerelle (&lt;code>http://localhost:4000&lt;/code>), vous pouvez accéder directement à chaque service en utilisant leurs ports exposés :&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>PostgreSQL&lt;/strong> : Accessible sur &lt;code>localhost:5432&lt;/code>.&lt;/li>
-&lt;li>&lt;strong>Redis&lt;/strong> : Accessible sur &lt;code>localhost:6379&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Valkey&lt;/strong> : Accessible sur &lt;code>localhost:6379&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>Service Core&lt;/strong> : Accessible sur &lt;code>localhost:8080&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>Front-End&lt;/strong> : Accessible sur &lt;code>localhost:3000&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>Editoast&lt;/strong> : Accessible sur &lt;code>localhost:8090&lt;/code>.&lt;/li>
@@ -73,7 +73,7 @@ Vous pouvez également ajuster d&amp;rsquo;autres variables d&amp;rsquo;environn
 &lt;ul>
 &lt;li>Un cluster Kubernetes opérationnel&lt;/li>
 &lt;li>Une base de données PostgreSQL avec PostGIS&lt;/li>
-&lt;li>Un serveur Redis (utilisé pour le cache)&lt;/li>
+&lt;li>Un serveur Valkey (utilisé pour le cache)&lt;/li>
 &lt;/ul>
 &lt;h2 id="le-serveur-de-tuiles">Le serveur de tuiles&lt;/h2>
 &lt;p>Le serveur de tuiles est le composant responsable de la génération des tuiles cartographiques vectorielles. Il est recommandé de le séparer du Editoast standard lors de l&amp;rsquo;exécution d&amp;rsquo;une configuration de production, car Editoast ne peut pas être mis à l&amp;rsquo;échelle horizontalement (il est stateful).&lt;/p>

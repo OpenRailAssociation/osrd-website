@@ -100,7 +100,7 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 &lt;li>&lt;code>./scripts/pr-tests-compose.sh 8914 up&lt;/code>: Downloads the CI-generated images for PR #8914 and launches the application.&lt;/li>
 &lt;li>&lt;code>./scripts/pr-tests-compose.sh 8914 up-and-load-backup ./path_to_backup&lt;/code>: Downloads the images for PR #8914, restores data from the provided backup, and starts the application.&lt;/li>
 &lt;li>&lt;code>./scripts/pr-tests-compose.sh down&lt;/code>: Shuts down the test application instance for PR #8914.&lt;/li>
-&lt;li>&lt;code>./scripts/pr-tests-compose.sh down-and-clean&lt;/code>: Shuts down the test instance and cleans all the instance&amp;rsquo;s docker volumes (PG data, Redis cache, RabbitMQ) to prevent any side-effects.&lt;/li>
+&lt;li>&lt;code>./scripts/pr-tests-compose.sh down-and-clean&lt;/code>: Shuts down the test instance and cleans all the instance&amp;rsquo;s docker volumes (PG data, Valkey cache, RabbitMQ) to prevent any side-effects.&lt;/li>
 &lt;/ul>
 &lt;h3 id="accessing-services">Accessing Services:&lt;/h3>
 &lt;p>Apart from the &lt;code>frontend&lt;/code> server, all localhost services are available on localhost, with a minor port adjustment (to avoid conflicts with the dev environment): for a list of common ports, have a look at the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/docker/docker-compose.pr-test.yml">dedicated docker-compose file&lt;/a>.&lt;/p></description></item><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>

@@ -17,7 +17,7 @@ If you mean to deploy a production ready version of OSRD, please follow the &lt;
 &lt;p>The &lt;code>docker-compose.yml&lt;/code> file defines the following services:&lt;/p>
 &lt;ol>
 &lt;li>&lt;strong>PostgreSQL&lt;/strong>: A PostgreSQL database with PostGIS extension.&lt;/li>
-&lt;li>&lt;strong>Redis&lt;/strong>: A Redis server for caching.&lt;/li>
+&lt;li>&lt;strong>Valkey&lt;/strong>: A Valkey server for caching.&lt;/li>
 &lt;li>&lt;strong>Core&lt;/strong>: The core OSRD service.&lt;/li>
 &lt;li>&lt;strong>Front&lt;/strong>: The front-end service for OSRD.&lt;/li>
 &lt;li>&lt;strong>Editoast&lt;/strong>: A OSRD service responsible for various editorial functions.&lt;/li>
@@ -29,7 +29,7 @@ If you mean to deploy a production ready version of OSRD, please follow the &lt;
 &lt;ol>
 &lt;li>&lt;strong>Clone the Repository&lt;/strong>: First, clone the OSRD repository to your local machine.&lt;/li>
 &lt;li>&lt;strong>Configuration&lt;/strong>: The default configuration requires setting an environment variable for the Editoast service: &lt;code>ROOT_URL&lt;/code>.
-It should be set to the URL pointing to the Editoast service through the gateway. For example, &amp;ldquo;&lt;a href="http://your-domain.com/api%22">http://your-domain.com/api&amp;quot;&lt;/a>.&lt;br>
+It should be set to the URL pointing to the Editoast service through the gateway. For example, &amp;ldquo;&lt;a href="http://your-domain.com/api%22">http://your-domain.com/api&amp;quot;&lt;/a>.
 You can also adjust other environment variables if needed.&lt;/li>
 &lt;li>&lt;strong>Build and Run&lt;/strong>: Navigate to the directory containing &lt;code>docker-compose.yml&lt;/code> and run:&lt;/li>
 &lt;/ol>
@@ -39,7 +39,7 @@ You can also adjust other environment variables if needed.&lt;/li>
 &lt;p>While all HTTP service are used through the gateway (&lt;code>http://localhost:4000&lt;/code>), you can access directly each service using their exposed ports:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>PostgreSQL&lt;/strong>: Accessible on &lt;code>localhost:5432&lt;/code>.&lt;/li>
-&lt;li>&lt;strong>Redis&lt;/strong>: Accessible on &lt;code>localhost:6379&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Valkey&lt;/strong>: Accessible on &lt;code>localhost:6379&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>Core Service&lt;/strong>: Accessible on &lt;code>localhost:8080&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>Front-End&lt;/strong>: Accessible on &lt;code>localhost:3000&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>Editoast&lt;/strong>: Accessible on &lt;code>localhost:8090&lt;/code>.&lt;/li>
@@ -55,7 +55,7 @@ You can also adjust other environment variables if needed.&lt;/li>
 &lt;ul>
 &lt;li>A Kubernetes cluster up and running&lt;/li>
 &lt;li>A PostgreSQL database with PostGIS&lt;/li>
-&lt;li>A Redis server (used for caching)&lt;/li>
+&lt;li>A Valkey server (used for caching)&lt;/li>
 &lt;/ul>
 &lt;h2 id="the-tileserver">The tileserver&lt;/h2>
 &lt;p>Tileserver is the component responsible for generating vector map tiles. It is recommended to separate it from standard Editoast while running a production setup since Editoast cannot be scaled horizontally (it is stateful).&lt;/p>

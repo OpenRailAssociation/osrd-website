@@ -465,7 +465,7 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 &lt;li>&lt;code>./scripts/pr-tests-compose.sh 8914 up&lt;/code>: Downloads the CI-generated images for PR #8914 and launches the application.&lt;/li>
 &lt;li>&lt;code>./scripts/pr-tests-compose.sh 8914 up-and-load-backup ./path_to_backup&lt;/code>: Downloads the images for PR #8914, restores data from the provided backup, and starts the application.&lt;/li>
 &lt;li>&lt;code>./scripts/pr-tests-compose.sh down&lt;/code>: Shuts down the test application instance for PR #8914.&lt;/li>
-&lt;li>&lt;code>./scripts/pr-tests-compose.sh down-and-clean&lt;/code>: Shuts down the test instance and cleans all the instance&amp;rsquo;s docker volumes (PG data, Redis cache, RabbitMQ) to prevent any side-effects.&lt;/li>
+&lt;li>&lt;code>./scripts/pr-tests-compose.sh down-and-clean&lt;/code>: Shuts down the test instance and cleans all the instance&amp;rsquo;s docker volumes (PG data, Valkey cache, RabbitMQ) to prevent any side-effects.&lt;/li>
 &lt;/ul>
 &lt;h3 id="accessing-services">Accessing Services:&lt;/h3>
 &lt;p>Apart from the &lt;code>frontend&lt;/code> server, all localhost services are available on localhost, with a minor port adjustment (to avoid conflicts with the dev environment): for a list of common ports, have a look at the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/docker/docker-compose.pr-test.yml">dedicated docker-compose file&lt;/a>.&lt;/p></description></item><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>
@@ -2687,7 +2687,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode181s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode182s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2697,7 +2697,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode181s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode182s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2712,7 +2712,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode181s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode182s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -2801,7 +2801,7 @@ adding some kind of priority / rank field, which was adopted&lt;/li>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode159s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode156s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2812,11 +2812,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode159s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode156s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode159s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode156s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -2835,14 +2835,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode159s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode156s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode159s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode156s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode159s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode156s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2854,7 +2854,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode159s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode156s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2889,7 +2889,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode159s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode156s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3172,7 +3172,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode179s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode180s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3186,7 +3186,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode179s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode180s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>
@@ -4600,14 +4600,14 @@ we figured it would be best to give the client some idea that something went wro
 &lt;p>We decided to rely on a &lt;a href="https://www.rabbitmq.com/docs/quorum-queues#poison-message-handling">&lt;code>delivery-limit&lt;/code> policy&lt;/a> to handle poison messages, and ACK messages once processed.&lt;/p>
 &lt;h3 id="report-worker-activity-using-amqp">Report worker activity using AMQP&lt;/h3>
 &lt;p>osrdyne needs to maintain queue usage statistics in order to know when worker groups can be stopped.
-At first, we considered having workers use redis to store the timestamp of the last processed message for the queue.
+At first, we considered having workers use valkey to store the timestamp of the last processed message for the queue.
 We decided against it as:&lt;/p>
 &lt;ul>
 &lt;li>it would mean the workers store a timestamp directly in database, read by a supervisor process. it&amp;rsquo;s a pretty bad design&lt;/li>
 &lt;li>it adds an additional database to the RPC architecture, for little to no benefit compared to just using rabbitmq&lt;/li>
 &lt;li>if one of the workers has its clock drift by more than the worker group expiration time compared to osrdyne, the worker group will get stopped&lt;/li>
 &lt;li>any worker can get the pool deleted by forcing the timestamp to an old value&lt;/li>
-&lt;li>it adds a failure mode: if osrdyne / workers are unable to reach redis, weird bugs may ensue&lt;/li>
+&lt;li>it adds a failure mode: if osrdyne / workers are unable to reach valkey, weird bugs may ensue&lt;/li>
 &lt;/ul>
 &lt;p>Instead, we decided to require worker to publish activity updates to a dedicated queue.
 This queue can be watched by osrdyne, which can use these events to know when to stop a worker group.&lt;/p>

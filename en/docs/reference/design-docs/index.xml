@@ -1608,14 +1608,14 @@ we figured it would be best to give the client some idea that something went wro
 &lt;p>We decided to rely on a &lt;a href="https://www.rabbitmq.com/docs/quorum-queues#poison-message-handling">&lt;code>delivery-limit&lt;/code> policy&lt;/a> to handle poison messages, and ACK messages once processed.&lt;/p>
 &lt;h3 id="report-worker-activity-using-amqp">Report worker activity using AMQP&lt;/h3>
 &lt;p>osrdyne needs to maintain queue usage statistics in order to know when worker groups can be stopped.
-At first, we considered having workers use redis to store the timestamp of the last processed message for the queue.
+At first, we considered having workers use valkey to store the timestamp of the last processed message for the queue.
 We decided against it as:&lt;/p>
 &lt;ul>
 &lt;li>it would mean the workers store a timestamp directly in database, read by a supervisor process. it&amp;rsquo;s a pretty bad design&lt;/li>
 &lt;li>it adds an additional database to the RPC architecture, for little to no benefit compared to just using rabbitmq&lt;/li>
 &lt;li>if one of the workers has its clock drift by more than the worker group expiration time compared to osrdyne, the worker group will get stopped&lt;/li>
 &lt;li>any worker can get the pool deleted by forcing the timestamp to an old value&lt;/li>
-&lt;li>it adds a failure mode: if osrdyne / workers are unable to reach redis, weird bugs may ensue&lt;/li>
+&lt;li>it adds a failure mode: if osrdyne / workers are unable to reach valkey, weird bugs may ensue&lt;/li>
 &lt;/ul>
 &lt;p>Instead, we decided to require worker to publish activity updates to a dedicated queue.
 This queue can be watched by osrdyne, which can use these events to know when to stop a worker group.&lt;/p>
