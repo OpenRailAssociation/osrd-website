@@ -1,8 +1,8 @@
 ---
-title: "Release"
-linkTitle: "Release"
-weight: 10
-description: How to make a release
+title: "Publish a new release"
+linkTitle: "Publish a new release"
+weight: 2
+description: How to publish a new release
 ---
 
 All OSRD releases are accessible [here](https://github.com/OpenRailAssociation/osrd/releases)
