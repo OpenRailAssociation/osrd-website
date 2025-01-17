@@ -15,9 +15,14 @@ Avant de procéder au déploiement, assurez-vous que vous avez installé :
 - Une base de données PostgreSQL avec PostGIS
 - Un serveur Valkey (utilisé pour le cache)
 
-## Le serveur de tuiles
+## Stateful editoast
 
-Le serveur de tuiles est le composant responsable de la génération des tuiles cartographiques vectorielles. Il est recommandé de le séparer du Editoast standard lors de l'exécution d'une configuration de production, car Editoast ne peut pas être mis à l'échelle horizontalement (il est stateful).
+Editoast est un service **quasiment** capable d'être mis à l'échelle horizontalement (stateless). Cependant, une partie de l'application nécessite un stockage en RAM cohérent et donc ne supporte pas la mise à l'échelle. Cette petite partie est appelée **editoast stateful**.
+
+Le Helm Chart déploie deux service OSRD:
+
+- Le premier `editoast` (stateless) qui utilise un [Horizontal Pod Autoscaler (hpa)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+- Le deuxième `stateful-editoast` qui n'à qu'une seule réplique pour assurer la cohérence des données en RAM.
 
 Vous pouvez visualiser le déploiement recommandé ici :
 
@@ -28,42 +33,44 @@ flowchart TD
     gw -- fichier local --> front
 
     navigateur --> gw
-    gw -- HTTP --> editoast
-    gw -- HTTP --> tileserver-1
-    gw -- HTTP --> tileserver-2
-    gw -- HTTP --> tileserver-n...
-    editoast -- HTTP --> core
+    gw -- HTTP --> stateful-editoast
+    gw -- HTTP --> editoast-1
+    gw -- HTTP --> editoast-2
+    gw -- HTTP --> editoast-N
+    stateful-editoast -- AMQP --> RabbitMQ
+    editoast-1 -- AMQP --> RabbitMQ
+    editoast-2 -- AMQP --> RabbitMQ
+    editoast-N -- AMQP --> RabbitMQ
+    RabbitMQ -- AMQP --> Core-X
+    Osrdyne -- HTTP/AMQP --> RabbitMQ
+    Osrdyne -- Control --> Core-X
 ```
-
-Le Helm Chart utilise le[HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) de Kubernetes pour lancer autant de serveurs de tuiles que nécessaire en fonction de la charge de travail.
 
 ## Configuration de la Helm Chart (values)
 
 Le Helm Chart est configurable à travers les valeurs suivantes :
 
-### Service Core
 
-- `core` : Configuration pour le service central OSRD.
-  - `internalUrl` : URL interne pour la communication entre services.
-  - `image` : Image Docker à utiliser.
-  - `pullPolicy` : Politique de récupération de l'image.
-  - `replicaCount` : Nombre de réplicas.
-  - `service` : Type de service et configuration des ports.
-  - `resources`, `env`, `annotations`, `labels`, `nodeSelector`, `tolerations`, `affinity` : Diverses options de déploiement Kubernetes.
-
-### Service Editoast
+### Editoast
 
 - `editoast` : Configuration pour le service Editoast.
-  - Comprend des options similaires à `core` pour le déploiement Kubernetes.
   - `init` : Configuration d'initialisation.
-
-### Serveur de tuiles
-
-- `tileServer` : Service Editoast spécialisé qui sert uniquement des tuiles cartographiques vectorielles.
-  - `enabled` : Définir sur `true` pour activer la fonctionnalité de serveur de tuiles.
-  - `image` : Image Docker à utiliser (généralement la même que Editoast).
   - `replicaCount` : Nombre de réplicas, permettant la mise à l'échelle horizontale.
   - `hpa` : Configuration de l'Horizontal Pod Autoscaler.
+  - Autres options standard de déploiement Kubernetes.
+
+### Stateful Editoast
+
+- `stateful-editoast` : Service Editoast spécialisé dans les requêtes `/infra/{infra_id}`
+  - `image` : Image Docker à utiliser (généralement la même que Editoast).
+  - Autres options standard de déploiement Kubernetes.
+
+
+### Osrdyne
+
+- `osrdyne` : Service osrdyne qui permet de contrôler les cores.
+  - `image` : Image Docker à utiliser.
+  - `amqp` : Connection au rabbitMQ
   - Autres options standard de déploiement Kubernetes.
 
 ### Gateway
