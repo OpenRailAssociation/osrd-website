@@ -14,11 +14,16 @@ Before proceeding with the deployment, ensure that you have the following instal
 - A PostgreSQL database with PostGIS
 - A Valkey server (used for caching)
 
-## The tileserver
+## Stateful editoast
 
-Tileserver is the component responsible for generating vector map tiles. It is recommended to separate it from standard Editoast while running a production setup since Editoast cannot be scaled horizontally (it is stateful).
+Editoast is a service that is **almost** capable of horizontal scaling (stateless). However, part of the application requires consistent RAM storage and therefore doesn't support scaling. This small part is called **stateful editoast**.
 
-You can visualize the recommended deployment here:
+The Helm Chart deploys two OSRD services:
+
+- The first one `editoast` (stateless) which uses a [Horizontal Pod Autoscaler (hpa)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+- The second one `stateful-editoast` which has a single replica to ensure data consistency in RAM.
+
+You can view the recommended deployment here:
 
 ```mermaid
 flowchart TD
@@ -27,42 +32,42 @@ flowchart TD
     gw -- local file --> front
 
     browser --> gw
-    gw -- HTTP --> editoast
-    gw -- HTTP --> tileserver-1
-    gw -- HTTP --> tileserver-2
-    gw -- HTTP --> tileserver-n...
-    editoast -- HTTP --> core
+    gw -- HTTP --> stateful-editoast
+    gw -- HTTP --> editoast-1
+    gw -- HTTP --> editoast-2
+    gw -- HTTP --> editoast-N
+    stateful-editoast -- AMQP --> RabbitMQ
+    editoast-1 -- AMQP --> RabbitMQ
+    editoast-2 -- AMQP --> RabbitMQ
+    editoast-N -- AMQP --> RabbitMQ
+    RabbitMQ -- AMQP --> Core-X
+    Osrdyne -- HTTP/AMQP --> RabbitMQ
+    Osrdyne -- Control --> Core-X
 ```
-
-The Helm chart leverages Kubernete's [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) in order to spawn as much tileserver as required for the current workload.
 
 ## Chart Values Overview
 
 The Helm Chart is configurable through the following values:
 
-### Core Service
+### Editoast
 
-- `core`: Configuration for the core OSRD service.
-  - `internalUrl`: Internal URL for service communication.
+  - `editoast`: Configuration for the Editoast service.
+    - `init`: Initialization configuration.
+    - `replicaCount`: Number of replicas, enabling horizontal scaling.
+    - `hpa`: Horizontal Pod Autoscaler configuration.
+    - Other standard Kubernetes deployment options.
+
+### Stateful Editoast
+
+  - `stateful-editoast`: Specialized Editoast service for `/infra/{infra_id}` requests
+    - `image`: Docker image to use (usually the same as Editoast).
+    - Other standard Kubernetes deployment options.
+
+### Osrdyne
+
+- `osrdyne`: Osrdyne service that controls the cores.
   - `image`: Docker image to use.
-  - `pullPolicy`: Image pull policy.
-  - `replicaCount`: Number of replicas.
-  - `service`: Service type and port configuration.
-  - `resources`, `env`, `annotations`, `labels`, `nodeSelector`, `tolerations`, `affinity`: Various Kubernetes deployment options.
-
-### Editoast Service
-
-- `editoast`: Configuration for the Editoast service.
-  - Includes similar options as `core` for Kubernetes deployment.
-  - `init`: Initialization configuration.
-
-### Tile Server
-
-- `tileServer`: Specialized Editoast service that serves only vector map tiles.
-  - `enabled`: Set to `true` to enable tile server functionality.
-  - `image`: Docker image to use (typically the same as Editoast).
-  - `replicaCount`: Number of replicas, allowing for horizontal scaling.
-  - `hpa`: Horizontal Pod Autoscaler configuration.
+  - `amqp`: RabbitMQ connection
   - Other standard Kubernetes deployment options.
 
 ### Gateway
@@ -85,4 +90,3 @@ To deploy the OSRD services using this Helm Chart:
    ```bash
    helm install osrd oci://ghcr.io/OpenRailAssociation/charts/osrd -f values.yml
    ```
-
