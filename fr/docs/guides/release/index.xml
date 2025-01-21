@@ -1,0 +1,90 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Publication</title><link>https://osrd.fr/fr/docs/guides/release/</link><description>Recent content in Publication on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><atom:link href="https://osrd.fr/fr/docs/guides/release/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Processus de publication</title><link>https://osrd.fr/fr/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/release/process/</guid><description>
+&lt;p>OSRD possède trois versions : développement (dev), staging et publication.&lt;/p>
+&lt;p>La version de développement est la version la plus récente et la plus instable de l&amp;rsquo;application, contenant les dernières fonctionnalités et corrections de bugs en cours de développement.&lt;/p>
+&lt;p>Les versions staging sont créées tous les jeudis à 12h en taguant l&amp;rsquo;état actuel du développement.&lt;/p>
+&lt;p>Si une version staging passe les tests de validation, elle est promue pour devenir la dernière version publication. Cela garantit que seul du code stable et testé est intégré dans les versions de production.&lt;/p>
+&lt;p>Le processus de publication suit ce workflow :&lt;/p>
+&lt;ol>
+&lt;li>Développement continu dans la branche dev&lt;/li>
+&lt;li>Tags de staging hebdomadaires les jeudis à 12h&lt;/li>
+&lt;li>Tests de validation de la version staging&lt;/li>
+&lt;li>Promotion des builds staging validés au statut de publication&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code class="language-ascii" data-lang="ascii"> Développement Staging publication
+(instable) (test) (stable)
+[Branche Dev] |
+| |
+|---&amp;gt; Jeudi 12h |
+| [Tag Staging] |
+| | |
+| Validation |
+| Tests |
+| | |
+| o---&amp;gt; Si Passage --&amp;gt; Nouvelle
+| Tests publication
+[Suite Dev] |
+| |
+V V
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Publier une nouvelle version</title><link>https://osrd.fr/fr/docs/guides/release/publish/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/release/publish/</guid><description>
+&lt;p>Toutes les versions d&amp;rsquo;OSRD sont accessibles &lt;a href="https://github.com/OpenRailAssociation/osrd/releases">ici&lt;/a>&lt;/p>
+&lt;p>Le processus de création d&amp;rsquo;une nouvelle version est le suivant :&lt;/p>
+&lt;ol>
+&lt;li>Nous publions toujours sur une version testée de l&amp;rsquo;application (branche staging)
+&lt;ul>
+&lt;li>&lt;code>git switch staging &amp;amp;&amp;amp; git pull&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Créer un tag git &lt;strong>annoté&lt;/strong>
+&lt;ul>
+&lt;li>Nous utilisons le &lt;a href="https://semver.org/">versionnement sémantique&lt;/a>&lt;/li>
+&lt;li>&lt;code>git tag -a vx.y.z&lt;/code> avec le message &lt;code>Release x.y.z&lt;/code> (la plupart du temps, utilisez la dernière version et incrémentez la version patch)&lt;/li>
+&lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Créer une release GitHub
+&lt;ul>
+&lt;li>Créer une nouvelle release GitHub &lt;a href="https://github.com/OpenRailAssociation/osrd/releases/new">ici&lt;/a>&lt;/li>
+&lt;li>Sélectionner le tag créé&lt;/li>
+&lt;li>Générer les notes de version&lt;/li>
+&lt;li>Renommer la release ainsi : &amp;ldquo;Version x.y.z&amp;rdquo;&lt;/li>
+&lt;li>Cocher la case &amp;ldquo;Set as a pre-release&amp;rdquo;&lt;/li>
+&lt;li>Appliquer le &lt;a href="#Format du changelog">format du changelog&lt;/a>&lt;/li>
+&lt;li>Vous pouvez ensuite &lt;strong>publier&lt;/strong> la release ou &lt;strong>sauvegarder&lt;/strong> le brouillon si vous souhaitez y revenir plus tard&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Une &lt;a href="https://github.com/OpenRailAssociation/osrd/actions/workflows/release.yml">action GitHub&lt;/a> devrait être déclenchée automatiquement.&lt;/li>
+&lt;li>Poster le lien de la release créée sur Matrix. Suggérer aux développeurs de revoir la release.&lt;/li>
+&lt;/ol>
+&lt;h3 id="format-du-changelog">Format du changelog&lt;/h3>
+&lt;ol>
+&lt;li>Utiliser la structure suivante :&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## What&amp;#39;s Changed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Features :tada:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Code refactoring :recycle:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Bug fixes :bug:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## New Contributors
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">**Full Changelog**&lt;/span>: ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Répartir les différentes pull requests&lt;/li>
+&lt;li>Fusionner ou regrouper les PR quand cela a du sens. Exemples :
+&lt;ul>
+&lt;li>PR de mise à jour des dépendances (fusionner)&lt;/li>
+&lt;li>PR en plusieurs parties (fusionner)&lt;/li>
+&lt;li>Une grande fonctionnalité implémentée par plusieurs PR (regrouper)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Reformuler les titres des PR. &lt;strong>Ils doivent être compréhensibles pour un collaborateur externe&lt;/strong>&lt;/li>
+&lt;/ol></description></item></channel></rss>

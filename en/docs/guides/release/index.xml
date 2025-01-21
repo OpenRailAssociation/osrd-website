@@ -1,0 +1,90 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Release</title><link>https://osrd.fr/en/docs/guides/release/</link><description>Recent content in Release on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/release/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Release process</title><link>https://osrd.fr/en/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/process/</guid><description>
+&lt;p>OSRD has three versions: development (dev), staging, and release.&lt;/p>
+&lt;p>The development version is the most recent and unstable version of the application, containing the latest features and bug fixes in active development.&lt;/p>
+&lt;p>Staging versions are created every Thursday at 12pm by tagging the current development state.&lt;/p>
+&lt;p>If a staging version passes validation testing, it is promoted to become the latest release version. This ensures that only stable, tested code makes it into production releases.&lt;/p>
+&lt;p>The release process follows this workflow:&lt;/p>
+&lt;ol>
+&lt;li>Ongoing development in the dev branch&lt;/li>
+&lt;li>Weekly staging tags on Thursdays at 12pm&lt;/li>
+&lt;li>Validation testing of staging version&lt;/li>
+&lt;li>Promotion of validated staging builds to release status&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code class="language-ascii" data-lang="ascii"> Development Staging Release
+(unstable) (testing) (stable)
+[Dev Branch] |
+| |
+|---&amp;gt; Thursday 12pm |
+| [Staging Tag] |
+| | |
+| Validation |
+| Testing |
+| | |
+| o---&amp;gt; If Passes --&amp;gt; [New Release]
+| Tests |
+[Continue Dev] |
+| |
+V V
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Publish a new release</title><link>https://osrd.fr/en/docs/guides/release/publish/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/publish/</guid><description>
+&lt;p>All OSRD releases are accessible &lt;a href="https://github.com/OpenRailAssociation/osrd/releases">here&lt;/a>&lt;/p>
+&lt;p>The process for creating a new release is as follows:&lt;/p>
+&lt;ol>
+&lt;li>We always release on a tested version of the application (staging branch)
+&lt;ul>
+&lt;li>&lt;code>git switch staging &amp;amp;&amp;amp; git pull&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Create a git &lt;strong>annotated&lt;/strong> tag
+&lt;ul>
+&lt;li>We are using the &lt;a href="https://semver.org/">semantic versioning&lt;/a>&lt;/li>
+&lt;li>&lt;code>git tag -a vx.y.z&lt;/code> with the message &lt;code>Release x.y.z&lt;/code> (most of the time use the latest version and increment the patch version)&lt;/li>
+&lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Create a github release
+&lt;ul>
+&lt;li>Draft a new github release &lt;a href="https://github.com/OpenRailAssociation/osrd/releases/new">here&lt;/a>&lt;/li>
+&lt;li>Select the created tag&lt;/li>
+&lt;li>Generate the releases notes&lt;/li>
+&lt;li>Rename the release like so: &amp;ldquo;Version x.y.z&amp;rdquo;&lt;/li>
+&lt;li>Check the &amp;ldquo;Set as a pre-release&amp;rdquo; box&lt;/li>
+&lt;li>Apply the &lt;a href="#Changelog format">changelog format&lt;/a>&lt;/li>
+&lt;li>Then you can &lt;strong>publish&lt;/strong> the release or &lt;strong>save&lt;/strong> the draft if you want to come back later&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>A &lt;a href="https://github.com/OpenRailAssociation/osrd/actions/workflows/release.yml">github action&lt;/a> should be triggered automatically.&lt;/li>
+&lt;li>Post the link of the created release on matrix. Suggest that the developers review the release.&lt;/li>
+&lt;/ol>
+&lt;h3 id="changelog-format">Changelog format&lt;/h3>
+&lt;ol>
+&lt;li>Use the following structure:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## What&amp;#39;s Changed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Features :tada:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Code refactoring :recycle:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Bug fixes :bug:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## New Contributors
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">**Full Changelog**&lt;/span>: ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Partition the different pull requests&lt;/li>
+&lt;li>Merge or group PR when it make sense. Examples:
+&lt;ul>
+&lt;li>Bump of dependencies PR (merge)&lt;/li>
+&lt;li>Multi part PR (merge)&lt;/li>
+&lt;li>One big feature implemented by multiple PR (group)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Reword PR title. &lt;strong>It should be comprehensible to an external collaborator&lt;/strong>&lt;/li>
+&lt;/ol></description></item></channel></rss>

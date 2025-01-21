@@ -103,4 +103,5 @@ Consultez la &lt;a href="https://osrd.fr/fr/docs/guides/deploy/stdcm-search-env/
 &lt;p>Ces couleurs sont &lt;strong>celles du logo&lt;/strong>, elles ne sont pas à confondre avec celles du design global de l&amp;rsquo;interface d&amp;rsquo;OSRD.&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;span style="display:inline-block;background-color:#786abf;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px">#786ABF&lt;/span>
-&lt;span style="display:inline-block;background-color:#c7b2de;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px;margin-left:16px">#C7B2DE&lt;/span>&lt;/p></description></item></channel></rss>
+&lt;span style="display:inline-block;background-color:#c7b2de;width:128px;height:128px;color:white;font-weight:bold;padding:16px;margin-top:16px;margin-left:16px">#C7B2DE&lt;/span>&lt;/p></description></item><item><title>Docs: Publication</title><link>https://osrd.fr/fr/docs/guides/release/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/release/</guid><description>
+&lt;p>Cette section documente le processus de création d&amp;rsquo;une publication d&amp;rsquo;OSRD.&lt;/p></description></item></channel></rss>

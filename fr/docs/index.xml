@@ -35,7 +35,34 @@ dans chaque composant, donc regrouper les montées de version dans une même PR 
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/">Consulter les conventions pour le back-end ‣&lt;/a>&lt;/em>&lt;/p>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/frontend-conventions/">Consulter les conventions pour le front-end ‣&lt;/a>&lt;/em>&lt;/p>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/">Continuer vers l&amp;rsquo;écriture de code ‣&lt;/a>&lt;/em>&lt;/p>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/tests/">Continuer vers l&amp;rsquo;écriture de tests ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Conventions back-end</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/tests/">Continuer vers l&amp;rsquo;écriture de tests ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Processus de publication</title><link>https://osrd.fr/fr/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/release/process/</guid><description>
+&lt;p>OSRD possède trois versions : développement (dev), staging et publication.&lt;/p>
+&lt;p>La version de développement est la version la plus récente et la plus instable de l&amp;rsquo;application, contenant les dernières fonctionnalités et corrections de bugs en cours de développement.&lt;/p>
+&lt;p>Les versions staging sont créées tous les jeudis à 12h en taguant l&amp;rsquo;état actuel du développement.&lt;/p>
+&lt;p>Si une version staging passe les tests de validation, elle est promue pour devenir la dernière version publication. Cela garantit que seul du code stable et testé est intégré dans les versions de production.&lt;/p>
+&lt;p>Le processus de publication suit ce workflow :&lt;/p>
+&lt;ol>
+&lt;li>Développement continu dans la branche dev&lt;/li>
+&lt;li>Tags de staging hebdomadaires les jeudis à 12h&lt;/li>
+&lt;li>Tests de validation de la version staging&lt;/li>
+&lt;li>Promotion des builds staging validés au statut de publication&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code class="language-ascii" data-lang="ascii"> Développement Staging publication
+(instable) (test) (stable)
+[Branche Dev] |
+| |
+|---&amp;gt; Jeudi 12h |
+| [Tag Staging] |
+| | |
+| Validation |
+| Tests |
+| | |
+| o---&amp;gt; Si Passage --&amp;gt; Nouvelle
+| Tests publication
+[Suite Dev] |
+| |
+V V
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Conventions back-end</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>
 &lt;h1 id="python">Python&lt;/h1>
 &lt;p>Le code Python est utilisé pour certains paquets et pour les tests d&amp;rsquo;intégration.&lt;/p>
 &lt;ul>
@@ -346,7 +373,69 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;p>Sous Windows, ouvrez &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Docs: Écrire du code</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</guid><description>
+&lt;/div></description></item><item><title>Docs: Publier une nouvelle version</title><link>https://osrd.fr/fr/docs/guides/release/publish/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/release/publish/</guid><description>
+&lt;p>Toutes les versions d&amp;rsquo;OSRD sont accessibles &lt;a href="https://github.com/OpenRailAssociation/osrd/releases">ici&lt;/a>&lt;/p>
+&lt;p>Le processus de création d&amp;rsquo;une nouvelle version est le suivant :&lt;/p>
+&lt;ol>
+&lt;li>Nous publions toujours sur une version testée de l&amp;rsquo;application (branche staging)
+&lt;ul>
+&lt;li>&lt;code>git switch staging &amp;amp;&amp;amp; git pull&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Créer un tag git &lt;strong>annoté&lt;/strong>
+&lt;ul>
+&lt;li>Nous utilisons le &lt;a href="https://semver.org/">versionnement sémantique&lt;/a>&lt;/li>
+&lt;li>&lt;code>git tag -a vx.y.z&lt;/code> avec le message &lt;code>Release x.y.z&lt;/code> (la plupart du temps, utilisez la dernière version et incrémentez la version patch)&lt;/li>
+&lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Créer une release GitHub
+&lt;ul>
+&lt;li>Créer une nouvelle release GitHub &lt;a href="https://github.com/OpenRailAssociation/osrd/releases/new">ici&lt;/a>&lt;/li>
+&lt;li>Sélectionner le tag créé&lt;/li>
+&lt;li>Générer les notes de version&lt;/li>
+&lt;li>Renommer la release ainsi : &amp;ldquo;Version x.y.z&amp;rdquo;&lt;/li>
+&lt;li>Cocher la case &amp;ldquo;Set as a pre-release&amp;rdquo;&lt;/li>
+&lt;li>Appliquer le &lt;a href="#Format du changelog">format du changelog&lt;/a>&lt;/li>
+&lt;li>Vous pouvez ensuite &lt;strong>publier&lt;/strong> la release ou &lt;strong>sauvegarder&lt;/strong> le brouillon si vous souhaitez y revenir plus tard&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Une &lt;a href="https://github.com/OpenRailAssociation/osrd/actions/workflows/release.yml">action GitHub&lt;/a> devrait être déclenchée automatiquement.&lt;/li>
+&lt;li>Poster le lien de la release créée sur Matrix. Suggérer aux développeurs de revoir la release.&lt;/li>
+&lt;/ol>
+&lt;h3 id="format-du-changelog">Format du changelog&lt;/h3>
+&lt;ol>
+&lt;li>Utiliser la structure suivante :&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## What&amp;#39;s Changed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Features :tada:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Code refactoring :recycle:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Bug fixes :bug:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## New Contributors
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">**Full Changelog**&lt;/span>: ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Répartir les différentes pull requests&lt;/li>
+&lt;li>Fusionner ou regrouper les PR quand cela a du sens. Exemples :
+&lt;ul>
+&lt;li>PR de mise à jour des dépendances (fusionner)&lt;/li>
+&lt;li>PR en plusieurs parties (fusionner)&lt;/li>
+&lt;li>Une grande fonctionnalité implémentée par plusieurs PR (regrouper)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Reformuler les titres des PR. &lt;strong>Ils doivent être compréhensibles pour un collaborateur externe&lt;/strong>&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Écrire du code</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</guid><description>
 &lt;ol>
 &lt;li>
 &lt;p>Si vous n&amp;rsquo;être pas un habitué de Git, &lt;a href="https://learngitbranching.js.org/">suivez ce tutoriel&lt;/a>&lt;/p>
@@ -2462,58 +2551,4 @@ carré protégeant l’aiguille de sortie.&lt;/p>
 &lt;ul>
 &lt;li>que le train est parvenu à &lt;strong>la fin du parcours à contresens&lt;/strong> ;&lt;/li>
 &lt;li>qu’à partir de ce tableau, &lt;strong>les signaux qui le concernent sont implantés à gauche&lt;/strong>.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: GPRS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>Docs: La voie unique temporaire (VUT)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</guid><description>
-&lt;h3 id="principe">Principe&lt;/h3>
-&lt;p>Lorsqu’une cause quelconque (incident, exécution de travaux, etc.), interdit l’utilisation d’une voie et en l’absence
-d’installations permettant la circulation dans les deux sens en sécurité sur l’autre voie (ICS, voie banalisée), la
-circulation des trains est organisée par les agents du service de gestion des circulations situés aux extrémités selon
-des procédures adaptées.&lt;/p>
-&lt;p>La VUT est donc un régime temporaire d’exploitation permettant, sur une ligne à double voie non équipée d’installation
-de contresens, de faire circuler les trains des deux sens sur une seule et même voie.&lt;/p>
-&lt;p>Les trains devant circuler à contre sens sont &lt;strong>arrêtés à l’entrée&lt;/strong>.&lt;/p>
-&lt;p>La circulation sur la VUT dans les deux sens se fait selon le principe de la demande et de l’accord de voie entre agents
-du service de la gestion des circulations.&lt;/p>
-&lt;p>La vitesse limite à contre sens est de 70 km/h.&lt;/p>
-&lt;p>La sortie de la VUT est repérée soit :&lt;/p>
-&lt;ul>
-&lt;li>par un &lt;strong>signal carré&lt;/strong> implanté à gauche, à droite ou au-dessus de la voie ;&lt;/li>
-&lt;li>par un &lt;strong>signal d’arrêt à main&lt;/strong>.&lt;/li>
-&lt;/ul>
-&lt;h3 id="organisation">Organisation&lt;/h3>
-&lt;p>La VUT est établie entre les deux changements de voies utilisables les plus rapprochés qui en constituent les extrémités.&lt;/p>
-&lt;p>La VUT est organisée par l’agent du service de la gestion des circulations qui expédie les trains à contresens sur cette
-voie (gare B dans l’exemple ci-dessous) et qui doit aviser ou faire aviser les agents intéressés : agents des postes,
-des PN gardés, agents travaillant sur la voie ou les caténaires.&lt;/p>
-&lt;h3 id="circulation-sur-la-vut">Circulation sur la VUT&lt;/h3>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/railway-wiki/signalling/image-077.png" alt="">&lt;/p>
-&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
-&lt;p>L’expédition de tout train sur la VUT est subordonnée à un accord de voie donné par l’agent du service de gestion des
-circulations de l’autre extrémité de la VUT à l’agent-du service de gestion des circulations qui doit expédier le train.&lt;/p>
-&lt;h4 id="le-risque-de-rattrapage">Le risque de rattrapage&lt;/h4>
-&lt;p>Les trains de sens normal sont cantonnés dans les conditions habituelles.&lt;/p>
-&lt;p>Les trains circulant à contresens sont cantonnés téléphoniquement dans les conditions prévues pour la voie unique (voir 4.3.).&lt;/p>
-&lt;h3 id="avis-au-conducteur">Avis au conducteur&lt;/h3>
-&lt;p>&lt;strong>En sens normal :&lt;/strong> aucun avis n’est fait au conducteur, les trains circulent sans arrêt à l’entrée.&lt;/p>
-&lt;p>&lt;strong>À contre sens :&lt;/strong> le conducteur est arrêté à l’entrée de la VUT puis informé par écrit par l’agent du service de la
-gestion des circulations qu’il va circuler à contresens en VUT.&lt;/p>
-&lt;p>Cet ordre écrit reprend les points ou zones du parcours sur lesquels le conducteur doit appliquer des prescriptions
-particulières.&lt;/p>
-&lt;p>En effet, les installations et la signalisation ne sont généralement pas prévues pour les circulations en sens inverse
-du sens normal (PN, limitations de vitesse, etc.).&lt;/p></description></item><item><title>Docs: La voie unique à trafic restreint (VUTR)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</guid><description>
-&lt;h3 id="définition">Définition&lt;/h3>
-&lt;p>Ce régime concerne des lignes fermées au service voyageurs qui ne comportent normalement pas de signaux. Les règles
-concernant le régime général d’exploitation de la voie unique ne sont pas applicables et sont remplacées par des
-modalités particulières définies par le gestionnaire d&amp;rsquo;infrastructure.&lt;/p>
-&lt;h3 id="principe">Principe&lt;/h3>
-&lt;p>Une consigne locale d’exploitation adaptée à chaque VUTR précise les caractéristiques d&amp;rsquo;exploitation comme la vitesse de
-la ligne, la signalisation, les établissements, les liaisons téléphoniques, les PN, etc.&lt;/p>
-&lt;p>Elle est complétée par un programme de circulation qui comporte les horaires des trains devant circuler et précise les
-dispositions particulières concernant chaque train (trains entre lesquels l&amp;rsquo;espacement doit être assuré, croisements,
-etc.).&lt;/p>
-&lt;p>Ces lignes ne comportent normalement pas de signaux, les limitations de vitesse à observer sur les aiguilles ainsi que
-les autres limitations permanentes de vitesse sont inscrites à la consigne locale d’exploitation de la ligne ; elles ne
-sont pas rappelées par des signaux sur le terrain.&lt;/p>
-&lt;p>Par principe, la vitesse de circulation ne dépasse généralement pas 50 km/h.&lt;/p>
-&lt;p>Aucun enclenchement n’est prévu. Chaque ligne dépend d&amp;rsquo;un agent de SNCF Réseau dénommé « chef de ligne ». La sécurité
-des circulations est assurée par le chef de ligne et par les agents des trains.&lt;/p>
-&lt;p>&lt;em>Nota : Les VUTR ne sont pas définies dans les RT.&lt;/em>&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Docs: GPRS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item></channel></rss>
