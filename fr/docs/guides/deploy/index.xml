@@ -75,52 +75,58 @@ Vous pouvez également ajuster d&amp;rsquo;autres variables d&amp;rsquo;environn
 &lt;li>Une base de données PostgreSQL avec PostGIS&lt;/li>
 &lt;li>Un serveur Valkey (utilisé pour le cache)&lt;/li>
 &lt;/ul>
-&lt;h2 id="le-serveur-de-tuiles">Le serveur de tuiles&lt;/h2>
-&lt;p>Le serveur de tuiles est le composant responsable de la génération des tuiles cartographiques vectorielles. Il est recommandé de le séparer du Editoast standard lors de l&amp;rsquo;exécution d&amp;rsquo;une configuration de production, car Editoast ne peut pas être mis à l&amp;rsquo;échelle horizontalement (il est stateful).&lt;/p>
+&lt;h2 id="stateful-editoast">Stateful editoast&lt;/h2>
+&lt;p>Editoast est un service &lt;strong>quasiment&lt;/strong> capable d&amp;rsquo;être mis à l&amp;rsquo;échelle horizontalement (stateless). Cependant, une partie de l&amp;rsquo;application nécessite un stockage en RAM cohérent et donc ne supporte pas la mise à l&amp;rsquo;échelle. Cette petite partie est appelée &lt;strong>editoast stateful&lt;/strong>.&lt;/p>
+&lt;p>Le Helm Chart déploie deux service OSRD:&lt;/p>
+&lt;ul>
+&lt;li>Le premier &lt;code>editoast&lt;/code> (stateless) qui utilise un &lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaler (hpa)&lt;/a>.&lt;/li>
+&lt;li>Le deuxième &lt;code>stateful-editoast&lt;/code> qui n&amp;rsquo;à qu&amp;rsquo;une seule réplique pour assurer la cohérence des données en RAM.&lt;/li>
+&lt;/ul>
 &lt;p>Vous pouvez visualiser le déploiement recommandé ici :&lt;/p>
 &lt;pre class="mermaid">flowchart TD
 gw[&amp;#34;gateway&amp;#34;]
 front[&amp;#34;fichier statiques front-end&amp;#34;]
 gw -- fichier local --&amp;gt; front
 navigateur --&amp;gt; gw
-gw -- HTTP --&amp;gt; editoast
-gw -- HTTP --&amp;gt; tileserver-1
-gw -- HTTP --&amp;gt; tileserver-2
-gw -- HTTP --&amp;gt; tileserver-n...
-editoast -- HTTP --&amp;gt; core&lt;/pre>
-&lt;p>Le Helm Chart utilise le&lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">HorizontalPodAutoscaler&lt;/a> de Kubernetes pour lancer autant de serveurs de tuiles que nécessaire en fonction de la charge de travail.&lt;/p>
+gw -- HTTP --&amp;gt; stateful-editoast
+gw -- HTTP --&amp;gt; editoast-1
+gw -- HTTP --&amp;gt; editoast-2
+gw -- HTTP --&amp;gt; editoast-N
+stateful-editoast -- AMQP --&amp;gt; RabbitMQ
+editoast-1 -- AMQP --&amp;gt; RabbitMQ
+editoast-2 -- AMQP --&amp;gt; RabbitMQ
+editoast-N -- AMQP --&amp;gt; RabbitMQ
+RabbitMQ -- AMQP --&amp;gt; Core-X
+Osrdyne -- HTTP/AMQP --&amp;gt; RabbitMQ
+Osrdyne -- Control --&amp;gt; Core-X&lt;/pre>
 &lt;h2 id="configuration-de-la-helm-chart-values">Configuration de la Helm Chart (values)&lt;/h2>
 &lt;p>Le Helm Chart est configurable à travers les valeurs suivantes :&lt;/p>
-&lt;h3 id="service-core">Service Core&lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>core&lt;/code> : Configuration pour le service central OSRD.
-&lt;ul>
-&lt;li>&lt;code>internalUrl&lt;/code> : URL interne pour la communication entre services.&lt;/li>
-&lt;li>&lt;code>image&lt;/code> : Image Docker à utiliser.&lt;/li>
-&lt;li>&lt;code>pullPolicy&lt;/code> : Politique de récupération de l&amp;rsquo;image.&lt;/li>
-&lt;li>&lt;code>replicaCount&lt;/code> : Nombre de réplicas.&lt;/li>
-&lt;li>&lt;code>service&lt;/code> : Type de service et configuration des ports.&lt;/li>
-&lt;li>&lt;code>resources&lt;/code>, &lt;code>env&lt;/code>, &lt;code>annotations&lt;/code>, &lt;code>labels&lt;/code>, &lt;code>nodeSelector&lt;/code>, &lt;code>tolerations&lt;/code>, &lt;code>affinity&lt;/code> : Diverses options de déploiement Kubernetes.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="service-editoast">Service Editoast&lt;/h3>
+&lt;h3 id="editoast">Editoast&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>editoast&lt;/code> : Configuration pour le service Editoast.
 &lt;ul>
-&lt;li>Comprend des options similaires à &lt;code>core&lt;/code> pour le déploiement Kubernetes.&lt;/li>
 &lt;li>&lt;code>init&lt;/code> : Configuration d&amp;rsquo;initialisation.&lt;/li>
+&lt;li>&lt;code>replicaCount&lt;/code> : Nombre de réplicas, permettant la mise à l&amp;rsquo;échelle horizontale.&lt;/li>
+&lt;li>&lt;code>hpa&lt;/code> : Configuration de l&amp;rsquo;Horizontal Pod Autoscaler.&lt;/li>
+&lt;li>Autres options standard de déploiement Kubernetes.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="serveur-de-tuiles">Serveur de tuiles&lt;/h3>
+&lt;h3 id="stateful-editoast-1">Stateful Editoast&lt;/h3>
 &lt;ul>
-&lt;li>&lt;code>tileServer&lt;/code> : Service Editoast spécialisé qui sert uniquement des tuiles cartographiques vectorielles.
+&lt;li>&lt;code>stateful-editoast&lt;/code> : Service Editoast spécialisé dans les requêtes &lt;code>/infra/{infra_id}&lt;/code>
 &lt;ul>
-&lt;li>&lt;code>enabled&lt;/code> : Définir sur &lt;code>true&lt;/code> pour activer la fonctionnalité de serveur de tuiles.&lt;/li>
 &lt;li>&lt;code>image&lt;/code> : Image Docker à utiliser (généralement la même que Editoast).&lt;/li>
-&lt;li>&lt;code>replicaCount&lt;/code> : Nombre de réplicas, permettant la mise à l&amp;rsquo;échelle horizontale.&lt;/li>
-&lt;li>&lt;code>hpa&lt;/code> : Configuration de l&amp;rsquo;Horizontal Pod Autoscaler.&lt;/li>
+&lt;li>Autres options standard de déploiement Kubernetes.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="osrdyne">Osrdyne&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>osrdyne&lt;/code> : Service osrdyne qui permet de contrôler les cores.
+&lt;ul>
+&lt;li>&lt;code>image&lt;/code> : Image Docker à utiliser.&lt;/li>
+&lt;li>&lt;code>amqp&lt;/code> : Connection au rabbitMQ&lt;/li>
 &lt;li>Autres options standard de déploiement Kubernetes.&lt;/li>
 &lt;/ul>
 &lt;/li>

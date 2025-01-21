@@ -57,52 +57,58 @@ You can also adjust other environment variables if needed.&lt;/li>
 &lt;li>A PostgreSQL database with PostGIS&lt;/li>
 &lt;li>A Valkey server (used for caching)&lt;/li>
 &lt;/ul>
-&lt;h2 id="the-tileserver">The tileserver&lt;/h2>
-&lt;p>Tileserver is the component responsible for generating vector map tiles. It is recommended to separate it from standard Editoast while running a production setup since Editoast cannot be scaled horizontally (it is stateful).&lt;/p>
-&lt;p>You can visualize the recommended deployment here:&lt;/p>
+&lt;h2 id="stateful-editoast">Stateful editoast&lt;/h2>
+&lt;p>Editoast is a service that is &lt;strong>almost&lt;/strong> capable of horizontal scaling (stateless). However, part of the application requires consistent RAM storage and therefore doesn&amp;rsquo;t support scaling. This small part is called &lt;strong>stateful editoast&lt;/strong>.&lt;/p>
+&lt;p>The Helm Chart deploys two OSRD services:&lt;/p>
+&lt;ul>
+&lt;li>The first one &lt;code>editoast&lt;/code> (stateless) which uses a &lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaler (hpa)&lt;/a>.&lt;/li>
+&lt;li>The second one &lt;code>stateful-editoast&lt;/code> which has a single replica to ensure data consistency in RAM.&lt;/li>
+&lt;/ul>
+&lt;p>You can view the recommended deployment here:&lt;/p>
 &lt;pre class="mermaid">flowchart TD
 gw[&amp;#34;gateway&amp;#34;]
 front[&amp;#34;front-end static files&amp;#34;]
 gw -- local file --&amp;gt; front
 browser --&amp;gt; gw
-gw -- HTTP --&amp;gt; editoast
-gw -- HTTP --&amp;gt; tileserver-1
-gw -- HTTP --&amp;gt; tileserver-2
-gw -- HTTP --&amp;gt; tileserver-n...
-editoast -- HTTP --&amp;gt; core&lt;/pre>
-&lt;p>The Helm chart leverages Kubernete&amp;rsquo;s &lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">HorizontalPodAutoscaler&lt;/a> in order to spawn as much tileserver as required for the current workload.&lt;/p>
+gw -- HTTP --&amp;gt; stateful-editoast
+gw -- HTTP --&amp;gt; editoast-1
+gw -- HTTP --&amp;gt; editoast-2
+gw -- HTTP --&amp;gt; editoast-N
+stateful-editoast -- AMQP --&amp;gt; RabbitMQ
+editoast-1 -- AMQP --&amp;gt; RabbitMQ
+editoast-2 -- AMQP --&amp;gt; RabbitMQ
+editoast-N -- AMQP --&amp;gt; RabbitMQ
+RabbitMQ -- AMQP --&amp;gt; Core-X
+Osrdyne -- HTTP/AMQP --&amp;gt; RabbitMQ
+Osrdyne -- Control --&amp;gt; Core-X&lt;/pre>
 &lt;h2 id="chart-values-overview">Chart Values Overview&lt;/h2>
 &lt;p>The Helm Chart is configurable through the following values:&lt;/p>
-&lt;h3 id="core-service">Core Service&lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>core&lt;/code>: Configuration for the core OSRD service.
-&lt;ul>
-&lt;li>&lt;code>internalUrl&lt;/code>: Internal URL for service communication.&lt;/li>
-&lt;li>&lt;code>image&lt;/code>: Docker image to use.&lt;/li>
-&lt;li>&lt;code>pullPolicy&lt;/code>: Image pull policy.&lt;/li>
-&lt;li>&lt;code>replicaCount&lt;/code>: Number of replicas.&lt;/li>
-&lt;li>&lt;code>service&lt;/code>: Service type and port configuration.&lt;/li>
-&lt;li>&lt;code>resources&lt;/code>, &lt;code>env&lt;/code>, &lt;code>annotations&lt;/code>, &lt;code>labels&lt;/code>, &lt;code>nodeSelector&lt;/code>, &lt;code>tolerations&lt;/code>, &lt;code>affinity&lt;/code>: Various Kubernetes deployment options.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="editoast-service">Editoast Service&lt;/h3>
+&lt;h3 id="editoast">Editoast&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>editoast&lt;/code>: Configuration for the Editoast service.
 &lt;ul>
-&lt;li>Includes similar options as &lt;code>core&lt;/code> for Kubernetes deployment.&lt;/li>
 &lt;li>&lt;code>init&lt;/code>: Initialization configuration.&lt;/li>
+&lt;li>&lt;code>replicaCount&lt;/code>: Number of replicas, enabling horizontal scaling.&lt;/li>
+&lt;li>&lt;code>hpa&lt;/code>: Horizontal Pod Autoscaler configuration.&lt;/li>
+&lt;li>Other standard Kubernetes deployment options.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="tile-server">Tile Server&lt;/h3>
+&lt;h3 id="stateful-editoast-1">Stateful Editoast&lt;/h3>
 &lt;ul>
-&lt;li>&lt;code>tileServer&lt;/code>: Specialized Editoast service that serves only vector map tiles.
+&lt;li>&lt;code>stateful-editoast&lt;/code>: Specialized Editoast service for &lt;code>/infra/{infra_id}&lt;/code> requests
 &lt;ul>
-&lt;li>&lt;code>enabled&lt;/code>: Set to &lt;code>true&lt;/code> to enable tile server functionality.&lt;/li>
-&lt;li>&lt;code>image&lt;/code>: Docker image to use (typically the same as Editoast).&lt;/li>
-&lt;li>&lt;code>replicaCount&lt;/code>: Number of replicas, allowing for horizontal scaling.&lt;/li>
-&lt;li>&lt;code>hpa&lt;/code>: Horizontal Pod Autoscaler configuration.&lt;/li>
+&lt;li>&lt;code>image&lt;/code>: Docker image to use (usually the same as Editoast).&lt;/li>
+&lt;li>Other standard Kubernetes deployment options.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="osrdyne">Osrdyne&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>osrdyne&lt;/code>: Osrdyne service that controls the cores.
+&lt;ul>
+&lt;li>&lt;code>image&lt;/code>: Docker image to use.&lt;/li>
+&lt;li>&lt;code>amqp&lt;/code>: RabbitMQ connection&lt;/li>
 &lt;li>Other standard Kubernetes deployment options.&lt;/li>
 &lt;/ul>
 &lt;/li>
