@@ -34,13 +34,13 @@ In order to compute any of these curves, a number of things are needed:
 - `T_traction_cutoff`: the time it take to cut off traction
 - braking model, either lambda or gamma:
     - lambda (braking weight/mass)
-    - gamma (contant deceleration at a given speed)
+    - gamma (constant deceleration at a given speed)
 - correction factors (k\_dry and k\_wet for gamma braking) for braking curves
 
 ### Infrastructure
 
 - corrected gradients (it incorporates curvature)
-- odometry balises location
+- odometry balise locations
 
 ## Processes
 
@@ -53,7 +53,7 @@ In order to compute any of these curves, a number of things are needed:
 ### Speed / distance targets
 
 - `EOA` end of movement authority: the location until which the train is allowed to move
-- `SvL` supervized location: the protected location
+- `SvL` supervised location: the protected location
 
 
 ### Curves

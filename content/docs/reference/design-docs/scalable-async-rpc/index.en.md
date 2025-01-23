@@ -20,7 +20,7 @@ This architecture brings a number of issues:
 - If too many requests are dispatched to a busy core worker, they will just time out.
 - There is no easy way to scale up the number of workers to react to increased load.
 - Because calls need to complete within the timeout of the client's http requests,
-  the system falls appart when latency increases due to load.
+  the system falls apart when latency increases due to load.
 
 This proposal intends to address these issues by introducing an RPC system which:
 
@@ -167,7 +167,7 @@ When starting workers, the worker group driver provides:
 
 Workers then have to:
 - publish a `started` [activity report message](#worker-activity-reports)
-- subcribe to `WORKER_REQUESTS_QUEUE` using `basic.consume`
+- subscribe to `WORKER_REQUESTS_QUEUE` using `basic.consume`
 - for each request message:
   - publish a `request-received` [activity report message](#worker-activity-reports)
   - if the worker cannot process the request, it can request a requeue using `basic.reject` with `requeue=true`
@@ -338,7 +338,7 @@ On worker pool startup:
 
 - create and bind all [exchanges and queues](#exchanges-and-queues)
 - configure the TTL, delivery timeout and delivery limit policies using the HTTP API
-- start the **orphan processsor**, **dead letter responder** and **worker group manager**
+- start the **orphan processor**, **dead letter responder** and **worker group manager**
 
 
 ### Exchanges and queues
@@ -417,7 +417,7 @@ struct PoolState {
 trait PoolStateTracker {
     fn new(initial_worker_groups: Vec<String>) -> Self;
 
-    /// Require some worker group to be active. The extra lifetime adds active duration compared to the configured spooldown schedule.
+    /// Require some worker group to be active. The extra lifetime adds active duration compared to the configured spool down schedule.
     /// This allows the worker activity processor to debounce activity events without lowering the active time of worker groups.
     /// Returns the state generation where this worker group starts being active.
     async fn require_worker_group(&self, key: &str, extra_lifetime: Duration) -> Generation;
@@ -478,7 +478,7 @@ osrdyne runs the following control loop:
   - for each worker group in `expected` and not in `running`:
     - use the docker / kubernetes API to start the worker group. This must be idempotent. **do not retry** [^control-loop-retry]
   - for each worker group in `running` and not in `expected`:
-    - use the docker / kubernetes API to attemps to stop the worker group. This must be idempotent. **do not retry** [^control-loop-retry]
+    - use the docker / kubernetes API to attempts to stop the worker group. This must be idempotent. **do not retry** [^control-loop-retry]
 
 [^control-loop-retry]: The control loop is designed to make the state of all worker groups converge at once.
                        Retrying convergence for one worker group adds latency to convergence for all worker groups.
@@ -524,16 +524,16 @@ worker, the worker needs to start and respond to all requests.**
 ### Workers fails to start
 
 **A [per-queue message TTL](https://www.rabbitmq.com/blog/2014/01/23/preventing-unbounded-buffers-with-rabbitmq#per-queue-message-ttl)
-should be set to avoid requests accumulating indefinitly.**
+should be set to avoid requests accumulating indefinitely.**
 
 Workers failing to start will cause:
 
 - messages to accumulate in the queue.
-- when message TTL is reached, it will get transfered to the dead letter queue
+- when message TTL is reached, it will get transferred to the dead letter queue
 - the client will time out awaiting a response
 
 
-### Multiple ordyne daemons are started on the same pool
+### Multiple osrdyne daemons are started on the same pool
 
 It shouldn't be an issue, as:
 
@@ -553,7 +553,7 @@ However, publisher confirms add quite a bit of latency (about 200ms), as it ensu
 
 Most things in this protocol have at least once semantics if publisher confirms are used:
 
-- `request delivery to workers`: if osrdyne is restarted while transfering an orphan to its destination, the orphan may be transfered twice
+- `request delivery to workers`: if osrdyne is restarted while transferring an orphan to its destination, the orphan may be transferred twice
 - `response delivery to clients`: if a worker takes slightly too long to ACK a message, but still responds, it may be requeued and re-processed, and thus responded to twice
 
 ## Design decisions
@@ -645,7 +645,7 @@ The lifetime of worker groups is influenced by three types of asynchronous event
 
 - worker activity
 - orphan requests
-- worker group spooldown deadlines
+- worker group spool down deadlines
 
 When the orphan processor gets a request, it needs to create the worker group's request
 queue before it can proceed to forward the message.
@@ -665,7 +665,7 @@ We found multiple solutions for this issue:
 ### Unbind the queue and wait before stopping workers
 
 In a previous design, we tried to delete work queue in one go. It created a race condition issue on queue deletion,
-caused by the fact ordyne does not get direct notifications of when messages are received on a work queue:
+caused by the fact osrdyne does not get direct notifications of when messages are received on a work queue:
 
 - we decide to stop the worker group
 - work is received on the queue, but we aren't made aware as no worker is up

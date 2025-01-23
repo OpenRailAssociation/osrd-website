@@ -113,7 +113,7 @@ fun signal(maView: MAView?): SignalState {
 
 The view should allow access to the following data:
 
- - a synthetized view of zones downstream until the end of the train's MA
+ - a synthesized view of zones downstream until the end of the train's MA
  - the block chain
  - the state of downstream signals which belong to the current block chain
 
@@ -126,7 +126,7 @@ The path along which the MAView and SpeedLimitView live is best expressed using 
 
 ## Simulation outside the train path
 
-Everything mentionned so far was designed to simulate signals between a train the
+Everything mentioned so far was designed to simulate signals between a train the
 end of its movement authority, as all others signals have no influence over the behavior
 of trains (they cannot be seen, or are disregarded by drivers).
 

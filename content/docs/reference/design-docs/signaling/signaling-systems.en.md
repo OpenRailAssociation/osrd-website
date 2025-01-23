@@ -29,7 +29,7 @@ Each signaling system has:
     ],
     # describes static properties of the signal
     "signal_properties": [
-        {"kind": "flag", "field_name": "Nf", "display_name": "Non-franchissable"},
+        {"kind": "flag", "field_name": "Nf", "display_name": "Non-permissive"},
         {"kind": "flag", "field_name": "has_ralen30", "default": false, "display_name": "Ralen 30"},
         {"kind": "flag", "field_name": "has_rappel30", "default": false, "display_name": "Rappel 30"},
         {"kind": "flag", "field_name": "has_ralen60", "default": false, "display_name": "Ralen 60"},

@@ -73,7 +73,7 @@ Speed limits per tag also have to be deduced if missing.
 
 Upsides:
  - less work for users
- - lessens the likelyhood of configuration mismatches
+ - lessens the likelihood of configuration mismatches
 
 Downsides:
  - not all signaling systems work well with this. It may be difficult to deduce the announced speed limit from a signal configuration, such as with TVM.

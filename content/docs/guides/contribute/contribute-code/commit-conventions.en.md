@@ -27,10 +27,10 @@ Ideally:
 - the title should be self-explanatory: no need to read anything else to understand it
 - the commit title is all lower-case
 - the title is clear to a reader not familiar with the code
-- the body of the commit contains a detailled description of the change
+- the body of the commit contains a detailed description of the change
 
 {{% alert title="" color="info"%}}
-An automated check is performed to enforce as much as possible this formating.
+An automated check is performed to enforce as much as possible this formatting.
 {{% /alert %}}
 
 ### Counter-examples of commit titles
@@ -74,6 +74,6 @@ Now, go in `Files` -> `Preferences` -> `Settings`, search for and activate
 the **Always Sign Off** setting.
 
 Finally, when you'll commit your changes via the VS Code interface, your commits
-will automaticaly be signed-off.
+will automatically be signed-off.
 
 *[Continue towards sharing your changes ‣]({{< ref "share-changes">}})*

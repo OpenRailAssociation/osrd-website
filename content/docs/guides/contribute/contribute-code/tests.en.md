@@ -2,7 +2,7 @@
 title: "Tests"
 linkTitle: "Tests"
 weight: 6
-description: "Recommandations for testing purpose"
+description: "Recommendations for testing purpose"
 ---
 
 ## Back-end

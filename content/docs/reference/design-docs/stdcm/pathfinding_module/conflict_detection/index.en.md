@@ -32,4 +32,4 @@ we need some elements in the lookahead section).
 
 To handle it, the conflict detection module
 returns an error when more lookahead is required. When it happens
-we extend it by cloning the infra explorer objets.
+we extend it by cloning the infra explorer objects.

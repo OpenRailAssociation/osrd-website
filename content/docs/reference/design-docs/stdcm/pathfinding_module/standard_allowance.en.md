@@ -6,7 +6,7 @@ weight: 50
 
 
 The STDCM module must be usable with
-[standard allowances]({{< ref "docs/explanation/running_time_calculation/allowances" >}} "marge de régularité").
+[standard allowances]({{< ref "docs/explanation/running_time_calculation/allowances" >}}).
 The user can set an allowance value, expressed either as a function of
 the running time or the travelled distance. This time must be added to the
 running time, so that it arrives later compared to its fastest possible

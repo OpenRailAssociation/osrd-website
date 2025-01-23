@@ -17,7 +17,7 @@ In practice, open source is both a **legal framework** for collaborative work, a
 
 ## OSRD and Open Source
 
-Applied to OSRD, Open Source has **multiple avantages** :
+Applied to OSRD, Open Source has **multiple advantages** :
  - the algorithms and know-how developed with the project are free for all
  - development cost and results are shared between actors
  - it makes interoperability between software systems easier by helping make the landscape more homogeneous and standardized
