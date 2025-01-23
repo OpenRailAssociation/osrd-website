@@ -1,0 +1,6 @@
+autoplay
+dont
+imagepostlinkedin
+marginauto
+opensource
+pageinfo
