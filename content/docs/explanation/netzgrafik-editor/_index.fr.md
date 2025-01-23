@@ -36,7 +36,7 @@ Il est important de noter que dans sa version `standalone`, NGE se repose alors 
 #### 2 - Convertisseurs
 
 Pour surpasser les différences sémantiques et adapter les modèles de données, deux convertisseurs sont implémentés :
-- **[OSRD -> NGE]** un convertisseur qui transforme une grille horaire OSRD en un modèle NGE. Les noeuds sont les points de passage décrits par les circulations, et dont les informations macroscopiques (position sur le réticulaire) sont stockés en base de données. Les circulations OSRD, `TrainSchedule`, représentent alors des lignes de train cadencées dans NGE, `Trainrun`. Un concept de lignes de trains cadencées, sera bientôt implémenté pour permettre la convergence conceptuelle entre OSRD et NGE.
+- **[OSRD -> NGE]** un convertisseur qui transforme une grille horaire OSRD en un modèle NGE. Les nœuds sont les points de passage décrits par les circulations, et dont les informations macroscopiques (position sur le réticulaire) sont stockés en base de données. Les circulations OSRD, `TrainSchedule`, représentent alors des lignes de train cadencées dans NGE, `Trainrun`. Un concept de lignes de trains cadencées, sera bientôt implémenté pour permettre la convergence conceptuelle entre OSRD et NGE.
 - **[OSRD <- NGE]** un gestionnaire d'événements, qui transforme une action NGE en mise à jour de la base de données OSRD.
 
 #### 3 - Open-source (coopération / contribution)

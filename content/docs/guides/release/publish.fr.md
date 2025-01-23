@@ -12,7 +12,7 @@ Le processus de création d'une nouvelle version est le suivant :
 1. Nous publions toujours sur une version testée de l'application (branche staging)
     - `git switch staging && git pull`
 1. Créer un tag git **annoté**
-    - Nous utilisons le [versionnement sémantique](https://semver.org/)
+    - Nous utilisons le [versionnage sémantique](https://semver.org/)
     - `git tag -a vx.y.z` avec le message `Release x.y.z` (la plupart du temps, utilisez la dernière version et incrémentez la version patch)
     - `git push --tags`
 1. Créer une release GitHub

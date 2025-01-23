@@ -84,7 +84,7 @@ commun à toutes les fonctionnalités d'OSRD, un module dédié permet de :
 
 Si une grande partie des sillons[^sillon] sont établis longtemps à
 l'avance, une proportion grandissante ne sont commandés que très peu
-de temps avant le départ souhaité du train, notament avec le développement
+de temps avant le départ souhaité du train, notamment avec le développement
 du fret.
 
 Il faut par conséquent être capable de répondre non seulement rapidement

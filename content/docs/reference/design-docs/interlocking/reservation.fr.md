@@ -6,7 +6,7 @@ description: "Gère l'état de réservation des zones"
 ---
 
 {{% alert color="warning" %}}
-Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande plannifiée d'itinéraire
+Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande planifiée d'itinéraire
 {{% /alert %}}
 
 ## Description

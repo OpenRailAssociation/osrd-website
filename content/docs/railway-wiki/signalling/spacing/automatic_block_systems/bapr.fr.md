@@ -2,7 +2,7 @@
 title: "BAPR"
 linkTitle: "BAPR"
 weight: 200 000
-description: Block Automatique à Permitivité Restreinte
+description: Block Automatique à Permittivité Restreinte
 ---
 
 Le signal d’entrée du canton est un signal qui présente une indication liée à l’état d’occupation du canton suivant

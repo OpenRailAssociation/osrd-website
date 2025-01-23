@@ -10,7 +10,7 @@ sequenceDiagram
   actor A as Auteur PR
   actor R as Reviewer/mainteneur
 
-  A->>R: Demande une review en notifiant spéciquement quelques personnes
+  A->>R: Demande une review en notifiant spécifiquement quelques personnes
   R->>A: Répond à la demande par oui ou non
 
   loop Boucle entre auteur et reviewer

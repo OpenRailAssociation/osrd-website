@@ -7,7 +7,7 @@ description: Comment mettre en place l'environnement de développement ? Qu'impl
 
 ## La licence des contributions de code
 
-Tout le code du dépot OSRD est mis à disposition sous [la licence LGPLv3](https://choosealicense.com/licenses/lgpl-3.0/).
+Tout le code du dépôt OSRD est mis à disposition sous [la licence LGPLv3](https://choosealicense.com/licenses/lgpl-3.0/).
 En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.
 
 La licence LGPL interdit de modifier OSRD sans publier le code source de l'application modifiée : profitez du travail des autres, et laissez les autres profiter de votre travail !

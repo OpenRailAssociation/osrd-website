@@ -18,7 +18,7 @@ Des **données open data** exploitées par une suite d'**outils open source** ou
  - les chercheurs et entreprises peuvent maintenant exploiter les données sans avoir à créer leurs propres outils, ou en acquérir par leurs propres moyens
  - les clients de l'entreprise peuvent utiliser outils et données pour améliorer leur usage des services
 
-Si **plusieurs acteurs** mettent en open data des données exploitables par un même logiciel open source, il devient également possible de **recouper les données** et de **fournir et plannifier des services communs**.
+Si **plusieurs acteurs** mettent en open data des données exploitables par un même logiciel open source, il devient également possible de **recouper les données** et de **fournir et planifier des services communs**.
 
 ## Dans le cadre d'OSRD
 
