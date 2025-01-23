@@ -38,7 +38,7 @@ At some point in the design process, the question was raised of whether to refer
 It was decided to add identifiers to path waypoints, and to reference those identifiers where referencing a path location is needed. This has multiple upsides:
 
 - you can't reference a location outside of the path
-- when changing a waypoint's location, for example from one station's platform to another, no additional maintenant work is needed to keep the path consistent
+- when changing a waypoint's location, for example from one station's platform to another, no additional work is needed to keep the path consistent
 - if a path goes to the same place multiple times, the identifier reference makes it clear which path location is referenced
 - it makes keeping data consistent while editing easier, as all locations are kept in a single place
 

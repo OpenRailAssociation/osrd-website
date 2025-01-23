@@ -48,7 +48,7 @@ Learn more about [Inspire data model](https://inspire.ec.europa.eu/file/1723/dow
 - Calculate a new field using the following formula to get the length of each track in kilometers:
 
         "length" = $length / 1000 
-- Select electrified parts of the network using the "other_tages" field: 
+- Select electrified parts of the network using the "other_tags" field:
 
         "other_tags" like '%"electrified"=>"yes"%'
         or "other_tags" like '%"electrified"=>"contact_line"%'

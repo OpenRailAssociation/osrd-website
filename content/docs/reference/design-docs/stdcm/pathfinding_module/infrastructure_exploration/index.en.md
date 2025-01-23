@@ -38,7 +38,7 @@ where the train will go next. In this example, it would tell us
 that the bottom right signal can be ignored entirely.
 The top path is the path being currently evaluated.
 **The bottom section of the path will be evaluated in a different
-and already instanciated `InfraExplorer`**
+and already instantiated `InfraExplorer`**
 
 
 The `InfraExplorer` is manipulated with two main functions

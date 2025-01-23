@@ -10,7 +10,7 @@ weight: 50
 
 </font>
 
-As explained in the [calcul du Max Effort Profile](../pipeline/#calculation-of-the-max-effort-profile), the **basic running time** represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.
+As explained in the [calculation of the Max Effort Profile](../pipeline/#calculation-of-the-max-effort-profile), the **basic running time** represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.
 
 This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train's route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.
 

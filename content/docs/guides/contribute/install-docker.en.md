@@ -49,7 +49,7 @@ It uses colima for virtualizing linux.
 {{% alert color="info" %}}
 If you're using rancher desktop, please either:
 - uninstall the application
-- select `Manual` in `Preferences` > `Application` > `Environement`
+- select `Manual` in `Preferences` > `Application` > `Environment`
 {{% /alert %}}
 
 {{% alert color="info" %}}

@@ -15,7 +15,7 @@ The blocks have several attributes:
 - **Intermediate signals**, if any (only used by systems with distant signals).
 - An **exit signal**, (optional when the block ends at a buffer stop).
 
-The path is expressed from detector to detector so that it can be overlayed with the route graph.
+The path is expressed from detector to detector so that it can be overlaid with the route graph.
 
 A few remarks:
 
@@ -69,7 +69,7 @@ this attribute set.
 ## Conditional parameters
 
 Some signal parameters vary depending on which route is set. On each signal, an arbitrary number of rules can be added.
-If the signal is last to announce a speed limit, it must be explicitly mentionned in the rule.
+If the signal is last to announce a speed limit, it must be explicitly mentioned in the rule.
 
 ```yaml
 {
@@ -102,8 +102,8 @@ a common physical display. Each logical signal has:
 
 - a signaling system
 - user-editable properties, as specified in the signaling system description
-- a list of default parameters, which can get overriden per-route
-- an optional announced speed section, which can get overriden per-route
+- a list of default parameters, which can get overridden per-route
+- an optional announced speed section, which can get overridden per-route
 - a list of allowed next signaling systems, which are used to load drivers
 
 For example, this signal encodes a BAL signal which:

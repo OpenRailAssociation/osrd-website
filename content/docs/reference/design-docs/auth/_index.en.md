@@ -16,7 +16,7 @@ and stakeholders. After some interviews, we believe the overall needs to be as f
   - some users are supposed to only view results of operational studies
   - some users only get access to part of the app
   - not everyone can have access to the admin panel
-  - it could be nice to be able to roll experimental features out incrementaly
+  - it could be nice to be able to roll experimental features out incrementally
 - controlling access to data
   - some infrastructures shall only be changed by automated import jobs
   - users might want to control who can mess with what they're currently working on
@@ -207,10 +207,10 @@ DELETE /authn/group/{group_id}
 ## Authorization
 
 As shown in the overall architecture section, to determine if a subject is
-allowed to conduct an action on a ressource, two checks are performed:
+allowed to conduct an action on a resource, two checks are performed:
 
 1. We check that the **roles** of the subject allows the action.
-2. We check that the subject has the **minimum privileges** on the ressource(s) that are required to perform the action.
+2. We check that the subject has the **minimum privileges** on the resource(s) that are required to perform the action.
 
 ### Roles
 
@@ -249,7 +249,7 @@ Given these builtin roles, application roles may look like:
 Roles are _hierarchical_. This is a necessity to ensure that, for example, if we are to introduce a new action related to scenarios, each subject with the role "exploitation studies" gets that new role automatically.
 We'd otherwise need to edit the appropriate existing roles.
 
-Their hierarchy could ressemble:
+Their hierarchy could resemble:
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
@@ -304,7 +304,7 @@ Permission checks are performed as follows:
 enum EffectivePrivLvl {
     Owner,    // all operations allowed, including granting access and deleting the resource
     Writer,   // can change the resource
-    Creator,  // can create new subresources
+    Creator,  // can create new sub resources
     Reader,   // can read the resource
     MinimalMetadata, // is indirectly aware that the resource exists
 }
@@ -486,7 +486,7 @@ Back-end:
   - ensures that role / permission checks were performed. Implement two modules: log on missing check, abort on missing check.
   - injects which checks were performed into response headers so it can be tested
 - introduce the concept of rolling stock collections to enable easier rolling stock permission checking
-- write a migration guide to help OSRD developpers navigate the authorization APIs
+- write a migration guide to help OSRD developers navigate the authorization APIs
 
 Front-end:
 
@@ -563,13 +563,13 @@ We considered two patterns for permission management endpoints:
 We found that:
 
 - having separate set of endpoints per resource types brought extra back-end and front-end complexity
-- the only constraint of unified permission management endpoints is that all resource types need globaly unique IDs
-- the globaly unique ID constraint is less costly than the extra complexity of separate endpoints
+- the only constraint of unified permission management endpoints is that all resource types need globally unique IDs
+- the globally unique ID constraint is less costly than the extra complexity of separate endpoints
 
 ### Dynamically enforce permission checks
 
 Ideally, there would be static checks enforcing permission checks.
-However, we found no completly fool proof way to statically do so.
+However, we found no completely fool proof way to statically do so.
 
 Instead, we decided that all permission checks will be registered
 with a middleware, which will either log or raise an error when a

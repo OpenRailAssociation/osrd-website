@@ -41,7 +41,7 @@ Last but not least, a **common** directory offering :
 
 _In progress_
 
-`projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}`
+`projects/{project's name}/studies/{study's name}/scenarios/{scenario's name}`
 
 ### Styles & SCSS
 
@@ -150,7 +150,7 @@ In the store, you will see the `editoastApi` key containing the cached data of a
 
 Here for example, the `getProjects` endpoint is called.
 
-RTK stores the endpoint's name, as well as the call's parameters, to form an unique key `nomDuEndpoint({ paramètres })`. (here `getProjects({"ordering":"LastModifiedDesc","pageSize":1000})`).
+RTK stores the endpoint's name, as well as the call's parameters, to form an unique key `nomDuEndpoint({ parameter })`. (here `getProjects({"ordering":"LastModifiedDesc","pageSize":1000})`).
 
 ```js
 {
@@ -164,7 +164,7 @@ RTK stores the endpoint's name, as well as the call's parameters, to form an uni
 }
 ```
 
-In this second example, the same endpoint has been called with the ssame `projectId` parameter, but a different `studyId` parameter.
+In this second example, the same endpoint has been called with the same `projectId` parameter, but a different `studyId` parameter.
 
 ##### Serialization of keys in the cache
 

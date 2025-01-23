@@ -55,4 +55,4 @@ For example, with the following infrastructure, using the track graph:
 ![Example infra](example_infra.svg)
 
 Exploring the solution graph can give the following result:
-![Représentation du graphe](example_graph.svg)
+![Graph Representation](example_graph.svg)

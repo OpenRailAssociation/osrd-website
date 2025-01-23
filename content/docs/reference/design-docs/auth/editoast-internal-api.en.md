@@ -22,12 +22,12 @@ The following invariants were deemed worth validating:
 - (low priority) privilege checks are performed before changes are made / data is returned
 - (low priority) access patterns match privilege checks
 
-Other design criterias have an impact:
+Other design criteria have an impact:
 
 - (high priority) misuse potential
 - (high priority) usage complexity and developer experience
 - (medium priority) ease of migration
-- (low priority) static checks are prefered
+- (low priority) static checks are preferred
 
 ## Data model
 
@@ -250,7 +250,7 @@ This proposal suggests dynamically enforcing all authorization invariants:
 
 - _role and privilege checks were performed_: The authorizer records all checks, and panics / logs an error if no check is made
 - _privilege checks are performed before changes are made / data is returned_: checked database accesses
-  (the default) cannot be made before commiting authorization checks. No more authorization check can be made after commiting.
+  (the default) cannot be made before committing authorization checks. No more authorization check can be made after committing.
 - _access patterns match privilege checks_: Check database access functions ensure a prior check was
   made using the Authorizer's check log.
 
@@ -259,7 +259,7 @@ Each database access method thus gets two variants:
 
 - a checked variant (the default), which takes the Authorizer as a parameter. This variants panics if:
 
-  - a resource is accessed before authorization checks are commited
+  - a resource is accessed before authorization checks are committed
   - a resource is accessed without a prior authorizer check.
 
 - an unchecked variant. its use should be limited to:
@@ -347,7 +347,7 @@ async fn create_scenario(
 ### 🤔 Proposal: Static access control
 
 {{% pageinfo color="info" %}}
-This proposal aims at improving the `Authorizer` descibed above by building on it a safety layer that encodes granted permissions into the type system.
+This proposal aims at improving the `Authorizer` described above by building on it a safety layer that encodes granted permissions into the type system.
 
 This way, if access patterns do not match the privilege checks performed beforehand, the program will fail to compile and precisely pinpoint the privilege override as a type error.
 {{% /pageinfo %}}
@@ -356,7 +356,7 @@ To summarize, the `Authorizer` allows us to:
 
 1. Pre-fetch the user of the request and its characteristics as a middleware
 1. Check their roles
-1. Maintain a log of authorization requests on specific ressources, and check if they hold
+1. Maintain a log of authorization requests on specific resources, and check if they hold
 1. Guarantees that no authorization will be granted passed a certain point (`commit` function)
 1. At the end of an endpoint, checks that permissions were granted or `panic!`s otherwise
 
@@ -373,9 +373,9 @@ We can do that either statically or dynamically.
 Let's say we keep the `Authorizer` as the high-level API for authorization.
 It holds a log of grants. Therefore, any DB operation that needs to be authorized must, in addition to the `conn`, take an `Arc<Authorizer>` parameter and let the operation check that it's indeed authorized. For example, every `retrieve(conn, authorizer, id)` operation would ask the authorizer the permission before querying the DB.
 
-This approach works and has the benefit of being easy to understand, but does not provide any guarantee that the access paterns match the granted authorizations and that privilege override cannot happen.
+This approach works and has the benefit of being easy to understand, but does not provide any guarantee that the access patterns match the granted authorizations and that privilege override cannot happen.
 A way to ensure that would be to thoroughly test each endpoint and ensure that the DB accesses `panic` in expected situations. Doing so manually is extremely tedious and fragile in the long run, so let's focus on automated tests.
-To make sure that, at any moment, each endpoint doesn't override its privileges, we'd need a test for each releveant privilege level and for each code path accessing ressources. Admittedly this would be great, but:
+To make sure that, at any moment, each endpoint doesn't override its privileges, we'd need a test for each relevant privilege level and for each code path accessing resources. Admittedly this would be great, but:
 
 - it **heavily depends on test coverage** (which we don't have) to make sure no code path is left out, i.e. that no test is missing
 - it's unrealistic given the current state of things and how fast editoast changes
@@ -400,7 +400,7 @@ let timetable_authz: Authz<Timetable, Read> = authorizer.authorize(&[42])?;
 The authorizer does two things here:
 
 1. Checks that the privilege level of the user allows them to `Read` on the timetable ID#42.
-1. Builds an `Authz` object that stores the ID#42 for later checks, which encodes in the type system that we have a `Read` authorization on _some_ `Timetable` ressources.
+1. Builds an `Authz` object that stores the ID#42 for later checks, which encodes in the type system that we have a `Read` authorization on _some_ `Timetable` resources.
 
 Then, after we `authorizer.commit();`, we can use the `Authz` to effectively request the timetable:
 
@@ -441,7 +441,7 @@ This approach brings several advantages:
 - **correctness**: the compiler will prevent any privilege override for us
 - **readability**: if a function requires some form of authorization, it will show in its prototype
 - **ease of writing**: we can't write DB operations that ultimately wouldn't be authorized, avoiding a potential full rewrite once we notice the problem (and linting is on our side to show problems early)
-- **more declarative**: if you want to read an object, you ask for a `Read` permission, the system is then responsible for checking the privilege level and map that to a set of allowed permissions. This way we abstract a little over the hierarchy of privileges a ressource can have.
+- **more declarative**: if you want to read an object, you ask for a `Read` permission, the system is then responsible for checking the privilege level and map that to a set of allowed permissions. This way we abstract a little over the hierarchy of privileges a resource can have.
 - **ease of refactoring**: thanks rustc ;)
 - **flexibility**: since the `Authz` has a reference to the `Authorizer`, the API mixes well with more dynamic contexts (should we need that in the future)
 - **migration**
@@ -456,9 +456,9 @@ This approach brings several advantages:
 
 The following sections explore how to use this API:
 
-- to define authorized ressources
+- to define authorized resources
 - implement the effective privilege level logic
-- to deal with complex ressources (here `Study`) which need custom authorization rules and that are not atomic (the budgets follow different rules than the rest of the metadata)
+- to deal with complex resources (here `Study`) which need custom authorization rules and that are not atomic (the budgets follow different rules than the rest of the metadata)
 - to implement an endpoint that require different permissions (`create_scenario`)
 
 ##### Actions
@@ -493,14 +493,14 @@ mod action {
 }
 ```
 
-The motivation behind this is that at usage, we don't usually care about the privilege of a user over a ressource. We only care, if we're about to read a ressource, whether the user has a privilege level **high enough** to do so.
+The motivation behind this is that at usage, we don't usually care about the privilege of a user over a resource. We only care, if we're about to read a resource, whether the user has a privilege level **high enough** to do so.
 
-The proposed paradigm here is to ask the permission to to an **action over a ressource**, and let the ressource definition module decide (using its own effective privilege hierarchy) whether the action is authorized or not.
+The proposed paradigm here is to ask the permission to to an **action over a resource**, and let the resource definition module decide (using its own effective privilege hierarchy) whether the action is authorized or not.
 
 ##### Standard and custom effective privileges
 
-We need to define the effective privilege level for each ressource. For most
-ressources, a classic `Reader < Writer < Owner` is enough. So we expose that by default, leaving the choice to each ressource to provide their own.
+We need to define the effective privilege level for each resource. For most
+resources, a classic `Reader < Writer < Owner` is enough. So we expose that by default, leaving the choice to each resource to provide their own.
 
 We also define an enum providing the origin of a privilege, which is a useful
 information for permission sharing.
@@ -555,16 +555,16 @@ impl EffectiveGrant for AuthzGrantInfra {
 
 where `GrantMap<PrivilegeLevel>` is an internal representation of a collection of grants (implicit and explicit) with some privilege level hierarchy (custom or not).
 
-##### Ressource definition
+##### Resource definition
 
-Each ressource is then associated to a model and a grant type. We also declare which actions are allowed based on how we want the model to be used given the effective privilege of the ressource in DB.
+Each resource is then associated to a model and a grant type. We also declare which actions are allowed based on how we want the model to be used given the effective privilege of the resource in DB.
 
-The `RessourceType` is necessary for the dynamic context of the underlying `Authorizer`.
+The `ResourceType` is necessary for the dynamic context of the underlying `Authorizer`.
 
 ```rust
-impl Ressource for Infra {
+impl Resource for Infra {
     type Grant = AuthzGrantInfra;
-    const TYPE: RessourceType = RessourceType::Infra;
+    const TYPE: ResourceType = ResourceType::Infra;
 
     /// Returns None is the action is prohibited
     fn minimum_privilege_required(action: Cruda) -> Option<Self::Grant::EffectivePrivilegeLevel> {
@@ -610,7 +610,7 @@ impl PrivilegeLevel for StudyPrivilegeLevel {
 ///////// Effective grant retrieval
 
 impl EffectiveGrant for AuthzGrantStudy {
-    type EffectivePrivilegeLevel = StudyrivilegeLevel;
+    type EffectivePrivilegeLevel = StudyPrivilegeLevel;
 
     async fn fetch_grants(
         conn: &mut DbConnection,
@@ -628,14 +628,14 @@ impl EffectiveGrant for AuthzGrantStudy {
 }
 
 
-//////// Authorized ressources
+//////// Authorized resources
 
 /// Budgets of the study (can be read and updated by owners)
 struct StudyBudgets { ... }
 
-impl Ressource for StudyBudgets {
+impl Resource for StudyBudgets {
     type Grant = AuthzGrantStudy;
-    const TYPE: RessourceType = RessourceType::Study;
+    const TYPE: ResourceType = ResourceType::Study;
 
     fn minimum_privilege_required(action: Cruda) -> Option<StudyPrivilegeLevel> {
         use Cruda::*;
@@ -650,9 +650,9 @@ impl Ressource for StudyBudgets {
 /// Non-sensitive metadata available to users with privilege level MinimalMetadata (can only be read)
 struct StudyMetadata { ... }
 
-impl Ressource for StudyMetadata {
+impl Resource for StudyMetadata {
     type Grant = AuthzGrantStudy;
-    const TYPE: RessourceType = RessourceType::Study;
+    const TYPE: ResourceType = ResourceType::Study;
 
     fn minimum_privilege_required(action: Cruda) -> Option<StudyPrivilegeLevel> {
         use Cruda::*;
@@ -667,9 +667,9 @@ impl Ressource for StudyMetadata {
 /// A full study (can be created, read, updated, appended and deleted)
 struct Study { ... }
 
-impl Ressource for Study {
+impl Resource for Study {
     type Grant = AuthzGrantStudy;
-    const TYPE: RessourceType = RessourceType::Study;
+    const TYPE: ResourceType = ResourceType::Study;
 
     fn minimum_privilege_required(action: Cruda) -> Option<StudyPrivilegeLevel> {
         use Cruda::*;

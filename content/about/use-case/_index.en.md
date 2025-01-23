@@ -14,7 +14,7 @@ OSRD is meant to fulfill a range of use-cases related to railway planning:
  - [short term capacity management](#short-term-capacity-management)
 
 
-![produits OSRD](osrd_product.en.png)
+![OSRD product](osrd_product.en.png)
 
 
 ## Timetabling
