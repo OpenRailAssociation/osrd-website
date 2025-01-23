@@ -66,10 +66,10 @@ Pour toutes les sections de voies de notre infrastructure, les attributs `geo` s
 
 Pour la plupart des sections de voies, leur `length` est proportionnelle à ce que l'on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour *TA6*, *TA7*, *TD0* et *TD1* (qui font 10km et 25km).
 
-#### Noeud
+#### Nœud
 
-Un `Node` représente un noeud dans l'infrastructure. Dans une simulation OSRD, un train ne peut passer d'une section de voie à une autre que si elles sont reliées par un noeud.
-Un noeud peut se présenter de deux manières différentes :
+Un `Node` représente un nœud dans l'infrastructure. Dans une simulation OSRD, un train ne peut passer d'une section de voie à une autre que si elles sont reliées par un nœud.
+Un nœud peut se présenter de deux manières différentes :
 
 **1) Aiguillages**
 
@@ -81,25 +81,25 @@ Dans le monde réel, les aiguillages ne sont pas uniques, mais plutôt des insta
 
 Pour le moment, nous n'avons créé que des sections de voies, qui ne sont pas interconnectées (les données géospatiales ne sont pas utilisées pour déduire quelles voies sont connectées).
 
-Les `link` sont utilisés pour connecter deux sections de voie ensemble, tout comme un joint de soudure le ferait dans la vie réelle. Dans une simulation OSRD, un train ne peut passer d'une section de voie à une autre que si elles sont reliées par ce type de noeud, le `link` (ou par un autre `NodeType`).
+Les `link` sont utilisés pour connecter deux sections de voie ensemble, tout comme un joint de soudure le ferait dans la vie réelle. Dans une simulation OSRD, un train ne peut passer d'une section de voie à une autre que si elles sont reliées par ce type de nœud, le `link` (ou par un autre `NodeType`).
 
 Que ce soit pour les aiguillages ou les liens de sections de voies, les liens et les groupes ne font pas partie du switch lui-même, mais d'un objet `NodeType`, qui est partagé par les aiguillages du même modèle.
 
-###### Types de Noeud
+###### Types de Nœud
 
 Les `NodeTypes` ont deux attributs obligatoires :
 
-* `ports` : Une liste de noms de ports. Un port est une extrémité du noeud qui peut être connecté à une section de voie.
-* `groups` : Un table de correspondance entre le nom des groupes et les listes de branches (connexion entre 2 ports) qui caractérisent les différentes positions possibles du type de Noeud
+* `ports` : Une liste de noms de ports. Un port est une extrémité du nœud qui peut être connecté à une section de voie.
+* `groups` : Un table de correspondance entre le nom des groupes et les listes de branches (connexion entre 2 ports) qui caractérisent les différentes positions possibles du type de nœud
 
-À tout moment, tous les noeuds *ont* un groupe actif, et *peuvent avoir* une branche active, qui appartient toujours au groupe actif. Pendant une simulation, le changement de branche active à l'intérieur d'un groupe est instantané, mais le changement de branche active entre les groupes prend un temps configurable.
-Ceci est dû au fait qu'un `Noeud` peut-être un objet physique (dans le cas des aiguillages), et que le changement de branche active peut impliquer le déplacement de certaines de ses parties. Les `groups` sont conçus pour représenter les différentes positions qu'un `Noeud` peut avoir. Chaque groupe contient les liens qui peuvent être utilisés dans la position du `Noeud` associé.
+À tout moment, tous les nœuds *ont* un groupe actif, et *peuvent avoir* une branche active, qui appartient toujours au groupe actif. Pendant une simulation, le changement de branche active à l'intérieur d'un groupe est instantané, mais le changement de branche active entre les groupes prend un temps configurable.
+Ceci est dû au fait qu'un `Nœud` peut-être un objet physique (dans le cas des aiguillages), et que le changement de branche active peut impliquer le déplacement de certaines de ses parties. Les `groups` sont conçus pour représenter les différentes positions qu'un `Nœud` peut avoir. Chaque groupe contient les liens qui peuvent être utilisés dans la position du `Nœud` associé.
 
-Dans le cas des aiguilles, la durée nécessaire pour changer de groupe est stockée à l'intérieur du `Noeud`, car elle peut varier en fonction de l'implémentation physique du modèle d'aiguillage.
+Dans le cas des aiguilles, la durée nécessaire pour changer de groupe est stockée à l'intérieur du `Nœud`, car elle peut varier en fonction de l'implémentation physique du modèle d'aiguillage.
 
-Nos exemples utilisent actuellement cinq `NodeTypes`. Il est possible d'ajouter un type de noeud si nécessaire via le champ `extended_node_type`.
+Nos exemples utilisent actuellement cinq `NodeTypes`. Il est possible d'ajouter un type de nœud si nécessaire via le champ `extended_node_type`.
 
-**1) Le lien entre deux sectionx de voies**
+**1) Le lien entre deux sections de voies**
 
 Celui-ci représente le lien entre deux sections de voies. Il possède deux ports : *A* et *B*.
 
@@ -175,21 +175,21 @@ Voici les trois connexions que peut réaliser cet aiguillage :
 ![Diagramme des positions de l'aiguillage de croisement simple](svg_diagrams/SingleSlipCrossing_A1toB1.svg) ![Diagramme des positions de l'aiguillage de croisement simple](svg_diagrams/SingleSlipCrossing_A1toB2.svg)
 ![Diagramme des positions de l'aiguillage de croisement simple](svg_diagrams/SingleSlipCrossing_A2toB2.svg)
 
-##### Retour aux noeuds
+##### Retour aux nœuds
 
 Un `Node` possède trois attributs :
 
-* `node_type` : l'identifiant [`NodeType`](#types-daiguillages) de ce noeud.
+* `node_type` : l'identifiant [`NodeType`](#types-daiguillages) de ce nœud.
 * `ports` : une correspondance entre les noms de port et les extrémités des sections de voie.
 * `group_change_delay` : le temps qu'il faut pour changer le groupe de l'aiguillage qui est actif.
 
-Les noms des ports doivent correspondre aux ports du type du noeud choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.
+Les noms des ports doivent correspondre aux ports du type du nœud choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.
 
-La plupart des noeuds de notre exemple sont des noeuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement. Enfin, il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.
+La plupart des nœuds de notre exemple sont des nœuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement. Enfin, il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.
 
 ![Diagramme des sections de voie et des aiguillages](svg_diagrams/small_infra_rails_n_points.drawio.en.svg)
 
-Il est important de noter que ces noeuds sont présents par défaut dans le code du projet. Seuls les `extended_switch_type` ajoutés par l'utilisateur apparaîtront dans le railjson.
+Il est important de noter que ces nœuds sont présents par défaut dans le code du projet. Seuls les `extended_switch_type` ajoutés par l'utilisateur apparaîtront dans le railjson.
 
 #### Courbes et pentes
 

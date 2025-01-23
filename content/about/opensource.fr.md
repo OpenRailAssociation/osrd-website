@@ -29,10 +29,10 @@ Dans le contexte d'OSRD, ce modèle a de **multiples avantages** :
 L'utilisation d'un projet open source comme catalyseur de collaboration industrielle a de nombreux antécédents :
  - **Blender** est un outil de modélisation, rendu, et animation 3D très complet, qui est récemment devenu une [plateforme de collaboration industrielle](https://fund.blender.org/) majeure pour l'industrie audiovisuelle
  - **Linux**, une alternative à Windows qui équipe Google, Microsoft, Amazon, Apple, la plupart des sites internet, plateformes cloud, téléphones, routeurs, et bien plus. Toutes ces entreprises contribuent et se reposent énormément sur Linux
- - **Android** est une base commune pour la majorité des téléphones vendus. Les fabriquants contribuent régulièrement à Android
+ - **Android** est une base commune pour la majorité des téléphones vendus. Les fabricants contribuent régulièrement à Android
  - **PostgreSQL**, **MySQL**, **SQLite** et d'autres bases de donnée open source dominent collectivement ce marché. Un acteur aux besoins inédits peut contribuer à un outil open source plutôt qu'en créer un nouveau.
  - À la fois **Firefox** et **Chrome** sont Open Source
- - **Wordpress** est le CMS au coeur de 43% des sites internet en activité. Une armée d'entreprises contribuent et produisent des extensions
+ - **Wordpress** est le CMS au cœur de 43% des sites internet en activité. Une armée d'entreprises contribuent et produisent des extensions
  - **Odoo** est un ERP modulaire très complet, à la communauté similaire à Wordpress
 
 **Toutes ces projets ont en commun d'être essentiel au business d'un grand nombre d'entreprises, sans pour autant être ce que l'entreprise commercialise**.
@@ -50,7 +50,7 @@ En pratique, les logiciels libre sont développés via [une forge](https://githu
 Tout le monde peut proposer un changement, signaler un bug ou proposer une tâche.
 
 Les propositions de changement sont soumis à une **revue par les pairs**, semblables à celles de la communauté scientifique.
-Les individus en charge de la revue (les reviewers) sont ceux qui sont les plus familliers avec les composants affectés par le changement.
+Les individus en charge de la revue (les reviewers) sont ceux qui sont les plus familiers avec les composants affectés par le changement.
 
 Les changements sont intégrés par des mainteneurs sur la base du **consensus** entre reviewers.
 Les mainteneurs sont responsables de la cohérence technique du projet, et obtiennent cette position par consensus.

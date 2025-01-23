@@ -42,7 +42,7 @@ On distingue :
 - l’espacement sur lignes à grande vitesse (TVM, [ETCS 2](./ertms/))
 
 Sur les sections de lignes équipées en cantonnement téléphonique ou en block manuel par appareils, les signaux de
-cantonnement sont manoeuvrés au sol ou depuis des postes par des agents du service du gestionnaire d’infrastructure (GI)
+cantonnement sont manœuvrés au sol ou depuis des postes par des agents du service du gestionnaire d’infrastructure (GI)
 chargé de la gestion des circulations dénommés « gardes ».
 
 Sur les sections de lignes équipées en BAL ou BAPR, les signaux de cantonnement se ferment automatiquement dès

@@ -49,7 +49,7 @@ Bienvenus pour faciliter la relecture, mais ne pas merger:
 
 ## Le Developer Certificate of Origin (DCO)
 
-Tous les projets d'OSRD utilisent le DCO (certificat du développeur d'orgine)
+Tous les projets d'OSRD utilisent le DCO (certificat du développeur d'origine)
 pour des raisons légales. Le DCO permet de confirmer que vous avez les droits
 sur le code que vous contribuez. Pour en savoir plus sur l'histoire et
 l'objectif du DCO, vous pouvez lire [The Developer Certificate of Origin](https://bssw.io/blog_posts/the-developer-certificate-of-origin)

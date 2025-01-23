@@ -44,7 +44,7 @@ Certains itinéraires en gare ne permettent pas le partage du chemin par plusieu
 {{% /alert %}}
 
 {{% alert title="Piste d'évolution" color="info" %}}
-En pratique, il pourrait être intéressant d'introduire une notion de route partielle afin de réduire le nombre de routes nécessaires: une route partielle est une portion de route qu'il n'est pas sûr d'activer indépendament.
+En pratique, il pourrait être intéressant d'introduire une notion de route partielle afin de réduire le nombre de routes nécessaires: une route partielle est une portion de route qu'il n'est pas sûr d'activer indépendamment.
 {{% /alert %}}
 
 ## Exigences de conception
@@ -101,5 +101,5 @@ La seconde option a été choisie, car :
 ### Cycle de vie des routes et état des zones
 
 Plusieurs enjeux motivent le cycle de vie des routes et l'état des zones :
- - d'une part, l'état des zones est au coeur de la détection de conflit : il doit être possible d'extraire d'une simulation d'un train seul ses besoins en ressources
+ - d'une part, l'état des zones est au cœur de la détection de conflit : il doit être possible d'extraire d'une simulation d'un train seul ses besoins en ressources
  - d'autre part, il faut qu'une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important

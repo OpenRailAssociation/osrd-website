@@ -48,8 +48,8 @@ Cette procédure permet d'installer docker sans passer par docker desktop. Elle 
 
 {{% alert color="info" %}}
 Si vous utiliser rancher desktop, veuillez soit:
-- déinstaller l'application
-- sélectioner `Manuel` dans `Préférences` > `Application` > `Environnement`
+- désinstaller l'application
+- sélectionner `Manuel` dans `Préférences` > `Application` > `Environnement`
 {{% /alert %}}
 
 {{% alert color="info" %}}

@@ -54,9 +54,9 @@ Les résultats d'un calcul de marche peuvent se représenter sous différentes f
 >
 > La ligne bleue représente le calcul de marche le plus tendu pour le train, la ligne verte représente un calcul de marche détendu, dit « économique ».
 >
-> Les rectangles pleins entourant les trajets représentent les portions de la voie successivement reservées au passage du train (appelées cantons).
+> Les rectangles pleins entourant les trajets représentent les portions de la voie successivement réservées au passage du train (appelées cantons).
 
-- **Le graphique espace/vitesse (GEV) :** représente le parcours d'un seul train, cette fois-ci en termes de vitesse. Les arrêts apparaissent donc sous forme de décrochages de la courbe jusqu'à zéro, suivis d'un réaccélération.
+- **Le graphique espace/vitesse (GEV) :** représente le parcours d'un seul train, cette fois-ci en termes de vitesse. Les arrêts apparaissent donc sous forme de décrochages de la courbe jusqu'à zéro, suivis d'un ré-accélération.
 
 ![Graphique Espace/Vitesse](graph_espace_vitesse.png)
 

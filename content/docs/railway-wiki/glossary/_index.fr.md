@@ -85,7 +85,7 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 
 ### O
 
-- **OS** : On sight (conduite à vue) : mode technique de circulation qui autorise le conducteur à s’avancer en marche à vue. En ETCS1, le mode OS accompagné du message textuel national « Voie de service » impose la marche en manoeuvre pour la réception sur voie de service
+- **OS** : On sight (conduite à vue) : mode technique de circulation qui autorise le conducteur à s’avancer en marche à vue. En ETCS1, le mode OS accompagné du message textuel national « Voie de service » impose la marche en manœuvre pour la réception sur voie de service
 
 ### P
 
@@ -110,7 +110,7 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 
 - **SEL** : Section d'électrification. La plus petite portion d'un caténaire pouvant être coupée pour travaux
 - **SGS** : Système de gestion de la sécurité
-- **SH** : Shunting (manoeuvre) : mode technique de circulation manoeuvre
+- **SH** : Shunting (manœuvre) : mode technique de circulation manœuvre
 - **SN** : System national : mode technique de circulation de niveau STM
 - **SR** : Staff responsible (responsabilité agent) : mode technique de circulation utilisé dans les situations dégradées. Il est utilisable sous la responsabilité respective de l’agent-circulation et du conducteur
 - **SR** : Système de repérage
