@@ -5,78 +5,39 @@ weight: 40
 description: "Logiciel open-source développé par SBB CFF FFS et son intégration dans OSRD"
 ---
 
-Netzgrafik-Editor (NGE) est un logiciel open-source qui permet la création, la modification et l'analyse d'horaires à intervalles réguliers, à un niveau de détail macroscopique, développé par les Chemins de Fer Fédéraux suisses (SBB CFF FFS). Voir les dépôts [front-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend) et [back-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-backend)
+Netzgrafik-Editor (NGE) est un logiciel open-source qui permet la création, la modification et l'analyse d'horaires à intervalles réguliers, à un niveau de détail macroscopique, développé par les Chemins de Fer Fédéraux suisses (SBB CFF FFS). Voir les dépôts [front-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend) et [back-end](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-backend).
 
-OSRD (niveau de détail microscopique, trains à occurence unique, basé sur une infrastructure définie, représente une grille horaire) et NGE (niveau de détail macroscopique, courses de trains à intervalles réguliers, sans infrastructure, représente un plan de transport) sont sémantiquement différents, mais suffisamment proches pour fonctionner ensemble.
+OSRD et NGE sont sémantiquement différents: le premier fonctionne à un niveau de détail microscopique, est basé sur une infrastructure définie en qualité et représente une grille horaire composée d'instances uniques de trains, alors que le second fonctionne à un niveau de détail macroscopique, sans infrastructure explicite et représente un plan de transport composé de lignes de train cadencées. Cependant, ces différences, suffisamment proches, peuvent être manipulées pour fonctionner ensemble.
+
 La compatibilité entre NGE et OSRD a été testée à travers une preuve de concept, en exécutant les deux applications comme services distincts sans synchronisation automatisée.
 
-L'idée est de fournir à OSRD un outil graphique pour éditer (créer, mettre à jour et supprimer les horaires des trains) un horaire à partir d'un scénario d'étude opérationnelle, et obtenir en même temps des informations analytiques. Le deuxième avantage de l'utilisation des niveaux de détail microscopique et macroscopique est que les calculs microscopiques d'OSRD peuvent être propagés dans NGE pour améliorer son niveau de détail.
+L'idée est de fournir à OSRD un outil graphique pour éditer (créer, mettre à jour et supprimer les horaires des trains) une grille horaire à partir d'un scénario d'étude opérationnelle, et obtenir en même temps des informations analytiques. Utiliser des niveaux de détail microscopique et macroscopique permet un second bénéfice : les calculs microscopiques d'OSRD étendent le périmètre de NGE, ses fonctionnalités et les informations fournies, comme par exemple les simulations microscopiques ou l'outil de détection de conflits.
 
-L'objectif transversal de cette fonctionnalité est de faire collaborer deux projets open-source de deux grands gestionnaires d'infrastructure pour atteindre des objectifs communs.
+L'objectif transversal de cette fonctionnalité est de faire collaborer deux projets open-source de deux grands gestionnaires d'infrastructure ferroviaire pour atteindre le même objectif, celui d'assurer une continuité numérique à différentes échelles temporelles pour les études d'exploitations ferroviaires.
 
 #### 1 - Intégration dans OSRD
 
-Ainsi, NGE est intégré dans la section des études opérationnelles d'OSRD, dans un [`iframe`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe). Une alternative pour répondre au problème d'intégration aurait été de refacto NGE en [`web-components`](https://developer.mozilla.org/fr/docs/Web/API/Web_components), pour les importer facilement dans OSRD, mais cette solution a été abandonnée compte tenu de la quantité de refacto que cela représenterait. Cet `iframe` pointe vers `osrd-nge`, une application Angular minimaliste qui intègre l'application NGE réelle. Il peut également être vu comme un conteneur de l'application NGE réelle. `osrd-nge` personnalise ensuite l'application NGE réelle avec des paramètres et des fonctionnalités spécifiques :
+OSRD a développé une version `standalone` de NGE, intégrée au code source, qui permet à NGE de fonctionner sans back-end. Ainsi, à des fins d'utilisation externe, un [build de NGE `standalone` est disponible sur NPM](https://www.npmjs.com/package/netzgrafik-frontend), et est publié à chaque release. Enfin, pour répondre à des besoins spécifiques à OSRD, OSRD utilise un [fork](https://github.com/osrd-project/netzgrafik-editor-frontend) de NGE (dont le [build, NGE `standalone`, est aussi disponible sur NPM](https://www.npmjs.com/package/@osrd-project/netzgrafik-frontend)), en restant le plus proche possible du répertoire officiel.
 
-- un drapeau `standalone` :
-  - pour indiquer à NGE de désactiver toutes les interactions back-end (pas de base de données côté NGE)
-  - pour indiquer à NGE de désactiver certains composants de l'interface utilisateur (authentification, gestion de projet, vue du système de versionnage, etc...)
-- implémentation d'une interface de communication entre OSRD et NGE ([`message_event`](https://developer.mozilla.org/fr/docs/Web/API/Window/message_event), [`eventListener`](https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener) and [`postMessage`](https://developer.mozilla.org/fr/docs/Web/API/Window/postMessage)).
+Malgré l'utilisation de frameworks JavaScript différents (ReactJS pour OSRD et Angular pour NGE), ce build permet à OSRD d'intégrer NGE au sein d'un [`iframe`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe). Cet `iframe` instancie un [`Custom Element`](https://developer.mozilla.org/fr/docs/Web/API/Web_components/Using_custom_elements), qui est l'interface de communication entre les deux applications et démarre le build de NGE.
+
+Une alternative pour répondre au problème d'intégration aurait été de réécrire NGE en [`web-components`](https://developer.mozilla.org/fr/docs/Web/API/Web_components), pour les importer dans OSRD, mais cette solution a été abandonnée compte tenu de la quantité de travail que cela représenterait.
+
+NGE, sous sa version `standalone`, communique avec OSRD à travers l'`iframe` grâce à des propriétés d'éléments du DOM :
+- [`@Input`](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend/blob/fe3e788499e18054e260c05e714419aeeafc44e1/src/app/app.component.ts#L75): avec la propriété `netzgrafikDto`, déclenchée à la mise à jour du contenu du scénario depuis OSRD.
+- [`@Output`](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend/blob/fe3e788499e18054e260c05e714419aeeafc44e1/src/app/app.component.ts#L84): avec la propriété [`operations`](https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend/blob/main/documentation/STANDALONE.md), déclenchée à l'utilisation de NGE.
 
 NGE est alors capable d'obtenir la grille horaire OSRD dès qu'un changement est effectué du côté d'OSRD, et OSRD est capable d'obtenir les modifications effectuées du côté de NGE.
 
-Les diagrammes suivants montrent workflow entre les composants.
+![Diagramme conceptuel](osrd_nge_concept_diagram.png)
 
-![Diagramme conceptuel](osrd_nge_concept_diagram.jpg)
-
-```mermaid
----
-title: OSRD - NGE Sequence diagram
----
-sequenceDiagram
-  autonumber
-  OSRD (parent window)-->>OSRD (parent window): initialisation de la page web
-  OSRD (parent window)->>NGE (osrd-nge iframe): iframe.contentWindow.postMessage(nge_light_model, "*")
-  loop while synchronization is ON
-    alt any modification in OSRD (parent window)
-      OSRD (parent window)-->>OSRD (parent window): modification
-      OSRD (parent window)->>NGE (osrd-nge iframe): iframe.contentWindow.postMessage(nge_light_model, "*")
-    else any modification in NGE (osrd-nge iframe)
-      NGE (osrd-nge iframe)-->>NGE (osrd-nge iframe): modification <br>(hooks)
-      NGE (osrd-nge iframe)->>OSRD (parent window): parent.window.postMessage(nge_action, "*")
-      OSRD (parent window)-->>OSRD (parent window): convertion d'une action NGE en <br/>modification de la grille horaire
-      OSRD (parent window)->>NGE (osrd-nge iframe): iframe.contentWindow.postMessage(nge_light_model, "*")
-    end
-  end
-```
-
-Étant donné qu'OSRD est la seule source de vérité (= source de données), NGE doit être mis à jour en dernière action, pour être aligné avec l'état actuel de la grille horaire et obtenir les calculs microscopiques mis à jour d'OSRD.
-
-Plus précisément, lorsqu'un changement est effectué dans NGE :
-
-```mermaid
----
-title: OSRD - NGE Communication when modification in NGE
----
-sequenceDiagram
-  autonumber
-  NGE (nge-app)-->NGE (osrd-nge): osrd-nge écoute sur les hooks <br>de nge-app
-  NGE (osrd-nge)->>NGE (osrd-nge): (eventListeners) <br> callback déclenché
-  NGE (osrd-nge)->>OSRD (front-end): (callback functions) <br>parent.window.postMessage(nge_action, "*")
-  OSRD (front-end)->>OSRD (front-end): (eventListeners) <br> converti nge_action <br> en modification de la grille horaire
-  OSRD (front-end)->>OSRD (back-end): appel pour modifier la grille horaire
-  OSRD (back-end)->>OSRD (front-end): modifie la grille horaire
-  OSRD (front-end)->> OSRD (front-end): converti la grille horaire en<br> nge_light_model
-  OSRD (front-end)->>NGE (osrd-nge): iframe.contentWindow.postMessage(nge_light_model, "*")
-  NGE (osrd-nge)->>NGE (osrd-nge): (eventListener) <br> onLoad déclenché
-  NGE (osrd-nge)->>NGE (nge-app): (callback function) <br> onLoad(nge_light_model, ...)
-```
+Il est important de noter que dans sa version `standalone`, NGE se repose alors ici sur le front-end d'OSRD, lui-même mis à jour par le back-end d'OSRD. De nouvelles tables en base de données, des modifications et de nouvelles routes sont alors nécessaires pour persister les informations macroscopiques d'un scénario.
 
 #### 2 - Convertisseurs
 
-Pour surpasser les différences sémantiques et adapter les modèles de données, deux convertisseurs doivent être implémentés :
-- **[OSRD -> NGE]** un convertisseur qui transforme une grille horaire OSRD en un modèle NGE
-- **[OSRD <- NGE]** un gestionnaire d'événements, qui transforme une action NGE en mise à jour de la base de données OSRD sur la grille horaire
+Pour surpasser les différences sémantiques et adapter les modèles de données, deux convertisseurs sont implémentés :
+- **[OSRD -> NGE]** un convertisseur qui transforme une grille horaire OSRD en un modèle NGE. Les noeuds sont les points de passage décrits par les circulations, et dont les informations macroscopiques (position sur le réticulaire) sont stockés en base de données. Les circulations OSRD, `TrainSchedule`, représentent alors des lignes de train cadencées dans NGE, `Trainrun`. Un concept de lignes de trains cadencées, sera bientôt implémenté pour permettre la convergence conceptuelle entre OSRD et NGE.
+- **[OSRD <- NGE]** un gestionnaire d'événements, qui transforme une action NGE en mise à jour de la base de données OSRD.
 
 #### 3 - Open-source (coopération / contribution)
 
