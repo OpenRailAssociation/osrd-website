@@ -21,3 +21,6 @@ Cette feuille de route s'étale sur plusieurs années.
 
 Si vous souhaitez pousser l'une de ces fonctionnalités, ou si vous avez des idées sur ce que OSRD pourrait faire à l'avenir, n'hésitez pas à rejoindre le projet !
 
+{{% alert title="Note" color="info" %}}
+Les tâches qui sont actuellement développées et assignées à notre équipe peuvent être trouvées dans nos tableaux [ici](https://github.com/orgs/OpenRailAssociation/projects?query=is%3Aopen).
+{{% /alert %}}
