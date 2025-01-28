@@ -20,3 +20,7 @@ This roadmap is spread over a couple of years.
 - Revamp train simulation v3.
 
 If you'd like to push for one of these features, or if you have ideas for what OSRD could do in the future, don't hesitate to join the project!
+
+{{% alert title="Note" color="info" %}}
+Tasks that are currently developed and assigned to our team can be found in our project boards [here](https://github.com/orgs/OpenRailAssociation/projects?query=is%3Aopen).
+{{% /alert %}}
