@@ -27,7 +27,7 @@ Here is how it works:&lt;/p>
 &lt;li>braking model, either lambda or gamma:
 &lt;ul>
 &lt;li>lambda (braking weight/mass)&lt;/li>
-&lt;li>gamma (contant deceleration at a given speed)&lt;/li>
+&lt;li>gamma (constant deceleration at a given speed)&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>correction factors (k_dry and k_wet for gamma braking) for braking curves&lt;/li>
@@ -35,7 +35,7 @@ Here is how it works:&lt;/p>
 &lt;h3 id="infrastructure">Infrastructure&lt;/h3>
 &lt;ul>
 &lt;li>corrected gradients (it incorporates curvature)&lt;/li>
-&lt;li>odometry balises location&lt;/li>
+&lt;li>odometry balise locations&lt;/li>
 &lt;/ul>
 &lt;h2 id="processes">Processes&lt;/h2>
 &lt;h3 id="braking-coefficients">Braking coefficients:&lt;/h3>
@@ -47,7 +47,7 @@ Here is how it works:&lt;/p>
 &lt;h3 id="speed--distance-targets">Speed / distance targets&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>EOA&lt;/code> end of movement authority: the location until which the train is allowed to move&lt;/li>
-&lt;li>&lt;code>SvL&lt;/code> supervized location: the protected location&lt;/li>
+&lt;li>&lt;code>SvL&lt;/code> supervised location: the protected location&lt;/li>
 &lt;/ul>
 &lt;h3 id="curves">Curves&lt;/h3>
 &lt;ul>

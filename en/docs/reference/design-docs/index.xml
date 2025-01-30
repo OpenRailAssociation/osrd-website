@@ -280,7 +280,7 @@ to describe this concept in general.&lt;/p></description></item><item><title>Doc
 &lt;p>It was decided to add identifiers to path waypoints, and to reference those identifiers where referencing a path location is needed. This has multiple upsides:&lt;/p>
 &lt;ul>
 &lt;li>you can&amp;rsquo;t reference a location outside of the path&lt;/li>
-&lt;li>when changing a waypoint&amp;rsquo;s location, for example from one station&amp;rsquo;s platform to another, no additional maintenant work is needed to keep the path consistent&lt;/li>
+&lt;li>when changing a waypoint&amp;rsquo;s location, for example from one station&amp;rsquo;s platform to another, no additional work is needed to keep the path consistent&lt;/li>
 &lt;li>if a path goes to the same place multiple times, the identifier reference makes it clear which path location is referenced&lt;/li>
 &lt;li>it makes keeping data consistent while editing easier, as all locations are kept in a single place&lt;/li>
 &lt;/ul>
@@ -532,7 +532,7 @@ and stakeholders. After some interviews, we believe the overall needs to be as f
 &lt;li>some users are supposed to only view results of operational studies&lt;/li>
 &lt;li>some users only get access to part of the app&lt;/li>
 &lt;li>not everyone can have access to the admin panel&lt;/li>
-&lt;li>it could be nice to be able to roll experimental features out incrementaly&lt;/li>
+&lt;li>it could be nice to be able to roll experimental features out incrementally&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>controlling access to data
@@ -659,10 +659,10 @@ When a user creates a group, it becomes its owner.&lt;/p>
 &lt;pre tabindex="0">&lt;code>DELETE /authn/group/{group_id}
 &lt;/code>&lt;/pre>&lt;h2 id="authorization">Authorization&lt;/h2>
 &lt;p>As shown in the overall architecture section, to determine if a subject is
-allowed to conduct an action on a ressource, two checks are performed:&lt;/p>
+allowed to conduct an action on a resource, two checks are performed:&lt;/p>
 &lt;ol>
 &lt;li>We check that the &lt;strong>roles&lt;/strong> of the subject allows the action.&lt;/li>
-&lt;li>We check that the subject has the &lt;strong>minimum privileges&lt;/strong> on the ressource(s) that are required to perform the action.&lt;/li>
+&lt;li>We check that the subject has the &lt;strong>minimum privileges&lt;/strong> on the resource(s) that are required to perform the action.&lt;/li>
 &lt;/ol>
 &lt;h3 id="roles">Roles&lt;/h3>
 &lt;p>Subject can have any number of roles. Roles allow access to features. Roles do not give rights on specific objects.&lt;/p>
@@ -697,7 +697,7 @@ In the frontend, roles guard features, in the backend, roles guard endpoints or 
 &lt;/ul>
 &lt;p>Roles are &lt;em>hierarchical&lt;/em>. This is a necessity to ensure that, for example, if we are to introduce a new action related to scenarios, each subject with the role &amp;ldquo;exploitation studies&amp;rdquo; gets that new role automatically.
 We&amp;rsquo;d otherwise need to edit the appropriate existing roles.&lt;/p>
-&lt;p>Their hierarchy could ressemble:&lt;/p>
+&lt;p>Their hierarchy could resemble:&lt;/p>
 &lt;pre class="mermaid">%%{init: {&amp;#34;flowchart&amp;#34;: {&amp;#34;defaultRenderer&amp;#34;: &amp;#34;elk&amp;#34;}} }%%
 flowchart TD
 subgraph application roles
@@ -739,7 +739,7 @@ A single request may involve multiple resources, and as such involve multiple pe
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">enum&lt;/span> &lt;span style="color:#000">EffectivePrivLvl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Owner&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// all operations allowed, including granting access and deleting the resource
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Writer&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// can change the resource
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Creator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// can create new subresources
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Creator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// can create new sub resources
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Reader&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// can read the resource
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">MinimalMetadata&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// is indirectly aware that the resource exists
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -905,7 +905,7 @@ Implicit grants only apply to the operational studies module, &lt;strong>not&lt;
 &lt;/ul>
 &lt;/li>
 &lt;li>introduce the concept of rolling stock collections to enable easier rolling stock permission checking&lt;/li>
-&lt;li>write a migration guide to help OSRD developpers navigate the authorization APIs&lt;/li>
+&lt;li>write a migration guide to help OSRD developers navigate the authorization APIs&lt;/li>
 &lt;/ul>
 &lt;p>Front-end:&lt;/p>
 &lt;ul>
@@ -974,12 +974,12 @@ permission changes&lt;/li>
 &lt;p>We found that:&lt;/p>
 &lt;ul>
 &lt;li>having separate set of endpoints per resource types brought extra back-end and front-end complexity&lt;/li>
-&lt;li>the only constraint of unified permission management endpoints is that all resource types need globaly unique IDs&lt;/li>
-&lt;li>the globaly unique ID constraint is less costly than the extra complexity of separate endpoints&lt;/li>
+&lt;li>the only constraint of unified permission management endpoints is that all resource types need globally unique IDs&lt;/li>
+&lt;li>the globally unique ID constraint is less costly than the extra complexity of separate endpoints&lt;/li>
 &lt;/ul>
 &lt;h3 id="dynamically-enforce-permission-checks">Dynamically enforce permission checks&lt;/h3>
 &lt;p>Ideally, there would be static checks enforcing permission checks.
-However, we found no completly fool proof way to statically do so.&lt;/p>
+However, we found no completely fool proof way to statically do so.&lt;/p>
 &lt;p>Instead, we decided that all permission checks will be registered
 with a middleware, which will either log or raise an error when a
 handler performs no check.&lt;/p>
@@ -1000,7 +1000,7 @@ Requests thus need to be routed to core workers specialized by infrastructure, w
 &lt;li>If too many requests are dispatched to a busy core worker, they will just time out.&lt;/li>
 &lt;li>There is no easy way to scale up the number of workers to react to increased load.&lt;/li>
 &lt;li>Because calls need to complete within the timeout of the client&amp;rsquo;s http requests,
-the system falls appart when latency increases due to load.&lt;/li>
+the system falls apart when latency increases due to load.&lt;/li>
 &lt;/ul>
 &lt;p>This proposal intends to address these issues by introducing an RPC system which:&lt;/p>
 &lt;ul>
@@ -1175,7 +1175,7 @@ The request is guaranteed to be dispatched &lt;strong>at least once&lt;/strong>&
 &lt;p>Workers then have to:&lt;/p>
 &lt;ul>
 &lt;li>publish a &lt;code>started&lt;/code> &lt;a href="#worker-activity-reports">activity report message&lt;/a>&lt;/li>
-&lt;li>subcribe to &lt;code>WORKER_REQUESTS_QUEUE&lt;/code> using &lt;code>basic.consume&lt;/code>&lt;/li>
+&lt;li>subscribe to &lt;code>WORKER_REQUESTS_QUEUE&lt;/code> using &lt;code>basic.consume&lt;/code>&lt;/li>
 &lt;li>for each request message:
 &lt;ul>
 &lt;li>publish a &lt;code>request-received&lt;/code> &lt;a href="#worker-activity-reports">activity report message&lt;/a>&lt;/li>
@@ -1360,7 +1360,7 @@ deleting request queues, and deciding which worker groups should be running at a
 &lt;ul>
 &lt;li>create and bind all &lt;a href="#exchanges-and-queues">exchanges and queues&lt;/a>&lt;/li>
 &lt;li>configure the TTL, delivery timeout and delivery limit policies using the HTTP API&lt;/li>
-&lt;li>start the &lt;strong>orphan processsor&lt;/strong>, &lt;strong>dead letter responder&lt;/strong> and &lt;strong>worker group manager&lt;/strong>&lt;/li>
+&lt;li>start the &lt;strong>orphan processor&lt;/strong>, &lt;strong>dead letter responder&lt;/strong> and &lt;strong>worker group manager&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;h3 id="exchanges-and-queues">Exchanges and queues&lt;/h3>
 &lt;p>osrdyne creates a number of exchanges and queues. Most of the setup is done
@@ -1431,7 +1431,7 @@ Unbound --&amp;gt; Active: received request&lt;/pre>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">trait&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">PoolStateTracker&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">initial_worker_groups&lt;/span>: &lt;span style="color:#204a87">Vec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87">String&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Self&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Require some worker group to be active. The extra lifetime adds active duration compared to the configured spooldown schedule.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Require some worker group to be active. The extra lifetime adds active duration compared to the configured spool down schedule.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// This allows the worker activity processor to debounce activity events without lowering the active time of worker groups.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Returns the state generation where this worker group starts being active.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">async&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">require_worker_group&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">key&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">extra_lifetime&lt;/span>: &lt;span style="color:#000">Duration&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Generation&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1495,7 +1495,7 @@ It subscribes to the pool state tracker, and reacts to state changes.&lt;/p>
 &lt;/li>
 &lt;li>for each worker group in &lt;code>running&lt;/code> and not in &lt;code>expected&lt;/code>:
 &lt;ul>
-&lt;li>use the docker / kubernetes API to attemps to stop the worker group. This must be idempotent. &lt;strong>do not retry&lt;/strong> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>use the docker / kubernetes API to attempts to stop the worker group. This must be idempotent. &lt;strong>do not retry&lt;/strong> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -1531,14 +1531,14 @@ object ID, but the object does not exist, the worker needs to start up and respo
 worker, the worker needs to start and respond to all requests.&lt;/strong>&lt;/p>
 &lt;h3 id="workers-fails-to-start">Workers fails to start&lt;/h3>
 &lt;p>&lt;strong>A &lt;a href="https://www.rabbitmq.com/blog/2014/01/23/preventing-unbounded-buffers-with-rabbitmq#per-queue-message-ttl">per-queue message TTL&lt;/a>
-should be set to avoid requests accumulating indefinitly.&lt;/strong>&lt;/p>
+should be set to avoid requests accumulating indefinitely.&lt;/strong>&lt;/p>
 &lt;p>Workers failing to start will cause:&lt;/p>
 &lt;ul>
 &lt;li>messages to accumulate in the queue.&lt;/li>
-&lt;li>when message TTL is reached, it will get transfered to the dead letter queue&lt;/li>
+&lt;li>when message TTL is reached, it will get transferred to the dead letter queue&lt;/li>
 &lt;li>the client will time out awaiting a response&lt;/li>
 &lt;/ul>
-&lt;h3 id="multiple-ordyne-daemons-are-started-on-the-same-pool">Multiple ordyne daemons are started on the same pool&lt;/h3>
+&lt;h3 id="multiple-osrdyne-daemons-are-started-on-the-same-pool">Multiple osrdyne daemons are started on the same pool&lt;/h3>
 &lt;p>It shouldn&amp;rsquo;t be an issue, as:&lt;/p>
 &lt;ul>
 &lt;li>all operations done on startup are idempotent&lt;/li>
@@ -1552,7 +1552,7 @@ However, publisher confirms add quite a bit of latency (about 200ms), as it ensu
 &lt;h3 id="at-least-once-semantics">At least once semantics&lt;/h3>
 &lt;p>Most things in this protocol have at least once semantics if publisher confirms are used:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>request delivery to workers&lt;/code>: if osrdyne is restarted while transfering an orphan to its destination, the orphan may be transfered twice&lt;/li>
+&lt;li>&lt;code>request delivery to workers&lt;/code>: if osrdyne is restarted while transferring an orphan to its destination, the orphan may be transferred twice&lt;/li>
 &lt;li>&lt;code>response delivery to clients&lt;/code>: if a worker takes slightly too long to ACK a message, but still responds, it may be requeued and re-processed, and thus responded to twice&lt;/li>
 &lt;/ul>
 &lt;h2 id="design-decisions">Design decisions&lt;/h2>
@@ -1624,7 +1624,7 @@ This queue can be watched by osrdyne, which can use these events to know when to
 &lt;ul>
 &lt;li>worker activity&lt;/li>
 &lt;li>orphan requests&lt;/li>
-&lt;li>worker group spooldown deadlines&lt;/li>
+&lt;li>worker group spool down deadlines&lt;/li>
 &lt;/ul>
 &lt;p>When the orphan processor gets a request, it needs to create the worker group&amp;rsquo;s request
 queue before it can proceed to forward the message.&lt;/p>
@@ -1641,7 +1641,7 @@ queue before it can proceed to forward the message.&lt;/p>
 &lt;/ul>
 &lt;h3 id="unbind-the-queue-and-wait-before-stopping-workers">Unbind the queue and wait before stopping workers&lt;/h3>
 &lt;p>In a previous design, we tried to delete work queue in one go. It created a race condition issue on queue deletion,
-caused by the fact ordyne does not get direct notifications of when messages are received on a work queue:&lt;/p>
+caused by the fact osrdyne does not get direct notifications of when messages are received on a work queue:&lt;/p>
 &lt;ul>
 &lt;li>we decide to stop the worker group&lt;/li>
 &lt;li>work is received on the queue, but we aren&amp;rsquo;t made aware as no worker is up&lt;/li>

@@ -36,7 +36,7 @@ V V
 &lt;/li>
 &lt;li>Créer un tag git &lt;strong>annoté&lt;/strong>
 &lt;ul>
-&lt;li>Nous utilisons le &lt;a href="https://semver.org/">versionnement sémantique&lt;/a>&lt;/li>
+&lt;li>Nous utilisons le &lt;a href="https://semver.org/">versionnage sémantique&lt;/a>&lt;/li>
 &lt;li>&lt;code>git tag -a vx.y.z&lt;/code> avec le message &lt;code>Release x.y.z&lt;/code> (la plupart du temps, utilisez la dernière version et incrémentez la version patch)&lt;/li>
 &lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
 &lt;/ul>

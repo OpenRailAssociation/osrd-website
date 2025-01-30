@@ -4,7 +4,7 @@
 Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
-&lt;li>&lt;code>statique&lt;/code> une liste d&amp;rsquo;élements mobiles&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> une liste d&amp;rsquo;éléments mobiles&lt;/li>
 &lt;li>&lt;code>statique&lt;/code> liste des états possibles de chaque élément mobile&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations-possibles">Opérations possibles&lt;/h2>
@@ -37,7 +37,7 @@ L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zone
 &lt;li>Observer les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Reservation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
-Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande plannifiée d&amp;rsquo;itinéraire
+Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande planifiée d&amp;rsquo;itinéraire
 &lt;/div>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies :&lt;/p>
@@ -192,7 +192,7 @@ Certains itinéraires en gare ne permettent pas le partage du chemin par plusieu
 &lt;/div>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Piste d'évolution&lt;/h4>
-En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de route partielle afin de réduire le nombre de routes nécessaires: une route partielle est une portion de route qu&amp;rsquo;il n&amp;rsquo;est pas sûr d&amp;rsquo;activer indépendament.
+En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de route partielle afin de réduire le nombre de routes nécessaires: une route partielle est une portion de route qu&amp;rsquo;il n&amp;rsquo;est pas sûr d&amp;rsquo;activer indépendamment.
 &lt;/div>
 &lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
 &lt;p>Le système doit, indirectement ou directement:&lt;/p>
@@ -273,7 +273,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;h3 id="cycle-de-vie-des-routes-et-état-des-zones">Cycle de vie des routes et état des zones&lt;/h3>
 &lt;p>Plusieurs enjeux motivent le cycle de vie des routes et l&amp;rsquo;état des zones :&lt;/p>
 &lt;ul>
-&lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
+&lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au cœur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Ordonnancement</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>
 &lt;div class="alert alert-warning" role="alert">

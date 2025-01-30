@@ -77,7 +77,7 @@ In addition to containing the &lt;strong>views&lt;/strong> files for the applica
 &lt;h2 id="implementation-principles">Implementation principles&lt;/h2>
 &lt;h3 id="routing--slug">Routing &amp;amp; SLUG&lt;/h3>
 &lt;p>&lt;em>In progress&lt;/em>&lt;/p>
-&lt;p>&lt;code>projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}&lt;/code>&lt;/p>
+&lt;p>&lt;code>projects/{project's name}/studies/{study's name}/scenarios/{scenario's name}&lt;/code>&lt;/p>
 &lt;h3 id="styles--scss">Styles &amp;amp; SCSS&lt;/h3>
 &lt;blockquote>
 &lt;p>WARNING: in CSS/React, the scope of a class does not depend on where the file is imported, but is valid for the entire application. If you import an &lt;code>scss&lt;/code> file in the depths of a component (which we strongly advise against), its classes will be available to the whole application and may therefore cause side effects.&lt;/p>
@@ -152,7 +152,7 @@ In addition to containing the &lt;strong>views&lt;/strong> files for the applica
 &lt;p>In the store, you will see the &lt;code>editoastApi&lt;/code> key containing the cached data of all editoast endpoints:&lt;/p>
 &lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/store-redux-main.png" alt="store Redux">&lt;/p>
 &lt;p>Here for example, the &lt;code>getProjects&lt;/code> endpoint is called.&lt;/p>
-&lt;p>RTK stores the endpoint&amp;rsquo;s name, as well as the call&amp;rsquo;s parameters, to form an unique key &lt;code>nomDuEndpoint({ paramètres })&lt;/code>. (here &lt;code>getProjects({&amp;quot;ordering&amp;quot;:&amp;quot;LastModifiedDesc&amp;quot;,&amp;quot;pageSize&amp;quot;:1000})&lt;/code>).&lt;/p>
+&lt;p>RTK stores the endpoint&amp;rsquo;s name, as well as the call&amp;rsquo;s parameters, to form an unique key &lt;code>nomDuEndpoint({ parameter })&lt;/code>. (here &lt;code>getProjects({&amp;quot;ordering&amp;quot;:&amp;quot;LastModifiedDesc&amp;quot;,&amp;quot;pageSize&amp;quot;:1000})&lt;/code>).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#39;getProjectsByProjectIdStudiesAndStudyId({&amp;#34;projectId&amp;#34;:13,&amp;#34;studyId&amp;#34;:16})&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">status&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;fulfilled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -162,7 +162,7 @@ In addition to containing the &lt;strong>views&lt;/strong> files for the applica
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a40000">…&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In this second example, the same endpoint has been called with the ssame &lt;code>projectId&lt;/code> parameter, but a different &lt;code>studyId&lt;/code> parameter.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In this second example, the same endpoint has been called with the same &lt;code>projectId&lt;/code> parameter, but a different &lt;code>studyId&lt;/code> parameter.&lt;/p>
 &lt;h5 id="serialization-of-keys-in-the-cache">Serialization of keys in the cache&lt;/h5>
 &lt;p>The strings used as keys in the cache are essentially the parameter object passed through the &lt;code>JSON.stringify&lt;/code> function, which converts a JS object into a string (thus serialized).&lt;/p>
 &lt;p>Normally, serialization does not preserve the order of object keys. For example, &lt;code>JSON.stringify&lt;/code> will not produce the same string with these two objects: &lt;code>{ a: 1, b: 2 }&lt;/code> and &lt;code>{ b: 2, a: 1 }&lt;/code>.&lt;/p>
@@ -329,10 +329,10 @@ if it is not entirely obvious from the title.
 &lt;li>the title should be self-explanatory: no need to read anything else to understand it&lt;/li>
 &lt;li>the commit title is all lower-case&lt;/li>
 &lt;li>the title is clear to a reader not familiar with the code&lt;/li>
-&lt;li>the body of the commit contains a detailled description of the change&lt;/li>
+&lt;li>the body of the commit contains a detailed description of the change&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-info" role="alert">
-An automated check is performed to enforce as much as possible this formating.
+An automated check is performed to enforce as much as possible this formatting.
 &lt;/div>
 &lt;h3 id="counter-examples-of-commit-titles">Counter-examples of commit titles&lt;/h3>
 &lt;p>To be avoided entirely:&lt;/p>
@@ -364,7 +364,7 @@ like so:&lt;/p>
 &lt;p>Now, go in &lt;code>Files&lt;/code> -&amp;gt; &lt;code>Preferences&lt;/code> -&amp;gt; &lt;code>Settings&lt;/code>, search for and activate
 the &lt;strong>Always Sign Off&lt;/strong> setting.&lt;/p>
 &lt;p>Finally, when you&amp;rsquo;ll commit your changes via the VS Code interface, your commits
-will automaticaly be signed-off.&lt;/p>
+will automatically be signed-off.&lt;/p>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/">Continue towards sharing your changes ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Share your changes</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</guid><description>
 &lt;p>The author of a &lt;em>pull request (PR)&lt;/em> is responsible for its &amp;ldquo;life cycle&amp;rdquo;. He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check &lt;a href="https://osrd.fr/en/docs/guides/contribute/code-review/">dedicated page about code review&lt;/a>).&lt;/p>
 &lt;blockquote>

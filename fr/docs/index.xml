@@ -335,7 +335,7 @@ A noter que si l&amp;rsquo;on doit corriger une traduction, il est recommandé d
 &lt;li>Alléger le bundle final (tous les types disparaissent à la compilation).&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Licence et mise en place</title><link>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</guid><description>
 &lt;h2 id="la-licence-des-contributions-de-code">La licence des contributions de code&lt;/h2>
-&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
+&lt;p>Tout le code du dépôt OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
 En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
 &lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée : profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
 &lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API : Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
@@ -384,7 +384,7 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;/li>
 &lt;li>Créer un tag git &lt;strong>annoté&lt;/strong>
 &lt;ul>
-&lt;li>Nous utilisons le &lt;a href="https://semver.org/">versionnement sémantique&lt;/a>&lt;/li>
+&lt;li>Nous utilisons le &lt;a href="https://semver.org/">versionnage sémantique&lt;/a>&lt;/li>
 &lt;li>&lt;code>git tag -a vx.y.z&lt;/code> avec le message &lt;code>Release x.y.z&lt;/code> (la plupart du temps, utilisez la dernière version et incrémentez la version patch)&lt;/li>
 &lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
 &lt;/ul>
@@ -442,7 +442,7 @@ La plupart des développeurs OSRD utilisent Linux (y compris &lt;a href="https:/
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Créez une branche&lt;/strong>&lt;br>
-Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/OpenRailAssociation/osrd">dépot principal&lt;/a>. Sinon, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">créez un fork&lt;/a>.&lt;/p>
+Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/OpenRailAssociation/osrd">dépôt principal&lt;/a>. Sinon, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">créez un fork&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Ajoutez des changements sur votre branche&lt;/strong>&lt;br>
@@ -493,7 +493,7 @@ encouragés dans le &lt;em>corps&lt;/em> du commit&lt;/li>
 &lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code> : les deux commits devront être retirés avant merge&lt;/li>
 &lt;/ul>
 &lt;h2 id="le-developer-certificate-of-origin-dco">Le Developer Certificate of Origin (DCO)&lt;/h2>
-&lt;p>Tous les projets d&amp;rsquo;OSRD utilisent le DCO (certificat du développeur d&amp;rsquo;orgine)
+&lt;p>Tous les projets d&amp;rsquo;OSRD utilisent le DCO (certificat du développeur d&amp;rsquo;origine)
 pour des raisons légales. Le DCO permet de confirmer que vous avez les droits
 sur le code que vous contribuez. Pour en savoir plus sur l&amp;rsquo;histoire et
 l&amp;rsquo;objectif du DCO, vous pouvez lire &lt;a href="https://bssw.io/blog_posts/the-developer-certificate-of-origin">The Developer Certificate of Origin&lt;/a>
@@ -523,7 +523,7 @@ Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
-A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spécifiquement quelques personnes
 R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
 loop Boucle entre auteur et reviewer
 R--&amp;gt;&amp;gt;A: Commente, demande des changements
@@ -612,7 +612,7 @@ Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
-A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spécifiquement quelques personnes
 R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
 loop Boucle entre auteur et reviewer
 R--&amp;gt;&amp;gt;A: Commente, demande des changements
@@ -877,7 +877,7 @@ dans la section stdcm_search_environment)&lt;/li>
 Ces états sont mutuellement exclusifs.&lt;/p>
 &lt;h2 id="dépendances">Dépendances&lt;/h2>
 &lt;ul>
-&lt;li>&lt;code>statique&lt;/code> une liste d&amp;rsquo;élements mobiles&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> une liste d&amp;rsquo;éléments mobiles&lt;/li>
 &lt;li>&lt;code>statique&lt;/code> liste des états possibles de chaque élément mobile&lt;/li>
 &lt;/ul>
 &lt;h2 id="opérations-possibles">Opérations possibles&lt;/h2>
@@ -1024,8 +1024,8 @@ virtuelles linux pour build et exécuter des images.&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 &lt;p>Si vous utiliser rancher desktop, veuillez soit:&lt;/p>
 &lt;ul>
-&lt;li>déinstaller l&amp;rsquo;application&lt;/li>
-&lt;li>sélectioner &lt;code>Manuel&lt;/code> dans &lt;code>Préférences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environnement&lt;/code>&lt;/li>
+&lt;li>désinstaller l&amp;rsquo;application&lt;/li>
+&lt;li>sélectionner &lt;code>Manuel&lt;/code> dans &lt;code>Préférences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environnement&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/div>
 &lt;div class="alert alert-info" role="alert">
@@ -1288,27 +1288,27 @@ Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p>
 &lt;/ul>
 &lt;p>Pour toutes les sections de voies de notre infrastructure, les attributs &lt;code>geo&lt;/code> se rapprochent beaucoup au schéma donné.&lt;/p>
 &lt;p>Pour la plupart des sections de voies, leur &lt;code>length&lt;/code> est proportionnelle à ce que l&amp;rsquo;on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour &lt;em>TA6&lt;/em>, &lt;em>TA7&lt;/em>, &lt;em>TD0&lt;/em> et &lt;em>TD1&lt;/em> (qui font 10km et 25km).&lt;/p>
-&lt;h4 id="noeud">Noeud&lt;/h4>
-&lt;p>Un &lt;code>Node&lt;/code> représente un noeud dans l&amp;rsquo;infrastructure. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par un noeud.
-Un noeud peut se présenter de deux manières différentes :&lt;/p>
+&lt;h4 id="nœud">Nœud&lt;/h4>
+&lt;p>Un &lt;code>Node&lt;/code> représente un nœud dans l&amp;rsquo;infrastructure. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par un nœud.
+Un nœud peut se présenter de deux manières différentes :&lt;/p>
 &lt;p>&lt;strong>1) Aiguillages&lt;/strong>&lt;/p>
 &lt;p>Les aiguillages peuvent être vus comme une collection de liens de sections de voies, partitionnés en groupes. Chaque groupe représente un état de l&amp;rsquo;aiguillage. Passer d&amp;rsquo;un groupe à un autre peut prendre du temps, et au maximum un lien peut être prêt à être utilisé à la fois.&lt;/p>
 &lt;p>Dans le monde réel, les aiguillages ne sont pas uniques, mais plutôt des instances de modèles existants.&lt;/p>
 &lt;p>&lt;strong>2) Liens de sections de voies&lt;/strong>&lt;/p>
 &lt;p>Pour le moment, nous n&amp;rsquo;avons créé que des sections de voies, qui ne sont pas interconnectées (les données géospatiales ne sont pas utilisées pour déduire quelles voies sont connectées).&lt;/p>
-&lt;p>Les &lt;code>link&lt;/code> sont utilisés pour connecter deux sections de voie ensemble, tout comme un joint de soudure le ferait dans la vie réelle. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par ce type de noeud, le &lt;code>link&lt;/code> (ou par un autre &lt;code>NodeType&lt;/code>).&lt;/p>
+&lt;p>Les &lt;code>link&lt;/code> sont utilisés pour connecter deux sections de voie ensemble, tout comme un joint de soudure le ferait dans la vie réelle. Dans une simulation OSRD, un train ne peut passer d&amp;rsquo;une section de voie à une autre que si elles sont reliées par ce type de nœud, le &lt;code>link&lt;/code> (ou par un autre &lt;code>NodeType&lt;/code>).&lt;/p>
 &lt;p>Que ce soit pour les aiguillages ou les liens de sections de voies, les liens et les groupes ne font pas partie du switch lui-même, mais d&amp;rsquo;un objet &lt;code>NodeType&lt;/code>, qui est partagé par les aiguillages du même modèle.&lt;/p>
-&lt;h6 id="types-de-noeud">Types de Noeud&lt;/h6>
+&lt;h6 id="types-de-nœud">Types de Nœud&lt;/h6>
 &lt;p>Les &lt;code>NodeTypes&lt;/code> ont deux attributs obligatoires :&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ports&lt;/code> : Une liste de noms de ports. Un port est une extrémité du noeud qui peut être connecté à une section de voie.&lt;/li>
-&lt;li>&lt;code>groups&lt;/code> : Un table de correspondance entre le nom des groupes et les listes de branches (connexion entre 2 ports) qui caractérisent les différentes positions possibles du type de Noeud&lt;/li>
+&lt;li>&lt;code>ports&lt;/code> : Une liste de noms de ports. Un port est une extrémité du nœud qui peut être connecté à une section de voie.&lt;/li>
+&lt;li>&lt;code>groups&lt;/code> : Un table de correspondance entre le nom des groupes et les listes de branches (connexion entre 2 ports) qui caractérisent les différentes positions possibles du type de nœud&lt;/li>
 &lt;/ul>
-&lt;p>À tout moment, tous les noeuds &lt;em>ont&lt;/em> un groupe actif, et &lt;em>peuvent avoir&lt;/em> une branche active, qui appartient toujours au groupe actif. Pendant une simulation, le changement de branche active à l&amp;rsquo;intérieur d&amp;rsquo;un groupe est instantané, mais le changement de branche active entre les groupes prend un temps configurable.
-Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un objet physique (dans le cas des aiguillages), et que le changement de branche active peut impliquer le déplacement de certaines de ses parties. Les &lt;code>groups&lt;/code> sont conçus pour représenter les différentes positions qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut avoir. Chaque groupe contient les liens qui peuvent être utilisés dans la position du &lt;code>Noeud&lt;/code> associé.&lt;/p>
-&lt;p>Dans le cas des aiguilles, la durée nécessaire pour changer de groupe est stockée à l&amp;rsquo;intérieur du &lt;code>Noeud&lt;/code>, car elle peut varier en fonction de l&amp;rsquo;implémentation physique du modèle d&amp;rsquo;aiguillage.&lt;/p>
-&lt;p>Nos exemples utilisent actuellement cinq &lt;code>NodeTypes&lt;/code>. Il est possible d&amp;rsquo;ajouter un type de noeud si nécessaire via le champ &lt;code>extended_node_type&lt;/code>.&lt;/p>
-&lt;p>&lt;strong>1) Le lien entre deux sectionx de voies&lt;/strong>&lt;/p>
+&lt;p>À tout moment, tous les nœuds &lt;em>ont&lt;/em> un groupe actif, et &lt;em>peuvent avoir&lt;/em> une branche active, qui appartient toujours au groupe actif. Pendant une simulation, le changement de branche active à l&amp;rsquo;intérieur d&amp;rsquo;un groupe est instantané, mais le changement de branche active entre les groupes prend un temps configurable.
+Ceci est dû au fait qu&amp;rsquo;un &lt;code>Nœud&lt;/code> peut-être un objet physique (dans le cas des aiguillages), et que le changement de branche active peut impliquer le déplacement de certaines de ses parties. Les &lt;code>groups&lt;/code> sont conçus pour représenter les différentes positions qu&amp;rsquo;un &lt;code>Nœud&lt;/code> peut avoir. Chaque groupe contient les liens qui peuvent être utilisés dans la position du &lt;code>Nœud&lt;/code> associé.&lt;/p>
+&lt;p>Dans le cas des aiguilles, la durée nécessaire pour changer de groupe est stockée à l&amp;rsquo;intérieur du &lt;code>Nœud&lt;/code>, car elle peut varier en fonction de l&amp;rsquo;implémentation physique du modèle d&amp;rsquo;aiguillage.&lt;/p>
+&lt;p>Nos exemples utilisent actuellement cinq &lt;code>NodeTypes&lt;/code>. Il est possible d&amp;rsquo;ajouter un type de nœud si nécessaire via le champ &lt;code>extended_node_type&lt;/code>.&lt;/p>
+&lt;p>&lt;strong>1) Le lien entre deux sections de voies&lt;/strong>&lt;/p>
 &lt;p>Celui-ci représente le lien entre deux sections de voies. Il possède deux ports : &lt;em>A&lt;/em> et &lt;em>B&lt;/em>.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/link.svg" alt="Diagramme d&amp;rsquo;un lien">&lt;/p>
 &lt;p>Il permet de créer un lien entre deux sections de voies tel que définis dans OSRD. Ce n&amp;rsquo;est pas un objet physique.&lt;/p>
@@ -1358,17 +1358,17 @@ Ceci est dû au fait qu&amp;rsquo;un &lt;code>Noeud&lt;/code> peut-être un obje
 &lt;/ul>
 &lt;p>&lt;img src="svg_diagrams/SingleSlipCrossing_A1toB1.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement simple"> &lt;img src="svg_diagrams/SingleSlipCrossing_A1toB2.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement simple">
 &lt;img src="svg_diagrams/SingleSlipCrossing_A2toB2.svg" alt="Diagramme des positions de l&amp;rsquo;aiguillage de croisement simple">&lt;/p>
-&lt;h5 id="retour-aux-noeuds">Retour aux noeuds&lt;/h5>
+&lt;h5 id="retour-aux-nœuds">Retour aux nœuds&lt;/h5>
 &lt;p>Un &lt;code>Node&lt;/code> possède trois attributs :&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>node_type&lt;/code> : l&amp;rsquo;identifiant &lt;a href="#types-daiguillages">&lt;code>NodeType&lt;/code>&lt;/a> de ce noeud.&lt;/li>
+&lt;li>&lt;code>node_type&lt;/code> : l&amp;rsquo;identifiant &lt;a href="#types-daiguillages">&lt;code>NodeType&lt;/code>&lt;/a> de ce nœud.&lt;/li>
 &lt;li>&lt;code>ports&lt;/code> : une correspondance entre les noms de port et les extrémités des sections de voie.&lt;/li>
 &lt;li>&lt;code>group_change_delay&lt;/code> : le temps qu&amp;rsquo;il faut pour changer le groupe de l&amp;rsquo;aiguillage qui est actif.&lt;/li>
 &lt;/ul>
-&lt;p>Les noms des ports doivent correspondre aux ports du type du noeud choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.&lt;/p>
-&lt;p>La plupart des noeuds de notre exemple sont des noeuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement. Enfin, il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
+&lt;p>Les noms des ports doivent correspondre aux ports du type du nœud choisi. Les extrémités de la section de voie peuvent être début ou fin, faites attention à choisir les bonnes.&lt;/p>
+&lt;p>La plupart des nœuds de notre exemple sont des nœuds habituels. Le chemin de la gare du Nord à la gare du Sud a deux aiguillages de croisement. Enfin, il y a un aiguillage de croisement double juste avant que la ligne principale ne se divise en lignes Nord-Est et Sud-Est.&lt;/p>
 &lt;p>&lt;img src="svg_diagrams/small_infra_rails_n_points.drawio.en.svg" alt="Diagramme des sections de voie et des aiguillages">&lt;/p>
-&lt;p>Il est important de noter que ces noeuds sont présents par défaut dans le code du projet. Seuls les &lt;code>extended_switch_type&lt;/code> ajoutés par l&amp;rsquo;utilisateur apparaîtront dans le railjson.&lt;/p>
+&lt;p>Il est important de noter que ces nœuds sont présents par défaut dans le code du projet. Seuls les &lt;code>extended_switch_type&lt;/code> ajoutés par l&amp;rsquo;utilisateur apparaîtront dans le railjson.&lt;/p>
 &lt;h4 id="courbes-et-pentes">Courbes et pentes&lt;/h4>
 &lt;p>Les &lt;code>Courbes&lt;/code> et les &lt;code>Pentes&lt;/code> sont essentielles pour des simulations réalistes. Ces objets sont définis comme une plage entre une position de début (&lt;code>begin&lt;/code>) et de fin (&lt;code>end&lt;/code>) sur une section de voie. Si une courbe / pente s&amp;rsquo;étend sur plus d&amp;rsquo;une section de voie, elle doit être ajoutée à toutes les sections.&lt;/p>
 &lt;p>Les valeurs des courbes / pentes sont constantes sur toute leur étendue. Pour des courbes / pentes variables, il faut créer plusieurs objets.&lt;/p>
@@ -1642,7 +1642,7 @@ peuvent mener à d&amp;rsquo;autres solutions.&lt;/p></description></item><item>
 &lt;/font>
 &lt;p>Dans le cas de la simulation de nombreux trains, le système de signalisation doit assurer &lt;strong>la sécurité&lt;/strong>. L&amp;rsquo;effet de la signalisation sur le calcul de marche d&amp;rsquo;un train est reproduit en superposant des enveloppes dynamiques à l&amp;rsquo;enveloppe statique. Une nouvelle enveloppe dynamique est introduite par exemple lorsqu&amp;rsquo;un signal se ferme. Le train suit l&amp;rsquo;enveloppe économique statique superposée aux enveloppes dynamiques, s&amp;rsquo;il y en a. Dans ce mode de simulation, un contrôle du temps est effectué par rapport à un temps théorique provenant de l&amp;rsquo;information temporelle de l&amp;rsquo;enveloppe économique statique. Si le train est en retard par rapport à l&amp;rsquo;heure prévue, il cesse de suivre l&amp;rsquo;enveloppe économique et essaie d&amp;rsquo;aller plus vite. Sa courbe espace/vitesse sera donc limitée par l&amp;rsquo;enveloppe d&amp;rsquo;effort maximum.&lt;/p></description></item><item><title>Docs: Reservation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
-Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande plannifiée d&amp;rsquo;itinéraire
+Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande planifiée d&amp;rsquo;itinéraire
 &lt;/div>
 &lt;h2 id="description">Description&lt;/h2>
 &lt;p>Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies :&lt;/p>
@@ -1947,7 +1947,7 @@ Certains itinéraires en gare ne permettent pas le partage du chemin par plusieu
 &lt;/div>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Piste d'évolution&lt;/h4>
-En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de route partielle afin de réduire le nombre de routes nécessaires: une route partielle est une portion de route qu&amp;rsquo;il n&amp;rsquo;est pas sûr d&amp;rsquo;activer indépendament.
+En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de route partielle afin de réduire le nombre de routes nécessaires: une route partielle est une portion de route qu&amp;rsquo;il n&amp;rsquo;est pas sûr d&amp;rsquo;activer indépendamment.
 &lt;/div>
 &lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
 &lt;p>Le système doit, indirectement ou directement:&lt;/p>
@@ -2028,7 +2028,7 @@ En pratique, il pourrait être intéressant d&amp;rsquo;introduire une notion de
 &lt;h3 id="cycle-de-vie-des-routes-et-état-des-zones">Cycle de vie des routes et état des zones&lt;/h3>
 &lt;p>Plusieurs enjeux motivent le cycle de vie des routes et l&amp;rsquo;état des zones :&lt;/p>
 &lt;ul>
-&lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au coeur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
+&lt;li>d&amp;rsquo;une part, l&amp;rsquo;état des zones est au cœur de la détection de conflit : il doit être possible d&amp;rsquo;extraire d&amp;rsquo;une simulation d&amp;rsquo;un train seul ses besoins en ressources&lt;/li>
 &lt;li>d&amp;rsquo;autre part, il faut qu&amp;rsquo;une simulation multi-train fonctionne correctement : le temps de déplacement des aiguilles selon la configuration actuellement en place, en particulier, est un point de friction important&lt;/li>
 &lt;/ul></description></item><item><title>Docs: Flux des données</title><link>https://osrd.fr/fr/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/data_flow/</guid><description>
 &lt;p>&lt;img src="data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Docs: Les marges</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</guid><description>
@@ -2231,10 +2231,10 @@ Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garde
 &lt;ul>
 &lt;li>&lt;strong>Blender&lt;/strong> est un outil de modélisation, rendu, et animation 3D très complet, qui est récemment devenu une &lt;a href="https://fund.blender.org/">plateforme de collaboration industrielle&lt;/a> majeure pour l&amp;rsquo;industrie audiovisuelle&lt;/li>
 &lt;li>&lt;strong>Linux&lt;/strong>, une alternative à Windows qui équipe Google, Microsoft, Amazon, Apple, la plupart des sites internet, plateformes cloud, téléphones, routeurs, et bien plus. Toutes ces entreprises contribuent et se reposent énormément sur Linux&lt;/li>
-&lt;li>&lt;strong>Android&lt;/strong> est une base commune pour la majorité des téléphones vendus. Les fabriquants contribuent régulièrement à Android&lt;/li>
+&lt;li>&lt;strong>Android&lt;/strong> est une base commune pour la majorité des téléphones vendus. Les fabricants contribuent régulièrement à Android&lt;/li>
 &lt;li>&lt;strong>PostgreSQL&lt;/strong>, &lt;strong>MySQL&lt;/strong>, &lt;strong>SQLite&lt;/strong> et d&amp;rsquo;autres bases de donnée open source dominent collectivement ce marché. Un acteur aux besoins inédits peut contribuer à un outil open source plutôt qu&amp;rsquo;en créer un nouveau.&lt;/li>
 &lt;li>À la fois &lt;strong>Firefox&lt;/strong> et &lt;strong>Chrome&lt;/strong> sont Open Source&lt;/li>
-&lt;li>&lt;strong>Wordpress&lt;/strong> est le CMS au coeur de 43% des sites internet en activité. Une armée d&amp;rsquo;entreprises contribuent et produisent des extensions&lt;/li>
+&lt;li>&lt;strong>Wordpress&lt;/strong> est le CMS au cœur de 43% des sites internet en activité. Une armée d&amp;rsquo;entreprises contribuent et produisent des extensions&lt;/li>
 &lt;li>&lt;strong>Odoo&lt;/strong> est un ERP modulaire très complet, à la communauté similaire à Wordpress&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Toutes ces projets ont en commun d&amp;rsquo;être essentiel au business d&amp;rsquo;un grand nombre d&amp;rsquo;entreprises, sans pour autant être ce que l&amp;rsquo;entreprise commercialise&lt;/strong>.&lt;/p>
@@ -2246,7 +2246,7 @@ Ce mode de fonctionnement n&amp;rsquo;est pas spécifique à l&amp;rsquo;open so
 &lt;p>En pratique, les logiciels libre sont développés via &lt;a href="https://github.com/OpenRailAssociation/osrd">une forge&lt;/a>. Cette forge donne accès au code source, un outil de gestion des bugs / tâches, et un outil servant à intégrer des changements dans le code.
 Tout le monde peut proposer un changement, signaler un bug ou proposer une tâche.&lt;/p>
 &lt;p>Les propositions de changement sont soumis à une &lt;strong>revue par les pairs&lt;/strong>, semblables à celles de la communauté scientifique.
-Les individus en charge de la revue (les reviewers) sont ceux qui sont les plus familliers avec les composants affectés par le changement.&lt;/p>
+Les individus en charge de la revue (les reviewers) sont ceux qui sont les plus familiers avec les composants affectés par le changement.&lt;/p>
 &lt;p>Les changements sont intégrés par des mainteneurs sur la base du &lt;strong>consensus&lt;/strong> entre reviewers.
 Les mainteneurs sont responsables de la cohérence technique du projet, et obtiennent cette position par consensus.
 L&amp;rsquo;intégration des changement n&amp;rsquo;est motivée que par leur viabilité technique : l&amp;rsquo;objectif des mainteneurs et reviewers est de &lt;strong>s&amp;rsquo;assurer que le projet reste de bonne qualité&lt;/strong>.&lt;/p>
@@ -2271,7 +2271,7 @@ C&amp;rsquo;est une pratique distincte de l&amp;rsquo;open source, qui ne s&amp;
 &lt;li>les chercheurs et entreprises peuvent maintenant exploiter les données sans avoir à créer leurs propres outils, ou en acquérir par leurs propres moyens&lt;/li>
 &lt;li>les clients de l&amp;rsquo;entreprise peuvent utiliser outils et données pour améliorer leur usage des services&lt;/li>
 &lt;/ul>
-&lt;p>Si &lt;strong>plusieurs acteurs&lt;/strong> mettent en open data des données exploitables par un même logiciel open source, il devient également possible de &lt;strong>recouper les données&lt;/strong> et de &lt;strong>fournir et plannifier des services communs&lt;/strong>.&lt;/p>
+&lt;p>Si &lt;strong>plusieurs acteurs&lt;/strong> mettent en open data des données exploitables par un même logiciel open source, il devient également possible de &lt;strong>recouper les données&lt;/strong> et de &lt;strong>fournir et planifier des services communs&lt;/strong>.&lt;/p>
 &lt;h2 id="dans-le-cadre-dosrd">Dans le cadre d&amp;rsquo;OSRD&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>si&lt;/strong> les données de &lt;strong>matériel roulant&lt;/strong> et d&amp;rsquo;&lt;strong>infrastructure&lt;/strong> sont en open data, alors il est possible pour tous de &lt;strong>simuler des trajets&lt;/strong>, d&amp;rsquo;&lt;strong>étudier&lt;/strong> et &lt;strong>évaluer&lt;/strong> le réseau ferroviaire&lt;/li>

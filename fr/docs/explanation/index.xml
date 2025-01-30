@@ -63,10 +63,10 @@ vitesse de circulation.&lt;/p>
 &lt;p>Exemple de GET avec plusieurs trains espacés d&amp;rsquo;environ 30mn.&lt;/p>
 &lt;p>L’axe &lt;strong>x&lt;/strong> est l’horaire de passage du train, l’axe &lt;strong>y&lt;/strong> est la position du train en [m].&lt;/p>
 &lt;p>La ligne bleue représente le calcul de marche le plus tendu pour le train, la ligne verte représente un calcul de marche détendu, dit « économique ».&lt;/p>
-&lt;p>Les rectangles pleins entourant les trajets représentent les portions de la voie successivement reservées au passage du train (appelées cantons).&lt;/p>
+&lt;p>Les rectangles pleins entourant les trajets représentent les portions de la voie successivement réservées au passage du train (appelées cantons).&lt;/p>
 &lt;/blockquote>
 &lt;ul>
-&lt;li>&lt;strong>Le graphique espace/vitesse (GEV) :&lt;/strong> représente le parcours d&amp;rsquo;un seul train, cette fois-ci en termes de vitesse. Les arrêts apparaissent donc sous forme de décrochages de la courbe jusqu&amp;rsquo;à zéro, suivis d&amp;rsquo;un réaccélération.&lt;/li>
+&lt;li>&lt;strong>Le graphique espace/vitesse (GEV) :&lt;/strong> représente le parcours d&amp;rsquo;un seul train, cette fois-ci en termes de vitesse. Les arrêts apparaissent donc sous forme de décrochages de la courbe jusqu&amp;rsquo;à zéro, suivis d&amp;rsquo;un ré-accélération.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;img src="graph_espace_vitesse.png" alt="Graphique Espace/Vitesse">&lt;/p>
 &lt;blockquote>
@@ -105,7 +105,7 @@ width: 70%;
 &lt;h4 id="2---convertisseurs">2 - Convertisseurs&lt;/h4>
 &lt;p>Pour surpasser les différences sémantiques et adapter les modèles de données, deux convertisseurs sont implémentés :&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>[OSRD -&amp;gt; NGE]&lt;/strong> un convertisseur qui transforme une grille horaire OSRD en un modèle NGE. Les noeuds sont les points de passage décrits par les circulations, et dont les informations macroscopiques (position sur le réticulaire) sont stockés en base de données. Les circulations OSRD, &lt;code>TrainSchedule&lt;/code>, représentent alors des lignes de train cadencées dans NGE, &lt;code>Trainrun&lt;/code>. Un concept de lignes de trains cadencées, sera bientôt implémenté pour permettre la convergence conceptuelle entre OSRD et NGE.&lt;/li>
+&lt;li>&lt;strong>[OSRD -&amp;gt; NGE]&lt;/strong> un convertisseur qui transforme une grille horaire OSRD en un modèle NGE. Les nœuds sont les points de passage décrits par les circulations, et dont les informations macroscopiques (position sur le réticulaire) sont stockés en base de données. Les circulations OSRD, &lt;code>TrainSchedule&lt;/code>, représentent alors des lignes de train cadencées dans NGE, &lt;code>Trainrun&lt;/code>. Un concept de lignes de trains cadencées, sera bientôt implémenté pour permettre la convergence conceptuelle entre OSRD et NGE.&lt;/li>
 &lt;li>&lt;strong>[OSRD &amp;lt;- NGE]&lt;/strong> un gestionnaire d&amp;rsquo;événements, qui transforme une action NGE en mise à jour de la base de données OSRD.&lt;/li>
 &lt;/ul>
 &lt;h4 id="3---open-source-coopération--contribution">3 - Open-source (coopération / contribution)&lt;/h4>

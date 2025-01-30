@@ -25,7 +25,7 @@ where the train will go next. In this example, it would tell us
 that the bottom right signal can be ignored entirely.
 The top path is the path being currently evaluated.
 &lt;strong>The bottom section of the path will be evaluated in a different
-and already instanciated &lt;code>InfraExplorer&lt;/code>&lt;/strong>&lt;/p>
+and already instantiated &lt;code>InfraExplorer&lt;/code>&lt;/strong>&lt;/p>
 &lt;p>The &lt;code>InfraExplorer&lt;/code> is manipulated with two main functions
 (the accessors have been removed here for clarity):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000">InfraExplorer&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -71,7 +71,7 @@ even if their end time can&amp;rsquo;t be defined yet.&lt;/li>
 we need some elements in the lookahead section).&lt;/p>
 &lt;p>To handle it, the conflict detection module
 returns an error when more lookahead is required. When it happens
-we extend it by cloning the infra explorer objets.&lt;/p></description></item><item><title>Docs: Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
+we extend it by cloning the infra explorer objects.&lt;/p></description></item><item><title>Docs: Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
 &lt;h4 id="general-principle">General principle&lt;/h4>
 &lt;p>The problem is still a pathfinding problem in a given graph.
 Once the problem is encoded as a graph search, it is possible to reuse
@@ -106,7 +106,7 @@ It only slows down when necessary.&lt;/li>
 &lt;p>For example, with the following infrastructure, using the track graph:
 &lt;img src="example_infra.svg" alt="Example infra">&lt;/p>
 &lt;p>Exploring the solution graph can give the following result:
-&lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Discontinuities and backtracking</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>
+&lt;img src="example_graph.svg" alt="Graph Representation">&lt;/p></description></item><item><title>Docs: Discontinuities and backtracking</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>
 &lt;h4 id="the-discontinuity-problem">The discontinuity problem&lt;/h4>
 &lt;p>When a new graph edge is visited, a simulation is run to evaluate
 its speed. But it is not possible to see beyond the current edge.
@@ -201,7 +201,7 @@ with the one described on the
 page, which is now run even when no standard allowance
 have been set.&lt;/p></description></item><item><title>Docs: Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>
 &lt;p>The STDCM module must be usable with
-&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/" title="marge de régularité">standard allowances&lt;/a>.
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/">standard allowances&lt;/a>.
 The user can set an allowance value, expressed either as a function of
 the running time or the travelled distance. This time must be added to the
 running time, so that it arrives later compared to its fastest possible

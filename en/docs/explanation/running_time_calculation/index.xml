@@ -305,7 +305,7 @@ The black line represents the MRSP where the train length has been taken into ac
 &lt;font color=#aa026d>
 &lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
 &lt;/font>
-&lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calcul du Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
+&lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calculation of the Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
 &lt;p>This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train&amp;rsquo;s route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.&lt;/p>
 &lt;blockquote>
 &lt;p>A train running in basic gear is unable to catch up!&lt;/p>

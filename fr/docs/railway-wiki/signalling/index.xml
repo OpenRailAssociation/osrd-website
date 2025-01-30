@@ -186,7 +186,7 @@ franchissement du signal d’entrée du canton sont prévues dans une procédure
 &lt;li>l’espacement sur lignes à grande vitesse (TVM, &lt;a href="./ertms/">ETCS 2&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;p>Sur les sections de lignes équipées en cantonnement téléphonique ou en block manuel par appareils, les signaux de
-cantonnement sont manoeuvrés au sol ou depuis des postes par des agents du service du gestionnaire d’infrastructure (GI)
+cantonnement sont manœuvrés au sol ou depuis des postes par des agents du service du gestionnaire d’infrastructure (GI)
 chargé de la gestion des circulations dénommés « gardes ».&lt;/p>
 &lt;p>Sur les sections de lignes équipées en BAL ou BAPR, les signaux de cantonnement se ferment automatiquement dès
 l’occupation du canton et restent fermés jusqu’à sa complète libération.&lt;/p>

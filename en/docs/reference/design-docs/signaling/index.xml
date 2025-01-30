@@ -25,7 +25,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># describes static properties of the signal&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;signal_properties&amp;#34;: &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;Nf&amp;#34;, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Non-franchissable&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;Nf&amp;#34;, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Non-permissive&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_ralen30&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ralen 30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_rappel30&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Rappel 30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_ralen60&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ralen 60&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -60,7 +60,7 @@
 &lt;li>&lt;strong>Intermediate signals&lt;/strong>, if any (only used by systems with distant signals).&lt;/li>
 &lt;li>An &lt;strong>exit signal&lt;/strong>, (optional when the block ends at a buffer stop).&lt;/li>
 &lt;/ul>
-&lt;p>The path is expressed from detector to detector so that it can be overlayed with the route graph.&lt;/p>
+&lt;p>The path is expressed from detector to detector so that it can be overlaid with the route graph.&lt;/p>
 &lt;p>A few remarks:&lt;/p>
 &lt;ul>
 &lt;li>There can be multiple blocks with the same path, as long as they have different signaling systems. Trains only use a block at a time, and ignore others.&lt;/li>
@@ -102,7 +102,7 @@ this attribute set.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="conditional-parameters">Conditional parameters&lt;/h2>
 &lt;p>Some signal parameters vary depending on which route is set. On each signal, an arbitrary number of rules can be added.
-If the signal is last to announce a speed limit, it must be explicitly mentionned in the rule.&lt;/p>
+If the signal is last to announce a speed limit, it must be explicitly mentioned in the rule.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;announce_speed_section&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${SPEED_SECTION_ID}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -129,8 +129,8 @@ a common physical display. Each logical signal has:&lt;/p>
 &lt;ul>
 &lt;li>a signaling system&lt;/li>
 &lt;li>user-editable properties, as specified in the signaling system description&lt;/li>
-&lt;li>a list of default parameters, which can get overriden per-route&lt;/li>
-&lt;li>an optional announced speed section, which can get overriden per-route&lt;/li>
+&lt;li>a list of default parameters, which can get overridden per-route&lt;/li>
+&lt;li>an optional announced speed section, which can get overridden per-route&lt;/li>
 &lt;li>a list of allowed next signaling systems, which are used to load drivers&lt;/li>
 &lt;/ul>
 &lt;p>For example, this signal encodes a BAL signal which:&lt;/p>
@@ -240,7 +240,7 @@ It&amp;rsquo;s built as follows:&lt;/p>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode164s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode165s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -251,18 +251,18 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode165s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode165s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
 &lt;li>less work for users&lt;/li>
-&lt;li>lessens the likelyhood of configuration mismatches&lt;/li>
+&lt;li>lessens the likelihood of configuration mismatches&lt;/li>
 &lt;/ul>
 &lt;p>Downsides:&lt;/p>
 &lt;ul>
@@ -274,14 +274,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode165s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode165s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode165s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -293,7 +293,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode165s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -328,7 +328,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode165s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -457,7 +457,7 @@ the loaded signal.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The view should allow access to the following data:&lt;/p>
 &lt;ul>
-&lt;li>a synthetized view of zones downstream until the end of the train&amp;rsquo;s MA&lt;/li>
+&lt;li>a synthesized view of zones downstream until the end of the train&amp;rsquo;s MA&lt;/li>
 &lt;li>the block chain&lt;/li>
 &lt;li>the state of downstream signals which belong to the current block chain&lt;/li>
 &lt;/ul>
@@ -468,7 +468,7 @@ the loaded signal.&lt;/p>
 &lt;li>the view can be reduced by removing blocks, as the train passes by signals&lt;/li>
 &lt;/ul>
 &lt;h2 id="simulation-outside-the-train-path">Simulation outside the train path&lt;/h2>
-&lt;p>Everything mentionned so far was designed to simulate signals between a train the
+&lt;p>Everything mentioned so far was designed to simulate signals between a train the
 end of its movement authority, as all others signals have no influence over the behavior
 of trains (they cannot be seen, or are disregarded by drivers).&lt;/p>
 &lt;p>Nevertheless, one may want to simulate and display the state of all signals at a given point in time,

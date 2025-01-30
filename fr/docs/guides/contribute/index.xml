@@ -16,7 +16,7 @@ Avant d&amp;rsquo;apporter un changement, renseignez-vous sur l&amp;rsquo;exista
 &lt;/ul>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/">Continuer vers la mise en place ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Licence et mise en place</title><link>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</guid><description>
 &lt;h2 id="la-licence-des-contributions-de-code">La licence des contributions de code&lt;/h2>
-&lt;p>Tout le code du dépot OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
+&lt;p>Tout le code du dépôt OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
 En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
 &lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée : profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
 &lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API : Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p>
@@ -70,7 +70,7 @@ Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
-A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spécifiquement quelques personnes
 R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
 loop Boucle entre auteur et reviewer
 R--&amp;gt;&amp;gt;A: Commente, demande des changements
@@ -173,8 +173,8 @@ virtuelles linux pour build et exécuter des images.&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 &lt;p>Si vous utiliser rancher desktop, veuillez soit:&lt;/p>
 &lt;ul>
-&lt;li>déinstaller l&amp;rsquo;application&lt;/li>
-&lt;li>sélectioner &lt;code>Manuel&lt;/code> dans &lt;code>Préférences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environnement&lt;/code>&lt;/li>
+&lt;li>désinstaller l&amp;rsquo;application&lt;/li>
+&lt;li>sélectionner &lt;code>Manuel&lt;/code> dans &lt;code>Préférences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environnement&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/div>
 &lt;div class="alert alert-info" role="alert">
@@ -191,7 +191,7 @@ Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
-A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spécifiquement quelques personnes
 R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
 loop Boucle entre auteur et reviewer
 R--&amp;gt;&amp;gt;A: Commente, demande des changements

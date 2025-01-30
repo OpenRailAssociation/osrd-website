@@ -174,7 +174,7 @@ It uses colima for virtualizing linux.&lt;/p>
 &lt;p>If you&amp;rsquo;re using rancher desktop, please either:&lt;/p>
 &lt;ul>
 &lt;li>uninstall the application&lt;/li>
-&lt;li>select &lt;code>Manual&lt;/code> in &lt;code>Preferences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environement&lt;/code>&lt;/li>
+&lt;li>select &lt;code>Manual&lt;/code> in &lt;code>Preferences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environment&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/div>
 &lt;div class="alert alert-info" role="alert">

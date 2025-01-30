@@ -120,7 +120,7 @@ In addition to containing the &lt;strong>views&lt;/strong> files for the applica
 &lt;h2 id="implementation-principles">Implementation principles&lt;/h2>
 &lt;h3 id="routing--slug">Routing &amp;amp; SLUG&lt;/h3>
 &lt;p>&lt;em>In progress&lt;/em>&lt;/p>
-&lt;p>&lt;code>projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}&lt;/code>&lt;/p>
+&lt;p>&lt;code>projects/{project's name}/studies/{study's name}/scenarios/{scenario's name}&lt;/code>&lt;/p>
 &lt;h3 id="styles--scss">Styles &amp;amp; SCSS&lt;/h3>
 &lt;blockquote>
 &lt;p>WARNING: in CSS/React, the scope of a class does not depend on where the file is imported, but is valid for the entire application. If you import an &lt;code>scss&lt;/code> file in the depths of a component (which we strongly advise against), its classes will be available to the whole application and may therefore cause side effects.&lt;/p>
@@ -195,7 +195,7 @@ In addition to containing the &lt;strong>views&lt;/strong> files for the applica
 &lt;p>In the store, you will see the &lt;code>editoastApi&lt;/code> key containing the cached data of all editoast endpoints:&lt;/p>
 &lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/store-redux-main.png" alt="store Redux">&lt;/p>
 &lt;p>Here for example, the &lt;code>getProjects&lt;/code> endpoint is called.&lt;/p>
-&lt;p>RTK stores the endpoint&amp;rsquo;s name, as well as the call&amp;rsquo;s parameters, to form an unique key &lt;code>nomDuEndpoint({ paramètres })&lt;/code>. (here &lt;code>getProjects({&amp;quot;ordering&amp;quot;:&amp;quot;LastModifiedDesc&amp;quot;,&amp;quot;pageSize&amp;quot;:1000})&lt;/code>).&lt;/p>
+&lt;p>RTK stores the endpoint&amp;rsquo;s name, as well as the call&amp;rsquo;s parameters, to form an unique key &lt;code>nomDuEndpoint({ parameter })&lt;/code>. (here &lt;code>getProjects({&amp;quot;ordering&amp;quot;:&amp;quot;LastModifiedDesc&amp;quot;,&amp;quot;pageSize&amp;quot;:1000})&lt;/code>).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#39;getProjectsByProjectIdStudiesAndStudyId({&amp;#34;projectId&amp;#34;:13,&amp;#34;studyId&amp;#34;:16})&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">status&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;fulfilled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -205,7 +205,7 @@ In addition to containing the &lt;strong>views&lt;/strong> files for the applica
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a40000">…&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In this second example, the same endpoint has been called with the ssame &lt;code>projectId&lt;/code> parameter, but a different &lt;code>studyId&lt;/code> parameter.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In this second example, the same endpoint has been called with the same &lt;code>projectId&lt;/code> parameter, but a different &lt;code>studyId&lt;/code> parameter.&lt;/p>
 &lt;h5 id="serialization-of-keys-in-the-cache">Serialization of keys in the cache&lt;/h5>
 &lt;p>The strings used as keys in the cache are essentially the parameter object passed through the &lt;code>JSON.stringify&lt;/code> function, which converts a JS object into a string (thus serialized).&lt;/p>
 &lt;p>Normally, serialization does not preserve the order of object keys. For example, &lt;code>JSON.stringify&lt;/code> will not produce the same string with these two objects: &lt;code>{ a: 1, b: 2 }&lt;/code> and &lt;code>{ b: 2, a: 1 }&lt;/code>.&lt;/p>
@@ -474,10 +474,10 @@ if it is not entirely obvious from the title.
 &lt;li>the title should be self-explanatory: no need to read anything else to understand it&lt;/li>
 &lt;li>the commit title is all lower-case&lt;/li>
 &lt;li>the title is clear to a reader not familiar with the code&lt;/li>
-&lt;li>the body of the commit contains a detailled description of the change&lt;/li>
+&lt;li>the body of the commit contains a detailed description of the change&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-info" role="alert">
-An automated check is performed to enforce as much as possible this formating.
+An automated check is performed to enforce as much as possible this formatting.
 &lt;/div>
 &lt;h3 id="counter-examples-of-commit-titles">Counter-examples of commit titles&lt;/h3>
 &lt;p>To be avoided entirely:&lt;/p>
@@ -509,7 +509,7 @@ like so:&lt;/p>
 &lt;p>Now, go in &lt;code>Files&lt;/code> -&amp;gt; &lt;code>Preferences&lt;/code> -&amp;gt; &lt;code>Settings&lt;/code>, search for and activate
 the &lt;strong>Always Sign Off&lt;/strong> setting.&lt;/p>
 &lt;p>Finally, when you&amp;rsquo;ll commit your changes via the VS Code interface, your commits
-will automaticaly be signed-off.&lt;/p>
+will automatically be signed-off.&lt;/p>
 &lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/">Continue towards sharing your changes ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Review process</title><link>https://osrd.fr/en/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-review/</guid><description>
 &lt;p>The reviewer/maintainer undertakes to carry out the review quickly, and is also responsible for closing &lt;em>request changes&lt;/em>, check commit history and quickly merge the &lt;em>pull request&lt;/em> if allowed.&lt;/p>
 &lt;p>We propose you a few tips and recommendations that we think are relevant to a human, relevant and rewarding code review for all contributors:&lt;/p>
@@ -769,7 +769,7 @@ where the train will go next. In this example, it would tell us
 that the bottom right signal can be ignored entirely.
 The top path is the path being currently evaluated.
 &lt;strong>The bottom section of the path will be evaluated in a different
-and already instanciated &lt;code>InfraExplorer&lt;/code>&lt;/strong>&lt;/p>
+and already instantiated &lt;code>InfraExplorer&lt;/code>&lt;/strong>&lt;/p>
 &lt;p>The &lt;code>InfraExplorer&lt;/code> is manipulated with two main functions
 (the accessors have been removed here for clarity):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000">InfraExplorer&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -882,12 +882,12 @@ update this document.&lt;/p>
 &lt;li>(low priority) privilege checks are performed before changes are made / data is returned&lt;/li>
 &lt;li>(low priority) access patterns match privilege checks&lt;/li>
 &lt;/ul>
-&lt;p>Other design criterias have an impact:&lt;/p>
+&lt;p>Other design criteria have an impact:&lt;/p>
 &lt;ul>
 &lt;li>(high priority) misuse potential&lt;/li>
 &lt;li>(high priority) usage complexity and developer experience&lt;/li>
 &lt;li>(medium priority) ease of migration&lt;/li>
-&lt;li>(low priority) static checks are prefered&lt;/li>
+&lt;li>(low priority) static checks are preferred&lt;/li>
 &lt;/ul>
 &lt;h2 id="data-model">Data model&lt;/h2>
 &lt;h3 id="builtin-roles">Builtin roles&lt;/h3>
@@ -1073,7 +1073,7 @@ update this document.&lt;/p>
 &lt;ul>
 &lt;li>&lt;em>role and privilege checks were performed&lt;/em>: The authorizer records all checks, and panics / logs an error if no check is made&lt;/li>
 &lt;li>&lt;em>privilege checks are performed before changes are made / data is returned&lt;/em>: checked database accesses
-(the default) cannot be made before commiting authorization checks. No more authorization check can be made after commiting.&lt;/li>
+(the default) cannot be made before committing authorization checks. No more authorization check can be made after committing.&lt;/li>
 &lt;li>&lt;em>access patterns match privilege checks&lt;/em>: Check database access functions ensure a prior check was
 made using the Authorizer&amp;rsquo;s check log.&lt;/li>
 &lt;/ul>
@@ -1082,7 +1082,7 @@ made using the Authorizer&amp;rsquo;s check log.&lt;/li>
 &lt;li>
 &lt;p>a checked variant (the default), which takes the Authorizer as a parameter. This variants panics if:&lt;/p>
 &lt;ul>
-&lt;li>a resource is accessed before authorization checks are commited&lt;/li>
+&lt;li>a resource is accessed before authorization checks are committed&lt;/li>
 &lt;li>a resource is accessed without a prior authorizer check.&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -1159,14 +1159,14 @@ made using the Authorizer&amp;rsquo;s check log.&lt;/li>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="-proposal-static-access-control">🤔 Proposal: Static access control&lt;/h3>
 &lt;div class="pageinfo pageinfo-info">
-&lt;p>This proposal aims at improving the &lt;code>Authorizer&lt;/code> descibed above by building on it a safety layer that encodes granted permissions into the type system.&lt;/p>
+&lt;p>This proposal aims at improving the &lt;code>Authorizer&lt;/code> described above by building on it a safety layer that encodes granted permissions into the type system.&lt;/p>
 &lt;p>This way, if access patterns do not match the privilege checks performed beforehand, the program will fail to compile and precisely pinpoint the privilege override as a type error.&lt;/p>
 &lt;/div>
 &lt;p>To summarize, the &lt;code>Authorizer&lt;/code> allows us to:&lt;/p>
 &lt;ol>
 &lt;li>Pre-fetch the user of the request and its characteristics as a middleware&lt;/li>
 &lt;li>Check their roles&lt;/li>
-&lt;li>Maintain a log of authorization requests on specific ressources, and check if they hold&lt;/li>
+&lt;li>Maintain a log of authorization requests on specific resources, and check if they hold&lt;/li>
 &lt;li>Guarantees that no authorization will be granted passed a certain point (&lt;code>commit&lt;/code> function)&lt;/li>
 &lt;li>At the end of an endpoint, checks that permissions were granted or &lt;code>panic!&lt;/code>s otherwise&lt;/li>
 &lt;/ol>
@@ -1177,9 +1177,9 @@ made using the Authorizer&amp;rsquo;s check log.&lt;/li>
 &lt;h4 id="dynamic-access-pattern-checks">Dynamic access pattern checks&lt;/h4>
 &lt;p>Let&amp;rsquo;s say we keep the &lt;code>Authorizer&lt;/code> as the high-level API for authorization.
 It holds a log of grants. Therefore, any DB operation that needs to be authorized must, in addition to the &lt;code>conn&lt;/code>, take an &lt;code>Arc&amp;lt;Authorizer&amp;gt;&lt;/code> parameter and let the operation check that it&amp;rsquo;s indeed authorized. For example, every &lt;code>retrieve(conn, authorizer, id)&lt;/code> operation would ask the authorizer the permission before querying the DB.&lt;/p>
-&lt;p>This approach works and has the benefit of being easy to understand, but does not provide any guarantee that the access paterns match the granted authorizations and that privilege override cannot happen.
+&lt;p>This approach works and has the benefit of being easy to understand, but does not provide any guarantee that the access patterns match the granted authorizations and that privilege override cannot happen.
 A way to ensure that would be to thoroughly test each endpoint and ensure that the DB accesses &lt;code>panic&lt;/code> in expected situations. Doing so manually is extremely tedious and fragile in the long run, so let&amp;rsquo;s focus on automated tests.
-To make sure that, at any moment, each endpoint doesn&amp;rsquo;t override its privileges, we&amp;rsquo;d need a test for each releveant privilege level and for each code path accessing ressources. Admittedly this would be great, but:&lt;/p>
+To make sure that, at any moment, each endpoint doesn&amp;rsquo;t override its privileges, we&amp;rsquo;d need a test for each relevant privilege level and for each code path accessing resources. Admittedly this would be great, but:&lt;/p>
 &lt;ul>
 &lt;li>it &lt;strong>heavily depends on test coverage&lt;/strong> (which we don&amp;rsquo;t have) to make sure no code path is left out, i.e. that no test is missing&lt;/li>
 &lt;li>it&amp;rsquo;s unrealistic given the current state of things and how fast editoast changes&lt;/li>
@@ -1197,7 +1197,7 @@ for a request &lt;code>GET /timetable/42&lt;/code>, the endpoint will ask from t
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The authorizer does two things here:&lt;/p>
 &lt;ol>
 &lt;li>Checks that the privilege level of the user allows them to &lt;code>Read&lt;/code> on the timetable ID#42.&lt;/li>
-&lt;li>Builds an &lt;code>Authz&lt;/code> object that stores the ID#42 for later checks, which encodes in the type system that we have a &lt;code>Read&lt;/code> authorization on &lt;em>some&lt;/em> &lt;code>Timetable&lt;/code> ressources.&lt;/li>
+&lt;li>Builds an &lt;code>Authz&lt;/code> object that stores the ID#42 for later checks, which encodes in the type system that we have a &lt;code>Read&lt;/code> authorization on &lt;em>some&lt;/em> &lt;code>Timetable&lt;/code> resources.&lt;/li>
 &lt;/ol>
 &lt;p>Then, after we &lt;code>authorizer.commit();&lt;/code>, we can use the &lt;code>Authz&lt;/code> to effectively request the timetable:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">timetable&lt;/span>: &lt;span style="color:#000">Timetable&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">timetable_authz&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">retrieve&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">conn&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1225,7 +1225,7 @@ However, if by mistake we wrote:&lt;/p>
 &lt;li>&lt;strong>correctness&lt;/strong>: the compiler will prevent any privilege override for us&lt;/li>
 &lt;li>&lt;strong>readability&lt;/strong>: if a function requires some form of authorization, it will show in its prototype&lt;/li>
 &lt;li>&lt;strong>ease of writing&lt;/strong>: we can&amp;rsquo;t write DB operations that ultimately wouldn&amp;rsquo;t be authorized, avoiding a potential full rewrite once we notice the problem (and linting is on our side to show problems early)&lt;/li>
-&lt;li>&lt;strong>more declarative&lt;/strong>: if you want to read an object, you ask for a &lt;code>Read&lt;/code> permission, the system is then responsible for checking the privilege level and map that to a set of allowed permissions. This way we abstract a little over the hierarchy of privileges a ressource can have.&lt;/li>
+&lt;li>&lt;strong>more declarative&lt;/strong>: if you want to read an object, you ask for a &lt;code>Read&lt;/code> permission, the system is then responsible for checking the privilege level and map that to a set of allowed permissions. This way we abstract a little over the hierarchy of privileges a resource can have.&lt;/li>
 &lt;li>&lt;strong>ease of refactoring&lt;/strong>: thanks rustc ;)&lt;/li>
 &lt;li>&lt;strong>flexibility&lt;/strong>: since the &lt;code>Authz&lt;/code> has a reference to the &lt;code>Authorizer&lt;/code>, the API mixes well with more dynamic contexts (should we need that in the future)&lt;/li>
 &lt;li>&lt;strong>migration&lt;/strong>
@@ -1244,9 +1244,9 @@ However, if by mistake we wrote:&lt;/p>
 &lt;hr>
 &lt;p>The following sections explore how to use this API:&lt;/p>
 &lt;ul>
-&lt;li>to define authorized ressources&lt;/li>
+&lt;li>to define authorized resources&lt;/li>
 &lt;li>implement the effective privilege level logic&lt;/li>
-&lt;li>to deal with complex ressources (here &lt;code>Study&lt;/code>) which need custom authorization rules and that are not atomic (the budgets follow different rules than the rest of the metadata)&lt;/li>
+&lt;li>to deal with complex resources (here &lt;code>Study&lt;/code>) which need custom authorization rules and that are not atomic (the budgets follow different rules than the rest of the metadata)&lt;/li>
 &lt;li>to implement an endpoint that require different permissions (&lt;code>create_scenario&lt;/code>)&lt;/li>
 &lt;/ul>
 &lt;h5 id="actions">Actions&lt;/h5>
@@ -1276,11 +1276,11 @@ However, if by mistake we wrote:&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">AuthorizedAction&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Delete&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">AuthorizedAction&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Append&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The motivation behind this is that at usage, we don&amp;rsquo;t usually care about the privilege of a user over a ressource. We only care, if we&amp;rsquo;re about to read a ressource, whether the user has a privilege level &lt;strong>high enough&lt;/strong> to do so.&lt;/p>
-&lt;p>The proposed paradigm here is to ask the permission to to an &lt;strong>action over a ressource&lt;/strong>, and let the ressource definition module decide (using its own effective privilege hierarchy) whether the action is authorized or not.&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The motivation behind this is that at usage, we don&amp;rsquo;t usually care about the privilege of a user over a resource. We only care, if we&amp;rsquo;re about to read a resource, whether the user has a privilege level &lt;strong>high enough&lt;/strong> to do so.&lt;/p>
+&lt;p>The proposed paradigm here is to ask the permission to to an &lt;strong>action over a resource&lt;/strong>, and let the resource definition module decide (using its own effective privilege hierarchy) whether the action is authorized or not.&lt;/p>
 &lt;h5 id="standard-and-custom-effective-privileges">Standard and custom effective privileges&lt;/h5>
-&lt;p>We need to define the effective privilege level for each ressource. For most
-ressources, a classic &lt;code>Reader &amp;lt; Writer &amp;lt; Owner&lt;/code> is enough. So we expose that by default, leaving the choice to each ressource to provide their own.&lt;/p>
+&lt;p>We need to define the effective privilege level for each resource. For most
+resources, a classic &lt;code>Reader &amp;lt; Writer &amp;lt; Owner&lt;/code> is enough. So we expose that by default, leaving the choice to each resource to provide their own.&lt;/p>
 &lt;p>We also define an enum providing the origin of a privilege, which is a useful
 information for permission sharing.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// built-in the authorization system
@@ -1324,12 +1324,12 @@ information for permission sharing.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>where &lt;code>GrantMap&amp;lt;PrivilegeLevel&amp;gt;&lt;/code> is an internal representation of a collection of grants (implicit and explicit) with some privilege level hierarchy (custom or not).&lt;/p>
-&lt;h5 id="ressource-definition">Ressource definition&lt;/h5>
-&lt;p>Each ressource is then associated to a model and a grant type. We also declare which actions are allowed based on how we want the model to be used given the effective privilege of the ressource in DB.&lt;/p>
-&lt;p>The &lt;code>RessourceType&lt;/code> is necessary for the dynamic context of the underlying &lt;code>Authorizer&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Ressource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Infra&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;h5 id="resource-definition">Resource definition&lt;/h5>
+&lt;p>Each resource is then associated to a model and a grant type. We also declare which actions are allowed based on how we want the model to be used given the effective privilege of the resource in DB.&lt;/p>
+&lt;p>The &lt;code>ResourceType&lt;/code> is necessary for the dynamic context of the underlying &lt;code>Authorizer&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Resource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Infra&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Grant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">AuthzGrantInfra&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">RessourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">RessourceType&lt;/span>::&lt;span style="color:#000">Infra&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">ResourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ResourceType&lt;/span>::&lt;span style="color:#000">Infra&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Returns None is the action is prohibited
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">minimum_privilege_required&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">action&lt;/span>: &lt;span style="color:#000">Cruda&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#3465a4">Self&lt;/span>::&lt;span style="color:#000">Grant&lt;/span>::&lt;span style="color:#000">EffectivePrivilegeLevel&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1369,7 +1369,7 @@ information for permission sharing.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">///////// Effective grant retrieval
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">EffectiveGrant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">AuthzGrantStudy&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">EffectivePrivilegeLevel&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">StudyrivilegeLevel&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">EffectivePrivilegeLevel&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">StudyPrivilegeLevel&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">async&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">fetch_grants&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">conn&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">DbConnection&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1387,14 +1387,14 @@ information for permission sharing.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">//////// Authorized ressources
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">//////// Authorized resources
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Budgets of the study (can be read and updated by owners)
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">StudyBudgets&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Ressource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">StudyBudgets&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Resource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">StudyBudgets&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Grant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">AuthzGrantStudy&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">RessourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">RessourceType&lt;/span>::&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">ResourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ResourceType&lt;/span>::&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">minimum_privilege_required&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">action&lt;/span>: &lt;span style="color:#000">Cruda&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">StudyPrivilegeLevel&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Cruda&lt;/span>::&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1409,9 +1409,9 @@ information for permission sharing.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Non-sensitive metadata available to users with privilege level MinimalMetadata (can only be read)
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">StudyMetadata&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Ressource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">StudyMetadata&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Resource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">StudyMetadata&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Grant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">AuthzGrantStudy&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">RessourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">RessourceType&lt;/span>::&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">ResourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ResourceType&lt;/span>::&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">minimum_privilege_required&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">action&lt;/span>: &lt;span style="color:#000">Cruda&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">StudyPrivilegeLevel&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Cruda&lt;/span>::&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1426,9 +1426,9 @@ information for permission sharing.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// A full study (can be created, read, updated, appended and deleted)
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Ressource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Resource&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Grant&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">AuthzGrantStudy&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">RessourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">RessourceType&lt;/span>::&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">TYPE&lt;/span>: &lt;span style="color:#000">ResourceType&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ResourceType&lt;/span>::&lt;span style="color:#000">Study&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">minimum_privilege_required&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">action&lt;/span>: &lt;span style="color:#000">Cruda&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">StudyPrivilegeLevel&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Cruda&lt;/span>::&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1694,7 +1694,7 @@ The algorithm is described in detail in the &lt;a href="https://osrd.fr/en/docs/
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># describes static properties of the signal&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;signal_properties&amp;#34;: &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;Nf&amp;#34;, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Non-franchissable&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;Nf&amp;#34;, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Non-permissive&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_ralen30&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ralen 30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_rappel30&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Rappel 30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_ralen60&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ralen 60&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1784,7 +1784,7 @@ It uses colima for virtualizing linux.&lt;/p>
 &lt;p>If you&amp;rsquo;re using rancher desktop, please either:&lt;/p>
 &lt;ul>
 &lt;li>uninstall the application&lt;/li>
-&lt;li>select &lt;code>Manual&lt;/code> in &lt;code>Preferences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environement&lt;/code>&lt;/li>
+&lt;li>select &lt;code>Manual&lt;/code> in &lt;code>Preferences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environment&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/div>
 &lt;div class="alert alert-info" role="alert">
@@ -1817,7 +1817,7 @@ even if their end time can&amp;rsquo;t be defined yet.&lt;/li>
 we need some elements in the lookahead section).&lt;/p>
 &lt;p>To handle it, the conflict detection module
 returns an error when more lookahead is required. When it happens
-we extend it by cloning the infra explorer objets.&lt;/p></description></item><item><title>Docs: Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
+we extend it by cloning the infra explorer objects.&lt;/p></description></item><item><title>Docs: Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>
 &lt;h4 id="general-principle">General principle&lt;/h4>
 &lt;p>The problem is still a pathfinding problem in a given graph.
 Once the problem is encoded as a graph search, it is possible to reuse
@@ -1852,7 +1852,7 @@ It only slows down when necessary.&lt;/li>
 &lt;p>For example, with the following infrastructure, using the track graph:
 &lt;img src="example_infra.svg" alt="Example infra">&lt;/p>
 &lt;p>Exploring the solution graph can give the following result:
-&lt;img src="example_graph.svg" alt="Représentation du graphe">&lt;/p></description></item><item><title>Docs: Numerical integration</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
+&lt;img src="example_graph.svg" alt="Graph Representation">&lt;/p></description></item><item><title>Docs: Numerical integration</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</guid><description>
 &lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
@@ -2011,7 +2011,7 @@ width: 70%;
 &lt;li>&lt;strong>Intermediate signals&lt;/strong>, if any (only used by systems with distant signals).&lt;/li>
 &lt;li>An &lt;strong>exit signal&lt;/strong>, (optional when the block ends at a buffer stop).&lt;/li>
 &lt;/ul>
-&lt;p>The path is expressed from detector to detector so that it can be overlayed with the route graph.&lt;/p>
+&lt;p>The path is expressed from detector to detector so that it can be overlaid with the route graph.&lt;/p>
 &lt;p>A few remarks:&lt;/p>
 &lt;ul>
 &lt;li>There can be multiple blocks with the same path, as long as they have different signaling systems. Trains only use a block at a time, and ignore others.&lt;/li>
@@ -2053,7 +2053,7 @@ this attribute set.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="conditional-parameters">Conditional parameters&lt;/h2>
 &lt;p>Some signal parameters vary depending on which route is set. On each signal, an arbitrary number of rules can be added.
-If the signal is last to announce a speed limit, it must be explicitly mentionned in the rule.&lt;/p>
+If the signal is last to announce a speed limit, it must be explicitly mentioned in the rule.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;announce_speed_section&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${SPEED_SECTION_ID}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -2080,8 +2080,8 @@ a common physical display. Each logical signal has:&lt;/p>
 &lt;ul>
 &lt;li>a signaling system&lt;/li>
 &lt;li>user-editable properties, as specified in the signaling system description&lt;/li>
-&lt;li>a list of default parameters, which can get overriden per-route&lt;/li>
-&lt;li>an optional announced speed section, which can get overriden per-route&lt;/li>
+&lt;li>a list of default parameters, which can get overridden per-route&lt;/li>
+&lt;li>an optional announced speed section, which can get overridden per-route&lt;/li>
 &lt;li>a list of allowed next signaling systems, which are used to load drivers&lt;/li>
 &lt;/ul>
 &lt;p>For example, this signal encodes a BAL signal which:&lt;/p>
@@ -2714,7 +2714,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode186s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode195s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2724,7 +2724,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode186s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode195s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2739,7 +2739,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode186s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode195s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -2828,7 +2828,7 @@ adding some kind of priority / rank field, which was adopted&lt;/li>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode164s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode165s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2839,18 +2839,18 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode165s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode165s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
 &lt;li>less work for users&lt;/li>
-&lt;li>lessens the likelyhood of configuration mismatches&lt;/li>
+&lt;li>lessens the likelihood of configuration mismatches&lt;/li>
 &lt;/ul>
 &lt;p>Downsides:&lt;/p>
 &lt;ul>
@@ -2862,14 +2862,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode165s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode165s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode164s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode165s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2881,7 +2881,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode165s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2916,7 +2916,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode164s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode165s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3199,7 +3199,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode183s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode185s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3213,7 +3213,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode183s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode185s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>
@@ -3478,7 +3478,7 @@ gen -&amp;gt;&amp;gt; client: resource requirements&lt;/pre>
 &lt;font color=#aa026d>
 &lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
 &lt;/font>
-&lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calcul du Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
+&lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calculation of the Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
 &lt;p>This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train&amp;rsquo;s route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.&lt;/p>
 &lt;blockquote>
 &lt;p>A train running in basic gear is unable to catch up!&lt;/p>
@@ -3517,7 +3517,7 @@ gen -&amp;gt;&amp;gt; client: resource requirements&lt;/pre>
 &lt;p>An example of economic walking. Above, the gradients/ramps encountered by the train. The areas of travel on the track are shown in blue.&lt;/p>
 &lt;/blockquote></description></item><item><title>Docs: Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>
 &lt;p>The STDCM module must be usable with
-&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/" title="marge de régularité">standard allowances&lt;/a>.
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/">standard allowances&lt;/a>.
 The user can set an allowance value, expressed either as a function of
 the running time or the travelled distance. This time must be added to the
 running time, so that it arrives later compared to its fastest possible
@@ -3648,7 +3648,7 @@ infras. More details in
 &lt;p>It was decided to add identifiers to path waypoints, and to reference those identifiers where referencing a path location is needed. This has multiple upsides:&lt;/p>
 &lt;ul>
 &lt;li>you can&amp;rsquo;t reference a location outside of the path&lt;/li>
-&lt;li>when changing a waypoint&amp;rsquo;s location, for example from one station&amp;rsquo;s platform to another, no additional maintenant work is needed to keep the path consistent&lt;/li>
+&lt;li>when changing a waypoint&amp;rsquo;s location, for example from one station&amp;rsquo;s platform to another, no additional work is needed to keep the path consistent&lt;/li>
 &lt;li>if a path goes to the same place multiple times, the identifier reference makes it clear which path location is referenced&lt;/li>
 &lt;li>it makes keeping data consistent while editing easier, as all locations are kept in a single place&lt;/li>
 &lt;/ul>
@@ -3985,7 +3985,7 @@ the loaded signal.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The view should allow access to the following data:&lt;/p>
 &lt;ul>
-&lt;li>a synthetized view of zones downstream until the end of the train&amp;rsquo;s MA&lt;/li>
+&lt;li>a synthesized view of zones downstream until the end of the train&amp;rsquo;s MA&lt;/li>
 &lt;li>the block chain&lt;/li>
 &lt;li>the state of downstream signals which belong to the current block chain&lt;/li>
 &lt;/ul>
@@ -3996,7 +3996,7 @@ the loaded signal.&lt;/p>
 &lt;li>the view can be reduced by removing blocks, as the train passes by signals&lt;/li>
 &lt;/ul>
 &lt;h2 id="simulation-outside-the-train-path">Simulation outside the train path&lt;/h2>
-&lt;p>Everything mentionned so far was designed to simulate signals between a train the
+&lt;p>Everything mentioned so far was designed to simulate signals between a train the
 end of its movement authority, as all others signals have no influence over the behavior
 of trains (they cannot be seen, or are disregarded by drivers).&lt;/p>
 &lt;p>Nevertheless, one may want to simulate and display the state of all signals at a given point in time,
@@ -4019,7 +4019,7 @@ Requests thus need to be routed to core workers specialized by infrastructure, w
 &lt;li>If too many requests are dispatched to a busy core worker, they will just time out.&lt;/li>
 &lt;li>There is no easy way to scale up the number of workers to react to increased load.&lt;/li>
 &lt;li>Because calls need to complete within the timeout of the client&amp;rsquo;s http requests,
-the system falls appart when latency increases due to load.&lt;/li>
+the system falls apart when latency increases due to load.&lt;/li>
 &lt;/ul>
 &lt;p>This proposal intends to address these issues by introducing an RPC system which:&lt;/p>
 &lt;ul>
@@ -4194,7 +4194,7 @@ The request is guaranteed to be dispatched &lt;strong>at least once&lt;/strong>&
 &lt;p>Workers then have to:&lt;/p>
 &lt;ul>
 &lt;li>publish a &lt;code>started&lt;/code> &lt;a href="#worker-activity-reports">activity report message&lt;/a>&lt;/li>
-&lt;li>subcribe to &lt;code>WORKER_REQUESTS_QUEUE&lt;/code> using &lt;code>basic.consume&lt;/code>&lt;/li>
+&lt;li>subscribe to &lt;code>WORKER_REQUESTS_QUEUE&lt;/code> using &lt;code>basic.consume&lt;/code>&lt;/li>
 &lt;li>for each request message:
 &lt;ul>
 &lt;li>publish a &lt;code>request-received&lt;/code> &lt;a href="#worker-activity-reports">activity report message&lt;/a>&lt;/li>
@@ -4379,7 +4379,7 @@ deleting request queues, and deciding which worker groups should be running at a
 &lt;ul>
 &lt;li>create and bind all &lt;a href="#exchanges-and-queues">exchanges and queues&lt;/a>&lt;/li>
 &lt;li>configure the TTL, delivery timeout and delivery limit policies using the HTTP API&lt;/li>
-&lt;li>start the &lt;strong>orphan processsor&lt;/strong>, &lt;strong>dead letter responder&lt;/strong> and &lt;strong>worker group manager&lt;/strong>&lt;/li>
+&lt;li>start the &lt;strong>orphan processor&lt;/strong>, &lt;strong>dead letter responder&lt;/strong> and &lt;strong>worker group manager&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;h3 id="exchanges-and-queues">Exchanges and queues&lt;/h3>
 &lt;p>osrdyne creates a number of exchanges and queues. Most of the setup is done
@@ -4450,7 +4450,7 @@ Unbound --&amp;gt; Active: received request&lt;/pre>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">trait&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">PoolStateTracker&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">initial_worker_groups&lt;/span>: &lt;span style="color:#204a87">Vec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87">String&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Self&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Require some worker group to be active. The extra lifetime adds active duration compared to the configured spooldown schedule.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Require some worker group to be active. The extra lifetime adds active duration compared to the configured spool down schedule.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// This allows the worker activity processor to debounce activity events without lowering the active time of worker groups.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">/// Returns the state generation where this worker group starts being active.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">async&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">require_worker_group&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">key&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">extra_lifetime&lt;/span>: &lt;span style="color:#000">Duration&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">Generation&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -4514,7 +4514,7 @@ It subscribes to the pool state tracker, and reacts to state changes.&lt;/p>
 &lt;/li>
 &lt;li>for each worker group in &lt;code>running&lt;/code> and not in &lt;code>expected&lt;/code>:
 &lt;ul>
-&lt;li>use the docker / kubernetes API to attemps to stop the worker group. This must be idempotent. &lt;strong>do not retry&lt;/strong> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>use the docker / kubernetes API to attempts to stop the worker group. This must be idempotent. &lt;strong>do not retry&lt;/strong> &lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -4550,14 +4550,14 @@ object ID, but the object does not exist, the worker needs to start up and respo
 worker, the worker needs to start and respond to all requests.&lt;/strong>&lt;/p>
 &lt;h3 id="workers-fails-to-start">Workers fails to start&lt;/h3>
 &lt;p>&lt;strong>A &lt;a href="https://www.rabbitmq.com/blog/2014/01/23/preventing-unbounded-buffers-with-rabbitmq#per-queue-message-ttl">per-queue message TTL&lt;/a>
-should be set to avoid requests accumulating indefinitly.&lt;/strong>&lt;/p>
+should be set to avoid requests accumulating indefinitely.&lt;/strong>&lt;/p>
 &lt;p>Workers failing to start will cause:&lt;/p>
 &lt;ul>
 &lt;li>messages to accumulate in the queue.&lt;/li>
-&lt;li>when message TTL is reached, it will get transfered to the dead letter queue&lt;/li>
+&lt;li>when message TTL is reached, it will get transferred to the dead letter queue&lt;/li>
 &lt;li>the client will time out awaiting a response&lt;/li>
 &lt;/ul>
-&lt;h3 id="multiple-ordyne-daemons-are-started-on-the-same-pool">Multiple ordyne daemons are started on the same pool&lt;/h3>
+&lt;h3 id="multiple-osrdyne-daemons-are-started-on-the-same-pool">Multiple osrdyne daemons are started on the same pool&lt;/h3>
 &lt;p>It shouldn&amp;rsquo;t be an issue, as:&lt;/p>
 &lt;ul>
 &lt;li>all operations done on startup are idempotent&lt;/li>
@@ -4571,7 +4571,7 @@ However, publisher confirms add quite a bit of latency (about 200ms), as it ensu
 &lt;h3 id="at-least-once-semantics">At least once semantics&lt;/h3>
 &lt;p>Most things in this protocol have at least once semantics if publisher confirms are used:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>request delivery to workers&lt;/code>: if osrdyne is restarted while transfering an orphan to its destination, the orphan may be transfered twice&lt;/li>
+&lt;li>&lt;code>request delivery to workers&lt;/code>: if osrdyne is restarted while transferring an orphan to its destination, the orphan may be transferred twice&lt;/li>
 &lt;li>&lt;code>response delivery to clients&lt;/code>: if a worker takes slightly too long to ACK a message, but still responds, it may be requeued and re-processed, and thus responded to twice&lt;/li>
 &lt;/ul>
 &lt;h2 id="design-decisions">Design decisions&lt;/h2>
@@ -4643,7 +4643,7 @@ This queue can be watched by osrdyne, which can use these events to know when to
 &lt;ul>
 &lt;li>worker activity&lt;/li>
 &lt;li>orphan requests&lt;/li>
-&lt;li>worker group spooldown deadlines&lt;/li>
+&lt;li>worker group spool down deadlines&lt;/li>
 &lt;/ul>
 &lt;p>When the orphan processor gets a request, it needs to create the worker group&amp;rsquo;s request
 queue before it can proceed to forward the message.&lt;/p>
@@ -4660,7 +4660,7 @@ queue before it can proceed to forward the message.&lt;/p>
 &lt;/ul>
 &lt;h3 id="unbind-the-queue-and-wait-before-stopping-workers">Unbind the queue and wait before stopping workers&lt;/h3>
 &lt;p>In a previous design, we tried to delete work queue in one go. It created a race condition issue on queue deletion,
-caused by the fact ordyne does not get direct notifications of when messages are received on a work queue:&lt;/p>
+caused by the fact osrdyne does not get direct notifications of when messages are received on a work queue:&lt;/p>
 &lt;ul>
 &lt;li>we decide to stop the worker group&lt;/li>
 &lt;li>work is received on the queue, but we aren&amp;rsquo;t made aware as no worker is up&lt;/li>
@@ -4695,7 +4695,7 @@ Retrying convergence for one worker group adds latency to convergence for all wo
 &lt;/ul>
 &lt;p>In practice, open source is both a &lt;strong>legal framework&lt;/strong> for collaborative work, and a &lt;strong>set of practices&lt;/strong>.&lt;/p>
 &lt;h2 id="osrd-and-open-source">OSRD and Open Source&lt;/h2>
-&lt;p>Applied to OSRD, Open Source has &lt;strong>multiple avantages&lt;/strong> :&lt;/p>
+&lt;p>Applied to OSRD, Open Source has &lt;strong>multiple advantages&lt;/strong> :&lt;/p>
 &lt;ul>
 &lt;li>the algorithms and know-how developed with the project are free for all&lt;/li>
 &lt;li>development cost and results are shared between actors&lt;/li>

@@ -297,7 +297,7 @@ A noter que si l&amp;rsquo;on doit corriger une traduction, il est recommandé d
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Créez une branche&lt;/strong>&lt;br>
-Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/OpenRailAssociation/osrd">dépot principal&lt;/a>. Sinon, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">créez un fork&lt;/a>.&lt;/p>
+Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/OpenRailAssociation/osrd">dépôt principal&lt;/a>. Sinon, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">créez un fork&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Ajoutez des changements sur votre branche&lt;/strong>&lt;br>
@@ -348,7 +348,7 @@ encouragés dans le &lt;em>corps&lt;/em> du commit&lt;/li>
 &lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code> : les deux commits devront être retirés avant merge&lt;/li>
 &lt;/ul>
 &lt;h2 id="le-developer-certificate-of-origin-dco">Le Developer Certificate of Origin (DCO)&lt;/h2>
-&lt;p>Tous les projets d&amp;rsquo;OSRD utilisent le DCO (certificat du développeur d&amp;rsquo;orgine)
+&lt;p>Tous les projets d&amp;rsquo;OSRD utilisent le DCO (certificat du développeur d&amp;rsquo;origine)
 pour des raisons légales. Le DCO permet de confirmer que vous avez les droits
 sur le code que vous contribuez. Pour en savoir plus sur l&amp;rsquo;histoire et
 l&amp;rsquo;objectif du DCO, vous pouvez lire &lt;a href="https://bssw.io/blog_posts/the-developer-certificate-of-origin">The Developer Certificate of Origin&lt;/a>
@@ -420,7 +420,7 @@ Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https
 &lt;pre class="mermaid">sequenceDiagram
 actor A as Auteur PR
 actor R as Reviewer/mainteneur
-A-&amp;gt;&amp;gt;R: Demande une review en notifiant spéciquement quelques personnes
+A-&amp;gt;&amp;gt;R: Demande une review en notifiant spécifiquement quelques personnes
 R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
 loop Boucle entre auteur et reviewer
 R--&amp;gt;&amp;gt;A: Commente, demande des changements

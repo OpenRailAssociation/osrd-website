@@ -114,7 +114,7 @@ or &amp;quot;other_tags&amp;quot; like '%&amp;quot;railway&amp;quot;=&amp;gt;&am
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;li>
-&lt;p>Select electrified parts of the network using the &amp;ldquo;other_tages&amp;rdquo; field:&lt;/p>
+&lt;p>Select electrified parts of the network using the &amp;ldquo;other_tags&amp;rdquo; field:&lt;/p>
 &lt;pre>&lt;code> &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;yes&amp;quot;%'
 or &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;contact_line&amp;quot;%'
 or &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;rail&amp;quot;%'
