@@ -41,6 +41,14 @@ docker run --rm -it \
 ./hugo.sh
 ```
 
+## Spell Checker
+
+```
+cspell --config cspell/cspell.json
+```
+
+If you need to use a specific word that isn't in the dictionaries, you can add it to the correct `.txt` dictionary in the `cspell` folder.
+
 ## Contributing
 
 If you think OSRD doesn't quite fit your needs yet, but still believe it could,
