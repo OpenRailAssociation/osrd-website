@@ -2291,7 +2291,11 @@ Cette feuille de route s&amp;rsquo;étale sur plusieurs années.&lt;/p>
 &lt;li>Gestion de version des infrastructures.&lt;/li>
 &lt;li>Refonte du calcul de marche.&lt;/li>
 &lt;/ul>
-&lt;p>Si vous souhaitez pousser l&amp;rsquo;une de ces fonctionnalités, ou si vous avez des idées sur ce que OSRD pourrait faire à l&amp;rsquo;avenir, n&amp;rsquo;hésitez pas à rejoindre le projet !&lt;/p></description></item><item><title>Docs: ETCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
+&lt;p>Si vous souhaitez pousser l&amp;rsquo;une de ces fonctionnalités, ou si vous avez des idées sur ce que OSRD pourrait faire à l&amp;rsquo;avenir, n&amp;rsquo;hésitez pas à rejoindre le projet !&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+Les tâches qui sont actuellement développées et assignées à notre équipe peuvent être trouvées dans nos tableaux &lt;a href="https://github.com/orgs/OpenRailAssociation/projects?query=is%3Aopen">ici&lt;/a>.
+&lt;/div></description></item><item><title>Docs: ETCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>
 &lt;h3 id="généralités">Généralités&lt;/h3>
 &lt;p>ETCS est le système européen de contrôle commande des trains. La partie bord est interopérable. La partie sol peut être
 différente selon les pays tout en répondant aux mêmes objectifs de fonctionnalité.&lt;/p>
