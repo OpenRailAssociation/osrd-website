@@ -57,7 +57,7 @@ please [tell us about your needs](https://github.com/OpenRailAssociation/osrd/is
 Please consider committing resources to help development if you'd like to use OSRD in production.
 Code contributions are very welcome, and we'd love to work together to make this project better.
 
-For more information on how to contribute, check out the [Contributing file](./CONTRIBUTING.md)
+For more information on how to contribute, check out the [Contributing file](./CONTRIBUTING.md).
 
 ## Get in touch
 
