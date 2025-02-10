@@ -246,49 +246,72 @@ Other errors can happen at runtime:
 
 During simulation, **if a target arrival time cannot be achieved, the rest of the schedule still stands**.
 
+The mission model in OSRD is represented almost like a Train Schedule with the addition of 2 fields: 
+- `step: Duration (ISO 8601)` corresponds to the delay between each train
+- `duration: Duration (ISO 8601)` which corresponds to the total duration of the mission.
+
+## Example
+
+A mission with a step of 15 min and a duration of 2 hours will see 8 trains running from the departure time.
 
 ## Endpoints
 
 ### Timetable
 
 ```
-POST /v2/timetable
-GET /v2/timetable/ # Paginated list timetable
-PUT /v2/timetable/ID
-DELETE /v2/timetable/ID
-GET /v2/timetable/ID # Timetable with list of train schedule ids attached to it
+POST /timetable
+GET /timetable/ # Paginated list timetable
+PUT /timetable/ID
+DELETE /timetable/ID
+GET /timetable/ID/train_schedules # Paginated list of train schedules
+GET /timetable/ID/paced_trains # Paginated list of paced_trains
 ```
 
 ### Train Schedule
 
 ```
-POST /v2/timetable/ID/train_schedule # A batch creation
-GET /v2/train_schedule/ID
-PUT /v2/train_schedule/ID # Update a specific train schedule
-DELETE /v2/train_schedule # A batch deletion
+POST /timetable/ID/train_schedules # A batch creation
+GET /train_schedule/ID
+PUT /train_schedule/ID # Update a specific train schedule
+DELETE /train_schedule # A batch deletion
+```
+
+### Paced Train
+
+POST /timetable/ID/paced_trains # A batch creation
+GET /paced_train/ID
+PUT /paced_train/ID # Update a specific paced train
+DELETE /paced_trains # A batch deletion
 ```
 
 ### Path
 
 ```
-POST /v2/infra/ID/pathfinding/topo # Not required now can be move later
-POST /v2/infra/ID/pathfinding/blocks
+POST /infra/ID/pathfinding/topo # Not required now can be move later
+POST /infra/ID/pathfinding/blocks
 # takes a pathfinding result and a list of properties to extract
-POST /v2/infra/ID/path_properties?props[]=slopes&props[]=gradients&props[]=electrifications&props[]=geometry&props[]=operational_points
-GET /v2/train_schedule/ID/path?infra_id=42 # Retrieve the path from a train schedule
+POST /infra/ID/path_properties?props[]=slopes&props[]=gradients&props[]=electrifications&props[]=geometry&props[]=operational_points
+GET /train_schedule/ID/path?infra_id=42 # Retrieve the path from a train schedule
+GET /paced_train/ID/path?infra_id=42 # Retrieve the path from a paced_train
 ```
 
 ### Simulation results
 
 ```
 # Retrieve the list of conflict of the timetable (invalid trains are ignored)
-GET /v2/timetable/ID/conflicts?infra=N
+GET /timetable/ID/conflicts?infra=N
 # Retrieve the space, speed and time curve of a given train
-GET /v2/train_schedule/ID/simulation?infra=N
+GET /train_schedule/ID/simulation?infa=N
+# Retrieve the space, speed and time curve of a given paced train
+GET /paced_train/ID/simulation?infa=N
 # Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.
-GET /v2/train_schedule/simulations_summary?infra=N&ids[]=X&ids[]=Y
+GET /train_schedule/simulations_sumary?infa=N&ids[]=X&ids[]=Y
+# Retrieves simulation information for a given paced train list. Useful for finding out whether pathfinding/simulation was successful.
+GET /paced_train/simulations_sumary?infa=N&ids[]=X&ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&ids[]=X&ids[]=Y
+# Projects the space time curves and paths of a number of paced trains onto a given path
+POST /paced_train/project_path?infra=N&ids[]=X&ids[]=Y
 ```
 
 ## Frontend workflow
