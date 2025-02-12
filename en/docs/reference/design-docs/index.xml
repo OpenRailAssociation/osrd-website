@@ -458,41 +458,65 @@ time after it has exited to high density margin section.&lt;/li>
 unacceptable.&lt;/li>
 &lt;/ul>
 &lt;p>During simulation, &lt;strong>if a target arrival time cannot be achieved, the rest of the schedule still stands&lt;/strong>.&lt;/p>
+&lt;p>The mission model in OSRD is represented almost like a Train Schedule with the addition of 2 fields:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>step: Duration (ISO 8601)&lt;/code> corresponds to the delay between each train&lt;/li>
+&lt;li>&lt;code>duration: Duration (ISO 8601)&lt;/code> which corresponds to the total duration of the mission.&lt;/li>
+&lt;/ul>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;p>A mission with a step of 15 min and a duration of 2 hours will see 8 trains running from the departure time.&lt;/p>
 &lt;h2 id="endpoints">Endpoints&lt;/h2>
 &lt;h3 id="timetable">Timetable&lt;/h3>
-&lt;pre tabindex="0">&lt;code>POST /v2/timetable
-GET /v2/timetable/ # Paginated list timetable
-PUT /v2/timetable/ID
-DELETE /v2/timetable/ID
-GET /v2/timetable/ID # Timetable with list of train schedule ids attached to it
+&lt;pre tabindex="0">&lt;code>POST /timetable
+GET /timetable/ # Paginated list timetable
+PUT /timetable/ID
+DELETE /timetable/ID
+GET /timetable/ID/train_schedules # Paginated list of train schedules
+GET /timetable/ID/paced_trains # Paginated list of paced_trains
 &lt;/code>&lt;/pre>&lt;h3 id="train-schedule">Train Schedule&lt;/h3>
-&lt;pre tabindex="0">&lt;code>POST /v2/timetable/ID/train_schedule # A batch creation
-GET /v2/train_schedule/ID
-PUT /v2/train_schedule/ID # Update a specific train schedule
-DELETE /v2/train_schedule # A batch deletion
-&lt;/code>&lt;/pre>&lt;h3 id="path">Path&lt;/h3>
-&lt;pre tabindex="0">&lt;code>POST /v2/infra/ID/pathfinding/topo # Not required now can be move later
-POST /v2/infra/ID/pathfinding/blocks
-# takes a pathfinding result and a list of properties to extract
-POST /v2/infra/ID/path_properties?props[]=slopes&amp;amp;props[]=gradients&amp;amp;props[]=electrifications&amp;amp;props[]=geometry&amp;amp;props[]=operational_points
-GET /v2/train_schedule/ID/path?infra_id=42 # Retrieve the path from a train schedule
-&lt;/code>&lt;/pre>&lt;h3 id="simulation-results">Simulation results&lt;/h3>
-&lt;pre tabindex="0">&lt;code># Retrieve the list of conflict of the timetable (invalid trains are ignored)
-GET /v2/timetable/ID/conflicts?infra=N
-# Retrieve the space, speed and time curve of a given train
-GET /v2/train_schedule/ID/simulation?infra=N
-# Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.
-GET /v2/train_schedule/simulations_summary?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
-# Projects the space time curves and paths of a number of train schedules onto a given path
-POST /v2/train_schedule/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y
-&lt;/code>&lt;/pre>&lt;h2 id="frontend-workflow">Frontend workflow&lt;/h2>
-&lt;p>The frontend shouldn&amp;rsquo;t wait minutes to display something to the user. When a timetable contains hundreds of trains it can take some time to simulate everything.
-The idea is to split requests into small batches.&lt;/p>
-&lt;pre class="mermaid">flowchart TB
+&lt;pre tabindex="0">&lt;code>POST /timetable/ID/train_schedules # A batch creation
+GET /train_schedule/ID
+PUT /train_schedule/ID # Update a specific train schedule
+DELETE /train_schedule # A batch deletion
+&lt;/code>&lt;/pre>&lt;h3 id="paced-train">Paced Train&lt;/h3>
+&lt;p>POST /timetable/ID/paced_trains # A batch creation
+GET /paced_train/ID
+PUT /paced_train/ID # Update a specific paced train
+DELETE /paced_trains # A batch deletion&lt;/p>
+&lt;pre tabindex="0">&lt;code>
+### Path
+&lt;/code>&lt;/pre>&lt;p>POST /infra/ID/pathfinding/topo # Not required now can be move later
+POST /infra/ID/pathfinding/blocks&lt;/p>
+&lt;h1 id="takes-a-pathfinding-result-and-a-list-of-properties-to-extract">takes a pathfinding result and a list of properties to extract&lt;/h1>
+&lt;p>POST /infra/ID/path_properties?props[]=slopes&amp;amp;props[]=gradients&amp;amp;props[]=electrifications&amp;amp;props[]=geometry&amp;amp;props[]=operational_points
+GET /train_schedule/ID/path?infra_id=42 # Retrieve the path from a train schedule
+GET /paced_train/ID/path?infra_id=42 # Retrieve the path from a paced_train&lt;/p>
+&lt;pre tabindex="0">&lt;code>
+### Simulation results
+&lt;/code>&lt;/pre>&lt;h1 id="retrieve-the-list-of-conflict-of-the-timetable-invalid-trains-are-ignored">Retrieve the list of conflict of the timetable (invalid trains are ignored)&lt;/h1>
+&lt;p>GET /timetable/ID/conflicts?infra=N&lt;/p>
+&lt;h1 id="retrieve-the-space-speed-and-time-curve-of-a-given-train">Retrieve the space, speed and time curve of a given train&lt;/h1>
+&lt;p>GET /train_schedule/ID/simulation?infa=N&lt;/p>
+&lt;h1 id="retrieve-the-space-speed-and-time-curve-of-a-given-paced-train">Retrieve the space, speed and time curve of a given paced train&lt;/h1>
+&lt;p>GET /paced_train/ID/simulation?infa=N&lt;/p>
+&lt;h1 id="retrieves-simulation-information-for-a-given-train-list-useful-for-finding-out-whether-pathfindingsimulation-was-successful">Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.&lt;/h1>
+&lt;p>GET /train_schedule/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
+&lt;h1 id="retrieves-simulation-information-for-a-given-paced-train-list-useful-for-finding-out-whether-pathfindingsimulation-was-successful">Retrieves simulation information for a given paced train list. Useful for finding out whether pathfinding/simulation was successful.&lt;/h1>
+&lt;p>GET /paced_train/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
+&lt;h1 id="projects-the-space-time-curves-and-paths-of-a-number-of-train-schedules-onto-a-given-path">Projects the space time curves and paths of a number of train schedules onto a given path&lt;/h1>
+&lt;p>POST /v2/train_schedule/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
+&lt;h1 id="projects-the-space-time-curves-and-paths-of-a-number-of-paced-trains-onto-a-given-path">Projects the space time curves and paths of a number of paced trains onto a given path&lt;/h1>
+&lt;p>POST /paced_train/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
+&lt;pre tabindex="0">&lt;code>
+## Frontend workflow
+The frontend shouldn&amp;#39;t wait minutes to display something to the user. When a timetable contains hundreds of trains it can take some time to simulate everything.
+The idea is to split requests into small batches.
+```mermaid
+flowchart TB
 InfraLoaded[Check for infra to be loaded]
 RetrieveTimetable[Retrieve Timetable]
 RetrieveTrains[Retrieve TS2 payloads]
-SummarySimulation[[Summary simulation batch N:N&amp;#43;10]]
+SummarySimulation[[Summary simulation batch N:N+10]]
 TrainProjectionPath[Get selected train projection path]
 Projection[[Projection batch N-10:N]]
 TrainSimulation[Get selected train simulation]
@@ -518,7 +542,8 @@ TrainProjectionPath --&amp;gt;|Wait for the previous batch| Projection
 SummarySimulation -..-&amp;gt;|If no projection train id| TrainProjectionPath
 Projection ==&amp;gt;|Gradually fill| DisplayGet
 SummarySimulation --&amp;gt;|Once everything is simulated| Conflicts
-Conflicts --&amp;gt; ProjectConflicts&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
+Conflicts --&amp;gt; ProjectConflicts
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Authentication and authorization</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/</guid><description>
 &lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
 &lt;ul>
 &lt;li>authentication (&lt;code>authn&lt;/code>) is the process of figuring out a user&amp;rsquo;s identity.&lt;/li>
