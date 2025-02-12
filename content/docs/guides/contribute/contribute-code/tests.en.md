@@ -32,6 +32,15 @@ This is done by API calls in typescript before launching the actual test.
 
 The data tested is the same, both locally and via continuous integration.
 
+#### End-to-End (E2E) Test Development Process
+E2E tests are implemented iteratively and delivered alongside feature developments. Note that:
+- E2E tests should only be developed for the application's critical user journeys.
+- This workflow helps prevent immediate regressions after a feature release, enhances the entire team's proficiency in E2E testing, and avoids excessively long PRs that would introduce entire E2E test suites at once.
+- It is acceptable for E2E tests to be partial during development, even if their implementation increases ticket size and development time.
+- Some parts of the tests will need to be mocked while the feature is still under development. However, by the end of development, the E2E test must be complete, and all mocked data should be removed. The final modifications to eliminate mocking should be minimal (typically limited to updating expected values).
+- Test cases and user journeys should be defined in advance, during ticket refinement, before the PIP. They may be proposed by Aymen or a Product Owner (PO) and must be validated by Aymen, the relevant PO, and frontend developers.
+- If an E2E test affects the E2E testing configuration, project architecture (e.g., snapshotting), or poses a risk of slowing down the CI, a refinement workshop must be organized to consult the team responsible for project architecture and CI, particularly the DevOps team.
+
 #### Atomicity of a test
 Each test must be **atomic**: it is self-sufficient and cannot be divided.
 
