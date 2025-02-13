@@ -246,7 +246,9 @@ Other errors can happen at runtime:
 
 During simulation, **if a target arrival time cannot be achieved, the rest of the schedule still stands**.
 
-The mission model in OSRD is represented almost like a Train Schedule with the addition of 2 fields: 
+## Paced Train
+
+The paced Train model in OSRD is represented almost like a Train Schedule with the addition of 2 fields: 
 - `step: Duration (ISO 8601)` corresponds to the delay between each train
 - `duration: Duration (ISO 8601)` which corresponds to the total duration of the mission.
 
@@ -278,6 +280,7 @@ DELETE /train_schedule # A batch deletion
 
 ### Paced Train
 
+```
 POST /timetable/ID/paced_trains # A batch creation
 GET /paced_train/ID
 PUT /paced_train/ID # Update a specific paced train
@@ -301,13 +304,13 @@ GET /paced_train/ID/path?infra_id=42 # Retrieve the path from a paced_train
 # Retrieve the list of conflict of the timetable (invalid trains are ignored)
 GET /timetable/ID/conflicts?infra=N
 # Retrieve the space, speed and time curve of a given train
-GET /train_schedule/ID/simulation?infa=N
+GET /train_schedule/ID/simulation?infra=N
 # Retrieve the space, speed and time curve of a given paced train
-GET /paced_train/ID/simulation?infa=N
+GET /paced_train/ID/simulation?infra=N
 # Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.
-GET /train_schedule/simulations_sumary?infa=N&ids[]=X&ids[]=Y
+GET /train_schedule/simulations_summary?infra=N&ids[]=X&ids[]=Y
 # Retrieves simulation information for a given paced train list. Useful for finding out whether pathfinding/simulation was successful.
-GET /paced_train/simulations_sumary?infa=N&ids[]=X&ids[]=Y
+GET /paced_train/simulations_summary?infra=N&ids[]=X&ids[]=Y
 # Projects the space time curves and paths of a number of train schedules onto a given path
 POST /v2/train_schedule/project_path?infra=N&ids[]=X&ids[]=Y
 # Projects the space time curves and paths of a number of paced trains onto a given path
