@@ -246,7 +246,9 @@ Other errors can happen at runtime:
 
 During simulation, **if a target arrival time cannot be achieved, the rest of the schedule still stands**.
 
-The mission model in OSRD is represented almost like a Train Schedule with the addition of 2 fields: 
+## Paced Train
+
+The paced Train model in OSRD is represented almost like a Train Schedule with the addition of 2 fields: 
 - `step: Duration (ISO 8601)` corresponds to the delay between each train
 - `duration: Duration (ISO 8601)` which corresponds to the total duration of the mission.
 
@@ -278,6 +280,7 @@ DELETE /train_schedule # A batch deletion
 
 ### Paced Train
 
+```
 POST /timetable/ID/paced_trains # A batch creation
 GET /paced_train/ID
 PUT /paced_train/ID # Update a specific paced train
