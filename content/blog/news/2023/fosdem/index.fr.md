@@ -14,6 +14,10 @@ L'un des moments forts de l'événement était le lancement de la Devroom « Ope
 
 ## « Short-term digital capacity management » ou le challenge des sillons de dernière minute
 
+**Bonjour je suis le message**
+
+[test](google.com)
+
 La conférence d’Eloi Charpentier, intitulée « automated short-term train planning in OSRD » présentait les réflexions issues de nos travaux sur la simulation de sillons de dernière minute. Ou comment permettre aux entreprises de fret ferroviaire d’obtenir des autorisations de circulation de dernière minute évitant les embouteillages sur le réseau, et d’avoir ainsi l’agilité indispensable pour concurrencer le transport routier ?
 
 ### [Slides](https://fosdem.org/2023/schedule/event/rot_osrd/attachments/slides/5586/export/events/attachments/rot_osrd/slides/5586/automated_short_term_train_planning.pdf)
