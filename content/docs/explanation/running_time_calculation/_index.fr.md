@@ -25,7 +25,7 @@ Un calcul de marche est basé sur 5 entrées :
 
 - **Le matériel roulant :** Dont les caractéristiques nécessaires pour effectuer la simulation sont représentées ci-dessous.
 
-![Matériel roulant](mat_roulant.png)
+![Matériel roulant](../models/realistic-rolling-stocks/high-speed-rolling-stock.fr.png)
 
 > La courbe orange, appelée courbe effort-vitesse du matériel, représente l'effort moteur maximal en fonction de la
 > vitesse de circulation.

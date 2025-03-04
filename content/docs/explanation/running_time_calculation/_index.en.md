@@ -25,7 +25,7 @@ A running time calculation is based on 5 inputs:
 
 - **The rolling stock:** The characteristics of which needed to perform the simulation are shown below.
 
-![Rolling Stock Material](mat_roulant.png)
+![Rolling Stock Material](../models/realistic-rolling-stocks/high-speed-rolling-stock.en.png)
 
 > The orange curve, called the effort-speed curve, represents the maximum motor effort as a function of the speed of travel.
 >
