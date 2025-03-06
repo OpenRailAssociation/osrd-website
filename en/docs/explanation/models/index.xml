@@ -298,4 +298,45 @@ In the French infrastructure, these zones are indicated by announcement, executi
 &lt;li>The driver&amp;rsquo;s behavior is rather restrictive (coasting could start after the announcement sign).&lt;/li>
 &lt;li>The display of the zones is limited: no representation of the direction or the announcement zones.&lt;/li>
 &lt;li>These zones are not editable.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Rolling stock categories</title><link>https://osrd.fr/en/docs/explanation/models/realistic-rolling-stocks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/models/realistic-rolling-stocks/</guid><description>
+&lt;p>Categories are groupings of rolling stock, either by their characteristics, performance or by the nature of the services for which they have been designed or are used.&lt;/p>
+&lt;p>The same rolling stock can be used for different types of operations and services. This versatility is reflected in the following attributes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>primary_category&lt;/code> (required) indicates the main use of a rolling stock&lt;/li>
+&lt;li>&lt;code>other_categories&lt;/code> (optional) indicates other possible uses of a rolling stock&lt;/li>
+&lt;/ul>
+&lt;p>The primary category of a rolling stock enables several features, such as filtering, differentiated display on charts or network graphic views, and, more broadly, the aggregation of rolling stocks.&lt;/p>
+&lt;h4 id="categories-of-rolling-stocks">Categories of rolling stocks&lt;/h4>
+&lt;p>The different default rolling stock categories are as follows:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>High-speed train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/High-speed_rail">High-speed train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Intercity train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Inter-city_rail">Intercity train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Regional train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Regional_rail">Regional train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Commuter train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Commuter_rail">Commuter train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Freight train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Rail_freight_transport">Freight train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Fast freight train&lt;/code> (same as Freight train, but with a different composition code, &lt;code>ME140&lt;/code> instead of &lt;code>MA100&lt;/code> for example)&lt;/li>
+&lt;li>&lt;code>Night train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Sleeping_car">Night train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Tram-train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Tram-train">Tram-train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Touristic train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Heritage_railway">Touristic train&lt;/a>)&lt;/li>
+&lt;li>&lt;code>Work train&lt;/code> (see &lt;a href="https://en.wikipedia.org/wiki/Work_train">Work train&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;p>It is also planned that, in the future, a user will be able to create new rolling stock categories directly.&lt;/p>
+&lt;h3 id="realistic-open-data-rolling-stocks">Realistic open data rolling stocks&lt;/h3>
+&lt;p>To make the application more accessible to users outside the railway industry, such as external contributors and research laboratories, and to prepare for the release of the public playground version of OSRD, several rolling stock created with mock data are available to all users.&lt;/p>
+&lt;p>These rolling stocks are designed to cover most simulation scenarios that users may encounter.&lt;/p>
+&lt;p>These rolling stocks are not actual rolling stocks, due to confidentiality reasons, but they have been created based on real data to ensure a high level of realism.&lt;/p>
+&lt;p>The rolling stocks are provided as &lt;a href="https://github.com/OpenRailAssociation/osrd/tree/dev/tests/data/rolling_stocks">JSON files&lt;/a>. We created one representative rolling stock for each category listed above.&lt;/p>
+&lt;p>The characteristics of these rolling stocks have been calculated based on the average values of real rolling stocks within each category. Additionally, most of these models are designed to be compatible across various networks: they are primarily bi-mode (supporting multiple electric voltage and current supply types), which is not always the case for real-world rolling stocks.&lt;/p>
+&lt;p>An example of rolling stock, a &lt;strong>high-speed train&lt;/strong>, is represented below, from the rolling stock editor of the application:&lt;/p>
+&lt;p>&lt;img src="high-speed-rolling-stock.en.png" alt="Rolling stock">&lt;/p>
+&lt;h4 id="open-data">Open data&lt;/h4>
+&lt;p>Since these rolling stocks are fictional (yet realistic), they can be freely used in projects beyond OSRD.&lt;/p>
+&lt;p>To access and use them in the application:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>From the open-source playground:&lt;/strong> The rolling stocks are available by default.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>From a locally launched application:&lt;/strong> Use the corresponding command in the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/README.md">README&lt;/a> to import the test rolling stocks in your database.&lt;/p>
+&lt;/li>
 &lt;/ul></description></item></channel></rss>

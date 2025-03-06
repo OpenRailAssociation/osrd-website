@@ -496,13 +496,13 @@ GET /paced_train/ID/path?infra_id=42 # Retrieve the path from a paced_train&lt;/
 &lt;/code>&lt;/pre>&lt;h1 id="retrieve-the-list-of-conflict-of-the-timetable-invalid-trains-are-ignored">Retrieve the list of conflict of the timetable (invalid trains are ignored)&lt;/h1>
 &lt;p>GET /timetable/ID/conflicts?infra=N&lt;/p>
 &lt;h1 id="retrieve-the-space-speed-and-time-curve-of-a-given-train">Retrieve the space, speed and time curve of a given train&lt;/h1>
-&lt;p>GET /train_schedule/ID/simulation?infa=N&lt;/p>
+&lt;p>GET /train_schedule/ID/simulation?infra=N&lt;/p>
 &lt;h1 id="retrieve-the-space-speed-and-time-curve-of-a-given-paced-train">Retrieve the space, speed and time curve of a given paced train&lt;/h1>
-&lt;p>GET /paced_train/ID/simulation?infa=N&lt;/p>
+&lt;p>GET /paced_train/ID/simulation?infra=N&lt;/p>
 &lt;h1 id="retrieves-simulation-information-for-a-given-train-list-useful-for-finding-out-whether-pathfindingsimulation-was-successful">Retrieves simulation information for a given train list. Useful for finding out whether pathfinding/simulation was successful.&lt;/h1>
-&lt;p>GET /train_schedule/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
+&lt;p>GET /train_schedule/simulations_summary?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
 &lt;h1 id="retrieves-simulation-information-for-a-given-paced-train-list-useful-for-finding-out-whether-pathfindingsimulation-was-successful">Retrieves simulation information for a given paced train list. Useful for finding out whether pathfinding/simulation was successful.&lt;/h1>
-&lt;p>GET /paced_train/simulations_sumary?infa=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
+&lt;p>GET /paced_train/simulations_summary?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
 &lt;h1 id="projects-the-space-time-curves-and-paths-of-a-number-of-train-schedules-onto-a-given-path">Projects the space time curves and paths of a number of train schedules onto a given path&lt;/h1>
 &lt;p>POST /v2/train_schedule/project_path?infra=N&amp;amp;ids[]=X&amp;amp;ids[]=Y&lt;/p>
 &lt;h1 id="projects-the-space-time-curves-and-paths-of-a-number-of-paced-trains-onto-a-given-path">Projects the space time curves and paths of a number of paced trains onto a given path&lt;/h1>

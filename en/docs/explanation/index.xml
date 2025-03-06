@@ -35,7 +35,7 @@ editoast -- HTTP --&amp;gt; core&lt;/pre>
 &lt;ul>
 &lt;li>&lt;strong>The rolling stock:&lt;/strong> The characteristics of which needed to perform the simulation are shown below.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="mat_roulant.png" alt="Rolling Stock Material">&lt;/p>
+&lt;p>&lt;img src="../models/realistic-rolling-stocks/high-speed-rolling-stock.en.png" alt="Rolling Stock Material">&lt;/p>
 &lt;blockquote>
 &lt;p>The orange curve, called the effort-speed curve, represents the maximum motor effort as a function of the speed of travel.&lt;/p>
 &lt;p>The length, mass, and maximum speed of the train are shown at the bottom of the box.&lt;/p>

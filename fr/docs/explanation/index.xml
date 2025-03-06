@@ -35,7 +35,7 @@ editoast -- HTTP --&amp;gt; core&lt;/pre>
 &lt;ul>
 &lt;li>&lt;strong>Le matériel roulant :&lt;/strong> Dont les caractéristiques nécessaires pour effectuer la simulation sont représentées ci-dessous.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="mat_roulant.png" alt="Matériel roulant">&lt;/p>
+&lt;p>&lt;img src="../models/realistic-rolling-stocks/high-speed-rolling-stock.fr.png" alt="Matériel roulant">&lt;/p>
 &lt;blockquote>
 &lt;p>La courbe orange, appelée courbe effort-vitesse du matériel, représente l&amp;rsquo;effort moteur maximal en fonction de la
 vitesse de circulation.&lt;/p>
