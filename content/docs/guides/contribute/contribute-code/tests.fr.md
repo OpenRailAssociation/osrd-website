@@ -31,6 +31,15 @@ Cela se fait par des appels API en typescript avant de lancer le test à proprem
 
 Les données testées sont les mêmes en local ou via l'intégration continue.
 
+#### Process de développement des tests e2e
+Les tests e2e sont implémentés de manière itérative, et livrés en même temps que les développements. A noter que:
+- les tests e2e ne doivent être développés que sur les parcours utilisateurs critiques de l'application.
+- ce workflow permet d’éviter les régressions immédiates après la sortie d'une fonctionnalité, de faire monter toute l’équipe en compétences sur les tests e2e et d’éviter des PRs très longues qui ajouteraient des tests e2e entiers
+- on accepte que les tests e2e soient partiels le temps des développements et que le développement des tests alourdisse la taille des tickets et le temps de développement.
+- certaines parties du test devront être mockées le temps que la fonctionnalité soit entièrement développée mais à la fin des développements, le test e2e devra être complet et les données mockées devront avoir disparu. Les modifications finales à faire dans le test pour retirer le mocking seront normalement minimes (uniquement changer les expected values).
+- les cas de test et les parcours utilisateur devront être définis en amont, au moment du refinement du ticket, avant le PIP. Ils pourront être proposés par Aymen ou un.e PO, et devront être validés par Aymen, le.la PO compétent.e et des devs front.
+- si un test e2e touche à la config des tests e2e, à l’architecture du projet (typiquement le snapshoting) ou présente un risque de ralentir la CI, un atelier de refinement devra être organisé pour consulter les personnes en charge de l'architecture du projet et de la CI, notamment la team devops.
+
 #### Atomicité d'un test
 Chaque test doit être **atomique** : il se suffit à lui même et ne peut pas être divisé.
 
