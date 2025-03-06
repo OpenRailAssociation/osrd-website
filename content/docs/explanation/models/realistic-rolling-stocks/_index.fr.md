@@ -40,7 +40,7 @@ Ces matériels roulants ne sont pas des matériels roulants existant réellement
 
 Ces matériels roulants sont fournis sous forme de [fichiers JSON](https://github.com/OpenRailAssociation/osrd/tree/dev/tests/data/rolling_stocks). Nous avons créé un matériel roulant représentatif de chaque catégorie présentée ci-dessus.
 
-Les caractéristiques de ces matériels roulants ont été calculées à partir des valeurs moyennes des matériels roulants réels de chaque catégorie. De plus, la plupart de ces modèles ont été conçus pour être compatibles avec divers réseaux : ils sont principalement bimodes (supportant plusieurs tensions et courants d'alimentation), ce qui n’est pas toujours le cas des matériels roulants réels.
+Les caractéristiques de ces matériels roulants ont été calculées à partir des valeurs moyennes des matériels roulants réels de chaque catégorie. De plus, la plupart de ces modèles ont été conçus pour être compatibles avec divers réseaux : ils sont principalement bi-modes (supportant plusieurs tensions et courants d'alimentation), ce qui n’est pas toujours le cas des matériels roulants réels.
 
 Un exemple de matériel roulant, un **train à grande vitesse**, est représenté ci-dessous, depuis l'éditeur de matériel roulant de l'application :
 
