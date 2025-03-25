@@ -25,7 +25,7 @@
     "@cspell/dict-sql": "^2.2.0",
     "autoprefixer": "^10.4.17",
     "cspell": "^8.17.2",
-    "hugo-bin-extended": "^0.121.2",
+    "hugo-bin-extended": "^0.145.0",
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0"
   }
