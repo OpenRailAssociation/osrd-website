@@ -23,14 +23,14 @@ It's free and open-source forever!
 docker run --rm -it \
     -v $(pwd):/src \
     --entrypoint npm \
-    klakegg/hugo:ext-alpine \
+    hugomods/hugo:exts \
     install
 ```
 
 #### Development server
 
 ```
-# starts hugo using the klakegg/hugo:ext-alpine docker image
+# starts hugo using the hugomods/hugo:exts docker image
 ./hugo.sh server
 ```
 
