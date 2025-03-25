@@ -220,5 +220,5 @@ proxy = "direct"
 extended = true
 min = "0.121.2"
 [[module.imports]]
-path = "github.com/osrd-project/docsy"
+path = "github.com/google/docsy"
 disable = false
