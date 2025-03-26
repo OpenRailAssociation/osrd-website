@@ -676,6 +676,16 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 The data required (infrastructure and rolling stock) for the tests are offered in the application&amp;rsquo;s &lt;code>json&lt;/code> files, &lt;em>injected&lt;/em> at the start of each test and deleted at the end, regardless of its result or how it is stopped, including with &lt;code>CTRL+C&lt;/code>.&lt;/p>
 &lt;p>This is done by API calls in typescript before launching the actual test.&lt;/p>
 &lt;p>The data tested is the same, both locally and via continuous integration.&lt;/p>
+&lt;h4 id="end-to-end-e2e-test-development-process">End-to-End (E2E) Test Development Process&lt;/h4>
+&lt;p>E2E tests are implemented iteratively and delivered alongside feature developments. Note that:&lt;/p>
+&lt;ul>
+&lt;li>E2E tests should only be developed for the application&amp;rsquo;s critical user journeys.&lt;/li>
+&lt;li>This workflow helps prevent immediate regressions after a feature release, enhances the entire team&amp;rsquo;s proficiency in E2E testing, and avoids excessively long PRs that would introduce entire E2E test suites at once.&lt;/li>
+&lt;li>It is acceptable for E2E tests to be partial during development, even if their implementation increases ticket size and development time.&lt;/li>
+&lt;li>Some parts of the tests will need to be mocked while the feature is still under development. However, by the end of development, the E2E test must be complete, and all mocked data should be removed. The final modifications to eliminate mocking should be minimal (typically limited to updating expected values).&lt;/li>
+&lt;li>Test cases and user journeys should be defined in advance, during ticket refinement, before the PIP. They may be proposed by a QA or a Product Owner (PO) and must be validated by a QA, the relevant PO, and frontend developers.&lt;/li>
+&lt;li>If an E2E test affects the E2E testing configuration, project architecture (e.g., snapshotting), or poses a risk of slowing down the CI, a refinement workshop must be organized to consult the team responsible for project architecture and CI, particularly the DevOps team.&lt;/li>
+&lt;/ul>
 &lt;h4 id="atomicity-of-a-test">Atomicity of a test&lt;/h4>
 &lt;p>Each test must be &lt;strong>atomic&lt;/strong>: it is self-sufficient and cannot be divided.&lt;/p>
 &lt;p>A test will target a single feature or component, provided it is not too large. A test will not test an entire module or application; it will necessarily be a set of tests, in order to preserve test atomicity.&lt;/p>
@@ -2714,7 +2724,7 @@ Meanwhile, to simulate train behavior, we figured out that we need to know which
 &lt;li>either treat each type of constraint as its own thing during the simulation&lt;/li>
 &lt;li>abstract away constraints into a common representation, and then simulate that&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode178s1hbhb-distinct-constraint-types">❌
+&lt;h4 id="hahahugoshortcode183s1hbhb-distinct-constraint-types">❌
 Distinct constraint types&lt;/h4>
 &lt;p>When we first started drafting architecture diagrams, the train simulation API directly took
 a bunch of constraint types as an input. It brought up a number of issues:&lt;/p>
@@ -2724,7 +2734,7 @@ a bunch of constraint types as an input. It brought up a number of issues:&lt;/p
 &lt;li>when simulating, it does not seem to matter why a constraint is there, only what to do about it&lt;/li>
 &lt;/ul>
 &lt;p>We couldn&amp;rsquo;t find clear benefits to dragging distinctions between constraint types deep into the implementation.&lt;/p>
-&lt;h4 id="hahahugoshortcode178s2hbhb-internal-constraint-types-abstraction">❌
+&lt;h4 id="hahahugoshortcode183s2hbhb-internal-constraint-types-abstraction">❌
 Internal constraint types abstraction&lt;/h4>
 &lt;p>We then realized that abstracting over constraint types during simulation had immense benefits:&lt;/p>
 &lt;ul>
@@ -2739,7 +2749,7 @@ but lowering these constraints into an intermediary representation internally. W
 &lt;li>the public simulation API would still bear the complexity of dealing with many constraint types&lt;/li>
 &lt;li>there would be a need to incrementally generate internal abstracted constraints to support the incremental API&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode178s3hbhb-external-constraint-types-abstraction">✅
+&lt;h4 id="hahahugoshortcode183s3hbhb-external-constraint-types-abstraction">✅
 External constraint types abstraction&lt;/h4>
 &lt;p>We tried to improve over the previous proposal by moving the burden of converting many constraints into a common abstraction out of the simulation API.&lt;/p>
 &lt;p>Instead of having many constraint types as an input, the simulation API takes a collection of a single abstract constraint type. The task of converting
@@ -2828,7 +2838,7 @@ adding some kind of priority / rank field, which was adopted&lt;/li>
 &lt;li>once in the speed limit&lt;/li>
 &lt;/ul>
 &lt;p>There are multiple ways this issue can be dealt with:&lt;/p>
-&lt;h4 id="hahahugoshortcode158s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
+&lt;h4 id="hahahugoshortcode161s0hbhb-mandatory-speed-limit-value-in-the-speed-section">✅
 Mandatory speed limit value in the speed section&lt;/h4>
 &lt;p>Upsides:&lt;/p>
 &lt;ul>
@@ -2839,11 +2849,11 @@ Mandatory speed limit value in the speed section&lt;/h4>
 &lt;li>more work on the side of users&lt;/li>
 &lt;li>room for inconsistencies between the speed limit announced by signaling, and the effective speed limit&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode158s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
+&lt;h4 id="hahahugoshortcode161s1hbhb-deduce-the-signal-constraint-from-the-speed-limit">❌
 Deduce the signal constraint from the speed limit&lt;/h4>
 &lt;p>This option was not explored much, as it was deemed awkward
 to deduce signal parameters from a speed limit value.&lt;/p>
-&lt;h4 id="hahahugoshortcode158s2hbhb-deduce-the-speed-limit-from-the-signal">❌
+&lt;h4 id="hahahugoshortcode161s2hbhb-deduce-the-speed-limit-from-the-signal">❌
 Deduce the speed limit from the signal&lt;/h4>
 &lt;p>Make the speed limit value optional, and deduce it from the signal itself.
 Speed limits per tag also have to be deduced if missing.&lt;/p>
@@ -2862,14 +2872,14 @@ Speed limits per tag also have to be deduced if missing.&lt;/p>
 which is distinct from the signal which announces the speed limit.&lt;/p>
 &lt;p>To allow for correct train reactions to this kind of limits, a link between the announce signal
 and the speed limit section has to be made at some point.&lt;/p>
-&lt;h4 id="hahahugoshortcode158s3hbhb-automated-matching-of-signals-and-speed-sections">❌
+&lt;h4 id="hahahugoshortcode161s3hbhb-automated-matching-of-signals-and-speed-sections">❌
 Automated matching of signals and speed sections&lt;/h4>
 &lt;p>Was not deemed realistic.&lt;/p>
-&lt;h4 id="hahahugoshortcode158s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
+&lt;h4 id="hahahugoshortcode161s4hbhb-explicit-link-from-route-to-speed-limit-and-signals">❌
 Explicit link from route to speed limit and signals&lt;/h4>
 &lt;p>Was deemed to be awkward, as signaling is currently built over interlocking.
 Referencing signaling from interlocking creates a circular dependency between the two schemas.&lt;/p>
-&lt;h4 id="hahahugoshortcode158s5hbhb-explicit-link-from-speed-limit-to-signals">❌
+&lt;h4 id="hahahugoshortcode161s5hbhb-explicit-link-from-speed-limit-to-signals">❌
 Explicit link from speed limit to signals&lt;/h4>
 &lt;p>Add a list of &lt;code>(route, signal)&lt;/code> tuples to speed sections.&lt;/p>
 &lt;p>Upside:&lt;/p>
@@ -2881,7 +2891,7 @@ Explicit link from speed limit to signals&lt;/h4>
 &lt;li>Creates a dependency loop between speed limits and signaling. Part of the parsing of speed limit has to be deferred.&lt;/li>
 &lt;li>Signals parameters also have to be set per route, which is done in the signal. Having per-route options on both sides doubles the work.&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode158s6hbhb-inlining-speed-limit-definitions-into-signals">❌
+&lt;h4 id="hahahugoshortcode161s6hbhb-inlining-speed-limit-definitions-into-signals">❌
 Inlining speed limit definitions into signals&lt;/h4>
 &lt;p>Introduces a new type of speed limit, which are announced by signals.
 These speed limits are directly defined within signal definitions.&lt;/p>
@@ -2916,7 +2926,7 @@ These speed limits are directly defined within signal definitions.&lt;/p>
 &lt;li>speed sections created directly inside signals can only be announced by a single signal, which could be an issue for speed sections which apply to very large areas, and are announced by multiple signals (such as one for each direction)&lt;/li>
 &lt;li>the cost of reversing this decision could be fairly high&lt;/li>
 &lt;/ul>
-&lt;h4 id="hahahugoshortcode158s7hbhb-explicit-link-from-signal-to-speed-section">✅
+&lt;h4 id="hahahugoshortcode161s7hbhb-explicit-link-from-signal-to-speed-section">✅
 Explicit link from signal to speed section&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -3199,7 +3209,7 @@ and relieves DBM from the responsibility of finding the most restrictive instruc
 &lt;/ol>
 &lt;p>We decided that only the first option was desirable.&lt;/p>
 &lt;p>The design choices then are:&lt;/p>
-&lt;h5 id="hahahugoshortcode176s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
+&lt;h5 id="hahahugoshortcode181s3hbhb-make-the-dbm-as-close-as-possible-to-a-decision-function">❌
 Make the DBM as close as possible to a decision function&lt;/h5>
 &lt;p>Then the DBM would not be aware of the time step it is called with, and would return an acceleration. Then the module should expose two methods:&lt;/p>
 &lt;ul>
@@ -3213,7 +3223,7 @@ Called several times depending on the integration method.&lt;/p>
 Called on the integration step results from this DBM, and the other DBMs integration step results.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="hahahugoshortcode176s4hbhb-the-dbm-returns-a-new-state">✅
+&lt;h5 id="hahahugoshortcode181s4hbhb-the-dbm-returns-a-new-state">✅
 The DBM returns a new state&lt;/h5>
 &lt;p>The module would then expose two methods:&lt;/p>
 &lt;ul>

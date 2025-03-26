@@ -460,6 +460,16 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 The data required (infrastructure and rolling stock) for the tests are offered in the application&amp;rsquo;s &lt;code>json&lt;/code> files, &lt;em>injected&lt;/em> at the start of each test and deleted at the end, regardless of its result or how it is stopped, including with &lt;code>CTRL+C&lt;/code>.&lt;/p>
 &lt;p>This is done by API calls in typescript before launching the actual test.&lt;/p>
 &lt;p>The data tested is the same, both locally and via continuous integration.&lt;/p>
+&lt;h4 id="end-to-end-e2e-test-development-process">End-to-End (E2E) Test Development Process&lt;/h4>
+&lt;p>E2E tests are implemented iteratively and delivered alongside feature developments. Note that:&lt;/p>
+&lt;ul>
+&lt;li>E2E tests should only be developed for the application&amp;rsquo;s critical user journeys.&lt;/li>
+&lt;li>This workflow helps prevent immediate regressions after a feature release, enhances the entire team&amp;rsquo;s proficiency in E2E testing, and avoids excessively long PRs that would introduce entire E2E test suites at once.&lt;/li>
+&lt;li>It is acceptable for E2E tests to be partial during development, even if their implementation increases ticket size and development time.&lt;/li>
+&lt;li>Some parts of the tests will need to be mocked while the feature is still under development. However, by the end of development, the E2E test must be complete, and all mocked data should be removed. The final modifications to eliminate mocking should be minimal (typically limited to updating expected values).&lt;/li>
+&lt;li>Test cases and user journeys should be defined in advance, during ticket refinement, before the PIP. They may be proposed by a QA or a Product Owner (PO) and must be validated by a QA, the relevant PO, and frontend developers.&lt;/li>
+&lt;li>If an E2E test affects the E2E testing configuration, project architecture (e.g., snapshotting), or poses a risk of slowing down the CI, a refinement workshop must be organized to consult the team responsible for project architecture and CI, particularly the DevOps team.&lt;/li>
+&lt;/ul>
 &lt;h4 id="atomicity-of-a-test">Atomicity of a test&lt;/h4>
 &lt;p>Each test must be &lt;strong>atomic&lt;/strong>: it is self-sufficient and cannot be divided.&lt;/p>
 &lt;p>A test will target a single feature or component, provided it is not too large. A test will not test an entire module or application; it will necessarily be a set of tests, in order to preserve test atomicity.&lt;/p>

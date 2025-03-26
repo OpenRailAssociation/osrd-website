@@ -676,8 +676,18 @@ Vous pouvez laisser un commentaire pour expliquer les changements.&lt;/li>
 Les données nécessaires (infrastructure et matériel) aux tests sont proposées dans des fichiers &lt;code>json&lt;/code> de l&amp;rsquo;application, &lt;em>injectées&lt;/em> au début de chaque test et effacées à la fin peu importe son résultat ou la manière d&amp;rsquo;être stoppé, y compris par &lt;code>CTRL+C&lt;/code>.&lt;/p>
 &lt;p>Cela se fait par des appels API en typescript avant de lancer le test à proprement parler.&lt;/p>
 &lt;p>Les données testées sont les mêmes en local ou via l&amp;rsquo;intégration continue.&lt;/p>
+&lt;h4 id="processus-de-développement-des-tests-e2e">Processus de développement des tests e2e&lt;/h4>
+&lt;p>Les tests e2e sont implémentés de manière itérative, et livrés en même temps que les développements. À noter que:&lt;/p>
+&lt;ul>
+&lt;li>les tests e2e ne doivent être développés que sur les parcours utilisateurs critiques de l&amp;rsquo;application.&lt;/li>
+&lt;li>ce workflow permet d’éviter les régressions immédiates après la sortie d&amp;rsquo;une fonctionnalité, de faire monter toute l’équipe en compétences sur les tests e2e et d’éviter des PRs très longues qui ajouteraient des tests e2e entiers&lt;/li>
+&lt;li>on accepte que les tests e2e soient partiels le temps des développements et que le développement des tests alourdisse la taille des tickets et le temps de développement.&lt;/li>
+&lt;li>certaines parties du test devront être mockées le temps que la fonctionnalité soit entièrement développée mais à la fin des développements, le test e2e devra être complet et les données mockées devront avoir disparu. Les modifications finales à faire dans le test pour retirer le mocking seront normalement minimes (uniquement changer les expected values).&lt;/li>
+&lt;li>les cas de test et les parcours utilisateur devront être définis en amont, au moment de la conception du ticket (&lt;em>refinement&lt;/em>), avant le PIP. Ils pourront être proposés par un QA ou un.e PO, et devront être validés par un QA, le.la PO compétent.e et des devs front.&lt;/li>
+&lt;li>si un test e2e touche à la configuration des tests e2e, à l’architecture du projet (typiquement le snapshotting) ou présente un risque de ralentir la CI, un atelier de conception (&lt;em>refinement&lt;/em>) devra être organisé pour consulter les personnes en charge de l&amp;rsquo;architecture du projet et de la CI, notamment la team devops.&lt;/li>
+&lt;/ul>
 &lt;h4 id="atomicité-dun-test">Atomicité d&amp;rsquo;un test&lt;/h4>
-&lt;p>Chaque test doit être &lt;strong>atomique&lt;/strong> : il se suffit à lui même et ne peut pas être divisé.&lt;/p>
+&lt;p>Chaque test doit être &lt;strong>atomique&lt;/strong> : il se suffit à lui-même et ne peut pas être divisé.&lt;/p>
 &lt;p>Un test va cibler une fonctionnalité ou un composant, si ce dernier n&amp;rsquo;est pas trop gros. Un test ne testera pas tout un module ou tout une application, ce sera forcément un ensemble de tests afin de préserver l&amp;rsquo;atomicité des tests.&lt;/p>
 &lt;p>Si un test a besoin que des éléments soient créés ou ajoutés, ces opérations doivent être opérées par des appels API en typescript en amont du test, à l&amp;rsquo;instar de ce qui est fait pour l&amp;rsquo;ajout de données. Ces éléments doivent être supprimés à l&amp;rsquo;issue du test, peu importe son résultat ou la manière d&amp;rsquo;être stoppé, y compris par &lt;code>CTRL+C&lt;/code>.&lt;/p>
 &lt;p>Cela permettra notamment la parallélisation des tests.&lt;/p>
