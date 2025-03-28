@@ -1,63 +1,11 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute to OSRD</title><link>https://osrd.fr/en/docs/guides/contribute/</link><description>Recent content in Contribute to OSRD on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Preamble</title><link>https://osrd.fr/en/docs/guides/contribute/preamble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/preamble/</guid><description>
-&lt;p>First off, thanks for taking the time to contribute!&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Contribute to OSRD on OSRD</title><link>https://osrd.fr/en/docs/guides/contribute/</link><description>Recent content in Contribute to OSRD on OSRD</description><generator>Hugo</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/contribute/index.xml" rel="self" type="application/rss+xml"/><item><title>Preamble</title><link>https://osrd.fr/en/docs/guides/contribute/preamble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/preamble/</guid><description>&lt;p>First off, thanks for taking the time to contribute!&lt;/p>
 &lt;p>The following chapters are a set of guidelines for contributing to OSRD. These guidelines are mostly not strict rules, it&amp;rsquo;s probably fine to do things slightly differently. If you have already contributed to open source projects before, you probably won&amp;rsquo;t be surprised. If you have not, it will probably help a lot!&lt;/p>
 &lt;h3 id="communicate">Communicate&lt;/h3>
-&lt;p>Chatting with other contributors is a great way to speed things up:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">&lt;strong>Create an issue&lt;/strong>&lt;/a> to discuss your contribution project.&lt;/li>
-&lt;/ul>
-&lt;h3 id="inquire">Inquire&lt;/h3>
-&lt;p>Just like with any project, changes rely on past work.
-Before making changes, it is best to learn about what&amp;rsquo;s already there:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://osrd.fr/en/docs/">read technical documentation&lt;/a>&lt;/li>
-&lt;li>read the existing source code related to your project&lt;/li>
-&lt;li>chat with developers who last worked on areas you are interested in&lt;/li>
-&lt;/ul>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/license-and-set-up/">Continue towards initial set-up ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: License and set-up</title><link>https://osrd.fr/en/docs/guides/contribute/license-and-set-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/license-and-set-up/</guid><description>
-&lt;h2 id="license-of-code-contributions">License of code contributions&lt;/h2>
+&lt;p>Chatting with other contributors is a great way to speed things up:&lt;/p></description></item><item><title>License and set-up</title><link>https://osrd.fr/en/docs/guides/contribute/license-and-set-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/license-and-set-up/</guid><description>&lt;h2 id="license-of-code-contributions">License of code contributions&lt;/h2>
 &lt;p>The source code of OSRD is available under &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">the LGPLv3 license&lt;/a>.
 By contributing to the codebase, you consent to the distribution of your changes under the project&amp;rsquo;s license.&lt;/p>
 &lt;p>LGPLv3 forbids modifying source code without sharing the changes under the same license: use other people&amp;rsquo;s work, and share yours!&lt;/p>
-&lt;p>This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.&lt;/p>
-&lt;h2 id="set-things-up">Set things up&lt;/h2>
-&lt;div class="alert alert-info" role="alert">
-Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/">WSL&lt;/a>). Windows and MacOS should work too, but you may run into some issues.
-&lt;/div>
-&lt;h3 id="get-the-source-code">Get the source code&lt;/h3>
-&lt;ul>
-&lt;li>Install &lt;a href="https://git-scm.com/">&lt;code>git&lt;/code>&lt;/a>.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
-&lt;li>Open a terminal&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in the folder where the source code of OSRD will be located&lt;/li>
-&lt;li>Run &lt;code>git clone https://github.com/OpenRailAssociation/osrd.git&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h3 id="launch-the-application">Launch the application&lt;/h3>
-&lt;p>Docker is a tool which greatly reduces the amount of setup required to work on OSRD:&lt;/p>
-&lt;ul>
-&lt;li>download the latest development build: &lt;code>docker compose pull&lt;/code>&lt;/li>
-&lt;li>start OSRD: &lt;code>docker compose up&lt;/code>&lt;/li>
-&lt;li>build and start OSRD: &lt;code>docker compose up --build&lt;/code>&lt;/li>
-&lt;li>review a PR using CI built images: &lt;code>TAG=pr-XXXXX docker compose up --no-build --pull always&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>To get started:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/">Install &lt;code>docker&lt;/code>&lt;/a>&lt;/li>
-&lt;li>Follow &lt;a href="https://github.com/OpenRailAssociation/osrd#getting-started">OSRD&amp;rsquo;s README&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/">Continue towards code contribution ‣&lt;/a>&lt;/em>&lt;/p>
-&lt;div class="footnotes" role="doc-endnotes">
-&lt;hr>
-&lt;ol>
-&lt;li id="fn:1">
-&lt;p>Under Linux, use the package manager (such as &lt;code>apt&lt;/code>)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:2">
-&lt;p>Under Windows, open &lt;code>Git Bash&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;/div></description></item><item><title>Docs: Contribute code</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/</guid><description>
-&lt;p>This chapter is about the process of integrating changes into the common code base. &lt;strong>If you need help at any stage, open an issue or message us.&lt;/strong>&lt;/p>
-&lt;p>OSRD application is split in multiple services written in several languages. We try to follow general code best practices and follow each language specificities when required.&lt;/p></description></item><item><title>Docs: Review process</title><link>https://osrd.fr/en/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-review/</guid><description>
-&lt;p>The reviewer/maintainer undertakes to carry out the review quickly, and is also responsible for closing &lt;em>request changes&lt;/em>, check commit history and quickly merge the &lt;em>pull request&lt;/em> if allowed.&lt;/p>
+&lt;p>This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.&lt;/p></description></item><item><title>Review process</title><link>https://osrd.fr/en/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-review/</guid><description>&lt;p>The reviewer/maintainer undertakes to carry out the review quickly, and is also responsible for closing &lt;em>request changes&lt;/em>, check commit history and quickly merge the &lt;em>pull request&lt;/em> if allowed.&lt;/p>
 &lt;p>We propose you a few tips and recommendations that we think are relevant to a human, relevant and rewarding code review for all contributors:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> by Michael Lynch.&lt;/li>
@@ -65,46 +13,7 @@ Most OSRD developers use Linux (incl. &lt;a href="https://learn.microsoft.com/en
 &lt;/ul>
 &lt;h2 id="review-cycle">Review cycle&lt;/h2>
 &lt;p>A code review is an iterative process.
-For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p>
-&lt;p>It is advisable to configure OSRD repositories as &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. This allows you to be notified of activities only on issues and PRs in which you participate.&lt;/p>
-&lt;blockquote>
-&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p>
-&lt;/blockquote>
-&lt;pre class="mermaid">sequenceDiagram
-actor A as PR author
-actor R as Reviewer/Maintainer
-A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
-R-&amp;gt;&amp;gt;A: Answers yes or no
-loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;A: Comments, asks for changes
-A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
-R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
-end
-A-&amp;gt;&amp;gt;R: Rebase and apply fixups
-R-&amp;gt;&amp;gt;A: Checks commits history
-R-&amp;gt;&amp;gt;A: Approves or closes the PR
-Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
-&lt;h2 id="the-code-review-pyramid">The code review pyramid&lt;/h2>
-&lt;figure>&lt;a href="https://www.morling.dev/blog/the-code-review-pyramid/">
-&lt;img src="https://osrd.fr/images/docs/contribute/code_review_pyramid.svg"/> &lt;/a>
-&lt;/figure>
-&lt;h2 id="script-for-testing-a-pr">Script for testing a PR&lt;/h2>
-&lt;p>When reviewing a PR, it is useful to test the changes by starting an instance of the OSRD app based on the PR branch.&lt;/p>
-&lt;p>A script is available to spin up a separate and dedicated app instance using the PR number. The script uses the Docker images already built by the CI and launches the app, running in isolation. This allows you to run both instances simultaneously without conflicts (ideal for comparing changes, for example).&lt;/p>
-&lt;p>Additionally, you can specify a database backup, which the script will load directly into the app.&lt;/p>
-&lt;p>The app will be launched on the 4001 port. You can access it at: http://localhost:4001/&lt;/p>
-&lt;h3 id="available-commands">Available Commands:&lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>./scripts/pr-tests-compose.sh 8914 up&lt;/code>: Downloads the CI-generated images for PR #8914 and launches the application.&lt;/li>
-&lt;li>&lt;code>./scripts/pr-tests-compose.sh 8914 up-and-load-backup ./path_to_backup&lt;/code>: Downloads the images for PR #8914, restores data from the provided backup, and starts the application.&lt;/li>
-&lt;li>&lt;code>./scripts/pr-tests-compose.sh down&lt;/code>: Shuts down the test application instance for PR #8914.&lt;/li>
-&lt;li>&lt;code>./scripts/pr-tests-compose.sh down-and-clean&lt;/code>: Shuts down the test instance and cleans all the instance&amp;rsquo;s docker volumes (PG data, Valkey cache, RabbitMQ) to prevent any side-effects.&lt;/li>
-&lt;/ul>
-&lt;h3 id="accessing-services">Accessing Services:&lt;/h3>
-&lt;p>Apart from the &lt;code>frontend&lt;/code> server, all localhost services are available on localhost, with a minor port adjustment (to avoid conflicts with the dev environment): for a list of common ports, have a look at the &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/docker/docker-compose.pr-test.yml">dedicated docker-compose file&lt;/a>.&lt;/p></description></item><item><title>Docs: Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>
-&lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
+For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p></description></item><item><title>Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>&lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
 &lt;p>Our bug tracking platform is &lt;a href="https://github.com/OpenRailAssociation/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
 &lt;p>Follow &lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
 &lt;h3 id="bugs">Bugs&lt;/h3>
@@ -127,8 +36,7 @@ Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
 You may leave a comment to explain changes.&lt;/li>
 &lt;li>If you are working on a bug or plan to work on a bug, assign yourself to the bug.&lt;/li>
 &lt;li>PRs solving bugs should add a regression tests to ensure that bug will not be back in the future.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>
-&lt;p>Regardless of your operating system, docker requires linux to operate. When used on a different
+&lt;/ul></description></item><item><title>Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>&lt;p>Regardless of your operating system, docker requires linux to operate. When used on a different
 operating system, docker relies on virtual machines to build and run images.&lt;/p>
 &lt;p>There are two main types of docker installations:&lt;/p>
 &lt;ul>
@@ -139,71 +47,13 @@ operating system, docker relies on virtual machines to build and run images.&lt;
 &lt;ul>
 &lt;li>If you&amp;rsquo;re on linux, install docker engine &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">using your package manager&lt;/a>&lt;/li>
 &lt;li>If you&amp;rsquo;re on MacOS / Windows, install &lt;a href="https://www.docker.com/products/docker-desktop/">docker desktop&lt;/a> if you are allowed to&lt;/li>
-&lt;li>If you&amp;rsquo;re on windows and want to get docker running within WSL, or can&amp;rsquo;t use docker desktop, follow the &lt;a href="#docker-on-wsl">docker on WSL tutorial&lt;/a>&lt;/li>
-&lt;li>If you&amp;rsquo;re on MacOS and can&amp;rsquo;t use docker desktop, follow the &lt;a href="#macos-colima">MacOS colima tutorial&lt;/a>&lt;/li>
+&lt;li>If you&amp;rsquo;re on windows and want to get docker running within WSL, or can&amp;rsquo;t use docker desktop, follow the &lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/#docker-on-wsl">docker on WSL tutorial&lt;/a>&lt;/li>
+&lt;li>If you&amp;rsquo;re on MacOS and can&amp;rsquo;t use docker desktop, follow the &lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/#macos-colima">MacOS colima tutorial&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="docker-on-wsl">Docker on WSL&lt;/h2>
-&lt;p>This install option is very useful, as it allows having a perfectly normal linux install of docker engine inside WSL, which can still be reached from windows.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://learn.microsoft.com/en-us/windows/wsl/install">Install WSL&lt;/a> (If you had an old version of WSL, run &lt;code>wsl --upgrade&lt;/code>)&lt;/li>
-&lt;li>Get an operating system image from the microsoft store (for example, debian or ubuntu)&lt;/li>
-&lt;li>&lt;a href="https://learn.microsoft.com/en-us/windows/wsl/systemd">Enable systemd support within the WSL VM&lt;/a>&lt;/li>
-&lt;li>Follow the regular &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">linux install tutorial for docker&lt;/a>&lt;/li>
-&lt;li>If you have docker desktop installed, you can &lt;a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">configure it to use WSL&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="macos-colima">MacOS colima&lt;/h2>
-&lt;p>This procedure allows installing docker without relying on docker desktop.
-It uses colima for virtualizing linux.&lt;/p>
-&lt;ol>
-&lt;li>&lt;a href="https://brew.sh/">Install homebrew&lt;/a>&lt;/li>
-&lt;li>&lt;code>brew install docker docker-compose colima&lt;/code>&lt;/li>
-&lt;li>Install the compose plugin: &lt;code>mkdir -p ~/.docker/cli-plugins &amp;amp;&amp;amp; ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose&lt;/code>&lt;/li>
-&lt;li>&lt;a href="https://github.com/abiosoft/colima?tab=readme-ov-file#customizing-the-vm">Configure colima&lt;/a>:&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>for apple silicon (M1/M2) macbooks: &lt;code>colima start --cpu 2 --memory 6 --arch aarch64 --vm-type=vz --vz-rosetta --mount-type=virtiofs&lt;/code>&lt;/li>
-&lt;li>for small infrastructures: &lt;code>colima start --cpu 2 --memory 4&lt;/code>&lt;/li>
-&lt;li>for big infrastructures: &lt;code>colima start --cpu 2 --memory 6&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;ol start="5">
-&lt;li>&lt;code>brew services start colima&lt;/code> to automatically start colima on startup&lt;/li>
-&lt;li>Exit your terminal, open a new one&lt;/li>
-&lt;li>You can now use docker CLI&lt;/li>
-&lt;/ol>
-&lt;div class="alert alert-info" role="alert">
-&lt;p>If you&amp;rsquo;re using rancher desktop, please either:&lt;/p>
-&lt;ul>
-&lt;li>uninstall the application&lt;/li>
-&lt;li>select &lt;code>Manual&lt;/code> in &lt;code>Preferences&lt;/code> &amp;gt; &lt;code>Application&lt;/code> &amp;gt; &lt;code>Environment&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/div>
-&lt;div class="alert alert-info" role="alert">
-If you get an error at rosetta startup, run &lt;code>colima delete&lt;/code> and try again (the disk format is not compatible). Settings will be lost.
-&lt;/div>
-&lt;div class="alert alert-info" role="alert">
-&lt;p>If you get this error: &lt;code>error getting credentials - err: exec: &amp;quot;docker-credential-osxkeychain&amp;quot;: executable file not found in $PATH&lt;/code>&lt;/p>
-&lt;p>Open &lt;code>~/.docker/config.json&lt;/code>, and remove &lt;code>&amp;quot;credsStore&amp;quot;: &amp;quot;osxkeychain&amp;quot;&lt;/code>&lt;/p>
-&lt;/div></description></item><item><title>Docs:</title><link>https://osrd.fr/en/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/review-process/</guid><description>
-&lt;h2 id="review-cycle">Review cycle&lt;/h2>
+&lt;p>This install option is very useful, as it allows having a perfectly normal linux install of docker engine inside WSL, which can still be reached from windows.&lt;/p></description></item><item><title/><link>https://osrd.fr/en/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/review-process/</guid><description>&lt;h2 id="review-cycle">Review cycle&lt;/h2>
 &lt;p>A code review is an iterative process.
 For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p>
 &lt;p>It is advisable to configure OSRD repositories as &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. This allows you to be notified of activities only on issues and PRs in which you participate.&lt;/p>
 &lt;blockquote>
-&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p>
-&lt;/blockquote>
-&lt;pre class="mermaid">sequenceDiagram
-actor A as PR author
-actor R as Reviewer/Maintainer
-A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
-R-&amp;gt;&amp;gt;A: Answers yes or no
-loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;A: Comments, asks for changes
-A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
-R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
-end
-A-&amp;gt;&amp;gt;R: Rebase and apply fixups
-R-&amp;gt;&amp;gt;A: Checks commits history
-R-&amp;gt;&amp;gt;A: Approves or closes the PR
-Note left of R: &amp;amp; Merges if maintainer&lt;/pre></description></item></channel></rss>
+&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p></description></item></channel></rss>

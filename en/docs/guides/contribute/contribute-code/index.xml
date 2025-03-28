@@ -1,5 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Contribute code</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/</link><description>Recent content in Contribute code on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/contribute/contribute-code/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: General principles</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/general-principles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/general-principles/</guid><description>
-&lt;ul>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Contribute code on OSRD</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/</link><description>Recent content in Contribute code on OSRD</description><generator>Hugo</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/contribute/contribute-code/index.xml" rel="self" type="application/rss+xml"/><item><title>General principles</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/general-principles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/general-principles/</guid><description>&lt;ul>
 &lt;li>Explain what you&amp;rsquo;re doing and why.&lt;/li>
 &lt;li>Document new code with doc comments.&lt;/li>
 &lt;li>Include clear, simple tests.&lt;/li>
@@ -15,11 +14,7 @@ dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;
 &lt;li>More code general recommendations in main repository &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
 &lt;li>Ask for any help that you need!&lt;/li>
 &lt;/ul>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/">Consult back-end conventions ‣&lt;/a>&lt;/em>&lt;/p>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/frontend-conventions/">Consult front-end conventions ‣&lt;/a>&lt;/em>&lt;/p>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/">Continue towards write code ‣&lt;/a>&lt;/em>&lt;/p>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/">Continue towards tests ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Back-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>
-&lt;h1 id="python">Python&lt;/h1>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/">Consult back-end conventions ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Back-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>&lt;h1 id="python">Python&lt;/h1>
 &lt;p>Python code is used for some packages and integration testing.&lt;/p>
 &lt;ul>
 &lt;li>Follow &lt;a href="https://www.python.org/dev/peps/pep-0020/">the Zen of Python&lt;/a>.&lt;/li>
@@ -50,246 +45,13 @@ Generally, these should be followed.&lt;/li>
 &lt;h1 id="java">Java&lt;/h1>
 &lt;ul>
 &lt;li>Code is formatted with &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Front-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/frontend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/frontend-conventions/</guid><description>
-&lt;p>We use &lt;strong>ReactJS&lt;/strong> and all files must be written in &lt;strong>Typescript&lt;/strong>.&lt;/p>
+&lt;/ul></description></item><item><title>Front-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/frontend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/frontend-conventions/</guid><description>&lt;p>We use &lt;strong>ReactJS&lt;/strong> and all files must be written in &lt;strong>Typescript&lt;/strong>.&lt;/p>
 &lt;p>The code is &lt;strong>linted&lt;/strong> with &lt;a href="https://eslint.org/">eslint&lt;/a>, and &lt;strong>formatted&lt;/strong> with &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/p>
 &lt;h2 id="nomenclature">Nomenclature&lt;/h2>
 &lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/nomenclature-front-end.svg" alt="Infrastructure diagram">&lt;/p>
 &lt;p>The &lt;strong>applications&lt;/strong> (osrd eex, osrd stdcm, infra editor, rolling-stock editor) offer &lt;strong>views&lt;/strong> (project management, study management, etc.) linked to &lt;strong>modules&lt;/strong> (project, study, etc.) which contain the components.&lt;/p>
 &lt;p>These &lt;strong>views&lt;/strong> are made up of &lt;strong>components&lt;/strong> and sub-components &lt;u>all derived from the modules&lt;/u>.
-In addition to containing the &lt;strong>views&lt;/strong> files for the applications, they may also contain a &lt;strong>scripts&lt;/strong> directory which offers scripts related to these views. The &lt;strong>views&lt;/strong> determine the logic and &lt;u>access to the store&lt;/u>.&lt;/p>
-&lt;p>&lt;strong>Modules&lt;/strong> are collections of &lt;strong>components&lt;/strong> attached to an &lt;strong>object&lt;/strong> (a scenario, a rolling stock, a TrainSchedule). They contain :&lt;/p>
-&lt;ul>
-&lt;li>a &lt;em>components&lt;/em> directory hosting &lt;u>all&lt;/u> components&lt;/li>
-&lt;li>an optional &lt;em>styles&lt;/em> directory &lt;u>per module&lt;/u> for styling components in scss&lt;/li>
-&lt;li>an optional &lt;em>assets&lt;/em> directory &lt;u>per module&lt;/u> (which contains assets, e.g. default datasets, specific to the module)&lt;/li>
-&lt;li>an optional &lt;em>reducers&lt;/em> file &lt;u>per module&lt;/u>&lt;/li>
-&lt;li>an optional &lt;em>types&lt;/em> file &lt;u>per module&lt;/u>&lt;/li>
-&lt;li>an optional &lt;em>consts&lt;/em> file &lt;u>per module&lt;/u>&lt;/li>
-&lt;/ul>
-&lt;p>An &lt;strong>assets&lt;/strong> directory (containing images and other files).&lt;/p>
-&lt;p>Last but not least, a &lt;strong>common&lt;/strong> directory offering :&lt;/p>
-&lt;ul>
-&lt;li>a &lt;em>utils&lt;/em> directory for utility functions common to the entire project&lt;/li>
-&lt;li>a &lt;em>types&lt;/em> file for types common to the entire project&lt;/li>
-&lt;li>a &lt;em>consts&lt;/em> file for constants common to the entire project&lt;/li>
-&lt;/ul>
-&lt;h2 id="implementation-principles">Implementation principles&lt;/h2>
-&lt;h3 id="routing--slug">Routing &amp;amp; SLUG&lt;/h3>
-&lt;p>&lt;em>In progress&lt;/em>&lt;/p>
-&lt;p>&lt;code>projects/{project's name}/studies/{study's name}/scenarios/{scenario's name}&lt;/code>&lt;/p>
-&lt;h3 id="styles--scss">Styles &amp;amp; SCSS&lt;/h3>
-&lt;blockquote>
-&lt;p>WARNING: in CSS/React, the scope of a class does not depend on where the file is imported, but is valid for the entire application. If you import an &lt;code>scss&lt;/code> file in the depths of a component (which we strongly advise against), its classes will be available to the whole application and may therefore cause side effects.&lt;/p>
-&lt;/blockquote>
-&lt;p>It is therefore highly recommended to be able to easily follow the tree structure of applications, views, modules and components also within the SCSS code, and in particular to nest class names to avoid edge effects, as the compiler will take care of making the necessary hierarchy.&lt;/p>
-&lt;p>If, for example, we have a &lt;code>rollingStockSelector&lt;/code> component which proposes a list of rolling stock &lt;code>rollingStockList&lt;/code> represented by &lt;code>rollingStockCard&lt;/code> containing an image representing the rolling stock &lt;code>rollingStockImg&lt;/code> we should have the following SCSS structure:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scss" data-lang="scss">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">.rollinStockSelector&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">.rollingStockList&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">.rollingStockCard&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">.rollingStockImg&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">width&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#204a87;font-weight:bold">rem&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">height&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#ce5c00">auto&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This ensures that the image contained in the rolling stock card inherits the correct css properties &lt;code>.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg&lt;/code>.&lt;/p>
-&lt;h4 id="css-modules">CSS Modules&lt;/h4>
-&lt;p>CSS modules allow scoping CSS styles to a specific component, thereby avoiding conflicts with global class names.&lt;/p>
-&lt;p>Vite natively supports CSS modules. Ensure that your CSS file has the &lt;code>.module.css&lt;/code> extension, for example, &lt;code>styles.module.css&lt;/code>.&lt;/p>
-&lt;h5 id="using-css-modules-in-components">Using CSS Modules in Components&lt;/h5>
-&lt;ol>
-&lt;li>&lt;strong>Create an SCSS file with the &lt;code>.module.scss&lt;/code> extension&lt;/strong>:&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">/* MyComponent.module.scss */&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">container&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">background-color&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">white&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">title&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">font-size&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">24&lt;/span>&lt;span style="color:#204a87;font-weight:bold">px&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">color&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">#333&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
-&lt;li>&lt;strong>Use the classes in your React component&lt;/strong>:&lt;/li>
-&lt;/ol>
-&lt;p>Vite transforms classes into objects that contain hashed classes (e.g., &lt;code>_container_h3d8bg&lt;/code>) and uses them during bundle generation, making the classes unique.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">React&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;react&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">styles&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;./MyComponent.module.scss&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">export&lt;/span> &lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000">MyComponent() {&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#000;font-weight:bold">}&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">h1&lt;/span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;title&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]}&amp;gt;&lt;/span>&lt;span style="color:#000">My&lt;/span> &lt;span style="color:#000">Title&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">h1&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For more information, you can refer to the &lt;a href="https://vitejs.dev/guide/features.html#css-modules">Vite.js documentation&lt;/a>.&lt;/p>
-&lt;h4 id="class-names-using-cx">Class names, using &lt;code>cx()&lt;/code>.&lt;/h4>
-&lt;p>Classes are normally added one after the other, in the &lt;code>className=&amp;quot;&amp;quot;&lt;/code> property.&lt;/p>
-&lt;p>However, when necessary - class usage tests, concatenation, etc. - we use the &lt;a href="https://github.com/JedWatson/classnames">classnames library&lt;/a>, which recommends the following usage:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ts" data-lang="ts">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;rollingStockSelector&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;rollingStockList&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;rollingStockCard w-100 my-2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">img&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">className&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">cx&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;rollingStockImg&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;m-2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;p-1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;bg-white&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">valid&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">isValid&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">selected&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">rollingStockID&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">===&lt;/span> &lt;span style="color:#000">selectedRollingStockID&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">})}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Classes are &lt;strong>separated&lt;/strong> each in a &lt;code>string&lt;/code> and Boolean or other operations are performed in an object that will return - or not - the property name as the class name to be used in CSS.&lt;/p>
-&lt;h3 id="storeredux">Store/Redux&lt;/h3>
-&lt;p>Everything that is &lt;em>selector&lt;/em> is managed by the &lt;strong>view&lt;/strong> and passed as props to components and sub-components.&lt;/p>
-&lt;p>Consequently, read and write calls to the store must be made at view level, irrigating the components proposed by the view with &lt;em>props&lt;/em> and &lt;em>states&lt;/em>.&lt;/p>
-&lt;h3 id="rtk">RTK&lt;/h3>
-&lt;p>Use generated endpoints from &lt;code>openapi.yaml&lt;/code> files to consume the backend.&lt;/p>
-&lt;h4 id="operation-of-rtk-query-cache">Operation of RTK Query cache&lt;/h4>
-&lt;p>When the data is retrieved from the back, RTK is caching it into the store. If the same endpoint is called again with same parameters, RTK will use the cache data instead of making a new call to the back.&lt;/p>
-&lt;p>In the store, you will see the &lt;code>editoastApi&lt;/code> key containing the cached data of all editoast endpoints:&lt;/p>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/store-redux-main.png" alt="store Redux">&lt;/p>
-&lt;p>Here for example, the &lt;code>getProjects&lt;/code> endpoint is called.&lt;/p>
-&lt;p>RTK stores the endpoint&amp;rsquo;s name, as well as the call&amp;rsquo;s parameters, to form an unique key &lt;code>nomDuEndpoint({ parameter })&lt;/code>. (here &lt;code>getProjects({&amp;quot;ordering&amp;quot;:&amp;quot;LastModifiedDesc&amp;quot;,&amp;quot;pageSize&amp;quot;:1000})&lt;/code>).&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#39;getProjectsByProjectIdStudiesAndStudyId({&amp;#34;projectId&amp;#34;:13,&amp;#34;studyId&amp;#34;:16})&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">status&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;fulfilled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">etc&lt;/span>&lt;span style="color:#a40000">…&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#39;getProjectsByProjectIdStudiesAndStudyId({&amp;#34;projectId&amp;#34;:13,&amp;#34;studyId&amp;#34;:14})&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a40000">…&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In this second example, the same endpoint has been called with the same &lt;code>projectId&lt;/code> parameter, but a different &lt;code>studyId&lt;/code> parameter.&lt;/p>
-&lt;h5 id="serialization-of-keys-in-the-cache">Serialization of keys in the cache&lt;/h5>
-&lt;p>The strings used as keys in the cache are essentially the parameter object passed through the &lt;code>JSON.stringify&lt;/code> function, which converts a JS object into a string (thus serialized).&lt;/p>
-&lt;p>Normally, serialization does not preserve the order of object keys. For example, &lt;code>JSON.stringify&lt;/code> will not produce the same string with these two objects: &lt;code>{ a: 1, b: 2 }&lt;/code> and &lt;code>{ b: 2, a: 1 }&lt;/code>.&lt;/p>
-&lt;p>RTK will optimize caching by ensuring that the result of a call with &lt;code>{&amp;quot;projectId&amp;quot;:13,&amp;quot;studyId&amp;quot;:16}&lt;/code> or &lt;code>{&amp;quot;studyId&amp;quot;:16, &amp;quot;projectId&amp;quot;:13}&lt;/code> is stored under the same key in the cache.&lt;/p>
-&lt;p>To see the detailed operation, here is the code for this serialization function:&lt;/p>
-&lt;details>
-&lt;summary>RTK Serialization Function&lt;/summary>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">defaultSerializeQueryArgs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">SerializeQueryArgs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">any&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">({&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">endpointName&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">queryArgs&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">})&lt;/span> &lt;span style="color:#000;font-weight:bold">=&amp;gt;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">serialized&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">cached&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">cache&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">queryArgs&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">typeof&lt;/span> &lt;span style="color:#000">cached&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">===&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;string&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">serialized&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">cached&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">stringified&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">stringify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">queryArgs&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">value&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">=&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">isPlainObject&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">value&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span> &lt;span style="color:#204a87">Object&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keys&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">value&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">sort&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// keys are reordered here
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">reduce&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">any&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">((&lt;/span>&lt;span style="color:#000">acc&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">=&amp;gt;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">acc&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">value&lt;/span> &lt;span style="color:#000">as&lt;/span> &lt;span style="color:#000">any&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">acc&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span> &lt;span style="color:#000;font-weight:bold">{})&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">value&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">isPlainObject&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">queryArgs&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">cache&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">set&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">queryArgs&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">stringified&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">serialized&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">stringified&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">// Sort the object keys before stringifying, to prevent useQuery({ a: 1, b: 2 }) having a different cache key than useQuery({ b: 2, a: 1 })
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">`&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">endpointName&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">(&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">serialized&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">)`&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details>
-&lt;h5 id="data-subscription">Data subscription&lt;/h5>
-&lt;p>In RTK Query terminology, when a React component calls an endpoint defined in RTK Query, it &lt;em>subscribes&lt;/em> to the data.&lt;/p>
-&lt;p>RTK counts the number of references to the same pair (endpoint, {parameters}). When two components subscribe to the same data, they share the same key in the cache.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ts" data-lang="ts">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">osrdEditoastApi&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;./api.ts&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000">Component1() {&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">// component subscribes to the data
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">data&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">osrdEditoastApi&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">useGetXQuery&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;...&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000">Component2() {&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">// component subscribes to the data
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">data&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">osrdEditoastApi&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">useGetXQuery&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;...&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000">Component3() {&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">// component subscribes to the data
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">data&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">osrdEditoastApi&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">useGetXQuery&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;...&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000">Component4() {&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">// component subscribes to the *same* data as ComponentThree,
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// as it has the same query parameters
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">data&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">osrdEditoastApi&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">useGetXQuery&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;...&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">div&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here, &lt;code>Component3&lt;/code> and &lt;code>Component4&lt;/code> will generate only one call to the backend. They subscribe to the same data (same endpoint and same parameter &lt;code>3&lt;/code>). They will share the same key in the cache.&lt;/p>
-&lt;p>In total, there will be three calls to the backend here, with parameters &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, and &lt;code>3&lt;/code>.&lt;/p>
-&lt;p>As long as at least one mounted React component calls the &lt;code>osrdEditoastApi.endpoints.getProjectsByProjectId.useQuery&lt;/code> hook, for example, the data will be retained in the cache.&lt;/p>
-&lt;p>Once the last component is unmounted, the data is removed from the cache after 60 seconds (default value).&lt;/p>
-&lt;h3 id="translation">Translation&lt;/h3>
-&lt;p>Application translation is performed on &lt;a href="https://explore.transifex.com/osrd/osrd/">Transifex&lt;/a>. The default language is French.
-If you add a new translation key, it can be added directly to the code, in all available languages. Please note that if you need to correct a translation, we recommend that you use Transifex, to avoid any conflict.&lt;/p>
-&lt;h2 id="rules-and-important-elements">Rules and important elements&lt;/h2>
-&lt;h4 id="no-component-should-be-responsible-for-updating-the-data-it-uses">No component should be responsible for updating the data it uses&lt;/h4>
-&lt;p>Only &lt;u>views&lt;/u> contain the store selectors, which are then given as props to the components of the module linked to the view.&lt;/p>
-&lt;h4 id="scss-is-not-scoped">SCSS is not scoped&lt;/h4>
-&lt;p>A &lt;code>.scss&lt;/code> file buried in the tree structure doesn&amp;rsquo;t guarantee that the classes it contains can only be accessed there, even by importing react (formally forbidden by the way: you must use SCSS import), all declared classes are accessible everywhere.&lt;/p>
-&lt;p>Prefer a judicious choice of root class name for a given module, and use the tree structure available in the SCSS file.&lt;/p>
-&lt;h4 id="imports-must-follow-a-specific-order">Imports must follow a specific order&lt;/h4>
-&lt;p>ESLint is setup to automatically sort imports in four import groups, each of them sorted in alphabetical order :&lt;/p>
-&lt;ul>
-&lt;li>React&lt;/li>
-&lt;li>External libraries&lt;/li>
-&lt;li>Internal absolute path files&lt;/li>
-&lt;li>Internal relative path files&lt;/li>
-&lt;/ul>
-&lt;p>Each of these groups will be separated by an empty line.&lt;/p>
-&lt;p>ESLint will trigger a warning if you don&amp;rsquo;t follow these guidelines.&lt;/p>
-&lt;h4 id="import-links-must-be-absolute">Import links must be absolute&lt;/h4>
-&lt;p>You must use the &lt;u>full path&lt;/u> for all your imports.&lt;/p>
-&lt;blockquote>
-&lt;p>Import links can be relative only if the file to be imported is in the same directory.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="typescript">TypeScript&lt;/h2>
-&lt;h3 id="import--export">import &amp;amp; export&lt;/h3>
-&lt;p>ESLint and Typescript are setup to enforce typed imports for an exported type.&lt;/p>
-&lt;p>This current setup allows to :&lt;/p>
-&lt;ul>
-&lt;li>Auto typing the import when using a type in a file with autocompletion.&lt;/li>
-&lt;li>Getting 2 errors from each package asking to use type import if you didn&amp;rsquo;t.&lt;/li>
-&lt;/ul>
-&lt;p>When an &lt;code>import&lt;/code> or &lt;code>export&lt;/code> contains only types, indicate it with the &lt;code>type&lt;/code> keyword.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">export&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">Direction&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">DirectionalTrackRange&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">TrackRange&lt;/span> &lt;span style="color:#000;font-weight:bold">};&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">typedEntries&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ValueOf&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;utils/types&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When an &lt;code>import&lt;/code> contains not only types, it will be structured like below, in alphabetical order.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">osrdEditoastApi&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">ScenarioCreateForm&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;common/api/osrdEditoastApi&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This allows to:&lt;/p>
-&lt;ul>
-&lt;li>Improve the performance and analysis process of the compiler and the linter.&lt;/li>
-&lt;li>Make these declarations more readable; we can clearly see what we are importing.&lt;/li>
-&lt;li>Avoid dependency cycles:&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle.png" alt="dependency cycle">&lt;/p>
-&lt;p>The error disappears with the &lt;code>type&lt;/code> keyword&lt;/p>
-&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/dependency-cycle-gone.png" alt="dependency cycle">&lt;/p>
-&lt;ul>
-&lt;li>Make final bundle lighter (all types disappear at compilation)&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Write code</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</guid><description>
-&lt;ol>
+In addition to containing the &lt;strong>views&lt;/strong> files for the applications, they may also contain a &lt;strong>scripts&lt;/strong> directory which offers scripts related to these views. The &lt;strong>views&lt;/strong> determine the logic and &lt;u>access to the store&lt;/u>.&lt;/p></description></item><item><title>Write code</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</guid><description>&lt;ol>
 &lt;li>
 &lt;p>If you are not used to Git, &lt;a href="https://learngitbranching.js.org/">follow this tutorial&lt;/a>&lt;/p>
 &lt;/li>
@@ -302,19 +64,10 @@ If you intend to contribute regularly, you can request access to the &lt;a href=
 Before you start working, try to split your work into macroscopic steps.
 At the end of each stop, save your changes into a commit.
 Try to make commits of logical and atomic units.
-Try to follow &lt;a href="../conventions/">style conventions&lt;/a>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Keep your branch up-to-date&lt;/strong>&lt;/p>
-&lt;pre tabindex="0">&lt;code>git switch &amp;lt;your_branch&amp;gt;
-git fetch
-git rebase origin/dev
-&lt;/code>&lt;/pre>&lt;/li>
-&lt;/ol>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/">Continue towards commit style ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>
-&lt;h2 id="commit-style">Commit style&lt;/h2>
+Try to follow &lt;a href="../conventions/">style conventions&lt;/a>.&lt;/p></description></item><item><title>Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>&lt;h2 id="commit-style">Commit style&lt;/h2>
 &lt;p>The overall format for git commits is as follows:&lt;/p>
 &lt;pre tabindex="0">&lt;code>component1, component2: imperative description of the change
+
 Detailed or technical description of the change and what motivates it,
 if it is not entirely obvious from the title.
 &lt;/code>&lt;/pre>&lt;ul>
@@ -324,165 +77,17 @@ if it is not entirely obvious from the title.
 &lt;li>the imperative description of the change begins with a lower-case verb&lt;/li>
 &lt;li>the title must not contain any link (&lt;code>#&lt;/code> is forbidden)&lt;/li>
 &lt;/ul>
-&lt;p>Ideally:&lt;/p>
-&lt;ul>
-&lt;li>the title should be self-explanatory: no need to read anything else to understand it&lt;/li>
-&lt;li>the commit title is all lower-case&lt;/li>
-&lt;li>the title is clear to a reader not familiar with the code&lt;/li>
-&lt;li>the body of the commit contains a detailed description of the change&lt;/li>
-&lt;/ul>
-&lt;div class="alert alert-info" role="alert">
-An automated check is performed to enforce as much as possible this formatting.
-&lt;/div>
-&lt;h3 id="counter-examples-of-commit-titles">Counter-examples of commit titles&lt;/h3>
-&lt;p>To be avoided entirely:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>component: update ./some/file.ext&lt;/code>: specify the update itself rather than the file, the files
-are technical elements welcome in the &lt;em>body&lt;/em> of the commit&lt;/li>
-&lt;li>&lt;code>component: fix #42&lt;/code>: specify the problem fixed in the title, links (to issue, etc.) are very
-welcome in commit&amp;rsquo;s &lt;em>body&lt;/em>&lt;/li>
-&lt;li>&lt;code>wip&lt;/code>: describe the work (and finish it)&lt;/li>
-&lt;/ul>
-&lt;p>Welcome to ease review, but do not merge:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>fixup! previous commit&lt;/code>: an &lt;a href="../share-changes">autosquash&lt;/a> must be run before the merge&lt;/li>
-&lt;li>&lt;code>Revert &amp;quot;previous commit of the same PR&amp;quot;&lt;/code>: both commits must be dropped before merging&lt;/li>
-&lt;/ul>
-&lt;h2 id="the-developer-certificate-of-origin-dco">The Developer Certificate of Origin (DCO)&lt;/h2>
-&lt;p>All of OSRD&amp;rsquo;s projects use the DCO (Developer Certificate of Origin) to address
-legal matters. The DCO helps confirm that you have the rights to the code you
-contribute. For more on the history and purpose of the DCO, you can read &lt;a href="https://bssw.io/blog_posts/the-developer-certificate-of-origin">The
-Developer Certificate of Origin&lt;/a>
-by Roscoe A. Bartlett.&lt;/p>
-&lt;p>To comply with the DCO, &lt;strong>all commits must include a Signed-off-by line&lt;/strong>.&lt;/p>
-&lt;h3 id="how-to-sign-a-commit-using-git-in-a-shell-">How to sign a commit using git in a shell ?&lt;/h3>
-&lt;p>To sign off a commit, simply add the &lt;code>-s&lt;/code> flags to your &lt;code>git commit&lt;/code> command,
-like so:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git commit -s -m &lt;span style="color:#4e9a06">&amp;#34;Your commit message&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This also applies when using the &lt;code>git revert&lt;/code> command.&lt;/p>
-&lt;h3 id="how-to-do-sign-a-commit-using-git-in-visual-studio-code-vs-code-">How to do sign a commit using git in Visual Studio Code (VS Code) ?&lt;/h3>
-&lt;p>Now, go in &lt;code>Files&lt;/code> -&amp;gt; &lt;code>Preferences&lt;/code> -&amp;gt; &lt;code>Settings&lt;/code>, search for and activate
-the &lt;strong>Always Sign Off&lt;/strong> setting.&lt;/p>
-&lt;p>Finally, when you&amp;rsquo;ll commit your changes via the VS Code interface, your commits
-will automatically be signed-off.&lt;/p>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/">Continue towards sharing your changes ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Share your changes</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</guid><description>
-&lt;p>The author of a &lt;em>pull request (PR)&lt;/em> is responsible for its &amp;ldquo;life cycle&amp;rdquo;. He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check &lt;a href="https://osrd.fr/en/docs/guides/contribute/code-review/">dedicated page about code review&lt;/a>).&lt;/p>
+&lt;p>Ideally:&lt;/p></description></item><item><title>Share your changes</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</guid><description>&lt;p>The author of a &lt;em>pull request (PR)&lt;/em> is responsible for its &amp;ldquo;life cycle&amp;rdquo;. He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check &lt;a href="https://osrd.fr/en/docs/guides/contribute/code-review/">dedicated page about code review&lt;/a>).&lt;/p>
 &lt;blockquote>
-&lt;p>In the case of a large PR, don&amp;rsquo;t hesitate to ask several reviewers to organize themselves, or even to carry out the review together, reviewers and author.&lt;/p>
-&lt;/blockquote>
+&lt;p>In the case of a large PR, don&amp;rsquo;t hesitate to ask several reviewers to organize themselves, or even to carry out the review together, reviewers and author.&lt;/p>&lt;/blockquote>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>Open a &lt;em>pull request&lt;/em>&lt;/strong> &lt;br>
-Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch.&lt;/p>
-&lt;p>If possible:&lt;/p>
-&lt;ul>
-&lt;li>Make PR of logical and atomic units too (avoid mixing refactoring, new features and bug fix at the same time).&lt;/li>
-&lt;li>Add a description to PRs to explain what they do and why.&lt;/li>
-&lt;li>Help the reviewer by following advice given in &lt;a href="https://mtlynch.io/code-review-love/">mtlynch article&lt;/a>.&lt;/li>
-&lt;li>Add tags &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> to show which part of the application have been impacted. It can be done through &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">the web interface&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Take feedback into account&lt;/strong> &lt;br>
-Once your PR is open, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">other contributors can review your changes&lt;/a>:&lt;/p>
-&lt;ul>
-&lt;li>Any user can review your changes.&lt;/li>
-&lt;li>Your code has to be approved by &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/.github/CODEOWNERS">a contributor familiar with the code&lt;/a>.&lt;/li>
-&lt;li>All users are expected to take comments into account.&lt;/li>
-&lt;li>Comments tend to be written in an open and direct manner.
-The intent is to efficiently collaborate towards a solution we all agree on.&lt;/li>
-&lt;li>Once all discussions are resolved, a maintainer integrates the change.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;blockquote>
-&lt;p>For large PRs that are bound to evolve over time, keeping &lt;em>corrections&lt;/em> during review in separate
-&lt;em>commits&lt;/em> helps reviewers. In the case of multiple reviews by the same person, this can save full
-re-review (ask for help if necessary):&lt;/p>
-&lt;ul>
-&lt;li>&lt;em>Add fixup&lt;/em>, amend, squash or reword commits using the
-&lt;a href="https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt">git commit documentation&lt;/a>.&lt;/li>
-&lt;li>&lt;em>Automatically merge corrections&lt;/em> into the original commits of your PR and check the result, using
-&lt;a href="https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash">&lt;code>git rebase -i --autosquash origin/dev&lt;/code>&lt;/a>
-(just before the merge and once review process is complete).&lt;/li>
-&lt;li>&lt;em>Push your changes&lt;/em> with
-&lt;a href="https://git-scm.com/docs/git-push#Documentation/git-push.txt---no-force-with-lease">&lt;code>git push --force-with-lease&lt;/code>&lt;/a>
-because you are not just pushing new commits, you are pushing changes to existing commits.&lt;/li>
-&lt;/ul>
-&lt;/blockquote>
-&lt;ol start="3">
-&lt;li>&lt;strong>If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.&lt;/strong>&lt;/li>
-&lt;/ol>
-&lt;h2 id="review-cycle">Review cycle&lt;/h2>
-&lt;p>A code review is an iterative process.
-For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p>
-&lt;p>It is advisable to configure OSRD repositories as &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. This allows you to be notified of activities only on issues and PRs in which you participate.&lt;/p>
-&lt;blockquote>
-&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p>
-&lt;/blockquote>
-&lt;pre class="mermaid">sequenceDiagram
-actor A as PR author
-actor R as Reviewer/Maintainer
-A-&amp;gt;&amp;gt;R: Asks for a review, notifying some people
-R-&amp;gt;&amp;gt;A: Answers yes or no
-loop Loop between author and reviewer
-R--&amp;gt;&amp;gt;A: Comments, asks for changes
-A--&amp;gt;&amp;gt;R: Answers to comments or requested changes
-A--&amp;gt;&amp;gt;R: Makes necessary changes in dedicated &amp;#34;fixups&amp;#34;
-R--&amp;gt;&amp;gt;A: Reviews, tests changes, and comments again
-R--&amp;gt;&amp;gt;A: Resolves requested changes/conversations if ok
-end
-A-&amp;gt;&amp;gt;R: Rebase and apply fixups
-R-&amp;gt;&amp;gt;A: Checks commits history
-R-&amp;gt;&amp;gt;A: Approves or closes the PR
-Note left of R: &amp;amp; Merges if maintainer&lt;/pre>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/">Finally continue towards tests ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Docs: Tests</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</guid><description>
-&lt;h2 id="back-end">Back-end&lt;/h2>
+Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch.&lt;/p></description></item><item><title>Tests</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</guid><description>&lt;h2 id="back-end">Back-end&lt;/h2>
 &lt;ul>
 &lt;li>Integration tests are written with &lt;a href="https://docs.pytest.org/">pytest&lt;/a> in the &lt;code>/tests&lt;/code> folder.&lt;/li>
 &lt;li>Each route described in the &lt;code>openapi.yaml&lt;/code> files must have an integration test.&lt;/li>
 &lt;li>The test must check both the format and content of valid and invalid responses.&lt;/li>
 &lt;/ul>
 &lt;h2 id="front-end">Front-end&lt;/h2>
-&lt;p>The functional writing of the tests is carried out with the &lt;em>Product Owners&lt;/em>, and the developers choose a technical implementation that precisely meets the needs expressed and fits in with the recommendations presented here.&lt;/p>
-&lt;p>We use &lt;a href="https://playwright.dev/">Playwright&lt;/a> to write end-to-end tests, and &lt;a href="https://vitest.dev/">vitest&lt;/a> to write unit tests.&lt;/p>
-&lt;p>The browsers tested are currently &lt;a href="https://www.mozilla.org/fr/firefox/switch/">Firefox&lt;/a> and Chromium.&lt;/p>
-&lt;h3 id="basic-principles">Basic principles&lt;/h3>
-&lt;ul>
-&lt;li>Tests must be &lt;strong>short&lt;/strong> (1min max) and go &lt;strong>straight to the point&lt;/strong>.&lt;/li>
-&lt;li>Arbitrary timeouts are outlawed; a test must systematically wait for a specific event. It is possible to use &lt;em>polling&lt;/em> (retry an action - a click for example - after a certain time) proposed in the &lt;a href="https://playwright.dev/">Playwright&amp;rsquo;s&lt;/a> API.&lt;/li>
-&lt;li>All tests must be parallelizable.&lt;/li>
-&lt;li>Tests must not point to or wait for text elements from the translation, prefer the &lt;em>DOM&lt;/em> tree structure or place specific &lt;code>id&lt;/code>.&lt;/li>
-&lt;li>We&amp;rsquo;re not testing the data, but the application and its functionality. Data-specific tests should be developed in parallel.&lt;/li>
-&lt;/ul>
-&lt;h4 id="data">Data&lt;/h4>
-&lt;p>&lt;strong>The data tested must be public data&lt;/strong>.
-The data required (infrastructure and rolling stock) for the tests are offered in the application&amp;rsquo;s &lt;code>json&lt;/code> files, &lt;em>injected&lt;/em> at the start of each test and deleted at the end, regardless of its result or how it is stopped, including with &lt;code>CTRL+C&lt;/code>.&lt;/p>
-&lt;p>This is done by API calls in typescript before launching the actual test.&lt;/p>
-&lt;p>The data tested is the same, both locally and via continuous integration.&lt;/p>
-&lt;h4 id="end-to-end-e2e-test-development-process">End-to-End (E2E) Test Development Process&lt;/h4>
-&lt;p>E2E tests are implemented iteratively and delivered alongside feature developments. Note that:&lt;/p>
-&lt;ul>
-&lt;li>E2E tests should only be developed for the application&amp;rsquo;s critical user journeys.&lt;/li>
-&lt;li>This workflow helps prevent immediate regressions after a feature release, enhances the entire team&amp;rsquo;s proficiency in E2E testing, and avoids excessively long PRs that would introduce entire E2E test suites at once.&lt;/li>
-&lt;li>It is acceptable for E2E tests to be partial during development, even if their implementation increases ticket size and development time.&lt;/li>
-&lt;li>Some parts of the tests will need to be mocked while the feature is still under development. However, by the end of development, the E2E test must be complete, and all mocked data should be removed. The final modifications to eliminate mocking should be minimal (typically limited to updating expected values).&lt;/li>
-&lt;li>Test cases and user journeys should be defined in advance, during ticket refinement, before the PIP. They may be proposed by a QA or a Product Owner (PO) and must be validated by a QA, the relevant PO, and frontend developers.&lt;/li>
-&lt;li>If an E2E test affects the E2E testing configuration, project architecture (e.g., snapshotting), or poses a risk of slowing down the CI, a refinement workshop must be organized to consult the team responsible for project architecture and CI, particularly the DevOps team.&lt;/li>
-&lt;/ul>
-&lt;h4 id="atomicity-of-a-test">Atomicity of a test&lt;/h4>
-&lt;p>Each test must be &lt;strong>atomic&lt;/strong>: it is self-sufficient and cannot be divided.&lt;/p>
-&lt;p>A test will target a single feature or component, provided it is not too large. A test will not test an entire module or application; it will necessarily be a set of tests, in order to preserve test atomicity.&lt;/p>
-&lt;p>If a test needs elements to be created or added, these operations must be carried out by API calls in typescript upstream of the test, as is done for adding data. These elements must be deleted at the end of the test, regardless of the result or how it is stopped, including by &lt;code>CTRL+C&lt;/code>.&lt;/p>
-&lt;p>This allows tests to be parallelized.&lt;/p>
-&lt;p>However, in certain cases where it is relevant, a test may contain several clearly explained and justified test subdivisions (several &lt;code>test()&lt;/code> in a single &lt;code>describe()&lt;/code>).&lt;/p>
-&lt;h3 id="example-of-a-test">Example of a test&lt;/h3>
-&lt;p>The requirement: &amp;ldquo;We want to test the addition of a train to a timetable&amp;rdquo;.&lt;/p>
-&lt;ol>
-&lt;li>add the test infrastructure and rolling stock to the database &lt;strong>by API calls&lt;/strong>.&lt;/li>
-&lt;li>create project, study and scenario with choice of test infrastructure &lt;strong>by API calls&lt;/strong>.&lt;/li>
-&lt;li>start the test, clicking on &amp;ldquo;add one or more trains&amp;rdquo; until the presence of the trains in the timetable is verified&lt;/li>
-&lt;li>the test passes, fails or is stopped, the project, study and scenario are deleted, along with the test rolling stock and infrastructure &lt;strong>by API calls&lt;/strong>.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;em>NB: the test will not test all the possibilities offered by the addition of trains; this should be a specific test which would test the response of the interface for all scenarios without adding trains.&lt;/em>&lt;/p>
-&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/">Continue towards write code ‣&lt;/a>&lt;/em>&lt;/p></description></item></channel></rss>
+&lt;p>The functional writing of the tests is carried out with the &lt;em>Product Owners&lt;/em>, and the developers choose a technical implementation that precisely meets the needs expressed and fits in with the recommendations presented here.&lt;/p></description></item></channel></rss>

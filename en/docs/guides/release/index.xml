@@ -1,32 +1,7 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Release</title><link>https://osrd.fr/en/docs/guides/release/</link><description>Recent content in Release on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/release/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Release process</title><link>https://osrd.fr/en/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/process/</guid><description>
-&lt;p>OSRD has three versions: development (dev), staging, and release.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Release on OSRD</title><link>https://osrd.fr/en/docs/guides/release/</link><description>Recent content in Release on OSRD</description><generator>Hugo</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/guides/release/index.xml" rel="self" type="application/rss+xml"/><item><title>Release process</title><link>https://osrd.fr/en/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/process/</guid><description>&lt;p>OSRD has three versions: development (dev), staging, and release.&lt;/p>
 &lt;p>The development version is the most recent and unstable version of the application, containing the latest features and bug fixes in active development.&lt;/p>
 &lt;p>Staging versions are created every Thursday at 12pm by tagging the current development state.&lt;/p>
-&lt;p>If a staging version passes validation testing, it is promoted to become the latest release version. This ensures that only stable, tested code makes it into production releases.&lt;/p>
-&lt;p>The release process follows this workflow:&lt;/p>
-&lt;ol>
-&lt;li>Ongoing development in the dev branch&lt;/li>
-&lt;li>Weekly staging tags on Thursdays at 12pm&lt;/li>
-&lt;li>Validation testing of staging version&lt;/li>
-&lt;li>Promotion of validated staging builds to release status&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code class="language-ascii" data-lang="ascii"> Development Staging Release
-(unstable) (testing) (stable)
-[Dev Branch] |
-| |
-|---&amp;gt; Thursday 12pm |
-| [Staging Tag] |
-| | |
-| Validation |
-| Testing |
-| | |
-| o---&amp;gt; If Passes --&amp;gt; [New Release]
-| Tests |
-[Continue Dev] |
-| |
-V V
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Publish a new release</title><link>https://osrd.fr/en/docs/guides/release/publish/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/publish/</guid><description>
-&lt;p>All OSRD releases are accessible &lt;a href="https://github.com/OpenRailAssociation/osrd/releases">here&lt;/a>&lt;/p>
+&lt;p>If a staging version passes validation testing, it is promoted to become the latest release version. This ensures that only stable, tested code makes it into production releases.&lt;/p></description></item><item><title>Publish a new release</title><link>https://osrd.fr/en/docs/guides/release/publish/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/publish/</guid><description>&lt;p>All OSRD releases are accessible &lt;a href="https://github.com/OpenRailAssociation/osrd/releases">here&lt;/a>&lt;/p>
 &lt;p>The process for creating a new release is as follows:&lt;/p>
 &lt;ol>
 &lt;li>We always release on a tested version of the application (staging branch)

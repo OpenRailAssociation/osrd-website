@@ -1,5 +1,556 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – OSRD</title><link>https://osrd.fr/fr/</link><description>Recent content on OSRD</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Présentation OSRD #1</title><link>https://osrd.fr/fr/blog/2023/12/13/presentation-osrd-1/</link><pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/12/13/presentation-osrd-1/</guid><description>
-&lt;p>Le 13 décembre 2023, l&amp;rsquo;équipe OSRD a présenté ses premiers résultats lors d&amp;rsquo;une conférence.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD</title><link>https://osrd.fr/fr/</link><description>Recent content on OSRD</description><generator>Hugo</generator><language>fr</language><lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Avant toutes choses</title><link>https://osrd.fr/fr/docs/guides/contribute/preamble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/preamble/</guid><description>&lt;p>Déjà, merci de prendre le temps de contribuer !&lt;/p>
+&lt;p>Si les sections suivantes forment un guide du contributeur, ce n&amp;rsquo;est pas pour autant un ensemble de règles strictes. En fait, si vous avez déjà contribué à des gros projets open-source, la suite ne sera pas surprenante. Dans le cas contraire, elle vous sera probablement très utile !&lt;/p>
+&lt;h3 id="communiquer">Communiquer&lt;/h3>
+&lt;p>Vous pouvez gagner du temps en discutant de votre projet de contribution avec les autres contributeurs :&lt;/p></description></item><item><title>Principes généraux</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/general-principles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/general-principles/</guid><description>&lt;ul>
+&lt;li>Expliquez ce que vous faites et pourquoi.&lt;/li>
+&lt;li>Documentez le nouveau code.&lt;/li>
+&lt;li>Ajoutez des tests clairs et simples.&lt;/li>
+&lt;li>Décomposez le travail en morceaux intelligibles.&lt;/li>
+&lt;li>Prenez le temps de choisir de bons noms.&lt;/li>
+&lt;li>Évitez les abréviations peu connues.&lt;/li>
+&lt;li>&lt;strong>Contrôle et cohérence de la réutilisation du code de tiers&lt;/strong> : une dépendance est ajoutée seulement si elle est absolument nécessaire.&lt;/li>
+&lt;li>Chaque dépendance ajoutée diminue notre autonomie et notre cohérence.&lt;/li>
+&lt;li>Nous essayons de limiter à un petit nombre les PRs de mise à jour des dépendances chaque semaine
+dans chaque composant, donc regrouper les montées de version dans une même PR est une bonne option
+(reportez-vous au &lt;code>README.md&lt;/code> de chaque composant).&lt;/li>
+&lt;li>&lt;strong>Ne pas réinventer la roue&lt;/strong> : en opposition au point précédent, ne réinventez pas tout à tout prix.&lt;/li>
+&lt;li>S&amp;rsquo;il existe une dépendance dans l&amp;rsquo;écosystème qui est le standard « de facto », nous devrions fortement envisager de l&amp;rsquo;utiliser.&lt;/li>
+&lt;li>Plus de code et de recommandations générales dans le dépôt principal &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>Demandez toute l&amp;rsquo;aide dont vous avez besoin !&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/">Consulter les conventions pour le back-end ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Processus de publication</title><link>https://osrd.fr/fr/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/release/process/</guid><description>&lt;p>OSRD possède trois versions : développement (dev), staging et publication.&lt;/p>
+&lt;p>La version de développement est la version la plus récente et la plus instable de l&amp;rsquo;application, contenant les dernières fonctionnalités et corrections de bugs en cours de développement.&lt;/p>
+&lt;p>Les versions staging sont créées tous les jeudis à 12h en taguant l&amp;rsquo;état actuel du développement.&lt;/p>
+&lt;p>Si une version staging passe les tests de validation, elle est promue pour devenir la dernière version publication. Cela garantit que seul du code stable et testé est intégré dans les versions de production.&lt;/p></description></item><item><title>Conventions back-end</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>&lt;h1 id="python">Python&lt;/h1>
+&lt;p>Le code Python est utilisé pour certains paquets et pour les tests d&amp;rsquo;intégration.&lt;/p>
+&lt;ul>
+&lt;li>Suivez le &lt;a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python&lt;/a>.&lt;/li>
+&lt;li>Le code est linté avec &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
+&lt;li>Les imports sont triées avec &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Les tests sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;li>Les types sont vérifiés avec &lt;a href="https://google.github.io/pytype/">pytype&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="rust">Rust&lt;/h1>
+&lt;ul>
+&lt;li>Comme référence pour le développement de notre API, nous utilisons les &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
+D&amp;rsquo;une manière générale, il convient de les respecter.&lt;/li>
+&lt;li>Préférer les importations granulaires aux importations globales comme &lt;code>diesel::*&lt;/code>.&lt;/li>
+&lt;li>Les tests sont écrits avec le &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">framework de base&lt;/a>.&lt;/li>
+&lt;li>Utilisez l&amp;rsquo;&lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">exemple de documentation&lt;/a> pour savoir comment formuler et formater votre documentation.&lt;/li>
+&lt;li>Utilisez un style de commentaire cohérent :
+&lt;ul>
+&lt;li>&lt;code>///&lt;/code> les commentaires de la documentation sont au-dessus des invocations &lt;code>#[derive(Trait)]&lt;/code>.&lt;/li>
+&lt;li>Les commentaires &lt;code>//&lt;/code> doivent généralement être placés au-dessus de la ligne en question, plutôt qu&amp;rsquo;en ligne.&lt;/li>
+&lt;li>Les commentaires commencent par des lettres majuscules.
+Terminez-les par un point s&amp;rsquo;ils ressemblent à une phrase.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Utilisez les commentaires pour organiser des portions de code longues et complexes qui ne peuvent être raisonnablement remaniées en fonctions distinctes.&lt;/li>
+&lt;li>Le code est linté avec &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="java">Java&lt;/h1>
+&lt;ul>
+&lt;li>Le code est formaté avec &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Conventions front-end</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/frontend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/frontend-conventions/</guid><description>&lt;p>Nous utilisons &lt;strong>ReactJS&lt;/strong> et tous les fichiers doivent être écrits en &lt;strong>Typescript&lt;/strong>.&lt;/p>
+&lt;p>Le code est &lt;em>linté&lt;/em> avec &lt;a href="https://eslint.org/">eslint&lt;/a>, et &lt;strong>formaté&lt;/strong> avec &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/p>
+&lt;h2 id="nomenclature">Nomenclature&lt;/h2>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/nomenclature-front-end.svg" alt="Diagramme de l’Infrastructure">&lt;/p>
+&lt;p>Les &lt;strong>applications&lt;/strong> (osrd eex, osrd stdcm, éditeur infra, éditeur matériel) proposent des &lt;strong>vues&lt;/strong> (gestion des projets, gestions des études, etc.) liées à des &lt;strong>modules&lt;/strong> (projet, étude, etc.) qui contiennent les composants.&lt;/p>
+&lt;p>Ces &lt;strong>vues&lt;/strong> sont constituées de &lt;strong>composants&lt;/strong> et sous-composants &lt;u>tous issus des modules&lt;/u>.
+En plus de contenir les fichiers de &lt;strong>vues&lt;/strong> des applications, elles peuvent contenir un répertoire &lt;strong>scripts&lt;/strong> qui propose des scripts liés à ces vues. Les &lt;strong>vues&lt;/strong> déterminent la logique et l&amp;rsquo;&lt;u>accès au store&lt;/u>.&lt;/p></description></item><item><title>Licence et mise en place</title><link>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/license-and-set-up/</guid><description>&lt;h2 id="la-licence-des-contributions-de-code">La licence des contributions de code&lt;/h2>
+&lt;p>Tout le code du dépôt OSRD est mis à disposition sous &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">la licence LGPLv3&lt;/a>.
+En contribuant du code, vous acceptez la redistribution de votre contribution sous cette license.&lt;/p>
+&lt;p>La licence LGPL interdit de modifier OSRD sans publier le code source de l&amp;rsquo;application modifiée : profitez du travail des autres, et laissez les autres profiter de votre travail !&lt;/p>
+&lt;p>Cette contrainte n&amp;rsquo;est pas contagieuse à travers les API : Il est possible d&amp;rsquo;utiliser OSRD comme bibliothèque, framework ou serveur pour s&amp;rsquo;interfacer avec des composants propriétaires. N&amp;rsquo;hésitez pas à proposer des changements pour répondre à vos besoins.&lt;/p></description></item><item><title>Publier une nouvelle version</title><link>https://osrd.fr/fr/docs/guides/release/publish/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/release/publish/</guid><description>&lt;p>Toutes les versions d&amp;rsquo;OSRD sont accessibles &lt;a href="https://github.com/OpenRailAssociation/osrd/releases">ici&lt;/a>&lt;/p>
+&lt;p>Le processus de création d&amp;rsquo;une nouvelle version est le suivant :&lt;/p>
+&lt;ol>
+&lt;li>Nous publions toujours sur une version testée de l&amp;rsquo;application (branche staging)
+&lt;ul>
+&lt;li>&lt;code>git switch staging &amp;amp;&amp;amp; git pull&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Créer un tag git &lt;strong>annoté&lt;/strong>
+&lt;ul>
+&lt;li>Nous utilisons le &lt;a href="https://semver.org/">versionnage sémantique&lt;/a>&lt;/li>
+&lt;li>&lt;code>git tag -a vx.y.z&lt;/code> avec le message &lt;code>Release x.y.z&lt;/code> (la plupart du temps, utilisez la dernière version et incrémentez la version patch)&lt;/li>
+&lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Créer une release GitHub
+&lt;ul>
+&lt;li>Créer une nouvelle release GitHub &lt;a href="https://github.com/OpenRailAssociation/osrd/releases/new">ici&lt;/a>&lt;/li>
+&lt;li>Sélectionner le tag créé&lt;/li>
+&lt;li>Générer les notes de version&lt;/li>
+&lt;li>Renommer la release ainsi : &amp;ldquo;Version x.y.z&amp;rdquo;&lt;/li>
+&lt;li>Cocher la case &amp;ldquo;Set as a pre-release&amp;rdquo;&lt;/li>
+&lt;li>Appliquer le &lt;a href="#Format du changelog">format du changelog&lt;/a>&lt;/li>
+&lt;li>Vous pouvez ensuite &lt;strong>publier&lt;/strong> la release ou &lt;strong>sauvegarder&lt;/strong> le brouillon si vous souhaitez y revenir plus tard&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Une &lt;a href="https://github.com/OpenRailAssociation/osrd/actions/workflows/release.yml">action GitHub&lt;/a> devrait être déclenchée automatiquement.&lt;/li>
+&lt;li>Poster le lien de la release créée sur Matrix. Suggérer aux développeurs de revoir la release.&lt;/li>
+&lt;/ol>
+&lt;h3 id="format-du-changelog">Format du changelog&lt;/h3>
+&lt;ol>
+&lt;li>Utiliser la structure suivante :&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## What&amp;#39;s Changed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Features :tada:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Code refactoring :recycle:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Bug fixes :bug:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## New Contributors
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">**Full Changelog**&lt;/span>: ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Répartir les différentes pull requests&lt;/li>
+&lt;li>Fusionner ou regrouper les PR quand cela a du sens. Exemples :
+&lt;ul>
+&lt;li>PR de mise à jour des dépendances (fusionner)&lt;/li>
+&lt;li>PR en plusieurs parties (fusionner)&lt;/li>
+&lt;li>Une grande fonctionnalité implémentée par plusieurs PR (regrouper)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Reformuler les titres des PR. &lt;strong>Ils doivent être compréhensibles pour un collaborateur externe&lt;/strong>&lt;/li>
+&lt;/ol></description></item><item><title>Écrire du code</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/write-code/</guid><description>&lt;ol>
+&lt;li>
+&lt;p>Si vous n&amp;rsquo;être pas un habitué de Git, &lt;a href="https://learngitbranching.js.org/">suivez ce tutoriel&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Créez une branche&lt;/strong>&lt;br>
+Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a href="https://github.com/OpenRailAssociation/osrd">dépôt principal&lt;/a>. Sinon, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">créez un fork&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Ajoutez des changements sur votre branche&lt;/strong>&lt;br>
+Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre &lt;a href="../conventions/">les conventions du projet&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Conservez votre branche à jour&lt;/strong>&lt;/p>
+&lt;pre tabindex="0">&lt;code>git switch &amp;lt;your_branch&amp;gt;
+git fetch
+git rebase origin/dev
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-conventions/">Continuer vers le style des commits ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Conventions de commits</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>&lt;h2 id="style-de-commits">Style de commits&lt;/h2>
+&lt;p>Le format général des commits est le suivant :&lt;/p>
+&lt;pre tabindex="0">&lt;code>composant1, composant2: description du changement à l&amp;#39;impératif
+
+Description détaillée ou technique du contenu et de la motivation du
+changement, si le titre n&amp;#39;est pas complètement évident.
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;strong>le message comme le code doit être en anglais&lt;/strong> (seulement des caractères ASCII pour le titre)&lt;/li>
+&lt;li>il peut y avoir plusieurs composants, séparés par des &lt;code>:&lt;/code> quand il y a une relation hiérarchique, ou des &lt;code>,&lt;/code> sinon&lt;/li>
+&lt;li>les composants sont en minuscule, avec éventuellement &lt;code>-&lt;/code>, &lt;code>_&lt;/code> ou &lt;code>.&lt;/code>&lt;/li>
+&lt;li>la description du changement à l&amp;rsquo;impératif commence par un verbe en minuscule&lt;/li>
+&lt;li>le titre ne doit pas comporter de lien (&lt;code>#&lt;/code> est interdit)&lt;/li>
+&lt;/ul>
+&lt;p>Idéalement :&lt;/p></description></item><item><title>Revue de code</title><link>https://osrd.fr/fr/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/code-review/</guid><description>&lt;p>Le reviewer/mainteneur s&amp;rsquo;engage à effectuer la revue de code rapidement, c&amp;rsquo;est aussi à lui qu&amp;rsquo;appartient de fermer les « &lt;em>request changes&lt;/em> », de bien vérifier l&amp;rsquo;historique des commits, et de fusionner la « &lt;em>pull request&lt;/em> » s&amp;rsquo;il en a les droits.&lt;/p>
+&lt;p>Nous vous soumettons quelques conseils et recommandations qui nous semblent pertinentes pour une revue de code humaine, pertinente et enrichissante pour tous ses contributeurs :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> par Michael Lynch.&lt;/li>
+&lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> par Michael Lynch.&lt;/li>
+&lt;/ul>
+&lt;h2 id="cycle-de-review">Cycle de review&lt;/h2>
+&lt;p>Une revue de code est un processus itératif.
+Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">configurer correctement ses notifications github&lt;/a>.&lt;/p></description></item><item><title>Partagez vos changements</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/share-changes/</guid><description>&lt;p>L&amp;rsquo;auteur d&amp;rsquo;une &lt;em>pull request (PR)&lt;/em> est responsable de son « cycle de vie ». Il se charge de contacter les différents acteurs, de suivre la revue de code, répondre aux commentaires et corriger le code suite à la revue de code (vous pouvez également consulter la &lt;a href="https://osrd.fr/fr/docs/guides/contribute/code-review/">page dédiée à la revue de code&lt;/a>).&lt;/p>
+&lt;blockquote>
+&lt;p>En cas de PR conséquente, ne pas hésiter à solliciter plusieurs reviewers qui pourront s&amp;rsquo;organiser, voire de faire la review ensemble, reviewers et auteur.&lt;/p></description></item><item><title>Signaler des problèmes</title><link>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/bug-reports/</guid><description>&lt;p>&lt;strong>N&amp;rsquo;hésitez pas à signaler tout ce qui vous semble important !&lt;/strong>&lt;/p>
+&lt;p>Notre outil de suivi des bugs est &lt;a href="https://github.com/OpenRailAssociation/osrd/issues">github&lt;/a>. Il est nécessaire de s&amp;rsquo;inscrire pour signaler un bug.&lt;/p>
+&lt;p>Suivez &lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">ce lien&lt;/a> et choisissez le modèle qui correspond à votre cas de figure.&lt;/p>
+&lt;h3 id="bugs">Bugs&lt;/h3>
+&lt;ul>
+&lt;li>Le bug doit avoir une description correcte et le modèle du bug doit être rempli avec soin.&lt;/li>
+&lt;li>Le bug doit être étiqueté avec (&lt;em>pour les membres de l&amp;rsquo;équipe&lt;/em>) :
+&lt;ul>
+&lt;li>&lt;code>kind:bug&lt;/code>&lt;/li>
+&lt;li>une ou plusieurs &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> si possible (si la zone affectée n&amp;rsquo;est pas connue, laissez-la vide et elle sera ajoutée plus tard par un autre membre de l&amp;rsquo;équipe).&lt;/li>
+&lt;li>un &lt;code>severity:&amp;lt;bug_severity&amp;gt;&lt;/code> si possible (si la sévérité n&amp;rsquo;est pas connue, laissez-la vide et elle sera ajoutée plus tard par un autre membre de l&amp;rsquo;équipe).
+&lt;ul>
+&lt;li>&lt;code>severity:minor&lt;/code> : L&amp;rsquo;utilisateur peut encore utiliser la fonctionnalité.&lt;/li>
+&lt;li>&lt;code>severity:major&lt;/code> : L&amp;rsquo;utilisateur ne peut parfois pas utiliser la fonctionnalité.&lt;/li>
+&lt;li>&lt;code>severity:critical&lt;/code> : L&amp;rsquo;utilisateur ne peut pas utiliser la fonctionnalité.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Les membres de l&amp;rsquo;équipe OSRD peuvent modifier les étiquettes des problèmes (gravité, domaine, type, &amp;hellip;).
+Vous pouvez laisser un commentaire pour expliquer les changements.&lt;/li>
+&lt;li>Si vous travaillez sur un bug ou planifiez de travailler sur un bug, assignez vous au bug.&lt;/li>
+&lt;li>Les PRs qui résolvent des bugs doivent ajouter des tests de régression pour s&amp;rsquo;assurer que le bug ne reviendra pas dans le futur.&lt;/li>
+&lt;/ul></description></item><item><title>Tests</title><link>https://osrd.fr/fr/docs/guides/contribute/contribute-code/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/contribute-code/tests/</guid><description>&lt;h2 id="back-end">Back-end&lt;/h2>
+&lt;ul>
+&lt;li>Les tests d&amp;rsquo;intégration sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a> dans le dossier &lt;code>/tests&lt;/code>.&lt;/li>
+&lt;li>Chaque route décrite dans les fichiers &lt;code>openapi.yaml&lt;/code> doit avoir un test d&amp;rsquo;intégration.&lt;/li>
+&lt;li>Le test doit vérifier à la fois le format et le contenu des réponses valides et invalides.&lt;/li>
+&lt;/ul>
+&lt;h2 id="front-end">Front-end&lt;/h2>
+&lt;p>L&amp;rsquo;écriture fonctionnelle des tests est réalisée avec les &lt;em>Product Owners&lt;/em>, et les développeurs choisissent une implémentation technique qui répond précisément aux besoins exprimés et qui s&amp;rsquo;intègre dans les recommandations présentes ici.&lt;/p></description></item><item><title>Contexte métier</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/domain_context/</guid><description>&lt;p>Quelques définitions :&lt;/p>
+&lt;h3 id="la-capacité">La capacité&lt;/h3>
+&lt;p>La &lt;strong>capacité&lt;/strong>, dans ce contexte, correspond à la possibilité de
+réserver des éléments d&amp;rsquo;infrastructure pour permettre le passage
+d&amp;rsquo;un train.&lt;/p>
+&lt;p>La capacité s&amp;rsquo;exprime en fonction de l&amp;rsquo;espace et du temps :
+la réservation d&amp;rsquo;un élément peut bloquer une zone précise
+qui devient inaccessible aux autres trains, et cette réservation
+se fait sur un intervalle de temps.&lt;/p>
+&lt;p>On peut la représenter
+sur un graphique, avec le temps en abscisse et la distance parcourue
+sur un chemin en ordonnée.&lt;/p></description></item><item><title>Modélisation physique</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/physical_modeling/</guid><description>&lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+ onload="renderMathInElement(document.body);">&lt;/script>
+&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script>
+&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">&lt;/script>
+&lt;p>La modélisation physique joue un rôle important dans le cœur de calcul d&amp;rsquo;OSRD. C&amp;rsquo;est elle qui nous permet de simuler la circulation des trains, et elle doit être aussi réaliste que possible.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="bilan-des-forces">Bilan des forces&lt;/h3>
+&lt;/font>
+&lt;p>Pour calculer le déplacement du train au cours du temps, il faut d&amp;rsquo;abord calculer sa vitesse à chaque instant.
+Une manière simple d&amp;rsquo;obtenir cette vitesse est de passer par le calcul de l&amp;rsquo;accélération.
+Grâce au principe fondamental de la dynamique, l&amp;rsquo;accélération du train à chaque instant est directement dépendant
+des différentes forces qui lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$&lt;/p></description></item><item><title>Parcours de l'infrastructure</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/</guid><description>&lt;p>La première chose à définir est &lt;em>comment un train se déplace sur l&amp;rsquo;infrastructure&lt;/em>,
+sans prendre en compte les conflits pour l&amp;rsquo;instant.&lt;/p>
+&lt;p>On a besoin d&amp;rsquo;une manière de définir et d&amp;rsquo;énumérer les différents chemins
+possibles et de parcourir l&amp;rsquo;infrastructure, avec plusieurs contraintes :&lt;/p>
+&lt;ol>
+&lt;li>Le chemin doit être compatible avec le matériel roulant donné
+(électrification, gabarit, systèmes de signalisation)&lt;/li>
+&lt;li>À n&amp;rsquo;importe quel point, on doit être en mesure d&amp;rsquo;accéder aux propriétés
+du chemin depuis le point de départ jusqu&amp;rsquo;au point considéré.
+Cela inclus les routes et les cantons.&lt;/li>
+&lt;li>Dans certains cas, on doit savoir où le train ira &lt;em>après&lt;/em>
+le point actuellement évalué (pour une détection de conflits correcte).&lt;/li>
+&lt;/ol>
+&lt;p>Pour répondre à ce besoin, une classe &lt;code>InfraExplorer&lt;/code> a été implémentée.
+Elle utilise les cantons (section de signal en signal) comme subdivision
+principale.
+Elle est composée de 3 sections : le canton courant, les prédécesseurs,
+et les cantons suivants.&lt;/p></description></item><item><title>Configuration de l'environnement de recherche STDCM</title><link>https://osrd.fr/fr/docs/guides/deploy/stdcm-search-env/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/deploy/stdcm-search-env/</guid><description>&lt;p>Pour que l&amp;rsquo;outil STDCM fonctionne, il faut configurer l&amp;rsquo;environnement de recherche STDCM, une configuration stockée en base de données.&lt;/p>
+&lt;p>Les champs configurables sont les suivants :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">StdcmSearchEnvironment&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">infra_id&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">electrical_profile_set_id&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">work_schedule_group_id&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">timetable_id&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">search_window_begin&lt;/span>: &lt;span style="color:#000">NaiveDateTime&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">search_window_end&lt;/span>: &lt;span style="color:#000">NaiveDateTime&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette configuration est récupérée par le frontend afin que les bons objets et bornes temporelles soient utilisés
+de manière transparente par l&amp;rsquo;utilisateur.&lt;/p>
+&lt;p>Pour configurer cette environnement, vous pouvez soit :&lt;/p></description></item><item><title>Éléments mobiles</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/movable-elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/movable-elements/</guid><description>&lt;h2 id="description">Description&lt;/h2>
+&lt;p>Chaque élément mobile, aiguille ou passage à niveau, a une liste d&amp;rsquo;états possibles.
+Ces états sont mutuellement exclusifs.&lt;/p>
+&lt;h2 id="dépendances">Dépendances&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>statique&lt;/code> une liste d&amp;rsquo;éléments mobiles&lt;/li>
+&lt;li>&lt;code>statique&lt;/code> liste des états possibles de chaque élément mobile&lt;/li>
+&lt;/ul>
+&lt;h2 id="opérations-possibles">Opérations possibles&lt;/h2>
+&lt;ul>
+&lt;li>observer un élément mobile&lt;/li>
+&lt;li>verrouiller / déverrouiller un élément mobile&lt;/li>
+&lt;li>bouger un élément mobile&lt;/li>
+&lt;/ul></description></item><item><title>Le design d'OSRD</title><link>https://osrd.fr/fr/docs/guides/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/design/</guid><description>&lt;p>Tout est présenté dans un site dédié &lt;a href="https://design.osrd.fr">https://design.osrd.fr&lt;/a>&lt;/p>
+&lt;p>Un « design system » est en cours d&amp;rsquo;élaboration.&lt;/p>
+
+&lt;figure>&lt;a href="https://design.osrd.fr">
+ &lt;img src="https://osrd.fr/en/docs/guides/design/images/design.webp"/> &lt;/a>
+&lt;/figure></description></item><item><title>Le logo</title><link>https://osrd.fr/fr/docs/guides/logo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/logo/</guid><description>&lt;p>Vous pouvez télécharger chaque logo indépendamment en cliquant directement dessus, ou &lt;a href="pictures/logo-osrd.zip">tous les logos compressés dans un fichier zip&lt;/a>.&lt;/p>
+&lt;p>Il est conseillé de bien choisir le logo à utiliser en fonction du fond sur lequel vous voulez l&amp;rsquo;afficher.&lt;/p>
+&lt;p>La modification, ajout ou suppression de l&amp;rsquo;&lt;strong>ombrage&lt;/strong> autre que tel que présenté dans les logos &lt;strong>ne sont pas autorisés&lt;/strong> (cela est valable plus globalement dans tout le design, le choix de mettre des ombres portées fait partie des réflexions de design, ce n&amp;rsquo;est pas un élément variable).&lt;/p></description></item><item><title>Installer docker</title><link>https://osrd.fr/fr/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/install-docker/</guid><description>&lt;p>Peu importe votre système d&amp;rsquo;exploitation, docker requiert linux pour fonctionner.
+Lorsqu&amp;rsquo;utilisé sous un autre système d&amp;rsquo;exploitation, docker a besoin de machines
+virtuelles linux pour build et exécuter des images.&lt;/p>
+&lt;p>Il y a deux types d&amp;rsquo;installation docker :&lt;/p>
+&lt;ul>
+&lt;li>docker engine est l&amp;rsquo;application en ligne de commande&lt;/li>
+&lt;li>docker desktop est une application graphique, qui gère aussi la virtualisation&lt;/li>
+&lt;/ul>
+&lt;p>Voici nos suggestions :&lt;/p>
+&lt;ul>
+&lt;li>Si vous êtes sous linux, installez docker engine &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">via votre gestionnaire de packet&lt;/a>&lt;/li>
+&lt;li>Si vous êtes sous MacOS / Windows, installez &lt;a href="https://www.docker.com/products/docker-desktop/">docker desktop&lt;/a> si vous y êtes autorisés&lt;/li>
+&lt;li>Si vous êtes sous windows, et voulez faire fonctionner docker sous WSL, ou ne pouvez pas utiliser docker desktop, suivez le &lt;a href="https://osrd.fr/fr/docs/guides/contribute/install-docker/#docker-sous-wsl">guide docker sous WSL&lt;/a>&lt;/li>
+&lt;li>Si vous êtes sous MacOS, et vous ne pouvez pas utiliser docker desktop, suivez le &lt;a href="https://osrd.fr/fr/docs/guides/contribute/install-docker/#macos-colima">guide colima pour MacOS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker-sous-wsl">Docker sous WSL&lt;/h2>
+&lt;p>Cette option d&amp;rsquo;installation est très utile, car elle permet de disposer d&amp;rsquo;une installation tout à fait normale de docker engine Linux à l&amp;rsquo;intérieur de WSL, qui reste accessible depuis Windows.&lt;/p></description></item><item><title>Détection de conflits</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>&lt;p>Maintenant qu&amp;rsquo;on sait quels chemins peuvent être utilisés,
+on doit déterminer à quel moment ces chemins sont libres.&lt;/p>
+&lt;p>La documentation (en anglais seulement)
+de la détection de conflits explique comment elle est réalisée
+en interne. Pour résumer, un train est en conflit avec un autre
+quand il observe un signal lui indiquant de ralentir.
+Dans notre cas, une solution où cette situation se produit
+est considérée comme invalide, le train doit arriver
+au signal donné plus tard (ou plus tôt) quand le signal
+n&amp;rsquo;est plus contraignant.&lt;/p></description></item><item><title>Intégration numérique</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/numerical_integration/</guid><description>&lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+ onload="renderMathInElement(document.body);">&lt;/script>
+&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script>
+&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">&lt;/script>
+&lt;font color=#aa026d>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;/font>
+&lt;p>La modélisation physique ayant montré que l&amp;rsquo;accélération du train était influencée par différents facteurs variant le long du trajet (pente, courbure, force de traction du moteur&amp;hellip;), le calcul doit passer par une méthode d&amp;rsquo;intégration numérique. Le trajet est alors séparé en étapes suffisamment courtes pour considérer tous ces facteurs comme constants, ce qui permet cette fois ci d&amp;rsquo;utiliser l&amp;rsquo;équation du mouvement pour calculer le déplacement et la vitesse du train.&lt;/p></description></item><item><title>Représentation de l'espace de solutions</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>&lt;h4 id="principe-général">Principe général&lt;/h4>
+&lt;p>Le problème reste une recherche de graphe. En représentant
+l&amp;rsquo;espace de solution sous forme de graphe, il est possible de réutiliser
+nos outils déjà existants de recherche de chemin.&lt;/p>
+&lt;p>Le &lt;em>graphe produit&lt;/em> de la position, du temps, et de la vitesse est utilisé.
+Autrement dit, chaque élément du graphe contient (entre autres) ces
+3 variables.&lt;/p>
+&lt;p>Chaque arête du graphe est calculée avec un
+&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/" title="calcul de marche">calcul de marche&lt;/a>
+pour connaître l&amp;rsquo;évolution de la vitesse et de la position dans le temps.&lt;/p></description></item><item><title>Exemple d'infrastructure</title><link>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/models/data-models-full-example/</guid><description>&lt;font color=#aa026d>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;/font>
+&lt;p>Cette page donne un exemple de la manière dont les formats de données sont utilisés pour décrire une infrastructure dans &lt;strong>OSRD&lt;/strong>.&lt;/p>
+&lt;p>À cette fin, prenons comme exemple l&amp;rsquo;infrastructure-jouet suivante :&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/en/docs/explanation/models/data-models-full-example/svg_diagrams/small_infra_diagram.drawio.en.svg" alt="Diagramme de l’Infrastructure">&lt;/p>
+
+
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Conseil&lt;/h4>
+
+ Pour zoomer sur un diagramme, cliquez sur le bouton d&amp;rsquo;édition qui apparaît au survol de celui-ci.
+
+&lt;/div>
+
+&lt;p>Ce diagramme est un aperçu de l&amp;rsquo;infrastructure avec les lignes et les stations uniquement.&lt;/p>
+&lt;p>Cette infrastructure ne se veut pas réaliste, mais plutôt destinée à illustrer le modèle de données d&amp;rsquo;OSRD.
+Cet exemple sera créé étape par étape et expliqué en cours de route.&lt;/p></description></item><item><title>Localisation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/location/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/location/</guid><description>&lt;h2 id="description">Description&lt;/h2>
+&lt;p>La couche de localisation permet à d&amp;rsquo;autres modules de simulation de suivre le déplacement du train dans l&amp;rsquo;infrastructure.
+L&amp;rsquo;infrastructure ferroviaire est découpée en régions appelées zones. Quand on train entre dans une zone, ce module permet d&amp;rsquo;en être notifié.&lt;/p>
+&lt;p>Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies :&lt;/p>
+&lt;ul>
+&lt;li>capables de détecter la présence d&amp;rsquo;un train&lt;/li>
+&lt;/ul>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>il doit être possible de suivre les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
+&lt;li>il &lt;em>devra&lt;/em> être possible de suivre les déplacements d&amp;rsquo;un train&lt;/li>
+&lt;li>il &lt;em>devra&lt;/em> être possible d&amp;rsquo;implémenter un système de bloc mobile&lt;/li>
+&lt;/ul>
+&lt;h2 id="dépendances">Dépendances&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>statique&lt;/code> une liste de zones&lt;/li>
+&lt;/ul>
+&lt;h2 id="opérations">Opérations&lt;/h2>
+&lt;ul>
+&lt;li>Occuper une zone&lt;/li>
+&lt;li>Libérer une zone&lt;/li>
+&lt;li>Observer les changements d&amp;rsquo;occupation d&amp;rsquo;une zone&lt;/li>
+&lt;/ul></description></item><item><title>Zones neutres</title><link>https://osrd.fr/fr/docs/explanation/models/neutral_sections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/models/neutral_sections/</guid><description>&lt;h2 id="objet-physique-que-lon-cherche-à-modéliser">Objet physique que l&amp;rsquo;on cherche à modéliser&lt;/h2>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>Pour qu&amp;rsquo;un train puisse circuler, il faut soit qu&amp;rsquo;il ait une source d&amp;rsquo;énergie à bord (fuel, batterie, hydrogène, &amp;hellip;) soit qu&amp;rsquo;on l&amp;rsquo;alimente en énergie tout au long de son parcours.&lt;/p>
+&lt;p>Pour fournir cette énergie, des câbles électriques sont suspendus au dessus des voies: les &lt;em>caténaires&lt;/em>. Le train assure ensuite un contact avec ces câbles grâce à un patin conducteur monté sur un bras mécanique: le &lt;em>pantographe&lt;/em>.&lt;/p></description></item><item><title>Discontinuités et retours en arrière</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>&lt;h4 id="le-problème-des-discontinuités">Le problème des discontinuités&lt;/h4>
+&lt;p>Au moment d&amp;rsquo;explorer une arête du graphe, on effectue un calcul de
+marche pour connaître l&amp;rsquo;évolution de la vitesse.
+Mais il n&amp;rsquo;est pas possible de voir plus loin que l&amp;rsquo;arête en question,
+ce qui est gênant pour calculer les courbes de freinages qui peuvent
+nécessiter de commencer à freiner plusieurs kilomètres avant l&amp;rsquo;arrivée.&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/discontinuity.png" alt="Discontinuité">&lt;/p>
+&lt;blockquote>
+&lt;p>Cet exemple illustre le problème : par défaut
+la première arête est explorée en allant à la vitesse maximale.
+C&amp;rsquo;est seulement en explorant la seconde arête que la destination devient visible,
+sans que la distance restante soit suffisante pour s&amp;rsquo;arrêter.&lt;/p></description></item><item><title>Le système d'enveloppes</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/envelopes_system/</guid><description>&lt;p>Le système d&amp;rsquo;enveloppes est une interface créée spécifiquement pour le calcul de marche d&amp;rsquo;OSRD. Il permet de manipuler différentes courbes espace/vitesse, de les découper, de les mettre bout à bout, d&amp;rsquo;interpoler des points spécifiques, et d&amp;rsquo;adresser beaucoup d&amp;rsquo;autres besoins nécessaires au calcul de marche.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="une-interface-spécifique-dans-le-service-osrd-core">Une interface spécifique dans le service OSRD Core&lt;/h3>
+&lt;/font>
+&lt;p>Le système d&amp;rsquo;enveloppes fait partie du service core d&amp;rsquo;OSRD (voir &lt;a href="../architecture/_index">l&amp;rsquo;architecture du logiciel&lt;/a>).&lt;/p>
+&lt;p>Ses principaux composants sont :&lt;/p>
+&lt;p>&lt;strong>1 - EnvelopePart :&lt;/strong> courbe espace/vitesse, définie comme une séquence des points et possédant des métadonnées indiquant par exemple s&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;une courbe d&amp;rsquo;accélération, de freinage, de maintien de vitesse, etc.&lt;/p></description></item><item><title>Reservation</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/reservation/</guid><description>&lt;div class="alert alert-warning" role="alert">
+
+
+ Le mot réservation ici a pour sens réservation de la resource itinéraire, et non le sens commande planifiée d&amp;rsquo;itinéraire
+
+&lt;/div>
+
+&lt;h2 id="description">Description&lt;/h2>
+&lt;p>Les zones (ou TVDSection / DetectionSection) sont des partitions physiques des voies :&lt;/p>
+&lt;ul>
+&lt;li>capables de détecter la présence d&amp;rsquo;un train&lt;/li>
+&lt;li>qui fournissent un service de réservation à l&amp;rsquo;usage des routes&lt;/li>
+&lt;/ul>
+&lt;p>Chaque zone a un certain nombre de configurations différentes.
+Par exemple, une zone sans aiguille aura deux configurations :&lt;/p>
+&lt;ul>
+&lt;li>sens pair&lt;/li>
+&lt;li>sens impair&lt;/li>
+&lt;/ul>
+&lt;p>Une zone avec une aiguille aura 4 configurations possibles :&lt;/p></description></item><item><title>Contourner les conflits</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</guid><description>&lt;p>En explorant le graphe, il arrive souvent de tomber sur des situations
+qui mèneraient à des conflits. Il faut être en mesure de rajouter du délai
+pour les éviter.&lt;/p>
+&lt;h4 id="décalage-du-temps-de-départ">Décalage du temps de départ&lt;/h4>
+&lt;p>Dans les paramètres de l&amp;rsquo;algorithme, le temps de départ est donné
+sous la forme d&amp;rsquo;une fenêtre : un temps de départ au plus tôt et au plus tard.
+Tant que c&amp;rsquo;est possible, il est toujours préférable de décaler le temps
+de départ pour éviter les conflits.&lt;/p></description></item><item><title>Le processus de calcul de marche</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/</guid><description>&lt;p>Le calcul de marche dans OSRD est un processus à 4 étapes, utilisant chacune &lt;a href="../envelopes_system">le système d&amp;rsquo;enveloppes&lt;/a> :&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/#calcul-du-profil-de-vitesse-le-plus-restrictif">Construction du profil de vitesse le plus restrictif&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/#calcul-du-profil-de-vitesse-maximale">Ajout des différentes courbes de freinage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/#calcul-du-profil-deffort-maximal">Ajout des différentes courbes d&amp;rsquo;accélération et vérification des courbes de vitesse constante&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/pipeline/#application-de-marges">Application de marge(s)&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>&amp;nbsp;&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="calcul-du-profil-de-vitesse-le-plus-restrictif">Calcul du profil de vitesse le plus restrictif&lt;/h3>
+&lt;/font>
+&lt;p>Une première enveloppe est calculée au début de la simulation en regroupant toutes les limites de vitesse statiques :&lt;/p></description></item><item><title>Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la planification horaire à l&amp;rsquo;échelle européenne&lt;/strong>.&lt;/p>
+&lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les compagnies ferroviaires et les gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
+&lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
+&lt;ul>
+&lt;li>Profitent des efforts de développement commun ;&lt;/li>
+&lt;li>Peuvent se baser sur les outils communs pour créer les leurs&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> ;&lt;/li>
+&lt;li>Participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution.&lt;/li>
+&lt;/ul>
+&lt;p>OSRD est actuellement développé par:&lt;/p></description></item><item><title>Routage</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</guid><description>&lt;h2 id="description">Description&lt;/h2>
+&lt;ul>
+&lt;li>Les routes ont pour responsabilité d&amp;rsquo;autoriser le déplacement des trains dans l&amp;rsquo;infrastructure. Elles doivent se terminer à un point où l&amp;rsquo;arrêt du train est prévu (en terme de signalisation, pas voyageur).&lt;/li>
+&lt;li>Les routes sont assimilables à des itinéraires, ou à des suites d&amp;rsquo;itinéraires et d&amp;rsquo;installations de pleine voie.&lt;/li>
+&lt;li>Les routes n&amp;rsquo;ont pas de lien direct avec le cantonnement et la signalisation. Elles nourrissent des informations sur la disponibilité des voies qui sont utilisées par le cantonnement et la signalisation.&lt;/li>
+&lt;li>Une route est un chemin de détecteur en détecteur. Elle représente une portion de chemin qu&amp;rsquo;il est sûr pour un train d&amp;rsquo;emprunter.&lt;/li>
+&lt;li>Les routes ont des points de libération, qui sont des détecteurs qui délimitent quand détruire l&amp;rsquo;itinéraire, ce qui permet d&amp;rsquo;implémenter transit souple, rigide, et entre-deux.&lt;/li>
+&lt;li>Une route peut être à nouveau formée alors qu&amp;rsquo;un train est déjà en train de la parcourir. Cela permet à plusieurs trains de se suivre sur la même route.&lt;/li>
+&lt;/ul>
+&lt;h3 id="cycle-de-vie-dune-route">Cycle de vie d&amp;rsquo;une route&lt;/h3>
+&lt;p>Les routes n&amp;rsquo;ont pas d&amp;rsquo;état, mais leur commande donne lieu à une suite d&amp;rsquo;événements systématique :&lt;/p></description></item><item><title>Flux des données</title><link>https://osrd.fr/fr/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/architecture/data_flow/</guid><description>&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/architecture/data_flow/data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Les marges</title><link>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/</guid><description>&lt;font color=#aa026d>
+&lt;h3 id="la-raison-dêtre-des-marges">La raison d&amp;rsquo;être des marges&lt;/h3>
+&lt;/font>
+&lt;p>Comme expliqué dans le &lt;a href="../pipeline/#calcul-du-profil-deffort-maximal">calcul du Max Effort Profile&lt;/a>, la &lt;strong>marche de base&lt;/strong> représente la marche la plus tendue normalement réalisable, c&amp;rsquo;est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.&lt;/p>
+&lt;p>Cette marche de base présente un inconvénient majeur : si un train part avec 10min de retard, il arrivera au mieux avec 10min de retard, car par définition il lui est impossible de rouler plus vite que la marche de base. Par conséquent, les trains sont programmés avec un ajout d&amp;rsquo;une ou de plusieurs marges. Les marges sont une détente du trajet du train, un ajout de temps à l&amp;rsquo;horaire prévu, qui se traduit inévitablement par un abaissement des vitesses de circulation.&lt;/p></description></item><item><title>Marge de régularité</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>&lt;p>Une des fonctionnalités qui doit être supportée par STDCM est la
+&lt;a href="https://osrd.fr/fr/docs/explanation/running_time_calculation/allowances/" title="marge de régularité">marge de régularité&lt;/a>.
+L&amp;rsquo;utilisateur doit pouvoir indiquer une valeur
+de marge, exprimée en fonction de la distance ou du temps de parcours,
+et cette marge doit être ajoutée au trajet.&lt;/p>
+&lt;blockquote>
+&lt;p>Par exemple : l&amp;rsquo;utilisateur peut indiquer une marge de 5 minutes au
+100km. Sur un trajet de 42km, un trajet de 10 minutes au plus rapide
+doit maintenant durer 12 minutes et 6 secondes.&lt;/p></description></item><item><title>Ordonnancement</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/ordering/</guid><description>&lt;div class="alert alert-warning" role="alert">
+
+
+ Cette page est une ébauche, contribuez-y!
+
+&lt;/div>
+
+&lt;h2 id="définition">Définition&lt;/h2>
+&lt;p>La couche d&amp;rsquo;ordonnancement a pour responsabilité d&amp;rsquo;établir l&amp;rsquo;ordre de commande des itinéraires, et par conséquent, l&amp;rsquo;ordre de passage des trains.
+La méthode exacte utilisée pour prendre cette décision n&amp;rsquo;importe pas, du moment qu&amp;rsquo;elle garantit que la simulation se termine (elle ne doit pas amener de trains en nez-à-nez, ou créer d&amp;rsquo;autres cas de figure de blocage).&lt;/p>
+&lt;p>Il est possible d&amp;rsquo;implémenter un module d&amp;rsquo;ordonnancement via des tableaux d&amp;rsquo;ordre de succession des trains aux aiguilles.&lt;/p></description></item><item><title>Détails d'implémentation</title><link>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</guid><description>&lt;p>Cette page précise certains détails d&amp;rsquo;implémentation.
+Sa lecture n&amp;rsquo;est pas nécessaire pour comprendre les principes
+généraux, mais peut aider avant de se plonger dans le code.&lt;/p>
+&lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
+&lt;p>Cette classe est utilisée pour simplifier la création d&amp;rsquo;instances de &lt;code>STDCMEdge&lt;/code>,
+les arêtes du graphe. Celles-ci contiennent de nombreux attributs,
+la plupart pouvant être déterminés en fonction du contexte (comme
+le nœud précédent). La classe &lt;code>STDCMEdgeBuilder&lt;/code> permet de rendre
+certains attributs optionnels et en calcule d&amp;rsquo;autres.&lt;/p></description></item><item><title>Train</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/train/</guid><description>&lt;h2 id="description">Description&lt;/h2>
+&lt;p>Les contraintes sur ce qu&amp;rsquo;est un train sont relativement faibles.
+Il doit seulement avoir un identifiant, qui permet aux autres systèmes de garder des références vers des trains.&lt;/p>
+&lt;h2 id="exigences-de-conception">Exigences de conception&lt;/h2>
+&lt;ul>
+&lt;li>Les trains &lt;strong>occupent les zones&lt;/strong>.&lt;/li>
+&lt;li>Les trains doivent être &lt;strong>suivis&lt;/strong> pour préserver leur &lt;strong>ordre de passage&lt;/strong>.&lt;/li>
+&lt;li>Les trains ont pour responsabilité de &lt;strong>demander les itinéraires&lt;/strong> devant eux.&lt;/li>
+&lt;/ul></description></item><item><title>Open Source</title><link>https://osrd.fr/fr/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/opensource/</guid><description>&lt;p>L’open source est une &lt;strong>pratique de développement logiciel&lt;/strong>, où le code source&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> du logiciel est :&lt;/p>
+&lt;ul>
+&lt;li>généralement développé de manière ouverte et collaborative, par des acteurs variés&lt;/li>
+&lt;li>accessible et gratuitement utilisable par tous&lt;/li>
+&lt;li>tout le monde est libre de proposer un changement, ou créer un logiciel dérivé&lt;/li>
+&lt;li>redistribuable par tous&lt;/li>
+&lt;/ul>
+&lt;p>En pratique, l&amp;rsquo;open source est à la fois un &lt;strong>cadre légal&lt;/strong> pour le travail collaboratif, et un &lt;strong>ensemble de pratiques&lt;/strong>.&lt;/p>
+&lt;h2 id="application-à-osrd">Application à OSRD&lt;/h2>
+&lt;p>Dans le contexte d&amp;rsquo;OSRD, ce modèle a de &lt;strong>multiples avantages&lt;/strong> :&lt;/p></description></item><item><title>Open Data</title><link>https://osrd.fr/fr/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/opendata/</guid><description>&lt;p>L&amp;rsquo;open data, c&amp;rsquo;est la pratique de rendre publiquement accessible des données sous une license permissive.
+C&amp;rsquo;est une pratique distincte de l&amp;rsquo;open source, qui ne s&amp;rsquo;applique qu&amp;rsquo;au logiciel.&lt;/p>
+&lt;p>&lt;strong>Open data et open source ont une relation symbiotique : sans Open Data, un logiciel open source ferroviaire n&amp;rsquo;est utilisable que par des initiés. Gérer l&amp;rsquo;accès aux données est difficile, coûteux, souvent inutile, et réduit l&amp;rsquo;accessibilité de données pourtant essentielles.&lt;/strong>&lt;/p>
+&lt;p>Seul, l&amp;rsquo;&lt;strong>open data&lt;/strong> présente déjà un certain nombre d&amp;rsquo;avantages clés :&lt;/p></description></item><item><title>Roadmap</title><link>https://osrd.fr/fr/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/roadmap/</guid><description>&lt;p>Voici une liste des principales fonctionnalités que OSRD souhaite ajouter, par ordre de priorité.
+Cette feuille de route s&amp;rsquo;étale sur plusieurs années.&lt;/p>
+&lt;ul>
+&lt;li>Ajout du système de signalisation [ERTMS] (&lt;a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire%29">https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire)&lt;/a>.&lt;/li>
+&lt;li>Système de permission fin.&lt;/li>
+&lt;li>Support du cadencement des trains. Améliorer l&amp;rsquo;intégration de Netzgrafik-Editor.&lt;/li>
+&lt;li>Envoyer des trains STDCM à des services externes pour stockage et traitement.&lt;/li>
+&lt;li>Création d&amp;rsquo;un plan de transport annuel.&lt;/li>
+&lt;li>Support d&amp;rsquo;un système de référencement linéaire &lt;a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_r%C3%A9f%C3%A9rence_lin%C3%A9aire">LRS&lt;/a> couramment utilisé dans l&amp;rsquo;industrie ferroviaire. Utilisation de &lt;a href="https://fr.wikipedia.org/wiki/Point_kilom%C3%A9trique#Voie_ferr%C3%A9e">point kilométrique&lt;/a>.&lt;/li>
+&lt;li>Refonte de l&amp;rsquo;éditeur d&amp;rsquo;infrastructure.&lt;/li>
+&lt;li>Ajout d&amp;rsquo;un simulateur dynamique. Simuler une grille horaire sur une infrastructure et observer les retards générés.&lt;/li>
+&lt;li>Gestion de version des infrastructures.&lt;/li>
+&lt;li>Refonte du calcul de marche.&lt;/li>
+&lt;/ul>
+&lt;p>Si vous souhaitez pousser l&amp;rsquo;une de ces fonctionnalités, ou si vous avez des idées sur ce que OSRD pourrait faire à l&amp;rsquo;avenir, n&amp;rsquo;hésitez pas à rejoindre le projet !&lt;/p></description></item><item><title>ETCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>&lt;h3 id="généralités">Généralités&lt;/h3>
+&lt;p>ETCS est le système européen de contrôle commande des trains. La partie bord est interopérable. La partie sol peut être
+différente selon les pays tout en répondant aux mêmes objectifs de fonctionnalité.&lt;/p>
+&lt;p>Il existe quatre niveaux différents dont deux sont en service : L’&lt;a href="https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/#etcs-niveau-1">ETCS 1&lt;/a> et L’&lt;a href="https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etcs/#etcs-niveau-2">ETCS 2&lt;/a>. L’ETCS 0 est interdit en France.
+L’ETCS 3 est encore à l’état de développement dans la plupart des pays de l’Union européenne.&lt;/p></description></item><item><title>Les installations de contresens (ICS)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-direction-installations/</guid><description>&lt;h2 id="1-les-installations-permanentes-de-contresens-ipcs">1. Les installations permanentes de contresens (IPCS)&lt;/h2>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Certaines sections de ligne comportent des installations permanentes de contresens (IPCS). Ces installations accessibles
+sans arrêt des trains à l’entrée, permettent à tout moment la circulation des trains à contresens sans que les
+conducteurs en soient préavisés autrement que par la signalisation.&lt;/p>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Des enclenchements de sécurité s’opposent à l’expédition de deux trains de sens contraire à la rencontre l’un de l’autre.&lt;/p></description></item><item><title>La voie unique</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track/</guid><description>&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d’exploitation d’une ligne dans lequel les trains des deux sens circulent sur la même voie, les dispositions à
+prendre pour éviter la rencontre de deux trains de sens contraire ne sont pas automatiques, mais résultent de procédures
+à appliquer par les personnels affectés à la circulation des trains, voire par les personnels des trains dans certains
+cas de lignes faiblement équipées. Ces dispositions sont définies par le gestionnaire d’infrastructure.&lt;/p></description></item><item><title>GSM-R</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gsm-r/</guid><description/></item><item><title>La voie unique à signalisation simplifiée (VUSS)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-simplified-signalling/</guid><description>&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Certaines lignes à voie unique sont désignées à la documentation d’exploitation comme « Lignes à voie unique à
+signalisation simplifiée ». Par rapport au régime général de la voie unique, ce type de ligne se distingue par la mise
+en œuvre d’un minimum d’équipements. Ils se limitent à une pancarte « gare » à distance et à un repère d’entrée.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Elles sont exploitées selon les modalités du régime général d’exploitation de la voie unique (notamment le respect
+de l’ordre théorique de circulation).&lt;/p></description></item><item><title>La voie unique temporaire à caractère permanent (VUTP)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track-of-permanent-nature/</guid><description>&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Les installations de voie unique temporaire à caractère permanent (VUTP) permettent la circulation occasionnelle des
+trains des deux sens sur une seule voie, entre deux gares, sans arrêt à l’entrée et sans préavis aux conducteurs.&lt;/p>
+&lt;p>Les sections de ligne équipées de VUTP sont désignées aux RT.&lt;/p>
+&lt;h4 id="le-risque-de-nez-à-nez">Le risque de nez à nez&lt;/h4>
+&lt;p>Des enclenchements de sécurité s’opposent à l’expédition de deux trains de sens contraire à la rencontre l’un de l’autre.&lt;/p></description></item><item><title>GPRS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/gprs/</guid><description/></item><item><title>La voie unique temporaire (VUT)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/temporary-single-track/</guid><description>&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Lorsqu’une cause quelconque (incident, exécution de travaux, etc.), interdit l’utilisation d’une voie et en l’absence
+d’installations permettant la circulation dans les deux sens en sécurité sur l’autre voie (ICS, voie banalisée), la
+circulation des trains est organisée par les agents du service de gestion des circulations situés aux extrémités selon
+des procédures adaptées.&lt;/p>
+&lt;p>La VUT est donc un régime temporaire d’exploitation permettant, sur une ligne à double voie non équipée d’installation
+de contresens, de faire circuler les trains des deux sens sur une seule et même voie.&lt;/p></description></item><item><title>La voie unique à trafic restreint (VUTR)</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-with-restricted-traffic/</guid><description>&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Ce régime concerne des lignes fermées au service voyageurs qui ne comportent normalement pas de signaux. Les règles
+concernant le régime général d’exploitation de la voie unique ne sont pas applicables et sont remplacées par des
+modalités particulières définies par le gestionnaire d&amp;rsquo;infrastructure.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Une consigne locale d’exploitation adaptée à chaque VUTR précise les caractéristiques d&amp;rsquo;exploitation comme la vitesse de
+la ligne, la signalisation, les établissements, les liaisons téléphoniques, les PN, etc.&lt;/p></description></item><item><title>FRMCS</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/frmcs/</guid><description/></item><item><title>Mouvement à contre-voie</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/double-track-lines/opposite-track-movement/</guid><description>&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Lorsqu’une cause quelconque (incident, secours, travaux inopinés de courte durée, etc.), interdit l’utilisation d’une
+voie, en l’absence d’installation permettant la circulation dans les deux sens sur l’autre voie (ICS, voie banalisée) et
+qu’il n’est pas envisagé d’organiser une VUT (par exemple, du fait que très peu de circulations seront concernées), la
+circulation d’un train n’empruntant pas le sens normal se fait alors à contre-voie sur la voie non interceptée. Les
+trains devant circuler à contre-voie sont &lt;strong>arrêtés à l’entrée&lt;/strong>.&lt;/p></description></item><item><title>L’exploitation en navette</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-shuttle/</guid><description>&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d’exploitation d’une ligne sur laquelle la circulation d’un train ne peut être autorisée qu’après dégagement du
+train précédemment engagé, l’engagement et le dégagement se faisant au même point.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>L’exploitation en navette consiste à n’autoriser la présence que d’une seule circulation sur la section de ligne
+concernée, cette circulation revenant à son point de départ, ce qui par conception limite les risques de collision de
+trains.&lt;/p>
+&lt;p>Toutefois, le programme peut inclure moyennant des procédures adaptées des mouvements de desserte, avec ou sans
+possibilité de garage (desserte origine terminus ou desserte en antenne).&lt;/p></description></item><item><title>ETML</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/ertms/etml/</guid><description/></item><item><title>La voie banalisée</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/operation-modes/single-track-lines/single-track-two-ways/</guid><description>&lt;h3 id="définition">Définition&lt;/h3>
+&lt;p>Régime d&amp;rsquo;exploitation d&amp;rsquo;une ligne à une ou plusieurs voies parcourues par les trains des deux sens. Sur ces voies,
+des installations de sécurité s&amp;rsquo;opposent à l&amp;rsquo;expédition de deux trains de sens contraire à la rencontre l&amp;rsquo;un de l&amp;rsquo;autre.
+Sur les lignes à plusieurs voies banalisées, les trains d&amp;rsquo;un même sens peuvent circuler indifféremment sur l&amp;rsquo;une
+quelconque de ces voies.&lt;/p>
+&lt;h3 id="principe">Principe&lt;/h3>
+&lt;p>Une voie banalisée peut être découpée en plusieurs intervalles (points entre lesquels il n’existe aucune possibilité de
+croisement ou dépassement).&lt;/p></description></item><item><title>Présentation OSRD #1</title><link>https://osrd.fr/fr/blog/2023/12/13/presentation-osrd-1/</link><pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/12/13/presentation-osrd-1/</guid><description>&lt;p>Le 13 décembre 2023, l&amp;rsquo;équipe OSRD a présenté ses premiers résultats lors d&amp;rsquo;une conférence.&lt;/p>
 &lt;p>Voici la rediffusion des interventions :&lt;/p>
 &lt;h3 id="ouverture">Ouverture&lt;/h3>
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/mJ0u4tPBVM0?si=RKqshPFxmaLKKzXb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>&lt;/iframe>
@@ -18,97 +569,59 @@
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/nhETlVjZqSM?si=8QXYv3m6wRI0pUnh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>&lt;/iframe>
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VRZopUBHtNo?si=4yvdrw0oJQghflXi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>&lt;/iframe>
 &lt;h3 id="openrail">OpenRail&lt;/h3>
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VBgOrbJfIh4?si=K_mCtMRmwiitXcae" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>&lt;/iframe></description></item><item><title>Blog: OSRD au Dreiländer Hack à Vienne</title><link>https://osrd.fr/fr/blog/2023/07/19/osrd-au-dreil%C3%A4nder-hack-%C3%A0-vienne/</link><pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/07/19/osrd-au-dreil%C3%A4nder-hack-%C3%A0-vienne/</guid><description>
-&lt;h2 id="le-dreiländer-hack-le-rendez-vous-des-entreprises-ferroviaires-germanophones-mais-pas-que-">Le Dreiländer hack, le rendez-vous des entreprises ferroviaires germanophones&amp;hellip; mais pas que !&lt;/h2>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VBgOrbJfIh4?si=K_mCtMRmwiitXcae" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>&lt;/iframe></description></item><item><title>OSRD au Dreiländer Hack à Vienne</title><link>https://osrd.fr/fr/blog/2023/07/19/osrd-au-dreil%C3%A4nder-hack-%C3%A0-vienne/</link><pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/07/19/osrd-au-dreil%C3%A4nder-hack-%C3%A0-vienne/</guid><description>&lt;h2 id="le-dreiländer-hack-le-rendez-vous-des-entreprises-ferroviaires-germanophones-mais-pas-que-">Le Dreiländer hack, le rendez-vous des entreprises ferroviaires germanophones&amp;hellip; mais pas que !&lt;/h2>
 &lt;p>Les 29 et 30 juin derniers s&amp;rsquo;est tenu à Vienne (Autriche) le &lt;a href="https://bcc.oebb.at/de/das-leisten-wir/innovationen/dreilaenderhack">Dreiländer hack&lt;/a> (le hackathon des trois pays). Organisé par Deutsche Bahn - DB (Allemagne), Österreichische Bundesbahnen - ÖBB (Autriche) et Schweizerische Bundesbahnen - SBB (Suisse), c&amp;rsquo;est un rendez-vous annuel dédié à la collaboration sur des problématiques ferroviaires communes.&lt;/p>
-&lt;p>Nous avons eu le plaisir d&amp;rsquo;être invité·es à participer dans le cadre de l&amp;rsquo;association &lt;a href="https://openrailassociation.org/">OpenRail&lt;/a>, et le thème de cette année étant &amp;ldquo;Open Railways&amp;rdquo; il aurait été difficile de refuser !&lt;/p>
-&lt;h2 id="24h-pour-travailler-ensemble-sur-un-sujet-dintérêt-commun">24h pour travailler ensemble sur un sujet d&amp;rsquo;intérêt commun&lt;/h2>
-&lt;p>Les 150 participant·es se sont réparti·es en 16 groupes de travail sur des thèmes très variés tels que :&lt;/p>
-&lt;ul>
-&lt;li>Imaginer une interface simple de commande de sillons (un sujet important pour l&amp;rsquo;avenir d&amp;rsquo;OSRD) ;&lt;/li>
-&lt;li>Proposer de l&amp;rsquo;information voyageur adaptée aux différents handicaps ;&lt;/li>
-&lt;li>Optimiser la priorisation des trains aux embranchements en fonction de l&amp;rsquo;affluence à bord et à quai (projet Motis) ;&lt;/li>
-&lt;li>Identifier automatiquement des trains au garage qui consomment de l&amp;rsquo;énergie ;&lt;/li>
-&lt;li>Calculer des dates de maintenance prévisionnelles à partir d&amp;rsquo;une base de données historique sur chaque composant du train ;&lt;/li>
-&lt;li>Détecter des erreurs de mesure de vitesse et de positionnement GPS sur des trains d&amp;rsquo;inspection des voies ;&lt;/li>
-&lt;li>Optimiser les chantiers de maintenance pour limiter la capacité perdue ;&lt;/li>
-&lt;li>Faciliter l&amp;rsquo;information voyageurs avec un chatbot GPT ;&lt;/li>
-&lt;li>Imaginer une interface de visualisation &amp;amp; de commande pour l&amp;rsquo;offre de trains de nuit au niveau européen facile à utiliser.&lt;/li>
-&lt;/ul>
-&lt;h2 id="le-challenge-proposé-par-osrd">Le challenge proposé par OSRD&lt;/h2>
-&lt;p>Le challenge proposé par OSRD visait à consolider les données ferroviaires présentes dans OpenStreetMap, une base de données ouverte &amp;amp; collaborative que nous utilisons comme source pour l&amp;rsquo;infrastructure ferroviaire en Europe.&lt;/p>
-&lt;p>L&amp;rsquo;objectif était de développer un algorithme permettant d&amp;rsquo;identifier 5 types d&amp;rsquo;erreurs probables dans les données :&lt;/p>
-&lt;h3 id="voies-proches-géographiquement-mais-non-connectées-topologiquement">Voies proches géographiquement mais non connectées topologiquement&lt;/h3>
-&lt;img src="illustrate-disconnected.webp" alt="Un train jouet où les voies en bois sont séparées par un espace"/>
-&lt;h3 id="aiguilles-à-plus-de-3-branches">Aiguilles à plus de 3 branches&lt;/h3>
-&lt;img src="illustrate-switches.webp" alt="Un train où une voie supplémentaire a été ajoutée à une aiguille"/>
-&lt;h3 id="gares-éloignées-des-voies">Gares éloignées des voies&lt;/h3>
-&lt;img src="illustrate-stations.webp" alt="Un train jouet sur des rails en bois et une gare dessinée sur un post-it. Un point d'interrogation est dessiné entre les deux."/>
-&lt;h3 id="voies-avec-des-angles-trop-importants">Voies avec des angles trop importants&lt;/h3>
-&lt;img src="illustrate-angles.webp" alt="Un train jouet où les voies en bois forment un angle à 60°"/>
-&lt;h3 id="information-décartement-des-voies-manquante">Information d&amp;rsquo;écartement des voies manquante&lt;/h3>
-&lt;img src="illustrate-gauge.webp" alt="Un train jouet en bois. Une règle à mesurer est posée sur les voies, avec un post-it avec un point d'interrogation."/>
-&lt;p>Le sujet a eu du succès et nous avons formé une équipe de 10 personnes réparties entre les quatre entreprises participantes. Après une présentation du challenge &amp;amp; du modèle de données d&amp;rsquo;OpenStreetMap, nous avons recherché des outils existant et avons choisi de nous appuyer sur &lt;a href="https://osmose.openstreetmap.fr/">Osmose&lt;/a>, une application open source de détection et d&amp;rsquo;affichage d&amp;rsquo;erreurs potentielles dans OSM. Nous nous sommes ensuite réparti·es sur les 5 types d&amp;rsquo;erreurs.&lt;/p>
-&lt;img src="team.webp" alt="Les 10 membres de l'équipe posent devant une paroi de container décorée où il est écrit “Es ist möglich.”"/>
-&lt;p>&lt;em>De gauche à droite : Christoph (DB), Klara (ÖBB), Frederik (SBB), Carl (SBB), Julius (DB), Jennifer (DB), Daniel (ÖBB), Céline (SNCF), Max (DB), Tristram (SNCF).&lt;/em>&lt;/p>
-&lt;h2 id="les-résultats">Les résultats&lt;/h2>
-&lt;p>Après 24h de travail le résultat est une &lt;a href="https://openrailassociation.org/FixOurRail-weird-angles/">carte interactive permettant d&amp;rsquo;afficher les différentes erreurs&lt;/a> (cliquez sur les pictogrammes pour afficher le détail des erreurs).
-Vous pouvez retrouver tout le code qui a été produit sur le &lt;a href="https://github.com/OpenRailAssociation/FixOurRail-simple-solutions">GitHub de l&amp;rsquo;association Open Rail&lt;/a>.&lt;/p>
-&lt;p>Le manque de temps imparti ne nous a malheureusement pas permis d’intégrer nos analyseurs dans Osmose, cependant cela reste notre priorité pour faire avancer les travaux des contributeurs et contributrices d&amp;rsquo;OpenStreetMap sur les données ferroviaires !&lt;/p></description></item><item><title>Blog: I&amp;A5 et PIP6 - avril 2023</title><link>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</link><pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</guid><description>
-&lt;h2 id="un-ia-prometteur">Un I&amp;amp;A prometteur&lt;/h2>
+&lt;p>Nous avons eu le plaisir d&amp;rsquo;être invité·es à participer dans le cadre de l&amp;rsquo;association &lt;a href="https://openrailassociation.org/">OpenRail&lt;/a>, et le thème de cette année étant &amp;ldquo;Open Railways&amp;rdquo; il aurait été difficile de refuser !&lt;/p></description></item><item><title>I&amp;A5 et PIP6 - avril 2023</title><link>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</link><pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/24/ia5-et-pip6-avril-2023/</guid><description>&lt;h2 id="un-ia-prometteur">Un I&amp;amp;A prometteur&lt;/h2>
 &lt;p>Notre 5ème Inspect &amp;amp; Adapt a commencé avec la présentation de notre PI System demo de l&amp;rsquo;application OSRD, démontrant l’ensemble des travaux réalisés au cours de ce PI5 par nos équipes. À la suite de cette demo, l’atteinte de nos objectifs (engagés et non engagés) a été évaluée par nos partie-prenantes. Verdict : 113 % de réussite&amp;hellip; Si, si, c’est possible 😉 !&lt;/p>
 &lt;h2 id="planification-de-notre-6ème--product-increment-pip6-">Planification de notre 6ème Product Increment (PIP6) !&lt;/h2>
-&lt;p>Après les traditionnelles séquences portant sur l’évolution de notre contexte de métier et technique, nous avons assisté à l’intervention de François Marchal, Responsable domaine numérique exploitation à la Digit, portant sur les enjeux du numérique au sein de SNCF Réseau et le rôle d’OSRD au sein de l’organisation.&lt;/p>
-&lt;p>Le lendemain, Nathanaël Dias, Chargé d’étude exploitation ferroviaire, nous a présenté son métier, et le processus d’élaboration d’une étude exploitation. Il a insisté sur l’importance de partager les résultats et les travaux.&lt;/p>
-&lt;p>Au cours du PIP, de nouvelles fonctionnalités ont été embarquées par les équipes, et transformées en objectifs à atteindre. Le travail a été planifié pour les 11 semaines à venir et les risques ont été évalués pour être minimisés.&lt;/p>
-&lt;p>Rendez-vous mi-juillet pour le 7ème PIP !&lt;/p>
-&lt;p>&lt;img src="pip6_1.webp" alt="image pip 6.1">&lt;/p>
-&lt;p>&lt;img src="pip6_2.webp" alt="image pip 6.2">&lt;/p></description></item><item><title>Blog: Forum DGEX Solutions</title><link>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</guid><description>
-&lt;h2 id="forum-dgex-solutions">Forum DGEX Solutions&lt;/h2>
+&lt;p>Après les traditionnelles séquences portant sur l’évolution de notre contexte de métier et technique, nous avons assisté à l’intervention de François Marchal, Responsable domaine numérique exploitation à la Digit, portant sur les enjeux du numérique au sein de SNCF Réseau et le rôle d’OSRD au sein de l’organisation.&lt;/p></description></item><item><title>Forum DGEX Solutions</title><link>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</guid><description>&lt;h2 id="forum-dgex-solutions">Forum DGEX Solutions&lt;/h2>
 &lt;p>Voici un extrait de la conférence de Loïc Hamelin au forum DGEX Solutions , au sujet du calcul automatique de sillon de dernière minute.&lt;/p>
 &lt;h3 id="mais-tout-dabord-quest-ce-quun-sillon-">Mais tout d’abord qu’est ce qu’un sillon ?&lt;/h3>
 &lt;p>Il s’agit de la réservation d’espace/temps sur le réseau, par les entreprises ferroviaires (EF), comme SNCF Voyageurs. Ces réservations se font généralement des années en amont (A-3). Les EF peuvent également faire des demandes de sillons en urgence (appelés sillons de dernière minute), de A-1 jusqu’au jour J.
-Ces demandes sont actuellement gérées par des guichets, et les sillons sont tracés à la main. Il y a donc un risque d’erreur humaine, et les demandes sont parfois traitées en plusieurs jours.&lt;/p>
-&lt;h3 id="quest-ce-que-nous-proposons-">Qu’est ce que nous proposons ?&lt;/h3>
-&lt;p>Le logiciel OSRD, en plus de disposer d’un simulateur ferroviaire pour la planification des horaires, va également permettre de traiter les demandes de sillon de dernière minute de façon automatisée ! Il sera possible en seulement quelques clics d’exprimer une demande de sillon de dernière minute et obtenir une réponse en quelques secondes (tout au plus 3min) !&lt;/p>
-&lt;p>Si le projet #osrd vous intéresse, n’hésitez pas à consulter le site web &lt;a href="https://osrd.fr/en/">osrd&lt;/a> et le repo &lt;a href="https://github.com/OpenRailAssociation/osrd">GitHub&lt;/a>, et le projet est #opensource.&lt;/p>
-&lt;p>&lt;a href="https://www.linkedin.com/posts/morgane-senejko-526675172_osrd-opensource-activity-7052251905506340865-5Qeh?utm_source=share&amp;amp;utm_medium=member_desktop">Post LinkedIn de Morgane Senejko&lt;/a>&lt;/p>
-&lt;p>&lt;img src="morganepostlinkedin.webp" alt="imagepostlinkedin">&lt;/p></description></item><item><title>Blog: Forum DGEX Solutions</title><link>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</guid><description>
-&lt;h2 id="forum-dgex-solutions">Forum DGEX Solutions&lt;/h2>
+Ces demandes sont actuellement gérées par des guichets, et les sillons sont tracés à la main. Il y a donc un risque d’erreur humaine, et les demandes sont parfois traitées en plusieurs jours.&lt;/p></description></item><item><title>Forum DGEX Solutions</title><link>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/04/12/forum-dgex-solutions/</guid><description>&lt;h2 id="forum-dgex-solutions">Forum DGEX Solutions&lt;/h2>
 &lt;p>Voici un extrait de la conférence de Loïc Hamelin au forum DGEX Solutions , au sujet du calcul automatique de sillon de dernière minute.&lt;/p>
 &lt;h3 id="mais-tout-dabord-quest-ce-quun-sillon-">Mais tout d’abord qu’est ce qu’un sillon ?&lt;/h3>
 &lt;p>Il s’agit de la réservation d’espace/temps sur le réseau, par les entreprises ferroviaires (EF), comme SNCF Voyageurs. Ces réservations se font généralement des années en amont (A-3). Les EF peuvent également faire des demandes de sillons en urgence (appelés sillons de dernière minute), de A-1 jusqu’au jour J.
-Ces demandes sont actuellement gérées par des guichets, et les sillons sont tracés à la main. Il y a donc un risque d’erreur humaine, et les demandes sont parfois traitées en plusieurs jours.&lt;/p>
-&lt;h3 id="quest-ce-que-nous-proposons-">Qu’est ce que nous proposons ?&lt;/h3>
-&lt;p>Le logiciel OSRD, en plus de disposer d’un simulateur ferroviaire pour la planification des horaires, va également permettre de traiter les demandes de sillon de dernière minute de façon automatisée ! Il sera possible en seulement quelques clics d’exprimer une demande de sillon de dernière minute et obtenir une réponse en quelques secondes (tout au plus 3min) !&lt;/p>
-&lt;p>Si le projet #osrd vous intéresse, n’hésitez pas à consulter le site web &lt;a href="https://osrd.fr/en/">osrd&lt;/a> et le repo &lt;a href="https://github.com/OpenRailAssociation/osrd">GitHub&lt;/a>, et le projet est #opensource.&lt;/p>
-&lt;p>&lt;a href="https://www.linkedin.com/posts/morgane-senejko-526675172_osrd-opensource-activity-7052251905506340865-5Qeh?utm_source=share&amp;amp;utm_medium=member_desktop">Post LinkedIn de Morgane Senejko&lt;/a>&lt;/p>
-&lt;p>&lt;img src="morganepostlinkedin.webp" alt="imagepostlinkedin">&lt;/p></description></item><item><title>Blog: I&amp;A et PIP 4 - février 2023</title><link>https://osrd.fr/fr/blog/2023/02/13/ia-et-pip-4-f%C3%A9vrier-2023/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/02/13/ia-et-pip-4-f%C3%A9vrier-2023/</guid><description>
-&lt;h2 id="ia-février-2023--ce-quon-retiendra-">I&amp;amp;A février 2023 : ce qu’on retiendra !&lt;/h2>
+Ces demandes sont actuellement gérées par des guichets, et les sillons sont tracés à la main. Il y a donc un risque d’erreur humaine, et les demandes sont parfois traitées en plusieurs jours.&lt;/p></description></item><item><title>I&amp;A et PIP 4 - février 2023</title><link>https://osrd.fr/fr/blog/2023/02/13/ia-et-pip-4-f%C3%A9vrier-2023/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/02/13/ia-et-pip-4-f%C3%A9vrier-2023/</guid><description>&lt;h2 id="ia-février-2023--ce-quon-retiendra-">I&amp;amp;A février 2023 : ce qu’on retiendra !&lt;/h2>
 &lt;p>L‘Inspect &amp;amp; Adapt est une cérémonie issue du framework d’agilité à l&amp;rsquo;échelle SAFe (Scaled Agile Framework), au cours de laquelle nous inspectons notre travail réalisé sur les 11 dernières semaines pour nous adapter en conséquence.
 Nous nous sommes donc réunis ce lundi 13 février pour clore le 4ème Increment de notre programme (PI 4).&lt;/p>
-&lt;p>Après avoir assisté à la demo de toutes les fonctionnalités développées par nos 3 équipes (PI system demo), nos parties prenantes ont pu évaluer l’atteinte de nos objectifs. Résultat : environ 80% de réussite.&lt;/p>
-&lt;h2 id="lancement-de-notre-5ème-pip-">Lancement de notre 5ème PIP !&lt;/h2>
-&lt;p>Le Product Increment Planning (PIP) est une cérémonie au cours de laquelle les équipes se répartissent le backlog des nouvelles fonctionnalités et planifient leur travail sur les 11 prochaines semaines.
-Avant d’entamer le travail de planification en sous-groupe, Loïc Hamelin nous a présenté les évolutions du contexte business d’OSRD, retraçant les attentes de nos clients.&lt;/p>
-&lt;p>Dans la matinée du 15 février, Caroline Johnson, Directrice Solutions Numériques Exploitation chez SNCF Réseau, nous a présenté l’offre de service sur la DG-Num et a répondu à nos questions sur l’intégration prochaine de notre application dans le SI interne.&lt;/p>
-&lt;p>A l’issue du PIP, nos business owners ont attribué une valeur, entre 1 et 10, à nos nouveaux objectifs de PI et les risques de programme ont été évalués.&lt;/p>
-&lt;p>&lt;img src="pip5_1.webp" alt="Photo du pip 5.1">&lt;/p>
-&lt;p>&lt;img src="pip5_2.webp" alt="Photo du pip 5.2">&lt;/p>
-&lt;p>&lt;img src="pip5_3.webp" alt="Photo du pip 5.3">&lt;/p></description></item><item><title>Blog: Fosdem 2023 : OSRD était présent !</title><link>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</link><pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</guid><description>
-&lt;p>&lt;img src="img_fosdem2.jpeg" alt="fosdem">&lt;/p>
+&lt;p>Après avoir assisté à la demo de toutes les fonctionnalités développées par nos 3 équipes (PI system demo), nos parties prenantes ont pu évaluer l’atteinte de nos objectifs. Résultat : environ 80% de réussite.&lt;/p></description></item><item><title>Fosdem 2023 : OSRD était présent !</title><link>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</link><pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/blog/2023/02/06/fosdem-2023-osrd-%C3%A9tait-pr%C3%A9sent/</guid><description>&lt;p>&lt;img src="img_fosdem2.jpeg" alt="fosdem">&lt;/p>
 &lt;h2 id="une-devroom-pour-lassociation-openrail">Une Devroom pour l&amp;rsquo;association Openrail&lt;/h2>
 &lt;p>Les 4 et 5 février se tenait le FOSDEM, l’évènement européen annuel incontournable pour la communauté open source.
 Tout au long de ces 2 jours à Bruxelles, les participants ont pu assister à une variété de conférences et ateliers portant sur les dernières tendances du logiciel libre et de l’open source.
-L&amp;rsquo;un des moments forts de l&amp;rsquo;événement était le lancement de la Devroom « Opening railways and open transport », portée par la toute nouvelle OpenRail association. Le programme OSRD a eu la chance d’ouvrir cette nouvelle room avec ST DCM.&lt;/p>
-&lt;h2 id="-short-term-digital-capacity-management--ou-le-challenge-des-sillons-de-dernière-minute">« Short-term digital capacity management » ou le challenge des sillons de dernière minute&lt;/h2>
-&lt;p>La conférence d’Eloi Charpentier, intitulée « automated short-term train planning in OSRD » présentait les réflexions issues de nos travaux sur la simulation de sillons de dernière minute. Ou comment permettre aux entreprises de fret ferroviaire d’obtenir des autorisations de circulation de dernière minute évitant les embouteillages sur le réseau, et d’avoir ainsi l’agilité indispensable pour concurrencer le transport routier ?&lt;/p>
-&lt;h3 id="slideshttpsfosdemorg2023scheduleeventrot_osrdattachmentsslides5586exporteventsattachmentsrot_osrdslides5586automated_short_term_train_planningpdf">&lt;a href="https://fosdem.org/2023/schedule/event/rot_osrd/attachments/slides/5586/export/events/attachments/rot_osrd/slides/5586/automated_short_term_train_planning.pdf">Slides&lt;/a>&lt;/h3>
-&lt;h3 id="vidéohttpsmirrorcyberbitseufosdem2023aw1126rot_osrdwebm">&lt;a href="https://mirror.cyberbits.eu/fosdem/2023/AW1.126/rot_osrd.webm">Vidéo&lt;/a>&lt;/h3>
-&lt;p>&lt;img src="img_fosdem3.jpeg" alt="fosdem">&lt;/p>
-&lt;h2 id="opendata-et-cartographie-du-réseau-ferroviaire">Opendata et cartographie du réseau ferroviaire&lt;/h2>
-&lt;p>La présentation de Céline Durupt, “OpenStreetMap, one geographic database to rule them all?” abordait le sujet de l’opendata en matière de réseau ferroviaire. Sur la base d’une analyse européenne, Céline a présenté un plan d’actions pour partager la donnée ferroviaire via OSM et la rendre utilisable par OSRD.&lt;/p>
-&lt;h3 id="slideshttpsmirrorcyberbitseufosdem2023aw1126rot_osmwebm">&lt;a href="https://mirror.cyberbits.eu/fosdem/2023/AW1.126/rot_osm.webm">Slides&lt;/a>&lt;/h3>
-&lt;h3 id="vidéohttpsftpfaudefosdem2023aw1126rot_osmwebm">&lt;a href="https://ftp.fau.de/fosdem/2023/AW1.126/rot_osm.webm">Vidéo&lt;/a>&lt;/h3>
-&lt;p>&lt;img src="img_fosdem1.jpeg" alt="fosdem">&lt;/p>
-&lt;p>Rendez-vous l’année prochaine au FOSDEM 2024 avec des exemples concrets de collaboration et de nouveaux développements d’open source ferroviaire.&lt;/p></description></item></channel></rss>
+L&amp;rsquo;un des moments forts de l&amp;rsquo;événement était le lancement de la Devroom « Opening railways and open transport », portée par la toute nouvelle OpenRail association. Le programme OSRD a eu la chance d’ouvrir cette nouvelle room avec ST DCM.&lt;/p></description></item><item><title/><link>https://osrd.fr/fr/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/guides/contribute/review-process/</guid><description>&lt;h2 id="cycle-de-review">Cycle de review&lt;/h2>
+&lt;p>Une revue de code est un processus itératif.
+Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">configurer correctement ses notifications github&lt;/a>.&lt;/p>
+&lt;p>Il est conseillé de configurer les dépôts OSRD en &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. Cela permet d&amp;rsquo;être notifié d&amp;rsquo;activités uniquement sur les issues et PR auxquelles vous participez.&lt;/p>
+&lt;pre class="mermaid">sequenceDiagram
+ actor A as Auteur PR
+ actor R as Reviewer/mainteneur
+
+ A-&amp;gt;&amp;gt;R: Demande une review en notifiant spécifiquement quelques personnes
+ R-&amp;gt;&amp;gt;A: Répond à la demande par oui ou non
+
+ loop Boucle entre auteur et reviewer
+ R--&amp;gt;&amp;gt;A: Commente, demande des changements
+ A--&amp;gt;&amp;gt;R: Répond à chaque commentaire/demande de changement
+ A--&amp;gt;&amp;gt;R: Corrige le code si nécessaire dans des « fixups » dédiés
+ R--&amp;gt;&amp;gt;A: Vérifie, teste, et commente à nouveau le code
+ R--&amp;gt;&amp;gt;A: Résout les conversations/demandes de changement le cas échéant
+ end
+
+ A-&amp;gt;&amp;gt;R: Rebase si nécessaire
+ R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
+ R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
+ Note left of R: Et fusionne si mainteneur&lt;/pre>
+&lt;blockquote>
+&lt;p>Les mainteneurs sont automatiquement notifiés par le système de &lt;code>CODEOWNERS&lt;/code>. L&amp;rsquo;auteur d&amp;rsquo;une PR est responsable de faire avancer sa PR dans le processus de review (quitte à notifier manuellement un mainteneur).&lt;/p></description></item><item><title>BAL</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>&lt;p>Le signal d’entrée du canton présente une indication liée à l’état d’occupation du ou des cantons suivants, selon les
+règles suivantes :&lt;/p>
+&lt;ul>
+&lt;li>indication d’arrêt lorsque le canton est occupé par au moins une portion du train&lt;/li>
+&lt;li>annonce lorsque le canton suivant est occupé&lt;/li>
+&lt;li>voie libre par défaut (sauf signaux Nf)&lt;/li>
+&lt;/ul>
+&lt;p>La longueur maximale d’un canton est en principe de 2800 m. Elle est généralement de 1500 m sur les lignes parcourues à
+la vitesse maximale de 160 km/h.&lt;/p></description></item><item><title>BAPR</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bapr/</guid><description>&lt;p>Le signal d’entrée du canton est un signal qui présente une indication liée à l’état d’occupation du canton suivant
+(indication d’arrêt ou de voie libre). Sur certaines lignes l’occupation du canton n’est pas obtenue par le circuit de
+voie mais par un système de comptage d’essieux entrants et sortants.&lt;/p>
+&lt;p>Les cantons sont beaucoup plus longs que le BAL (jusqu’à 15 km et plus) et par conséquent le débit est moins important.&lt;/p></description></item><item><title>Editoast</title><link>https://osrd.fr/fr/docs/reference/apis/editoast/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/apis/editoast/</guid><description/></item><item><title>Gateway</title><link>https://osrd.fr/fr/docs/reference/apis/gateway/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/apis/gateway/</guid><description/></item><item><title>Search Results</title><link>https://osrd.fr/fr/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/search/</guid><description/></item></channel></rss>

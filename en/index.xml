@@ -1,149 +1,719 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – OSRD</title><link>https://osrd.fr/en/</link><description>Recent content on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/en/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: OSRD at Dreiländer Hack in Wien</title><link>https://osrd.fr/en/blog/2023/07/19/osrd-at-dreil%C3%A4nder-hack-in-wien/</link><pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/07/19/osrd-at-dreil%C3%A4nder-hack-in-wien/</guid><description>
-&lt;h2 id="dreiländer-hack-the-annual-meeting-of-german-speaking-railway-companies-but-not-only">Dreiländer hack, the annual meeting of German-speaking railway companies&amp;hellip; but not only!&lt;/h2>
-&lt;p>On 29 and 30 June, the &lt;a href="https://bcc.oebb.at/de/das-leisten-wir/innovationen/dreilaenderhack">&amp;ldquo;Dreiländer hack&amp;rdquo;&lt;/a> (the hackathon of the three countries) was held in Wien (Austria). Organised by DB (Germany), ÖBB (Austria) and SBB (Switzerland), this is an annual event dedicated to collaboration on shared railway-related challenges.&lt;/p>
-&lt;p>We were delighted to be invited to take part thanks to the &lt;a href="https://openrailassociation.org/">OpenRail association&lt;/a>, and this year&amp;rsquo;s theme being &amp;ldquo;Open Railways&amp;rdquo;, it would have been hard to refuse!&lt;/p>
-&lt;h2 id="24-hours-to-work-together-on-a-topic-of-common-interest">24 hours to work together on a topic of common interest&lt;/h2>
-&lt;p>The 150 participants were divided into 16 working groups on a wide variety of topics such as:&lt;/p>
-&lt;ul>
-&lt;li>Imagining a simple interface for ordering train paths (an important subject for the future of OSRD);&lt;/li>
-&lt;li>Offering passenger information adapted to different disabilities;&lt;/li>
-&lt;li>Optimizing the prioritisation of trains at junctions according to the number of passengers on board and on the platform (Motis project);&lt;/li>
-&lt;li>Automatically identifying energy-consuming trains in storage;&lt;/li>
-&lt;li>Calculating forecast maintenance dates from a historical database for each train component;&lt;/li>
-&lt;li>Detecting speed measurement and GPS positioning errors on track inspection trains;&lt;/li>
-&lt;li>Optimizing maintenance work to limit lost capacity;&lt;/li>
-&lt;li>Facilitating passenger information with a GPT chatbot;&lt;/li>
-&lt;li>Designing an easy-to-use display and ticketing interface for night trains across Europe.&lt;/li>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD</title><link>https://osrd.fr/en/</link><description>Recent content on OSRD</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://osrd.fr/en/index.xml" rel="self" type="application/rss+xml"/><item><title>General principles</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/general-principles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/general-principles/</guid><description>&lt;ul>
+&lt;li>Explain what you&amp;rsquo;re doing and why.&lt;/li>
+&lt;li>Document new code with doc comments.&lt;/li>
+&lt;li>Include clear, simple tests.&lt;/li>
+&lt;li>Break work into digestible chunks.&lt;/li>
+&lt;li>Take the time to pick good names.&lt;/li>
+&lt;li>Avoid non well-known abbreviations.&lt;/li>
+&lt;li>&lt;strong>Control and consistency over 3rd party code reuse&lt;/strong>: Only add a dependency if it is absolutely necessary.&lt;/li>
+&lt;li>Every dependency we add decreases our autonomy and consistency.&lt;/li>
+&lt;li>We try to keep PRs bumping dependencies to a low number each week in each component, so grouping
+dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;code>README.md&lt;/code>).&lt;/li>
+&lt;li>&lt;strong>Don&amp;rsquo;t reinvent every wheel&lt;/strong>: as a counter to the previous point, don&amp;rsquo;t reinvent everything at all costs.&lt;/li>
+&lt;li>If there is a dependency in the ecosystem that is the &amp;ldquo;de facto&amp;rdquo; standard, we should heavily consider using it.&lt;/li>
+&lt;li>More code general recommendations in main repository &lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md&lt;/a>.&lt;/li>
+&lt;li>Ask for any help that you need!&lt;/li>
 &lt;/ul>
-&lt;h2 id="challenge-proposal-by-osrd">Challenge proposal by OSRD&lt;/h2>
-&lt;p>The challenge proposed by OSRD was to consolidate the railway data in OpenStreetMap, an open &amp;amp; collaborative database that we use as a source for railway infrastructure in Europe.&lt;/p>
-&lt;p>The objective was to develop an algorithm to identify 5 types of probable errors in the data:&lt;/p>
-&lt;h3 id="disconnected-tracks">Disconnected tracks&lt;/h3>
-&lt;img src="illustrate-disconnected.webp" alt="A toy train with wooden tracks separated by a space"/>
-&lt;h3 id="suspicious-switches">Suspicious switches&lt;/h3>
-&lt;img src="illustrate-switches.webp" alt="A toy train where an extra wooden track has been added to a switch"/>
-&lt;h3 id="stations-apart-from-tracks">Stations apart from tracks&lt;/h3>
-&lt;img src="illustrate-stations.webp" alt="A toy train on wooden tracks and a station drawn on a post-it note. A question mark is drawn between the two."/>
-&lt;h3 id="weird-angles">Weird angles&lt;/h3>
-&lt;img src="illustrate-angles.webp" alt="A toy train with wooden tracks at a 60° angle"/>
-&lt;h3 id="missing-gauge-info">Missing gauge info&lt;/h3>
-&lt;img src="illustrate-gauge.webp" alt="A wooden toy train. A measuring ruler is placed on the tracks, with a post-it note with a question mark."/>
-&lt;p>The subject was of interest and we formed a team of 10 people divided between the four participating companies. After a presentation of the challenge and of the OpenStreetMap data model, we looked for existing tools and chose to use &lt;a href="https://osmose.openstreetmap.fr/">Osmose&lt;/a>, an open source application for detecting and displaying potential errors in OSM. We then split up to work on the 5 types of errors.&lt;/p>
-&lt;img src="team.webp" alt="The 10 members of the team pose in front of a decorated container wall reading “Es ist möglich”."/>
-&lt;p>&lt;em>From left to right: Christoph (DB), Klara (ÖBB), Frederik (SBB), Carl (SBB), Julius (DB), Jennifer (DB), Daniel (ÖBB), Céline (SNCF), Max (DB), Tristram (SNCF).&lt;/em>&lt;/p>
-&lt;h2 id="results">Results&lt;/h2>
-&lt;p>After 24 hours of work, the result is an &lt;a href="https://openrailassociation.org/FixOurRail-weird-angles/">interactive map showing the various errors&lt;/a> (click on the pictograms to show error details). You can find all the code that was produced on the &lt;a href="https://github.com/OpenRailAssociation/FixOurRail-simple-solutions">OpenRail association&amp;rsquo;s GitHub&lt;/a>.&lt;/p>
-&lt;p>We did not manage to integrate our analysers into Osmose within the allotted time, but that remains the target on which we&amp;rsquo;re going to continue working, so that all OpenStreetMap contributors can easily correct errors in railway data!&lt;/p></description></item><item><title>Blog: DGEX Solutions Forum</title><link>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</guid><description>
-&lt;h2 id="dgex-solutions-forum">DGEX Solutions Forum&lt;/h2>
+&lt;p>&lt;em>&lt;a href="https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/">Consult back-end conventions ‣&lt;/a>&lt;/em>&lt;/p></description></item><item><title>Preamble</title><link>https://osrd.fr/en/docs/guides/contribute/preamble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/preamble/</guid><description>&lt;p>First off, thanks for taking the time to contribute!&lt;/p>
+&lt;p>The following chapters are a set of guidelines for contributing to OSRD. These guidelines are mostly not strict rules, it&amp;rsquo;s probably fine to do things slightly differently. If you have already contributed to open source projects before, you probably won&amp;rsquo;t be surprised. If you have not, it will probably help a lot!&lt;/p>
+&lt;h3 id="communicate">Communicate&lt;/h3>
+&lt;p>Chatting with other contributors is a great way to speed things up:&lt;/p></description></item><item><title>Release process</title><link>https://osrd.fr/en/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/process/</guid><description>&lt;p>OSRD has three versions: development (dev), staging, and release.&lt;/p>
+&lt;p>The development version is the most recent and unstable version of the application, containing the latest features and bug fixes in active development.&lt;/p>
+&lt;p>Staging versions are created every Thursday at 12pm by tagging the current development state.&lt;/p>
+&lt;p>If a staging version passes validation testing, it is promoted to become the latest release version. This ensures that only stable, tested code makes it into production releases.&lt;/p></description></item><item><title>Back-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>&lt;h1 id="python">Python&lt;/h1>
+&lt;p>Python code is used for some packages and integration testing.&lt;/p>
+&lt;ul>
+&lt;li>Follow &lt;a href="https://www.python.org/dev/peps/pep-0020/">the Zen of Python&lt;/a>.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
+&lt;li>Imports are sorted with &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Python tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
+&lt;li>Typing is checked using &lt;a href="https://google.github.io/pytype/">pytype&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="rust">Rust&lt;/h1>
+&lt;ul>
+&lt;li>As a reference for our API development we are using the &lt;a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API guidelines&lt;/a>.
+Generally, these should be followed.&lt;/li>
+&lt;li>Prefer granular imports over glob imports like &lt;code>diesel::*&lt;/code>.&lt;/li>
+&lt;li>Tests are written with the &lt;a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">built-in testing framework&lt;/a>.&lt;/li>
+&lt;li>Use the &lt;a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">documentation example&lt;/a> to know how to phrase and format your documentation.&lt;/li>
+&lt;li>Use consistent comment style:
+&lt;ul>
+&lt;li>&lt;code>///&lt;/code> doc comments belong above &lt;code>#[derive(Trait)]&lt;/code> invocations.&lt;/li>
+&lt;li>&lt;code>//&lt;/code> comments should generally go above the line in question, rather than in-line.&lt;/li>
+&lt;li>Start comments with capital letters. End them with a period if they are sentence-like.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Use comments to organize long and complex stretches of code that can&amp;rsquo;t sensibly be refactored into separate functions.&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://github.com/rust-lang/rust-clippy">clippy&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://github.com/rust-lang/rustfmt">fmt&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h1 id="java">Java&lt;/h1>
+&lt;ul>
+&lt;li>Code is formatted with &lt;a href="https://checkstyle.sourceforge.io/">checkstyle&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Front-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/frontend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/frontend-conventions/</guid><description>&lt;p>We use &lt;strong>ReactJS&lt;/strong> and all files must be written in &lt;strong>Typescript&lt;/strong>.&lt;/p>
+&lt;p>The code is &lt;strong>linted&lt;/strong> with &lt;a href="https://eslint.org/">eslint&lt;/a>, and &lt;strong>formatted&lt;/strong> with &lt;a href="https://prettier.io/">prettier&lt;/a>.&lt;/p>
+&lt;h2 id="nomenclature">Nomenclature&lt;/h2>
+&lt;p>&lt;img src="https://osrd.fr/images/docs/contribute/nomenclature-front-end.svg" alt="Infrastructure diagram">&lt;/p>
+&lt;p>The &lt;strong>applications&lt;/strong> (osrd eex, osrd stdcm, infra editor, rolling-stock editor) offer &lt;strong>views&lt;/strong> (project management, study management, etc.) linked to &lt;strong>modules&lt;/strong> (project, study, etc.) which contain the components.&lt;/p>
+&lt;p>These &lt;strong>views&lt;/strong> are made up of &lt;strong>components&lt;/strong> and sub-components &lt;u>all derived from the modules&lt;/u>.
+In addition to containing the &lt;strong>views&lt;/strong> files for the applications, they may also contain a &lt;strong>scripts&lt;/strong> directory which offers scripts related to these views. The &lt;strong>views&lt;/strong> determine the logic and &lt;u>access to the store&lt;/u>.&lt;/p></description></item><item><title>License and set-up</title><link>https://osrd.fr/en/docs/guides/contribute/license-and-set-up/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/license-and-set-up/</guid><description>&lt;h2 id="license-of-code-contributions">License of code contributions&lt;/h2>
+&lt;p>The source code of OSRD is available under &lt;a href="https://choosealicense.com/licenses/lgpl-3.0/">the LGPLv3 license&lt;/a>.
+By contributing to the codebase, you consent to the distribution of your changes under the project&amp;rsquo;s license.&lt;/p>
+&lt;p>LGPLv3 forbids modifying source code without sharing the changes under the same license: use other people&amp;rsquo;s work, and share yours!&lt;/p>
+&lt;p>This constraint does not propagate through APIs: You can use OSRD as a library, framework or API server to interface with proprietary software. Please suggest changes if you need new interfaces.&lt;/p></description></item><item><title>Publish a new release</title><link>https://osrd.fr/en/docs/guides/release/publish/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/publish/</guid><description>&lt;p>All OSRD releases are accessible &lt;a href="https://github.com/OpenRailAssociation/osrd/releases">here&lt;/a>&lt;/p>
+&lt;p>The process for creating a new release is as follows:&lt;/p>
+&lt;ol>
+&lt;li>We always release on a tested version of the application (staging branch)
+&lt;ul>
+&lt;li>&lt;code>git switch staging &amp;amp;&amp;amp; git pull&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Create a git &lt;strong>annotated&lt;/strong> tag
+&lt;ul>
+&lt;li>We are using the &lt;a href="https://semver.org/">semantic versioning&lt;/a>&lt;/li>
+&lt;li>&lt;code>git tag -a vx.y.z&lt;/code> with the message &lt;code>Release x.y.z&lt;/code> (most of the time use the latest version and increment the patch version)&lt;/li>
+&lt;li>&lt;code>git push --tags&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Create a github release
+&lt;ul>
+&lt;li>Draft a new github release &lt;a href="https://github.com/OpenRailAssociation/osrd/releases/new">here&lt;/a>&lt;/li>
+&lt;li>Select the created tag&lt;/li>
+&lt;li>Generate the releases notes&lt;/li>
+&lt;li>Rename the release like so: &amp;ldquo;Version x.y.z&amp;rdquo;&lt;/li>
+&lt;li>Check the &amp;ldquo;Set as a pre-release&amp;rdquo; box&lt;/li>
+&lt;li>Apply the &lt;a href="#Changelog format">changelog format&lt;/a>&lt;/li>
+&lt;li>Then you can &lt;strong>publish&lt;/strong> the release or &lt;strong>save&lt;/strong> the draft if you want to come back later&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>A &lt;a href="https://github.com/OpenRailAssociation/osrd/actions/workflows/release.yml">github action&lt;/a> should be triggered automatically.&lt;/li>
+&lt;li>Post the link of the created release on matrix. Suggest that the developers review the release.&lt;/li>
+&lt;/ol>
+&lt;h3 id="changelog-format">Changelog format&lt;/h3>
+&lt;ol>
+&lt;li>Use the following structure:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## What&amp;#39;s Changed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Features :tada:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Code refactoring :recycle:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">### Bug fixes :bug:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">## New Contributors
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- Copy from the generated release notes --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">**Full Changelog**&lt;/span>: ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Partition the different pull requests&lt;/li>
+&lt;li>Merge or group PR when it make sense. Examples:
+&lt;ul>
+&lt;li>Bump of dependencies PR (merge)&lt;/li>
+&lt;li>Multi part PR (merge)&lt;/li>
+&lt;li>One big feature implemented by multiple PR (group)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Reword PR title. &lt;strong>It should be comprehensible to an external collaborator&lt;/strong>&lt;/li>
+&lt;/ol></description></item><item><title>Write code</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/write-code/</guid><description>&lt;ol>
+&lt;li>
+&lt;p>If you are not used to Git, &lt;a href="https://learngitbranching.js.org/">follow this tutorial&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Create a branch&lt;/strong>&lt;br>
+If you intend to contribute regularly, you can request access to the &lt;a href="https://github.com/OpenRailAssociation/osrd">main repository&lt;/a>. Otherwise, &lt;a href="https://github.com/OpenRailAssociation/osrd/fork">create a fork&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Add changes to your branch&lt;/strong>&lt;br>
+Before you start working, try to split your work into macroscopic steps.
+At the end of each stop, save your changes into a commit.
+Try to make commits of logical and atomic units.
+Try to follow &lt;a href="../conventions/">style conventions&lt;/a>.&lt;/p></description></item><item><title>Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>&lt;h2 id="commit-style">Commit style&lt;/h2>
+&lt;p>The overall format for git commits is as follows:&lt;/p>
+&lt;pre tabindex="0">&lt;code>component1, component2: imperative description of the change
+
+Detailed or technical description of the change and what motivates it,
+if it is not entirely obvious from the title.
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong> (only ASCII characters for the title)&lt;/li>
+&lt;li>there can be multiple components separated by &lt;code>:&lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
+&lt;li>components are lower-case, using &lt;code>-&lt;/code>, &lt;code>_&lt;/code> or &lt;code>.&lt;/code> if necessary&lt;/li>
+&lt;li>the imperative description of the change begins with a lower-case verb&lt;/li>
+&lt;li>the title must not contain any link (&lt;code>#&lt;/code> is forbidden)&lt;/li>
+&lt;/ul>
+&lt;p>Ideally:&lt;/p></description></item><item><title>Review process</title><link>https://osrd.fr/en/docs/guides/contribute/code-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/code-review/</guid><description>&lt;p>The reviewer/maintainer undertakes to carry out the review quickly, and is also responsible for closing &lt;em>request changes&lt;/em>, check commit history and quickly merge the &lt;em>pull request&lt;/em> if allowed.&lt;/p>
+&lt;p>We propose you a few tips and recommendations that we think are relevant to a human, relevant and rewarding code review for all contributors:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://mtlynch.io/code-review-love/">How to Make Your Code Reviewer Fall in Love with You?&lt;/a> by Michael Lynch.&lt;/li>
+&lt;li>&lt;a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human? &lt;/a> by Michael Lynch.&lt;/li>
+&lt;/ul>
+&lt;h2 id="review-cycle">Review cycle&lt;/h2>
+&lt;p>A code review is an iterative process.
+For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p></description></item><item><title>Report issues</title><link>https://osrd.fr/en/docs/guides/contribute/bug-reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/bug-reports/</guid><description>&lt;p>&lt;strong>Please report anything you deem significant!&lt;/strong>&lt;/p>
+&lt;p>Our bug tracking platform is &lt;a href="https://github.com/OpenRailAssociation/osrd/issues">github&lt;/a>, so you have to register to report bugs.&lt;/p>
+&lt;p>Follow &lt;a href="https://github.com/OpenRailAssociation/osrd/issues/new/choose">this link&lt;/a> and pick whatever template fits the best.&lt;/p>
+&lt;h3 id="bugs">Bugs&lt;/h3>
+&lt;ul>
+&lt;li>Bug must have a correct description and the bug&amp;rsquo;s issue template must be filled carefully.&lt;/li>
+&lt;li>Bug must be tagged with (&lt;em>for team members&lt;/em>):
+&lt;ul>
+&lt;li>&lt;code>kind:bug&lt;/code>&lt;/li>
+&lt;li>one or several &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> if possible, if the affected area is not known leave it blank it will be added later by another team member.&lt;/li>
+&lt;li>one &lt;code>severity:&amp;lt;bug_severity&amp;gt;&lt;/code> if possible, if severity is not known leave it blank it will be added later by another team member.
+&lt;ul>
+&lt;li>&lt;code>severity:minor&lt;/code>: User can still use the feature.&lt;/li>
+&lt;li>&lt;code>severity:major&lt;/code>: User sometimes can&amp;rsquo;t use the feature.&lt;/li>
+&lt;li>&lt;code>severity:critical&lt;/code>: User can&amp;rsquo;t use the feature.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>OSRD team members can change issues&amp;rsquo; tags (severity, area, kind, &amp;hellip;).
+You may leave a comment to explain changes.&lt;/li>
+&lt;li>If you are working on a bug or plan to work on a bug, assign yourself to the bug.&lt;/li>
+&lt;li>PRs solving bugs should add a regression tests to ensure that bug will not be back in the future.&lt;/li>
+&lt;/ul></description></item><item><title>Share your changes</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</guid><description>&lt;p>The author of a &lt;em>pull request (PR)&lt;/em> is responsible for its &amp;ldquo;life cycle&amp;rdquo;. He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check &lt;a href="https://osrd.fr/en/docs/guides/contribute/code-review/">dedicated page about code review&lt;/a>).&lt;/p>
+&lt;blockquote>
+&lt;p>In the case of a large PR, don&amp;rsquo;t hesitate to ask several reviewers to organize themselves, or even to carry out the review together, reviewers and author.&lt;/p>&lt;/blockquote>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Open a &lt;em>pull request&lt;/em>&lt;/strong> &lt;br>
+Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch.&lt;/p></description></item><item><title>Tests</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</guid><description>&lt;h2 id="back-end">Back-end&lt;/h2>
+&lt;ul>
+&lt;li>Integration tests are written with &lt;a href="https://docs.pytest.org/">pytest&lt;/a> in the &lt;code>/tests&lt;/code> folder.&lt;/li>
+&lt;li>Each route described in the &lt;code>openapi.yaml&lt;/code> files must have an integration test.&lt;/li>
+&lt;li>The test must check both the format and content of valid and invalid responses.&lt;/li>
+&lt;/ul>
+&lt;h2 id="front-end">Front-end&lt;/h2>
+&lt;p>The functional writing of the tests is carried out with the &lt;em>Product Owners&lt;/em>, and the developers choose a technical implementation that precisely meets the needs expressed and fits in with the recommendations presented here.&lt;/p></description></item><item><title>Business context</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</guid><description>&lt;p>Some definitions:&lt;/p>
+&lt;h3 id="capacity">Capacity&lt;/h3>
+&lt;p>&lt;strong>Capacity&lt;/strong>, in this context, is the ability to
+reserve infrastructure elements to allow the passage of a train.&lt;/p>
+&lt;p>Capacity is expressed in both space and time:
+the reservation of an element can block a specific zone
+that becomes inaccessible to other trains, and this reservation
+lasts for a given time interval.&lt;/p>
+&lt;p>It can be displayed
+on a chart, with the time on the horizontal axis
+and the distance traveled on the vertical axis.&lt;/p></description></item><item><title>Infrastructure exploration</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/</guid><description>&lt;p>The first thing we need to define is &lt;em>how we move through the infrastructure&lt;/em>,
+without dealing with conflicts yet.&lt;/p>
+&lt;p>We need a way to define and enumerate the different possible paths and
+explore the infrastructure graph, with several constraints:&lt;/p>
+&lt;ol>
+&lt;li>The path must be compatible with the given rolling stock
+(loading gauge / electrification / signaling system)&lt;/li>
+&lt;li>At any point, we need to access path properties from its start up to the
+considered point. This includes block and route lists.&lt;/li>
+&lt;li>We sometimes need to know where the train will go &lt;em>after&lt;/em> the
+point currently being evaluated, for proper conflict detection&lt;/li>
+&lt;/ol>
+&lt;p>To do this, we have defined the class &lt;code>InfraExplorer&lt;/code>. It uses blocks
+(sections from signal to signal) as a main subdivision.
+It has 3 sections: the current block, predecessors, and a &amp;ldquo;lookahead&amp;rdquo;.&lt;/p></description></item><item><title>Physical modeling</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</guid><description>&lt;!-- script to auto-render KaTeX extension $$..$$ for outline formula, \\(...\\) for inline formula -->
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+ onload="renderMathInElement(document.body);">&lt;/script>
+&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script>
+&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">&lt;/script>
+&lt;p>Physical modelling plays an important role in the OSRD core calculation. It allows us to simulate train traffic, and it must be as realistic as possible train traffic, and it must be as realistic as possible.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="force-review">Force review&lt;/h3>
+&lt;/font>
+&lt;p>To calculate the displacement of the train over time, we must first calculate its speed at each instant.
+A simple way to obtain this speed is to calculate the acceleration.
+Thanks to the fundamental principle of dynamics, the acceleration of the train at each instant is directly dependent on the different forces applied to it: $$ \sum \vec{F}=m\vec{a} $$&lt;/p></description></item><item><title>Editoast internal authorization API</title><link>https://osrd.fr/en/docs/reference/design-docs/auth/editoast-internal-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/auth/editoast-internal-api/</guid><description>&lt;div class="pageinfo pageinfo-warn">
+&lt;p>This document is an annex to the &lt;a href="https://osrd.fr/en/docs/reference/design-docs/">main authorization design document&lt;/a>&lt;/p>
+
+&lt;/div>
+
+
+
+&lt;div class="pageinfo pageinfo-info">
+&lt;p>This design document is not intended to describe the exact editoast authorization API.
+The actual implementation may slightly differ. If major limitations were uncovered, please
+update this document.&lt;/p>
+
+&lt;/div>
+
+&lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
+&lt;p>The following invariants were deemed worth validating:&lt;/p>
+&lt;ul>
+&lt;li>(high priority) role and privilege checks were performed&lt;/li>
+&lt;li>(low priority) privilege checks are performed before changes are made / data is returned&lt;/li>
+&lt;li>(low priority) access patterns match privilege checks&lt;/li>
+&lt;/ul>
+&lt;p>Other design criteria have an impact:&lt;/p></description></item><item><title>Logo</title><link>https://osrd.fr/en/docs/guides/logo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/logo/</guid><description>&lt;p>You can download each logo independently by clicking directly on it, or &lt;a href="pictures/logo-osrd.zip">all the logos compressed into a zip file&lt;/a>.&lt;/p>
+&lt;p>It is advisable to carefully choose the logo you want to use, depending on the background on which you want to display it.&lt;/p>
+&lt;p>Modification, addition or deletion of the &lt;strong>shading&lt;/strong> other than as presented in the logos &lt;strong>are not authorised&lt;/strong> (this applies more generally throughout the design, the choice to use &lt;em>drop shadows&lt;/em> is part of the design considerations, it is not a variable element).&lt;/p></description></item><item><title>OSRD's design</title><link>https://osrd.fr/en/docs/guides/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/design/</guid><description>&lt;p>Everything is presented on a dedicated website &lt;a href="https://design.osrd.fr">https://design.osrd.fr&lt;/a>&lt;/p>
+&lt;p>A &amp;ldquo;design system&amp;rdquo; is being developed.&lt;/p>
+
+&lt;figure>&lt;a href="https://design.osrd.fr">
+ &lt;img src="https://osrd.fr/en/docs/guides/design/images/design.webp"/> &lt;/a>
+&lt;/figure></description></item><item><title>Overview</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/overview/</guid><description>&lt;div class="pageinfo pageinfo-warning">
+&lt;p>This work is pending implementation, and has not yet been adjusted to
+reflect potential required adjustments.&lt;/p>
+
+&lt;/div>
+
+&lt;p>After two years of extending a fairly simple simulation engine, it appeared that fundamental
+changes are required to meet expectations.&lt;/p>
+&lt;h2 id="system-requirements">System requirements&lt;/h2>
+&lt;p>The new system is expected to:&lt;/p>
+&lt;ol>
+&lt;li>handle reactions to signaling&lt;/li>
+&lt;li>handle rich train state (pantograph position, battery state)&lt;/li>
+&lt;li>allow for different margin algorithms&lt;/li>
+&lt;li>integrate driver behavior properties&lt;/li>
+&lt;li>be easy to integrate with &lt;a href="https://osrd.fr/en/docs/reference/design-docs/timetable/">timetable v2&lt;/a>&lt;/li>
+&lt;li>handle both:
+&lt;ul>
+&lt;li>simulations of a full trip, with a complete known path, possibly following a schedule&lt;/li>
+&lt;li>simulations where the path is discovered incrementally&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>provide a low-level API, usable independently&lt;/li>
+&lt;/ol>
+&lt;p>In the long-term, this system is also expected to:&lt;/p></description></item><item><title>Signaling systems</title><link>https://osrd.fr/en/docs/reference/design-docs/signaling/signaling-systems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/signaling/signaling-systems/</guid><description>&lt;p>Each signaling system has:&lt;/p>
+&lt;ul>
+&lt;li>A unique identifier (a string).&lt;/li>
+&lt;li>Its signal state type, which enables deducing:
+&lt;ul>
+&lt;li>The graphical representation of the signal&lt;/li>
+&lt;li>How a train would react to the signal&lt;/li>
+&lt;li>If the signal state constrains Movement Authority&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The signal parameter types, names and description, which enable front-end edition of signal parameters.&lt;/li>
+&lt;li>The block and route conditions, which enable evaluating whether a signal delimits blocks or routes, given its parameters.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># unique identifier for the signaling system&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;BAL&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;version&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># the schema of the dynamic state of signals of this type&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;signal_state&amp;#34;: &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;enum&amp;#34;, &amp;#34;field_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;aspect&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">, values&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;VL&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;A&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;S&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;C&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ralen30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ralen60&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ralen_rappel&amp;#34;&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># describes static properties of the signal&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;signal_properties&amp;#34;: &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;Nf&amp;#34;, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Non-permissive&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_ralen30&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ralen 30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_rappel30&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Rappel 30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_ralen60&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ralen 60&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;has_rappel60&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Rappel 60&amp;#34;&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># describes dynamic properties of the signal. These can be set on a per-route basis&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;signal_parameters&amp;#34;: &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;short_block&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Short block&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;rappel30&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Rappel 30&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#204a87;font-weight:bold">&amp;#34;kind&amp;#34;: &amp;#34;flag&amp;#34;, &amp;#34;field_name&amp;#34;: &amp;#34;rappel60&amp;#34;, &amp;#34;default&amp;#34;: false, &amp;#34;display_name&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Rappel 60&amp;#34;&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># these are C-like boolean expressions:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># true, false, &amp;lt;flag&amp;gt;, &amp;lt;enum&amp;gt; == value, &amp;amp;&amp;amp;, || and ! can be used&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># used to evaluate whether a signal is a block boundary. Only properties can be used, not parameters.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;block_boundary_when&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;true&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># used to evaluate whether a signal is a route boundary. Only properties can be used, not parameters.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;route_boundary_when&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Nf&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># A predicate used evaluate whether a signal state can make a train slow down. Used for naive conflict detection.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;constraining_ma_when&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;aspect != VL&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>STDCM search environment configuration</title><link>https://osrd.fr/en/docs/guides/deploy/stdcm-search-env/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/deploy/stdcm-search-env/</guid><description>&lt;p>In order for the STDCM tool to function, you&amp;rsquo;ll need to setup the STDCM Search Environment, a configuration stored in database.&lt;/p>
+&lt;p>The configurable fields are as such:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">StdcmSearchEnvironment&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">infra_id&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">electrical_profile_set_id&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">work_schedule_group_id&lt;/span>: &lt;span style="color:#204a87">Option&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">timetable_id&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">search_window_begin&lt;/span>: &lt;span style="color:#000">NaiveDateTime&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">search_window_end&lt;/span>: &lt;span style="color:#000">NaiveDateTime&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This configuration is queried by the frontend.
+That way, the right objects and time bounds are used transparently by the user.&lt;/p></description></item><item><title>Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>&lt;p>Regardless of your operating system, docker requires linux to operate. When used on a different
+operating system, docker relies on virtual machines to build and run images.&lt;/p>
+&lt;p>There are two main types of docker installations:&lt;/p>
+&lt;ul>
+&lt;li>docker engine is the usual docker command line application&lt;/li>
+&lt;li>docker desktop is a GUI app that also manages virtualization&lt;/li>
+&lt;/ul>
+&lt;p>Here&amp;rsquo;s what we suggest:&lt;/p>
+&lt;ul>
+&lt;li>If you&amp;rsquo;re on linux, install docker engine &lt;a href="https://docs.docker.com/engine/install/#supported-platforms">using your package manager&lt;/a>&lt;/li>
+&lt;li>If you&amp;rsquo;re on MacOS / Windows, install &lt;a href="https://www.docker.com/products/docker-desktop/">docker desktop&lt;/a> if you are allowed to&lt;/li>
+&lt;li>If you&amp;rsquo;re on windows and want to get docker running within WSL, or can&amp;rsquo;t use docker desktop, follow the &lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/#docker-on-wsl">docker on WSL tutorial&lt;/a>&lt;/li>
+&lt;li>If you&amp;rsquo;re on MacOS and can&amp;rsquo;t use docker desktop, follow the &lt;a href="https://osrd.fr/en/docs/guides/contribute/install-docker/#macos-colima">MacOS colima tutorial&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker-on-wsl">Docker on WSL&lt;/h2>
+&lt;p>This install option is very useful, as it allows having a perfectly normal linux install of docker engine inside WSL, which can still be reached from windows.&lt;/p></description></item><item><title>Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_detection/</guid><description>&lt;p>Once we know what paths we can use, we need to know when they
+can actually be used.&lt;/p>
+&lt;p>The &lt;a href="https://osrd.fr/en/docs/reference/design-docs/conflict-detection/" title="documentation">documentation&lt;/a>
+of the conflict detection module explains how it&amp;rsquo;s done internally.
+Generally speaking, a train is in conflict when it has to slow down
+because of a signal. In our case, that means the solution would not
+be valid, we need to arrive later (or earlier) to see the signal
+when it&amp;rsquo;s not restrictive anymore.&lt;/p></description></item><item><title>Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>&lt;h4 id="general-principle">General principle&lt;/h4>
+&lt;p>The problem is still a pathfinding problem in a given graph.
+Once the problem is encoded as a graph search, it is possible to reuse
+our existing tools for this purpose.&lt;/p>
+&lt;p>We consider the &lt;em>product graph&lt;/em> of position, time, and speed.
+This means that every graph element contains these 3 variables
+(among other things)&lt;/p>
+&lt;p>Every graph edge is computed using
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/" title="running-time calculation">running-time calculation&lt;/a>
+to get speed and positions as functions of time.&lt;/p></description></item><item><title>Numerical integration</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</guid><description>&lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
+&lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+ onload="renderMathInElement(document.body);">&lt;/script>
+&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script>
+&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">&lt;/script>
+&lt;font color=#aa026d>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;/font>
+&lt;p>Since physical modelling has shown that the acceleration of the train is influenced by various factors that vary along the route (gradient, curvature, engine traction force, etc.), the calculation must be carried out using a numerical integration method. The path is then separated into sufficiently short steps to consider all these factors as constant, which allows this time to use the equation of motion to calculate the displacement and speed of the train.&lt;/p></description></item><item><title>Blocks and signals</title><link>https://osrd.fr/en/docs/reference/design-docs/signaling/blocks-and-signals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/signaling/blocks-and-signals/</guid><description>&lt;h1 id="blocks">Blocks&lt;/h1>
+&lt;p>The blocks have several attributes:&lt;/p>
+&lt;ul>
+&lt;li>A signaling system that corresponds to that displayed by its first signal.&lt;/li>
+&lt;li>A &lt;strong>path&lt;/strong>, which is a list of direction + detector pairs (just like route paths).&lt;/li>
+&lt;li>An &lt;strong>entry signal&lt;/strong>, (optional when the block starts from a buffer stop).&lt;/li>
+&lt;li>&lt;strong>Intermediate signals&lt;/strong>, if any (only used by systems with distant signals).&lt;/li>
+&lt;li>An &lt;strong>exit signal&lt;/strong>, (optional when the block ends at a buffer stop).&lt;/li>
+&lt;/ul>
+&lt;p>The path is expressed from detector to detector so that it can be overlaid with the route graph.&lt;/p></description></item><item><title>Infrastructure example</title><link>https://osrd.fr/en/docs/explanation/models/data-models-full-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/models/data-models-full-example/</guid><description>&lt;font color=#aa026d>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;/font>
+&lt;p>This page gives an example of how the data formats are used to describe an infrastructure in &lt;strong>OSRD&lt;/strong>.&lt;/p>
+&lt;p>For this purpose, let&amp;rsquo;s take as an example the following toy infrastructure:&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/en/docs/explanation/models/data-models-full-example/svg_diagrams/small_infra_diagram.drawio.en.svg" alt="Toy infrastructure diagram">&lt;/p>
+
+
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Tip&lt;/h4>
+
+ To zoom in on diagrams, click on the edit button that appears when hovering over it.
+
+&lt;/div>
+
+&lt;p>This diagram is an overview of the infrastructure with lines and stations only.&lt;/p>
+&lt;p>This infrastructure is not meant to be realistic, but rather meant to help illustrate OSRD&amp;rsquo;s data model.
+This example will be created step by step and explained along the way.&lt;/p></description></item><item><title>Neutral Sections</title><link>https://osrd.fr/en/docs/explanation/models/neutral_sections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/models/neutral_sections/</guid><description>&lt;h2 id="physical-object-to-model">Physical object to model&lt;/h2>
+&lt;h3 id="introduction">Introduction&lt;/h3>
+&lt;p>For a train to be able to run, it must either have an energy source on board (fuel, battery, hydrogen, &amp;hellip;) or be supplied with energy throughout its journey.&lt;/p>
+&lt;p>To supply this energy, electrical cables are suspended above the tracks: the &lt;em>catenaries&lt;/em>. The train then makes contact with these cables thanks to a conducting piece mounted on a mechanical arm: the &lt;em>pantograph&lt;/em>.&lt;/p>
+&lt;h3 id="neutral-sections">Neutral sections&lt;/h3>
+&lt;p>With this system it is difficult to ensure the electrical supply of a train continuously over the entire length of a line. On certain sections of track, it is necessary to cut the electrical supply of the train. These portions are called &lt;strong>neutral sections&lt;/strong>.&lt;/p></description></item><item><title>Prior art</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/prior-art/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/prior-art/</guid><description>&lt;p>The current implementation has a number of shortcomings making it pretty much impossible to evolve to
+meet current system requirements. It also has a number of less severe flaws, such as the over-reliance
+on floating point, especially for input and output.&lt;/p>
+&lt;p>The previous implementation cannot be changed to:&lt;/p>
+&lt;ul>
+&lt;li>react to signaling, as constraints stay the same as the simulation evolves&lt;/li>
+&lt;li>handle rich train state vectors, due to the way margins are implemented&lt;/li>
+&lt;li>be usable for both incremental simulation and batch&lt;/li>
+&lt;/ul>
+&lt;p>These limitations are the primary reasons for this redesign.&lt;/p></description></item><item><title>Discontinuities and backtracking</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>&lt;h4 id="the-discontinuity-problem">The discontinuity problem&lt;/h4>
+&lt;p>When a new graph edge is visited, a simulation is run to evaluate
+its speed. But it is not possible to see beyond the current edge.
+This makes it difficult to compute braking curves, because
+they can span over several edges.&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/discontinuity.png" alt="Discontinuity">&lt;/p>
+&lt;blockquote>
+&lt;p>This example illustrates the problem: by default
+the first edge is explored by going at maximum speed.
+The destination is only visible once the second edge is visited,
+which doesn&amp;rsquo;t leave enough distance to stop.&lt;/p></description></item><item><title>Envelopes system</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/</guid><description>&lt;p>The envelope system is an interface created specifically for the OSRD gait calculation. It allows you to manipulate different space/velocity curves, to slice them, to end them, to interpolate specific points, and to address many other needs necessary for the gait calculation.&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="a-specific-interface-in-the-osrd-core-service">A specific interface in the OSRD Core service&lt;/h3>
+&lt;/font>
+&lt;p>The envelope system is part of the core service of OSRD (see &lt;a href="../architecture/_index.md">software architecture&lt;/a>).&lt;/p>
+&lt;p>Its main components are :&lt;/p>
+&lt;p>&lt;strong>1 - EnvelopePart:&lt;/strong> space/speed curve, defined as a sequence of points and having metadata indicating for example if it is an acceleration curve, a braking curve, a speed hold curve, etc.&lt;/p></description></item><item><title>Driving instructions</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/</guid><description>&lt;p>Driving instructions model what the train has to do, and under what conditions.
+Driving instructions are generated using domain constraints such as:&lt;/p>
+&lt;ul>
+&lt;li>unsignaled line speed limits&lt;/li>
+&lt;li>permanent signaled speed limits&lt;/li>
+&lt;li>temporary speed limits&lt;/li>
+&lt;li>dynamic signaling:
+&lt;ul>
+&lt;li>block / moving block&lt;/li>
+&lt;li>dynamically signaled speed restrictions&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>neutral zones&lt;/li>
+&lt;li>stops&lt;/li>
+&lt;li>margins&lt;/li>
+&lt;/ul>
+&lt;p>There are two types of driving instructions:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Abstract driving instructions&lt;/strong> model the high-level, rolling stock independent
+range of acceptable behavior: reach 30km/h at this location&lt;/li>
+&lt;li>&lt;strong>Concrete driving instructions&lt;/strong> model the specific range of acceptable behavior
+for a specific rolling stock, using limit curves: don&amp;rsquo;t go faster than this curve&lt;/li>
+&lt;/ul>
+&lt;pre class="mermaid">flowchart TD
+Constraint[constraint]
+AbstractDrivingInstruction[abstract driving instruction]
+ConcreteDrivingInstruction[concrete driving instruction]
+RollingStockIntegrator[rolling stock integrator]
+Compiler([compiler])
+
+Constraint -- generates one or more --&amp;gt; AbstractDrivingInstruction
+AbstractDrivingInstruction --&amp;gt; Compiler
+RollingStockIntegrator --&amp;gt; Compiler
+Compiler --&amp;gt; ConcreteDrivingInstruction&lt;/pre>
+
+
+&lt;div class="pageinfo pageinfo-warning">
+&lt;p>After reviewing the design document, the necessity to distinguish between abstract and concrete driving instructions was questioned.&lt;/p></description></item><item><title>Speed limits</title><link>https://osrd.fr/en/docs/reference/design-docs/signaling/speed-limits/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/signaling/speed-limits/</guid><description>&lt;h2 id="description">Description&lt;/h2>
+&lt;p>Railway infrastructure has a surprising variety of speed limits:&lt;/p>
+&lt;ul>
+&lt;li>some are known by the driver, and not announced at all&lt;/li>
+&lt;li>some are announced by fixed signs regardless of where the train goes&lt;/li>
+&lt;li>some are announced by fixed signs, depending on where the train path goes&lt;/li>
+&lt;li>some are announced by dynamic signals regardless of where the train goes&lt;/li>
+&lt;li>some are announced by dynamic signals, depending on where the train path goes&lt;/li>
+&lt;/ul>
+&lt;h2 id="data-model">Data model&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>{&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># unique speed limit identifier&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># A list of routes the speed limit is enforced on. When empty&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># or missing, the speed limit is enforced regardless of the route.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># /!\ When a speed section is announced by signals, the routes it is&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># announced on are automatically filled in /!\&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;on_routes&amp;#34;: &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${ROUTE_A}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${ROUTE_B}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># &amp;#34;on_routes&amp;#34;: null, # not conditional&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># &amp;#34;on_routes&amp;#34;: [], # conditional&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># A speed limit in meters per second.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;speed_limit&amp;#34;: &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># A map from train tag to speed limit override. If missing and&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># the speed limit is announced by a signal, this field is deduced&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># from the signal.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;speed_limit_by_tag&amp;#34;: {&amp;#34;freight&amp;#34;: &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">20&lt;/span>}&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#34;track_ranges&amp;#34;: [{&amp;#34;track&amp;#34;: &amp;#34;${TRACK_SECTION}&amp;#34;, &amp;#34;begin&amp;#34;: 0, &amp;#34;end&amp;#34;: 42, &amp;#34;applicable_directions&amp;#34;: &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;START_TO_STOP&amp;#34;&lt;/span>}&lt;span style="color:#000;font-weight:bold">],&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="design-considerations">Design considerations&lt;/h2>
+&lt;h3 id="where-to-put-the-speed-limit-value">Where to put the speed limit value&lt;/h3>
+&lt;p>When a speed limit is announced by dynamic signaling, we may be in a position where speed limit value is duplicated:&lt;/p></description></item><item><title>Conflict avoidance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</guid><description>&lt;p>While exploring the graph, it is possible to end up in locations that would
+generate conflicts. They can be avoided by adding delay.&lt;/p>
+&lt;h4 id="shifting-the-departure-time">Shifting the departure time&lt;/h4>
+&lt;p>The departure time is defined as an interval in the module parameters:
+the train can leave at a given time, or up to &lt;code>x&lt;/code> seconds later.
+Whenever possible, delay should be added by shifting the departure time.&lt;/p>
+&lt;blockquote>
+&lt;p>for example : a train can leave between 10:00 et 11:00. Leaving
+at 10:00 would cause a conflict, the train actually needs to enter the
+destination station 15 minutes later. Making the train leave at
+10:15 solves the problem.&lt;/p></description></item><item><title>Pipeline</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</guid><description>&lt;p>The walk calculation in OSRD is a 4-step process, each using &lt;a href="../envelopes_system">the envelopes system&lt;/a>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-most-restricted-speed-profile-mrsp">Construction of the most restrictive speed profile&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-max-speed-profile">Addition of the different braking curves&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-max-effort-profile">Adding the different acceleration curves and checking the constant speed curves&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#application-of-allowances">Application of allowance(s)&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>&amp;nbsp;&lt;/p>
+&lt;font color=#aa026d>
+&lt;h3 id="calculation-of-the-most-restricted-speed-profile-mrsp">Calculation of the Most Restricted Speed Profile (MRSP)&lt;/h3>
+&lt;/font>
+&lt;p>A first envelope is calculated at the beginning of the simulation by grouping all static velocity limits:&lt;/p>
+&lt;ul>
+&lt;li>maximum line speed&lt;/li>
+&lt;li>maximum speed of rolling stock&lt;/li>
+&lt;li>temporary speed limits (e.g. in case of works on a line)&lt;/li>
+&lt;li>speed limits by train category&lt;/li>
+&lt;li>speed limits according to train load&lt;/li>
+&lt;li>speed limits corresponding to signposts&lt;/li>
+&lt;/ul>
+&lt;p>The length of the train is also taken into account to ensure that the train does not accelerate until its tail leaves the slowest speed zone. An offset is then applied to the red dashed curve. The resulting envelope (black curve) is called the &lt;strong>Most Restricted Speed Profile (MRSP)&lt;/strong>. It is on this envelope that the following steps will be calculated.&lt;/p></description></item><item><title>Driver behavior modules</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driver-behavior-modules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driver-behavior-modules/</guid><description>&lt;h2 id="design-specs">Design specs&lt;/h2>
+&lt;h3 id="general-pitch">General pitch&lt;/h3>
+&lt;p>Driver behavior modules are responsible for making driving decisions.
+Its main responsibility, given the state of the train and an instruction, is to react to the instruction.
+This reaction is expressed as a new train state.&lt;/p>
+&lt;p>To perform this critical task, it needs access to additional context:&lt;/p>
+&lt;ul>
+&lt;li>the physical properties of the path, which are used to make coasting decisions, and to model natural forces.&lt;/li>
+&lt;li>a slowdown coefficient, which is used to adjust how much the train is slowed down compared to a
+full power simulation.&lt;/li>
+&lt;/ul>
+&lt;p>The driver behavior modules are supposed to have different implementations, which would interpret the slow down coefficient differently.&lt;/p></description></item><item><title>Governance</title><link>https://osrd.fr/en/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/governance/</guid><description>&lt;p>One of the ambitions of OSRD is to help with &lt;strong>timetabling on a European scale&lt;/strong>.&lt;/p>
+&lt;p>To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure operators.&lt;/p>
+&lt;p>And by contributing to OSRD, these companies:&lt;/p>
+&lt;ul>
+&lt;li>Profit from all the common development efforts&lt;/li>
+&lt;li>Can freely build on the common effort to achieve their own goals&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Participate in the roadmap and technical direction of the project to the extent of their contribution&lt;/li>
+&lt;/ul>
+&lt;p>OSRD is currently developed by:&lt;/p></description></item><item><title>Data-flow</title><link>https://osrd.fr/en/docs/reference/architecture/data_flow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/data_flow/</guid><description>&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/architecture/data_flow/data_flow.svg" alt="Data-flow diagram">&lt;/p></description></item><item><title>Services</title><link>https://osrd.fr/en/docs/reference/architecture/services/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/architecture/services/</guid><description>&lt;p>It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.&lt;/p>
+&lt;ul>
+&lt;li>Valkey is configured as &lt;code>maxmemory-policy=allkeys-lru&lt;/code> (&lt;a href="https://valkey.io/topics/lru-cache/">documentation&lt;/a>)&lt;/li>
+&lt;li>Osrdyne has multiple drivers to support:
+&lt;ul>
+&lt;li>k8s&lt;/li>
+&lt;li>docker&lt;/li>
+&lt;li>process compose&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The gateway supports multiple authentication providers:
+&lt;ul>
+&lt;li>OpenID Connect (OIDC)&lt;/li>
+&lt;li>Bearer token&lt;/li>
+&lt;li>Mock (for development purpose)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Some &lt;code>editoast&lt;/code> endpoints requires an &lt;code>InfraCache&lt;/code> object which make them stateful. These endpoints are only used in the &lt;code>editoast-stateful&lt;/code> service. Doing so most endpoints are run by a scalable service.&lt;/li>
+&lt;/ul>
+&lt;p>Coming soon:&lt;/p></description></item><item><title>Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>&lt;div class="pageinfo pageinfo-warning">
+&lt;p>This document is a work in progress&lt;/p>
+
+&lt;/div>
+
+&lt;p>Conflict detection is the process of looking for timetable conflicts.
+A timetable conflict is any predictable condition which disrupts planned operations.
+Planned operations can be disrupted if a train is slowed down, prevented from proceeding, or delayed.&lt;/p>
+&lt;p>One of the core features of OSRD is the ability to automatically detect some conflicts:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>spacing conflicts&lt;/strong>: insufficient spacing between trains sharing the same path&lt;/li>
+&lt;li>&lt;strong>routing conflicts&lt;/strong>: insufficient spacing between trains with intersecting paths&lt;/li>
+&lt;/ul>
+&lt;p>Some other kinds of conflicts may be detected &lt;em>later on&lt;/em>:&lt;/p></description></item><item><title>Allowances</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/</guid><description>&lt;font color=#aa026d>
+&lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
+&lt;/font>
+&lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calculation of the Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
+&lt;p>This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train&amp;rsquo;s route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.&lt;/p></description></item><item><title>Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>&lt;p>The STDCM module must be usable with
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/">standard allowances&lt;/a>.
+The user can set an allowance value, expressed either as a function of
+the running time or the travelled distance. This time must be added to the
+running time, so that it arrives later compared to its fastest possible
+running time.&lt;/p>
+&lt;blockquote>
+&lt;p>For example: the user can set a margin of 5 minutes per 100km.
+On a 42km long path that would take 10 minutes at best,
+the train should arrive 12 minutes and 6 seconds after leaving.&lt;/p></description></item><item><title>Implementation details</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</guid><description>&lt;p>This page is about implementation details.
+It isn&amp;rsquo;t necessary to understand general principles,
+but it helps before reading the code.&lt;/p>
+&lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
+&lt;p>This refers to
+&lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt">this class&lt;/a>
+in the project.&lt;/p>
+&lt;p>This class is used to make it easier to create instances of
+&lt;code>STDCMEdge&lt;/code>, the graph edges. Those contain many attributes,
+most of which can be determined from the context (e.g. the
+previous node).
+The &lt;code>STDCMEdgeBuilder&lt;/code> class makes some parameters optional
+and automatically computes others.&lt;/p></description></item><item><title>Timetable v2</title><link>https://osrd.fr/en/docs/reference/design-docs/timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/timetable/</guid><description>&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/design-docs/timetable/timetable.svg" alt="Test">&lt;/p>
+&lt;h2 id="design-decisions">Design decisions&lt;/h2>
+&lt;p>Some major changes were made between our first version of the timetable and the new one:&lt;/p>
+&lt;ul>
+&lt;li>Isolate the timetable table. It can be used in a scenario or in other contexts&lt;/li>
+&lt;li>Have a soft reference from train schedule to rolling stock (to be able to create a train schedule with unknown rolling stock)&lt;/li>
+&lt;li>Consider path and simulation output as cache (that don&amp;rsquo;t require to be stored in DB)&lt;/li>
+&lt;li>We can compute pathfinding without having to store data&lt;/li>
+&lt;li>All input needed to compute a path is stored in the train schedule (we can recompute it if needed)&lt;/li>
+&lt;li>All input needed to run a simulation is stored in the train schedule (we can recompute it if needed)&lt;/li>
+&lt;/ul>
+&lt;h1 id="train-schedule-v2">Train schedule v2&lt;/h1>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>front&lt;/code>: easy to keep consistent during edition&lt;/li>
+&lt;li>&lt;code>front&lt;/code>: intermediate invalid states than can be reached during edition have to be encodable&lt;/li>
+&lt;li>&lt;code>front&lt;/code>: when deleting a waypoint that is referenced by margins, the position of the deleted waypoint within the path must be preserved until the situation is resolved&lt;/li>
+&lt;li>&lt;code>import&lt;/code>: path waypoint locations can be specified using UIC operational point codes&lt;/li>
+&lt;li>&lt;code>import&lt;/code>: support fixed scheduled arrival times at stops and arbitrary points&lt;/li>
+&lt;li>&lt;code>import&lt;/code> &lt;code>edition&lt;/code>: train schedules must be self-contained: they cannot be described using the result of pathfinding or simulations&lt;/li>
+&lt;/ul>
+&lt;h2 id="design-decisions-1">Design decisions&lt;/h2>
+&lt;h3 id="path-waypoints-have-an-identity">Path waypoints have an identity&lt;/h3>
+&lt;p>At some point in the design process, the question was raised of whether to reference location of stops and margin transitions by name, or by value. That is, should stops hold the index of the waypoint where the stop occurs, or a description of the location where the stop occurs?&lt;/p></description></item><item><title>Simulation lifecycle</title><link>https://osrd.fr/en/docs/reference/design-docs/signaling/simulation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/signaling/simulation/</guid><description>&lt;h2 id="loading-signal-parameters">Loading Signal Parameters&lt;/h2>
+&lt;p>The first step of loading the signal is to characterize the signal in the signaling system.
+This step produces an object that describes the signal.&lt;/p>
+&lt;p>During the loading of the signal:&lt;/p>
+&lt;ul>
+&lt;li>the signaling system corresponding to the provided name is identified&lt;/li>
+&lt;li>the signal properties and parameters are loaded and validated according to the signaling system spec&lt;/li>
+&lt;li>the signal&amp;rsquo;s block and route delimiting properties are evaluated&lt;/li>
+&lt;/ul>
+&lt;h2 id="loading-the-signal">Loading the Signal&lt;/h2>
+&lt;p>Once signal parameters are loaded, drivers can be loaded. For each driver:&lt;/p></description></item><item><title>Scalable async RPC</title><link>https://osrd.fr/en/docs/reference/design-docs/scalable-async-rpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/scalable-async-rpc/</guid><description>&lt;p>TODO: create another document describing RPC interactions between core and editoast&lt;/p>
+&lt;h2 id="context-and-requirements">Context and requirements&lt;/h2>
+&lt;p>Without this proposal, editoast directly makes calls to core using http.
+Using k8s, if multiple core workers are started, requests are randomly
+distributed to core workers.&lt;/p>
+&lt;p>This architecture brings a number of issues:&lt;/p>
+&lt;ul>
+&lt;li>To respond to a request, the core worker need to hold the request&amp;rsquo;s full infrastructure in memory.
+Workers do not have enough memory to hold all infrastructures in memory.
+Requests thus need to be routed to core workers specialized by infrastructure, which cannot be easily done using http.&lt;/li>
+&lt;li>If too many requests are dispatched to a busy core worker, they will just time out.&lt;/li>
+&lt;li>There is no easy way to scale up the number of workers to react to increased load.&lt;/li>
+&lt;li>Because calls need to complete within the timeout of the client&amp;rsquo;s http requests,
+the system falls apart when latency increases due to load.&lt;/li>
+&lt;/ul>
+&lt;p>This proposal intends to address these issues by introducing an RPC system which:&lt;/p></description></item><item><title>Open Source</title><link>https://osrd.fr/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opensource/</guid><description>&lt;p>Open source is a &lt;strong>software development practice&lt;/strong>, where the software&amp;rsquo;s source code&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> :&lt;/p>
+&lt;ul>
+&lt;li>usually developed by multiple actors, in an open and transparent way&lt;/li>
+&lt;li>free and available for all&lt;/li>
+&lt;li>can be modified or used for derivative work by anyone&lt;/li>
+&lt;li>can be freely distributed&lt;/li>
+&lt;/ul>
+&lt;p>In practice, open source is both a &lt;strong>legal framework&lt;/strong> for collaborative work, and a &lt;strong>set of practices&lt;/strong>.&lt;/p>
+&lt;h2 id="osrd-and-open-source">OSRD and Open Source&lt;/h2>
+&lt;p>Applied to OSRD, Open Source has &lt;strong>multiple advantages&lt;/strong> :&lt;/p></description></item><item><title>Open Data</title><link>https://osrd.fr/en/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opendata/</guid><description>&lt;p>Open Data is the practice of making data public accessible under a permissive license.
+It is not the same as open source, which only applies to software.&lt;/p>
+&lt;p>&lt;strong>Open data and open source have a symbiotic relationship : without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.&lt;/strong>&lt;/p>
+&lt;p>Alone, &lt;strong>open data&lt;/strong> already brings a number of key benefits:&lt;/p></description></item><item><title>Roadmap</title><link>https://osrd.fr/en/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/roadmap/</guid><description>&lt;p>Here&amp;rsquo;s a list of the big features OSRD wants to support. The order of items depends on priority (the higher the item, the more valuable it is).
+This roadmap is spread over a couple of years.&lt;/p>
+&lt;ul>
+&lt;li>Add &lt;a href="https://en.wikipedia.org/wiki/European_Rail_Traffic_Management_System">ERTMS&lt;/a> signaling system support.&lt;/li>
+&lt;li>A fine-grained permission system.&lt;/li>
+&lt;li>Support cyclic train schedule. Improving Netzgrafik-Editor integration.&lt;/li>
+&lt;li>Send STDCM trains to external services for storage and processing.&lt;/li>
+&lt;li>Create annual transport plan service.&lt;/li>
+&lt;li>Support a linear referencing &lt;a href="https://en.wikipedia.org/wiki/Linear_referencing">LRS&lt;/a> commonly used in the railway industry. Usage of &lt;a href="https://en.wikipedia.org/wiki/Milestone#Railway_mileposts">railway mileposts&lt;/a>.&lt;/li>
+&lt;li>Revamp the infrastructure editor.&lt;/li>
+&lt;li>New dynamic simulator. Simulate a timetable on an infrastructure and observe generated delays.&lt;/li>
+&lt;li>Versioning infrastructures.&lt;/li>
+&lt;li>Revamp train simulation v3.&lt;/li>
+&lt;/ul>
+&lt;p>If you&amp;rsquo;d like to push for one of these features, or if you have ideas for what OSRD could do in the future, don&amp;rsquo;t hesitate to join the project!&lt;/p></description></item><item><title>ETCS</title><link>https://osrd.fr/en/docs/railway-wiki/signalling/spacing/ertms/etcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/railway-wiki/signalling/spacing/ertms/etcs/</guid><description>&lt;h2 id="context">Context&lt;/h2>
+&lt;p>The onboard computer of ETCS-enabled trains has to compute a number of position / speed curves.
+Here is how it works:&lt;/p>
+&lt;ul>
+&lt;li>below all the curves, the speed indicator is white&lt;/li>
+&lt;li>above the indication curve, the speed indicator is yellow&lt;/li>
+&lt;li>above the permitted curve, the speed indicator is orange&lt;/li>
+&lt;li>above the warning curve, an alarm rings&lt;/li>
+&lt;li>above the intervention curves, an emergency break intervention is triggered&lt;/li>
+&lt;/ul>
+&lt;h2 id="inputs">Inputs&lt;/h2>
+&lt;p>In order to compute any of these curves, a number of things are needed:&lt;/p></description></item><item><title>OSRD at Dreiländer Hack in Wien</title><link>https://osrd.fr/en/blog/2023/07/19/osrd-at-dreil%C3%A4nder-hack-in-wien/</link><pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/07/19/osrd-at-dreil%C3%A4nder-hack-in-wien/</guid><description>&lt;h2 id="dreiländer-hack-the-annual-meeting-of-german-speaking-railway-companies-but-not-only">Dreiländer hack, the annual meeting of German-speaking railway companies&amp;hellip; but not only!&lt;/h2>
+&lt;p>On 29 and 30 June, the &lt;a href="https://bcc.oebb.at/de/das-leisten-wir/innovationen/dreilaenderhack">&amp;ldquo;Dreiländer hack&amp;rdquo;&lt;/a> (the hackathon of the three countries) was held in Wien (Austria). Organised by DB (Germany), ÖBB (Austria) and SBB (Switzerland), this is an annual event dedicated to collaboration on shared railway-related challenges.&lt;/p>
+&lt;p>We were delighted to be invited to take part thanks to the &lt;a href="https://openrailassociation.org/">OpenRail association&lt;/a>, and this year&amp;rsquo;s theme being &amp;ldquo;Open Railways&amp;rdquo;, it would have been hard to refuse!&lt;/p></description></item><item><title>DGEX Solutions Forum</title><link>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</link><pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/04/12/dgex-solutions-forum/</guid><description>&lt;h2 id="dgex-solutions-forum">DGEX Solutions Forum&lt;/h2>
 &lt;p>Here&amp;rsquo;s an extract from Loïc Hamelin&amp;rsquo;s talk at the DGEX Solutions forum, on the subject of search for last-minute train slots (STDCM).&lt;/p>
 &lt;h3 id="first-of-all-what-is-a-train-path">First of all, what is a train path?&lt;/h3>
 &lt;p>It&amp;rsquo;s the reservation of space/time on the network, by railway undertakings (RU) such as SNCF Voyageurs. These reservations are generally made years in advance (A-3). RUs can also make emergency requests for train paths (called last-minute paths), from A-1 to D-day.
-These requests are currently managed by ticket offices, and the paths are traced by hand. There is therefore a risk of human error, and requests are sometimes processed over several days.&lt;/p>
-&lt;h3 id="what-do-we-offer">What do we offer?&lt;/h3>
-&lt;p>The OSRD software, in addition to featuring a rail simulator for timetable planning, will also enable last-minute path requests to be processed automatically! With just a few clicks, you&amp;rsquo;ll be able to submit a last-minute path request and get a response in a matter of seconds (3 minutes at most)!&lt;/p>
-&lt;p>If you&amp;rsquo;re interested in the #osrd project, please visit the &lt;a href="https://osrd.fr/en/">osrd&lt;/a> website and the &lt;a href="https://github.com/OpenRailAssociation/osrd">GitHub&lt;/a> repo, and the project is #opensource.&lt;/p>
-&lt;p>&lt;a href="https://www.linkedin.com/posts/morgane-senejko-526675172_osrd-opensource-activity-7052251905506340865-5Qeh?utm_source=share&amp;amp;utm_medium=member_desktop">Morgane Senejko&amp;rsquo;s LinkedIn post&lt;/a>&lt;/p>
-&lt;p>&lt;img src="morganepostlinkedin.webp" alt="imagepostlinkedin">&lt;/p></description></item><item><title>Blog: OpenStreetMap and open data talk at Fosdem 2023</title><link>https://osrd.fr/en/blog/2023/02/03/openstreetmap-and-open-data-talk-at-fosdem-2023/</link><pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/02/03/openstreetmap-and-open-data-talk-at-fosdem-2023/</guid><description>
-&lt;p>Hi ! My name is Céline, and I am on a mission to bring more open data into OSRD. To do so, I searched open data that can fit OSRD&amp;rsquo;s needs in every country of the European Union (+ Norway, United Kingdom and Switzerland).&lt;/p>
+These requests are currently managed by ticket offices, and the paths are traced by hand. There is therefore a risk of human error, and requests are sometimes processed over several days.&lt;/p></description></item><item><title>OpenStreetMap and open data talk at Fosdem 2023</title><link>https://osrd.fr/en/blog/2023/02/03/openstreetmap-and-open-data-talk-at-fosdem-2023/</link><pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/blog/2023/02/03/openstreetmap-and-open-data-talk-at-fosdem-2023/</guid><description>&lt;p>Hi ! My name is Céline, and I am on a mission to bring more open data into OSRD. To do so, I searched open data that can fit OSRD&amp;rsquo;s needs in every country of the European Union (+ Norway, United Kingdom and Switzerland).&lt;/p>
 &lt;p>I have presented the main results of this study during a talk at the FOSDEM 2023 meeting, and you can see the replay on &lt;a href="https://fosdem.org/2023/schedule/track/railways_and_open_transport/">their website&lt;/a>.&lt;/p>
-&lt;p>In this post I will go into details of the methodology I followed, feel free to contact me if you have any remarks or question :-)&lt;/p>
-&lt;h3 id="data-download">Data download&lt;/h3>
-&lt;p>You can download the detailed data I created &lt;a href="https://osrd.fr/files/EU-open-data.xlsx">here&lt;/a>.
-&lt;strong>Update 11/03/23 :&lt;/strong> get the updated file &lt;a href="https://osrd.fr/files/EU-open-data-updated.xlsx">here&lt;/a>.&lt;/p>
-&lt;ul>
-&lt;li>Added open data sources links for : Estonia, Czechia, Poland, Slovakia&lt;/li>
-&lt;li>Added license detail pour : Sweden&lt;/li>
-&lt;li>Added information on real-time position of trains for : Finland
-&lt;em>Special thanks to Christoph Breit &amp;amp; everyone that contributed by sending me links &amp;amp; info&lt;/em>&lt;/li>
-&lt;/ul>
-&lt;p>The file is composed of three tabs:&lt;/p>
-&lt;ul>
-&lt;li>EU-sources: links to download each country&amp;rsquo;s open data &amp;amp; info on license compatibility&lt;/li>
-&lt;li>EU-data: data used to compare total track length between countries and source and to compute the &amp;ldquo;usability indicator&amp;rdquo;&lt;/li>
-&lt;li>EU-epsg: &lt;a href="https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset">EPSG&lt;/a> code used for reprojecting geographical data for each country&lt;/li>
-&lt;/ul>
-&lt;h3 id="compare-total-track-length">Compare total track length&lt;/h3>
-&lt;h4 id="calculate-track-length-from-open-data">Calculate track length from open data&lt;/h4>
-&lt;ul>
-&lt;li>
-&lt;p>Look for open data sources&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>If a source is found, look for data license&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Check license compatibility with OpenStreetMap using &lt;a href="https://wiki.openstreetmap.org/wiki/Import/ODbL_Compatibility">OSM wiki&lt;/a> and &lt;a href="https://blog.openstreetmap.org/2017/03/17/use-of-cc-by-data/">this blog post&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Download open data&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Load data into &lt;a href="https://qgis.org/en/site/">QGIS&lt;/a> and reproject it based on the EU-epsg tab&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Calculate a new field using the following formula to get the length of each track in kilometers:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;length&amp;quot; = $length / 1000
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Report total length using the &amp;ldquo;Basic Statistics for Fields&amp;rdquo; tool&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Learn more about &lt;a href="https://inspire.ec.europa.eu/file/1723/download?token=0GOYYbMF">Inspire data model&lt;/a>&lt;/p>
-&lt;h4 id="calculate-track-length-for-openstreetmap-data">Calculate track length for OpenStreetMap data&lt;/h4>
-&lt;ul>
-&lt;li>
-&lt;p>Download last OSM export from &lt;a href="https://download.geofabrik.de/europe.html">https://download.geofabrik.de/europe.html&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Load lines data into QGIS&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Select data using the &amp;ldquo;other_tags&amp;rdquo; field to select railway network:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;other_tags&amp;quot; like '%&amp;quot;railway&amp;quot;=&amp;gt;&amp;quot;rail&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;railway&amp;quot;=&amp;gt;&amp;quot;narrow_gauge&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;railway&amp;quot;=&amp;gt;&amp;quot;light_rail&amp;quot;%'
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Export selected objects and reproject the layer based on the EU-epsg tab&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Calculate a new field using the following formula to get the length of each track in kilometers:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;length&amp;quot; = $length / 1000
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Select electrified parts of the network using the &amp;ldquo;other_tags&amp;rdquo; field:&lt;/p>
-&lt;pre>&lt;code> &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;yes&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;contact_line&amp;quot;%'
-or &amp;quot;other_tags&amp;quot; like '%&amp;quot;electrified&amp;quot;=&amp;gt;&amp;quot;rail&amp;quot;%'
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>Report total length using the Basic Statistics for Fields tool&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Learn more about &lt;a href="https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging">OpenStreetMap data model&lt;/a>&lt;/p>
-&lt;h3 id="calculate-usability-indicator">Calculate usability indicator&lt;/h3>
-&lt;ul>
-&lt;li>List required and optional data&lt;/li>
-&lt;li>For each data, indicate its availability using QGIS (&lt;a href="https://overpass-turbo.eu/">Overpass Turbo&lt;/a> can also be helpful to check OSM data) and the following scale :
-&lt;ul>
-&lt;li>&amp;ldquo;Yes&amp;rdquo;: fully available&lt;/li>
-&lt;li>&amp;ldquo;Partial&amp;rdquo;: not available everywhere on the country, or missing parts of the data&lt;/li>
-&lt;li>&amp;ldquo;No&amp;rdquo;: not available&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Sum total required and optional data with Yes = 1; Partial = 0.5; No = 0&lt;/li>
-&lt;li>Generate indicator:
-&lt;ul>
-&lt;li>&amp;ldquo;Good&amp;rdquo; if required=2 and optional&amp;gt;2&lt;/li>
-&lt;li>&amp;ldquo;Okay&amp;rdquo; if required &amp;gt;1 and optional &amp;gt;=0&lt;/li>
-&lt;li>&amp;ldquo;Poor&amp;rdquo; if required=1 and optional &amp;gt;2&lt;/li>
-&lt;li>&amp;ldquo;Not usable&amp;rdquo; else&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="map-the-result">Map the result&lt;/h3>
-&lt;p>To show the indicator and license compatibility on a map, use the &lt;a href="https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries">Eurostat borders datasets&lt;/a> (for my presentation, I have used the 1:20 million scale and EPSG:3035) and join the table using countries names.&lt;/p></description></item></channel></rss>
+&lt;p>In this post I will go into details of the methodology I followed, feel free to contact me if you have any remarks or question :-)&lt;/p></description></item><item><title/><link>https://osrd.fr/en/docs/guides/contribute/review-process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/review-process/</guid><description>&lt;h2 id="review-cycle">Review cycle&lt;/h2>
+&lt;p>A code review is an iterative process.
+For a smooth review, it is imperative to &lt;a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">correctly configure your github notifications&lt;/a>.&lt;/p>
+&lt;p>It is advisable to configure OSRD repositories as &lt;em>&amp;ldquo;Participating and @mentions&amp;rdquo;&lt;/em>. This allows you to be notified of activities only on issues and PRs in which you participate.&lt;/p>
+&lt;blockquote>
+&lt;p>Maintainers are automatically notified by the &lt;code>CODEOWNERS&lt;/code> system. The author of a PR is responsible for advancing their PR through the review process and manually requesting maintainer feedback if necessary.&lt;/p></description></item><item><title>Editoast</title><link>https://osrd.fr/en/docs/reference/apis/editoast/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/apis/editoast/</guid><description/></item><item><title>Gateway</title><link>https://osrd.fr/en/docs/reference/apis/gateway/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/apis/gateway/</guid><description/></item></channel></rss>

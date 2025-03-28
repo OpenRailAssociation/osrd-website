@@ -1,5 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – Search for last-minute train slots (STDCM)</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/</link><description>Recent content in Search for last-minute train slots (STDCM) on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/design-docs/stdcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Business context</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</guid><description>
-&lt;p>Some definitions:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Search for last-minute train slots (STDCM) on OSRD</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/</link><description>Recent content in Search for last-minute train slots (STDCM) on OSRD</description><generator>Hugo</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/design-docs/stdcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Business context</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/domain_context/</guid><description>&lt;p>Some definitions:&lt;/p>
 &lt;h3 id="capacity">Capacity&lt;/h3>
 &lt;p>&lt;strong>Capacity&lt;/strong>, in this context, is the ability to
 reserve infrastructure elements to allow the passage of a train.&lt;/p>
@@ -9,52 +8,4 @@ that becomes inaccessible to other trains, and this reservation
 lasts for a given time interval.&lt;/p>
 &lt;p>It can be displayed
 on a chart, with the time on the horizontal axis
-and the distance traveled on the vertical axis.&lt;/p>
-&lt;p>&lt;img src="space_time_chart.png" alt="Space-time chart">&lt;/p>
-&lt;blockquote>
-&lt;p>Example of a space-time chart displaying the passage of a train.&lt;/p>
-&lt;p>The colors here represent aspects of the signals, but
-display a consumption of the capacity as well:
-when these blocks overlap for two trains, they conflict.&lt;/p>
-&lt;/blockquote>
-&lt;p>There is a &lt;strong>conflict&lt;/strong> between two trains when they reserve
-the same object at the same time, in incompatible configurations.&lt;/p>
-&lt;p>&lt;img src="conflict.png" alt="Space-time chart with conflict">&lt;/p>
-&lt;blockquote>
-&lt;p>Example of a space-time graph with a conflict: the second train
-is faster than the first one, they are in conflict at the end
-of the path, when the rectangles overlap.&lt;/p>
-&lt;p>When simulating this timetable, the second train would be
-slowed down by the yellow signals, caused by the
-presence of the first train.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="train-slots">Train slots&lt;/h3>
-&lt;p>A &lt;strong>train slot&lt;/strong> corresponds to a capacity reservation
-for the passage of a train. It is fixed in space and time:
-the departure time and the path taken are known.
-On the space-time charts in this page, a train slot corresponds
-to the set of blocks displayed for a train.&lt;/p>
-&lt;blockquote>
-&lt;p>Note: in English-speaking countries, these are often simply called &amp;ldquo;train paths&amp;rdquo;.
-But in this context, this name would be ambiguous with the
-physical path taken by the train.&lt;/p>
-&lt;/blockquote>
-&lt;p>The usual procedure is for the infrastructure manager
-(e.g. SNCF Réseau) to offers train slots for sale to
-railway companies (e.g. SNCF Voyageurs).&lt;/p>
-&lt;p>At a given date before the scheduled day of operation,
-all the train paths are allocated. But &lt;strong>there may be
-enough capacity to fit more trains&lt;/strong>. Trains can fit between
-scheduled slots,
-when they are sufficiently far apart or have not found a buyer.&lt;/p>
-&lt;p>The remaining capacity after the allocation of train paths is called
-&lt;strong>residual capacity&lt;/strong>. This section explains how OSRD looks
-for train slots in this residual capacity.&lt;/p></description></item><item><title>Docs: Train slot search module</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/</guid><description>
-&lt;p>This module handles the search for solutions.&lt;/p>
-&lt;p>To reduce the problem to its simplest form and for easy and efficient
-testing, inputs and outputs are strongly simplified and abstracted.&lt;/p>
-&lt;p>To summarize its behavior:
-the solution space is described as a graph that encodes locations,
-time, and speed. A pathfinding is run on this graph to find a solution.&lt;/p>
-&lt;p>This graph could, in a way, be seen as a decision tree,
-but different paths can lead to the same node.&lt;/p></description></item></channel></rss>
+and the distance traveled on the vertical axis.&lt;/p></description></item></channel></rss>

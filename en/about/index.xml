@@ -1,1 +1,35 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OSRD – About</title><link>https://osrd.fr/en/about/</link><description>Recent content in About on OSRD</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://osrd.fr/en/about/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>About on OSRD</title><link>https://osrd.fr/en/about/</link><description>Recent content in About on OSRD</description><generator>Hugo</generator><language>en</language><atom:link href="https://osrd.fr/en/about/index.xml" rel="self" type="application/rss+xml"/><item><title>Governance</title><link>https://osrd.fr/en/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/governance/</guid><description>&lt;p>One of the ambitions of OSRD is to help with &lt;strong>timetabling on a European scale&lt;/strong>.&lt;/p>
+&lt;p>To reach this goal, OSRD has to take local features into account by consulting and collaborating with railway companies and infrastructure operators.&lt;/p>
+&lt;p>And by contributing to OSRD, these companies:&lt;/p>
+&lt;ul>
+&lt;li>Profit from all the common development efforts&lt;/li>
+&lt;li>Can freely build on the common effort to achieve their own goals&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/li>
+&lt;li>Participate in the roadmap and technical direction of the project to the extent of their contribution&lt;/li>
+&lt;/ul>
+&lt;p>OSRD is currently developed by:&lt;/p></description></item><item><title>Open Source</title><link>https://osrd.fr/en/about/opensource/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opensource/</guid><description>&lt;p>Open source is a &lt;strong>software development practice&lt;/strong>, where the software&amp;rsquo;s source code&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> :&lt;/p>
+&lt;ul>
+&lt;li>usually developed by multiple actors, in an open and transparent way&lt;/li>
+&lt;li>free and available for all&lt;/li>
+&lt;li>can be modified or used for derivative work by anyone&lt;/li>
+&lt;li>can be freely distributed&lt;/li>
+&lt;/ul>
+&lt;p>In practice, open source is both a &lt;strong>legal framework&lt;/strong> for collaborative work, and a &lt;strong>set of practices&lt;/strong>.&lt;/p>
+&lt;h2 id="osrd-and-open-source">OSRD and Open Source&lt;/h2>
+&lt;p>Applied to OSRD, Open Source has &lt;strong>multiple advantages&lt;/strong> :&lt;/p></description></item><item><title>Open Data</title><link>https://osrd.fr/en/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opendata/</guid><description>&lt;p>Open Data is the practice of making data public accessible under a permissive license.
+It is not the same as open source, which only applies to software.&lt;/p>
+&lt;p>&lt;strong>Open data and open source have a symbiotic relationship : without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.&lt;/strong>&lt;/p>
+&lt;p>Alone, &lt;strong>open data&lt;/strong> already brings a number of key benefits:&lt;/p></description></item><item><title>Roadmap</title><link>https://osrd.fr/en/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/roadmap/</guid><description>&lt;p>Here&amp;rsquo;s a list of the big features OSRD wants to support. The order of items depends on priority (the higher the item, the more valuable it is).
+This roadmap is spread over a couple of years.&lt;/p>
+&lt;ul>
+&lt;li>Add &lt;a href="https://en.wikipedia.org/wiki/European_Rail_Traffic_Management_System">ERTMS&lt;/a> signaling system support.&lt;/li>
+&lt;li>A fine-grained permission system.&lt;/li>
+&lt;li>Support cyclic train schedule. Improving Netzgrafik-Editor integration.&lt;/li>
+&lt;li>Send STDCM trains to external services for storage and processing.&lt;/li>
+&lt;li>Create annual transport plan service.&lt;/li>
+&lt;li>Support a linear referencing &lt;a href="https://en.wikipedia.org/wiki/Linear_referencing">LRS&lt;/a> commonly used in the railway industry. Usage of &lt;a href="https://en.wikipedia.org/wiki/Milestone#Railway_mileposts">railway mileposts&lt;/a>.&lt;/li>
+&lt;li>Revamp the infrastructure editor.&lt;/li>
+&lt;li>New dynamic simulator. Simulate a timetable on an infrastructure and observe generated delays.&lt;/li>
+&lt;li>Versioning infrastructures.&lt;/li>
+&lt;li>Revamp train simulation v3.&lt;/li>
+&lt;/ul>
+&lt;p>If you&amp;rsquo;d like to push for one of these features, or if you have ideas for what OSRD could do in the future, don&amp;rsquo;t hesitate to join the project!&lt;/p></description></item></channel></rss>
