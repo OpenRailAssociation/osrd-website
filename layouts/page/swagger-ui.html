@@ -12,7 +12,7 @@
 <script>
   window.onload = () => {
     window.ui = SwaggerUIBundle({
-      url: 'https://raw.githubusercontent.com/OpenRailAssociation/osrd/dev/{{ .Params.params.filename }}',
+      url: 'https://raw.githubusercontent.com/OpenRailAssociation/osrd/dev/{{ .Param "filename" }}',
       dom_id: '#swagger-ui',
     });
   };
