@@ -38,6 +38,7 @@ E2E tests are implemented iteratively and delivered alongside feature developmen
 - This workflow helps prevent immediate regressions after a feature release, enhances the entire team's proficiency in E2E testing, and avoids excessively long PRs that would introduce entire E2E test suites at once.
 - It is acceptable for E2E tests to be partial during development, even if their implementation increases ticket size and development time.
 - Some parts of the tests will need to be mocked while the feature is still under development. However, by the end of development, the E2E test must be complete, and all mocked data should be removed. The final modifications to eliminate mocking should be minimal (typically limited to updating expected values).
+- When adding a new feature, it is preferable to separate the implementation of the new feature and the tests into individual commits, to facilitate review.
 - Test cases and user journeys should be defined in advance, during ticket refinement, before the PIP. They may be proposed by a QA or a Product Owner (PO) and must be validated by a QA, the relevant PO, and frontend developers.
 - If an E2E test affects the E2E testing configuration, project architecture (e.g., snapshotting), or poses a risk of slowing down the CI, a refinement workshop must be organized to consult the team responsible for project architecture and CI, particularly the DevOps team.
 
