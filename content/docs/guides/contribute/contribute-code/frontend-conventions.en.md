@@ -56,7 +56,7 @@ If, for example, we have a `rollingStockSelector` component which proposes a lis
   .rollingStockList {
     .rollingStockCard {
       .rollingStockImg {
-        width: 5rem;
+        width: 50px;
         height: auto;
       }
     }
@@ -65,6 +65,9 @@ If, for example, we have a `rollingStockSelector` component which proposes a lis
 ```
 
 This ensures that the image contained in the rolling stock card inherits the correct css properties `.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg`.
+
+Some additional conventions:
+- All sizes are expressed in px, except for fonts which are expressed in rem.
 
 #### CSS Modules
 
