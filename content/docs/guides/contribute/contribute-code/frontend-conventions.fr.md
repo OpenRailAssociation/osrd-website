@@ -56,7 +56,7 @@ Si par exemple nous avons un composant `rollingStockSelector` qui propose une li
   .rollingStockList {
     .rollingStockCard {
       .rollingStockImg {
-        width: 5rem;
+        width: 50px;
         height: auto;
       }
     }
@@ -65,6 +65,9 @@ Si par exemple nous avons un composant `rollingStockSelector` qui propose une li
 ```
 
 Ainsi, on a la garantie que l'image contenue dans la carte de matériel roulant héritera bien des bonnes propriétés css `.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg`.
+
+Quelques conventions supplémentaires:
+- toutes les tailles sont exprimées en px, sauf pour les polices que l'on exprime en rem.
 
 #### CSS Modules
 
