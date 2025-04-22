@@ -19,6 +19,7 @@ dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;
 &lt;h3 id="communicate">Communicate&lt;/h3>
 &lt;p>Chatting with other contributors is a great way to speed things up:&lt;/p></description></item><item><title>Release process</title><link>https://osrd.fr/en/docs/guides/release/process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/release/process/</guid><description>&lt;p>OSRD has three versions: development (dev), staging, and release.&lt;/p>
 &lt;p>The development version is the most recent and unstable version of the application, containing the latest features and bug fixes in active development.&lt;/p>
+&lt;h2 id="usual-process">Usual process&lt;/h2>
 &lt;p>Staging versions are created every Thursday at 12pm by tagging the current development state.&lt;/p>
 &lt;p>If a staging version passes validation testing, it is promoted to become the latest release version. This ensures that only stable, tested code makes it into production releases.&lt;/p></description></item><item><title>Back-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>&lt;h1 id="python">Python&lt;/h1>
 &lt;p>Python code is used for some packages and integration testing.&lt;/p>
