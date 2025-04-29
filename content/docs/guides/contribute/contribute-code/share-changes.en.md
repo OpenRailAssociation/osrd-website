@@ -7,8 +7,6 @@ description: "How to submit your code modifications for review?"
 
 The author of a _pull request (PR)_ is responsible for its "life cycle". He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check [dedicated page about code review]({{< ref "/docs/guides/contribute/code-review" >}})).
 
-> In the case of a large PR, don't hesitate to ask several reviewers to organize themselves, or even to carry out the review together, reviewers and author.
-
 1. **Open a _pull request_** \
    Once your changes are ready, you have to request integration with the `dev` branch.
 
@@ -28,6 +26,13 @@ The author of a _pull request (PR)_ is responsible for its "life cycle". He is r
      The intent is to efficiently collaborate towards a solution we all agree on.
    - Once all discussions are resolved, a maintainer integrates the change.
 
+> The best case is to avoid large PR and split it in multiple PR[^1]:
+> - ease the reviewing process and might accelerate it (easier to find an hour to review than half a day)
+> - is more agile, you will get feedback on the early iteration before proposing the next series of modifications,
+> - keep the git history cleaner (in case of a `git bisect` looking for a regression for example).
+> 
+> In the case where you cannot avoid a large PR, don't hesitate to ask several reviewers to organize themselves, or even to carry out the review together, reviewers and author.
+> 
 > For large PRs that are bound to evolve over time, keeping _corrections_ during review in separate
 _commits_ helps reviewers. In the case of multiple reviews by the same person, this can save full
 re-review (ask for help if necessary):
@@ -43,5 +48,7 @@ because you are not just pushing new commits, you are pushing changes to existin
 3. **If you believe somebody forgot to review / merge your change, please speak out, multiple times if needs be.**
 
 {{% include "../review-process.en.md" %}}
+
+[^1]: if you are not convinced, look for "Stacked Diff" on the web for more literature on the topic, like [Stacked Diffs vs. Trunk Based Development](https://medium.com/@alexanderjukes/stacked-diffs-vs-trunk-based-development-f15c6c601f4b)
 
 *[Finally continue towards tests ‣]({{< ref "tests">}})*
