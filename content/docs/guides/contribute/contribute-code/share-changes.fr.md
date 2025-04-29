@@ -7,8 +7,6 @@ description: "Comment soumettre votre code pour qu'il soit vérifié ?"
 
 L'auteur d'une _pull request (PR)_ est responsable de son « cycle de vie ». Il se charge de contacter les différents acteurs, de suivre la revue de code, répondre aux commentaires et corriger le code suite à la revue de code (vous pouvez également consulter la [page dédiée à la revue de code]({{< ref "/docs/guides/contribute/code-review" >}})).
 
-> En cas de PR conséquente, ne pas hésiter à solliciter plusieurs reviewers qui pourront s'organiser, voire de faire la review ensemble, reviewers et auteur.
-
 1. **Ouvrez une _pull request_** \
    Une fois que vos changements sont prêts, il est temps de proposer de les intégrer à la branche `dev`.
    Cela se fait [dans l'interface web de Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
@@ -28,6 +26,13 @@ L'auteur d'une _pull request (PR)_ est responsable de son « cycle de vie ». Il
    - Les commentaires sont souvent écrits dans un style plutôt direct, dans le souci de collaborer efficacement vers une solution acceptable par tous.
    - Une fois que tous les commentaires ont été pris en compte, un mainteneur intègre le changement.
 
+> Dans l'idéal, évitez les PR conséquentes et découpez le travail en plusieurs PR[^1] :
+> - facilite la relecture et peut aussi l'accélérer (plus facile de trouver 1 heure pour faire une relecture qu'une demi-journée),
+> - permet une approche plus agile avec des retours sur les premières itérations avant d'enchaîner sur la suite,
+> - garde un historique git plus simple à explorer (notamment lors d'un `git bisect` à la recherche d'une regression par exemple).
+> 
+> En cas d'impossibilité à éviter une PR conséquente, ne pas hésiter à solliciter plusieurs relecteurs qui pourront s'organiser, voire de faire la relecture ensemble, relecteurs et auteur.
+>
 > Sur les PR conséquentes et vouées à évoluer dans le temps, conserver les _corrections_ suite à la
 relecture dans des _commits séparés_ facilite le travail de relecture. En cas de `rebase` et de
 relectures multiples par la même personne ils sont le moyen d'économiser une nouvelle relecture
@@ -42,6 +47,8 @@ complète (demandez de l'aide au besoin) :
 car vous ne poussez pas seulement de nouveaux commits, mais bien un changement des commits existants.
 
 3. **N'hésitez pas à relancer vos interlocuteurs, plusieurs fois si besoin est : vous êtes responsable de la vie de votre _pull request_**.
+
+[^1]: si vous n'êtes pas convaincus, cherchez "Stacked Diff" sur le web pour plus de détails sur le sujet, comme [Stacked Diffs vs. Trunk Based Development (en)](https://medium.com/@alexanderjukes/stacked-diffs-vs-trunk-based-development-f15c6c601f4b)
 
 {{% include "../review-process.fr.md" %}}
 
