@@ -181,12 +181,21 @@ You may leave a comment to explain changes.&lt;/li>
 &lt;li>If you are working on a bug or plan to work on a bug, assign yourself to the bug.&lt;/li>
 &lt;li>PRs solving bugs should add a regression tests to ensure that bug will not be back in the future.&lt;/li>
 &lt;/ul></description></item><item><title>Share your changes</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/share-changes/</guid><description>&lt;p>The author of a &lt;em>pull request (PR)&lt;/em> is responsible for its &amp;ldquo;life cycle&amp;rdquo;. He is responsible for contacting the various parties involved, following the review, responding to comments and correcting the code following review (you could also check &lt;a href="https://osrd.fr/en/docs/guides/contribute/code-review/">dedicated page about code review&lt;/a>).&lt;/p>
-&lt;blockquote>
-&lt;p>In the case of a large PR, don&amp;rsquo;t hesitate to ask several reviewers to organize themselves, or even to carry out the review together, reviewers and author.&lt;/p>&lt;/blockquote>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>Open a &lt;em>pull request&lt;/em>&lt;/strong> &lt;br>
-Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch.&lt;/p></description></item><item><title>Tests</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</guid><description>&lt;h2 id="back-end">Back-end&lt;/h2>
+Once your changes are ready, you have to request integration with the &lt;code>dev&lt;/code> branch.&lt;/p>
+&lt;p>If possible:&lt;/p>
+&lt;ul>
+&lt;li>Make PR of logical and atomic units too (avoid mixing refactoring, new features and bug fix at the same time).&lt;/li>
+&lt;li>Add a description to PRs to explain what they do and why.&lt;/li>
+&lt;li>Help the reviewer by following advice given in &lt;a href="https://mtlynch.io/code-review-love/">mtlynch article&lt;/a>.&lt;/li>
+&lt;li>Add tags &lt;code>area:&amp;lt;affected_area&amp;gt;&lt;/code> to show which part of the application have been impacted. It can be done through &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">the web interface&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Take feedback into account&lt;/strong> &lt;br>
+Once your PR is open, &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">other contributors can review your changes&lt;/a>:&lt;/p></description></item><item><title>Tests</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/tests/</guid><description>&lt;h2 id="back-end">Back-end&lt;/h2>
 &lt;ul>
 &lt;li>Integration tests are written with &lt;a href="https://docs.pytest.org/">pytest&lt;/a> in the &lt;code>/tests&lt;/code> folder.&lt;/li>
 &lt;li>Each route described in the &lt;code>openapi.yaml&lt;/code> files must have an integration test.&lt;/li>
