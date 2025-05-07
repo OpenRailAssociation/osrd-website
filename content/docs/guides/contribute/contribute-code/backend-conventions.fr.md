@@ -10,11 +10,11 @@ description: "Conventions de codes et bonnes pratiques pour le back-end"
 Le code Python est utilisé pour certains paquets et pour les tests d'intégration.
 
 - Suivez le [Zen of Python](https://www.python.org/dev/peps/pep-0020/).
-- Le code est linté avec [flake8](https://github.com/csachs/pyproject-flake8).
-- Le code est formaté avec [Black](https://github.com/psf/black).
-- Les imports sont triées avec [Isort](https://github.com/PyCQA/isort).
+- Les projets sont organisés avec [uv](https://docs.astral.sh/uv/)
+- Le code est linté avec [ruff](https://docs.astral.sh/ruff/).
+- Le code est formaté avec [ruff](https://docs.astral.sh/ruff/).
 - Les tests sont écrits avec [pytest](https://docs.pytest.org/).
-- Les types sont vérifiés avec [pytype](https://google.github.io/pytype/).
+- Les types sont vérifiés avec [pyright](https://microsoft.github.io/pyright/).
 
 # Rust
 

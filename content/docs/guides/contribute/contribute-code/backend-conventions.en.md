@@ -9,12 +9,12 @@ description: "Coding style guide and best practices for back-end"
 
 Python code is used for some packages and integration testing.
 
-- Follow [the Zen of Python](https://www.python.org/dev/peps/pep-0020/).
-- Code is linted with [flake8](https://github.com/csachs/pyproject-flake8).
-- Code is formatted with [Black](https://github.com/psf/black).
-- Imports are sorted with [Isort](https://github.com/PyCQA/isort).
+- Follow the [Zen of Python](https://www.python.org/dev/peps/pep-0020/).
+- Projects are organized with [uv](https://docs.astral.sh/uv/)
+- Code is linted with [ruff](https://docs.astral.sh/ruff/).
+- Code is formatted with [ruff](https://docs.astral.sh/ruff/).
 - Python tests are written using [pytest](https://docs.pytest.org/).
-- Typing is checked using [pytype](https://google.github.io/pytype/).
+- Typing is checked using [pyright](https://microsoft.github.io/pyright/).
 
 # Rust
 
