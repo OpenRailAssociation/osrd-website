@@ -24,12 +24,12 @@ dependency bumps in a batch PR is a valid option (see component&amp;rsquo;s &lt;
 &lt;p>If a staging version passes validation testing, it is promoted to become the latest release version. This ensures that only stable, tested code makes it into production releases.&lt;/p></description></item><item><title>Back-end conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/backend-conventions/</guid><description>&lt;h1 id="python">Python&lt;/h1>
 &lt;p>Python code is used for some packages and integration testing.&lt;/p>
 &lt;ul>
-&lt;li>Follow &lt;a href="https://www.python.org/dev/peps/pep-0020/">the Zen of Python&lt;/a>.&lt;/li>
-&lt;li>Code is linted with &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
-&lt;li>Code is formatted with &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
-&lt;li>Imports are sorted with &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Follow the &lt;a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python&lt;/a>.&lt;/li>
+&lt;li>Projects are organized with &lt;a href="https://docs.astral.sh/uv/">uv&lt;/a>&lt;/li>
+&lt;li>Code is linted with &lt;a href="https://docs.astral.sh/ruff/">ruff&lt;/a>.&lt;/li>
+&lt;li>Code is formatted with &lt;a href="https://docs.astral.sh/ruff/">ruff&lt;/a>.&lt;/li>
 &lt;li>Python tests are written using &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
-&lt;li>Typing is checked using &lt;a href="https://google.github.io/pytype/">pytype&lt;/a>.&lt;/li>
+&lt;li>Typing is checked using &lt;a href="https://microsoft.github.io/pyright/">pyright&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;h1 id="rust">Rust&lt;/h1>
 &lt;ul>

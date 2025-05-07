@@ -19,11 +19,11 @@ dans chaque composant, donc regrouper les montées de version dans une même PR 
 &lt;p>Le code Python est utilisé pour certains paquets et pour les tests d&amp;rsquo;intégration.&lt;/p>
 &lt;ul>
 &lt;li>Suivez le &lt;a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python&lt;/a>.&lt;/li>
-&lt;li>Le code est linté avec &lt;a href="https://github.com/csachs/pyproject-flake8">flake8&lt;/a>.&lt;/li>
-&lt;li>Le code est formaté avec &lt;a href="https://github.com/psf/black">Black&lt;/a>.&lt;/li>
-&lt;li>Les imports sont triées avec &lt;a href="https://github.com/PyCQA/isort">Isort&lt;/a>.&lt;/li>
+&lt;li>Les projets sont organisés avec &lt;a href="https://docs.astral.sh/uv/">uv&lt;/a>&lt;/li>
+&lt;li>Le code est linté avec &lt;a href="https://docs.astral.sh/ruff/">ruff&lt;/a>.&lt;/li>
+&lt;li>Le code est formaté avec &lt;a href="https://docs.astral.sh/ruff/">ruff&lt;/a>.&lt;/li>
 &lt;li>Les tests sont écrits avec &lt;a href="https://docs.pytest.org/">pytest&lt;/a>.&lt;/li>
-&lt;li>Les types sont vérifiés avec &lt;a href="https://google.github.io/pytype/">pytype&lt;/a>.&lt;/li>
+&lt;li>Les types sont vérifiés avec &lt;a href="https://microsoft.github.io/pyright/">pyright&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;h1 id="rust">Rust&lt;/h1>
 &lt;ul>
