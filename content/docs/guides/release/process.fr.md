@@ -46,6 +46,8 @@ Le processus de publication suit ce workflow :
 Toutes les 11 semaines, une itération (2 semaines) est consacrée à la stabilisation et l'innovation.
 
 Le but est de s'assurer de publier une version stable à cette échéance (accent mis sur la détection et correction de bugs).
+Une version staging est créée le vendredi soir avant cette itération de stabilisation et d'innovation (échéance pour
+ajouter des fonctionnalités ou refontes).
 
 Le processus de travail durant cette période est le suivant :
 
