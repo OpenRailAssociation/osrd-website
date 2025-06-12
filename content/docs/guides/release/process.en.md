@@ -46,6 +46,8 @@ The release process follows this workflow:
 Every 11 weeks, an iteration (2 weeks) is dedicated to stabilization and innovation.
 
 The goal is to ensure that a stable version is released by this term (focus on bug detection and correction).
+A staging version is created on the last Friday evening before this iteration of stabilization and
+innovation (deadline for adding features or refactors).
 
 The work process during this period is as follows:
 
