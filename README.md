@@ -1,11 +1,9 @@
-# OSRD WEBSITE
+# OSRD website
 
 ## What is OSRD?
 
-OSRD is a work in progress tool meant to help design and operate railway infrastructure.
-It's built around a simulator, which evaluates a timetable on a given infrastructure.
-
-It's free and open-source forever!
+This repository is for the website used for communication and documentation about the OSRD project.
+To know more about OSRD, check out [OSRD on GitHub](https://github.com/OpenRailAssociation/osrd) or [osrd.fr](https://osrd.fr/en/).
 
 ## Build instructions
 
@@ -40,25 +38,3 @@ docker run --rm -it \
 # by default, it just builds the site
 ./hugo.sh
 ```
-
-## Spell Checker
-
-```
-cspell --config cspell/cspell.json
-```
-
-If you need to use a specific word that isn't in the dictionaries, you can add it to the correct `.txt` dictionary in the `cspell` folder.
-
-## Contributing
-
-If you think OSRD doesn't quite fit your needs yet, but still believe it could,
-please [tell us about your needs](https://github.com/OpenRailAssociation/osrd/issues/new?labels=kind%3Aquestion&template=question.yaml).
-
-Please consider committing resources to help development if you'd like to use OSRD in production.
-Code contributions are very welcome, and we'd love to work together to make this project better.
-
-For more information on how to contribute, check out the [Contributing file](./CONTRIBUTING.md)
-
-## Get in touch
-
-Send an email at <contact@osrd.fr>, [open an issue](https://github.com/OpenRailAssociation/osrd-website/issues/new), or join the [#public-general:osrd.fr](https://matrix.to/#/#public-general:osrd.fr) matrix channel.

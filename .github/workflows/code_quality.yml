@@ -27,14 +27,5 @@ jobs:
 
         commit_titles | TERM=xterm-color .github/scripts/check-commit-titles.sh
 
-    - run: npm install --include=dev
-    - name: Spell check
-      uses: streetsidesoftware/cspell-action@v6
-      with:
-        config: cspell/cspell.json
-        strict: false
-        incremental_files_only: true
-        use_cspell_files: true
-
     - name: REUSE Compliance Check
       uses: fsfe/reuse-action@v4

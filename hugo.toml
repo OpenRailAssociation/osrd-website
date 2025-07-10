@@ -74,7 +74,7 @@ weight = 1
 description = "Open Source Railway Designer"
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
-copyright = "Contributeurs à OSRD."
+copyright = "Contributeur·ices à OSRD"
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 version_menu = "Versions"
@@ -84,7 +84,7 @@ languageName = "English"
 weight = 2
 [languages.en.params]
 description = "Open Source Railway Designer"
-copyright = "OSRD contributors."
+copyright = "OSRD contributors"
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 version_menu = "Releases"
