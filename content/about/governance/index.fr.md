@@ -26,7 +26,7 @@ N'hésitez pas à nous contacter à <contact@osrd.fr> !
 
 L'[Association Open Rail](https://openrailassociation.org/) est une association à but non lucratif co-fondée par SNCF Réseau ayant pour objectif d'organiser le travail autour d'outils logiciels communs au monde du ferroviaire. OSRD est le premier projet hébergé par l'association OpenRail et nous travaillons aux côtés d'un autre projet OpenRail : [NGE](../../docs/explanation/netzgrafik-editor/).
 
-<a href="https://openrailassociation.org/"><img class="marginauto" src="logo-openrail-association.png" alt="Association OpenRail"></a>
+<a href="https://openrailassociation.org/"><img class="marginauto" src="/images/about/governance/logo-OpenRail-Association.png" alt="Association OpenRail"></a>
 
 <style>
 .marginauto {
@@ -36,7 +36,7 @@ L'[Association Open Rail](https://openrailassociation.org/) est une association 
 	height:200px;
 }
 .marginauto:hover {
-	filter: brightness(70%);
-	transition: all 0.50s;
+	filter: brightness(80%);
+	transition: all 0.5s;
 }
 </style>
