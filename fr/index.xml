@@ -414,15 +414,9 @@ de départ pour éviter les conflits.&lt;/p></description></item><item><title>Le
 &lt;font color=#aa026d>
 &lt;h3 id="calcul-du-profil-de-vitesse-le-plus-restrictif">Calcul du profil de vitesse le plus restrictif&lt;/h3>
 &lt;/font>
-&lt;p>Une première enveloppe est calculée au début de la simulation en regroupant toutes les limites de vitesse statiques :&lt;/p></description></item><item><title>Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la planification horaire à l&amp;rsquo;échelle européenne&lt;/strong>.&lt;/p>
-&lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les compagnies ferroviaires et les gestionnaires d&amp;rsquo;infrastructure.&lt;/p>
-&lt;p>En échange de leur contribution, ces entreprises :&lt;/p>
-&lt;ul>
-&lt;li>Profitent des efforts de développement commun ;&lt;/li>
-&lt;li>Peuvent se baser sur les outils communs pour créer les leurs&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> ;&lt;/li>
-&lt;li>Participent à la feuille de route et à la direction technique du projet à la mesure de leur contribution.&lt;/li>
-&lt;/ul>
-&lt;p>OSRD est actuellement développé par:&lt;/p></description></item><item><title>Routage</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</guid><description>&lt;h2 id="description">Description&lt;/h2>
+&lt;p>Une première enveloppe est calculée au début de la simulation en regroupant toutes les limites de vitesse statiques :&lt;/p></description></item><item><title>Gouvernance</title><link>https://osrd.fr/fr/about/governance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/governance/</guid><description>&lt;p>OSRD est actuellement développé par une &lt;a href="https://osrd.fr/fr/join-us/">équipe de développeur·euses à plein temps au sein de SNCF Réseau&lt;/a>, grâce à un financement de SNCF Réseau, de l&amp;rsquo;Etat Français et de l&amp;rsquo;Union Européenne.&lt;/p>
+&lt;p>Une des ambitions d&amp;rsquo;OSRD est d&amp;rsquo;&lt;strong>aider à la planification horaire à l&amp;rsquo;échelle européenne&lt;/strong>.&lt;/p>
+&lt;p>Pour atteindre cet objectif, OSRD doit tenir compte des spécificités locales en consultant et collaborant avec les entreprises ferroviaires, les gestionnaires d&amp;rsquo;infrastructure, les laboratoires de recherche et tout autre acteur intéressé.&lt;/p></description></item><item><title>Routage</title><link>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/reference/design-docs/interlocking/routing/</guid><description>&lt;h2 id="description">Description&lt;/h2>
 &lt;ul>
 &lt;li>Les routes ont pour responsabilité d&amp;rsquo;autoriser le déplacement des trains dans l&amp;rsquo;infrastructure. Elles doivent se terminer à un point où l&amp;rsquo;arrêt du train est prévu (en terme de signalisation, pas voyageur).&lt;/li>
 &lt;li>Les routes sont assimilables à des itinéraires, ou à des suites d&amp;rsquo;itinéraires et d&amp;rsquo;installations de pleine voie.&lt;/li>
