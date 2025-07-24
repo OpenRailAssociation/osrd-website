@@ -608,8 +608,8 @@ Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https
 
  A-&amp;gt;&amp;gt;R: Rebase si nécessaire
  R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
- R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
- Note left of R: Et fusionne si mainteneur&lt;/pre>
+ R-&amp;gt;&amp;gt;A: Approuve la PR
+ Note right of A: Ajoute à la merge queue&lt;/pre>
 &lt;blockquote>
 &lt;p>Les mainteneurs sont automatiquement notifiés par le système de &lt;code>CODEOWNERS&lt;/code>. L&amp;rsquo;auteur d&amp;rsquo;une PR est responsable de faire avancer sa PR dans le processus de review (quitte à notifier manuellement un mainteneur).&lt;/p></description></item><item><title>BAL</title><link>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/docs/railway-wiki/signalling/spacing/automatic_block_systems/bal/</guid><description>&lt;p>Le signal d’entrée du canton présente une indication liée à l’état d’occupation du ou des cantons suivants, selon les
 règles suivantes :&lt;/p>

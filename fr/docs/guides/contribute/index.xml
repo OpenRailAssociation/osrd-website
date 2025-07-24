@@ -73,7 +73,7 @@ Pour la fluidité d&amp;rsquo;une review, il est impératif de &lt;a href="https
 
  A-&amp;gt;&amp;gt;R: Rebase si nécessaire
  R-&amp;gt;&amp;gt;A: Vérifie l&amp;#39;historique des commits
- R-&amp;gt;&amp;gt;A: Approuve ou ferme la PR
- Note left of R: Et fusionne si mainteneur&lt;/pre>
+ R-&amp;gt;&amp;gt;A: Approuve la PR
+ Note right of A: Ajoute à la merge queue&lt;/pre>
 &lt;blockquote>
 &lt;p>Les mainteneurs sont automatiquement notifiés par le système de &lt;code>CODEOWNERS&lt;/code>. L&amp;rsquo;auteur d&amp;rsquo;une PR est responsable de faire avancer sa PR dans le processus de review (quitte à notifier manuellement un mainteneur).&lt;/p></description></item></channel></rss>
