@@ -23,8 +23,8 @@ sequenceDiagram
 
   A->>R: Rebase si nécessaire
   R->>A: Vérifie l'historique des commits
-  R->>A: Approuve ou ferme la PR
-  Note left of R: Et fusionne si mainteneur
+  R->>A: Approuve la PR
+  Note right of A: Ajoute à la merge queue
 ```
 
 > Les mainteneurs sont automatiquement notifiés par le système de `CODEOWNERS`. L'auteur d'une PR est responsable de faire avancer sa PR dans le processus de review (quitte à notifier manuellement un mainteneur).

@@ -25,6 +25,6 @@ sequenceDiagram
 
   A->>R: Rebase and apply fixups
   R->>A: Checks commits history
-  R->>A: Approves or closes the PR
-  Note left of R: & Merges if maintainer
+  R->>A: Approves the PR
+  Note right of A: Add to the merge queue
 ```
