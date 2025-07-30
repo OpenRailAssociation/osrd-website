@@ -1,0 +1,30 @@
+backend:
+  name: "github"
+  repo: "OpenRailAssociation/osrd-website"
+  commit_messages:
+    create: 'news: create "{{slug}}"'
+    update: 'news: update "{{slug}}"'
+    delete: 'news: delete "{{slug}}"'
+    uploadMedia: 'news: upload media "{{path}}"'
+    deleteMedia: 'news: delete media "{{path}}"'
+site_url: "https://osrd.fr"
+media_folder: "static/images"
+public_folder: "/images"
+publish_mode: editorial_workflow
+i18n:
+  structure: "multiple_files"
+  locales: ["fr", "en"]
+  default_locale: "fr"
+collections:
+  - name: "news"
+    label: "News"
+    folder: "content/blog/news"
+    create: true
+    i18n: true
+    path: "{{year}}/{{slug}}/index"
+    media_folder: "/static/images"
+    public_folder: "/images"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: "translate" }
+      - { label: "Publish Date", name: "date", widget: "datetime", i18n: "duplicate" }
+      - { label: "Body", name: "body", widget: "markdown", i18n: "translate" }
