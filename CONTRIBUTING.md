@@ -21,3 +21,7 @@ If you need help or want to get in touch you can email us at <contact@osrd.fr>, 
 
 To comply with the [DCO](http://developercertificate.org/), all commits must
 include a Signed-off-by line. You can find more information about this on [our website](https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/#the-developer-certificate-of-origin).
+
+### Guidelines
+
+Providing both `_index.fr.md` and `_index.en.md` is required to have a table of contents consistent between languages.
