@@ -48,93 +48,14 @@ On utilise en général les conventions suivantes dans le code:
 
 ### Styles & SCSS
 
-> ATTENTION : en CSS/React, le scope d'une classe ne dépend pas de l'endroit où le fichier est importé mais est valide pour toute l'application. Si vous importez un fichier `scss` au fin fond d'un composant (ce que nous déconseillons fortement par ailleurs), ses classes seront disponibles pour toute l'application et peuvent donc provoquer des effets de bord. Vous pouvez utiliser les CSS modules pour éviter les conflits.
+> ATTENTION : en CSS/React, le scope d'une classe ne dépend pas de l'endroit où le fichier est importé mais est valide pour toute l'application. Si vous importez un fichier `scss` au fin fond d'un composant (ce que nous déconseillons fortement par ailleurs), ses classes seront disponibles pour toute l'application et peuvent donc provoquer des effets de bord.
 
-Il est donc très recommandé de pouvoir facilement suivre l'arborescence des applications, vues, modules et composants également au sein du code SCSS, et notamment imbriquer les noms de classes pour éviter les effets de bord, le compilateur se chargera de fabriquer la hiérarchie nécessaire.
-
-Si par exemple nous avons un composant `rollingStockSelector` qui propose une liste de matériel `rollingStockList` représentés par des cartes `rollingStockCard` contenant une image représentant le matériel roulant `rollingStockImg` nous devrions avoir la structure SCSS suivante :
-
-```scss
-.rollinStockSelector {
-  .rollingStockList {
-    .rollingStockCard {
-      .rollingStockImg {
-        width: 50px;
-        height: auto;
-      }
-    }
-  }
-}
-```
-
-Ainsi, on a la garantie que l'image contenue dans la carte de matériel roulant héritera bien des bonnes propriétés css `.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg`.
+Il est donc très recommandé de pouvoir facilement suivre l'arborescence des applications, vues, modules et composants également au sein du code SCSS, et notamment imbriquer les noms de classes pour éviter les effets de bord.
 
 Quelques conventions supplémentaires:
 - toutes les tailles sont exprimées en px, sauf pour les polices que l'on exprime en rem.
+- nous utilisons la bibliothèque [classnames](https://github.com/JedWatson/classnames) pour appliquer conditionnellement des classes : les classes sont **séparées** chacune dans un `string` et les opérations booléennes ou autres sont réalisées dans un objet qui retournera —&nbsp;ou pas&nbsp;— le nom de propriété comme nom de classe à utiliser dans le CSS.
 
-#### CSS Modules
-
-Les CSS modules permettent de scoper les styles CSS à un composant spécifique, évitant ainsi les conflits de noms de classe globaux.
-
-Vite prend en charge nativement les CSS modules. Assurez-vous que votre fichier CSS a l'extension `.module.css`. Par exemple, `styles.module.css`.
-
-##### Utilisation des CSS modules dans les composants
-
-1. **Créez un fichier SCSS avec l'extension `.module.scss`** :
-
-```css
-/* MyComponent.module.scss */
-.container {
-  background-color: white;
-}
-
-.title {
-  font-size: 24px;
-  color: #333;
-}
-```
-
-2. **Utilisez les classes dans votre composant React** :
-
-Vite transforme les classes en objets qui contiennent les classes hashées (exemple `_container_h3d8bg`) et les utilise au moment de la génération du bundle, rendant ainsi les classes uniques.
-
-```tsx
-import React from "react";
-import styles from "./MyComponent.module.scss";
-
-export function MyComponent() {
-  return (
-    <div className={styles.container}>
-      <h1 className={styles["title"]}>Mon Titre</h1>
-    </div>
-  );
-}
-```
-
-Pour plus d'information, vous pouvez regarder la [documentation](https://vitejs.dev/guide/features.html#css-modules) de vite.js
-
-#### Noms de classes, utilisation de `cx()`
-
-Les classes sont ajoutées les unes à la suite des autres, normalement, dans la propriété `className=""`.
-
-Cependant, quand cela est nécessaire —&nbsp;tests pour l'utilisation d'une classe, concaténation, etc.&nbsp;— nous utilisons la bibliothèque [classnames](https://github.com/JedWatson/classnames) qui préconise l'usage suivant :
-
-```ts
-<div className="rollingStockSelector">
-  <div className="rollingStockList">
-    <div className="rollingStockCard w-100 my-2">
-      <img
-        className={cx("rollingStockImg", "m-2", "p-1", "bg-white", {
-          valid: isValid(),
-          selected: rollingStockID === selectedRollingStockID,
-        })}
-      />
-    </div>
-  </div>
-</div>
-```
-
-Les classes sont **séparées** chacune dans un `string` et les opérations booléennes ou autres sont réalisées dans un objet qui retournera —&nbsp;ou pas&nbsp;— le nom de propriété comme nom de classe à utiliser dans le CSS.
 
 ### Store/Redux
 
