@@ -82,65 +82,22 @@ When an endpoint call must be skipped because a variable is not defined, RTK's [
 Application translation is performed on [Weblate](https://hosted.weblate.org/projects/osrd/).
 
 
-### Imports must follow a specific order
+### Imports
 
-ESLint is setup to automatically sort imports in four import groups, each of them sorted in alphabetical order :
+It is recommended that you use the full path for each import, unless your import file is in the same directory.
+
+ESLint is setup to automatically sort imports in four import groups, each of them separated by an empty line and sorted in alphabetical order :
 
 - React
 - External libraries
 - Internal absolute path files
 - Internal relative path files
 
-Each of these groups will be separated by an empty line.
 
-ESLint will trigger a warning if you don't follow these guidelines.
-
-#### Import links must be absolute
-
-You must use the <u>full path</u> for all your imports.
-
-> Import links can be relative only if the file to be imported is in the same directory.
-
-## TypeScript
-
-### import & export
-
-ESLint and Typescript are setup to enforce typed imports for an exported type.
-
-This current setup allows to :
-
-- Auto typing the import when using a type in a file with autocompletion.
-- Getting 2 errors from each package asking to use type import if you didn't.
-
-When an `import` or `export` contains only types, indicate it with the `type` keyword.
-
-```typescript
-export type { Direction, DirectionalTrackRange as TrackRange };
-```
-
-```typescript
-import type { typedEntries, ValueOf } from "utils/types";
-```
-
-When an `import` contains not only types, it will be structured like below, in alphabetical order.
-
-```typescript
-import {
-  osrdEditoastApi,
-  type ScenarioCreateForm,
-} from "common/api/osrdEditoastApi";
-```
-
-This allows to:
-
+Regarding type imports/exports, ESLint and Typescript are configured to automatically add `type` before a type import, which allows to:
 - Improve the performance and analysis process of the compiler and the linter.
 - Make these declarations more readable; we can clearly see what we are importing.
-- Avoid dependency cycles:
-
-![dependency cycle](/images/docs/contribute/dependency-cycle.png)
-
-The error disappears with the `type` keyword
-
-![dependency cycle](/images/docs/contribute/dependency-cycle-gone.png)
-
 - Make final bundle lighter (all types disappear at compilation)
+- Avoid dependency cycles (ex: the error disappears with the `type` keyword)
+  ![dependency cycle](/images/docs/contribute/dependency-cycle.png) ![dependency cycle](/images/docs/contribute/dependency-cycle-gone.png)
+
