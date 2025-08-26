@@ -59,9 +59,12 @@ Some additional conventions:
 
 ### Store/Redux
 
-Everything that is _selector_ is managed by the **view** and passed as props to components and sub-components.
+The store allows you to store data that will be accessible anywhere in the application. It is divided into slices, which correspond to our applications.
 
-Consequently, read and write calls to the store must be made at view level, irrigating the components proposed by the view with _props_ and _states_.
+However, we must be careful that our store does not become a catch-all.
+Adding new properties to the store must be justified by the fact that the data in question is “high-level” and will need to be accessible from locations far from each other, and that a simple state or context variable is not appropriate for storing this information.
+
+For more details about redux, please refer to the [official documentation](https://redux.js.org/).
 
 ### Redux ToolKit (RTK)
 
