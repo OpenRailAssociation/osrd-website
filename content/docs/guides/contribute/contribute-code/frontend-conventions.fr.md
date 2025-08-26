@@ -84,65 +84,20 @@ Lorsqu'un appel d'endpoint doit être skip parce qu'une variable n'est pas défi
 La traduction de l'application est effectuée sur [Weblate](https://hosted.weblate.org/projects/osrd/).
 
 
-### Les imports doivent être triés d'une certaine manière
+### Imports
 
-ESLint est configuré pour trier automatiquement les imports en 4 groupes, chacun trié alphabétiquement :
+Il est recommandé d'utiliser le chemin complet pour chaque import, sauf si votre fichier à importer est dans le même répertoire.
+
+ESLint est configuré pour trier automatiquement les imports en 4 groupes, séparés par une ligne vide et chacun trié alphabétiquement :
 
 - React
 - Librairies externes
 - Fichiers internes en chemin absolu
 - Fichiers internes en chemin relatif
 
-Chacun de ces groupes est séparé par une ligne vide.
-
-ESLint déclenchera un avertissement si ces recommandations ne sont pas respectées.
-
-#### Les liens des imports doivent être absolus
-
-Vous devez utiliser le <u>chemin complet</u> pour tous vos imports.
-
-> Le chemin peut être relatif seulement si le fichier à importer est dans le même répertoire.
-
-## TypeScript
-
-### import & export
-
-ESLint et Typescript sont configurés pour imposer l'`import type` pour un import de type.
-
-Ceci permet de :
-
-- Automatiquement ajouter `type` devant l'import quand on ajoute un type avec l'autocomplétion dans un fichier.
-- Afficher 2 erreurs de chacun de ces packages demandant d'ajouter `type` devant l'import si vous ne l'avez pas fait.
-
-Lorsque qu’un `import` ou un `export` ne comporte que des types, il faut l’indiquer par le mot clé `type`.
-
-```typescript
-export type { Direction, DirectionalTrackRange as TrackRange };
-```
-
-```typescript
-import type { typedEntries, ValueOf } from "utils/types";
-```
-
-Quand un import ne contient pas que des types, il sera agencé de cette manière, par ordre alphabétique.
-
-```typescript
-import {
-  osrdEditoastApi,
-  type ScenarioCreateForm,
-} from "common/api/osrdEditoastApi";
-```
-
-Cette pratique permet de&nbsp;:
-
+Concernant l'import/export de types, ESLint et Typescript sont configurés de manière à ajouter automatiquement `type` devant un import de types, ce qui permet de:
 - Améliorer les performances et le travail d’analyse du compilateur et du linter.
 - Rendre ces déclarations plus lisibles, on voit clairement ce qu’on est en train d’importer.
-- Éviter des cycles de dépendances&nbsp;:
-
-![dependency cycle](/images/docs/contribute/dependency-cycle.png)
-
-L’erreur disparaît avec le mot clé `type`
-
-![dependency cycle](/images/docs/contribute/dependency-cycle-gone.png)
-
 - Alléger le bundle final (tous les types disparaissent à la compilation).
+- Éviter des cycles de dépendances (ex: l'erreur disparaît avec le mot clé `type`)
+  ![dependency cycle](/images/docs/contribute/dependency-cycle.png) ![dependency cycle gone](/images/docs/contribute/dependency-cycle-gone.png)
