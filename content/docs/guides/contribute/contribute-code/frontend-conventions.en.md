@@ -79,8 +79,7 @@ When an endpoint call must be skipped because a variable is not defined, RTK's [
 
 ### Translation
 
-Application translation is performed on [Transifex](https://explore.transifex.com/osrd/osrd/). The default language is French.
-If you add a new translation key, it can be added directly to the code, in all available languages. Please note that if you need to correct a translation, we recommend that you use Transifex, to avoid any conflict.
+Application translation is performed on [Weblate](https://hosted.weblate.org/projects/osrd/).
 
 ## Rules and important elements
 
