@@ -37,12 +37,6 @@ Enfin, un répertoire **common** qui propose :
 
 ## Principes d'implémentation
 
-### Routage & SLUG
-
-_Rédaction en cours_
-
-`projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}`
-
 ### Naming
 
 On utilise en général les conventions suivantes dans le code:
