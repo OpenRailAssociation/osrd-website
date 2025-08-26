@@ -84,19 +84,7 @@ Lorsqu'un appel d'endpoint doit être skip parce qu'une variable n'est pas défi
 La traduction de l'application est effectuée sur [Weblate](https://hosted.weblate.org/projects/osrd/).
 
 
-## Lois et éléments importants
-
-#### Aucun composant ne doit détenir la responsabilité de mise à jour de la donnée qu'il utilise
-
-Seules <u>les vues</u> contiennent les sélecteurs du store, donnés ensuite en props aux composants du module lié à la vue.
-
-#### Le SCSS n'est pas scopé
-
-Un fichier `.scss` enfoui dans l'arborescence ne vous garantit pas que les classes contenues soient seulement accessibles à cet endroit, y compris par import react (formellement interdit au passage : vous devez utiliser l'import SCSS), toutes les classes déclarées sont accessibles partout.
-
-Préférez un choix judicieux de nom de classe racine pour un module donné et utilisez l'arborescence possible dans le fichier SCSS.
-
-#### Les imports doivent être triés d'une certaine manière
+### Les imports doivent être triés d'une certaine manière
 
 ESLint est configuré pour trier automatiquement les imports en 4 groupes, chacun trié alphabétiquement :
 

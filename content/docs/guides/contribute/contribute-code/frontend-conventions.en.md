@@ -81,19 +81,8 @@ When an endpoint call must be skipped because a variable is not defined, RTK's [
 
 Application translation is performed on [Weblate](https://hosted.weblate.org/projects/osrd/).
 
-## Rules and important elements
 
-#### No component should be responsible for updating the data it uses
-
-Only <u>views</u> contain the store selectors, which are then given as props to the components of the module linked to the view.
-
-#### SCSS is not scoped
-
-A `.scss` file buried in the tree structure doesn't guarantee that the classes it contains can only be accessed there, even by importing react (formally forbidden by the way: you must use SCSS import), all declared classes are accessible everywhere.
-
-Prefer a judicious choice of root class name for a given module, and use the tree structure available in the SCSS file.
-
-#### Imports must follow a specific order
+### Imports must follow a specific order
 
 ESLint is setup to automatically sort imports in four import groups, each of them sorted in alphabetical order :
 
