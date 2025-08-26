@@ -50,91 +50,12 @@ The following conventions are generally used in the code:
 
 > WARNING: in CSS/React, the scope of a class does not depend on where the file is imported, but is valid for the entire application. If you import an `scss` file in the depths of a component (which we strongly advise against), its classes will be available to the whole application and may therefore cause side effects.
 
-It is therefore highly recommended to be able to easily follow the tree structure of applications, views, modules and components also within the SCSS code, and in particular to nest class names to avoid edge effects, as the compiler will take care of making the necessary hierarchy.
-
-If, for example, we have a `rollingStockSelector` component which proposes a list of rolling stock `rollingStockList` represented by `rollingStockCard` containing an image representing the rolling stock `rollingStockImg` we should have the following SCSS structure:
-
-```scss
-.rollinStockSelector {
-  .rollingStockList {
-    .rollingStockCard {
-      .rollingStockImg {
-        width: 50px;
-        height: auto;
-      }
-    }
-  }
-}
-```
-
-This ensures that the image contained in the rolling stock card inherits the correct css properties `.rollinStockSelector.rollingStockList.rollingStockCard.rollingStockImg`.
+It is therefore highly recommended to be able to easily follow the tree structure of applications, views, modules and components also within the SCSS code, and in particular to nest class names to avoid edge effects.
 
 Some additional conventions:
 - All sizes are expressed in px, except for fonts which are expressed in rem.
+- We use the [classnames library](https://github.com/JedWatson/classnames) to conditionally apply classes: each class is separated into a string, and Boolean or other operations are performed in an object that will return—or not—the property name as the class name to be used in CSS.
 
-#### CSS Modules
-
-CSS modules allow scoping CSS styles to a specific component, thereby avoiding conflicts with global class names.
-
-Vite natively supports CSS modules. Ensure that your CSS file has the `.module.css` extension, for example, `styles.module.css`.
-
-##### Using CSS Modules in Components
-
-1. **Create an SCSS file with the `.module.scss` extension**:
-
-```css
-/* MyComponent.module.scss */
-.container {
-  background-color: white;
-}
-
-.title {
-  font-size: 24px;
-  color: #333;
-}
-```
-
-2. **Use the classes in your React component**:
-
-Vite transforms classes into objects that contain hashed classes (e.g., `_container_h3d8bg`) and uses them during bundle generation, making the classes unique.
-
-```tsx
-import React from "react";
-import styles from "./MyComponent.module.scss";
-
-export function MyComponent() {
-  return (
-    <div className={styles.container}>
-      <h1 className={styles["title"]}>My Title</h1>
-    </div>
-  );
-}
-```
-
-For more information, you can refer to the [Vite.js documentation](https://vitejs.dev/guide/features.html#css-modules).
-
-#### Class names, using `cx()`.
-
-Classes are normally added one after the other, in the `className=""` property.
-
-However, when necessary -&nbsp;class usage tests, concatenation, etc.&nbsp;- we use the [classnames library](https://github.com/JedWatson/classnames), which recommends the following usage:
-
-```ts
-<div className="rollingStockSelector">
-  <div className="rollingStockList">
-    <div className="rollingStockCard w-100 my-2">
-      <img
-        className={cx("rollingStockImg", "m-2", "p-1", "bg-white", {
-          valid: isValid(),
-          selected: rollingStockID === selectedRollingStockID,
-        })}
-      />
-    </div>
-  </div>
-</div>
-```
-
-Classes are **separated** each in a `string` and Boolean or other operations are performed in an object that will return -&nbsp;or not&nbsp;- the property name as the class name to be used in CSS.
 
 ### Store/Redux
 
