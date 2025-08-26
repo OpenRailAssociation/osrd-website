@@ -81,8 +81,8 @@ Lorsqu'un appel d'endpoint doit être skip parce qu'une variable n'est pas défi
 
 ### Traduction de l'application
 
-La traduction de l'application est effectuée sur [Transifex](https://explore.transifex.com/osrd/osrd/). La langue par défaut est le français.
-A noter que si l'on doit corriger une traduction, il est recommandé de passer par Transifex. En revanche, si on ajoute une nouvelle clé de traduction, celle-ci peut être ajoutée dans le code directement, dans toutes les langues disponibles.
+La traduction de l'application est effectuée sur [Weblate](https://hosted.weblate.org/projects/osrd/).
+
 
 ## Lois et éléments importants
 
