@@ -142,129 +142,16 @@ Everything that is _selector_ is managed by the **view** and passed as props to 
 
 Consequently, read and write calls to the store must be made at view level, irrigating the components proposed by the view with _props_ and _states_.
 
-### RTK
+### Redux ToolKit (RTK)
 
-Use generated endpoints from `openapi.yaml` files to consume the backend.
+We use [Redux ToolKit](https://redux-toolkit.js.org/) to make our calls to the backend.
 
-#### Operation of RTK Query cache
+RTK allows you to make API calls and cache responses. For more details, please refer to the [official documentation](https://redux-toolkit.js.org/rtk-query/overview).
 
-When the data is retrieved from the back, RTK is caching it into the store. If the same endpoint is called again with same parameters, RTK will use the cache data instead of making a new call to the back.
+The backend endpoints and types are generated directly from the editoast open API and stored in `generatedOsrdApi` (using the `npm run generate-types` command). This generated file is then enriched with other endpoints or types in `osrdEditoastApi`, which can be used in the application. Note that it is possible to transform mutations into queries when generating `generatedOsrdApi` by modifying the `openapi-editoast-config` file.
 
-In the store, you will see the `editoastApi` key containing the cached data of all editoast endpoints:
+When an endpoint call must be skipped because a variable is not defined, RTK's [skipToken](https://redux-toolkit.js.org/rtk-query/usage-with-typescript#skipping-queries-with-typescript-using-skiptoken) is used to avoid having to use casts.
 
-![store Redux](/images/docs/contribute/store-redux-main.png)
-
-Here for example, the `getProjects` endpoint is called.
-
-RTK stores the endpoint's name, as well as the call's parameters, to form an unique key `nomDuEndpoint({ parameter })`. (here `getProjects({"ordering":"LastModifiedDesc","pageSize":1000})`).
-
-```js
-{
-  'getProjectsByProjectIdStudiesAndStudyId({"projectId":13,"studyId":16})': {
-    status :"fulfilled",
-    etc…
-  },
-  'getProjectsByProjectIdStudiesAndStudyId({"projectId":13,"studyId":14})': {
-    …
-  }
-}
-```
-
-In this second example, the same endpoint has been called with the same `projectId` parameter, but a different `studyId` parameter.
-
-##### Serialization of keys in the cache
-
-The strings used as keys in the cache are essentially the parameter object passed through the `JSON.stringify` function, which converts a JS object into a string (thus serialized).
-
-Normally, serialization does not preserve the order of object keys. For example, `JSON.stringify` will not produce the same string with these two objects: `{ a: 1, b: 2 }` and `{ b: 2, a: 1 }`.
-
-RTK will optimize caching by ensuring that the result of a call with `{"projectId":13,"studyId":16}` or `{"studyId":16, "projectId":13}` is stored under the same key in the cache.
-
-To see the detailed operation, here is the code for this serialization function:
-
-<details>
-  <summary>RTK Serialization Function</summary>
-
-```js
-const defaultSerializeQueryArgs: SerializeQueryArgs<any> = ({
-    endpointName,
-    queryArgs,
-  }) => {
-    let serialized = ''
-
-    const cached = cache?.get(queryArgs)
-
-    if (typeof cached === 'string') {
-      serialized = cached
-    } else {
-      const stringified = JSON.stringify(queryArgs, (key, value) =>
-        isPlainObject(value)
-          ? Object.keys(value)
-              .sort() // keys are reordered here
-              .reduce<any>((acc, key) => {
-                acc[key] = (value as any)[key]
-                return acc
-              }, {})
-          : value
-      )
-      if (isPlainObject(queryArgs)) {
-        cache?.set(queryArgs, stringified)
-      }
-      serialized = stringified
-    }
-    // Sort the object keys before stringifying, to prevent useQuery({ a: 1, b: 2 }) having a different cache key than useQuery({ b: 2, a: 1 })
-    return `${endpointName}(${serialized})`
-  }
-```
-
-</details>
-
-##### Data subscription
-
-In RTK Query terminology, when a React component calls an endpoint defined in RTK Query, it _subscribes_ to the data.
-
-RTK counts the number of references to the same pair (endpoint, {parameters}). When two components subscribe to the same data, they share the same key in the cache.
-
-```ts
-import { osrdEditoastApi } from "./api.ts";
-
-function Component1() {
-  // component subscribes to the data
-  const { data } = osrdEditoastApi.useGetXQuery(1);
-
-  return <div>...</div>;
-}
-
-function Component2() {
-  // component subscribes to the data
-  const { data } = osrdEditoastApi.useGetXQuery(2);
-
-  return <div>...</div>;
-}
-
-function Component3() {
-  // component subscribes to the data
-  const { data } = osrdEditoastApi.useGetXQuery(3);
-
-  return <div>...</div>;
-}
-
-function Component4() {
-  // component subscribes to the *same* data as ComponentThree,
-  // as it has the same query parameters
-  const { data } = osrdEditoastApi.useGetXQuery(3);
-
-  return <div>...</div>;
-}
-```
-
-Here, `Component3` and `Component4` will generate only one call to the backend. They subscribe to the same data (same endpoint and same parameter `3`). They will share the same key in the cache.
-
-In total, there will be three calls to the backend here, with parameters `1`, `2`, and `3`.
-
-As long as at least one mounted React component calls the `osrdEditoastApi.endpoints.getProjectsByProjectId.useQuery` hook, for example, the data will be retained in the cache.
-
-Once the last component is unmounted, the data is removed from the cache after 60 seconds (default value).
 
 ### Translation
 
