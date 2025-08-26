@@ -37,12 +37,6 @@ Last but not least, a **common** directory offering :
 
 ## Implementation principles
 
-### Routing & SLUG
-
-_In progress_
-
-`projects/{project's name}/studies/{study's name}/scenarios/{scenario's name}`
-
 ### Naming
 
 The following conventions are generally used in the code:
