@@ -1,7 +1,7 @@
 ---
 title: "BA"
 linkTitle: "BA"
-weight: 10 000
+weight: 10_000
 description: Block Automatique
 ---
 
