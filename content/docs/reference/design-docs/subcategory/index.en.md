@@ -2,14 +2,16 @@
 title: "Sub category"
 linkTitle: "Sub category"
 weight: 60
-description: "Describes the sub-category model and its relation to train schedules and paced trains."
+description: "Sub categories help organize and visually distinguish train schedules and paced trains when displayed in OSRD and NGE."
 ---
 
 ## Introduction
 
-Sub categories are created via a dedicated API. Each sub category has a name and a unique code, as well as visual properties like **color**, **hovered_color**, and **background_color**.
-Each sub category is associated with a parent main category.
-Both **TrainSchedules** and **PacedTrains** can specify either a **main_category** or a user-defined **sub_category_code**.
+Sub categories are created via a dedicated API. Each sub category includes:
+
+  - A name and a unique code,
+  - Visual properties like **color**, **hovered_color**, and **background_color**,
+  - A link to a parent main category.
 
 ### SubCategory model
 
@@ -21,6 +23,23 @@ color: "#FF0000"
 hovered_color: "#FFA500"
 background_color: "#FFD700"
 ```
+
+## Main Train Category in Rolling Stocks
+
+The main train category defines the general type or purpose of a train.
+It is used to classify trains into broad groups such as:
+  - HighSpeedTrain – for long-distance high-speed services
+  - FreightTrain – for goods and cargo transportation
+  - ...
+
+The RollingStock model includes a primary_category field to indicate which main category it belongs to:
+```yml
+primary_category: "HIGH_SPEED_TRAIN"
+```
+
+This category helps ensure consistency between the train schedule and the rolling stock, and is also used for visual display and filtering in the UI.
+
+⚠️ If a train schedule or paced train specifies a main category, or a sub category whose parent category differs from the rolling stock’s primary category, a warning is displayed.
 
 ### Train Schedule & Paced Train Category
 
@@ -38,9 +57,9 @@ category:
   sub_category_code: "RER"
 ```
 
-Only one of the two can be defined at a time, or both can be absent.
+Both **TrainSchedules** and **PacedTrains** can specify either a **main category** or a user-defined **sub category**.
 
-If a referenced sub category is deleted, the affected train schedules or paced trains will automatically fall back to the sub category’s associated **main_category**.
+When a subcategory is deleted, any train schedules and paced trains using it will automatically fall back to its associated parent category.
 
 ## Sub categories Api
 
