@@ -61,6 +61,8 @@ Both **TrainSchedules** and **PacedTrains** can specify either a **main category
 
 When a subcategory is deleted, any train schedules and paced trains using it will automatically fall back to its associated parent category.
 
+![sub category diagram](sub_category.svg)
+
 ## Sub categories Api
 
 ### Create sub categories
