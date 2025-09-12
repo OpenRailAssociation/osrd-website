@@ -43,6 +43,15 @@ _Rédaction en cours_
 
 `projects/{nom du projet}/studies/{nom de l'étude}/scenarios/{nom du scenario}`
 
+### Naming
+
+On utilise en général les conventions suivantes dans le code:
+- les composants et les types sont en PascalCase
+- les variables sont en camelCase
+- les clés de traduction sont en camelCase également
+- les constantes sont en SCREAMING_SNAKE_CASE (sauf cas particulier)
+- les classes css sont en kebab-case
+
 ### Styles & SCSS
 
 > ATTENTION : en CSS/React, le scope d'une classe ne dépend pas de l'endroit où le fichier est importé mais est valide pour toute l'application. Si vous importez un fichier `scss` au fin fond d'un composant (ce que nous déconseillons fortement par ailleurs), ses classes seront disponibles pour toute l'application et peuvent donc provoquer des effets de bord. Vous pouvez utiliser les CSS modules pour éviter les conflits.
