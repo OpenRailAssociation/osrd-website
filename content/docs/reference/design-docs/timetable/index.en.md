@@ -7,7 +7,7 @@ description: "Describes evolutions to the new **timetable** and **train schedule
 
 ![Test](timetable.svg)
 
-##  Design decisions
+## Design decisions
 
 Some major changes were made between our first version of the timetable and the new one:
 
@@ -183,8 +183,18 @@ comfort: AIR_CONDITIONING # or HEATING, default STANDARD
 options:
   # Should we use electrical profiles to select rolling stock speed effort curves
   use_electrical_profiles: true
-```
 
+# Category defines the type of train.
+# It can be either a predefined main category (like high-speed or freight),
+# or a custom sub-category referenced by its code.
+# Only one of the two options must be provided.
+category:
+  main_category: "HIGH_SPEED_TRAIN"
+
+# or sub category code
+category:
+  sub_category_code: "RER"
+```
 
 # Combining margins and schedule
 
@@ -248,13 +258,113 @@ During simulation, **if a target arrival time cannot be achieved, the rest of th
 
 ## Paced Train
 
-The paced Train model in OSRD is represented almost like a Train Schedule with the addition of 2 fields: 
-- `step: Duration (ISO 8601)` corresponds to the delay between each train
-- `duration: Duration (ISO 8601)` which corresponds to the total duration of the mission.
+The Paced Train in OSRD is a way to generate multiple trains at regular intervals over a defined time window.
+
+It extends a standard TrainSchedule with the following additional fields:
+
+- interval: Duration (ISO 8601) – the time between two consecutive trains (e.g., PT15M for one train every 15 minutes).
+- time_window: Duration (ISO 8601) – the total duration during which the trains are repeated (e.g., PT1H for a total of 1 hour).
+- [exceptions](#exceptions): List of exceptions
+
+```yml
+paced:
+  interval: "PT30M"
+  time_window: "PT1H"
+exceptions: []
+```
 
 ## Example
 
-A mission with a step of 15 min and a duration of 2 hours will see 8 trains running from the departure time.
+- start_time = 08:00
+- interval = PT15M
+- time_window = PT1H
+
+A mission with a step of 15 min and a duration of 1 hour will see 4 trains running from the departure time.
+This will generate four base trains at 08:00, 08:15, 08:30, and 08:45.
+
+### Exceptions
+
+Paced Trains support exceptions, which allow modifying the base schedule in flexible ways.
+Each exception is identified by a unique key and can be of the following types:
+
+- Modified: changes a specific base occurrence (e.g., change the train name or start time at index 2).
+- Created: adds a new train outside the regular base schedule (e.g., an extra train at 08:10).
+- Disabled: allows disabling the effect of an occurrence.
+
+#### Modified exceptions:
+
+A modified exception alters an occurrence generated from the interval-based schedule.
+- Identified by the presence of the **occurrence_index** field.
+- Can include one or more change groups to override train schedule properties.
+- Requires a unique key.
+- Can be disabled using the disabled flag.
+
+```yaml
+key: "exception_1"
+occurrence_index: 1
+disabled: false
+# changes groups
+```
+
+#### Created exceptions
+
+Created exceptions are user-defined exceptions that add a new train outside the occurrences generated from the intervals. They are distinguished by the absence of the **occurrence_index** field.
+
+```yaml
+key: "exception_2"
+disabled: false
+# changes groups
+```
+
+### Change Groups
+
+Each exception can optionally include one or more **change groups**. A change group represents a structured override for part of the train schedule.
+
+- If a change group is not present, the value from the base schedule is used.
+- If a field is provided in the change group but left empty, the corresponding field in the schedule will be unset.
+- Otherwise, the change group’s value will override the base schedule.
+
+[See train schedule modifiable fields for more details](#modifiable-fields)
+
+```yaml
+train_name:
+  value: "New Train Name" # Override the train's name
+
+rolling_stock:
+  rolling_stock_name: "R2D2"
+  comfort: "STANDARD" # Override rolling stock and comfort class
+
+rolling_stock_category:
+  value:
+    main_category: "HIGH_SPEED_TRAIN" # Override the train main category
+    # OR (mutually exclusive)
+    sub_category_code: "RER" # Override the sub category (e.g., RER)
+
+labels:
+  value: ["tchou-tchou", "choo-choo"]
+
+speed_limit_tag:
+  value: "MA100"
+
+start_time:
+  value: "2024-05-22T08:10:00Z" # Override the train’s departure time
+
+constraint_distribution:
+  value: "MARECO" # Override planning constraints (e.g., safety margins)
+
+initial_speed:
+  value: 2.5 # Override the initial speed in m/s
+
+options:
+  value:
+    use_electrical_profiles: false
+
+path_and_schedule: # Override path, schedule, margins and power_restrictions fields
+  path:
+  schedule:
+  margins:
+  power_restrictions:
+```
 
 ## Endpoints
 
