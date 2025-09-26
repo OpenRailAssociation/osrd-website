@@ -1,0 +1,5 @@
+<div class="row justify-content-center row-gap-5 px-5 cards-topic">
+  {{ range index site.Data.topics site.Language.Lang}}
+    {{ partial "topic_card.html" . }}
+  {{ end }}
+</div>
