@@ -31,8 +31,17 @@ $secondary: $osrd-dark-blue;
 }
 
 .td-navbar {
-  background: $osrd-dark-blue !important;
+  background: white !important;
+
+  .container-fluid{
+    padding-inline: 41px;
+  }
+
+  .td-search {
+    display: none;
+  }
 }
+
 .td-sidebar-nav .td-sidebar-link.tree-root {
   color: $osrd-dark-blue !important;
   border-color: $osrd-dark-blue !important;
@@ -65,9 +74,8 @@ a.navbar-brand {
   }
   .navbar-logo {
     svg {
-      height: 22px !important;
-      width: auto;
-      margin: 0 5px;
+      height: 40px;
+      margin: 0;
     }
   }
 }
