@@ -7,6 +7,9 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 
 À compléter : ouvrez une issue en cas de mot manquant
 
+Voir aussi [le glossaire relatif à ERTMS/ETCS][etcs] contenant de nombreux
+acronymes qui ne sont pas recensés ici.
+
 ### A
 
 - **ADV** : Appareil de voie
@@ -145,3 +148,5 @@ France (voir UIC pour l'international)
 ### Z
 
 - **ZEP** : Zone élémentaire de protection : la plus petite portion de voie pouvant être fermée pour des travaux
+
+[etcs]: https://www.era.europa.eu/system/files/2023-01/sos3_index003_-_subset-023_v330.pdf
