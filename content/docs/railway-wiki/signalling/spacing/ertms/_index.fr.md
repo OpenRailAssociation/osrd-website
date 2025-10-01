@@ -1,7 +1,7 @@
 ---
 title: "ERTMS"
 linkTitle: "ERTMS"
-weight: 20 000
+weight: 20_000
 description: European Rail Traffic Management System
 ---
 
