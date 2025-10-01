@@ -24,6 +24,9 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 
 - **CAPI** : Cantonnement assisté par informatique
 - **CC** : Commande et contrôle
+- **CH** : Code chantier
+- **CI** : Code immuable : identifie un Point Remarquable (PR) de manière unique en
+France (voir UIC pour l'international)
 - **COVIT** : Contrôle de vitesse
 - **CT** : Cantonnement téléphonique
 
@@ -125,6 +128,10 @@ description: Glossaire thématique d'OSRD et du ferroviaire
 - **TR** : Trip : mode technique de circulation entraînant une application irréversible du freinage d’urgence par le système ETCS jusqu’à l’arrêt du train
 - **TSCS** : Tableau lumineux de sortie à contre sens
 - **TVM** : Transmission voie machine
+
+### U
+
+- **UIC** : Union Internationale des Chemins de fer : utilisé également comme un code international pour désigner un Point Remarquable (PR) ; par exemple, le code CI préfixé par 87 (code pour la France) est un code UIC.
 
 ### V
 
