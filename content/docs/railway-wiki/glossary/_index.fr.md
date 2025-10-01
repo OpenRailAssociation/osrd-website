@@ -95,6 +95,7 @@ France (voir UIC pour l'international)
 
 ### P
 
+- **PER** : Plan d'exploitation de référence
 - **PI ETCS** : Point d’information ETCS : constitué d’une ou plusieurs balises transmettant des informations vers le bord (par exemple PI avancé ou PI signal)
 - **PK** : Point Kilométrique : position géographique basée sur un RK (Repère Kilométrique)
 - **PL** : Pleine ligne
