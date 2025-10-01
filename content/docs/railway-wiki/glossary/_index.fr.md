@@ -22,6 +22,7 @@ acronymes qui ne sont pas recensés ici.
 - **BM** : Block manuel
 - **BMCV** : BM par circuit de voie
 - **BMVU** : BM de voie unique
+- **BP/CC** : Baisser Pantographe/Couper Courant
 
 ### C
 
