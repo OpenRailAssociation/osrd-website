@@ -123,6 +123,7 @@ France (voir UIC pour l'international)
 - **SR** : Staff responsible (responsabilité agent) : mode technique de circulation utilisé dans les situations dégradées. Il est utilisable sous la responsabilité respective de l’agent-circulation et du conducteur
 - **SR** : Système de repérage
 - **SRV** : Système de repérage voie : métadonnées et anomalies (données correctives) permettant de faire des calculs de distance entre deux PKs sur une voie
+- **STDCM** : Short-term digital capacity management (recherche de sillons de dernière minute), désigne la fonctionnalité de Last Minute Request
 - **STM** : Specific transmission module (Module spécifique de transmission) : ce dispositif permet à l’ETCS d’utiliser un système de signalisation national
 
 ### T
