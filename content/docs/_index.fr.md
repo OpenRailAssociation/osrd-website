@@ -1,8 +1,11 @@
 ---
 title: "Documentation"
 linkTitle: "Documentation"
-weight: 30
-menu: {main: {weight: 30}}
+menu: 
+  main:
+    weight: 30
+  footer:
+    weight: 30
 cascade:
 - type: docs
 ---
