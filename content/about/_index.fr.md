@@ -1,9 +1,11 @@
 ---
 title: À propos
 linkTitle: À propos
-menu:
+menu: 
   main:
-    weight: 10
+      weight: 10
+  footer:
+      weight: 10
 cascade:
   - type: docs
 ---

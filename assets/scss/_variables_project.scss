@@ -132,5 +132,43 @@ header > nav{
 
 /* FOOTER OVERRIDE */
 footer {
-  background-color: $primary !important;
+  background-color: $primary;
+  color: white;
+  padding-bottom: 82px;
+  font-size: 14px;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .footer-left {
+    margin-top: 46px;
+    .footer-title {
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .footer-nav {
+      ul {
+        padding-left: 0;
+        margin-block: 50px 0;
+        
+        li{
+          list-style: none;
+        }
+      }
+    }
+  }
+
+  .footer-right {
+    margin-top: 162px;
+    a {
+      font-weight: 500;
+    }
+  }
 }
