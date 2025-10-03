@@ -1,4 +1,5 @@
-baseURL = "https://osrd.fr/"
+#baseURL = "https://osrd.fr/"
+baseURL = "https://emersion.github.io/osrd-website"
 title = "OSRD"
 
 # Language settings
@@ -122,7 +123,7 @@ version = "0.0"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://osrd.fr"
+url_latest_version = "https://emersion.github.io/osrd-website"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
 github_repo = "https://github.com/OpenRailAssociation/osrd-website"
