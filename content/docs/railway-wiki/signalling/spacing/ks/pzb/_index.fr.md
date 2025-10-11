@@ -1,6 +1,6 @@
 ---
-title: "Signalisation Ks"
-linkTitle: "Signalisation Ks"
+title: "Punktförmige Zugbeeinflussung (PZB)"
+linkTitle: "Punktförmige Zugbeeinflussung (PZB)"
 weight: 30_000
 ---
  
