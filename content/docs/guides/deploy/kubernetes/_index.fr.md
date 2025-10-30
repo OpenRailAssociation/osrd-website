@@ -12,8 +12,9 @@ La Helm Chart du projet OSRD fournit une solution pour déployer les services OS
 Avant de procéder au déploiement, assurez-vous que vous avez installé :
 
 - Un cluster Kubernetes opérationnel
-- Une base de données PostgreSQL avec PostGIS
+- Une base de données PostgreSQL avec les extensions PostGIS, unaccent et pg_trgm installées
 - Un serveur Valkey (utilisé pour le cache)
+- Un server Rabbitmq (utilisé pour l'échange de messages)
 
 ## Stateful editoast
 
