@@ -11,8 +11,9 @@ The OSRD project's Helm Chart provides a flexible and efficient way to deploy OS
 
 Before proceeding with the deployment, ensure that you have the following installed:
 - A Kubernetes cluster up and running
-- A PostgreSQL database with PostGIS
+- A PostgreSQL database with PostGIS, unaccent, and pg_trgm extensions installed
 - A Valkey server (used for caching)
+- A Rabbitmq server (used for message exchange)
 
 ## Stateful editoast
 
