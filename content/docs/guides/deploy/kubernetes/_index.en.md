@@ -80,8 +80,8 @@ The Helm Chart is configurable through the following values:
 ## Deployment
 
 The chart is available at ghcr OCI repository. You can find 2 Helm charts:
- - [Stable charts](https://github.com/OpenRailAssociation/osrd-chart/pkgs/container/charts%2Fosrd): `oci://ghcr.io/OpenRailAssociation/charts/osrd`
- - [Dev charts](https://github.com/OpenRailAssociation/osrd-chart/pkgs/container/charts%2Fosrd-dev): `oci://ghcr.io/OpenRailAssociation/charts/osrd-dev`
+ - [Stable charts](https://github.com/openrailassociation/osrd-chart/pkgs/container/charts%2Fosrd): `oci://ghcr.io/openrailassociation/charts/osrd`
+ - [Dev charts](https://github.com/OpenRailAssociation/osrd-chart/pkgs/container/charts%2Fosrd-dev): `oci://ghcr.io/openrailassociation/charts/osrd-dev`
 
 To deploy the OSRD services using this Helm Chart:
 
@@ -89,5 +89,5 @@ To deploy the OSRD services using this Helm Chart:
 2. **Install Chart**: Use Helm to install the chart into your Kubernetes cluster.
 
    ```bash
-   helm install osrd oci://ghcr.io/OpenRailAssociation/charts/osrd -f values.yml
+   helm install osrd oci://ghcr.io/openrailassociation/charts/osrd -f values.yml
    ```
