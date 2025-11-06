@@ -27,7 +27,6 @@ Planned operations can be disrupted if a train is slowed down, prevented from pr
 &lt;ul>
 &lt;li>&lt;code>front&lt;/code>: easy to keep consistent during edition&lt;/li>
 &lt;li>&lt;code>front&lt;/code>: intermediate invalid states than can be reached during edition have to be encodable&lt;/li>
-&lt;li>&lt;code>front&lt;/code>: when deleting a waypoint that is referenced by margins, the position of the deleted waypoint within the path must be preserved until the situation is resolved&lt;/li>
 &lt;li>&lt;code>import&lt;/code>: path waypoint locations can be specified using UIC operational point codes&lt;/li>
 &lt;li>&lt;code>import&lt;/code>: support fixed scheduled arrival times at stops and arbitrary points&lt;/li>
 &lt;li>&lt;code>import&lt;/code> &lt;code>edition&lt;/code>: train schedules must be self-contained: they cannot be described using the result of pathfinding or simulations&lt;/li>
