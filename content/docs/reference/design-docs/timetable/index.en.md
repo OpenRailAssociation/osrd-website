@@ -24,7 +24,6 @@ Some major changes were made between our first version of the timetable and the 
 
 - `front`: easy to keep consistent during edition
 - `front`: intermediate invalid states than can be reached during edition have to be encodable
-- `front`: when deleting a waypoint that is referenced by margins, the position of the deleted waypoint within the path must be preserved until the situation is resolved
 - `import`: path waypoint locations can be specified using UIC operational point codes
 - `import`: support fixed scheduled arrival times at stops and arbitrary points
 - `import` `edition`: train schedules must be self-contained: they cannot be described using the result of pathfinding or simulations
@@ -41,14 +40,6 @@ It was decided to add identifiers to path waypoints, and to reference those iden
 - when changing a waypoint's location, for example from one station's platform to another, no additional work is needed to keep the path consistent
 - if a path goes to the same place multiple times, the identifier reference makes it clear which path location is referenced
 - it makes keeping data consistent while editing easier, as all locations are kept in a single place
-
-### Invalid train schedules and soft deletes
-
-If a user deletes a waypoint, what happens? Is it the front-end's responsibility to only save valid schedules, or can invalid schedules be represented in the data model? We decided that it wasn't just the front-end's responsibility, as we want to be able to model inconsistent states, until the user comes back to fix it.
-
-One key observation was that we do not want to lose the ability to locate within the path waypoints that were deleted, until all references are gone. How is the front-end supposed to display margin bounds or stops for a waypoint that's gone, if it's not there anymore?
-
-We thus decided to add a `deleted` soft-delete flag to waypoints. When this flag is set, the back-end runs simulations on the path, but still allows saving it. Once all references to a deleted waypoint are gone, it can be removed from the path. The backend can deny train schedules with stale deleted waypoints.
 
 ### Separating path and stops
 
@@ -80,7 +71,6 @@ We also discussed whether to use seconds or ISO 8601 durations. In the end, ISO 
 
 Reasons for a train schedule to be **invalid**:
 
-- Inconsistent train schedule (contains deleted waypoint)
 - Rolling stock not found
 - Path waypoint not found
 - The path cannot be found
@@ -128,7 +118,7 @@ start_time: "2023-12-21T08:51:11.914897+00:00"
 path:
  - {id: a, uic: 87210} # Any operational point matching the given uic
  - {id: b, track: foo, offset: 10000} # 10m on track foo
- - {id: c, deleted: true, trigram: ABC} # Any operational point matching the trigram ABC
+ - {id: c, trigram: ABC} # Any operational point matching the trigram ABC
  - {id: d, operational_point: X} # A specified operational point
 
 # the algorithm used for distributing margins and scheduled times
@@ -138,7 +128,6 @@ constraint_distribution: MARECO # or LINEAR
 # we don't supports months and years duration since it's ambiguous
 # times are defined as time elapsed since start. Even if the attribute is omitted,
 # a scheduled point at the starting point is inferred to have departure=start_time
-# the "locked" flag is ignored by the backend.
 #
 # To specify signal's state on stop's arrival, you can use the "reception_signal" enum:
 #   - OPEN: arrival on open signal, will reserve resource downstream of the signal.
@@ -152,10 +141,10 @@ constraint_distribution: MARECO # or LINEAR
 #      This is used automatically for any stop before a buffer-stop.
 #      This is also the default use for STDCM stops, as it is the most restrictive.
 schedule:
- - {at: a, stop_for: PT5M, locked: true} # inferred arrival to be equal to start_time
+ - {at: a, stop_for: PT5M} # inferred arrival to be equal to start_time
  - {at: b, arrival: PT10M, stop_for: PT5M}
  - {at: c, stop_for: PT5M}
- - {at: d, arrival: PT50M, locked: true, reception_signal: SHORT_SLIP_STOP}
+ - {at: d, arrival: PT50M, reception_signal: SHORT_SLIP_STOP}
 
 margins:
   # This example encodes the following margins:
