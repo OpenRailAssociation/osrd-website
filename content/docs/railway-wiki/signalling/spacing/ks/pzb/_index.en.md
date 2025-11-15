@@ -1,6 +1,6 @@
 ---
 title: "Punktförmige Zugbeeinflussung (PZB)"
-linkTitle: "Punktförmige Zugbeeinflussung (PZB)"
+linkTitle: "PZB"
 weight: 30_000
 ---
 
@@ -46,7 +46,7 @@ Three types of track magnets are used, each operating at a distinct frequency (*
 
 {{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_Magnets.png" width="740px" >}}
 
-On combinationsignals (see [Ks Signalling](../_index.en.md/)) there are double-track magnets with frequencies of 1000 and 2000 Hz combined.
+On combination signals (see [Ks Signalling](../_index.en.md/)) there are double-track magnets with frequencies of 1000 and 2000 Hz combined.
 
 The picture below shows an distant signal with the aspect *Ks 2* and the 1000 Hz magnet to the left of the signal.
 
@@ -65,6 +65,7 @@ The onboard system receives inductive signals from the track magnets and monitor
 If the driver fails to acknowledge or reduce speed as required, the system triggers an **automatic emergency brake** until a full stop.
 
 ## Train types
+
 PZB makes a distinction between three train types (german: Zugart): O, M, U
 - O = Upper train type (german: Obere Zugart)
 - M = Middle train type (german: Mittlere Zugart)
@@ -103,7 +104,8 @@ The supervised values depending on the train type are as follows:
 | Braking curve of 500 Hz influence | from 65 to 45 km/h within 153 m | from 50 to 35 km/h within 153 m | from 40 to 25 km/h within 153 m |
 
 ## Supervision Curves
-The basic principle of the supervision curves in PZB is shown in the following illustration
+
+The basic principle of the supervision curves in PZB is shown in the following illustration:
 
 {{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_Braking_Curve_Principle.png" width="740px" >}}
 
@@ -114,9 +116,11 @@ The values in the table above result in the following six supervision curves for
 {{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_Supervision_Curves.png" width="740px" >}}
 
 ## Release from 1000 Hz supervision
-700 m after the 1000 Hz influence the train driver can release from the 1000 Hz influence if the main signal has turned to *Ks 1* again in the meantime. In this case he can accelerate again to the maximum permitted speed.
+
+700 m after the 1000 Hz influence the train driver can stop braking if the main signal has turned back to *Ks 1* in the meantime. In this case he can accelerate again to the maximum permitted speed.
 
 ## Restrictive Mode
+
 If a train stops while a PZB supervision is active, or if its speed drops below the **switching speed** of 10 km/h for at least 15 seconds, **more restrictive supervision curves** are activated. 
 
 In this **restrictive mode**, the 1000 Hz supervision curve is lowered to a maximum permissible speed of **45 km/h**.  
@@ -136,33 +140,78 @@ This guarantees that even under human error or distraction, train operations rem
 
 ## Assumptions for a simplified OSRD-Model
 
+- The supervision curves are only used for calculating the deceleration values. They are not modelled in OSRD.
+- The PZB braking curve is modeled for each train type with two constant decelerations \\(a_{type,1}\\) and \\(a_{type,0,5}\\). The deceleration is used for braking to a full stop, for slowdowns and for spacing and routing requirements. In the case of slowdowns, once the target speed is reached, the train continues in steady-state running at the target speed.
+    - \\(a_{type,1}\\) corresponds to a deceleration that brakes the train from the maximum speed applicable to the train type \\(v_{type,max}\\) down to below the check speed of the 500 Hz condition \\(v_{type,check,0,5}\\) (1000 Hz phase)
+    - \\(a_{type,0,5}\\) corresponds to a deceleration that brings the from the speed below the check speed \\(v_{type,res,0,5}\\) to a full stop within the distance between the 500 Hz Magnet and the associated main signal (500 Hz phase)
+
+- There is no infrastructure model for magnets in OSRD. The modeling is therefore based on signal locations.
+- A constant distance of \\(s_{0,5}=260 \ m\\) is assumed as fictitious trigger of the 500 Hz phase.
+- A distant signal spacing of \\(s_{distant}=1000 \ m \\) is assumed.
+- A sighting distance for distant signal of \\(s_{sight}=300 \ m\\)
 - Modeling emergency braking is not necessary, as an ideal driving curve is simulated.
 - Modeling the restrictive modes is not necessary, since an ideal driver behavior is simulated.
-- There is no infrastructuremodel for magnets in OSRD. PZB logic is based on the position of the signals.
-- The braking curve for a train is assumed to be constant over the whole braking distance.
-- There are no overlaps implemented yet (no direct effect on braking curve, but affects blocking time since the train brakes a bit earlier than with overlaps).
-- The distance between distant and main signal is assumed to be 1000 m.
-- The sighting distance for a distant signal is 300 m.
-- The train starts braking when he sees the distant signal with the aspect *Ks 2* (expect stop).
-- The constant deceleration is used for braking to a full stop, for speed changes and for the spacing and routing requirements.
-- A train can release from braking 700 m behind the distant signal if the main signal shows *Ks 1*
-- The calculated braking curve ensures that the PZB restrictions (1000 and 500 Hz) are complied with.
-- There is no value for brake percentages of a train in OSRD at the moment. The different braking curves are set depending on the rolling stock category and the trains maximum speed.
-    - Upper Train type = Passenger Train with \\(v_{O,max} = 160 km/h\\),
-    - Middle Train type = Freight or Passenger Train with \\(v_{M,max} = 120 km/h\\),
-    - Lower Train type = Freight train with \\(v_{U,max} = 100 km/h\\),
-- The required deceleration was calculated in the following steps:
-    1. Calculating the 1000 Hz and 500 Hz curve that result from the restrictions of the PZB.
-    2. Calculating the deceleration which is needed to brake from sight point of the distant signal to the main signal -> violates the 500 Hz condition.
-    3. Calculating a decelertation that also fulfills the 500 Hz condition.
+- There are no overlaps implemented yet (affects blocking time).
+- There is no value for brake percentages of a train in OSRD at the moment. The different braking curves are set depending on the rolling stock category and the train's maximum speed.
+    - Upper Train type = Passenger Train with \\(v_{O,max} = 165 \ km/h\\),
+    - Middle Train type = Freight or Passenger Train with \\(v_{M,max} = 125 \ km/h\\),
+    - Lower Train type = Freight train with \\(v_{U,max} = 105 \ km/h\\),
 
--  For the Upper Train type the result is a constant deceleration of 0,86 \\(m/s²\\) (solid green line):
+### Calculating the deceleration values
+
+At first we have to calculate the deceleration for the 1000 Hz Phase, which was done with:
+
+ $$ a_{type,1}=\frac{v²_{type,max}-v²_{type,check,0,5}}{2*(s_{sight}+s_{distant}-s_{0,5})} $$ 
+
+ | Value | Meaning |
+ | :--- | :--- |
+ | \\(a_{type,1}\\) | Deceleration of the 1000 Hz phase |
+ | \\(v_{type,max}\\) | Maxmimum speed per train type  |
+ | \\(v_{type,check,0,5}\\) | Check speed of 500 Hz Magnet per train type |
+ | \\(s_{sight}\\) | Sighting distance for distant signals |
+ | \\(s_{distant}\\) | Distant signal distance |
+ | \\(s_{0,5}\\) | Distance of 500 Hz magnet from main signal |
+
+ The result was rounded up to two decimal places to have a fixed value and little margin to the actual check speed of the 500 Hz magnet. Then with this deceleration the resulting speed at the position of the 500 Hz magnet was calulated (\\(v_{type,res,0,5}\\))
+
+ The next step was calculating the deceleration value for the 500 Hz phase:
+
+  $$ a_{type,0,5}=\frac{v²_{type,res,0,5}}{2*s_{0,5}} $$
+
+ | Value | Meaning |
+ | :--- | :--- |
+ | \\(a_{type,0,5}\\) | Deceleration of the 500 Hz phase |
+ | \\(v_{type,res,0,5}\\)| Resulting speed after 1000 Hz phase  |
+
+### Stop braking curve
+
+The resulting braking curves for each train type are as follows:
+
+***The 1000 Hz and 500 Hz curves are displayed for informational purpose only.***
+
+-  Upper train type (O)
+    - \\(a_{O,1}=0,86 \ m/s²\\) for the 1000 Hz phase and
+    - \\(a_{O,0,5}=0,6 \ m/s²\\) for the 500 Hz phase.
 	
-	{{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_Braking_Curve_O_Model.png" width="740px" >}}
+{{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_Braking_Curve_O_Model_combined.png" width="740px" >}}
+    
+- Middle train type (M)
+    - \\(a_{M,1}=0,49 \ m/s²\\) for the 1000 Hz phase and
+    - \\(a_{M,0,5}=0,36 \ m/s²\\) for the 500 Hz phase. 
 
-- The same was done for the middle and lower train type resulting in the following decelerations:
-    - M :  0,49 \\(m/s²\\)
-    - U :  0,35 \\(m/s²\\)
+{{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_Braking_Curve_M_Model_combined.png" width="740px" >}}
+
+- Lower train type (U)
+    - \\(a_{U,1}=0,36 \ m/s²\\) for the 1000 Hz phase and
+    - \\(a_{U,0,5}=0,2 \ m/s²\\) for the 500 Hz phase. 
+
+{{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_Braking_Curve_U_Model_combined.png" width="740px" >}}
+
+### Slowdown braking curve
+
+In lineside signalling like the [Ks Signalling](../_index.en.md/) the speed restrictions generally apply at the next main signal. Therefore the slowdown needs to be handled, otherwise a train could harm the PZB conditions if the braking curve is applied to the destination point with the speed restriction. This is solved with a release speed that the train continues with which equals the target speed. For example a train (O) running with maximum speed and a target speed of 60 km/h at the main signal the curve looks like this:  
+
+{{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/pzb/PZB_release_speed.png" width="740px" >}}
 
 ## References
 
