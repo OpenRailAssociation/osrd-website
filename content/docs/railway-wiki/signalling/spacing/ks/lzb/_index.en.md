@@ -1,7 +1,7 @@
 ---
 title: "Linienförmige Zugbeeinflussung (LZB)"
-linkTitle: "Linienförmige Zugbeeinflussung (LZB)"
-weight: 30_000
+linkTitle: "LZB"
+weight: 20_000
 ---
 
 <!-- script to auto-render KaTeX extension $$..$$ for outline formula, \\(...\\) for inline formula -->
@@ -14,7 +14,7 @@ weight: 30_000
 
 ## Overview
 
-The **Linienförmige Zugbeeinflussung (LZB)** is a continuous automatic train control system used to ensure safe and efficient operation at high speeds. Unlike the **Punktförmige Zugbeeinflussung (PZB)**, which transmits discrete signal information at fixed track points, the LZB enables **continuous bi-directional data exchange** between the train and the trackside control center. This allows for real-time supervision of speed and position and forms the basis for cabin signalling at speeds exceeding 160 km/h.
+The **Linienförmige Zugbeeinflussung (LZB)** is a continuous automatic train control system used to ensure safe and efficient operation at high speeds. Unlike the **Punktförmige Zugbeeinflussung (PZB)** (see [PZB](../pzb/_index.en.md/)), which transmits discrete signal information at fixed track points, the LZB enables **continuous bi-directional data exchange** between the train and the trackside control center. This allows for real-time supervision of speed and position and forms the basis for cabin signalling at speeds exceeding 160 km/h.
 
 ## System Structure
 
@@ -39,11 +39,11 @@ The LZB consists of three main components (*DB, 2019*):
    The control center transmits **Movement Authorities (MAs)** to the trains within the controlled area, defining:
    - the permissible target distance,
    - the permitted speed at each section,
-   - and other route-specific restrictions like gradients
+   - and other route-specific properties like gradients
 
 ## Functionality
 
-During operation, the train continuously reports its position to the LZB center. In return, it receives updated **target data** like actual speed (\\(v_{act}\\)), setpoint speed (\\(v_{set}\\)), target speed (\\(v_{target}\\)) and target distance.
+During operation, the train continuously reports its position to the LZB center. In return, it receives updated **target data** like setpoint speed (\\(v_{set}\\)), target speed (\\(v_{target}\\)) and target distance.
 
 {{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/lzb/LZB_Parameters.png" width="740px" >}}
 
@@ -51,16 +51,18 @@ During operation, the train continuously reports its position to the LZB center.
 
 The onboard unit calculates **braking curves** for different supervision thresholds:
 
-- **Permitted Speed Curve** – permissible maximum speed at each position.
+- **Permitted Speed Curve** – permissible maximum speed at each position. This is the curve the driver train should follow.
+- **Warning Curve** - gives an acoustic warning to the driver when the permitted speed curve is exceeded by 5 km/h.
 - **Emergency Brake Curve** – triggers an emergency brake if the train fails to decelerate sufficiently.
 
 The braking curve that is set by the onboard unit is based on:
 
 - maximum track speed
-- slope
+- slope¹
 - braking percentage of the train
 
 The next target point is displayed up to 10.000 m in front of the train. If there is no restriction the speed limit equals the maximum track speed or the maximum possible speed of the train itself. (*Murr, 1991*)
+
 
 ## Braking Curves
 
@@ -110,18 +112,19 @@ The picture below shows the Partial Block Mode. Train 1 occupies the block betwe
 
 ## Assumptions for a simplified OSRD-Model
 
-- Permitted speed curve is based on the emergency braking curve
+- Braking curve is based on the permitted speed curve.
+- Warning curve and emergency braking curve is not modelled.
 - The braking curve is constant over the whole braking distance
 - LZB-trains have a sight distance of 10.000 m
-- The slope for choosing the braking curve is calculated wihtin these 10.000 m
+- The slope used to choose the braking curve is the average slope calculated within these 10.000 m
 - There are no overlaps implemented (only affects block time)
 - The train follows the permitted speed curve and does not brake earlier
 - The constant deceleration is used for braking to a full stop, for speed changes and for the spacing and routing requirements
 - Switches are released when the following detector is crossed
-- There is no value for brake percentages of a train in OSRD, so an alternative to define the used braking curves was used
-   - The braking curves are set depending on the rolling stock category, the trains maximum speed and the slope.
+- OSRD trains do not have brake percentage values, so an alternative to define the used braking curves was used
+   - The braking curves are set depending on the rolling stock category, the train's maximum speed and the average slope.
 - The following procedure was used to determine the necessary braking curves:
-   - The average deceleration of each speed category was calculated and the corresponding braking curves was chosen. The resulting curves are also the ones that are used the most.
+   - The average deceleration of each speed category was calculated and the corresponding braking curves were chosen. The resulting curves are also the ones that are used the most.
 
    {{< figure src="/images/docs/railway-wiki/signalling/ks-signalling/lzb/LZB_Braking_Curve_Set_P_Model.png" width="740px" >}}
 
@@ -140,7 +143,7 @@ The picture below shows the Partial Block Mode. Train 1 occupies the block betwe
       | ≤ 5 | 0,57 | 0,51 | 0,45 |
       | ≤ 12,5 | 0,51 | 0,45 | 0,39 |
       
-		*note for OSRD: deceleration in other tools is 0,5 for all passenger trains (note can be removed later)*
+		*possible further simplification for OSRD: deceleration in other LZB-modeling tools is 0,5 for all passenger trains*
    
    - For freight trains only two decelerations (permitted speed curve) were chosen. They cover all the relevant cases for freight trains with LZB.
 
@@ -149,7 +152,8 @@ The picture below shows the Partial Block Mode. Train 1 occupies the block betwe
       | ≤ 5 | 0,33  |
       | ≤ 12,5 | 0,27 |
 
-		*note for OSRD: deceleration in other tools is 0,3 for all freight trains (note can be removed later)*
+		*possible further simplification for OSRD: deceleration in other LZB-modeling tools is 0,3 for all freight trains*
+
 
 ## References
 
@@ -159,3 +163,5 @@ The picture below shows the Partial Block Mode. Train 1 occupies the block betwe
 - Eduard Murr. „Systembeschreibung der Linienzugbeeinflussung (LZB) der Deutschen Bundesbahn“. In: Eisenbahningenieurkalender (1991), S. 285–317.
 - Jörn Pachl. Systemtechnik des Schienenverkehrs: Bahnbetrieb planen, steuern und sichern. de. Wiesbaden: Springer Fachmedien Wiesbaden, 2022.
 - Matthias Busse. „Der optimierte Einsatz von ETCS-Bremskurven“. Dissertation. Dresden: Technische Universität Dresden, Feb. 2021.
+
+¹ *The slope is saved in the LZB-Control Center. We don't have reliable data yet how the slope in front of a train for determining the braking curve is calculated.*
