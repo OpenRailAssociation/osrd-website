@@ -7,7 +7,7 @@ resources:
 - src: "**.svg"
 ---
 
-You can download each logo independently by clicking directly on it, or <a href="pictures/logo-osrd.zip">all the logos compressed into a zip file</a>.
+You can download each logo independently by clicking directly on it, or <a href="/images/logo/logo-osrd.zip">all the logos compressed into a zip file</a>.
 
 It is advisable to carefully choose the logo you want to use, depending on the background on which you want to display it.
 
@@ -16,97 +16,97 @@ Modification, addition or deletion of the **shading** other than as presented in
 
 ### Official
 <div style="display:inline-block;padding:16px;background-color:white">
-  <a target="_blank" href="pictures/logo-osrd-color-black.svg">
-    <img src="pictures/logo-osrd-color-black.svg" width=256>
+  <a target="_blank" href="/images/logo/logo-osrd-color-black.svg">
+    <img src="/images/logo/logo-osrd-color-black.svg" width=256>
   </a>
 </div>
 
 ### Official for dark backgrounds
 <div style="display:inline-block;padding:16px;background-color:#333">
-  <a target="_blank" href="pictures/logo-osrd-color-white.svg">
-    <img src="pictures/logo-osrd-color-white.svg" width=256>
+  <a target="_blank" href="/images/logo/logo-osrd-color-white.svg">
+    <img src="/images/logo/logo-osrd-color-white.svg" width=256>
   </a>
 </div>
 
 ### White
 <div style="display:inline-block;padding:16px;background-color:#333">
-  <a target="_blank" href="pictures/logo-osrd-white.svg">
-    <img src="pictures/logo-osrd-white.svg" width=256>
+  <a target="_blank" href="/images/logo/logo-osrd-white.svg">
+    <img src="/images/logo/logo-osrd-white.svg" width=256>
   </a>
 </div>
 
 ### Black
 <div style="display:inline-block;padding:16px;background-color:white">
-  <a target="_blank" href="pictures/logo-osrd-black.svg">
-    <img src="pictures/logo-osrd-black.svg" width=256>
+  <a target="_blank" href="/images/logo/logo-osrd-black.svg">
+    <img src="/images/logo/logo-osrd-black.svg" width=256>
   </a>
 </div>
 
 ### Favicons, logo without text
 <div style="display:inline-block;padding:16px;background-color:white">
-  <a target="_blank" href="pictures/fav-osrd-color.svg">
-    <img src="pictures/fav-osrd-color.svg" width=64>
+  <a target="_blank" href="/images/logo/fav-osrd-color.svg">
+    <img src="/images/logo/fav-osrd-color.svg" width=64>
   </a>
 </div>
 <div style="display:inline-block;padding:16px;background-color:white;margin-left:16px">
-  <a target="_blank" href="pictures/fav-osrd-black.svg">
-    <img src="pictures/fav-osrd-black.svg" width=64>
+  <a target="_blank" href="/images/logo/fav-osrd-black.svg">
+    <img src="/images/logo/fav-osrd-black.svg" width=64>
   </a>
 </div>
 <div style="display:inline-block;padding:16px;background-color:#333;margin-left:16px">
-  <a target="_blank" href="pictures/fav-osrd-white.svg">
-    <img src="pictures/fav-osrd-white.svg" width=64>
+  <a target="_blank" href="/images/logo/fav-osrd-white.svg">
+    <img src="/images/logo/fav-osrd-white.svg" width=64>
   </a>
 </div>
 
 ## 🚫 What you can't do
 
 #### Too small (< 16px height)
-<img src="pictures/dont/dont5.svg" style="height:32px">
+<img src="/images/logo/dont/dont5.svg" style="height:32px">
 
 #### Disproportion
-<img src="pictures/dont/dont1.svg" style="margin-left:16px;height:64px">
+<img src="/images/logo/dont/dont1.svg" style="margin-left:16px;height:64px">
 
 #### Change the text colour or drop shadow
-<img src="pictures/dont/dont2.svg" style="height:64px">
+<img src="/images/logo/dont/dont2.svg" style="height:64px">
 
 #### Changing direction
-<img src="pictures/dont/dont3.svg" style="margin-left:16px;height:64px">
+<img src="/images/logo/dont/dont3.svg" style="margin-left:16px;height:64px">
 
 #### Deformation
-<img src="pictures/dont/dont4.svg" style="height:64px">
+<img src="/images/logo/dont/dont4.svg" style="height:64px">
 
 
 ## ✅ What you can do
 
 #### Changing the internal colour for a specific event
 <div>
-  <a style="display:inline-block;padding:8px;background-color:white;" href="pictures/events/xmas-fav-osrd-color.svg" target="_blank">
-    <img src="pictures/events/xmas-fav-osrd-color.svg" style="height:32px">
+  <a style="display:inline-block;padding:8px;background-color:white;" href="/images/logo/events/xmas-fav-osrd-color.svg" target="_blank">
+    <img src="/images/logo/events/xmas-fav-osrd-color.svg" style="height:32px">
   </a>
-  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:white;" href="pictures/events/xmas-logo-osrd-color-black.svg" target="_blank">
-    <img src="pictures/events/xmas-logo-osrd-color-black.svg" style="height:32px">
+  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:white;" href="/images/logo/events/xmas-logo-osrd-color-black.svg" target="_blank">
+    <img src="/images/logo/events/xmas-logo-osrd-color-black.svg" style="height:32px">
   </a>
-  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:#333" href="pictures/events/xmas-logo-osrd-color-white.svg">
-    <img src="pictures/events/xmas-logo-osrd-color-white.svg" style="height:32px">
+  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:#333" href="/images/logo/events/xmas-logo-osrd-color-white.svg">
+    <img src="/images/logo/events/xmas-logo-osrd-color-white.svg" style="height:32px">
   </a>
 </div>
 
 <div style="margin-top:8px">
-  <a style="display:inline-block;padding:8px;background-color:white;" href="pictures/events/proud-fav-osrd-color.svg" target="_blank">
-    <img src="pictures/events/proud-fav-osrd-color.svg" style="height:32px">
+  <a style="display:inline-block;padding:8px;background-color:white;" href="/images/logo/events/proud-fav-osrd-color.svg" target="_blank">
+    <img src="/images/logo/events/proud-fav-osrd-color.svg" style="height:32px">
   </a>
-  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:white;" href="pictures/events/proud-logo-osrd-color-black.svg" target="_blank">
-    <img src="pictures/events/proud-logo-osrd-color-black.svg" style="height:32px">
+  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:white;" href="/images/logo/events/proud-logo-osrd-color-black.svg" target="_blank">
+    <img src="/images/logo/events/proud-logo-osrd-color-black.svg" style="height:32px">
   </a>
-  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:#333" href="pictures/events/proud-logo-osrd-color-white.svg">
-    <img src="pictures/events/proud-logo-osrd-color-white.svg" style="height:32px">
+  <a style="display:inline-block;margin-left:8px;padding:8px;background-color:#333" href="/images/logo/events/proud-logo-osrd-color-white.svg">
+    <img src="/images/logo/events/proud-logo-osrd-color-white.svg" style="height:32px">
   </a>
 </div>
 
 #### Use of logo only (without text)
 <div style="display:inline-block">
-  <img src="pictures/fav-osrd-color.svg" style="height:64px">
+  <img src="/images/logo/fav-osrd-color.svg" style="height:64px">
 </div>
 
 ## Colors
