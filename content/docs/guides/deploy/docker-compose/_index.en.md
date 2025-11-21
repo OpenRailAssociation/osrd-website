@@ -40,6 +40,10 @@ Each service is configured with health checks, volume mounts and necessary envir
 2. **Configuration**: The default configuration requires setting an environment variable for the Editoast service: `ROOT_URL`.
     It should be set to the URL pointing to the Editoast service through the gateway. For example, "http://your-domain.com/api".
     You can also adjust other environment variables if needed.
+    If your internet access is only possible through a proxy you should set `http_proxy` and `no_proxy`
+    * For the build section: `http_proxy`
+    * For osrdyne and editoast `no_proxy="osrd-*"`
+    * For openfga `no_proxy="0.0.0.0,::1"`
 3. **Build and Run**: Navigate to the directory containing `docker-compose.yml` and run:
 
 ```bash
