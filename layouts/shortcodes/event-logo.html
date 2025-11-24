@@ -1,0 +1,41 @@
+{{ $currentMonth := now.Month }}
+{{ $currentDay := now.Day }}
+{{ $events := site.Data.events }}
+{{ $logoPath := "/images/logo/logo-osrd-color-white.svg" }}
+{{ $logoAlt := "OSRD Logo" }}
+
+
+{{ range $events }}
+  {{ $isInPeriod := false }}
+  {{ $crossesYear := lt .end_month .start_month }}
+
+  {{ if $crossesYear }}
+    {{/* Case in which the event period crosses the end of the year and we need to check more than just months */}}
+    {{ if or (and (eq $currentMonth .start_month) (ge $currentDay .start_day)) (and (eq $currentMonth .end_month) (le $currentDay .end_day)) (gt $currentMonth .start_month) (lt $currentMonth .end_month) }}
+      {{ $isInPeriod = true }}
+    {{ end }}
+  {{ else }}
+    {{/* Normal case */}}
+    {{ if and (ge $currentMonth .start_month) (le $currentMonth .end_month) }}
+      {{ if eq $currentMonth .start_month }}
+        {{ if ge $currentDay .start_day }}
+          {{ $isInPeriod = true }}
+        {{ end }}
+      {{ else if eq $currentMonth .end_month }}
+        {{ if le $currentDay .end_day }}
+          {{ $isInPeriod = true }}
+        {{ end }}
+      {{ else }}
+        {{ $isInPeriod = true }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $isInPeriod }}
+    {{ $logoPath = .logo }}
+    {{ $logoAlt = printf "%s %s" .name $logoAlt }}
+    {{ break }}
+  {{ end }}
+{{ end }}
+
+<img class="main-logo" src="{{ $logoPath }}" alt="{{ $logoAlt }}" />
