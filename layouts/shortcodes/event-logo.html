@@ -7,28 +7,24 @@
 
 {{ range $events }}
   {{ $isInPeriod := false }}
+  {{ $sameMonth := eq .start_month .end_month }}
   {{ $crossesYear := lt .end_month .start_month }}
 
-  {{ if $crossesYear }}
-    {{/* Case in which the event period crosses the end of the year and we need to check more than just months */}}
-    {{ if or (and (eq $currentMonth .start_month) (ge $currentDay .start_day)) (and (eq $currentMonth .end_month) (le $currentDay .end_day)) (gt $currentMonth .start_month) (lt $currentMonth .end_month) }}
-      {{ $isInPeriod = true }}
-    {{ end }}
+  {{ if $sameMonth }}
+    {{ $isInPeriod = and (eq $currentMonth .start_month) (ge $currentDay .start_day) (le $currentDay .end_day) }}
   {{ else }}
-    {{/* Normal case */}}
-    {{ if and (ge $currentMonth .start_month) (le $currentMonth .end_month) }}
-      {{ if eq $currentMonth .start_month }}
-        {{ if ge $currentDay .start_day }}
-          {{ $isInPeriod = true }}
-        {{ end }}
-      {{ else if eq $currentMonth .end_month }}
-        {{ if le $currentDay .end_day }}
-          {{ $isInPeriod = true }}
-        {{ end }}
-      {{ else }}
-        {{ $isInPeriod = true }}
-      {{ end }}
+    {{ $inStartMonth := and (eq $currentMonth .start_month) (ge $currentDay .start_day) }}
+    {{ $inEndMonth := and (eq $currentMonth .end_month) (le $currentDay .end_day) }}
+    {{ $inBetween := false }}
+
+    {{ if $crossesYear }}
+      {{ $inBetween = or (gt $currentMonth .start_month) (lt $currentMonth .end_month) }}
+    {{ else }}
+      {{ $inBetween = and (gt $currentMonth .start_month) (lt $currentMonth .end_month) }}
     {{ end }}
+
+    {{ $isInPeriod = or $inStartMonth $inEndMonth $inBetween }}
+
   {{ end }}
 
   {{ if $isInPeriod }}
