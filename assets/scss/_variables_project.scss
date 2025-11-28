@@ -12,7 +12,7 @@ $enable-shadows: false;
 // osrd-light-blue on a dark background, which is pretty nasty
 $min-contrast-ratio: 4;
 
-$osrd-light-blue: #796ac4;
+$osrd-light-blue: #126EA5;
 $osrd-dark-blue: #493E80;
 $primary: $osrd-light-blue;
 $secondary: $osrd-dark-blue;
@@ -28,14 +28,6 @@ $secondary: $osrd-dark-blue;
   @media screen and (max-width: 640px) {
     font-size: 1.5rem;
   }
-}
-
-.td-navbar {
-  background: $osrd-dark-blue !important;
-}
-.td-sidebar-nav .td-sidebar-link.tree-root {
-  color: $osrd-dark-blue !important;
-  border-color: $osrd-dark-blue !important;
 }
 
 /* SWAGGER OVERRIDE */
@@ -58,16 +50,123 @@ $secondary: $osrd-dark-blue;
 }
 
 /* NAVBAR OVERRIDE */
-a.navbar-brand {
-  font-size: unset;
-  span:last-child {
+.td-navbar {
+  background: white !important;
+
+  
+  .container-fluid{
+    padding-inline: 41px;
+  }
+  
+  .td-search {
     display: none;
   }
-  .navbar-logo {
-    svg {
-      height: 22px !important;
-      width: auto;
-      margin: 0 5px;
+  
+  a.navbar-brand {
+    font-size: unset;
+    span:last-child {
+      display: none;
+    }
+
+    .navbar-logo {
+      svg {
+        height: 40px;
+        margin: 0;
+      }
+    }
+  }
+
+  .navbar-nav {
+    .dropdown > a {
+      color: #6D6D6D !important;
+  
+      &::after {
+        color: rgba(0, 0, 0, 0.38) !important;
+      }
+    }
+  }
+}
+
+
+header > nav{
+  box-shadow: inset 0 -2px $primary, 0 2px $primary;
+  border-bottom: 2px solid white !important;
+  width: 100%;
+}
+
+.td-outer {
+  padding: 0 !important;
+
+  .td-main {
+    padding: 12px !important;
+  }
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.cards-topic {
+  width: 70%;
+  margin: auto !important;
+  .card-topic {
+    padding-inline: 36px;
+  }
+}
+
+.sponsors {
+  width: 60%;
+  margin: auto !important;
+  a {
+    text-decoration: none;
+  }
+  
+}
+
+/* REMOVE SIDEMENU RIGHT */
+.td-page-meta {
+  display: none;
+}
+
+/* FOOTER OVERRIDE */
+footer {
+  background-color: $primary;
+  color: white;
+  padding-bottom: 82px;
+  font-size: 14px;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .footer-left {
+    margin-top: 46px;
+    .footer-title {
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .footer-nav {
+      ul {
+        padding-left: 0;
+        margin-block: 50px 0;
+        
+        li{
+          list-style: none;
+        }
+      }
+    }
+  }
+
+  .footer-right {
+    margin-top: 162px;
+    a {
+      font-weight: 500;
     }
   }
 }
