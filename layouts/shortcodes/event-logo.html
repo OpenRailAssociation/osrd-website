@@ -1,0 +1,37 @@
+{{ $currentMonth := now.Month }}
+{{ $currentDay := now.Day }}
+{{ $events := site.Data.events }}
+{{ $logoPath := "/images/logo/logo-osrd-color-white.svg" }}
+{{ $logoAlt := "OSRD Logo" }}
+
+
+{{ range $events }}
+  {{ $isInPeriod := false }}
+  {{ $sameMonth := eq .start_month .end_month }}
+  {{ $crossesYear := lt .end_month .start_month }}
+
+  {{ if $sameMonth }}
+    {{ $isInPeriod = and (eq $currentMonth .start_month) (ge $currentDay .start_day) (le $currentDay .end_day) }}
+  {{ else }}
+    {{ $inStartMonth := and (eq $currentMonth .start_month) (ge $currentDay .start_day) }}
+    {{ $inEndMonth := and (eq $currentMonth .end_month) (le $currentDay .end_day) }}
+    {{ $inBetween := false }}
+
+    {{ if $crossesYear }}
+      {{ $inBetween = or (gt $currentMonth .start_month) (lt $currentMonth .end_month) }}
+    {{ else }}
+      {{ $inBetween = and (gt $currentMonth .start_month) (lt $currentMonth .end_month) }}
+    {{ end }}
+
+    {{ $isInPeriod = or $inStartMonth $inEndMonth $inBetween }}
+
+  {{ end }}
+
+  {{ if $isInPeriod }}
+    {{ $logoPath = .logo }}
+    {{ $logoAlt = printf "%s %s" .name $logoAlt }}
+    {{ break }}
+  {{ end }}
+{{ end }}
+
+<img class="main-logo" src="{{ $logoPath }}" alt="{{ $logoAlt }}" />

@@ -25,3 +25,11 @@ include a Signed-off-by line. You can find more information about this on [our w
 ### Guidelines
 
 Providing both `_index.fr.md` and `_index.en.md` is required to have a table of contents consistent between languages.
+
+#### Sharing images
+
+If you are adding images to the website, please make sure to follow these guidelines:
+
+- Images that are meant to be used in multiple places should be placed in the `static/images/` directory.
+- Images that are specific to a blog post or documentation page should be placed in the same directory as the corresponding markdown file.
+- Use descriptive filenames for images to make it easier to identify their purpose.
