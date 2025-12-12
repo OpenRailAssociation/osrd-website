@@ -31,6 +31,14 @@ Python code is used for some packages and integration testing.
 - Code is linted with [clippy](https://github.com/rust-lang/rust-clippy).
 - Code is formatted with [fmt](https://github.com/rust-lang/rustfmt).
 
+# OpenAPI and generated frontend code
+
+The editoast interface is specified using [OpenAPI](https://spec.openapis.org/oas/v3.1.2.html), in order to generate relevant types for the frontend.
+
+editoast's OpenAPI description and the generated frontend code are tracked in OSRD's git repository and the CI ensures they are up to date.
+
+If you change editoast's API, you will need to update them using `./scripts/sync-openapi.sh`.
+
 # Java
 
 - Code is formatted with [checkstyle](https://checkstyle.sourceforge.io/).
