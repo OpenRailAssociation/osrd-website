@@ -349,11 +349,11 @@ Pour plus de détails sur le modèle, voir la [page dédiée](../neutral_section
 
 #### Points opérationnels (`OperationalPoints`)
 
-Le *point operationnel* est aussi connu sous le nom de *Point Remarquable* (PR).
+Le *point opérationnel* est aussi connu sous le nom de *Point Remarquable* (PR).
 Un `OperationalPoint` est une **collection** de points (`OperationalPointParts`) d'intérêt.
 
 Par exemple, il peut être pratique (repère de conduite) de stocker l'emplacement des plateformes en tant que parties et de les regrouper par station dans des points opérationnels.
-De la même manière, un pont au-dessus des voies sera **un** OperationalPoint, mais il comportera **plusieurs** OperationPointParts, une à l'intersection de chaque voie.
+De la même manière, un pont au-dessus des voies sera **un** OperationalPoint, mais il comportera **plusieurs** OperationPointParts, une à l'intersection de chaque voie. Le champ `local_track_name` fournit un label lisible pour la voie dans le contexte d'un point opérationnel.
 
 Dans l'exemple de l'infrastructure, nous n'avons utilisé que des points opérationnels pour représenter les stations. Les parties de points opérationnels sont représentées par des diamants violets. Gardez à l'esprit qu'un seul point opérationnel peut contenir plusieurs parties.
 
