@@ -115,8 +115,8 @@ speed_limit_tag: "MA100"
 # same at the departure time, as there may be a stop at the starting point
 start_time: "2023-12-21T08:51:11.914897+00:00"
 
-path:
- - {id: a, uic: 87210} # Any operational point matching the given uic
+path: # Either a “track and offset”, or an “operational point and an optional local track name”
+ - {id: a, uic: 87210, local_track_name: "V1"} # Any operational point matching the given uic
  - {id: b, track: foo, offset: 10000} # 10m on track foo
  - {id: c, trigram: ABC} # Any operational point matching the trigram ABC
  - {id: d, operational_point: X} # A specified operational point
