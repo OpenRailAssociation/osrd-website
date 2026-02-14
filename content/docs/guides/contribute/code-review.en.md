@@ -9,6 +9,7 @@ The reviewer/maintainer undertakes to carry out the review quickly, and is also 
 
 We propose you a few tips and recommendations that we think are relevant to a human, relevant and rewarding code review for all contributors:
 - [How to Make Your Code Reviewer Fall in Love with You?](https://mtlynch.io/code-review-love/) by Michael Lynch.
+  - If you prefer audio, the [FOSDEM presentation of Alya Abbott](https://fosdem.org/2026/schedule/event/L7ERNP-prs-maintainers-will-love/) is also a good take on the topic
 - [How to Do Code Reviews Like a Human? ](https://mtlynch.io/human-code-reviews-1/) by Michael Lynch.
 
 {{% include "./review-process.en.md" %}}
