@@ -1,6 +1,6 @@
 ---
 title: "Podcast Projets Libres – OSRD : Gouvernance, open data et logiciel libre "
-date: 2026-02-20T09:54:00.000+01:00
+date: 2025-01-30T10:29:00.000+01:00
 ---
 
 
