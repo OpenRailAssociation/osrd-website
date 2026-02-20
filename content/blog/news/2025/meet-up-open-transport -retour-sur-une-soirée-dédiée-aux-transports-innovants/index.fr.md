@@ -3,7 +3,7 @@ title: "Meet up Open Transport : retour sur une soirée dédiée aux transport
   innovants "
 date: 2025-06-19T10:22:00.000+02:00
 ---
-Le 19 juin dernier, **Céline Durupt**, responsable données du programme OSRD chez SNCF Réseau, participait à un événement organisé par la **Fabrique des Mobilités**, au Liberté Living Lab à Paris. 
+[](https://www.projets-libres.org/podcast/transports-osrd-openrail-scnf-reseau/)Le 19 juin dernier, **Céline Durupt**, responsable données du programme OSRD chez SNCF Réseau, participait à un événement organisé par la **Fabrique des Mobilités**, au Liberté Living Lab à Paris. 
 
 ![](/images/imagehj1.png)
 
@@ -28,7 +28,6 @@ Parmi les cinq présentations au programme, OSRD a pris la parole pour faire dé
 
 Cette intervention a permis de faire connaître l’outil et de susciter de nombreux échanges autour de ses usages, de l'ouverture des données ferroviaires, et de son potentiel à l’échelle européenne. OSRD a clairement retenu l’attention ! 
 
-
 ## Un moment de rencontres et de retrouvailles
 
 La soirée s’est poursuivie autour d’un apéro dînatoire,
@@ -41,9 +40,7 @@ récemment invité l’équipe d’OSRD pour un épisode sur la gouvernance open
 et les modèles économiques.
 
 👉retrouvez
-le podcast Projets Libres : 
-
- 
+le podcast Projets Libres : <https://www.projets-libres.org/podcast/transports-osrd-openrail-scnf-reseau/>
 
 Une première participation réussie pour OSRD à cet événement
 convivial, qui a permis à de nombreux acteurs de découvrir le projet, de mieux
