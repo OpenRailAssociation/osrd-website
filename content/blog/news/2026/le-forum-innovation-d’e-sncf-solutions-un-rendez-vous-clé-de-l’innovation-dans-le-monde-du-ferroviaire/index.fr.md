@@ -1,7 +1,7 @@
 ---
 title: "Le Forum Innovation d’e.SNCF Solutions : un rendez-vous clé de
   l’innovation dans le monde du ferroviaire "
-date: 2026-02-20T09:52:00.000+01:00
+date: 2025-01-23T09:52:00.000+01:00
 ---
 Le Forum Innovation organisé par e.SNCF Solutions s’est tenu les 21, 22 et
 23 janvier 2025 dans le hall du Campus Rimbaud. 
