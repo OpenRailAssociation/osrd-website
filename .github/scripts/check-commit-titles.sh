@@ -1,40 +1,38 @@
 #!/bin/sh
+# shellcheck disable=SC2317
 
 # This script reads newline separated commit titles from stdin
 # output an error message when titles are deemed invalid,
 # and exits accordingly
 
+set -e
+
 if [ -z "$NOCOLOR" ]; then
     RED=$(tput setaf 1 2>/dev/null)
-    YELLOW=$(tput setaf 3 2>/dev/null)
     BLUE=$(tput setaf 4 2>/dev/null)
     RESET=$(tput sgr0 2>/dev/null)
 fi
 
 
-checks='check_fixup check_printable_ascii check_forbidden_chars check_structure'
+checks='check_fixup check_forbidden_chars check_structure'
 
-
+# shellcheck disable=SC2329 # Called indirectly
 check_fixup() {
-    if grep -q -i '^fixup'; then
+    if grep -E -q -i '^fixup|pr comment|clippy fix'; then
         echo 'Found a fixup commit'
     fi
 }
 
-check_printable_ascii() {
-    if grep -q -P -v '^[\x20-\x7F]*$'; then
-        echo 'Commit titles must be printable ascii only'
-    fi
-}
-
+# shellcheck disable=SC2329 # Called indirectly
 check_forbidden_chars() {
-    if grep -q -P -v '^[^#]*$'; then
-        echo 'Forbidden character found: #'
+    if grep -q -P -v '^[^#[:cntrl:]]*$'; then
+        echo 'Forbidden character found ("#" or control character)'
     fi
 }
 
+# shellcheck disable=SC2329 # Called indirectly
 check_structure() {
-    if grep -q -E -v '^([-_.a-z]+[,:] )*[-_.a-z]+: [a-z](:[^ ]|[^:])*$'; then
+    if grep -q -E -v '^([-_.a-z0-9]+[,:] )*[-_.a-z0-9]+: [a-z](:[^ ]|[^:])*$'; then
         echo 'Invalid commit title structure'
     fi
 }
@@ -59,7 +57,7 @@ while IFS= read -r commit_title; do
         # if it's the first error for this commit, print the error header
         if [ -z "$commit_check_failed" ]; then
             printf '%sinvalid commit title:%s ' "$RED" "$RESET"
-            printf '%s%s%s\n' "$BLUE" "$commit_title" "$RESET"
+            printf '%s"%s"%s\n' "$BLUE" "$commit_title" "$RESET"
         fi
 
         printf '   %s- %s%s\n' "$RED" "$check_error" "$RESET"
