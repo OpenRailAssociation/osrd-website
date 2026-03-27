@@ -1,7 +1,7 @@
 ---
-title: "Implementation details"
-linkTitle: "6 - Implementation details"
-weight: 60
+title: "Implementation details and current issues"
+linkTitle: "8 - Implementation details and current issues"
+weight: 80
 ---
 
 
@@ -16,13 +16,13 @@ This refers to
 in the project.
 
 This class is used to make it easier to create instances of
-`STDCMEdge`, the graph edges. Those contain many attributes,
+`STDCMEdge`, the graph edges. These contain many attributes,
 most of which can be determined from the context (e.g. the
 previous node).
 The `STDCMEdgeBuilder` class makes some parameters optional
 and automatically computes others.
 
-Once instantiated and parametrized, an `STDCMEdgeBuilder` has two methods:
+Once instantiated and parameterized, an `STDCMEdgeBuilder` has two methods:
 
 
 - `makeAllEdges(): Collection<STDCMEdge>` can be used to create all
@@ -38,38 +38,27 @@ occupancy block. It is called whenever a new edge must be re-created
 to replace an old one. It calls the previous method.
 
 
-### Pathfinding
-
-The methods mentioned here are defined in
-[this class](https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt).
-
-#### Cost function
-
-The function used to define pathfinding cost sets which path
-is used over another. The result is always the one that minimizes
-this cost (as long as the heuristic is admissible).
-
-Here, two parameters are used: total run time and departure time.
-The latter has a very small weight compared to the former,
-so that the fastest path is found. More details
-are explained in the documentation of those methods.
+{{% alert color="info" %}}
+Note: ideally, we would have a class similar to `InfraExplorer`
+that would just enumerate all possible simulations. It would be
+much cleaner than this current state. See [this issue](https://github.com/OpenRailAssociation/osrd/issues/15685).
+{{% /alert %}}
 
 
+### Past path data
 
-#### Heuristics
+During the exploration, we simulate each block on its own, ignoring
+where the train comes from. This is done to improve caching, and because
+past path data is currently difficult to fetch.
 
-The algorithm used to find a path is an A*, with a heuristic based
-on geographical coordinates.
+This has two issues:
 
-However, the coordinates of generated infrastructures are arbitrary
-and don't reflect the track distance. It means that,
-for the generated infrastructures, the path may not always be the
-shortest one.
+* We need to consider that speed limits apply until the train *head* leaves
+  the speed limit range. This is technically wrong, it should be dismissed
+  when the train *tail* leaves it.
+* During the search, we don't know the slopes on the tracks still covered
+  by the train. This can lead to accelerations that are too optimistic,
+  and in rare cases to post-processing errors.
 
-It would be possible to use this heuristic to determine whether
-the current node can lead to a path that doesn't take
-longer than the maximum allowed total run time. But for the same
-reason, adding this feature would break any STDCM test on generated
-infras. More details in
-[this issue](https://github.com/OpenRailAssociation/osrd/issues/2818).
-
+There's [an open issue](https://github.com/OpenRailAssociation/osrd/issues/14777),
+but we don't have a clear plan nor the time to work on it (yet).

@@ -1,7 +1,7 @@
 ---
 title: "Standard allowance"
-linkTitle: "5 - Standard allowance"
-weight: 50
+linkTitle: "7 - Standard allowance"
+weight: 70
 ---
 
 
@@ -21,7 +21,7 @@ the end of the train slot to a later time.
 The allowance must be considered when we compute conflicts as
 the graph is explored.
 
-The allowance must also follow the [MARECO](/pdf/MARECO.pdf) model:
+The allowance should also follow the [MARECO](/pdf/MARECO.pdf) model:
 the extra time isn't added evenly over the whole path,
 it is computed in a way that requires knowing the whole path.
 This is done to optimize the energy used by the train.
@@ -59,8 +59,24 @@ The process to find the actual train simulation is as follows:
 1. We define points at which the time is fixed, initialized
    at first with the time of each train stop. This is an input
    of the simulation and indirectly calls the standard allowance.
-2. If there are conflict, we try to remove the first one.
-3. We add a fixed time point *at the location where that conflict
+2. We run a full simulation over the entire path with conflict detection
+3. If there are conflicts, we try to remove the first one.
+4. We add a fixed time point *at the location where that conflict
    happened*. We use the time considered during the exploration
    (with linear scaling) as reference time.
-4. This process is repeated iteratively until no conflict is found.
+5. This process is repeated iteratively until no conflict is found.
+
+This is the general idea. In practice, we need some workarounds to avoid
+some issues. These include:
+
+* Adding a fixed time point at the end location of engineering allowances
+  (when not part of a different engineering allowance)
+* Distributing engineering allowance times linearly over the engineering allowance distance
+* When we fail to find a valid solution, we fall back from MARECO to "linear" allowance distribution
+* When we still fail to find a valid solution, we increase the train traction.
+  This lets us find a close solution.
+
+When we fail to find a solution despite all this, an error is thrown
+and needs to be investigated. It can be difficult to identify what went
+wrong though, it can come from any difference and mismatch between the search
+and this final post-processing simulation.

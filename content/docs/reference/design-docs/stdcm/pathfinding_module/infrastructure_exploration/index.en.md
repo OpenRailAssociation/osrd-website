@@ -18,8 +18,12 @@ explore the infrastructure graph, with several constraints:
 
 
 
-To do this, we have defined the class `InfraExplorer`. It uses blocks
-(sections from signal to signal) as a main subdivision.
+To do this, we have defined the class `InfraExplorer`.
+It has one purpose: **enumerating all possible paths**.
+This is the class that handles the "path" aspect of the decision tree.
+
+
+It uses blocks (sections from signal to signal) as a main subdivision.
 It has 3 sections: the current block, predecessors, and a "lookahead".
 
 
@@ -37,8 +41,9 @@ been simulated yet, its only purpose is to know in advance
 where the train will go next. In this example, it would tell us
 that the bottom right signal can be ignored entirely.
 The top path is the path being currently evaluated.
-**The bottom section of the path will be evaluated in a different
-and already instantiated `InfraExplorer`**
+**The path that goes toward the bottom right track, if valid,
+will be evaluated in a different `InfraExplorer`** that would have
+been generated alongside this instance.
 
 
 The `InfraExplorer` is manipulated with two main functions
