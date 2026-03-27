@@ -15,7 +15,7 @@ C&amp;rsquo;est une pratique distincte de l&amp;rsquo;open source, qui ne s&amp;
 &lt;p>Seul, l&amp;rsquo;&lt;strong>open data&lt;/strong> présente déjà un certain nombre d&amp;rsquo;avantages clés :&lt;/p></description></item><item><title>Roadmap</title><link>https://osrd.fr/fr/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/fr/about/roadmap/</guid><description>&lt;p>Voici une liste des principales fonctionnalités que OSRD souhaite ajouter, par ordre de priorité.
 Cette feuille de route s&amp;rsquo;étale sur plusieurs années.&lt;/p>
 &lt;ul>
-&lt;li>Ajout du système de signalisation [ERTMS] (&lt;a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire%29">https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire)&lt;/a>.&lt;/li>
+&lt;li>Ajout du système de signalisation &lt;a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire">ERTMS&lt;/a>.&lt;/li>
 &lt;li>Système de permission fin.&lt;/li>
 &lt;li>Support du cadencement des trains. Améliorer l&amp;rsquo;intégration de Netzgrafik-Editor.&lt;/li>
 &lt;li>Envoyer des trains STDCM à des services externes pour stockage et traitement.&lt;/li>
