@@ -1,58 +1,46 @@
 ---
-title: "Encoding the solution space"
-linkTitle: "2 - Encoding the solution space"
+title: "Search space and decision tree"
+linkTitle: "2 - Search space and decision tree"
 weight: 20
 ---
 
-#### General principle
+Now that we can enumerate the paths and identify conflicts, we need
+to build the final decision tree that avoids all conflicts.
 
-The problem is still a pathfinding problem in a given graph.
-Once the problem is encoded as a graph search, it is possible to reuse
-our existing tools for this purpose.
+{{% alert color="info" %}}
+In terms of implementation, we would like to have a class with a similar
+purpose as `InfraExplorer`, but currently it's all over the place.
+There's [a refactoring issue](https://github.com/OpenRailAssociation/osrd/issues/15685),
+but we may not have the time to do it.
+{{% /alert %}}
 
-We consider the *product graph* of position, time, and speed.
-This means that every graph element contains these 3 variables
-(among other things)
+The search space is described as a graph with nodes and edges.
+Edges are generally one signaling block long, but may be shorter
+in case of stops.
 
-Every graph edge is computed using
-[running-time calculation]({{< ref "docs/explanation/running_time_calculation/" >}} "running-time calculation")
-to get speed and positions as functions of time.
+Generating new edges on a given path follow this sequence:
 
+1. The train movement is generated on the new segment (time and speed at each point)
+2. Conflicts are identified during this time segment
+3. *Openings* are identified
+4. One edge is generated per opening
 
-#### Graphical representation
+An "opening" is an available time window between two occupied blocks.
+When there are several different openings, we get to chose if the
+new train goes before or after another train or work schedule.
 
-Space is encoded with a graph that contains the physical infrastructure.
+### Delays
 
-![product graph (1/3)](routes_time_1.png)
+We often need to **add delay** to the current simulation to actually go
+through an opening, where the train needs to reach a point later than it could have.
 
-It is then "duplicated" at different times.
+This can be done in several different ways:
 
-![product graph (2/3)](routes_time_2.png)
+* Delaying the train departure
+* Lengthening a stop
+* Forcing the train to go slower for a while (with something called "engineering allowances")
 
-The nodes are then linked together in a way that reflects travel time.
+We keep track of how much delays we can add at any given point to handle
+departure and stop changes. For engineering allowances, we're identifying
+how much delay we can add if the train slows down then immediately speeds up.
 
-![product graph (3/3)](routes_time_3.png)
-
-
-#### Notes
-
-
-- The graph is constructed on the fly as it is explored.
-- It is *discretized* in time, to evaluate which nodes have already
-been visited. We keep full accuracy of time values, but two nodes
-at the same place and close times are considered identical.
-- Every edge is computed with a running time computation.
-- Speed isn't discretized or considered to check visited nodes,
-it's only used to compute time.
-- By default, the train always goes as fast as it can
-(while still following standard allowances).
-It only slows down when necessary.
-
-
-#### Example
-
-For example, with the following infrastructure, using the track graph:
-![Example infra](example_infra.svg)
-
-Exploring the solution graph can give the following result:
-![Graph Representation](example_graph.svg)

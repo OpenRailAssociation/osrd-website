@@ -6,12 +6,11 @@ weight: 30
 
 This module handles the search for solutions.
 
-To reduce the problem to its simplest form and for easy and efficient
-testing, inputs and outputs are strongly simplified and abstracted.
+To summarize how it works: the search space is defined as one large decision tree.
 
-To summarize its behavior:
-the solution space is described as a graph that encodes locations,
-time, and speed. A pathfinding is run on this graph to find a solution.
+We first build one decision tree that lists all possible paths, where
+each "decision" is the direction taken. We then build another tree on top
+of it that handles simulations and conflicts, branching is done when the new
+train gets to chose if it goes before or after a different train.
 
-This graph could, in a way, be seen as a decision tree,
-but different paths can lead to the same node.
+We then run an A* on the resulting graph.
