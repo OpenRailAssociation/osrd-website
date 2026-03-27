@@ -16,6 +16,8 @@ because of a signal. In our case, that means the solution would not
 be valid, we need to arrive later (or earlier) to see the signal
 when it's not restrictive anymore.
 
+In STDCM, conflicts can also be caused by work schedules.
+
 The complex part is that we need to do the conflict detection *incrementally*
 Which means that:
 1. When running simulations up to t=x, we need to know all of the conflicts
@@ -33,3 +35,10 @@ we need some elements in the lookahead section).
 To handle it, the conflict detection module
 returns an error when more lookahead is required. When it happens
 we extend it by cloning the infra explorer objects.
+
+
+{{% alert color="info" %}}
+Note to maintainers: the actual incremental conflict detection is handled
+by the class `IncrementalConflictDetector`. When debugging in local,
+it can be inspected and patched to identify exactly where requirements come from.
+{{% /alert %}}

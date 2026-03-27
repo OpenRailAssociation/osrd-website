@@ -1,7 +1,7 @@
 ---
 title: "Conflict avoidance"
-linkTitle: "4 - Conflict avoidance"
-weight: 40
+linkTitle: "3 - Conflict avoidance"
+weight: 30
 ---
 
 While exploring the graph, it is possible to end up in locations that would
@@ -14,7 +14,7 @@ The departure time is defined as an interval in the module parameters:
 the train can leave at a given time, or up to `x` seconds later.
 Whenever possible, delay should be added by shifting the departure time.
 
-> for example : a train can leave between 10:00 et 11:00. Leaving
+> for example : a train can leave between 10:00 and 11:00. Leaving
 > at 10:00 would cause a conflict, the train actually needs to enter the
 > destination station 15 minutes later. Making the train leave at
 > 10:15 solves the problem.
@@ -60,7 +60,7 @@ calculation module. It adds a given delay between two points of
 a path, without affecting the speeds on the rest of the path.
 
 
-## Post-processing
+#### Post-processing
 
 We **used to** compute the engineering allowances during the graph
 exploration, but that process was far too expensive. We used to

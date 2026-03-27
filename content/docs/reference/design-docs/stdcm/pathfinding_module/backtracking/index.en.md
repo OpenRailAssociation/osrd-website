@@ -1,7 +1,7 @@
 ---
 title: "Discontinuities and backtracking"
-linkTitle: "3 - Discontinuities and backtracking"
-weight: 30
+linkTitle: "4 - Discontinuities and backtracking"
+weight: 40
 ---
 
 #### The discontinuity problem
