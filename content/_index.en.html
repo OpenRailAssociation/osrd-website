@@ -3,45 +3,76 @@ title = "OSRD"
 linkTitle = "OSRD"
 +++
 
-{{< blocks/section title="" height="full" color="white" type="col-10 mx-auto fs-3 osrd-desc-section">}}
-	<p class="osrd-desc">
-		<strong>Open Source Railway Designer</strong> is free, open-source software that accurately simulates the operation of a rail network. These simulations help improve current and future passenger and freight train traffic. They speed up decision-making in favor of rail travel, reducing CO₂ emissions into the atmosphere. 
-	</p>
-	{{< carousel >}}
-{{< /blocks/section>}} 
-
-{{< blocks/section type="row justify-content-center row-gap-5 px-5 cards-topic" color="white">}}
-  {{< topics >}}
-{{< /blocks/section>}} 
-
-{{< blocks/section color="white" type="video-section d-flex row text-center">}}
-	<h2 class="video-title">Discover the project in 30 seconds</h2>
-	<p>(business needs covered, interface, open source development)</p>
-	<div style="max-width:460px;margin:auto;">
-		<video controls width="100%">
-			<source src="/videos/Intro_OSRD.mp4" type="video/mp4">
-		</video>
+{{< blocks/cover title="" image_anchor="top" height="full" color="black">}}
+	{{< event-logo >}}
+	<h2 class="mb-5 font-weight-normal main-title">Open Source Railway Designer</h2>
+	<div class="mx-auto mt-3">
+		<a class="btn btn-lg btn-primary mx-2 mb-4" href="https://demo.osrd.fr">
+			Demo <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+		</a>
+		<a class="btn btn-lg btn-primary mx-2 mb-4" href="{{< relref "/about">}}">
+			About <i class="fas fa-circle-info ml-2 "></i>
+		</a>
+		<a class="btn btn-lg btn-primary mx-2 mb-4" href="https://github.com/OpenRailAssociation/osrd">
+			Github <i class="fab fa-github ml-2 "></i>
+		</a>
+		<p class="lead mt-5"></p>
+		{{< blocks/link-down color="primary">}}
 	</div>
-{{< /blocks/section>}}
+	{{< /blocks/cover>}}
 
-{{< blocks/section color="grey">}}
 
-	<h2 class="text-center mb-3 sponsor-title">Sponsors</h2>
-	<p class="mx-auto text-center sponsor-desc">
-		Our&nbsp;sponsors support the&nbsp;development of&nbsp;OSRD and&nbsp;actively contribute to&nbsp;moving the&nbsp;project forward. Their&nbsp;commitment allows us&nbsp;to&nbsp;go further in&nbsp;building an&nbsp;open and&nbsp;collaborative tool serving the&nbsp;railway sector.
-	</p>
+		{{% blocks/lead color="primary" %}}
+		An open source web application for railway infrastructure design, capacity analysis, timetabling and more!
+		{{% /blocks/lead %}}
 
-	<div class="sponsors d-flex justify-content-around mt-5">
-		<a href="https://www.ecologie.gouv.fr/en" target="_blank">
-			<img src="/sponsors/ministere-amenagement-territoire-decentralisation.png" width="100px" height="100px"
-				alt="Ministère de l'Aménagement du Territoire et de la Décentralisation" />
-		</a>
-		<a href="https://commission.europa.eu/index_en" target="_blank">
-			<img src="/sponsors/european-union.svg" width="100px" height="100px" alt="European Union" />
-		</a>
-		<a href="https://www.sncf-reseau.com/en" target="_blank">
-			<img src="/sponsors/sncf-reseau.svg" width="100px" height="100px" alt="SNCF Réseau" />
-		</a>
-	</div>
+		{{< blocks/section color="dark" type="row justify-content-center">}}
 
-{{< /blocks/section>}}
+			{{< blocks/feature icon="fa-solid fa-toolbox" title="Railway design" >}}
+			Design railway infrastructure and timetables
+			{{< /blocks/feature >}}
+
+			{{< blocks/feature icon="fas fa-microscope" title="Capacity Analysis" >}}
+			Detect conflicts and visualize capacity
+			{{< /blocks/feature >}}
+
+			{{< blocks/feature icon="fas fa-drafting-compass" title="Short-term planning" >}}
+			Automatically add new trains to an existing timetable
+			{{< /blocks/feature >}}
+
+			{{< /blocks/section>}}
+
+				{{< blocks/section color="dark" type="row justify-content-center">}}
+
+					{{< blocks/feature icon="fab fa-github" title="Open source development" url="./about/opensource/"
+					>}}
+					Anyone can use, develop and distribute OSRD
+					{{< /blocks/feature >}}
+
+					{{< blocks/feature icon="fas fa-university" title="Governance" url="./about/governance/" >}}
+					OSRD is publicly designed and hosted by the OpenRail Association
+					{{< /blocks/feature >}}
+
+					{{< blocks/feature icon="fas fa-exchange-alt" title="Designed for interoperability" >}}
+					Make custom infrastructure formats and signaling systems work together
+					{{< /blocks/feature >}}
+
+					{{< /blocks/section>}}
+
+
+						<section class="video-section">
+							<video controls>
+								<source src="video.en.webm" type="video/webm">
+							</video>
+						</section>
+
+						<section>
+							<h2 class="text-center">Sponsors</h2>
+							<p align="center">
+								<img src="/sponsors/ministere-amenagement-territoire-decentralisation.png" width="180px" height="180px"
+									alt="Ministère de l'Aménagement du Territoire et de la Décentralisation" />
+								<img src="/sponsors/european-union.svg" width="180px" height="180px"
+									alt="European Union" />
+								<img src="/sponsors/sncf-reseau.svg" width="180px" height="180px" alt="SNCF Réseau" />
+							</p>
+						</section>

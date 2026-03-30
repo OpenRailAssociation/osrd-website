@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg width="294.73" height="294.73" version="1.1" viewBox="0 0 294.73 294.73" xmlns="http://www.w3.org/2000/svg">
  <g transform="matrix(1.3333 0 0 -1.3333 1.9665 294.73)">
-  <rect transform="scale(1,-1)" x="-1.4749" y="-221.05" width="221.05" height="221.05" fill="none" stroke-linejoin="bevel" stroke-opacity=".63452" stroke-width=".28346"/>
+  <rect transform="scale(1,-1)" x="-1.4749" y="-221.05" width="221.05" height="221.05" fill="#fff" stroke-linejoin="bevel" stroke-opacity=".63452" stroke-width=".28346"/>
   <g transform="scale(.1)">
    <path d="m172.15 2025.4h1831.5v-1244.1h-1831.5v1244.1" fill="#fff"/>
    <path d="m207.37 1991.3h1761.1v-1174.1h-1761.1v1174.1" fill="#254aa5"/>

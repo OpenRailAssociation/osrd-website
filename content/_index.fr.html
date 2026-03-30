@@ -3,47 +3,78 @@ title = "OSRD"
 linkTitle = "OSRD"
 +++
 
-{{< blocks/section title="" height="full" color="white" type="col-10 mx-auto fs-3 osrd-desc-section">}}	
-	<p class="osrd-desc">
-		<strong>Open Source Railway Designer</strong> est un logiciel libre et gratuit qui simule finement le fonctionnement d’un réseau ferroviaire. Ces simulations permettent d’améliorer les circulations actuelles ou futures des trains de voyageurs comme de marchandises. Elles accélèrent les prises de décisions favorisant le choix du train, pour moins de CO₂ dans l’atmosphère.
-	</p>	
-	{{< carousel >}}
-{{< /blocks/section>}}
-
-{{< blocks/section type="row justify-content-center row-gap-5 px-5 cards-topic" color="white">}}
-	{{< topics >}}		
-{{< /blocks/section>}}
-
-{{< blocks/section color="white" type="video-section d-flex row text-center">}}
-	<h2 class="video-title">Découvrez le projet en 30 secondes</h2>
-	<p>(besoins métiers couverts, interface, développement open source)</p>
-	<div style="max-width:460px;margin:auto;">
-		<video controls width="100%">
-			<source src="/videos/Intro_OSRD.mp4" type="video/mp4">
-		</video>
+{{< blocks/cover title="" image_anchor="top" height="full" color="black">}}
+	{{< event-logo >}}
+	<h2 class="mb-5 font-weight-normal main-title">Open Source Railway Designer</h2>
+	<div class="mx-auto mt-3">
+		<a class="btn btn-lg btn-primary mx-2 mb-4" href="https://demo.osrd.fr">
+			Démo <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+		</a>
+		<a class="btn btn-lg btn-primary mx-2 mb-4" href="{{< relref "/about">}}">
+			À propos <i class="fas fa-circle-info ml-2 "></i>
+		</a>
+		<a class="btn btn-lg btn-primary mx-2 mb-4" href="https://github.com/OpenRailAssociation/osrd">
+			Github <i class="fab fa-github ml-2 "></i>
+		</a>
+		<p class="lead mt-5"></p>
+		{{< blocks/link-down color="primary">}}
 	</div>
-{{< /blocks/section>}}
+	{{< /blocks/cover>}}
+
+		{{% blocks/lead color="primary" %}}
+		Une application web, open source, de conception d'infrastructure ferroviaire, d'horaires, d'analyse de capacité
+		et bien plus !
+		{{% /blocks/lead %}}
+
+		{{< blocks/section color="dark" type="row justify-content-center">}}
+
+			{{< blocks/feature icon="fa-solid fa-toolbox" title="Conception ferroviaire" >}}
+			Modifiez l’infrastructure ferroviaire et les grilles horaires
+			{{< /blocks/feature >}}
+
+			{{< blocks/feature icon="fas fa-microscope" title="Analyse de capacité" >}}
+			Détectez les conflits et visualisez la capacité
+			{{< /blocks/feature >}}
+
+			{{< blocks/feature icon="fas fa-drafting-compass" title="Planning court-terme" >}}
+			Ajoutez automatiquement de nouveaux trains dans une grille existante
+			{{< /blocks/feature >}}
+
+			{{< /blocks/section>}}
+
+				{{< blocks/section color="dark" type="row justify-content-center">}}
+
+					{{< blocks/feature icon="fab fa-github" title="Développement Open source" url="./about/opensource/"
+					>}}
+					Tout le monde peut utiliser, redistribuer et développer OSRD
+					{{< /blocks/feature >}}
+
+					{{< blocks/feature icon="fas fa-university" title="Gouvernance" url="./about/governance/"
+					>}}
+					Le développement d'OSRD est public, le projet est hébergé par l'association OpenRail
+					{{< /blocks/feature >}}
+
+					{{< blocks/feature icon="fas fa-exchange-alt" title="Conçu pour l'interopérabilité" >}}
+					Faites vos simulations à l’aide de formats d'infrastructure et de systèmes de signalisation
+					sur mesure
+					{{< /blocks/feature >}}
+
+					{{< /blocks/section>}}
 
 
-{{< blocks/section color="grey" >}}
+						<section class="video-section">
+							<video controls>
+								<source src="video.fr.webm" type="video/webm">
+							</video>
+						</section>
 
-	<h2 class="text-center mb-3 sponsor-title">Sponsors</h2>
-	<p class="mx-auto text-center sponsor-desc">
-		Nos&nbsp;sponsors soutiennent le&nbsp;développement d’OSRD et&nbsp;contribuent activement à&nbsp;faire avancer le&nbsp;projet. Leur&nbsp;engagement nous&nbsp;permet d’aller plus&nbsp;loin dans la&nbsp;construction d’un&nbsp;outil ouvert et&nbsp;collaboratif au&nbsp;service&nbsp;du&nbsp;ferroviaire.
-	</p>
-
-	<div class="sponsors d-flex justify-content-around mt-5">
-		<a href="https://www.ecologie.gouv.fr/" target="_blank">
-			<img src="/sponsors/ministere-amenagement-territoire-decentralisation.png" width="100px" height="100px"
-				alt="Ministère de l'Aménagement du Territoire et de la Décentralisation" />
-		</a>
-		<a href="https://commission.europa.eu/index_fr" target="_blank">
-			<img src="/sponsors/european-union.svg" width="100px" height="100px"
-				alt="Union européenne" />
-		</a>
-		<a href="https://www.sncf-reseau.com/fr" target="_blank">
-			<img src="/sponsors/sncf-reseau.svg" width="100px" height="100px" alt="SNCF Réseau" />
-		</a>
-	</div>
-
-{{< /blocks/section>}}
+						<section>
+							<h2 class="text-center">Sponsors</h2>
+							<p align="center">
+								<img src="/sponsors/ministere-amenagement-territoire-decentralisation.png" width="180px" height="180px"
+									alt="Ministère de l'Aménagement du Territoire et de la Décentralisation" />
+								<img src="/sponsors/european-union.svg" width="180px" height="180px"
+									alt="European Union" />
+								<img src="/sponsors/sncf-reseau.svg" width="180px" height="180px" alt="SNCF Réseau" />
+							</p>
+						</section>
