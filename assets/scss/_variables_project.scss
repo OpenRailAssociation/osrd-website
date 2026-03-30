@@ -12,8 +12,10 @@ $enable-shadows: false;
 // osrd-light-blue on a dark background, which is pretty nasty
 $min-contrast-ratio: 4;
 
-$osrd-light-blue: #126EA5;
+$osrd-light-blue: #796ac4;
+$osrd-dark-blue: #493E80;
 $primary: $osrd-light-blue;
+$secondary: $osrd-dark-blue;
 
 .main-logo {
   margin: 3rem 0 5rem;
@@ -28,13 +30,21 @@ $primary: $osrd-light-blue;
   }
 }
 
-.row {
-  margin: 0 !important;
+.td-navbar {
+  background: white !important;
+
+  .container-fluid{
+    padding-inline: 41px;
+  }
+
+  .td-search {
+    display: none;
+  }
 }
 
-section {
-  width: 100%;
-  margin-inline: 0!important;
+.td-sidebar-nav .td-sidebar-link.tree-root {
+  color: $osrd-dark-blue !important;
+  border-color: $osrd-dark-blue !important;
 }
 
 /* SWAGGER OVERRIDE */
@@ -57,39 +67,15 @@ section {
 }
 
 /* NAVBAR OVERRIDE */
-.td-navbar {
-  background: white !important;
-
-  
-  .container-fluid{
-    padding-inline: 41px;
-  }
-  
-  .td-search {
+a.navbar-brand {
+  font-size: unset;
+  span:last-child {
     display: none;
   }
-  
-  a.navbar-brand {
-    font-size: unset;
-    span:last-child {
-      display: none;
-    }
-
-    .navbar-logo {
-      svg {
-        height: 40px;
-        margin: 0;
-      }
-    }
-  }
-
-  .navbar-nav {
-    .dropdown > a {
-      color: #6D6D6D !important;
-  
-      &::after {
-        color: rgba(0, 0, 0, 0.38) !important;
-      }
+  .navbar-logo {
+    svg {
+      height: 40px;
+      margin: 0;
     }
   }
 }
@@ -105,14 +91,8 @@ header {
 .td-outer {
   padding: 0 !important;
 
-}
-
-.osrd-desc-section {
-  padding-top: 50px;
-  
-  .osrd-desc {
-    width: 800px;
-    margin: auto;
+  .td-main {
+    padding: 12px !important;
   }
 }
 
@@ -123,63 +103,18 @@ header {
 .cards-topic {
   width: 70%;
   margin: auto !important;
-}
-
-.card-topic {
-  padding-inline: 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 344px;
-
-  h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
-
-  p {
-    width: 274px;
-  }
-}
-
-.td-box--grey {
-  background-color: #F6F8F8;
-}
-
-.sponsor{
-  &-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
-
-  &-desc {
-    width: 442px;
+  .card-topic {
+    padding-inline: 36px;
   }
 }
 
 .sponsors {
   width: 60%;
   margin: auto !important;
-
   a {
     text-decoration: none;
   }
   
-}
-
-.video-section{
-  padding-bottom: 27px;
-  h2 {
-    font-size: 1.5rem;
-  }
-  p {
-    margin-bottom: 50px;
-  }
-}
-
-.td-block-padding:has(.sponsor-title) {
-  padding-top: 30px;
 }
 
 /* REMOVE SIDEMENU RIGHT */
@@ -208,7 +143,7 @@ footer {
     margin-top: 46px;
     .footer-title {
       font-weight: 500;
-      font-size: 1.125rem;
+      font-size: 18px;
     }
     .footer-nav {
       ul {
