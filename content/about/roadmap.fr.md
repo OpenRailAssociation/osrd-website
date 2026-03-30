@@ -8,7 +8,7 @@ weight: 220
 Voici une liste des principales fonctionnalités que OSRD souhaite ajouter, par ordre de priorité.
 Cette feuille de route s'étale sur plusieurs années.
 
-- Ajout du système de signalisation [ERTMS](https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire).
+- Ajout du système de signalisation [ERTMS] (https://fr.wikipedia.org/wiki/Syst%C3%A8me_europ%C3%A9en_de_gestion_du_trafic_ferroviaire).
 - Système de permission fin.
 - Support du cadencement des trains. Améliorer l'intégration de Netzgrafik-Editor.
 - Envoyer des trains STDCM à des services externes pour stockage et traitement.
