@@ -1,3 +1,0 @@
-footer_text:
-  copyright: "© {{ .Year }} Mon site web - Tous droits réservés"
-  source_code: "Code source"
