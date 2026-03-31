@@ -229,3 +229,34 @@ footer {
     }
   }
 }
+
+  /* CAROUSEL */
+.carousel {
+  margin-top: 121px;
+  height: 596px;
+  width: 983px;
+  background-color: #384E61;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+
+  legend {
+    position: absolute;
+    bottom: -60px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  img {
+    height: 480px;
+    object-fit: cover;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 1);
+    margin-top: 42px;
+  }
+}
+  
+.carousel-control-prev, .carousel-control-next {
+  width: 10% !important;
+}
