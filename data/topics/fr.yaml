@@ -1,0 +1,29 @@
+- img: "/images/about/topics/conception.jpg"
+  title: "Conception ferroviaire"
+  desc: "Modifiez l’infrastructure ferroviaire et&nbsp;les&nbsp;grilles horaires pour concevoir des&nbsp;scénarios réalistes"
+  link: "/docs/"
+
+- img: "/images/about/topics/capacity_analysis.jpg"
+  title: "Analyse de capacité"
+  desc: "Détectez les&nbsp;conflits et&nbsp;visualisez la&nbsp;capacité allouée pour optimiser un&nbsp;plan de&nbsp;transport"
+  link: "/docs/reference/design-docs/conflict-detection/"
+
+- img: "/images/about/topics/short_term_planning.jpg"
+  title: "Planning court-terme"
+  desc: "Ajoutez automatiquement de&nbsp;nouveaux trains à&nbsp;une&nbsp;grille horaire en&nbsp;utilisant la&nbsp;capacité résiduelle"
+  link: "/docs/reference/design-docs/stdcm/"
+
+- img: "/images/about/topics/open_source.jpg"
+  title: "Développement Open Source"
+  desc: "Tout le&nbsp;monde peut utiliser, redistribuer et&nbsp;contribuer au&nbsp;développement d'OSRD"
+  link: "about/opensource/"
+
+- img: "/images/about/topics/governance.jpg"
+  title: "Gouvernance"
+  desc: "Le&nbsp;développement d'OSRD est&nbsp;public et&nbsp;le&nbsp;projet est&nbsp;hébergé par&nbsp;l'association OpenRail"
+  link: "about/governance/"
+
+- img: "/images/about/topics/interoperability.jpg"
+  title: "Conçu pour l’interopérabilité"
+  desc: "Simulez des&nbsp;formats d'infrastructure prospectives et&nbsp;des&nbsp;systèmes de&nbsp;signalisation personnalisés"
+  link: "/docs/reference/design-docs/"

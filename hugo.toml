@@ -99,7 +99,7 @@ style = "tango"
 guessSyntax = false
 
 [[menus.main]]
-  weight = 1000
+  weight = 100
   url = "https://github.com/OpenRailAssociation/osrd"
   pre = "<i class='fa-brands fa-github'></i>"
   [menus.main.params]
