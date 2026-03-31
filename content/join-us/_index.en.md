@@ -4,6 +4,8 @@ linkTitle: Join us
 menu:
   main:
     weight: 90
+  footer:
+    weight: 90
 cascade:
   - type: docs
 ---

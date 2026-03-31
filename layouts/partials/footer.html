@@ -1,0 +1,22 @@
+<footer class="footer">
+  <div class="container d-flex justify-content-between">
+    <div class="footer-left">
+      <div>
+        <p class="footer-title">OSRD</p>
+        <p>Open Source Railway Designer</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          {{ range .Site.Menus.footer }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-right d-flex flex-column justify-content-between ">
+      <a href="https://github.com/OpenRailAssociation/osrd">{{ i18n "footer_text.source_code" }}</a>
+      <p>{{ i18n "footer_text.copyright" (dict "Year" (now.Year)) }}</p>
+    </div>
+
+  </div>
+</footer>
