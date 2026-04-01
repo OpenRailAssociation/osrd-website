@@ -29,6 +29,10 @@ An "opening" is an available time window between two occupied blocks.
 When there are several different openings, we get to choose if the
 new train goes before or after another train or work schedule.
 
+On one given path, we now have a decision tree that looks like this:
+
+![Space time decision tree](space-time-chart-decision-tree.svg)
+
 ### Delays
 
 We often need to **add delay** to the current simulation to actually go

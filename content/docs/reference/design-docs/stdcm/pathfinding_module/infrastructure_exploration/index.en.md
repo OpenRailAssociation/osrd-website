@@ -73,3 +73,7 @@ conflicts, or when it's empty and we need to move forward.
 A variation of this class can also keep track of the train simulation
 and time information (called `InfraExplorerWithEnvelope`).
 This is the version that is actually used to explore the infrastructure.
+
+We now have a way to enumerate all possible paths:
+
+![Infra decision tree](infra-decision-tree.svg)
