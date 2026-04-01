@@ -228,9 +228,9 @@ considered point. This includes block and route lists.&lt;/li>
 &lt;li>We sometimes need to know where the train will go &lt;em>after&lt;/em> the
 point currently being evaluated, for proper conflict detection&lt;/li>
 &lt;/ol>
-&lt;p>To do this, we have defined the class &lt;code>InfraExplorer&lt;/code>. It uses blocks
-(sections from signal to signal) as a main subdivision.
-It has 3 sections: the current block, predecessors, and a &amp;ldquo;lookahead&amp;rdquo;.&lt;/p></description></item><item><title>Physical modeling</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</guid><description>&lt;!-- script to auto-render KaTeX extension $$..$$ for outline formula, \\(...\\) for inline formula -->
+&lt;p>To do this, we have defined the class &lt;code>InfraExplorer&lt;/code>.
+It has one purpose: &lt;strong>enumerating all possible paths&lt;/strong>.
+This is the class that handles the &amp;ldquo;path&amp;rdquo; aspect of the decision tree.&lt;/p></description></item><item><title>Physical modeling</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/physical_modeling/</guid><description>&lt;!-- script to auto-render KaTeX extension $$..$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
@@ -379,16 +379,7 @@ of the conflict detection module explains how it&amp;rsquo;s done internally.
 Generally speaking, a train is in conflict when it has to slow down
 because of a signal. In our case, that means the solution would not
 be valid, we need to arrive later (or earlier) to see the signal
-when it&amp;rsquo;s not restrictive anymore.&lt;/p></description></item><item><title>Encoding the solution space</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>&lt;h4 id="general-principle">General principle&lt;/h4>
-&lt;p>The problem is still a pathfinding problem in a given graph.
-Once the problem is encoded as a graph search, it is possible to reuse
-our existing tools for this purpose.&lt;/p>
-&lt;p>We consider the &lt;em>product graph&lt;/em> of position, time, and speed.
-This means that every graph element contains these 3 variables
-(among other things)&lt;/p>
-&lt;p>Every graph edge is computed using
-&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/" title="running-time calculation">running-time calculation&lt;/a>
-to get speed and positions as functions of time.&lt;/p></description></item><item><title>Numerical integration</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</guid><description>&lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
+when it&amp;rsquo;s not restrictive anymore.&lt;/p></description></item><item><title>Numerical integration</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/numerical_integration/</guid><description>&lt;!-- script to auto-render KaTeX extension : $$...$$ for outline formula, \\(...\\) for inline formula -->
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous">&lt;/script>
 &lt;script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
@@ -438,17 +429,17 @@ on floating point, especially for input and output.&lt;/p>
 &lt;li>handle rich train state vectors, due to the way margins are implemented&lt;/li>
 &lt;li>be usable for both incremental simulation and batch&lt;/li>
 &lt;/ul>
-&lt;p>These limitations are the primary reasons for this redesign.&lt;/p></description></item><item><title>Discontinuities and backtracking</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>&lt;h4 id="the-discontinuity-problem">The discontinuity problem&lt;/h4>
-&lt;p>When a new graph edge is visited, a simulation is run to evaluate
-its speed. But it is not possible to see beyond the current edge.
-This makes it difficult to compute braking curves, because
-they can span over several edges.&lt;/p>
-&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/discontinuity.png" alt="Discontinuity">&lt;/p>
+&lt;p>These limitations are the primary reasons for this redesign.&lt;/p></description></item><item><title>Conflict avoidance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</guid><description>&lt;p>While exploring the graph, it is possible to end up in locations that would
+generate conflicts. They can be avoided by adding delay.&lt;/p>
+&lt;h4 id="shifting-the-departure-time">Shifting the departure time&lt;/h4>
+&lt;p>The departure time is defined as an interval in the module parameters:
+the train can leave at a given time, or up to &lt;code>x&lt;/code> seconds later.
+Whenever possible, delay should be added by shifting the departure time.&lt;/p>
 &lt;blockquote>
-&lt;p>This example illustrates the problem: by default
-the first edge is explored by going at maximum speed.
-The destination is only visible once the second edge is visited,
-which doesn&amp;rsquo;t leave enough distance to stop.&lt;/p></description></item><item><title>Envelopes system</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/</guid><description>&lt;p>The envelope system is an interface created specifically for the OSRD gait calculation. It allows you to manipulate different space/velocity curves, to slice them, to end them, to interpolate specific points, and to address many other needs necessary for the gait calculation.&lt;/p>
+&lt;p>for example : a train can leave between 10:00 and 11:00. Leaving
+at 10:00 would cause a conflict, the train actually needs to enter the
+destination station 15 minutes later. Making the train leave at
+10:15 solves the problem.&lt;/p></description></item><item><title>Envelopes system</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/</guid><description>&lt;p>The envelope system is an interface created specifically for the OSRD gait calculation. It allows you to manipulate different space/velocity curves, to slice them, to end them, to interpolate specific points, and to address many other needs necessary for the gait calculation.&lt;/p>
 &lt;font color=#aa026d>
 &lt;h3 id="a-specific-interface-in-the-osrd-core-service">A specific interface in the OSRD Core service&lt;/h3>
 &lt;/font>
@@ -526,17 +517,17 @@ Compiler --&amp;gt; ConcreteDrivingInstruction&lt;/pre>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>}&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="design-considerations">Design considerations&lt;/h2>
 &lt;h3 id="where-to-put-the-speed-limit-value">Where to put the speed limit value&lt;/h3>
-&lt;p>When a speed limit is announced by dynamic signaling, we may be in a position where speed limit value is duplicated:&lt;/p></description></item><item><title>Conflict avoidance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/conflict_avoidance/</guid><description>&lt;p>While exploring the graph, it is possible to end up in locations that would
-generate conflicts. They can be avoided by adding delay.&lt;/p>
-&lt;h4 id="shifting-the-departure-time">Shifting the departure time&lt;/h4>
-&lt;p>The departure time is defined as an interval in the module parameters:
-the train can leave at a given time, or up to &lt;code>x&lt;/code> seconds later.
-Whenever possible, delay should be added by shifting the departure time.&lt;/p>
+&lt;p>When a speed limit is announced by dynamic signaling, we may be in a position where speed limit value is duplicated:&lt;/p></description></item><item><title>Discontinuities and backtracking</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/</guid><description>&lt;h4 id="the-discontinuity-problem">The discontinuity problem&lt;/h4>
+&lt;p>When a new graph edge is visited, a simulation is run to evaluate
+its speed. But it is not possible to see beyond the current edge.
+This makes it difficult to compute braking curves, because
+they can span over several edges.&lt;/p>
+&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/discontinuity.png" alt="Discontinuity">&lt;/p>
 &lt;blockquote>
-&lt;p>for example : a train can leave between 10:00 et 11:00. Leaving
-at 10:00 would cause a conflict, the train actually needs to enter the
-destination station 15 minutes later. Making the train leave at
-10:15 solves the problem.&lt;/p></description></item><item><title>Pipeline</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</guid><description>&lt;p>The walk calculation in OSRD is a 4-step process, each using &lt;a href="../envelopes_system">the envelopes system&lt;/a>:&lt;/p>
+&lt;p>This example illustrates the problem: by default
+the first edge is explored by going at maximum speed.
+The destination is only visible once the second edge is visited,
+which doesn&amp;rsquo;t leave enough distance to stop.&lt;/p></description></item><item><title>Pipeline</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</guid><description>&lt;p>The walk calculation in OSRD is a 4-step process, each using &lt;a href="../envelopes_system">the envelopes system&lt;/a>:&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-most-restricted-speed-profile-mrsp">Construction of the most restrictive speed profile&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-max-speed-profile">Addition of the different braking curves&lt;/a>&lt;/li>
@@ -606,28 +597,36 @@ Planned operations can be disrupted if a train is slowed down, prevented from pr
 &lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
 &lt;/font>
 &lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calculation of the Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
-&lt;p>This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train&amp;rsquo;s route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.&lt;/p></description></item><item><title>Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>&lt;p>The STDCM module must be usable with
-&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/">standard allowances&lt;/a>.
-The user can set an allowance value, expressed either as a function of
-the running time or the travelled distance. This time must be added to the
-running time, so that it arrives later compared to its fastest possible
-running time.&lt;/p>
-&lt;blockquote>
-&lt;p>For example: the user can set a margin of 5 minutes per 100km.
-On a 42km long path that would take 10 minutes at best,
-the train should arrive 12 minutes and 6 seconds after leaving.&lt;/p></description></item><item><title>Implementation details</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</guid><description>&lt;p>This page is about implementation details.
-It isn&amp;rsquo;t necessary to understand general principles,
-but it helps before reading the code.&lt;/p>
-&lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
-&lt;p>This refers to
-&lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt">this class&lt;/a>
-in the project.&lt;/p>
-&lt;p>This class is used to make it easier to create instances of
-&lt;code>STDCMEdge&lt;/code>, the graph edges. Those contain many attributes,
-most of which can be determined from the context (e.g. the
-previous node).
-The &lt;code>STDCMEdgeBuilder&lt;/code> class makes some parameters optional
-and automatically computes others.&lt;/p></description></item><item><title>Timetable v2</title><link>https://osrd.fr/en/docs/reference/design-docs/timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/timetable/</guid><description>&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/design-docs/timetable/timetable.svg" alt="Test">&lt;/p>
+&lt;p>This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train&amp;rsquo;s route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.&lt;/p></description></item><item><title>Search space and decision tree</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>&lt;p>Now that we can enumerate the paths and identify conflicts, we need
+to build the final decision tree that avoids all conflicts.&lt;/p>
+
+
+&lt;div class="alert alert-info" role="alert">
+
+
+ In terms of implementation, we would like to have a class with a similar
+purpose as &lt;code>InfraExplorer&lt;/code>, but currently it&amp;rsquo;s all over the place.
+There&amp;rsquo;s &lt;a href="https://github.com/OpenRailAssociation/osrd/issues/15685">a refactoring issue&lt;/a>,
+but we may not have the time to do it.
+
+&lt;/div>
+
+&lt;p>The search space is described as a graph with nodes and edges.
+Edges are generally one signaling block long, but may be shorter
+in case of stops.&lt;/p></description></item><item><title>The actual pathfinding</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/pathfinding/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/pathfinding/</guid><description>&lt;p>Once we have a graph that describes the entire search space,
+we can run a pathfinding algorithm. In this case, we use an
+&lt;a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A*&lt;/a>.&lt;/p>
+&lt;p>We need to define a few things first:&lt;/p>
+&lt;ul>
+&lt;li>How to sort the nodes, which defines which solution is considered better than the other&lt;/li>
+&lt;li>How to identify redundant nodes&lt;/li>
+&lt;li>How to estimate the remaining &amp;ldquo;cost&amp;rdquo; at any given point
+(the heuristic)&lt;/li>
+&lt;/ul>
+&lt;h3 id="node-ordering">Node ordering&lt;/h3>
+&lt;p>We currently define a hierarchy across different criteria:
+we first compare the most important one, and move on
+to the next if equal, until we reach the end of the list.&lt;/p></description></item><item><title>Timetable v2</title><link>https://osrd.fr/en/docs/reference/design-docs/timetable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/timetable/</guid><description>&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/design-docs/timetable/timetable.svg" alt="Test">&lt;/p>
 &lt;h2 id="design-decisions">Design decisions&lt;/h2>
 &lt;p>Some major changes were made between our first version of the timetable and the new one:&lt;/p>
 &lt;ul>
@@ -649,7 +648,28 @@ and automatically computes others.&lt;/p></description></item><item><title>Timet
 &lt;/ul>
 &lt;h2 id="design-decisions-1">Design decisions&lt;/h2>
 &lt;h3 id="path-waypoints-have-an-identity">Path waypoints have an identity&lt;/h3>
-&lt;p>At some point in the design process, the question was raised of whether to reference location of stops and margin transitions by name, or by value. That is, should stops hold the index of the waypoint where the stop occurs, or a description of the location where the stop occurs?&lt;/p></description></item><item><title>Simulation lifecycle</title><link>https://osrd.fr/en/docs/reference/design-docs/signaling/simulation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/signaling/simulation/</guid><description>&lt;h2 id="loading-signal-parameters">Loading Signal Parameters&lt;/h2>
+&lt;p>At some point in the design process, the question was raised of whether to reference location of stops and margin transitions by name, or by value. That is, should stops hold the index of the waypoint where the stop occurs, or a description of the location where the stop occurs?&lt;/p></description></item><item><title>Standard allowance</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/</guid><description>&lt;p>The STDCM module must be usable with
+&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/">standard allowances&lt;/a>.
+The user can set an allowance value, expressed either as a function of
+the running time or the travelled distance. This time must be added to the
+running time, so that it arrives later compared to its fastest possible
+running time.&lt;/p>
+&lt;blockquote>
+&lt;p>For example: the user can set a margin of 5 minutes per 100km.
+On a 42km long path that would take 10 minutes at best,
+the train should arrive 12 minutes and 6 seconds after leaving.&lt;/p></description></item><item><title>Implementation details and current issues</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/implementation_details/</guid><description>&lt;p>This page is about implementation details.
+It isn&amp;rsquo;t necessary to understand general principles,
+but it helps before reading the code.&lt;/p>
+&lt;h4 id="stdcmedgebuilder">STDCMEdgeBuilder&lt;/h4>
+&lt;p>This refers to
+&lt;a href="https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt">this class&lt;/a>
+in the project.&lt;/p>
+&lt;p>This class is used to make it easier to create instances of
+&lt;code>STDCMEdge&lt;/code>, the graph edges. These contain many attributes,
+most of which can be determined from the context (e.g. the
+previous node).
+The &lt;code>STDCMEdgeBuilder&lt;/code> class makes some parameters optional
+and automatically computes others.&lt;/p></description></item><item><title>Simulation lifecycle</title><link>https://osrd.fr/en/docs/reference/design-docs/signaling/simulation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/signaling/simulation/</guid><description>&lt;h2 id="loading-signal-parameters">Loading Signal Parameters&lt;/h2>
 &lt;p>The first step of loading the signal is to characterize the signal in the signaling system.
 This step produces an object that describes the signal.&lt;/p>
 &lt;p>During the loading of the signal:&lt;/p>

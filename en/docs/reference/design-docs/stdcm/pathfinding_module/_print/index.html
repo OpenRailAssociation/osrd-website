@@ -1,28 +1,24 @@
 <!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=canonical type=text/html href=https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/><link rel=alternate type=application/rss+xml href=https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/index.xml><meta name=robots content="noindex, nofollow"><link rel="shortcut icon" href=/favicons/favicon.ico><link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192><title>Train slot search module | OSRD</title>
 <meta name=description content="This module handles the search for solutions.
-To reduce the problem to its simplest form and for easy and efficient testing, inputs and outputs are strongly simplified and abstracted.
-To summarize its behavior: the solution space is described as a graph that encodes locations, time, and speed. A pathfinding is run on this graph to find a solution.
-This graph could, in a way, be seen as a decision tree, but different paths can lead to the same node."><meta property="og:url" content="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/"><meta property="og:site_name" content="OSRD"><meta property="og:title" content="Train slot search module"><meta property="og:description" content="This module handles the search for solutions.
-To reduce the problem to its simplest form and for easy and efficient testing, inputs and outputs are strongly simplified and abstracted.
-To summarize its behavior: the solution space is described as a graph that encodes locations, time, and speed. A pathfinding is run on this graph to find a solution.
-This graph could, in a way, be seen as a decision tree, but different paths can lead to the same node."><meta property="og:locale" content="en"><meta property="og:type" content="website"><meta itemprop=name content="Train slot search module"><meta itemprop=description content="This module handles the search for solutions.
-To reduce the problem to its simplest form and for easy and efficient testing, inputs and outputs are strongly simplified and abstracted.
-To summarize its behavior: the solution space is described as a graph that encodes locations, time, and speed. A pathfinding is run on this graph to find a solution.
-This graph could, in a way, be seen as a decision tree, but different paths can lead to the same node."><meta itemprop=wordCount content="79"><meta name=twitter:card content="summary"><meta name=twitter:title content="Train slot search module"><meta name=twitter:description content="This module handles the search for solutions.
-To reduce the problem to its simplest form and for easy and efficient testing, inputs and outputs are strongly simplified and abstracted.
-To summarize its behavior: the solution space is described as a graph that encodes locations, time, and speed. A pathfinding is run on this graph to find a solution.
-This graph could, in a way, be seen as a decision tree, but different paths can lead to the same node."><link rel=preload href=/scss/main.min.5c45ececdbdfc535ee5253f678cfd68edfba69407b82367ff2e289cdf3db5514.css as=style integrity="sha256-XEXs7NvfxTXuUlP2eM/Wjt+6aUB7gjZ/8uKJzfPbVRQ=" crossorigin=anonymous><link href=/scss/main.min.5c45ececdbdfc535ee5253f678cfd68edfba69407b82367ff2e289cdf3db5514.css rel=stylesheet integrity="sha256-XEXs7NvfxTXuUlP2eM/Wjt+6aUB7gjZ/8uKJzfPbVRQ=" crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script><script defer src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script></head><body class=td-section><header><nav class="td-navbar js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/en/><span class="navbar-brand__logo navbar-logo"><svg id="svg36" width="110.767" height="22"><style id="style1">.st9{fill:#fff}</style><g id="ok" transform="scale(.1918)"><g id="g36"><g id="g29"><path id="path23" d="M38.5 83.4c-1.9 8.2-2.9 17-2.9 26.5v4.8h16.6c-2.8-13.2-7.8-23.4-13.7-31.3z" class="st9"/><path id="path24" d="M0 57.5v19.9c3.1 1.2 6.3 2.7 9.5 4.6 8.5 5.2 15 12.6 19.4 21.8v-31c-3.4-3-6.9-5.5-10.3-7.5-6.5-3.7-13-6.2-18.6-7.8z" class="st9"/><path id="path25" d="M35.6 69.9c4.3-11.3 10.6-21.1 18.9-29.4V0H35.6z" class="st9"/><path id="path26" d="M40.8 75.4c5.3 6.2 10.1 13.8 13.7 23.3V50.6C48.6 57.8 44 66.1 40.8 75.4z" class="st9"/><path id="path27" d="M100.7.0H61.3v34.5C73.1 25.2 86 20 96.9 17.2c1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-11.4 2.9-25.3 8.6-37.2 19.7v31.8c2.9-6.3 6.7-11.7 11.4-16.4 9.4-9.3 21-14.1 30.5-16.6 1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-4.7 1.2-10.1 3.1-15.3 6-19 10.3-28.2 28.4-28.2 55.2v4.8h39.3c7.8.0 14.1-6.3 14.1-14.1V14.1C114.7 6.3 108.4.0 100.7.0z" class="st9"/><path id="path28" d="M22 59.6c2.2 1.3 4.5 2.8 6.8 4.6V0H14.1C6.3.0.0 6.3.0 14.1v36.4c6.5 1.7 14.2 4.5 22 9.1z" class="st9"/><path id="path29" d="M5.4 87.5c-1.8-1.1-3.6-2-5.4-2.8v15.9c0 7.8 6.3 14.1 14.1 14.1h11.6c-3.6-12.2-10.4-21.3-20.3-27.2z" class="st9"/></g><g id="g30"><path id="path30" d="M201.7 109c-30.8.0-53.7-21.2-53.7-52.5.0-31.7 22.9-51.6 53.7-51.6 31 0 53.9 20 53.9 51.6-.1 31.3-23 52.5-53.9 52.5zm0-82.6c-16.7.0-28.2 12.8-28.2 30.1.0 17.9 11.6 30.7 28.2 30.7S230 74.4 230 56.6c0-17.3-11.6-30.2-28.3-30.2z" class="st9"/></g><g id="g32"><g id="g31"><path id="path31" d="M334.3 33.3c-4-5.2-11.4-8.5-17.6-8.5-6.2.0-13.8 2.1-13.8 9.9.0 6.6 5.9 8.7 15.2 11.6 13.4 4.3 30.7 10 30.7 29.7.0 22.7-18.3 32.9-37.8 32.9-14.1.0-28.3-5.2-37-14.2l15.6-15.9c4.7 6 13.5 10.5 21.3 10.5 7.3.0 13.7-2.8 13.7-10.7.0-7.5-7.5-9.9-20.5-14.1C291.6 60.3 279 53.9 279 36c0-21.9 19.8-31 38.2-31 11.2.0 23.7 4.2 32.4 12.1z" class="st9"/></g></g><g id="g34"><g id="g33"><path id="path32" d="m433.1 106.4-21.3-39.2h-8.1v39.2h-23.4V7.6H418c19 0 37.8 7.3 37.8 29.9.0 13.3-7.8 22.7-20.5 26.6l25.8 42.3zm-16.9-79.6h-12.7v23h11.3c7.7.0 17.3-2 17.3-12 0-9.2-8.7-11-15.9-11z" class="st9"/></g></g><g id="g35"><path id="path34" d="M522.2 106.4h-36.8V7.6H521c28 0 56.5 11.7 56.5 49.1.0 34.7-28.1 49.7-55.3 49.7zm-1.7-78.5h-11.9v57.8h11.3c17 0 32.8-7 32.8-29 0-22.2-15.8-28.8-32.2-28.8z" class="st9"/></g></g></g></svg></span><span class=navbar-brand__name>OSRD</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/en/about/><span>About</span></a></li><li class=nav-item><a class="nav-link active" href=/en/docs/><span>Documentation</span></a></li><li class=nav-item><a class=nav-link href=/en/blog/><span>Blog</span></a></li><li class=nav-item><a class=nav-link href=/en/join-us/><span>Join us</span></a></li><li class="nav-item dropdown d-none d-lg-block"><div class=dropdown><a class="nav-link dropdown-toggle" href=# role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><ul class=dropdown-menu><li><a class=dropdown-item href=/fr/docs/reference/design-docs/stdcm/pathfinding_module/>Français</a></li></ul></div></li></ul></div><div class="d-none d-lg-block"><div class="td-search td-search--offline"><div class=td-search__icon></div><input type=search class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.39ae870b48bd3ee3026dabf87456dac5.json data-offline-search-base-href=/ data-offline-search-max-results=10></div></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><div class=td-content><div class="pageinfo pageinfo-primary d-print-none"><p>This is the multi-page printable view of this section.
-<a href=# onclick="return print(),!1">Click here to print</a>.</p><p><a href=/en/docs/reference/design-docs/stdcm/pathfinding_module/>Return to the regular view of this page</a>.</p></div><h1 class=title>Train slot search module</h1><ul><li>1: <a href=#pg-397a7d0b773c457d82f0a20b928d52b4>Infrastructure exploration</a></li><li>2: <a href=#pg-47b91c7f9ce15fcf0e7131cd9fc9dc37>Conflict detection</a></li><li>3: <a href=#pg-12bb8a99ebcc826ad37983a300610aed>Encoding the solution space</a></li><li>4: <a href=#pg-74094845d6db946e31db476ef1c506a2>Discontinuities and backtracking</a></li><li>5: <a href=#pg-615ce0cf6c404cd85469e6285e5feb90>Conflict avoidance</a></li><li>6: <a href=#pg-ed97b39b0c3816e4f1073f363957a3e3>Standard allowance</a></li><li>7: <a href=#pg-460b1be4e2f2584372a451ceef833731>Implementation details</a></li></ul><div class=content><p>This module handles the search for solutions.</p><p>To reduce the problem to its simplest form and for easy and efficient
-testing, inputs and outputs are strongly simplified and abstracted.</p><p>To summarize its behavior:
-the solution space is described as a graph that encodes locations,
-time, and speed. A pathfinding is run on this graph to find a solution.</p><p>This graph could, in a way, be seen as a decision tree,
-but different paths can lead to the same node.</p></div></div><div class=td-content style=page-break-before:always><h1 id=pg-397a7d0b773c457d82f0a20b928d52b4>1 - Infrastructure exploration</h1><p>The first thing we need to define is <em>how we move through the infrastructure</em>,
+To summarize how it works: the search space is defined as one large decision tree.
+We first build one decision tree that lists all possible paths, where each “decision” is the direction taken. We then build another tree on top of it that handles simulations and conflicts, branching is done when the new train gets to choose if it goes before or after a different train."><meta property="og:url" content="https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/"><meta property="og:site_name" content="OSRD"><meta property="og:title" content="Train slot search module"><meta property="og:description" content="This module handles the search for solutions.
+To summarize how it works: the search space is defined as one large decision tree.
+We first build one decision tree that lists all possible paths, where each “decision” is the direction taken. We then build another tree on top of it that handles simulations and conflicts, branching is done when the new train gets to choose if it goes before or after a different train."><meta property="og:locale" content="en"><meta property="og:type" content="website"><meta itemprop=name content="Train slot search module"><meta itemprop=description content="This module handles the search for solutions.
+To summarize how it works: the search space is defined as one large decision tree.
+We first build one decision tree that lists all possible paths, where each “decision” is the direction taken. We then build another tree on top of it that handles simulations and conflicts, branching is done when the new train gets to choose if it goes before or after a different train."><meta itemprop=wordCount content="82"><meta name=twitter:card content="summary"><meta name=twitter:title content="Train slot search module"><meta name=twitter:description content="This module handles the search for solutions.
+To summarize how it works: the search space is defined as one large decision tree.
+We first build one decision tree that lists all possible paths, where each “decision” is the direction taken. We then build another tree on top of it that handles simulations and conflicts, branching is done when the new train gets to choose if it goes before or after a different train."><link rel=preload href=/scss/main.min.5c45ececdbdfc535ee5253f678cfd68edfba69407b82367ff2e289cdf3db5514.css as=style integrity="sha256-XEXs7NvfxTXuUlP2eM/Wjt+6aUB7gjZ/8uKJzfPbVRQ=" crossorigin=anonymous><link href=/scss/main.min.5c45ececdbdfc535ee5253f678cfd68edfba69407b82367ff2e289cdf3db5514.css rel=stylesheet integrity="sha256-XEXs7NvfxTXuUlP2eM/Wjt+6aUB7gjZ/8uKJzfPbVRQ=" crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script><script defer src=https://unpkg.com/lunr@2.3.9/lunr.min.js integrity=sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli crossorigin=anonymous></script></head><body class=td-section><header><nav class="td-navbar js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/en/><span class="navbar-brand__logo navbar-logo"><svg id="svg36" width="110.767" height="22"><style id="style1">.st9{fill:#fff}</style><g id="ok" transform="scale(.1918)"><g id="g36"><g id="g29"><path id="path23" d="M38.5 83.4c-1.9 8.2-2.9 17-2.9 26.5v4.8h16.6c-2.8-13.2-7.8-23.4-13.7-31.3z" class="st9"/><path id="path24" d="M0 57.5v19.9c3.1 1.2 6.3 2.7 9.5 4.6 8.5 5.2 15 12.6 19.4 21.8v-31c-3.4-3-6.9-5.5-10.3-7.5-6.5-3.7-13-6.2-18.6-7.8z" class="st9"/><path id="path25" d="M35.6 69.9c4.3-11.3 10.6-21.1 18.9-29.4V0H35.6z" class="st9"/><path id="path26" d="M40.8 75.4c5.3 6.2 10.1 13.8 13.7 23.3V50.6C48.6 57.8 44 66.1 40.8 75.4z" class="st9"/><path id="path27" d="M100.7.0H61.3v34.5C73.1 25.2 86 20 96.9 17.2c1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-11.4 2.9-25.3 8.6-37.2 19.7v31.8c2.9-6.3 6.7-11.7 11.4-16.4 9.4-9.3 21-14.1 30.5-16.6 1.8-.5 3.7.6 4.1 2.4.5 1.8-.6 3.6-2.4 4.1-4.7 1.2-10.1 3.1-15.3 6-19 10.3-28.2 28.4-28.2 55.2v4.8h39.3c7.8.0 14.1-6.3 14.1-14.1V14.1C114.7 6.3 108.4.0 100.7.0z" class="st9"/><path id="path28" d="M22 59.6c2.2 1.3 4.5 2.8 6.8 4.6V0H14.1C6.3.0.0 6.3.0 14.1v36.4c6.5 1.7 14.2 4.5 22 9.1z" class="st9"/><path id="path29" d="M5.4 87.5c-1.8-1.1-3.6-2-5.4-2.8v15.9c0 7.8 6.3 14.1 14.1 14.1h11.6c-3.6-12.2-10.4-21.3-20.3-27.2z" class="st9"/></g><g id="g30"><path id="path30" d="M201.7 109c-30.8.0-53.7-21.2-53.7-52.5.0-31.7 22.9-51.6 53.7-51.6 31 0 53.9 20 53.9 51.6-.1 31.3-23 52.5-53.9 52.5zm0-82.6c-16.7.0-28.2 12.8-28.2 30.1.0 17.9 11.6 30.7 28.2 30.7S230 74.4 230 56.6c0-17.3-11.6-30.2-28.3-30.2z" class="st9"/></g><g id="g32"><g id="g31"><path id="path31" d="M334.3 33.3c-4-5.2-11.4-8.5-17.6-8.5-6.2.0-13.8 2.1-13.8 9.9.0 6.6 5.9 8.7 15.2 11.6 13.4 4.3 30.7 10 30.7 29.7.0 22.7-18.3 32.9-37.8 32.9-14.1.0-28.3-5.2-37-14.2l15.6-15.9c4.7 6 13.5 10.5 21.3 10.5 7.3.0 13.7-2.8 13.7-10.7.0-7.5-7.5-9.9-20.5-14.1C291.6 60.3 279 53.9 279 36c0-21.9 19.8-31 38.2-31 11.2.0 23.7 4.2 32.4 12.1z" class="st9"/></g></g><g id="g34"><g id="g33"><path id="path32" d="m433.1 106.4-21.3-39.2h-8.1v39.2h-23.4V7.6H418c19 0 37.8 7.3 37.8 29.9.0 13.3-7.8 22.7-20.5 26.6l25.8 42.3zm-16.9-79.6h-12.7v23h11.3c7.7.0 17.3-2 17.3-12 0-9.2-8.7-11-15.9-11z" class="st9"/></g></g><g id="g35"><path id="path34" d="M522.2 106.4h-36.8V7.6H521c28 0 56.5 11.7 56.5 49.1.0 34.7-28.1 49.7-55.3 49.7zm-1.7-78.5h-11.9v57.8h11.3c17 0 32.8-7 32.8-29 0-22.2-15.8-28.8-32.2-28.8z" class="st9"/></g></g></g></svg></span><span class=navbar-brand__name>OSRD</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/en/about/><span>About</span></a></li><li class=nav-item><a class="nav-link active" href=/en/docs/><span>Documentation</span></a></li><li class=nav-item><a class=nav-link href=/en/blog/><span>Blog</span></a></li><li class=nav-item><a class=nav-link href=/en/join-us/><span>Join us</span></a></li><li class="nav-item dropdown d-none d-lg-block"><div class=dropdown><a class="nav-link dropdown-toggle" href=# role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><ul class=dropdown-menu><li><a class=dropdown-item href=/fr/docs/reference/design-docs/stdcm/pathfinding_module/>Français</a></li></ul></div></li></ul></div><div class="d-none d-lg-block"><div class="td-search td-search--offline"><div class=td-search__icon></div><input type=search class="td-search__input form-control" placeholder="Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.3749293cbc3e62609eb081d90a0ea3f4.json data-offline-search-base-href=/ data-offline-search-max-results=10></div></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><div class=td-content><div class="pageinfo pageinfo-primary d-print-none"><p>This is the multi-page printable view of this section.
+<a href=# onclick="return print(),!1">Click here to print</a>.</p><p><a href=/en/docs/reference/design-docs/stdcm/pathfinding_module/>Return to the regular view of this page</a>.</p></div><h1 class=title>Train slot search module</h1><ul><li>1: <a href=#pg-397a7d0b773c457d82f0a20b928d52b4>Infrastructure exploration</a></li><li>2: <a href=#pg-47b91c7f9ce15fcf0e7131cd9fc9dc37>Conflict detection</a></li><li>3: <a href=#pg-615ce0cf6c404cd85469e6285e5feb90>Conflict avoidance</a></li><li>4: <a href=#pg-74094845d6db946e31db476ef1c506a2>Discontinuities and backtracking</a></li><li>5: <a href=#pg-12bb8a99ebcc826ad37983a300610aed>Search space and decision tree</a></li><li>6: <a href=#pg-c9c90509c24fb3380f6ddecb0296f003>The actual pathfinding</a></li><li>7: <a href=#pg-ed97b39b0c3816e4f1073f363957a3e3>Standard allowance</a></li><li>8: <a href=#pg-460b1be4e2f2584372a451ceef833731>Implementation details and current issues</a></li></ul><div class=content><p>This module handles the search for solutions.</p><p>To summarize how it works: the search space is defined as one large decision tree.</p><p>We first build one decision tree that lists all possible paths, where
+each &ldquo;decision&rdquo; is the direction taken. We then build another tree on top
+of it that handles simulations and conflicts, branching is done when the new
+train gets to choose if it goes before or after a different train.</p><p>We then run an A* on the resulting graph.</p></div></div><div class=td-content style=page-break-before:always><h1 id=pg-397a7d0b773c457d82f0a20b928d52b4>1 - Infrastructure exploration</h1><p>The first thing we need to define is <em>how we move through the infrastructure</em>,
 without dealing with conflicts yet.</p><p>We need a way to define and enumerate the different possible paths and
 explore the infrastructure graph, with several constraints:</p><ol><li>The path must be compatible with the given rolling stock
 (loading gauge / electrification / signaling system)</li><li>At any point, we need to access path properties from its start up to the
 considered point. This includes block and route lists.</li><li>We sometimes need to know where the train will go <em>after</em> the
-point currently being evaluated, for proper conflict detection</li></ol><p>To do this, we have defined the class <code>InfraExplorer</code>. It uses blocks
-(sections from signal to signal) as a main subdivision.
+point currently being evaluated, for proper conflict detection</li></ol><p>To do this, we have defined the class <code>InfraExplorer</code>.
+It has one purpose: <strong>enumerating all possible paths</strong>.
+This is the class that handles the &ldquo;path&rdquo; aspect of the decision tree.</p><p>It uses blocks (sections from signal to signal) as a main subdivision.
 It has 3 sections: the current block, predecessors, and a &ldquo;lookahead&rdquo;.</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/infra_explorer.svg alt="InfraExplorer structure"></p><p>In this example, the green arrows are the predecessor blocks.
 What happens there is considered to be immutable.</p><p>The red arrow is the current block. This is where we run
 train and signaling simulations, and where we deal with conflicts.</p><p>The blue arrows are part of the lookahead. This section hasn&rsquo;t
@@ -30,8 +26,9 @@ been simulated yet, its only purpose is to know in advance
 where the train will go next. In this example, it would tell us
 that the bottom right signal can be ignored entirely.
 The top path is the path being currently evaluated.
-<strong>The bottom section of the path will be evaluated in a different
-and already instantiated <code>InfraExplorer</code></strong></p><p>The <code>InfraExplorer</code> is manipulated with two main functions
+<strong>The path that goes toward the bottom right track, if valid,
+will be evaluated in a different <code>InfraExplorer</code></strong> that would have
+been generated alongside this instance.</p><p>The <code>InfraExplorer</code> is manipulated with two main functions
 (the accessors have been removed here for clarity):</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#204a87;font-weight:700>interface</span> <span style=color:#000>InfraExplorer</span> <span style=color:#000;font-weight:700>{</span>
 </span></span><span style=display:flex><span>    <span style=color:#8f5902;font-style:italic>/**
 </span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic>     * Clone the current object and extend the lookahead by one route, for each route starting at
@@ -50,13 +47,13 @@ different paths, returning clones for each possibility.
 It&rsquo;s called when we need a more precise lookahead to properly identify
 conflicts, or when it&rsquo;s empty and we need to move forward.</p><p>A variation of this class can also keep track of the train simulation
 and time information (called <code>InfraExplorerWithEnvelope</code>).
-This is the version that is actually used to explore the infrastructure.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-47b91c7f9ce15fcf0e7131cd9fc9dc37>2 - Conflict detection</h1><p>Once we know what paths we can use, we need to know when they
+This is the version that is actually used to explore the infrastructure.</p><p>We now have a way to enumerate all possible paths:</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/infra-decision-tree.svg alt="Infra decision tree"></p></div><div class=td-content style=page-break-before:always><h1 id=pg-47b91c7f9ce15fcf0e7131cd9fc9dc37>2 - Conflict detection</h1><p>Once we know what paths we can use, we need to know when they
 can actually be used.</p><p>The <a href=https://osrd.fr/en/docs/reference/design-docs/conflict-detection/ title=documentation>documentation</a>
 of the conflict detection module explains how it&rsquo;s done internally.
 Generally speaking, a train is in conflict when it has to slow down
 because of a signal. In our case, that means the solution would not
 be valid, we need to arrive later (or earlier) to see the signal
-when it&rsquo;s not restrictive anymore.</p><p>The complex part is that we need to do the conflict detection <em>incrementally</em>
+when it&rsquo;s not restrictive anymore.</p><p>In STDCM, conflicts can also be caused by work schedules.</p><p>The complex part is that we need to do the conflict detection <em>incrementally</em>
 Which means that:</p><ol><li>When running simulations up to t=x, we need to know all of the conflicts
 that happen before x, <em>even if they&rsquo;re indirectly caused by a
 signal seen at t > x</em> down the path.</li><li>We need to know the conflicts and resource uses right as they start
@@ -65,39 +62,12 @@ even if their end time can&rsquo;t be defined yet.</li></ol><p>For that to be po
 <a href=https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/infrastructure_exploration/ title="infra exploration">infra exploration</a>:
 we need some elements in the lookahead section).</p><p>To handle it, the conflict detection module
 returns an error when more lookahead is required. When it happens
-we extend it by cloning the infra explorer objects.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-12bb8a99ebcc826ad37983a300610aed>3 - Encoding the solution space</h1><h4 id=general-principle>General principle</h4><p>The problem is still a pathfinding problem in a given graph.
-Once the problem is encoded as a graph search, it is possible to reuse
-our existing tools for this purpose.</p><p>We consider the <em>product graph</em> of position, time, and speed.
-This means that every graph element contains these 3 variables
-(among other things)</p><p>Every graph edge is computed using
-<a href=https://osrd.fr/en/docs/explanation/running_time_calculation/ title="running-time calculation">running-time calculation</a>
-to get speed and positions as functions of time.</p><h4 id=graphical-representation>Graphical representation</h4><p>Space is encoded with a graph that contains the physical infrastructure.</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/routes_time_1.png alt="product graph (1/3)"></p><p>It is then &ldquo;duplicated&rdquo; at different times.</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/routes_time_2.png alt="product graph (2/3)"></p><p>The nodes are then linked together in a way that reflects travel time.</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/routes_time_3.png alt="product graph (3/3)"></p><h4 id=notes>Notes</h4><ul><li>The graph is constructed on the fly as it is explored.</li><li>It is <em>discretized</em> in time, to evaluate which nodes have already
-been visited. We keep full accuracy of time values, but two nodes
-at the same place and close times are considered identical.</li><li>Every edge is computed with a running time computation.</li><li>Speed isn&rsquo;t discretized or considered to check visited nodes,
-it&rsquo;s only used to compute time.</li><li>By default, the train always goes as fast as it can
-(while still following standard allowances).
-It only slows down when necessary.</li></ul><h4 id=example>Example</h4><p>For example, with the following infrastructure, using the track graph:
-<img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/example_infra.svg alt="Example infra"></p><p>Exploring the solution graph can give the following result:
-<img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/example_graph.svg alt="Graph Representation"></p></div><div class=td-content style=page-break-before:always><h1 id=pg-74094845d6db946e31db476ef1c506a2>4 - Discontinuities and backtracking</h1><h4 id=the-discontinuity-problem>The discontinuity problem</h4><p>When a new graph edge is visited, a simulation is run to evaluate
-its speed. But it is not possible to see beyond the current edge.
-This makes it difficult to compute braking curves, because
-they can span over several edges.</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/discontinuity.png alt=Discontinuity></p><blockquote><p>This example illustrates the problem: by default
-the first edge is explored by going at maximum speed.
-The destination is only visible once the second edge is visited,
-which doesn&rsquo;t leave enough distance to stop.</p></blockquote><h4 id=solution--backtracking>Solution : backtracking</h4><p>To solve this problem, when an edge is generated with a
-discontinuity in the speed envelopes, the algorithm goes back
-over the previous edges to create new ones that include the
-decelerations.</p><p>To give a simplified example, on a path of 4 edges
-where the train can accelerate or decelerate by 10km/h per edge:</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/backtracking_1.png alt="Discontinuity (edge version, 1/2)"></p><p>For the train to stop at the end of route 4, it must be at most
-at 10km/h at the end of edge 3. A new edge is then created on
-edge 3, which ends at 10km/h. A deceleration is computed
-backwards from the end of the edge back to the start,
-until the original curve is met (or the start of the edge).</p><p>In this example, the discontinuity has only been moved to the
-transition between edges 2 and 3. The process is then repeated
-on edge 2, which gives the following result:</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/backtracking_2.png alt="Discontinuity (edge version, 2/2)"></p><p>Old edges are still present in the graph as they can lead to other solutions.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-615ce0cf6c404cd85469e6285e5feb90>5 - Conflict avoidance</h1><p>While exploring the graph, it is possible to end up in locations that would
+we extend it by cloning the infra explorer objects.</p><div class="alert alert-info" role=alert>Note to maintainers: the actual incremental conflict detection is handled
+by the class <code>IncrementalConflictDetector</code>. When debugging in local,
+it can be inspected and patched to identify exactly where requirements come from.</div></div><div class=td-content style=page-break-before:always><h1 id=pg-615ce0cf6c404cd85469e6285e5feb90>3 - Conflict avoidance</h1><p>While exploring the graph, it is possible to end up in locations that would
 generate conflicts. They can be avoided by adding delay.</p><h4 id=shifting-the-departure-time>Shifting the departure time</h4><p>The departure time is defined as an interval in the module parameters:
 the train can leave at a given time, or up to <code>x</code> seconds later.
-Whenever possible, delay should be added by shifting the departure time.</p><blockquote><p>for example : a train can leave between 10:00 et 11:00. Leaving
+Whenever possible, delay should be added by shifting the departure time.</p><blockquote><p>for example : a train can leave between 10:00 and 11:00. Leaving
 at 10:00 would cause a conflict, the train actually needs to enter the
 destination station 15 minutes later. Making the train leave at
 10:15 solves the problem.</p></blockquote><p>In OSRD, this feature is handled by keeping track, for every edge,
@@ -116,7 +86,7 @@ it is possible.</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_
 <a href=https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/ title=allowances>engineering allowance</a>
 is a feature of the running-time
 calculation module. It adds a given delay between two points of
-a path, without affecting the speeds on the rest of the path.</p><h2 id=post-processing>Post-processing</h2><p>We <strong>used to</strong> compute the engineering allowances during the graph
+a path, without affecting the speeds on the rest of the path.</p><h4 id=post-processing>Post-processing</h4><p>We <strong>used to</strong> compute the engineering allowances during the graph
 exploration, but that process was far too expensive. We used to
 run binary searches on full simulations, which would sometimes
 go back for a long distance in the path.</p><p>What we <em>actually need</em> is to know whether an engineering allowance
@@ -130,7 +100,60 @@ that avoid any conflict. This step has been merged
 with the one described on the
 <a href=https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/standard_allowance/ title="standard allowance">standard allowance</a>
 page, which is now run even when no standard allowance
-have been set.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-ed97b39b0c3816e4f1073f363957a3e3>6 - Standard allowance</h1><p>The STDCM module must be usable with
+have been set.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-74094845d6db946e31db476ef1c506a2>4 - Discontinuities and backtracking</h1><h4 id=the-discontinuity-problem>The discontinuity problem</h4><p>When a new graph edge is visited, a simulation is run to evaluate
+its speed. But it is not possible to see beyond the current edge.
+This makes it difficult to compute braking curves, because
+they can span over several edges.</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/discontinuity.png alt=Discontinuity></p><blockquote><p>This example illustrates the problem: by default
+the first edge is explored by going at maximum speed.
+The destination is only visible once the second edge is visited,
+which doesn&rsquo;t leave enough distance to stop.</p></blockquote><h4 id=solution--backtracking>Solution : backtracking</h4><p>To solve this problem, when an edge is generated with a
+discontinuity in the speed envelopes, the algorithm goes back
+over the previous edges to create new ones that include the
+decelerations.</p><p>To give a simplified example, on a path of 4 edges
+where the train can accelerate or decelerate by 10km/h per edge:</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/backtracking_1.png alt="Discontinuity (edge version, 1/2)"></p><p>For the train to stop at the end of route 4, it must be at most
+at 10km/h at the end of edge 3. A new edge is then created on
+edge 3, which ends at 10km/h. A deceleration is computed
+backwards from the end of the edge back to the start,
+until the original curve is met (or the start of the edge).</p><p>In this example, the discontinuity has only been moved to the
+transition between edges 2 and 3. The process is then repeated
+on edge 2, which gives the following result:</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/backtracking/backtracking_2.png alt="Discontinuity (edge version, 2/2)"></p><p>Old edges are still present in the graph as they can lead to other solutions.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-12bb8a99ebcc826ad37983a300610aed>5 - Search space and decision tree</h1><p>Now that we can enumerate the paths and identify conflicts, we need
+to build the final decision tree that avoids all conflicts.</p><div class="alert alert-info" role=alert>In terms of implementation, we would like to have a class with a similar
+purpose as <code>InfraExplorer</code>, but currently it&rsquo;s all over the place.
+There&rsquo;s <a href=https://github.com/OpenRailAssociation/osrd/issues/15685>a refactoring issue</a>,
+but we may not have the time to do it.</div><p>The search space is described as a graph with nodes and edges.
+Edges are generally one signaling block long, but may be shorter
+in case of stops.</p><p>Generating new edges on a given path follow this sequence:</p><ol><li>The train movement is generated on the new segment (time and speed at each point)</li><li>Conflicts are identified during this time segment</li><li><em>Openings</em> are identified</li><li>One edge is generated per opening</li></ol><p>An &ldquo;opening&rdquo; is an available time window between two occupied blocks.
+When there are several different openings, we get to choose if the
+new train goes before or after another train or work schedule.</p><p>On one given path, we now have a decision tree that looks like this:</p><p><img src=/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/space-time-chart-decision-tree.svg alt="Space time decision tree"></p><h3 id=delays>Delays</h3><p>We often need to <strong>add delay</strong> to the current simulation to actually go
+through an opening, when the train needs to reach a point later than it could have.</p><p>This can be done in several different ways:</p><ul><li>Delaying the train departure</li><li>Lengthening a stop</li><li>Forcing the train to go slower for a while (with something called &ldquo;engineering allowances&rdquo;)</li></ul><p>We keep track of how much delay we can add at any given point to handle
+departure and stop changes. For engineering allowances, we&rsquo;re identifying
+how much delay we can add if the train slows down then immediately speeds up.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-c9c90509c24fb3380f6ddecb0296f003>6 - The actual pathfinding</h1><p>Once we have a graph that describes the entire search space,
+we can run a pathfinding algorithm. In this case, we use an
+<a href=https://en.wikipedia.org/wiki/A*_search_algorithm>A*</a>.</p><p>We need to define a few things first:</p><ul><li>How to sort the nodes, which defines which solution is considered better than the other</li><li>How to identify redundant nodes</li><li>How to estimate the remaining &ldquo;cost&rdquo; at any given point
+(the heuristic)</li></ul><h3 id=node-ordering>Node ordering</h3><p>We currently define a hierarchy across different criteria:
+we first compare the most important one, and move on
+to the next if equal, until we reach the end of the list.</p><p>That order is defined in <a href=https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMNode.kt>STDCMNode</a>,
+in <code>compareTo</code>. It tends to change more often than this website
+is updated, so it&rsquo;s best to check the code itself.</p><p>The main criteria is the best possible total travel time:
+the sum of the current travel time to reach this node and the
+minimum remaining travel time from this node to the destination
+(as defined/computed by the heuristic).
+Stop duration isn&rsquo;t included here.</p><h3 id=defining-redundant-visited-nodes>Defining redundant (visited) nodes</h3><p>This is handled by <a href=https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/visited_node_tracking/VisitedNodes.kt>VisitedNodes</a>.</p><p>The idea is that, at any given physical location, we mark
+time ranges as &ldquo;visited&rdquo;.</p><p>For example: consider a node reached at earliest t=10:00,
+where we can delay the departure by 30 minutes, and we
+can&rsquo;t add any engineering allowance (added time by slowing down).
+Then the location will be flagged as &ldquo;visited&rdquo; from t=10:00 to t=10:30.</p><p>Engineering allowance means we can also reach some other time range
+by lengthening the travel time. But it may not be the optimal
+way to reach a given time. So we can mark a range as &ldquo;conditionally visited&rdquo;,
+where it&rsquo;s visited at a given cost value. These ranges are
+compared to the new range and cost to identify if the new node is redundant.</p><h3 id=heuristic>Heuristic</h3><p>Most of the algorithmic complexity here comes from the high
+number of nodes for any given location. Going through the
+entire block graph once is comparatively quite fast.</p><p>So we go through the entire block graph, starting at the
+destination, and we keep track of the fastest time it takes
+to reach the destination from any given point.</p><p>We keep track of intermediate path steps, max speed, and
+decelerations (including decelerations caused by requested stops).
+But we can&rsquo;t consider accelerations at this stage.</p><p>It may sound slow and expensive (and it can be), but it drastically
+lowers the standard deviation and upper bound in search time.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-ed97b39b0c3816e4f1073f363957a3e3>7 - Standard allowance</h1><p>The STDCM module must be usable with
 <a href=https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/>standard allowances</a>.
 The user can set an allowance value, expressed either as a function of
 the running time or the travelled distance. This time must be added to the
@@ -140,7 +163,7 @@ On a 42km long path that would take 10 minutes at best,
 the train should arrive 12 minutes and 6 seconds after leaving.</p></blockquote><p>This can cause problems to detect conflicts, as an allowance would move
 the end of the train slot to a later time.
 The allowance must be considered when we compute conflicts as
-the graph is explored.</p><p>The allowance must also follow the <a href=/pdf/MARECO.pdf>MARECO</a> model:
+the graph is explored.</p><p>The allowance should also follow the <a href=/pdf/MARECO.pdf>MARECO</a> model:
 the extra time isn&rsquo;t added evenly over the whole path,
 it is computed in a way that requires knowing the whole path.
 This is done to optimize the energy used by the train.</p><h4 id=during-the-exploration>During the exploration</h4><p>The main implication of the standard allowance is during
@@ -159,18 +182,24 @@ we should aim for 5 minutes per 100km, any value between
 we can or want to encode as they&rsquo;re too many specificities,
 but it means we can be off by a few seconds.</div><h4 id=post-processing>Post-processing</h4><p>The process to find the actual train simulation is as follows:</p><ol><li>We define points at which the time is fixed, initialized
 at first with the time of each train stop. This is an input
-of the simulation and indirectly calls the standard allowance.</li><li>If there are conflict, we try to remove the first one.</li><li>We add a fixed time point <em>at the location where that conflict
+of the simulation and indirectly calls the standard allowance.</li><li>We run a full simulation over the entire path with conflict detection</li><li>If there are conflicts, we try to remove the first one.</li><li>We add a fixed time point <em>at the location where that conflict
 happened</em>. We use the time considered during the exploration
-(with linear scaling) as reference time.</li><li>This process is repeated iteratively until no conflict is found.</li></ol></div><div class=td-content style=page-break-before:always><h1 id=pg-460b1be4e2f2584372a451ceef833731>7 - Implementation details</h1><p>This page is about implementation details.
+(with linear scaling) as reference time.</li><li>This process is repeated iteratively until no conflict is found.</li></ol><p>This is the general idea. In practice, we need some workarounds to avoid
+some issues. These include:</p><ul><li>Adding a fixed time point at the end location of engineering allowances
+(when not part of a different engineering allowance)</li><li>Distributing engineering allowance times linearly over the engineering allowance distance</li><li>When we fail to find a valid solution, we fall back from MARECO to &ldquo;linear&rdquo; allowance distribution</li><li>When we still fail to find a valid solution, we increase the train traction.
+This lets us find a close solution.</li></ul><p>When we fail to find a solution despite all this, an error is thrown
+and needs to be investigated. It can be difficult to identify what went
+wrong though, it can come from any difference and mismatch between the search
+and this final post-processing simulation.</p></div><div class=td-content style=page-break-before:always><h1 id=pg-460b1be4e2f2584372a451ceef833731>8 - Implementation details and current issues</h1><p>This page is about implementation details.
 It isn&rsquo;t necessary to understand general principles,
 but it helps before reading the code.</p><h4 id=stdcmedgebuilder>STDCMEdgeBuilder</h4><p>This refers to
 <a href=https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMEdgeBuilder.kt>this class</a>
 in the project.</p><p>This class is used to make it easier to create instances of
-<code>STDCMEdge</code>, the graph edges. Those contain many attributes,
+<code>STDCMEdge</code>, the graph edges. These contain many attributes,
 most of which can be determined from the context (e.g. the
 previous node).
 The <code>STDCMEdgeBuilder</code> class makes some parameters optional
-and automatically computes others.</p><p>Once instantiated and parametrized, an <code>STDCMEdgeBuilder</code> has two methods:</p><ul><li><p><code>makeAllEdges(): Collection&lt;STDCMEdge></code> can be used to create all
+and automatically computes others.</p><p>Once instantiated and parameterized, an <code>STDCMEdgeBuilder</code> has two methods:</p><ul><li><p><code>makeAllEdges(): Collection&lt;STDCMEdge></code> can be used to create all
 the possible edges in the given context for a given route.
 If there are several &ldquo;openings&rdquo; between occupancy blocks, one edge
 is instantiated for each opening. Every conflict, their avoidance,
@@ -178,21 +207,15 @@ and their related attributes are handled here.</p></li><li><p><code>findEdgeSame
 This method is used to get the specific edges that uses a certain
 opening (when it exists), identified here with the time of the next
 occupancy block. It is called whenever a new edge must be re-created
-to replace an old one. It calls the previous method.</p></li></ul><h3 id=pathfinding>Pathfinding</h3><p>The methods mentioned here are defined in
-<a href=https://github.com/OpenRailAssociation/osrd/blob/dev/core/src/main/kotlin/fr/sncf/osrd/stdcm/graph/STDCMPathfinding.kt>this class</a>.</p><h4 id=cost-function>Cost function</h4><p>The function used to define pathfinding cost sets which path
-is used over another. The result is always the one that minimizes
-this cost (as long as the heuristic is admissible).</p><p>Here, two parameters are used: total run time and departure time.
-The latter has a very small weight compared to the former,
-so that the fastest path is found. More details
-are explained in the documentation of those methods.</p><h4 id=heuristics>Heuristics</h4><p>The algorithm used to find a path is an A*, with a heuristic based
-on geographical coordinates.</p><p>However, the coordinates of generated infrastructures are arbitrary
-and don&rsquo;t reflect the track distance. It means that,
-for the generated infrastructures, the path may not always be the
-shortest one.</p><p>It would be possible to use this heuristic to determine whether
-the current node can lead to a path that doesn&rsquo;t take
-longer than the maximum allowed total run time. But for the same
-reason, adding this feature would break any STDCM test on generated
-infras. More details in
-<a href=https://github.com/OpenRailAssociation/osrd/issues/2818>this issue</a>.</p></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/OpenRailAssociation/osrd aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+to replace an old one. It calls the previous method.</p></li></ul><div class="alert alert-info" role=alert>Note: ideally, we would have a class similar to <code>InfraExplorer</code>
+that would just enumerate all possible simulations. It would be
+much cleaner than this current state. See <a href=https://github.com/OpenRailAssociation/osrd/issues/15685>this issue</a>.</div><h3 id=past-path-data>Past path data</h3><p>During the exploration, we simulate each block on its own, ignoring
+where the train comes from. This is done to improve caching, and because
+past path data is currently difficult to fetch.</p><p>This has two issues:</p><ul><li>We need to consider that speed limits apply until the train <em>head</em> leaves
+the speed limit range. This is technically wrong, it should be dismissed
+when the train <em>tail</em> leaves it.</li><li>During the search, we don&rsquo;t know the slopes on the tracks still covered
+by the train. This can lead to accelerations that are too optimistic,
+and in rare cases to post-processing errors.</li></ul><p>There&rsquo;s <a href=https://github.com/OpenRailAssociation/osrd/issues/14777>an open issue</a>,
+but we don&rsquo;t have a clear plan nor the time to work on it (yet).</p></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/OpenRailAssociation/osrd aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
 2026
 <span class=td-footer__authors>OSRD contributors</span></span><span class=td-footer__all_rights_reserved>All Rights Reserved</span></div></div></div></footer></div><style>.markmap>svg{width:100%;height:300px}</style><script>window.markmap={autoLoader:{manual:!0,onReady(){const{autoLoader:e,builtInPlugins:t}=window.markmap;e.transformPlugins=t.filter(e=>e.name!=="prism")}}}</script><script src=https://cdn.jsdelivr.net/npm/markmap-autoloader></script><script src=/js/main.min.70982f4f1de53d56b47d6b66c1ed442a9653a5be8820e0ba651d5d17d9a9bbe1.js integrity="sha256-cJgvTx3lPVa0fWtmwe1EKpZTpb6IIOC6ZR1dF9mpu+E=" crossorigin=anonymous></script><script defer src=/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js integrity="sha256-c0eKfUgHaYrtfjVesj+YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin=anonymous></script><script src=/js/tabpane-persist.js></script></body></html>
