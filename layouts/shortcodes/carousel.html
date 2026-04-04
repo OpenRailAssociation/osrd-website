@@ -1,0 +1,29 @@
+{{ $data := index site.Data.carousel site.Language.Lang }}
+
+  <div id="osrd-carousel" class="carousel slide mx-auto" data-ride="carousel" data-interval="false">
+    
+    <div class="carousel-inner text-center h-100">
+      
+      {{ range $index, $item := $data }}
+      
+      <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
+        <img 
+        src="{{ $item.img }}" 
+        alt="{{ $item.legend }}" 
+        >
+        <legend>{{ $item.legend }}</legend>
+      </div>    
+      {{ end }}
+      
+    </div>
+
+    <a class="carousel-control-prev" href="#osrd-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    
+    <a class="carousel-control-next" href="#osrd-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+    
+  </div>
+

@@ -6,3 +6,5 @@ package-lock.json
 .hugo_build.lock
 hugo.exe
 _gen/
+.envrc
+.direnv

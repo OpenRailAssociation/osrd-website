@@ -19,9 +19,9 @@
     "clean": "clean-install"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.17",
+    "autoprefixer": "^10.4.21",
     "hugo-bin-extended": "^0.145.0",
     "postcss": "^8.4.33",
-    "postcss-cli": "^11.0.0"
+    "postcss-cli": "^11.0.1"
   }
 }
