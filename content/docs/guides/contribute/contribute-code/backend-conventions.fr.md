@@ -32,6 +32,14 @@ Le code Python est utilisé pour certains paquets et pour les tests d'intégrati
 - Le code est linté avec [clippy](https://github.com/rust-lang/rust-clippy).
 - Le code est formaté avec [fmt](https://github.com/rust-lang/rustfmt).
 
+# OpenAPI et le code généré côté front
+
+L'interface d'editoast est spécifiée à l'aide d'[OpenAPI](https://spec.openapis.org/oas/v3.1.2.html), pour générer les types nécessaires dans le front.
+
+La description OpenAPI d'editoast et le code front généré sont suivi dans le dépôt git d'OSRD, et la CI garantit qu'ils sont à jour.
+
+Après avoir changé l'API d'editoast, il faut les mettre à jour à l'aide de `./scripts/sync-openapi.sh`.
+
 # Java
 
 - Le code est formaté avec [checkstyle](https://checkstyle.sourceforge.io/).
