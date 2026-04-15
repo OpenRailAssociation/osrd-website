@@ -150,6 +150,7 @@ The response format is as follows:
 |------------|-----------|
 | `correlation-id` | the correlation ID from the request |
 | `x-status` property | either `ok`, [or the reason for dead lettering](https://www.rabbitmq.com/docs/dlx#effects), taken from the request's `x-first-death-reason` |
+| `x-non-terminating-response` property | optional boolean, indicate this is not the final response - eg. a progress report. |
 | body | optional response data |
 
 
