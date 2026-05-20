@@ -30,7 +30,7 @@ This example will be created step by step and explained along the way.
 
 In the [*OSRD* repository](https://github.com/OpenRailAssociation/osrd) is a [python library](https://github.com/OpenRailAssociation/osrd/tree/dev/python/railjson_generator) designed to help generate infrastructures in a format understood by *OSRD*.
 
-The infrastructure discussed in this section can be generated thanks to [small_infra.py](https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/railjson_generator/scripts/examples/small_infra.py) file. To learn more about the generation scripts, you can check out the related [README](https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/README.md).
+The infrastructure discussed in this section can be generated thanks to [small_infra.py](https://github.com/OpenRailAssociation/osrd/blob/dev/tests/infra-scripts/small_infra.py) file. To learn more about the generation scripts, you can check out the related [README](https://github.com/OpenRailAssociation/osrd/blob/dev/python/railjson_generator/README.md).
 
 <font color=#aa026d>
 
