@@ -59,7 +59,7 @@ Par conséquent, pour placer un objet au début de sa section de voie, définiss
 Ces attributs sont nécessaires pour que la section de voie soit complète :
 
 * `length` : la longueur de la section de voie en mètres.
-* `geo` : les coordonnées dans la réalité (geo pour géographique), au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
+* `geo` : les coordonnées dans la réalité (geo pour géographique), au format [GeoJSON](https://fr.wikipedia.org/wiki/GeoJSON).
 * attributs cosmétiques : `line_name`, `track_name`, `track_number` qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux voies / lignes dans la réalité.
 
 Pour toutes les sections de voies de notre infrastructure, les attributs `geo` se rapprochent beaucoup du schéma donné.
@@ -222,7 +222,7 @@ Jusqu'à présent, tous les objets ont contribué à la topologie (forme) des vo
 
 Ces objets sont utilisés pour créer des sections [TVD](https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&q=TVD) (Track Vacancy Detection) : la zone de la voie située entre deux détecteurs est une section TVD. Lorsqu'un train rencontre un détecteur, la section dans laquelle il entre est occupée. La seule fonction des sections TVD est de localiser les trains.
 
-Dans la réalité, les détecteurs peuvent être des [compteurs d'essieux](https://en.wikipedia.org/wiki/Axle_counter) ou des [circuits de voie](https://en.wikipedia.org/wiki/Track_circuit) par exemple.
+Dans la réalité, les détecteurs peuvent être des [compteurs d'essieux](https://fr.wikipedia.org/wiki/Compteur_d%27essieux) ou des [circuits de voie](https://fr.wikipedia.org/wiki/Circuit_de_voie) par exemple.
 
 Pour que cette méthode de localisation soit efficace, les détecteurs doivent être placés régulièrement le long de vos voies, pas trop nombreux pour des raisons de coût, mais pas trop peu, car les sections TVD seraient alors très grandes et les trains devraient être très éloignés les uns des autres pour être distingués, ce qui réduirait la capacité.
 

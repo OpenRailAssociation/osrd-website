@@ -241,7 +241,7 @@ Together with detectors, they set the boundaries of TVD sections (see [Detectors
 #### Routes
 
 <!-- TODO: translate and update link below -->
-A `Route` is an itinerary in the infrastructure. A train path is a sequence of routes. Routes are used to reserve section of path with the interlocking. See the [dedicated documentation](/fr/docs/reference/design-docs/interlocking/).
+A `Route` is an itinerary in the infrastructure. A train path is a sequence of routes. Routes are used to reserve section of path with the interlocking. See the [dedicated documentation](/en/docs/reference/design-docs/interlocking/).
 
 It is represented with the following attributes:
 

@@ -17,16 +17,16 @@ La catégorie principale d'un matériel roulant permet plusieurs fonctionnalité
 
 Les différentes catégories de matériel roulant disponibles par défaut sont les suivantes :
 
-- `Train à grande vitesse` (voir [High-speed train](https://fr.wikipedia.org/wiki/Train_%C3%A0_grande_vitesse))
-- `Train interurbain` (voir [Intercity train](https://fr.wikipedia.org/wiki/InterCity))
+- `Train à grande vitesse` (voir [Train à grande vitesse](https://fr.wikipedia.org/wiki/Train_%C3%A0_grande_vitesse))
+- `Train interurbain` (voir [InterCity](https://fr.wikipedia.org/wiki/InterCity))
 - `Train régional` (voir [Regional train](https://en.wikipedia.org/wiki/Regional_rail))
-- `Train suburbain` (voir [Commuter train](https://fr.wikipedia.org/wiki/Train_de_banlieue))
-- `Train de fret` (voir [Freight train](https://fr.wikipedia.org/wiki/Train_de_fret))
+- `Train suburbain` (voir [Train de banlieue](https://fr.wikipedia.org/wiki/Train_de_banlieue))
+- `Train de fret` (voir [Train de fret](https://fr.wikipedia.org/wiki/Train_de_fret))
 - `Train de fret rapide` (pareil que Train de fret, mais avec un code de composition différent, `ME140` au lieu de `MA100` par exemple)
-- `Train de nuit` (voir [Night train](https://fr.wikipedia.org/wiki/Train_de_nuit))
+- `Train de nuit` (voir [Train de nuit](https://fr.wikipedia.org/wiki/Train_de_nuit))
 - `Tram-train` (voir [Tram-train](https://fr.wikipedia.org/wiki/Tram-train))
-- `Train touristique` (voir [Touristic train](https://fr.wikipedia.org/wiki/Chemin_de_fer_touristique))
-- `Train de travaux` (voir [Work train](https://fr.wikipedia.org/wiki/Train_de_travaux))
+- `Train touristique` (voir [Chemin de fer touristique](https://fr.wikipedia.org/wiki/Chemin_de_fer_touristique))
+- `Train de travaux` (voir [Train de travaux](https://fr.wikipedia.org/wiki/Train_de_travaux))
 
 Il est aussi prévu que, plus tard, un utilisateur puisse créer directement de nouvelles catégories de matériel roulant.
 
