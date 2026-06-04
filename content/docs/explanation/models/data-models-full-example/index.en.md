@@ -198,7 +198,7 @@ There are curves as well, on the track sections *TE0*, *TE1*, *TE3* and *TF1*.
 
 </font>
 
-All objects so far contributed to track topology (shape). Topology would be enough for trains to navigate the network, but not enough to do so safely. to ensure safety, two systems collaborate:
+All objects so far contributed to track topology (shape). Topology would be enough for trains to navigate the network, but not enough to do so safely. To ensure safety, two systems collaborate:
 
 * Interlocking ensures trains are allowed to move forward
 * Signaling is the mean by which interlocking communicates with the train
@@ -228,7 +228,7 @@ The clumped up squares represent many detectors at once. Indeed, because some tr
 Some notes:
 
 * Between some points, we added only one detector (and not two), because they were really close together, and it would have made no sense to create a tiny TVDS between the two. This situation happened on track sections (*TA3*, *TA4*, *TA5*, *TF0* and *TG3*).
-* In our infrastructure, there is relatively few track sections which are long enough to require more detectors than just those related to switches. Namely, *TA6*, *TA7*, *TDO*, *TD1*, *TF1*, *TG1* and *TH1*. For example  *TD0*, which measures 25km, has in fact 17 detectors in total.
+* In our infrastructure, there are relatively few track sections which are long enough to require more detectors than just those related to switches. Namely, *TA6*, *TA7*, *TDO*, *TD1*, *TF1*, *TG1* and *TH1*. For example  *TD0*, which measures 25km, has in fact 17 detectors in total.
 
 #### Buffer stops
 

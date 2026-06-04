@@ -62,7 +62,7 @@ Ces attributs sont nécessaires pour que la section de voie soit complète :
 * `geo` : les coordonnées dans la réalité (geo pour géographique), au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
 * attributs cosmétiques : `line_name`, `track_name`, `track_number` qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux voies / lignes dans la réalité.
 
-Pour toutes les sections de voies de notre infrastructure, les attributs `geo` se rapprochent beaucoup au schéma donné.
+Pour toutes les sections de voies de notre infrastructure, les attributs `geo` se rapprochent beaucoup du schéma donné.
 
 Pour la plupart des sections de voies, leur `length` est proportionnelle à ce que l'on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour *TA6*, *TA7*, *TD0* et *TD1* (qui font 10km et 25km).
 
@@ -213,7 +213,7 @@ Il y a également des courbes sur les sections de voie *TE0*, *TE1*, *TE3* et *T
 
 </font>
 
-Jusqu'à présent, tous les objets ont contribué à la topologie (forme) des voies. La topologie serait suffisante pour que les trains puissent naviguer sur le réseau, mais pas assez pour le faire en toute sécurité. pour assurer la sécurité, deux systèmes collaborent :
+Jusqu'à présent, tous les objets ont contribué à la topologie (forme) des voies. La topologie serait suffisante pour que les trains puissent naviguer sur le réseau, mais pas assez pour le faire en toute sécurité. Pour assurer la sécurité, deux systèmes collaborent :
 
 * L'enclenchement garantit que les trains sont autorisés à avancer
 * La signalisation est le moyen par lequel l'enclenchement communique avec le train
