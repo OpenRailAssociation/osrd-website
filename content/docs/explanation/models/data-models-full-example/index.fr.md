@@ -179,7 +179,7 @@ Voici les trois connexions que peut réaliser cet aiguillage :
 
 Un `Node` possède trois attributs :
 
-* `node_type` : l'identifiant [`NodeType`](#types-daiguillages) de ce nœud.
+* `node_type` : l'identifiant [`NodeType`](#types-de-nœud) de ce nœud.
 * `ports` : une correspondance entre les noms de port et les extrémités des sections de voie.
 * `group_change_delay` : le temps qu'il faut pour changer le groupe de l'aiguillage qui est actif.
 
