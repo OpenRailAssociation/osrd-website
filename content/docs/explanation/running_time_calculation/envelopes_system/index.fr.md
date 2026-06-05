@@ -12,7 +12,7 @@ Le système d'enveloppes est une interface créée spécifiquement pour le calcu
 
 </font>
 
-Le système d'enveloppes fait partie du service core d'OSRD (voir [l'architecture du logiciel](../architecture/_index)).
+Le système d'enveloppes fait partie du service core d'OSRD (voir [l'architecture du logiciel](/docs/explanation/containers-architecture)).
 
 Ses principaux composants sont :
 
@@ -26,7 +26,7 @@ Ses principaux composants sont :
 - effectuer une interpolation de vitesse à une certaine position
 - calculer le temps écoulé entre deux positions de l’enveloppe
 
-![envelope_scheme](../envelopes_scheme.png)
+![Schéma des enveloppes](envelopes_scheme.png)
 
 **3 - Overlays :** système permettant d’ajouter des EnvelopePart plus contraignantes (c'est-à-dire dont la vitesse est plus faible) à une enveloppe existante.
 

@@ -24,7 +24,7 @@ To calculate the displacement of the train over time, we must first calculate it
 A simple way to obtain this speed is to calculate the acceleration.
 Thanks to the fundamental principle of dynamics, the acceleration of the train at each instant is directly dependent on the different forces applied to it: $$ \sum \vec{F}=m\vec{a} $$
 
-![Running time](../forces.png)
+![Running time](forces.png)
 
 - **Traction**: The value of the traction force \\(F\_{mot}\\) depends on several factors:
 
@@ -33,7 +33,7 @@ Thanks to the fundamental principle of dynamics, the acceleration of the train a
 
   $$ {\vec{F_{mot}}(v_{x^{\prime}}, x^{\prime})=F_{mot}(v_{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$
 
-  ![Running time](../effort-vitesse.png "Example of a train effort-speed curve")
+  ![Running time](effort-vitesse.png "Example of a train effort-speed curve")
 
   > The **x** axis represents the speed of the train in [km/h], the **y** axis the value of the traction force in [kN].
 

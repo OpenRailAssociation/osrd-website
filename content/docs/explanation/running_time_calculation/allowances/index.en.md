@@ -10,7 +10,7 @@ weight: 50
 
 </font>
 
-As explained in the [calculation of the Max Effort Profile](../pipeline/#calculation-of-the-max-effort-profile), the **basic running time** represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.
+As explained in the [calculation of the Max Effort Profile](pipeline/#calculation-of-the-max-effort-profile), the **basic running time** represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.
 
 This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train's route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.
 
@@ -49,7 +49,7 @@ There are currently two algorithms for margin distribution in OSRD: linear and e
 
 Linear allowance distribution is simply lowering the speeds by the same factor over the area where the user applies the allowance. Here is an example of its application:
 
-![Python plot linear](../python_plot_linear.png)
+![Python plot linear](python_plot_linear.png)
 
 The advantage of this distribution is that the allowance is spread evenly over the entire journey. A train that is late on 30% of its journey will have 70% of its allowance for the remaining 70% of its journey.
 
@@ -64,6 +64,6 @@ The economic distribution of the allowance, presented in detail in [this documen
 1. a maximum speed, avoiding the most energy-intensive speeds
 2. run-on zones, located before braking and steep gradients, where the train runs with the engine off thanks to its inertia, allowing it to consume no energy during this period
 
-![Python plot eco with slopes](../python_plot_eco_w_slopes.png)
+![Python plot eco with slopes](python_plot_eco_w_slopes.png)
 
 > An example of economic walking. Above, the gradients/ramps encountered by the train. The areas of travel on the track are shown in blue.

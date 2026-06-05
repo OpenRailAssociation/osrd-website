@@ -36,7 +36,7 @@ $$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$
 
 <center>
 
-![Méthode d'Euler](../euler.png?style=method)
+![Méthode d'Euler](euler.png?style=method)
 
 </center>
 
@@ -76,7 +76,7 @@ $$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$
 
 <center>
 
-![Méthode de Runge-Kutta 4](../rk4.png?style=method)
+![Méthode de Runge-Kutta 4](rk4.png?style=method)
 
 </center>
 
@@ -117,7 +117,7 @@ La simulation calcule la position et la vitesse d'un TGV accélérant sur une li
 
 Une courbe de référence a été simulée en utilisant la méthode d'Euler avec un pas de temps de 0,1s, puis le même parcours a été simulé en utilisant les autres méthodes avec un pas de temps de 1s. Il est alors possible de comparer simplement chaque courbe à la courbe de référence, en calculant la valeur absolue de la différence à chaque point calculé. Voici l'erreur absolue résultante de la position du train sur sa distance parcourue :
 
-![precisions_h_equivalent](../precisions_h_equivalent.png)
+![Erreurs des méthodes d'intégration sur une simulation de train (à pas de temps équivalent)](precisions_h_equivalent.png)
 
 Il apparaît immédiatement que la méthode d'Euler est moins précise que les quatre autres d'environ un ordre de grandeur. Chaque courbe présente un pic où la précision est extrêmement élevée (erreur extrêmement faible), ce qui s'explique par le fait que toutes les courbes commencent légèrement au-dessus de la courbe de référence, la croisent en un point et finissent légèrement en dessous, ou _vice versa_.
 
@@ -137,7 +137,7 @@ Ainsi, Euler-Cauchy et Adams 2 sont environ deux fois plus lents que Euler, Adam
 
 Comme les temps de calcul de toutes les méthodes dépendent linéairement du pas de temps, il est relativement simple de comparer la précision pour un temps de calcul à peu près identique. En multipliant le pas de temps d'Euler-Cauchy et d'Adams 2 par 2, le pas de temps d'Adams 3 par 3, et le pas de temps de RK4 par 4, voici les courbes d'erreur absolue résultantes :
 
-![precisions_time_equivalent](../precisions_time_equivalent.png)
+![Erreurs des méthodes d'intégration sur une simulation de train (à temps de calcul équivalent)](precisions_time_equivalent.png)
 
 Et voici les temps de calcul :
 
