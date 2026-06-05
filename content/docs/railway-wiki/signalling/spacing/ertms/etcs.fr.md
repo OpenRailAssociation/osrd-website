@@ -67,7 +67,7 @@ le mode technique. Les changements d’indication au DMI peuvent être accompagn
 partie basse du DMI est également réservée pour l’affichage de messages textuels. Certaines informations complémentaires
 peuvent également être affichées par l'entreprise ferroviaire.
 
-![](../../../images/document-pedagogique-signaux-regimes-exploitation-v1/image-107.png)
+![Exemple d'affichage sur le DMI](/images/docs/railway-wiki/signalling/image-107.png)
 
 > Dans cet exemple, le conducteur autorisé à circuler à 140 km/h maximum, circule à 125 km/h, il va devoir observer une
 phase de ralentissement afin de respecter la vitesse maxi de 100 km/h (vitesse But) à une distance de 2850 mètres (distance But).
