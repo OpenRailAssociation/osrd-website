@@ -14,7 +14,7 @@ description: "Integrate changes into OSRD"
    Before you start working, try to split your work into macroscopic steps.
    At the end of each stop, save your changes into a commit.
    Try to make commits of logical and atomic units.
-   Try to follow [style conventions](../conventions/).
+   Try to follow style conventions ([back-end](../backend-conventions) and [front-end](../frontend-conventions)).
 
 4. **Keep your branch up-to-date**
 

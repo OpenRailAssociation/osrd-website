@@ -2,7 +2,7 @@
 title: "Commit conventions"
 linkTitle: "Commit conventions"
 weight: 4
-description: "A few advises and rules about commit messages"
+description: "A few tips and rules about commit messages"
 ---
 
 ## Commit style
@@ -16,7 +16,7 @@ Detailed or technical description of the change and what motivates it,
 if it is not entirely obvious from the title.
 ```
 
-- **the commit message, just like the code, must be in english** (only ASCII characters for the title)
+- **the commit message, just like the code, must be in English** (only ASCII characters for the title)
 - there can be multiple components separated by `:` in case of hierarchical relationships, with `,` otherwise
 - components are lower-case, using `-`, `_` or `.` if necessary
 - the imperative description of the change begins with a lower-case verb

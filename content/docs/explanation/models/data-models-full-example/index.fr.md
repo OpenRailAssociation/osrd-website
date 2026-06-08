@@ -38,7 +38,7 @@ L'infrastructure discutée dans cette section peut être générée grâce au fi
 
 </font>
 
-#### Sections de voie (Track Sections)
+#### Sections de voie (`Track Sections`)
 
 Les premiers objets que nous devons définir sont les `TrackSections`. La plupart des autres objets sont positionnés par rapport à celles-ci.
 
@@ -59,10 +59,10 @@ Par conséquent, pour placer un objet au début de sa section de voie, définiss
 Ces attributs sont nécessaires pour que la section de voie soit complète :
 
 * `length` : la longueur de la section de voie en mètres.
-* `geo` : les coordonnées dans la réalité (geo pour géographique), au format [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON).
+* `geo` : les coordonnées dans la réalité (geo pour géographique), au format [GeoJSON](https://fr.wikipedia.org/wiki/GeoJSON).
 * attributs cosmétiques : `line_name`, `track_name`, `track_number` qui sont utilisés pour indiquer le nom et les étiquettes qui ont été donnés aux voies / lignes dans la réalité.
 
-Pour toutes les sections de voies de notre infrastructure, les attributs `geo` se rapprochent beaucoup au schéma donné.
+Pour toutes les sections de voies de notre infrastructure, les attributs `geo` se rapprochent beaucoup du schéma donné.
 
 Pour la plupart des sections de voies, leur `length` est proportionnelle à ce que l'on peut voir sur le diagramme. Pour préserver la lisibilité, des exceptions ont été faites pour *TA6*, *TA7*, *TD0* et *TD1* (qui font 10km et 25km).
 
@@ -179,7 +179,7 @@ Voici les trois connexions que peut réaliser cet aiguillage :
 
 Un `Node` possède trois attributs :
 
-* `node_type` : l'identifiant [`NodeType`](#types-daiguillages) de ce nœud.
+* `node_type` : l'identifiant [`NodeType`](#types-de-nœud) de ce nœud.
 * `ports` : une correspondance entre les noms de port et les extrémités des sections de voie.
 * `group_change_delay` : le temps qu'il faut pour changer le groupe de l'aiguillage qui est actif.
 
@@ -213,7 +213,7 @@ Il y a également des courbes sur les sections de voie *TE0*, *TE1*, *TE3* et *T
 
 </font>
 
-Jusqu'à présent, tous les objets ont contribué à la topologie (forme) des voies. La topologie serait suffisante pour que les trains puissent naviguer sur le réseau, mais pas assez pour le faire en toute sécurité. pour assurer la sécurité, deux systèmes collaborent :
+Jusqu'à présent, tous les objets ont contribué à la topologie (forme) des voies. La topologie serait suffisante pour que les trains puissent naviguer sur le réseau, mais pas assez pour le faire en toute sécurité. Pour assurer la sécurité, deux systèmes collaborent :
 
 * L'enclenchement garantit que les trains sont autorisés à avancer
 * La signalisation est le moyen par lequel l'enclenchement communique avec le train
@@ -222,7 +222,7 @@ Jusqu'à présent, tous les objets ont contribué à la topologie (forme) des vo
 
 Ces objets sont utilisés pour créer des sections [TVD](https://ressources.data.sncf.com/explore/dataset/lexique-des-acronymes-sncf/table/?sort=abreviation&q=TVD) (Track Vacancy Detection) : la zone de la voie située entre deux détecteurs est une section TVD. Lorsqu'un train rencontre un détecteur, la section dans laquelle il entre est occupée. La seule fonction des sections TVD est de localiser les trains.
 
-Dans la réalité, les détecteurs peuvent être des [compteurs d'essieux](https://en.wikipedia.org/wiki/Axle_counter) ou des [circuits de voie](https://en.wikipedia.org/wiki/Track_circuit) par exemple.
+Dans la réalité, les détecteurs peuvent être des [compteurs d'essieux](https://fr.wikipedia.org/wiki/Compteur_d%27essieux) ou des [circuits de voie](https://fr.wikipedia.org/wiki/Circuit_de_voie) par exemple.
 
 Pour que cette méthode de localisation soit efficace, les détecteurs doivent être placés régulièrement le long de vos voies, pas trop nombreux pour des raisons de coût, mais pas trop peu, car les sections TVD seraient alors très grandes et les trains devraient être très éloignés les uns des autres pour être distingués, ce qui réduirait la capacité.
 
@@ -353,7 +353,7 @@ Le *point opérationnel* est aussi connu sous le nom de *Point Remarquable* (PR)
 Un `OperationalPoint` est une **collection** de points (`OperationalPointParts`) d'intérêt.
 
 Par exemple, il peut être pratique (repère de conduite) de stocker l'emplacement des plateformes en tant que parties et de les regrouper par station dans des points opérationnels.
-De la même manière, un pont au-dessus des voies sera **un** OperationalPoint, mais il comportera **plusieurs** OperationPointParts, une à l'intersection de chaque voie. Le champ `local_track_name` fournit un label lisible pour la voie dans le contexte d'un point opérationnel.
+De la même manière, un pont au-dessus des voies sera **un** `OperationalPoint`, mais il comportera **plusieurs** `OperationPointParts`, une à l'intersection de chaque voie. Le champ `local_track_name` fournit un label lisible pour la voie dans le contexte d'un point opérationnel.
 
 Dans l'exemple de l'infrastructure, nous n'avons utilisé que des points opérationnels pour représenter les stations. Les parties de points opérationnels sont représentées par des diamants violets. Gardez à l'esprit qu'un seul point opérationnel peut contenir plusieurs parties.
 

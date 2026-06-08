@@ -10,7 +10,7 @@ weight: 50
 
 </font>
 
-Comme expliqué dans le [calcul du Max Effort Profile](../pipeline/#calcul-du-profil-deffort-maximal), la **marche de base** représente la marche la plus tendue normalement réalisable, c'est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.
+Comme expliqué dans le [calcul du Max Effort Profile](pipeline/#calcul-du-profil-deffort-maximal), la **marche de base** représente la marche la plus tendue normalement réalisable, c'est-à-dire le trajet le plus rapide possible du matériel donné sur le parcours donné. Le train accélère au maximum, roule aussi vite que possible en fonction des différentes limites de vitesse et de ses capacités motrices, et freine au maximum.
 
 Cette marche de base présente un inconvénient majeur : si un train part avec 10min de retard, il arrivera au mieux avec 10min de retard, car par définition il lui est impossible de rouler plus vite que la marche de base. Par conséquent, les trains sont programmés avec un ajout d'une ou de plusieurs marges. Les marges sont une détente du trajet du train, un ajout de temps à l'horaire prévu, qui se traduit inévitablement par un abaissement des vitesses de circulation.
 
@@ -49,7 +49,7 @@ Il y a pour l'instant deux algorithmes de distribution de la marge dans OSRD : l
 
 La distribution de marge linéaire consiste simplement à abaisser les vitesses d'un même facteur sur la zone où l'utilisateur applique la marge. En voici un exemple d'application :
 
-![Python plot linear](../python_plot_linear.png)
+![Python plot linear](python_plot_linear.png)
 
 Cette distribution a pour avantage de répartir la marge de la même manière sur tout le trajet. Un train prenant du retard à 30% de son trajet disposera de 70% de sa marge pour les 70% de trajets restants.
 
@@ -64,6 +64,6 @@ La distribution économique de la marge, présentée en détail dans [ce documen
 1. une vitesse plafond, évitant les vitesses les plus consommatrices en énergie
 2. des zones de marche sur l'erre, situées avant les freinages et les fortes pentes, où le train circule à moteur coupé grâce à son inertie, permettant de ne consommer aucune énergie pendant ce laps de temps
 
-![Python plot eco with slopes](../python_plot_eco_w_slopes.png)
+![Python plot eco with slopes](python_plot_eco_w_slopes.png)
 
 > Un exemple de marche économique. En haut, les pentes/rampes rencontrées par le train. Les zones de marche sur l'erre sont représentées en bleu.

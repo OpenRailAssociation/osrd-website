@@ -25,7 +25,7 @@ Une manière simple d'obtenir cette vitesse est de passer par le calcul de l'acc
 Grâce au principe fondamental de la dynamique, l'accélération du train à chaque instant est directement dépendant
 des différentes forces qui lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$
 
-![Marche](../forces.png)
+![Marche](forces.png)
 
 - **Traction** : La valeur de la force de traction \\(F\_{mot}\\) dépend de plusieurs facteurs :
 
@@ -34,7 +34,7 @@ des différentes forces qui lui sont appliquées : $$ \sum \vec{F}=m\vec{a} $$
 
   $$ {\vec{F_{mot}}(v_{x^{\prime}}, x^{\prime})=F_{mot}(v_{x^{\prime}}, x^{\prime})\vec{e_x^{\prime}}} $$
 
-  ![Marche](../effort-vitesse.png "Exemple de courbe effort-vitesse d'un train")
+  ![Marche](effort-vitesse.png "Exemple de courbe effort-vitesse d'un train")
 
   > L'axe **x** représente la vitesse du train en [km/h], l'axe **y**, la valeur de la force de traction en [kN].
 

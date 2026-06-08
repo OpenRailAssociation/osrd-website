@@ -11,7 +11,7 @@ description: "Apporter des modifications au code d'OSRD"
    Si vous comptez contribuer régulièrement, vous pouvez demander accès au [dépôt principal](https://github.com/OpenRailAssociation/osrd). Sinon, [créez un fork](https://github.com/OpenRailAssociation/osrd/fork).
 
 3. **Ajoutez des changements sur votre branche**  
-   Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre [les conventions du projet](../conventions/).
+   Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre les conventions du projet ([back-end](../backend-conventions) et [front-end](../frontend-conventions)).
 
 4. **Conservez votre branche à jour**
 

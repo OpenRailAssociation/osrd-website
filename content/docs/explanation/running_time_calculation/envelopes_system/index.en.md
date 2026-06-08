@@ -12,7 +12,7 @@ The envelope system is an interface created specifically for the OSRD gait calcu
 
 </font>
 
-The envelope system is part of the core service of OSRD (see [software architecture](../architecture/_index.md)).
+The envelope system is part of the core service of OSRD (see [software architecture](/docs/explanation/containers-architecture)).
 
 Its main components are :
 
@@ -26,7 +26,7 @@ Its main components are :
 - perform a velocity interpolation at a certain position
 - calculate the elapsed time between two positions in the envelope
 
-![envelope_scheme](../envelopes_scheme.png)
+![Envelopes scheme](envelopes_scheme.png)
 
 **3 - Overlays :** system for adding more constrained (i.e. lower speed) EnvelopeParts to an existing envelope.
 

@@ -36,7 +36,7 @@ $$x(t+dt) = \frac{1}{2}a(v(t), x(t))dt^2 + v(t)dt + x(t)$$
 
 <center>
 
-![Euler's method](../euler.png?style=method)
+![Euler's method](euler.png?style=method)
 
 </center>
 
@@ -76,7 +76,7 @@ $$k_4 = a\Big(v(t+k_3dt), x(t) + v(t)dt + k_3\frac{dt^2}{2}\Big)$$
 
 <center>
 
-![Runge-Kutta 4's method](../rk4.png?style=method)
+![Runge-Kutta 4's method](rk4.png?style=method)
 
 </center>
 
@@ -117,7 +117,7 @@ The simulation calculates the position and speed of a high-speed train accelerat
 
 A reference curve was simulated using the Euler method with a time step of 0.1s, then the same path was simulated using the other methods with a time step of 1s. It is then possible to simply compare each curve to the reference curve, by calculating the absolute value of the difference at each calculated point. The resulting absolute error of the train's position over its distance travelled is as follows:
 
-![precisions_h_equivalent](../precisions_h_equivalent.png)
+![Errors of integration methods over a train's simulation (equivalent time step)](precisions_h_equivalent.png)
 
 It is immediately apparent that the Euler method is less accurate than the other four by about an order of magnitude. Each curve has a peak where the accuracy is extremely high (extremely low error), which is explained by the fact that all curves start slightly above the reference curve, cross it at one point and end slightly below it, or _vice versa_.
 
@@ -137,7 +137,7 @@ Thus, Euler-Cauchy and Adams 2 are about twice as slow as Euler, Adams 3 is abou
 
 As the computation times of all methods depend linearly on the time step, it is relatively simple to compare the accuracy for approximately the same computation time. Multiplying the time step of Euler-Cauchy and Adams 2 by 2, the time step of Adams 3 by 3, and the time step of RK4 by 4, here are the resulting absolute error curves:
 
-![precisions_time_equivalent](../precisions_time_equivalent.png)
+![Errors of integration methods over a train's simulation (equivalent calculation time)](precisions_time_equivalent.png)
 
 And here are the calculation times:
 
