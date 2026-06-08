@@ -136,14 +136,14 @@ If you intend to contribute regularly, you can request access to the &lt;a href=
 Before you start working, try to split your work into macroscopic steps.
 At the end of each stop, save your changes into a commit.
 Try to make commits of logical and atomic units.
-Try to follow &lt;a href="../conventions/">style conventions&lt;/a>.&lt;/p></description></item><item><title>Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>&lt;h2 id="commit-style">Commit style&lt;/h2>
+Try to follow style conventions (&lt;a href="../backend-conventions">back-end&lt;/a> and &lt;a href="../frontend-conventions">front-end&lt;/a>).&lt;/p></description></item><item><title>Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>&lt;h2 id="commit-style">Commit style&lt;/h2>
 &lt;p>The overall format for git commits is as follows:&lt;/p>
 &lt;pre tabindex="0">&lt;code>component1, component2: imperative description of the change
 
 Detailed or technical description of the change and what motivates it,
 if it is not entirely obvious from the title.
 &lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong> (only ASCII characters for the title)&lt;/li>
+&lt;li>&lt;strong>the commit message, just like the code, must be in English&lt;/strong> (only ASCII characters for the title)&lt;/li>
 &lt;li>there can be multiple components separated by &lt;code>:&lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
 &lt;li>components are lower-case, using &lt;code>-&lt;/code>, &lt;code>_&lt;/code> or &lt;code>.&lt;/code> if necessary&lt;/li>
 &lt;li>the imperative description of the change begins with a lower-case verb&lt;/li>
@@ -443,7 +443,7 @@ destination station 15 minutes later. Making the train leave at
 &lt;font color=#aa026d>
 &lt;h3 id="a-specific-interface-in-the-osrd-core-service">A specific interface in the OSRD Core service&lt;/h3>
 &lt;/font>
-&lt;p>The envelope system is part of the core service of OSRD (see &lt;a href="../architecture/_index.md">software architecture&lt;/a>).&lt;/p>
+&lt;p>The envelope system is part of the core service of OSRD (see &lt;a href="https://osrd.fr/en/docs/explanation/containers-architecture/">software architecture&lt;/a>).&lt;/p>
 &lt;p>Its main components are :&lt;/p>
 &lt;p>&lt;strong>1 - EnvelopePart:&lt;/strong> space/speed curve, defined as a sequence of points and having metadata indicating for example if it is an acceleration curve, a braking curve, a speed hold curve, etc.&lt;/p></description></item><item><title>Driving instructions</title><link>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/train-sim-v3/driving-instruction/</guid><description>&lt;p>Driving instructions model what the train has to do, and under what conditions.
 Driving instructions are generated using domain constraints such as:&lt;/p>
@@ -527,7 +527,7 @@ they can span over several edges.&lt;/p>
 &lt;p>This example illustrates the problem: by default
 the first edge is explored by going at maximum speed.
 The destination is only visible once the second edge is visited,
-which doesn&amp;rsquo;t leave enough distance to stop.&lt;/p></description></item><item><title>Pipeline</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</guid><description>&lt;p>The walk calculation in OSRD is a 4-step process, each using &lt;a href="../envelopes_system">the envelopes system&lt;/a>:&lt;/p>
+which doesn&amp;rsquo;t leave enough distance to stop.&lt;/p></description></item><item><title>Pipeline</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/</guid><description>&lt;p>The walk calculation in OSRD is a 4-step process, each using &lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/envelopes_system/">the envelopes system&lt;/a>:&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-most-restricted-speed-profile-mrsp">Construction of the most restrictive speed profile&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-max-speed-profile">Addition of the different braking curves&lt;/a>&lt;/li>
@@ -596,7 +596,7 @@ Planned operations can be disrupted if a train is slowed down, prevented from pr
 &lt;p>Some other kinds of conflicts may be detected &lt;em>later on&lt;/em>:&lt;/p></description></item><item><title>Allowances</title><link>https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/explanation/running_time_calculation/allowances/</guid><description>&lt;font color=#aa026d>
 &lt;h3 id="the-purpose-of-allowances">The purpose of allowances&lt;/h3>
 &lt;/font>
-&lt;p>As explained in the &lt;a href="../pipeline/#calculation-of-the-max-effort-profile">calculation of the Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
+&lt;p>As explained in the &lt;a href="https://osrd.fr/en/docs/explanation/running_time_calculation/pipeline/#calculation-of-the-max-effort-profile">calculation of the Max Effort Profile&lt;/a>, the &lt;strong>basic running time&lt;/strong> represents the most stretched run normally achievable, i.e. the fastest possible run of the given equipment on the given route. The train accelerates to the maximum, travels as fast as possible according to the different speed limits and driving capabilities, and brakes to the maximum.&lt;/p>
 &lt;p>This basic run has a major disadvantage: if a train leaves 10 minutes late, it will arrive at best 10 minutes late, because by definition it is impossible for it to run faster than the basic run. Therefore, trains are scheduled with one or more allowances added. The allowances are a relaxation of the train&amp;rsquo;s route, an addition of time to the scheduled timetable, which inevitably results in a lowering of running speeds.&lt;/p></description></item><item><title>Search space and decision tree</title><link>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/stdcm/pathfinding_module/graph_representation/</guid><description>&lt;p>Now that we can enumerate the paths and identify conflicts, we need
 to build the final decision tree that avoids all conflicts.&lt;/p>
 

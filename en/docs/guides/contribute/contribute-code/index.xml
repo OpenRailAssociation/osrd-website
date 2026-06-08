@@ -64,14 +64,14 @@ If you intend to contribute regularly, you can request access to the &lt;a href=
 Before you start working, try to split your work into macroscopic steps.
 At the end of each stop, save your changes into a commit.
 Try to make commits of logical and atomic units.
-Try to follow &lt;a href="../conventions/">style conventions&lt;/a>.&lt;/p></description></item><item><title>Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>&lt;h2 id="commit-style">Commit style&lt;/h2>
+Try to follow style conventions (&lt;a href="../backend-conventions">back-end&lt;/a> and &lt;a href="../frontend-conventions">front-end&lt;/a>).&lt;/p></description></item><item><title>Commit conventions</title><link>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/contribute-code/commit-conventions/</guid><description>&lt;h2 id="commit-style">Commit style&lt;/h2>
 &lt;p>The overall format for git commits is as follows:&lt;/p>
 &lt;pre tabindex="0">&lt;code>component1, component2: imperative description of the change
 
 Detailed or technical description of the change and what motivates it,
 if it is not entirely obvious from the title.
 &lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;strong>the commit message, just like the code, must be in english&lt;/strong> (only ASCII characters for the title)&lt;/li>
+&lt;li>&lt;strong>the commit message, just like the code, must be in English&lt;/strong> (only ASCII characters for the title)&lt;/li>
 &lt;li>there can be multiple components separated by &lt;code>:&lt;/code> in case of hierarchical relationships, with &lt;code>,&lt;/code> otherwise&lt;/li>
 &lt;li>components are lower-case, using &lt;code>-&lt;/code>, &lt;code>_&lt;/code> or &lt;code>.&lt;/code> if necessary&lt;/li>
 &lt;li>the imperative description of the change begins with a lower-case verb&lt;/li>

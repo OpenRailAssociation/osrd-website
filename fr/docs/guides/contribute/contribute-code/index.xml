@@ -63,7 +63,7 @@ Si vous comptez contribuer régulièrement, vous pouvez demander accès au &lt;a
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Ajoutez des changements sur votre branche&lt;/strong>&lt;br>
-Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre &lt;a href="../conventions/">les conventions du projet&lt;/a>.&lt;/p>
+Essayez de découper votre travail en étapes macroscopiques, et sauvegardez vos changements dans un commit à la fin de chaque étape. Essayez de suivre les conventions du projet (&lt;a href="../backend-conventions">back-end&lt;/a> et &lt;a href="../frontend-conventions">front-end&lt;/a>).&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Conservez votre branche à jour&lt;/strong>&lt;/p>
