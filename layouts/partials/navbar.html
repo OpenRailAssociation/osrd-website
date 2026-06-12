@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg td-navbar">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+      {{ if .Site.Params.ui.navbar_logo }}
+<span class="navbar-logo">
+  {{ $logo := resources.Get "icons/logo.svg" }}
+  {{ if $logo }}{{ $logo.Content | safeHTML }}{{ end }}
+</span>      {{ end }}
+<span>{{ .Site.Title }}</span>
+</a>
+
+<div class="navbar-custom" id="main_navbar">
+      <ul class="navbar-nav navbar-nav-links">
+
+        {{ range site.Menus.main }}
+          {{ if not (eq .URL "https://github.com/OpenRailAssociation/osrd") }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ .URL }}">{{ .Pre | safeHTML }}{{ .Name }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+
+      <ul class="navbar-nav navbar-nav-actions">
+         {{ if hugo.IsMultilingual }}
+<li class="nav-item dropdown lang-dropdown">
+  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+    {{ .Site.Language.Lang | upper }}
+  </a>
+  <ul class="dropdown-menu">
+    {{ range .Translations }}
+    <li>
+      <a class="dropdown-item" href="{{ .RelPermalink }}">
+        {{ .Site.Language.LanguageName }}
+      </a>
+    </li>
+    {{ end }}
+    <li>
+      <a class="dropdown-item active" href="{{ .RelPermalink }}">
+        {{ .Site.Language.LanguageName }}
+      </a>
+    </li>
+  </ul>
+</li>
+{{ end }}
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="https://github.com/OpenRailAssociation/osrd"
+             target="_blank"
+             rel="noopener">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
