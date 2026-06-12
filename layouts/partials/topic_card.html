@@ -1,5 +1,5 @@
-<div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 text-center card-topic">
-	<img src="{{ .img }}" alt="{{ .title }}" height="200">
+<div class="card-topic">
+	<img src="{{ .img }}" alt="{{ .title }}" >
   <h3>{{ .title }}</h3>
   <p>{{ .desc | safeHTML }}</p>
 	{{ if .link }}

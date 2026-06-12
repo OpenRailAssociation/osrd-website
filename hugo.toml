@@ -66,10 +66,12 @@ anchor = "Smart"
 # Language configuration
 
 [languages]
+[[menus_main]]
+  weight = 200
 [languages.fr]
 title = "OSRD"
 languageName = "FR"
-weight = 1
+weight = 2
 [languages.fr.params]
 description = "Open Source Railway Designer"
 time_format_default = "02.01.2006"
@@ -81,7 +83,7 @@ version_menu = "Versions"
 [languages.en]
 title = "OSRD"
 languageName = "EN"
-weight = 2
+weight = 1
 [languages.en.params]
 description = "Open Source Railway Designer"
 copyright = "OSRD contributors"

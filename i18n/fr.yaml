@@ -1,4 +1,4 @@
 footer_text:
-  copyright: "© {{ .Year }} Mon site web - Tous droits réservés"
+  copyright: "© {{ .Year }} Contributeur.ices à OSRD"
   source_code: "Code source"
 read_more: "Lire plus"
