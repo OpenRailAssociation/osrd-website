@@ -264,9 +264,33 @@ update this document.&lt;/p>
 &lt;li>(low priority) privilege checks are performed before changes are made / data is returned&lt;/li>
 &lt;li>(low priority) access patterns match privilege checks&lt;/li>
 &lt;/ul>
-&lt;p>Other design criteria have an impact:&lt;/p></description></item><item><title>Logo</title><link>https://osrd.fr/en/docs/guides/logo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/logo/</guid><description>&lt;p>You can download each logo independently by clicking directly on it, or &lt;a href="https://osrd.fr/images/logo/logo-osrd.zip">all the logos compressed into a zip file&lt;/a>.&lt;/p>
+&lt;p>Other design criteria have an impact:&lt;/p></description></item><item><title>How to generate infrastructure from OSM</title><link>https://osrd.fr/en/docs/guides/osm_infra/generation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/osm_infra/generation/</guid><description>&lt;ol>
+&lt;li>
+&lt;p>On &lt;a href="https://download.geofabrik.de">geofabrik&lt;/a>, download the &lt;code>.osm.pbf&lt;/code> file corresponding to the area you want. Here we take Germany as an example.&lt;/p>
+&lt;p>This is not mandatory, but using &lt;a href="https://osmcode.org/osmium-tool/">osmium&lt;/a> is strongly recommended to filter the &lt;code>.osm.pbf&lt;/code> file with only the railway-related data needed by osm_to_railjson. The tag &lt;code>railway&lt;/code> is used on nodes, ways and relations, and the tag &lt;code>public_transport=stop_area&lt;/code> is used on relations.
+This can divide by 3 the time taken by the osm_to_railjson generation.&lt;/p></description></item><item><title>Logo</title><link>https://osrd.fr/en/docs/guides/logo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/logo/</guid><description>&lt;p>You can download each logo independently by clicking directly on it, or &lt;a href="https://osrd.fr/images/logo/logo-osrd.zip">all the logos compressed into a zip file&lt;/a>.&lt;/p>
 &lt;p>It is advisable to carefully choose the logo you want to use, depending on the background on which you want to display it.&lt;/p>
-&lt;p>Modification, addition or deletion of the &lt;strong>shading&lt;/strong> other than as presented in the logos &lt;strong>are not authorised&lt;/strong> (this applies more generally throughout the design, the choice to use &lt;em>drop shadows&lt;/em> is part of the design considerations, it is not a variable element).&lt;/p></description></item><item><title>OSRD's design</title><link>https://osrd.fr/en/docs/guides/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/design/</guid><description>&lt;p>Everything is presented on a dedicated website &lt;a href="https://design.osrd.fr">https://design.osrd.fr&lt;/a>&lt;/p>
+&lt;p>Modification, addition or deletion of the &lt;strong>shading&lt;/strong> other than as presented in the logos &lt;strong>are not authorised&lt;/strong> (this applies more generally throughout the design, the choice to use &lt;em>drop shadows&lt;/em> is part of the design considerations, it is not a variable element).&lt;/p></description></item><item><title>osm-to-railjson</title><link>https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/</guid><description>&lt;h2 id="summary">&lt;strong>Summary&lt;/strong>&lt;/h2>
+&lt;p>Here are the step involved in &lt;a href="https://github.com/OpenRailAssociation/osrd/tree/dev/editoast/osm_to_railjson">osm-to-railjson&lt;/a>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#graph">Graph&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#tracks-sections">Tracks sections&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#switches-and-buffer-stops">Switches and buffer stops&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#speed-sections">Speed sections&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#electrifications">Electrifications&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#operational-points">Operational points&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#signals">Signals&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#detectors">Detectors&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#routes">Routes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="graph">&lt;strong>Graph&lt;/strong>&lt;/h3>
+&lt;p>To create a graph from the OSM nodes and ways, &lt;a href="https://github.com/rust-transit/osm4routing2">osm4routing&lt;/a> is used.&lt;/p>
+&lt;h3 id="tracks-sections">&lt;strong>Tracks sections&lt;/strong>&lt;/h3>
+&lt;p>Create a &lt;em>track section&lt;/em> per edge.&lt;/p>
+&lt;h3 id="switches-and-buffer-stops">&lt;strong>Switches and buffer stops&lt;/strong>&lt;/h3>
+&lt;p>We use the graph topology to deduce the &lt;em>switches&lt;/em> and the &lt;em>buffer stops&lt;/em>.
+For example, if a node has only one edge, it must be a &lt;em>buffer stop&lt;/em>.
+But if it has 4 edges, it must be either a &lt;em>cross switch&lt;/em> or a &lt;em>double slip switch&lt;/em>.&lt;/p></description></item><item><title>OSRD's design</title><link>https://osrd.fr/en/docs/guides/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/design/</guid><description>&lt;p>Everything is presented on a dedicated website &lt;a href="https://design.osrd.fr">https://design.osrd.fr&lt;/a>&lt;/p>
 &lt;p>A &amp;ldquo;design system&amp;rdquo; is being developed.&lt;/p>
 
 &lt;figure>&lt;a href="https://design.osrd.fr">
@@ -357,7 +381,11 @@ changes are required to meet expectations.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pub&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">search_window_end&lt;/span>: &lt;span style="color:#000">NaiveDateTime&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This configuration is queried by the frontend.
-That way, the right objects and time bounds are used transparently by the user.&lt;/p></description></item><item><title>Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>&lt;p>Regardless of your operating system, docker requires linux to operate. When used on a different
+That way, the right objects and time bounds are used transparently by the user.&lt;/p></description></item><item><title>Working with OSM data</title><link>https://osrd.fr/en/docs/guides/osm_infra/open-data/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/osm_infra/open-data/</guid><description>&lt;h3 id="problems">Problems&lt;/h3>
+&lt;p>Some data is not available from OpenStreetMap (OSM), either because it&amp;rsquo;s not public (like &lt;em>signals&lt;/em> in France) or because it has not been collected in OSM yet (like &lt;em>slopes&lt;/em>).&lt;/p>
+&lt;h3 id="osm-data-in-osrd">OSM data in OSRD&lt;/h3>
+&lt;p>The following list resumes the different objects used in OSRD, roughly sorted by their importance in the application.&lt;/br>
+This gives an idea about their role in OSRD and how they are extracted (or not) from OSM.&lt;/p></description></item><item><title>Install docker</title><link>https://osrd.fr/en/docs/guides/contribute/install-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/guides/contribute/install-docker/</guid><description>&lt;p>Regardless of your operating system, docker requires linux to operate. When used on a different
 operating system, docker relies on virtual machines to build and run images.&lt;/p>
 &lt;p>There are two main types of docker installations:&lt;/p>
 &lt;ul>

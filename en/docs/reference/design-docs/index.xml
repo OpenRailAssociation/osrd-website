@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Design documents on OSRD</title><link>https://osrd.fr/en/docs/reference/design-docs/</link><description>Recent content in Design documents on OSRD</description><generator>Hugo</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/design-docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>&lt;div class="pageinfo pageinfo-warning">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Design documents on OSRD</title><link>https://osrd.fr/en/docs/reference/design-docs/</link><description>Recent content in Design documents on OSRD</description><generator>Hugo</generator><language>en</language><atom:link href="https://osrd.fr/en/docs/reference/design-docs/index.xml" rel="self" type="application/rss+xml"/><item><title>osm-to-railjson</title><link>https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/</guid><description>&lt;h2 id="summary">&lt;strong>Summary&lt;/strong>&lt;/h2>
+&lt;p>Here are the step involved in &lt;a href="https://github.com/OpenRailAssociation/osrd/tree/dev/editoast/osm_to_railjson">osm-to-railjson&lt;/a>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#graph">Graph&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#tracks-sections">Tracks sections&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#switches-and-buffer-stops">Switches and buffer stops&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#speed-sections">Speed sections&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#electrifications">Electrifications&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#operational-points">Operational points&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#signals">Signals&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#detectors">Detectors&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://osrd.fr/en/docs/reference/design-docs/osm-to-railjson/#routes">Routes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="graph">&lt;strong>Graph&lt;/strong>&lt;/h3>
+&lt;p>To create a graph from the OSM nodes and ways, &lt;a href="https://github.com/rust-transit/osm4routing2">osm4routing&lt;/a> is used.&lt;/p>
+&lt;h3 id="tracks-sections">&lt;strong>Tracks sections&lt;/strong>&lt;/h3>
+&lt;p>Create a &lt;em>track section&lt;/em> per edge.&lt;/p>
+&lt;h3 id="switches-and-buffer-stops">&lt;strong>Switches and buffer stops&lt;/strong>&lt;/h3>
+&lt;p>We use the graph topology to deduce the &lt;em>switches&lt;/em> and the &lt;em>buffer stops&lt;/em>.
+For example, if a node has only one edge, it must be a &lt;em>buffer stop&lt;/em>.
+But if it has 4 edges, it must be either a &lt;em>cross switch&lt;/em> or a &lt;em>double slip switch&lt;/em>.&lt;/p></description></item><item><title>Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>&lt;div class="pageinfo pageinfo-warning">
 &lt;p>This document is a work in progress&lt;/p>
 
 &lt;/div>
