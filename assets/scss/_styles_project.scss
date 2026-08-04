@@ -3,3 +3,9 @@
     padding-top: 1.5rem;
   }
 }
+
+.td-sidebar {
+  @include media-breakpoint-up(md) {
+    padding-top: 1.5rem;
+  }
+}
