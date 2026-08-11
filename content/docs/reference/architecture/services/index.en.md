@@ -18,7 +18,4 @@ It is a multi-service architecture where several software components interact wi
     - Mock (for development purpose)
 - Some `editoast` endpoints requires an `InfraCache` object which make them stateful. These endpoints are only used in the `editoast-stateful` service. Doing so most endpoints are run by a scalable service.
 
-Coming soon:
-- [ ] Adapt `editoast-stateful` so editoast is fully scalable.
-
 ![Services architecture](services.en.svg)
