@@ -363,9 +363,23 @@ header nav {
   }
 }
 
+/* DEMO */
+.demo-button {
+  background-color: #007eff;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: $fs-xs;
+  border-radius: 12px;
+  margin: auto;
+  display: block;
+  width: fit-content;
+  margin-top: 50px;
+}
+
 /* CAROUSEL */
 .carousel {
-  margin-top: 121px;
+  margin-top: 50px;
   width: 983px;
   max-width: 100%;
   background-color: $osrd-dark-blue;
@@ -374,7 +388,6 @@ header nav {
   border-radius: 16px;
   margin-inline: auto;
   padding: 60px 20px 20px;
-  margin-bottom: 0;
 
   legend {
     display: block;
@@ -403,7 +416,6 @@ header nav {
 
 @media (max-width: 1079px) {
   .carousel {
-    margin-top: 100px;
     border-radius: 0;
 
     legend {
@@ -421,7 +433,6 @@ header nav {
     transform: translateX(-50%);
     border-radius: 0;
     padding: 50px 10px 15px;
-    margin-top: 102px;
 
     legend {
       margin-top: 15px;
@@ -439,7 +450,6 @@ header nav {
     width: 100vw;
     border-radius: 0;
     padding: 40px 5px 10px;
-    margin-top: 46px;
 
     legend {
       margin-top: 15px;
