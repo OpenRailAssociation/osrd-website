@@ -17,4 +17,4 @@
 &lt;/li>
 &lt;li>Some &lt;code>editoast&lt;/code> endpoints requires an &lt;code>InfraCache&lt;/code> object which make them stateful. These endpoints are only used in the &lt;code>editoast-stateful&lt;/code> service. Doing so most endpoints are run by a scalable service.&lt;/li>
 &lt;/ul>
-&lt;p>Coming soon:&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/architecture/services/services.en.svg" alt="Services architecture">&lt;/p></description></item></channel></rss>

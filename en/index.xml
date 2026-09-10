@@ -608,7 +608,7 @@ full power simulation.&lt;/li>
 &lt;/li>
 &lt;li>Some &lt;code>editoast&lt;/code> endpoints requires an &lt;code>InfraCache&lt;/code> object which make them stateful. These endpoints are only used in the &lt;code>editoast-stateful&lt;/code> service. Doing so most endpoints are run by a scalable service.&lt;/li>
 &lt;/ul>
-&lt;p>Coming soon:&lt;/p></description></item><item><title>Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>&lt;div class="pageinfo pageinfo-warning">
+&lt;p>&lt;img src="https://osrd.fr/en/docs/reference/architecture/services/services.en.svg" alt="Services architecture">&lt;/p></description></item><item><title>Conflict detection</title><link>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/docs/reference/design-docs/conflict-detection/</guid><description>&lt;div class="pageinfo pageinfo-warning">
 &lt;p>This document is a work in progress&lt;/p>
 
 &lt;/div>
