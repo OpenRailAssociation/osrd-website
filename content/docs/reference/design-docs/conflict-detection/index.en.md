@@ -210,6 +210,40 @@ sequenceDiagram
 
 After an initial path is given, the requirement generator can ask for more **postfix** path (before the start of the route).
 
+## Interactions with STDCM
+
+STDCM needs to generate requirements on the fly:
+
+- train simulation is done on the fly
+- the train simulation lags behind path exploration
+- STDCM needs to detect conflicts as soon as possible
+
+The API is as follows:
+
+- STDCM can extend the path, and add simulation results. Simulation results are queried using a callback API
+- When the path is extended, or simulation results change, `processUpdate` has to be called
+- From the standpoint of a requirement generation automaton, simulation results aren't revokable:
+  if the callback API responds that the train arrives at a given location at some time, the answer shall not change.
+
+The callback API from the requirement automaton to STDCM allows querying:
+
+- when the train enters or leaves some path range
+- the current simulation time
+- the current simulation position
+- whether the simulation is complete
+
+`processUpdate` returns the list of requirements that changed since the last `processUpdate` call,
+either due to a path extension or due to new simulation data. Please note that:
+
+- Requirements are meant to be opaque data to STDCM, only to be processed by the conflict detection API
+- If some requirements couldn't be generated due to missing path data, a flag indicating that more path is needed is set.
+- When the end time of requirements is unknown due to the simulation not being complete, the simulation time is used as the end of requirement time.
+- Requirements can be emitted multiple times for the same resource, until the simulation progresses until the point where the requirement is released
+
+> When the path isn't long enough to emit all current requirements, does the API also return requirements in addition to the "not enough path" flag? If so, can these requirements be ignored?
+
+It would be both easier to use and understand if the API returned either the flag, or requirements, but not both.
+
 ## Visualizing requirements
 
 <script type="application/javascript" src="mkt.js"></script>
