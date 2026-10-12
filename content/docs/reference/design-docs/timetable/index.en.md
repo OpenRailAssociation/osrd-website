@@ -141,10 +141,10 @@ constraint_distribution: MARECO # or LINEAR
 #      This is used automatically for any stop before a buffer-stop.
 #      This is also the default use for STDCM stops, as it is the most restrictive.
 schedule:
- - {at: a, stop_for: PT5M} # inferred arrival to be equal to start_time
- - {at: b, arrival: PT10M, stop_for: PT5M}
- - {at: c, stop_for: PT5M}
- - {at: d, arrival: PT50M, reception_signal: SHORT_SLIP_STOP}
+ - {at: a, stop_for: PT5M, can_backtrack: false} # inferred arrival to be equal to start_time
+ - {at: b, arrival: PT10M, stop_for: PT5M, can_backtrack: true} # the train is allowed to backtrack at this stop
+ - {at: c, stop_for: PT5M, can_backtrack: false}
+ - {at: d, arrival: PT50M, reception_signal: SHORT_SLIP_STOP, can_backtrack: false}
 
 margins:
   # This example encodes the following margins:
