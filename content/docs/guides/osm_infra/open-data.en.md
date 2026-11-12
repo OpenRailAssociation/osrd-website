@@ -32,6 +32,6 @@ This gives an idea about their role in OSRD and how they are extracted (or not) 
 ### Solutions
 
 If *track sections* are missing from your data, there's not much we can do. However, this information is usually in very high quality in OSM because it can be traced using aerial imagery (track geometry can be sketchy in tunnels).
-But for *signals*, a option in the infrastructure generation can be used for replacing the existing ones with [realisticaly generated *signals*](/en/docs/reference/design-docs/osm-to-railjson#signal-generation).
+But for *signals*, an option in the infrastructure generation can be used for replacing the existing ones with [realistically generated *signals*](/en/docs/reference/design-docs/osm-to-railjson#signal-generation).
 
 For the *operational points*, there are a few optional fields (*name*, *uic* and *local_track_name*) that we generate if they are missing to make them easier to use.
