@@ -2,7 +2,7 @@
 title: "Containers architecture"
 linkTitle: "Containers architecture"
 weight: 10
-description: "How the containers works together and how they are built"
+description: "How the containers work together and how they are built"
 ---
 
 There are 3 main containers deployed in a standard OSRD setup:
@@ -25,6 +25,6 @@ flowchart TD
     editoast -- HTTP --> core
 ```
 
-External requests are received by the gateway. If the path asked starts with `/api` it will be forwarded using HTTP to editoast, otherwise it will serve a file with the asked path. Editoast reach the core using HTTP if required.
+External requests are received by the gateway. If the path asked starts with `/api` it will be forwarded using HTTP to editoast, otherwise it will serve a file with the requested path. Editoast reaches the core using HTTP if required.
 
 The gateway is not only a reverse proxy with the front-end bundle included, it also provides all the authentication mechanisms: using OIDC or tokens.
