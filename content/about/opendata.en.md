@@ -5,16 +5,16 @@ description: OSRD and Open Data
 weight: 220
 ---
 
-Open Data is the practice of making data public accessible under a permissive license.
+Open Data is the practice of making data publicly accessible under a permissive license.
 It is not the same as open source, which only applies to software.
 
-**Open data and open source have a symbiotic relationship : without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.**
+**Open data and open source have a symbiotic relationship: without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.**
 
 Alone, **open data** already brings a number of key benefits:
  - companies can use open data in their products, which also promotes railway services
  - researchers can study the data immediately, and can find the data by themselves
 
-Yet, **open data** used by an **open source toolbox** open up new prospects:
+Yet, **open data** used by an **open source toolbox** opens up new prospects:
  - companies and researchers can use the open source tools to analyse the data, which greatly reduces the barrier to entry by alleviating the need for custom or paid-for tools
  - customers can use the toolbox to improve how they use railway services
 
