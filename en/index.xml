@@ -731,9 +731,9 @@ the system falls apart when latency increases due to load.&lt;/li>
 &lt;/ul>
 &lt;p>In practice, open source is both a &lt;strong>legal framework&lt;/strong> for collaborative work, and a &lt;strong>set of practices&lt;/strong>.&lt;/p>
 &lt;h2 id="osrd-and-open-source">OSRD and Open Source&lt;/h2>
-&lt;p>Applied to OSRD, Open Source has &lt;strong>multiple advantages&lt;/strong> :&lt;/p></description></item><item><title>Open Data</title><link>https://osrd.fr/en/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opendata/</guid><description>&lt;p>Open Data is the practice of making data public accessible under a permissive license.
+&lt;p>Applied to OSRD, Open Source has &lt;strong>multiple advantages&lt;/strong> :&lt;/p></description></item><item><title>Open Data</title><link>https://osrd.fr/en/about/opendata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/opendata/</guid><description>&lt;p>Open Data is the practice of making data publicly accessible under a permissive license.
 It is not the same as open source, which only applies to software.&lt;/p>
-&lt;p>&lt;strong>Open data and open source have a symbiotic relationship : without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Open data and open source have a symbiotic relationship: without open data, an open source railway software can only be used by industry insiders. Managing data access is hard, expensive, often not necessary, and reduces the availability of critical data.&lt;/strong>&lt;/p>
 &lt;p>Alone, &lt;strong>open data&lt;/strong> already brings a number of key benefits:&lt;/p></description></item><item><title>Roadmap</title><link>https://osrd.fr/en/about/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://osrd.fr/en/about/roadmap/</guid><description>&lt;p>Here&amp;rsquo;s a list of the big features OSRD wants to support. The order of items depends on priority (the higher the item, the more valuable it is).
 This roadmap is spread over a couple of years.&lt;/p>
 &lt;ul>
