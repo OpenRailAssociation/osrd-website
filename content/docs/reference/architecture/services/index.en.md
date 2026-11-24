@@ -16,6 +16,6 @@ It is a multi-service architecture where several software components interact wi
     - OpenID Connect (OIDC)
     - Bearer token
     - Mock (for development purpose)
-- Some `editoast` endpoints requires an `InfraCache` object which make them stateful. These endpoints are only used in the `editoast-stateful` service. Doing so most endpoints are run by a scalable service.
+- Some `editoast` endpoints require an `InfraCache` object which makes them stateful. These endpoints are only used in the `editoast-stateful` service. Doing so most endpoints are run by a scalable service.
 
 ![Services architecture](services.en.svg)
