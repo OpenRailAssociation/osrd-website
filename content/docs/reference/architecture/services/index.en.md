@@ -5,7 +5,7 @@ weight: 43
 description: OSRD's services architecture
 ---
 
-It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the exploitability of certain OSRD services by external applications.
+It is a multi-service architecture where several software components interact with each other. This choice was made to ensure the modularity of the code and to guarantee the usability of certain OSRD services by external applications.
 
 - Valkey is configured as `maxmemory-policy=allkeys-lru` ([documentation](https://valkey.io/topics/lru-cache/))
 - Osrdyne has multiple drivers to support:
@@ -16,6 +16,6 @@ It is a multi-service architecture where several software components interact wi
     - OpenID Connect (OIDC)
     - Bearer token
     - Mock (for development purpose)
-- Some `editoast` endpoints requires an `InfraCache` object which make them stateful. These endpoints are only used in the `editoast-stateful` service. Doing so most endpoints are run by a scalable service.
+- Some `editoast` endpoints require an `InfraCache` object which makes them stateful. These endpoints are only used in the `editoast-stateful` service. Doing so most endpoints are run by a scalable service.
 
 ![Services architecture](services.en.svg)
